@@ -1,0 +1,33 @@
+evidence_type_id,locale,label,description,required_for,personal_data_default,verification_rule
+O017-WRAP-EV-SEARCH-QUESTION,id-ID,Pertanyaan pencarian,Pertanyaan matematika dan batas yang dibekukan sebelum pencarian,O017-WRAP-A01,false,cap waktu mendahului keputusan akhir
+O017-WRAP-EV-QUERY-LOG,id-ID,Ledger kueri,Kueri layanan waktu hasil dan keputusan retensi,O017-WRAP-A01,false,urutan dan kelengkapan diperiksa
+O017-WRAP-EV-CANDIDATE-MATRIX,id-ID,Matriks calon,Perbandingan otoritas versi hak cakupan dan keputusan,O017-WRAP-A01,false,setiap keputusan mempunyai alasan
+O017-WRAP-EV-STOP-RULE,id-ID,Aturan berhenti,Kondisi berhenti yang ditulis sebelum kesimpulan,O017-WRAP-A01,false,kondisi cocok dengan ledger
+O017-WRAP-EV-SOURCE-FREEZE,id-ID,Pembekuan sumber,PID atau URL otoritatif versi lokator tanggal dan saksi byte,O017-WRAP-A01|O017-WRAP-A04,false,saksi versi dapat ditemukan kembali
+O017-WRAP-EV-UNCERTAINTY-LEDGER,id-ID,Ledger ketidakpastian,Pertanyaan terbuka dasar status dan tindakan,O017-WRAP-A01|O017-WRAP-A04,false,status tidak dihapus saat revisi
+O017-WRAP-EV-EVENT-IDENTITY,id-ID,Identitas seminar,Acara tanggal zona waktu peran dan jalur,O017-WRAP-A02,true,data pribadi diminimalkan dan dasar acara diverifikasi
+O017-WRAP-EV-TIMED-NOTES,id-ID,Catatan berwaktu,Observasi inferensi dan verifikasi dengan lokator,O017-WRAP-A02,possible,segmen dapat dicocokkan dengan bahan yang diizinkan
+O017-WRAP-EV-DEPENDENCY-MAP,id-ID,Peta dependensi,Klaim dan prasyarat berhubungan,O017-WRAP-A02,false,setiap simpul mempunyai lokator
+O017-WRAP-EV-QUESTION-LOG,id-ID,Log pertanyaan,Pertanyaan tindakan bukti dan status,O017-WRAP-A02,false,masalah terbuka dipertahankan
+O017-WRAP-EV-ATTENDANCE-OR-SUPERVISION,id-ID,Bukti kehadiran atau supervisi,Saksi hemat data untuk jalur aktual,O017-WRAP-A02,true,manusia terverifikasi mengesahkan jalur
+O017-WRAP-EV-CORRECTED-NOTES,id-ID,Catatan akhir,Catatan yang memperlihatkan koreksi sesudah pemeriksaan,O017-WRAP-A02,false,perubahan dari catatan awal terlacak
+O017-WRAP-EV-ACCESSIBILITY-CHECK,id-ID,Laporan akses,Permukaan metode uji hasil dan batas aksesibilitas,O017-WRAP-A02|O017-WRAP-A05,false,yang diuji dibedakan dari yang belum diuji
+O017-WRAP-EV-INITIAL-ARTIFACT,id-ID,Artefak awal,Naskah atau produk sebelum kritik,O017-WRAP-A03,false,byte dan hash cocok
+O017-WRAP-EV-REFEREE-REPORT,id-ID,Laporan penelaah,Komentar berlokator dan berbukti,O017-WRAP-A03,possible,ID penelaah buram dan lingkup disebut
+O017-WRAP-EV-AUTHOR-RESPONSE,id-ID,Tanggapan penulis,Jawaban per komentar dengan tindakan bukti lokasi dan status,O017-WRAP-A03,possible,setiap komentar mempunyai baris
+O017-WRAP-EV-DISPOSITION-TABLE,id-ID,Tabel disposisi,Pemetaan accepted partially accepted rejected with reason atau unresolved,O017-WRAP-A03,false,nilai berasal dari kosakata terkendali
+O017-WRAP-EV-REVISED-ARTIFACT,id-ID,Artefak revisi,Naskah atau produk sesudah tanggapan,O017-WRAP-A03,false,byte dan hash cocok
+O017-WRAP-EV-BEFORE-AFTER,id-ID,Bukti sebelum sesudah,Perbandingan tepat perubahan klaim bukti dan batas,O017-WRAP-A03,false,lokator kedua versi tersedia
+O017-WRAP-EV-DISTINCTNESS-ATTESTATION,id-ID,Atestasi distingsi,Pernyataan minimal bahwa dua ID adalah dua manusia dan konflik diperiksa,O017-WRAP-A03|O017-WRAP-A04|O017-WRAP-A05,true,identitas tidak diungkap dalam paket
+O017-WRAP-EV-UNRESOLVED-ITEMS,id-ID,Masalah tersisa,Daftar masalah terbuka setelah revisi,O017-WRAP-A03,false,tidak ada item tertutup tanpa bukti
+O017-WRAP-EV-DEFECT-LOCATOR,id-ID,Lokator cacat,Posisi tepat pernyataan atau langkah yang diaudit,O017-WRAP-A04,false,lokator cocok dengan versi beku
+O017-WRAP-EV-MINIMAL-REPRODUCER,id-ID,Reproducer minimal,Argumen atau komputasi terkecil yang menguji cacat,O017-WRAP-A04,false,dapat diulang tanpa akses tersembunyi
+O017-WRAP-EV-MINIMAL-CORRECTION,id-ID,Koreksi minimal,Perubahan sekecil mungkin dengan bukti,O017-WRAP-A04,false,klaim yang tidak perlu diubah dipertahankan
+O017-WRAP-EV-IMPACT-AUDIT,id-ID,Audit dampak,Dependensi dan jangkauan yang terpengaruh atau belum diketahui,O017-WRAP-A04,false,ketidakpastian jangkauan terlihat
+O017-WRAP-EV-INDEPENDENT-CHECK,id-ID,Pemeriksaan independen,Metode hasil lingkup dan batas pemeriksa manusia kedua,O017-WRAP-A04,possible,atestasi distingsi dan artefak pemeriksaan tersedia
+O017-WRAP-EV-CONTRIBUTION-PACKET,id-ID,Paket kontribusi,Artefak ringkas dapat ditinjau dan tidak duplikatif,O017-WRAP-A05,false,versi hak target dan validasi lengkap
+O017-WRAP-EV-RIGHTS-CHECK,id-ID,Pemeriksaan hak,Hak sumber kontribusi target dan atribusi,O017-WRAP-A05,false,setiap komponen mempunyai dasar
+O017-WRAP-EV-STATUS-LEDGER,id-ID,Ledger status,Peristiwa append-only dengan status dan bukti,O017-WRAP-A05,possible,setiap kenaikan status mempunyai bukti
+O017-WRAP-EV-TRANSACTION-AUTHORIZATION,id-ID,Otorisasi transaksi,Izin manusia khusus untuk satu target artefak saluran dan masa,O017-WRAP-A05,true,semua bidang minimum ada dan masih berlaku
+O017-WRAP-EV-TRANSMISSION-RECEIPT,id-ID,Tanda terima transmisi,Saksi bahwa artefak versi tertentu dikirim ke target,O017-WRAP-A05,possible,byte atau pengenal cocok dengan paket terotorisasi
+O017-WRAP-EV-LOCAL-EXTERNAL-REVIEW,id-ID,Penelaahan lokal eksternal,Laporan manusia independen atas paket sumber nyata tanpa transmisi komunitas,O017-WRAP-A05,possible,ID manusia terverifikasi dan batas lokal dinyatakan

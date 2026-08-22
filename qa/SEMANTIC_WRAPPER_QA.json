@@ -1,0 +1,170 @@
+{
+  "baseline_invariants": {
+    "current_record_stream_sha256": "a25b7a3777227e0509d7b4e2a9bd961872270ffdc5f4666a224a48acb64f0dbe",
+    "delivery_crosswalk_rows_appended": 68,
+    "existing_ledger_rewritten": false,
+    "historical_record_stream_sha256": "62afbb038058344c66de8aa85c6e9c667669973924eef815562c965620fb374c",
+    "issued_relation_ledger_sha256": "a5e59b98742ba4d10b201e9a538461bcb5682c0f03783e0c06cd12de6684a385",
+    "issued_relation_map_sha256": "5429495205417ce972e282f9051779dfb86cb3401ebc997f33d8043c91f6c6ac",
+    "permitted_version_specific_record_fields": {
+      "O017-EDITION-01": [
+        "admission_evidence",
+        "creator",
+        "production_disclosure",
+        "production_system",
+        "version"
+      ],
+      "O017-RIGHTS-GENERATED-DATA": [
+        "licensor"
+      ],
+      "O017-RIGHTS-ORIGINAL-CODE": [
+        "licensor"
+      ],
+      "O017-RIGHTS-ORIGINAL-TEXT": [
+        "licensor"
+      ],
+      "O017-U01-ARTIFACT-HTML": [
+        "sha256"
+      ],
+      "O017-U02-ARTIFACT-HTML": [
+        "sha256"
+      ],
+      "O017-U03-ARTIFACT-HTML": [
+        "sha256"
+      ],
+      "O017-U04-ARTIFACT-HTML": [
+        "sha256"
+      ],
+      "O017-U05-ARTIFACT-HTML": [
+        "sha256"
+      ],
+      "O017-U06-ARTIFACT-HTML": [
+        "sha256"
+      ],
+      "O017-U07-ARTIFACT-HTML": [
+        "sha256"
+      ],
+      "O017-U08-ARTIFACT-HTML": [
+        "sha256"
+      ],
+      "O017-U09-ARTIFACT-HTML": [
+        "sha256"
+      ]
+    },
+    "stable_record_projection_sha256": "8ae7f05f1fffbbc5d534702c4c9889d67d91cbf99ef93c91646cd5bea2964d58",
+    "wrapper_core_relation_prefix_count": 1636,
+    "wrapper_core_relation_prefix_sha256": "db071314764ea01f069ab0db96e5d2084450e045e34ea9d5532d725017c0fa67"
+  },
+  "checks": [
+    "historical backend ID set and stable record fields are unchanged; the ten permitted version-specific records match the current .1 reader",
+    "JSON Schema is valid Draft 2020-12",
+    "every semantic and localized record validates against the enforceable schema",
+    "record streams use canonical JSONL and stable-ID ordering",
+    "all wrapper IDs are unique and do not collide with the 1,787 preserved IDs",
+    "all eleven mandated semantic entity classes have concrete records",
+    "all human-language text is explicit id-ID/id localization attached to a neutral subject",
+    "all renderer fragments are verified noncanonical locators to existing files/fragments",
+    "71 published outcomes map contiguously to all nine preserved unit IDs",
+    "nine coursebook and five authentic assessments are required and noncompensable",
+    "rubric, criterion, evidence, submission, attempt, evaluator, and result references close",
+    "credential branches distinguish externally_reviewed_local from evidenced community transaction",
+    "zero learner attempts, submissions, results, or credential assertions are claimed",
+    "1,704 new relation rows are unique, endpoint-closed, contiguous, and separate from the preserved ledger",
+    "five neutral assessments crosswalk to delivery definitions, gates, evidence types, and calibration-only exemplars",
+    "deterministic generator replay reproduces every wrapper byte",
+    "dataset inventory counts, byte lengths, and SHA-256 identities replay",
+    "negative tests prove rejection of localized semantic fields, wrong locale, fragment IDs, and incomplete criteria"
+  ],
+  "claim_boundary": {
+    "community_participation_claimed_for_any_learner": false,
+    "credential_assertion_instances": 0,
+    "learner_attempt_instances": 0,
+    "learner_result_instances": 0,
+    "learner_submission_instances": 0
+  },
+  "counts": {
+    "authentic_assessment_locator_bindings": 5,
+    "by_entity_type": {
+      "assessment": 14,
+      "attempt": 14,
+      "competency": 9,
+      "credential_state": 6,
+      "criterion": 79,
+      "evaluator": 5,
+      "evidence": 79,
+      "learning_outcome": 71,
+      "result": 14,
+      "rubric": 14,
+      "submission": 14
+    },
+    "localized_text_records": 581,
+    "locators_verified": 126,
+    "preserved_backend_records": 1787,
+    "preserved_issued_relations": 1107,
+    "semantic_records": 319,
+    "wrapper_relations_issued": 1704
+  },
+  "files": [
+    {
+      "bytes": 1321,
+      "path": "backend/semantic-wrapper-v1.baseline.json",
+      "sha256": "0bbdee88209c17075a9a86035a72f9105f3b6fb4fb271f0af10ac2a4014f80a4"
+    },
+    {
+      "bytes": 20503,
+      "path": "backend/semantic-wrapper-v1.schema.json",
+      "sha256": "73c23b5012dc95cb8cdf3823cde587f0422ae1787fe94b9b2361b81843c6c818"
+    },
+    {
+      "bytes": 206179,
+      "path": "backend/semantic-wrapper-v1.records.jsonl",
+      "sha256": "828ace8162edb3bbe5e8968fc4e7c9c05dddcd854cd5f5d080486996b589a5a1"
+    },
+    {
+      "bytes": 220021,
+      "path": "backend/semantic-wrapper-v1.localizations.jsonl",
+      "sha256": "a564b544c4dd9393e5590fe157b713e260a3fd35d04226bd3eee39d010b45d01"
+    },
+    {
+      "bytes": 226911,
+      "path": "backend/semantic-wrapper-v1.relations-ledger.csv",
+      "sha256": "458d19a229fc6d3677a8e9dac677fa5decfa4ee9a65a92978d02f5f32fedc1c2"
+    },
+    {
+      "bytes": 7717,
+      "path": "backend/semantic-wrapper-v1.dataset.json",
+      "sha256": "faa677bdc319fd997206f5c5e6fa904e82ef2a667608a8ea127ca4df333eb5b0"
+    },
+    {
+      "bytes": 3008,
+      "path": "backend/SEMANTIC_WRAPPER_V1.md",
+      "sha256": "a84afb30bd5e162a8d88365d883920799e921f6b5550d19b4f76ed4827f3bc40"
+    },
+    {
+      "bytes": 58894,
+      "path": "scripts/generate_semantic_wrapper.py",
+      "sha256": "cb53ec681ad5b28a7c14314cb25e3dc29e77fa4960f1bc6c0f3fdbc5c64a94f2"
+    },
+    {
+      "bytes": 25198,
+      "path": "scripts/validate_semantic_wrapper.py",
+      "sha256": "eb51fd703e022d0756129adcba38f77151b9c963140f9382ca5a5f39c59206b9"
+    }
+  ],
+  "integration": {
+    "authentic_delivery_locators_bound": true,
+    "published_unit_locators_bound": true,
+    "remaining_requirement": null,
+    "semantic_model_complete": true
+  },
+  "model_version": "1.0.0",
+  "negative_schema_tests": [
+    "reject_locale_bound_title_on_semantic_record",
+    "reject_wrong_locale_identity",
+    "reject_renderer_fragment_as_semantic_id",
+    "reject_incomplete_criterion"
+  ],
+  "release_version": "2026.08.22.1",
+  "schema": "o017-semantic-wrapper-qa-v1",
+  "status": "pass"
+}

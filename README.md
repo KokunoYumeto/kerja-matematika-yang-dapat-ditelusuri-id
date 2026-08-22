@@ -3,22 +3,32 @@
 Lane ini memproduksi buku praktik Bahasa Indonesia untuk mata kuliah
 **Research Reading, Exposition, and Reproducible Mathematical Work**.
 
+Sistem produksi model: **OpenAI Codex gpt-5.6-sol, Ultra.** **KokunoYumeto**
+adalah identitas publik kreator manusia, pengarah, dan pemegang hak untuk
+materi asli yang dapat dilindungi.
+
 Ruang lingkup lane ini hanya O017. Koordinasi kurikulum global, buku B80,
 corpus O002–O016/O018, dan komunikasi dengan pemelihara hulu berada di luar
-kepemilikan lane ini. Edisi lengkap dipublikasikan pada Zenodo dan GitHub;
-keputusan penerimaan ke kurikulum 40 mata kuliah tetap terpisah.
+lane ini. Keputusan penerimaan ke kurikulum 40 mata kuliah tetap terpisah dari
+edisi ini.
+Zenodo adalah otoritas preservasi; repositori GitHub dan GitHub Pages adalah
+permukaan sumber serta pembacaan HTML publik untuk edisi ini.
 
-Status edisi 2026.08.22: `COMPLETE` untuk `O017-U01` sampai `O017-U09`;
-seluruh gerbang pembaca, PDF, browser, hak, backend, dan byte publik telah
-lulus.
+Status kandidat edisi 2026.08.22.1: `COMPLETE` untuk `O017-U01` sampai
+`O017-U09`, dengan perangkat penyampaian dan penilaian autentik yang terpisah,
+backend semantik, lingkungan bangun terkunci, dan penutupan hak font. Status
+publik dinyatakan hanya oleh resi baca-balik publik yang menyertai rilis.
 
 ## Baca dan unduh
 
-- Pembaca HTML: <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>
+- Pembaca HTML semantik: <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>
 - Repositori sumber: <https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id>
-- DOI versi: <https://doi.org/10.5281/zenodo.22051978>
+- Rekaman dan arsip edisi: <https://zenodo.org/records/22060136>
+- DOI versi: <https://doi.org/10.5281/zenodo.22060136>
 - DOI semua versi: <https://doi.org/10.5281/zenodo.22051866>
-- PDF: tersedia langsung pada halaman Zenodo dan GitHub Release edisi 2026.08.22.
+- PDF: tersedia langsung pada halaman Zenodo edisi 2026.08.22.1. PDF ini
+  tidak bertag dan bukan edisi aksesibel; gunakan arsip HTML semantik untuk
+  pembaca layar, reflow, navigasi papan tik, dan MathML.
 
 Unit 1 membaca argumen sebagai jejaring klaim
 dan membedakan komputasi dari pembuktian. Unit 2 menelusuri literatur,
@@ -42,6 +52,12 @@ Unit 9 mengemas satu kontribusi komunitas sintetis dan terbatas, membedakan
 status peristiwa yang dibuktikan, mempertahankan patch matematis minimal,
 menetapkan pemulihan, dan menutup portofolio Unit 1–8 tanpa mengklaim kontak
 atau pengiriman eksternal.
+
+Perangkat penyampaian yang diterbitkan sesudah Unit 9 menetapkan lima keluarga
+penilaian nonkompensabel, bukti dan rubriknya, evaluator privat, keadaan
+kredensial yang jujur, serta contoh kalibrasi. Perangkat itu tidak mengirim
+pekerjaan pelajar dan tidak mengubah draf lokal menjadi klaim partisipasi
+eksternal.
 
 Kontrol utama berada di `controls/`; sumber pembaca di `source/`; ekspor
 backend stabil di `backend/`; keluaran terbangun di `build/`; dan bukti QA di

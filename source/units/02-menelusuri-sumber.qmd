@@ -435,7 +435,7 @@ yang tepat. Keterampilan komputasional tersebut merupakan prasyarat B80, bukan
 materi ulang O017.
 
 Catatan penelusuran di sini sengaja minimal. Desain buku catatan sumber dan
-provenance lengkap menjadi materi Unit 4; reproduktibilitas komputasional
+provenance lengkap menjadi materi Unit 4; reproduksibilitas komputasional
 menjadi materi Unit 6; penulisan erratum menjadi materi Unit 7. Unit 2 hanya
 mengajarkan informasi sitasi dan hubungan versi yang diperlukan untuk menilai
 otoritas sumber.

@@ -204,7 +204,7 @@ menjawab bahwa contoh itu perlu diperiksa sesudah seminar.
 ::: {.o017-table-scroll aria-label="Catatan klaim berwaktu untuk seminar sintetis titik tetap" tabindex="0"}
 | ID | Waktu | Lokasi | Jenis | Isi | Dasar | Status | Keparahan | Keyakinan | Tindak lanjut |
 |---|---|---|---|---|---|---|---|---|---|
-| N01 | 00:35–01:05 | slide 4, C01 | S | Pembicara menyatakan keberadaan dan ketunggalan titik tetap di bawah kontinuitas serta kenaikan ketat. | teks slide terlihat lengkap | matematika belum diperiksa | belum dinilai | tinggi untuk transkripsi; bukan penilaian kebenaran | pisahkan dua kesimpulan |
+| N01 | 00:35–01:05 | slide 4, C01 | S | Pembicara menyatakan keberadaan dan ketunggalan titik tetap di bawah kekontinuan serta kenaikan ketat. | teks slide terlihat lengkap | matematika belum diperiksa | belum dinilai | tinggi untuk transkripsi; bukan penilaian kebenaran | pisahkan dua kesimpulan |
 | N02 | 03:10–05:58 | slide 5 | V | Bagian keberadaan didukung: $g$ kontinu, $g(0)\geq0$, dan $g(1)\leq0$, sehingga ada nol. | langkah terlihat dan Teorema Nilai Antara diperiksa | didukung | tidak ada masalah pada bagian ini | tinggi | catat sebagai bagian yang dapat dipertahankan |
 | N03 | 06:10–06:42 | rekaman | S | Segmen tidak terekam; tidak ada transkripsi tentang cara ketaksamaan kedua diperoleh. | celah rekaman teramati | tidak berlaku | tidak diketahui | tinggi bahwa rekaman hilang | jangan merekonstruksi ucapan |
 | N04 | 06:42–07:15 | papan kanan | Q | Hipotesis mana yang memberi $f(y)-f(x)<y-x$? | ketaksamaan terlihat, tetapi dasar tidak tampak pada bahan | terbuka | berpotensi material | sedang; mungkin ada isi dalam celah | periksa semua slide dan naskah |
@@ -784,7 +784,7 @@ Gunakan fakta lokal berikut, dan periksa penerapannya:
   sehingga $f$ tidak kontinu pada $1$;
 - jika $f_n\to f$ seragam pada $[0,1]$ dan setiap $f_n$ kontinu, maka
   pembuktian segitiga dapat memilih satu $N$ yang berlaku bagi semua titik
-  dan menghasilkan kontinuitas $f$.
+  dan menghasilkan kekontinuan $f$.
 
 Produk Anda harus memuat:
 

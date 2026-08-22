@@ -1,0 +1,235 @@
+---
+title: "Pembungkus penyelenggaraan autentik O017/D120"
+subtitle: "Kerja Matematika yang Dapat Ditelusuri"
+description: "Kontrak penyelenggaraan dan penilaian untuk pencarian sumber nyata, seminar, penelaahan independen, dossier erratum, dan kontribusi komunitas yang berstatus jujur."
+lang: id-ID
+date: "2026-08-22"
+---
+
+## Perangkat penyampaian dan penilaian autentik {#o017-wrap-index}
+
+Sembilan unit *Kerja Matematika yang Dapat Ditelusuri* tetap menjadi satu-satunya
+spina naratif O017/D120. Dokumen ini tidak mengganti, meringkas, atau menambah
+unit kesepuluh. Ia menambahkan kontrak penyelenggaraan yang diperlukan agar
+latihan lokal dan kasus sintetis di dalam buku dapat diikuti oleh bukti kerja
+autentik. Lima keluarga penilaian di bawah ini wajib dan **tidak dapat saling
+mengompensasi**.
+
+Paket kalibrasi yang menyertai dokumen ini memakai sumber matematika nyata,
+tetapi semua pelajar, evaluator, seminar, putaran penelaahan, dan transaksi di
+dalam paket itu bersifat sintetis. Paket tersebut menunjukkan bentuk bukti yang
+baik; ia bukan bukti bahwa seorang pelajar atau komunitas pernah melakukan
+peristiwa itu, dan tidak pernah menghasilkan kredit.
+
+Definisi kanonik yang dapat dibaca mesin berada di
+[`delivery/definitions/o017-delivery-definitions.json`](../delivery/definitions/o017-delivery-definitions.json),
+skema penyerahan berada di
+[`delivery/schema/o017-delivery.schema.json`](../delivery/schema/o017-delivery.schema.json),
+dan contoh lengkap berada di
+[`delivery/calibration/calibration-package.json`](../delivery/calibration/calibration-package.json).
+
+### Aturan tanpa kontak dan tanpa transmisi {#o017-wrap-no-contact}
+
+Pembungkus ini, perender, pemeriksa, dan evaluator lokal boleh menyiapkan,
+memeriksa, dan menyimpan paket secara lokal. Mereka **tidak boleh** mengirim
+pesan, membuka isu, mengunggah berkas, mengisi formulir, mendaftarkan seminar,
+atau menghubungi orang maupun komunitas luar tanpa otorisasi manusia yang
+terpisah dan khusus untuk satu transaksi yang disebutkan. Kelayakan matematika,
+status `prepared`, atau kelulusan penilaian lokal bukan izin kirim.
+
+Satu otorisasi transaksi harus menyebut sedikitnya target, artefak, versi yang
+akan dikirim, saluran, pengirim manusia yang bertanggung jawab, batas data
+pribadi, dan masa berlaku. Tidak adanya satu bidang tersebut berarti
+`authorization_present = false`. Otorisasi tidak boleh diwariskan dari tugas
+lain atau disimpulkan dari keinginan umum untuk berkontribusi.
+
+Rekaman luar hanya boleh menyatakan peristiwa yang mempunyai bukti. Draf lokal
+adalah `prepared`, bukan `submitted`. Bukti penerimaan sistem dapat menaikkan
+status menjadi `acknowledged`, tetapi bukan `accepted`. Status `accepted`,
+`merged`, dan `published` masing-masing memerlukan saksi peristiwa yang berbeda.
+Jika keadaan luar tidak dapat diketahui, gunakan `unknown` sambil mempertahankan
+status terakhir yang terbukti.
+
+### Identitas evaluator dan privasi {#o017-wrap-evaluator-privacy}
+
+Paket penilaian memakai ID evaluator buram, misalnya
+`O017-WRAP-EVAL-7F3K9Q`, bukan nama, alamat surel, nama akun, atau nomor siswa.
+ID harus dibuat acak; jangan membentuknya dari hash nama atau alamat surel.
+Pemetaan ID ke identitas nyata, bila benar-benar diperlukan, disimpan terpisah
+oleh pengelola tepercaya dalam penyimpanan terenkripsi dan berakses terbatas.
+Pemetaan itu tidak masuk ke portofolio, repositori, atau paket publik.
+
+Untuk putaran dua orang, pengelola membuat
+`evaluator_distinctness_attestation` yang hanya menyatakan bahwa dua ID mewakili
+dua manusia berbeda dan bahwa konflik kepentingan telah diperiksa. Atestasi
+tersebut tidak mengungkap identitas. Agen, model, atau satu orang yang berganti
+peran dapat dipakai untuk latihan, tetapi tidak memenuhi gerbang independensi.
+
+## Lima keluarga penilaian wajib {#o017-wrap-assessments}
+
+### A01 — Pencarian sumber nyata {#o017-wrap-a01-real-source-search}
+
+Pelajar memulai dari pertanyaan matematika, bukan dari daftar sumber yang telah
+disediakan. Ia melakukan pencarian tanpa calon yang disemai, lalu membekukan
+sedikitnya satu makalah atau monograf nyata. Paket wajib memuat:
+
+1. pertanyaan dan batas topik sebelum pencarian;
+2. kueri, layanan yang digunakan, dan waktu pengambilan;
+3. semua calon yang masuk perbandingan, bukan hanya pemenang;
+4. penilaian otoritas primer, versi/edisi, lokator, hak akses, dan hubungan
+   antarsumber;
+5. aturan berhenti yang ditulis sebelum kesimpulan akhir;
+6. pengenal persisten atau URL otoritatif, tanggal akses, dan saksi byte atau
+   saksi versi bila tersedia; serta
+7. ketidakpastian dan alasan mengecualikan calon.
+
+Lulus tidak ditentukan oleh banyaknya hasil. Gerbangnya ialah keterlacakan dari
+pertanyaan ke kueri, dari kueri ke calon, dan dari calon ke sumber beku yang
+tepat untuk klaim yang akan dipakai.
+
+### A02 — Seminar nyata atau padanan tersupervisi {#o017-wrap-a02-seminar}
+
+Jalur utama ialah menghadiri atau menyampaikan seminar matematika nyata. Bukti
+minimum ialah identitas acara, tanggal dan zona waktu, peran pelajar, catatan
+berwaktu atau bersegmen, peta dependensi, log pertanyaan, bukti kehadiran atau
+penyampaian yang hemat data pribadi, catatan akhir yang telah dikoreksi, dan
+perbedaan eksplisit antara apa yang terdengar, apa yang disimpulkan, dan apa
+yang baru diverifikasi sesudah acara.
+
+Jika audio/video langsung tidak dapat diakses karena disabilitas, bandwidth,
+zona waktu, keamanan, atau tidak tersedianya acara, padanan tersupervisi boleh
+memakai rekaman dan transkrip/catatan resmi dari seminar atau kuliah matematika
+nyata. Seorang supervisor manusia harus menetapkan segmen, memeriksa peta
+dependensi serta log pertanyaan, dan mengesahkan bahwa pekerjaan dilakukan oleh
+pelajar. Jalur ini dinilai dengan kriteria yang sama dan dicatat sebagai
+`supervised_equivalent`, bukan diklaim sebagai kehadiran langsung.
+
+Alternatif akses tidak boleh bergantung pada audio saja. Sediakan teks
+terstruktur, lokator bagian atau waktu, rumus dalam teks/MathML/LaTeX, deskripsi
+informasi visual, dan cara menyerahkan pertanyaan tanpa bicara langsung.
+
+### A03 — Putaran penulis–penelaah dua orang {#o017-wrap-a03-referee-cycle}
+
+Dua manusia berbeda memegang peran penulis dan penelaah. Paket mempertahankan:
+
+- naskah awal yang beku dan hash-nya;
+- lingkup dan pernyataan konflik kepentingan penelaah;
+- laporan yang memetakan setiap komentar ke lokator dan bukti;
+- tanggapan penulis untuk setiap komentar;
+- tabel disposisi `accepted`, `partially_accepted`, `rejected_with_reason`, atau
+  `unresolved`;
+- revisi, perbandingan sebelum/sesudah, serta hash baru; dan
+- daftar masalah yang masih terbuka.
+
+Satu orang yang memainkan kedua peran, dua akun milik orang yang sama, atau
+penelaahan otomatis tanpa penelaah manusia adalah latihan, bukan bukti
+kelulusan. Skor gaya tidak dapat menutup kegagalan validitas matematika,
+independensi, atau keterlacakan revisi.
+
+### A04 — Dossier erratum sumber nyata {#o017-wrap-a04-erratum}
+
+Pelajar membekukan sumber terbuka nyata pada edisi atau representasi tertentu,
+menetapkan lokator cacat, memisahkan status pernyataan dari dugaan penyebab,
+memberikan reproducer minimal, menilai keparahan dan keyakinan secara terpisah,
+menawarkan koreksi sekecil mungkin, dan mengaudit akibat turunannya. Seorang
+manusia kedua melakukan pemeriksaan matematika independen dan menandai bagian
+yang diperiksa, metode, hasil, serta keterbatasannya.
+
+Menemukan koreksi yang sudah diterbitkan tetap dapat menjadi bahan audit selama
+pelajar membekukan versi lama, mereproduksi diagnosis sendiri, lalu memakai
+koreksi resmi sebagai pembanding. Dossier tidak boleh mengklaim penemuan baru.
+Tanpa pemeriksa manusia kedua, status tertinggi adalah `ready_for_review`.
+
+### A05 — Transaksi komunitas atau jalur lokal yang lebih lemah {#o017-wrap-a05-community}
+
+Jalur `community_transaction` memerlukan otorisasi khusus sebelum transmisi.
+Pelajar mengirim satu kontribusi ringkas, tidak duplikatif, dapat ditinjau, dan
+sesuai aturan target. Kelulusan tidak memerlukan penerimaan; bukti pengiriman
+yang sah sudah cukup, selama status selanjutnya tetap jujur. Ledger memakai
+nilai `prepared`, `submitted`, `acknowledged`, `accepted`, `merged`,
+`published`, `rejected`, `withdrawn`, atau `unknown` dan tidak menghapus
+sejarah.
+
+Jika tindakan luar tidak aman, tidak tersedia, atau tidak diotorisasi, seorang
+manusia independen boleh menilai paket sumber nyata secara lokal. Hasil ini
+berlabel `externally_reviewed_local`. Ia memenuhi cabang A05 yang lebih lemah,
+tetapi **bukan** bukti pengiriman atau partisipasi komunitas. Kredensial akhir
+harus mempertahankan label tersebut. Paket kalibrasi mencontohkan jalur ini dan
+berhenti pada `prepared`; tidak ada kontak atau transmisi.
+
+## Gerbang nonkompensabel {#o017-wrap-gates}
+
+Kesembilan gerbang berikut harus bernilai `pass`. Nilai numerik tinggi pada
+gerbang lain tidak dapat menggantikannya.
+
+| ID | Gerbang | Kondisi lulus minimum |
+|---|---|---|
+| `O017-WRAP-G01` | Sumber dan versi | Sumber nyata, otoritatif, berlokator, dan versi/representasi beku. |
+| `O017-WRAP-G02` | Provenance pencarian | Kueri, waktu, calon, aturan berhenti, pemilihan, dan ketidakpastian lengkap. |
+| `O017-WRAP-G03` | Konteks seminar | Acara nyata atau padanan tersupervisi dengan bukti dan label jalur yang benar. |
+| `O017-WRAP-G04` | Independensi manusia | Dua ID buram mewakili dua manusia berbeda; atestasi dan konflik kepentingan tersedia. |
+| `O017-WRAP-G05` | Validitas matematika | Klaim, reproducer/bukti, diagnosis, koreksi, dan batas diperiksa pada versi beku. |
+| `O017-WRAP-G06` | Rantai kritik–revisi | Naskah awal, laporan, tanggapan, disposisi, revisi, dan bukti sebelum/sesudah terlacak. |
+| `O017-WRAP-G07` | Status dan otorisasi | Tidak ada status eksternal tanpa bukti; tidak ada transmisi tanpa otorisasi khusus. |
+| `O017-WRAP-G08` | Privasi dan akses | Data pribadi diminimalkan dan alternatif akses setara tersedia serta benar-benar diuji. |
+| `O017-WRAP-G09` | Manifes bukti | Setiap artefak mempunyai ID, lokator, ukuran, hash, hak, status verifikasi, dan pemilik retensi. |
+
+Satu nilai `fail`, `not_evaluated`, atau `unknown` menahan kelulusan. Status
+`not_applicable` hanya sah untuk kriteria yang oleh definisi cabang tidak
+berlaku; ia tidak boleh dipakai pada sembilan gerbang di atas.
+
+## Keputusan hasil dan kredensial {#o017-wrap-credential}
+
+Setiap A01–A05 dinilai terpisah. Keputusan keseluruhan hanya dapat berupa:
+
+- `complete_community_transaction`: A01–A05 lulus dan A05 mempunyai bukti
+  `submitted` atau peristiwa lebih lanjut;
+- `complete_externally_reviewed_local`: A01–A04 lulus dan cabang lokal A05
+  lulus dengan penelaah manusia independen;
+- `incomplete`: sedikitnya satu keluarga atau gerbang nonkompensabel belum
+  lulus; atau
+- `calibration_only`: paket demonstrasi yang tidak boleh menghasilkan kredit.
+
+Penerimaan, penggabungan, atau publikasi kontribusi tidak menjadi syarat
+kelulusan dan tidak menambah skor secara otomatis. Penolakan yang terdokumentasi
+dapat tetap konsisten dengan kelulusan jika mutu paket, otorisasi, dan kejujuran
+status telah lulus. Sebaliknya, kontribusi yang kebetulan diterima tidak menutup
+kegagalan hak, privasi, atau independensi.
+
+## Cara memakai paket mesin {#o017-wrap-machine-package}
+
+1. Salin struktur contoh tanpa menyalin klaim kalibrasinya sebagai data pelajar.
+2. Buat ID paket, penyerahan, upaya, evaluator, dan bukti baru yang stabil.
+3. Bekukan semua artefak; tulis ukuran dan SHA-256 di manifes.
+4. Validasi JSON terhadap skema dan CSV sebagai UTF-8 dengan tajuk tepat.
+5. Minta evaluator menetapkan tiap kriteria dan gerbang; jangan menghitung
+   rata-rata sebelum semua gerbang nonkompensabel lulus.
+6. Terbitkan kredensial hanya setelah label cabang A05 dan status eksternalnya
+   cocok dengan bukti.
+7. Simpan ledger peristiwa secara append-only. Koreksi menambah peristiwa baru;
+   ia tidak menimpa riwayat.
+
+Paket kalibrasi di
+[`delivery/calibration/calibration-package.json`](../delivery/calibration/calibration-package.json)
+menyediakan satu contoh
+lengkap untuk setiap keluarga. Semua nama orang di sana adalah ID sintetis,
+semua peristiwa adalah simulasi, `credit_eligible` selalu `false`, dan
+`transmission_performed` selalu `false`.
+
+## Sumber primer untuk kalibrasi {#o017-wrap-calibration-sources}
+
+Kalibrasi memakai sumber terbuka resmi berikut tanpa mengklaim dukungan dari
+penerbit atau pengajar:
+
+- OpenStax, *Calculus Volume 1*, §5.3, halaman resmi penerbit dan lisensi
+  CC BY-NC-SA 4.0: <https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus>;
+- MIT OpenCourseWare 18.100A, Lecture 22, Fall 2020, halaman resmi dan lisensi
+  CC BY-NC-SA 4.0: <https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/resources/18100a-lecture-22-multicam/>;
+- G. H. Hardy, “Addenda and Corrigenda”, *Proceedings of the London
+  Mathematical Society* (1928), DOI versi rekaman
+  <https://doi.org/10.1112/plms/s2-28.1.553-t>.
+
+Teks kalibrasi memparafrase metadata dan melakukan perhitungan matematisnya
+sendiri; ia tidak menyalin tata letak, gambar, video, atau prosa sumber. Ketika
+hak satu komponen tidak cukup jelas untuk redistribusi, paket hanya menyimpan
+sitasi, fakta bibliografis, lokator, dan analisis orisinal.

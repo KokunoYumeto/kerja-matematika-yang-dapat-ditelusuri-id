@@ -1,0 +1,65 @@
+{
+  "calibration_truth_witness": {
+    "all_assessment_results": "calibration_only",
+    "all_gate_results": "not_evaluated",
+    "authorization_present": false,
+    "credential_label": "calibration_only",
+    "credit_eligible": false,
+    "package_kind": "calibration_only",
+    "synthetic_personas": true,
+    "transmission_performed": false
+  },
+  "errors": [],
+  "reproducibility": {
+    "contains_wall_clock": false,
+    "deterministic_json": "UTF-8; sorted keys; indent 2; LF newline",
+    "entry_point": "python scripts/validate_delivery_wrapper.py --write-qa"
+  },
+  "results": {
+    "assessment_family_coverage": [
+      "O017-WRAP-A01",
+      "O017-WRAP-A02",
+      "O017-WRAP-A03",
+      "O017-WRAP-A04",
+      "O017-WRAP-A05"
+    ],
+    "calibration_instance_validation": "PASS",
+    "calibration_truth_flags": "PASS",
+    "csv_data_rows": 82,
+    "csv_files_parsed": 4,
+    "csv_header_and_row_width_validation": "PASS",
+    "evidence_byte_and_sha256_validation": "PASS",
+    "evidence_files_verified": 5,
+    "file_manifest_entries": 16,
+    "file_manifest_entries_verified_excluding_qa_output": 15,
+    "file_manifest_inventory_validation": "PASS",
+    "markdown_files_utf8_and_headed": 7,
+    "negative_schema_tests": {
+      "community_completion_without_transmission": "REJECTED_AS_REQUIRED",
+      "completion_with_unpassed_gates": "REJECTED_AS_REQUIRED",
+      "missing_assessment_family": "REJECTED_AS_REQUIRED",
+      "unauthorized_transmission": "REJECTED_AS_REQUIRED"
+    },
+    "no_contact_no_transmission_flags": "PASS",
+    "schema_meta_validation": "PASS",
+    "symbolic_identity_witness": {
+      "dx_then_dy": "-1/2",
+      "dy_then_dx": "1/2",
+      "exact_arithmetic": true
+    },
+    "wrapper_explicit_anchors": 13,
+    "wrapper_first_heading": "## Perangkat penyampaian dan penilaian autentik {#o017-wrap-index}",
+    "wrapper_render_links": [
+      "../delivery/definitions/o017-delivery-definitions.json",
+      "../delivery/schema/o017-delivery.schema.json",
+      "../delivery/calibration/calibration-package.json"
+    ]
+  },
+  "schema_id": "urn:o017:wrapper:delivery-schema:1",
+  "status": "PASS",
+  "tools": {
+    "jsonschema_requirement": ">=4.18",
+    "python_requirement": ">=3.10"
+  },
+  "validation_id": "O017-WRAP-VALIDATION-2"
+}

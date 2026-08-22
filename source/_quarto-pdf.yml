@@ -1,0 +1,62 @@
+project:
+  type: book
+  output-dir: ../output/pdf
+  render:
+    - index.qmd
+    - units/01-membaca-argumen.qmd
+    - units/02-menelusuri-sumber.qmd
+    - units/03-merekonstruksi-pembuktian.qmd
+    - units/04-sitasi-provenance-catatan-sumber.qmd
+    - units/05-eksposisi-matematika.qmd
+    - units/06-komputasi-dapat-direproduksi.qmd
+    - units/07-errata-koreksi-batas-kepastian.qmd
+    - units/08-seminar-penelaah-tanggapan-kritik.qmd
+    - units/09-kontribusi-komunitas-portofolio.qmd
+    - wrapper/index.qmd
+
+book:
+  title: "Kerja Matematika yang Dapat Ditelusuri"
+  subtitle: "Pembaca Bahasa Indonesia - O017 / D120"
+  author:
+    - name: KokunoYumeto
+  date: "2026-08-22"
+  date-format: iso
+  doi: "10.5281/zenodo.22060136"
+  output-file: "kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1"
+  chapters:
+    - index.qmd
+    - units/01-membaca-argumen.qmd
+    - units/02-menelusuri-sumber.qmd
+    - units/03-merekonstruksi-pembuktian.qmd
+    - units/04-sitasi-provenance-catatan-sumber.qmd
+    - units/05-eksposisi-matematika.qmd
+    - units/06-komputasi-dapat-direproduksi.qmd
+    - units/07-errata-koreksi-batas-kepastian.qmd
+    - units/08-seminar-penelaah-tanggapan-kritik.qmd
+    - units/09-kontribusi-komunitas-portofolio.qmd
+    - wrapper/index.qmd
+
+format:
+  pdf:
+    documentclass: scrreprt
+    pdf-engine: xelatex
+    papersize: a4
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+    linkcolor: blue
+    urlcolor: blue
+    citecolor: blue
+    fontsize: 10pt
+    linestretch: 1.06
+    geometry:
+      - top=24mm
+      - bottom=24mm
+      - left=24mm
+      - right=24mm
+      - headheight=15pt
+      - headsep=8mm
+      - footskip=12mm
+    keep-tex: true
+    include-in-header: pdf-header.tex

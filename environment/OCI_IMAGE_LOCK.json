@@ -1,0 +1,48 @@
+{
+  "schema": "o017-rebuild-oci-lock-v1",
+  "verified_at": "2026-08-22T20:06:39+02:00",
+  "architecture": "amd64",
+  "os": "linux",
+  "base_image": {
+    "name": "ghcr.io/quarto-dev/quarto-full",
+    "tag_witness": "1.9.37",
+    "manifest_digest": "sha256:f8a77fcebc054dff1ca887e1789feaaf65cd0e572c00dd81dff58aa1570323de",
+    "media_type": "application/vnd.docker.distribution.manifest.v2+json",
+    "config": {
+      "digest": "sha256:4f641989fdb93c08058ed0ccc26a11649479003fc075444c831c587c0894b3db",
+      "size": 5583
+    },
+    "layers": [
+      {"digest": "sha256:13b7e930469f6d3575a320709035c6acf6f5485a76abcf03d1b92a64c09c2476", "size": 27510394},
+      {"digest": "sha256:4f7d00a0a66a6c8b215bd5798c04b08544d3dad623c701ce1c4189b72f5a8a28", "size": 27819177},
+      {"digest": "sha256:2f1c4cb5c63dc2fd1dad5fab2cf05956680fa070f33b91c229ad2aebe63d183d", "size": 72428887},
+      {"digest": "sha256:88a88869592198f2c41ce16f2a196eced810ee41cdc7f1d64da90b6e9cdb4b7d", "size": 17210128},
+      {"digest": "sha256:41e36c87f51eca8a48b54e0e1b2abae99ccc09a1955111ade361a9c0263e2dae", "size": 219018082},
+      {"digest": "sha256:e5e067b25d598797ba1d8bacae9c00061bcd3ee9050a3ce1e25847a57d49b18e", "size": 137982373},
+      {"digest": "sha256:70f4adacf76d5e92ee67a2acd8a2b97f0bb93edef1d2d26ea197da7b72396aa1", "size": 138830286},
+      {"digest": "sha256:27abeb6a3d7b600558ac01803cc519b471b8d4194fa9f68fb95d7312383c2c4a", "size": 558792}
+    ],
+    "official_package_page": "https://github.com/quarto-dev/quarto-cli/pkgs/container/quarto-full",
+    "registry_manifest_url": "https://ghcr.io/v2/quarto-dev/quarto-full/manifests/1.9.37"
+  },
+  "python": {
+    "project": "astral-sh/python-build-standalone",
+    "version": "3.13.9",
+    "release": "20251028",
+    "target": "x86_64-unknown-linux-gnu",
+    "flavor": "install_only_stripped",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20251028/cpython-3.13.9%2B20251028-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+    "bytes": 34228096,
+    "sha256": "99623e9ff4764f1c5dab80f0128986b5a09a2cb5021d291aa44e7cfa4684af00"
+  },
+  "python_packages": [
+    {
+      "name": "pypdf",
+      "version": "6.12.2",
+      "filename": "pypdf-6.12.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/9e/44/fee070a16639d9869bb6a7e0f3a1b3946da1d66f32b9260b4d19cb90d7b2/pypdf-6.12.2-py3-none-any.whl",
+      "bytes": 343865,
+      "sha256": "67b2699357a1f3f4c945940ea80826349ee507c9e2577724a14b4941982c104d"
+    }
+  ]
+}

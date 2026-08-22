@@ -182,7 +182,7 @@ tersedia tertanam di bawah; tidak ada repositori atau pengelola nyata.
   layanan, akun, atau kanal eksternal.
 - Dalam konteks simulasi yang lengkap, V1 adalah satu-satunya versi terdaftar
   dan tidak ada laporan duplikat.
-- Dampak luar cuplikan: tidak diketahui; tidak ada graf dependensi lain.
+- Dampak luar cuplikan: tidak diketahui; tidak ada graf ketergantungan lain.
 :::
 
 ::: {#o017-u09-upstream-snippet .callout-warning title="Lemma 2 dan bukti pada O017-U09-UP-V1"}
@@ -415,10 +415,10 @@ versi lain belum diketahui.
 
 Jangan menambahkan beberapa komentar permintaan maaf, koreksi lanjutan, atau
 pesan penjelas sebelum ada respons; paket sudah memuat bukti dan batas. Jika
-pada masa depan Floris memberi kewenangan terpisah dan pesan ini benar-benar
+pada masa depan pengguna memberi kewenangan terpisah dan pesan ini benar-benar
 dikirim, tambahkan satu baris penutup persis:
 
-> Codex, atas instruksi Floris
+> Codex, atas instruksi pengguna
 
 Jangan menambahkan baris tersebut pada draf lokal sebagai bukti pengiriman,
 dan jangan mengklaim identitas, penerimaan, atau dukungan pihak lain. Unit ini
@@ -454,7 +454,7 @@ Paket jumlah ganjil harus ditahan atau ditarik jika:
 - lisensi atau aturan tujuan tidak mengizinkan bentuk kontribusi;
 - validasi independen menemukan bahwa patch menyentuh lebih banyak materi
   daripada yang dinyatakan; atau
-- Floris mencabut kewenangan sebelum tindakan keluar selesai.
+- pengguna mencabut kewenangan sebelum tindakan keluar selesai.
 
 Penarikan tidak berarti diagnosis harus dihapus. Catat alasan dan status baru.
 
@@ -507,7 +507,7 @@ paling kuat dan paling mudah diperiksa. Jika satu unit belum mempunyai bukti
 yang lolos gerbangnya, tulis “belum dibuktikan” dan rencanakan perbaikan;
 jangan mengisi sel dengan refleksi tanpa artefak.
 
-## Kontrak manifest dan identitas bukti {#o017-u09-portfolio-manifest}
+## Kontrak manifes dan identitas bukti {#o017-u09-portfolio-manifest}
 
 Setiap artefak portofolio sekurang-kurangnya mempunyai:
 

@@ -32,7 +32,7 @@ asumsi, klaim, justifikasi, dan tugas terbuka. Unit 2 mengajarkan cara
 menetapkan sumber dan versi yang sedang dibaca. Unit 3 memperdalam praktik itu
 secara sistematis: tipe dan kuantor dibekukan, kewajiban disusun sebagai graf
 ketergantungan, lemma diambil melalui kontraknya, dan rincian diuji melalui
-audit minimalitas. Label D–A–K–J–T dan kasus pohon rentang minimum dari Unit 1
+audit minimalitas. Label D–A–K–J–T dan kasus pohon merentang minimum dari Unit 1
 tidak diajarkan kembali di sini.
 
 Pembaca diandaikan mengenal fungsi, himpunan, pracitra, ruang topologis,
@@ -758,7 +758,7 @@ Program dapat dipakai oleh pembaca yang sudah memiliki keterampilan B80 untuk
 mencari contoh atau menguji dugaan selama rekonstruksi. Keluarannya tetap bukti
 empiris diagnostik, bukan pengganti jalur pembuktian dalam graf. Unit ini juga
 tidak mengajarkan kembali penelusuran versi dari Unit 2, buku catatan provenance
-lengkap dari Unit 4, atau reproduktibilitas komputasional dari Unit 6. Jika
+lengkap dari Unit 4, atau reproduksibilitas komputasional dari Unit 6. Jika
 pengambilan lemma menemukan masalah sumber, catat kebutuhan itu dan teruskan ke
 unit yang tepat.
 

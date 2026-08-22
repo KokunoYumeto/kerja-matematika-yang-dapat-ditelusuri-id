@@ -1,0 +1,254 @@
+{
+  "schema_id": "O017-WRAP-DEFINITIONS-SCHEMA-1",
+  "definition_set_id": "O017-WRAP-DEFINITIONS-1",
+  "version": "1.0.0",
+  "course_id": "O017",
+  "curriculum_role": "D120",
+  "default_locale": "id-ID",
+  "wrapper_locator": "source/wrapper/index.qmd#o017-wrap-index",
+  "normative_rules": {
+    "all_assessment_families_required": true,
+    "noncompensable_gates_must_all_pass": true,
+    "calibration_artifacts_award_credit": false,
+    "automated_or_single_person_roleplay_satisfies_human_independence": false,
+    "preparation_implies_authorization_to_transmit": false,
+    "external_status_requires_event_evidence": true,
+    "event_history_is_append_only": true,
+    "acceptance_required_for_course_completion": false
+  },
+  "assessment_families": [
+    {
+      "assessment_id": "O017-WRAP-A01",
+      "code": "real_source_search",
+      "label_id": "Pencarian sumber nyata",
+      "required": true,
+      "wrapper_fragment": "o017-wrap-a01-real-source-search",
+      "required_gate_ids": ["O017-WRAP-G01", "O017-WRAP-G02", "O017-WRAP-G08", "O017-WRAP-G09"],
+      "required_evidence_type_ids": [
+        "O017-WRAP-EV-SEARCH-QUESTION",
+        "O017-WRAP-EV-QUERY-LOG",
+        "O017-WRAP-EV-CANDIDATE-MATRIX",
+        "O017-WRAP-EV-STOP-RULE",
+        "O017-WRAP-EV-SOURCE-FREEZE",
+        "O017-WRAP-EV-UNCERTAINTY-LEDGER"
+      ]
+    },
+    {
+      "assessment_id": "O017-WRAP-A02",
+      "code": "seminar_or_supervised_equivalent",
+      "label_id": "Seminar nyata atau padanan tersupervisi",
+      "required": true,
+      "wrapper_fragment": "o017-wrap-a02-seminar",
+      "allowed_pathways": ["live_attendance", "live_delivery", "supervised_equivalent"],
+      "required_gate_ids": ["O017-WRAP-G03", "O017-WRAP-G08", "O017-WRAP-G09"],
+      "required_evidence_type_ids": [
+        "O017-WRAP-EV-EVENT-IDENTITY",
+        "O017-WRAP-EV-TIMED-NOTES",
+        "O017-WRAP-EV-DEPENDENCY-MAP",
+        "O017-WRAP-EV-QUESTION-LOG",
+        "O017-WRAP-EV-ATTENDANCE-OR-SUPERVISION",
+        "O017-WRAP-EV-CORRECTED-NOTES",
+        "O017-WRAP-EV-ACCESSIBILITY-CHECK"
+      ]
+    },
+    {
+      "assessment_id": "O017-WRAP-A03",
+      "code": "independent_referee_cycle",
+      "label_id": "Putaran penulis–penelaah dua orang",
+      "required": true,
+      "wrapper_fragment": "o017-wrap-a03-referee-cycle",
+      "required_gate_ids": ["O017-WRAP-G04", "O017-WRAP-G05", "O017-WRAP-G06", "O017-WRAP-G08", "O017-WRAP-G09"],
+      "required_evidence_type_ids": [
+        "O017-WRAP-EV-INITIAL-ARTIFACT",
+        "O017-WRAP-EV-REFEREE-REPORT",
+        "O017-WRAP-EV-AUTHOR-RESPONSE",
+        "O017-WRAP-EV-DISPOSITION-TABLE",
+        "O017-WRAP-EV-REVISED-ARTIFACT",
+        "O017-WRAP-EV-BEFORE-AFTER",
+        "O017-WRAP-EV-DISTINCTNESS-ATTESTATION",
+        "O017-WRAP-EV-UNRESOLVED-ITEMS"
+      ]
+    },
+    {
+      "assessment_id": "O017-WRAP-A04",
+      "code": "real_source_erratum_dossier",
+      "label_id": "Dossier erratum sumber nyata",
+      "required": true,
+      "wrapper_fragment": "o017-wrap-a04-erratum",
+      "required_gate_ids": ["O017-WRAP-G01", "O017-WRAP-G04", "O017-WRAP-G05", "O017-WRAP-G08", "O017-WRAP-G09"],
+      "required_evidence_type_ids": [
+        "O017-WRAP-EV-SOURCE-FREEZE",
+        "O017-WRAP-EV-DEFECT-LOCATOR",
+        "O017-WRAP-EV-MINIMAL-REPRODUCER",
+        "O017-WRAP-EV-MINIMAL-CORRECTION",
+        "O017-WRAP-EV-IMPACT-AUDIT",
+        "O017-WRAP-EV-INDEPENDENT-CHECK",
+        "O017-WRAP-EV-UNCERTAINTY-LEDGER"
+      ]
+    },
+    {
+      "assessment_id": "O017-WRAP-A05",
+      "code": "community_transaction_or_local_review",
+      "label_id": "Transaksi komunitas atau penelaahan lokal eksternal",
+      "required": true,
+      "wrapper_fragment": "o017-wrap-a05-community",
+      "allowed_pathways": ["community_transaction", "externally_reviewed_local"],
+      "required_gate_ids": ["O017-WRAP-G04", "O017-WRAP-G05", "O017-WRAP-G07", "O017-WRAP-G08", "O017-WRAP-G09"],
+      "required_evidence_type_ids": [
+        "O017-WRAP-EV-CONTRIBUTION-PACKET",
+        "O017-WRAP-EV-RIGHTS-CHECK",
+        "O017-WRAP-EV-STATUS-LEDGER",
+        "O017-WRAP-EV-ACCESSIBILITY-CHECK"
+      ],
+      "community_transaction_additional_evidence": [
+        "O017-WRAP-EV-TRANSACTION-AUTHORIZATION",
+        "O017-WRAP-EV-TRANSMISSION-RECEIPT"
+      ],
+      "externally_reviewed_local_additional_evidence": [
+        "O017-WRAP-EV-DISTINCTNESS-ATTESTATION",
+        "O017-WRAP-EV-LOCAL-EXTERNAL-REVIEW"
+      ]
+    }
+  ],
+  "noncompensable_gates": [
+    {
+      "gate_id": "O017-WRAP-G01",
+      "code": "source_and_version",
+      "label_id": "Sumber dan versi",
+      "pass_condition_id": "Sumber nyata dan otoritatif mempunyai versi atau representasi beku, lokator, serta dasar hak yang dinyatakan."
+    },
+    {
+      "gate_id": "O017-WRAP-G02",
+      "code": "search_provenance",
+      "label_id": "Provenans pencarian",
+      "pass_condition_id": "Pertanyaan, kueri, waktu, calon, aturan berhenti, keputusan, dan ketidakpastian membentuk rantai lengkap."
+    },
+    {
+      "gate_id": "O017-WRAP-G03",
+      "code": "seminar_context",
+      "label_id": "Konteks seminar",
+      "pass_condition_id": "Acara nyata atau padanan tersupervisi dibuktikan dan diberi label jalur yang tepat."
+    },
+    {
+      "gate_id": "O017-WRAP-G04",
+      "code": "human_independence",
+      "label_id": "Independensi manusia",
+      "pass_condition_id": "Dua ID evaluator mewakili dua manusia berbeda, konflik kepentingan diperiksa, dan atestasi minimal tersedia."
+    },
+    {
+      "gate_id": "O017-WRAP-G05",
+      "code": "mathematical_validity",
+      "label_id": "Validitas matematika",
+      "pass_condition_id": "Klaim, bukti atau reproducer, diagnosis, koreksi, dan batas diperiksa pada sumber atau artefak beku."
+    },
+    {
+      "gate_id": "O017-WRAP-G06",
+      "code": "critique_revision_chain",
+      "label_id": "Rantai kritik–revisi",
+      "pass_condition_id": "Naskah awal, laporan, respons, disposisi, revisi, perbandingan, dan masalah terbuka semuanya terlacak."
+    },
+    {
+      "gate_id": "O017-WRAP-G07",
+      "code": "status_and_authorization",
+      "label_id": "Status dan otorisasi",
+      "pass_condition_id": "Setiap status luar mempunyai bukti peristiwa dan setiap transmisi mempunyai otorisasi khusus yang masih berlaku."
+    },
+    {
+      "gate_id": "O017-WRAP-G08",
+      "code": "privacy_and_access",
+      "label_id": "Privasi dan akses",
+      "pass_condition_id": "Data pribadi diminimalkan; ID evaluator buram; alternatif akses tersedia dan hasil ujinya dicatat."
+    },
+    {
+      "gate_id": "O017-WRAP-G09",
+      "code": "evidence_manifest",
+      "label_id": "Manifest bukti",
+      "pass_condition_id": "Setiap artefak mempunyai ID, lokator, byte, SHA-256, hak, status verifikasi, dan aturan retensi."
+    }
+  ],
+  "controlled_vocabularies": {
+    "assessment_status": [
+      "not_started",
+      "in_progress",
+      "ready_for_review",
+      "changes_requested",
+      "passed",
+      "failed",
+      "withdrawn",
+      "unknown",
+      "calibration_only"
+    ],
+    "gate_status": ["pass", "fail", "not_evaluated", "unknown"],
+    "community_lifecycle": [
+      "prepared",
+      "submitted",
+      "acknowledged",
+      "accepted",
+      "merged",
+      "published",
+      "rejected",
+      "withdrawn",
+      "unknown"
+    ],
+    "comment_disposition": [
+      "accepted",
+      "partially_accepted",
+      "rejected_with_reason",
+      "unresolved"
+    ],
+    "seminar_pathway": ["live_attendance", "live_delivery", "supervised_equivalent"],
+    "a05_pathway": ["community_transaction", "externally_reviewed_local"],
+    "credential_label": [
+      "complete_community_transaction",
+      "complete_externally_reviewed_local",
+      "incomplete",
+      "calibration_only"
+    ],
+    "evaluator_human_status": ["verified_human", "not_verified", "synthetic_persona"],
+    "evidence_verification_status": ["asserted", "observed", "verified", "invalidated", "unknown"]
+  },
+  "privacy_policy": {
+    "public_identifier_form": "opaque_random_identifier",
+    "identifier_must_not_be_derived_from_personal_data": true,
+    "identity_mapping_in_submission": false,
+    "identity_mapping_storage": "separate_encrypted_access_controlled_store",
+    "distinctness_attestation_discloses_identity": false,
+    "minimum_attestation_fields": [
+      "attestation_id",
+      "evaluator_id_1",
+      "evaluator_id_2",
+      "distinct_humans",
+      "conflict_checked",
+      "attested_at",
+      "attestor_role"
+    ]
+  },
+  "accessibility_policy": {
+    "audio_only_is_sufficient": false,
+    "minimum_alternatives": [
+      "structured_text",
+      "time_or_section_locators",
+      "machine_readable_math",
+      "descriptions_for_information_bearing_visuals",
+      "non_speech_question_channel"
+    ],
+    "tested_surface_and_unverified_surface_must_be_distinguished": true
+  },
+  "contact_policy": {
+    "default": "no_contact_no_transmission",
+    "local_preparation_allowed": true,
+    "authorization_scope": "one_named_transaction",
+    "authorization_minimum_fields": [
+      "authorization_id",
+      "target",
+      "artifact_version",
+      "channel",
+      "responsible_human_sender",
+      "personal_data_limit",
+      "valid_from",
+      "valid_until"
+    ],
+    "missing_field_means_authorized": false,
+    "automation_may_infer_authorization": false
+  }
+}

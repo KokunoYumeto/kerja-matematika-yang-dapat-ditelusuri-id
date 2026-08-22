@@ -270,10 +270,10 @@ dipakai sebagai eksperimen pendukung terhadap dugaan universal. Batas
 ### Artefak beku dan tautan tepat {#o017-u06-witness-artifacts}
 
 ::: {.o017-table-scroll aria-label="Artefak saksi berhingga Unit 6" tabindex="0"}
-| ID artefak | Tautan lokal | Peran | Ukuran | SHA-256 |
-|---|---|---|---:|---|
-| `O017-U06-CODE-01` | [`u06_recurrence_witness.py`](../code/u06_recurrence_witness.py) | generator dan validator saksi berhingga | 3.505 byte | `9effb4dd4d17ce6b26fd108585ff0adc5110d8903c9c283b56a909613e7aa93d` |
-| `O017-U06-OUT-EXPECTED-01` | [`u06-expected-output.txt`](../code/u06-expected-output.txt) | oracle keluaran kanonik teks biasa | 1.872 byte | `4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112` |
+| Artefak | Bukti beku |
+|---|---|
+| `O017-U06-CODE-01`; <br>[`u06_recurrence_witness.py`](../code/u06_recurrence_witness.py) | **Peran:** generator dan validator saksi berhingga; <br>**Ukuran:** 3.505 byte; <br>**SHA-256:** `9effb4dd4d17ce6b26fd108585ff0adc5110d8903c9c283b56a909613e7aa93d` |
+| `O017-U06-OUT-EXPECTED-01`; <br>[`expected-output.txt`](../code/u06-expected-output.txt) | **Peran:** oracle keluaran kanonik teks biasa; <br>**Ukuran:** 1.872 byte; <br>**SHA-256:** `4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112` |
 :::
 
 Program hanya menggunakan pustaka standar Python. Ia tidak membaca stdin,

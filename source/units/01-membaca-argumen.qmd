@@ -23,7 +23,7 @@ Setelah menyelesaikan unit ini, Anda mampu:
 ::: {.callout-note title="Prasyarat"}
 Unit ini mengandaikan bahwa Anda sudah mengenal graf berhingga, lintasan,
 siklus, pohon, pembuktian kontradiksi, dan cara menjalankan skrip Python yang
-sudah tersedia. Sintaks Python dan algoritme pohon rentang minimum bukan materi
+sudah tersedia. Sintaks Python dan algoritme pohon merentang minimum bukan materi
 unit ini.
 :::
 
@@ -59,25 +59,25 @@ Petikan berikut ditulis khusus untuk unit ini; petikan ini bukan kutipan atau
 terjemahan dari sumber lain.
 
 > Misalkan $G=(V,E)$ adalah graf terhubung berhingga dan
-> $w:E\to\mathbb{R}$ memberi bobot berbeda pada setiap sisi. Pohon rentang
+> $w:E\to\mathbb{R}$ memberi bobot berbeda pada setiap sisi. Pohon merentang
 > minimum $G$ bersifat tunggal. Hal ini mengikuti dari argumen pertukaran yang
 > biasa.
 
 Sebelum mencoba membuktikannya, uraikan petikan tersebut.
 
-- []{#o017-u01-d01} **D1.** Pohon rentang adalah subgraf yang memuat semua simpul, terhubung, dan
+- []{#o017-u01-d01} **D1.** Pohon merentang adalah subgraf yang memuat semua simpul, terhubung, dan
   tidak memiliki siklus.
-- []{#o017-u01-d02} **D2.** Bobot pohon rentang $T$ adalah
+- []{#o017-u01-d02} **D2.** Bobot pohon merentang $T$ adalah
   $$w(T)=\sum_{e\in E(T)}w(e).$$
-- []{#o017-u01-d03} **D3.** Pohon rentang minimum adalah pohon rentang dengan bobot sekecil
+- []{#o017-u01-d03} **D3.** Pohon merentang minimum adalah pohon merentang dengan bobot sekecil
   mungkin.
 - **A1.** Graf berhingga.
 - **A2.** Graf terhubung.
 - **A3.** Bobot semua sisi berbeda.
-- **K1.** Hanya ada satu pohon rentang minimum.
+- **K1.** Hanya ada satu pohon merentang minimum.
 - **J1.** “Argumen pertukaran yang biasa.”
 - **T1.** Menjelaskan objek yang dipertukarkan.
-- **T2.** Membuktikan bahwa hasil pertukaran masih berupa pohon rentang.
+- **T2.** Membuktikan bahwa hasil pertukaran masih berupa pohon merentang.
 - **T3.** Membuktikan bahwa pertukaran menghasilkan bobot lebih kecil.
 - **T4.** Menjelaskan letak kontradiksi.
 
@@ -85,17 +85,17 @@ Masalah pembacaan sekarang terukur: kita harus menutup T1–T4.
 
 ## Rekonstruksi pembuktian {#o017-u01-proof-reconstruction}
 
-::: {#thm-o017-u01-01 .theorem title="Ketunggalan pohon rentang minimum"}
+::: {#thm-o017-u01-01 .theorem title="Ketunggalan pohon merentang minimum"}
 Misalkan $G=(V,E)$ adalah graf terhubung berhingga. Jika setiap dua sisi yang
-berbeda mempunyai bobot berbeda, maka $G$ mempunyai tepat satu pohon rentang
+berbeda mempunyai bobot berbeda, maka $G$ mempunyai tepat satu pohon merentang
 minimum.
 :::
 
 ::: {#prf-o017-u01-01 .proof}
-Karena $G$ berhingga dan terhubung, himpunan pohon rentangnya berhingga dan
-tidak kosong. Jadi setidaknya ada satu pohon rentang minimum.
+Karena $G$ berhingga dan terhubung, himpunan pohon merentangnya berhingga dan
+tidak kosong. Jadi setidaknya ada satu pohon merentang minimum.
 
-Andaikan terdapat dua pohon rentang minimum berbeda, $T$ dan $T'$. Selisih
+Andaikan terdapat dua pohon merentang minimum berbeda, $T$ dan $T'$. Selisih
 simetris $E(T)\mathbin{\triangle}E(T')$ tidak kosong. Pilih sisi $e$ dengan
 bobot paling kecil di antara seluruh sisi dalam selisih simetris itu. Setelah
 menukar nama $T$ dan $T'$ jika perlu, anggap
@@ -116,10 +116,10 @@ $w(e)<w(f)$.
 Hapus $f$ dari siklus dan pertahankan $e$. Graf
 $$T''=T'-f+e$$
 tetap memuat semua simpul, terhubung, dan tidak memiliki siklus; jadi $T''$
-adalah pohon rentang. Namun,
+adalah pohon merentang. Namun,
 $$w(T'')=w(T')-w(f)+w(e)<w(T'),$$
-bertentangan dengan keminimuman $T'$. Jadi dua pohon rentang minimum berbeda
-tidak mungkin ada. Pohon rentang minimum tersebut tunggal. $\square$
+bertentangan dengan keminimuman $T'$. Jadi dua pohon merentang minimum berbeda
+tidak mungkin ada. Pohon merentang minimum tersebut tunggal. $\square$
 :::
 
 Langkah kuncinya bukan aljabar terakhir, melainkan menemukan $f$ dan
@@ -133,25 +133,25 @@ diperlukan.
 
 ::: {#o017-u01-example-01 .callout-tip title="Contoh: bobot berulang tetapi solusi tunggal"}
 Pada segitiga dengan bobot sisi $1,1,2$, pohon yang memakai kedua sisi
-berbobot $1$ adalah satu-satunya pohon rentang minimum.
+berbobot $1$ adalah satu-satunya pohon merentang minimum.
 :::
 
 ::: {#o017-u01-counterexample-01 .callout-warning title="Contoh tandingan terhadap ketunggalan tanpa syarat"}
 Pada segitiga dengan ketiga sisi berbobot $1$, setiap pilihan dua sisi
-menghasilkan pohon rentang berbobot $2$. Ada tiga pohon rentang minimum.
+menghasilkan pohon merentang berbobot $2$. Ada tiga pohon merentang minimum.
 :::
 
 Keterhubungan juga bukan hiasan. Graf tak terhubung tidak mempunyai pohon
-rentang menurut definisi di atas. Untuk graf seperti itu, objek yang sesuai
-adalah hutan rentang minimum—sebuah klaim berbeda.
+merentang menurut definisi di atas. Untuk graf seperti itu, objek yang sesuai
+adalah hutan merentang minimum—sebuah klaim berbeda.
 
 ## Eksperimen dan pembuktian mempunyai pekerjaan berbeda {#o017-u01-computation}
 
 Skrip
 [`verify_mst_uniqueness.py`](../code/verify_mst_uniqueness.py) memeriksa semua
 $6!=720$ penetapan bobot berbeda $1,\ldots,6$ pada enam sisi $K_4$. Skrip juga
-menghitung pohon rentang minimum pada segitiga berbobot sama. Ia mengenumerasi
-pohon rentang secara langsung dan tidak memakai algoritme MST sebagai kotak
+menghitung pohon merentang minimum pada segitiga berbobot sama. Ia mengenumerasi
+pohon merentang secara langsung dan tidak memakai algoritme MST sebagai kotak
 hitam, sehingga pemeriksaannya tidak bergantung secara melingkar pada argumen
 yang sedang dikaji.
 
@@ -202,7 +202,7 @@ Ketaksamaan menjadi tegas karena bobot semua sisi berbeda.
 2. []{#o017-u01-x02} **O017-U01-X02.** Tulis ulang argumen dengan memilih sisi teringan hanya
    dalam $T\setminus T'$. Tentukan apakah argumen masih sah.
 3. []{#o017-u01-x03} **O017-U01-X03.** Berikan graf dengan bobot yang tidak semuanya berbeda
-   tetapi mempunyai pohon rentang minimum tunggal.
+   tetapi mempunyai pohon merentang minimum tunggal.
 4. []{#o017-u01-x04} **O017-U01-X04.** Berikan contoh yang menunjukkan bahwa menghapus asumsi
    keterhubungan membuat pernyataan asli salah sasaran.
 5. []{#o017-u01-x05} **O017-U01-X05.** Seorang pembaca menulis, “Program memeriksa semua
@@ -215,7 +215,7 @@ Ketaksamaan menjadi tegas karena bobot semua sisi berbeda.
 
 ## Petunjuk dan panduan jawaban {#o017-u01-guidance}
 
-1. []{#o017-u01-h01} **O017-U01-H01.** Pohon rentang dan bobot pohon adalah definisi;
+1. []{#o017-u01-h01} **O017-U01-H01.** Pohon merentang dan bobot pohon adalah definisi;
    keberhinggaan, keterhubungan, dan bobot berbeda adalah asumsi; ketunggalan
    adalah klaim; argumen pertukaran adalah justifikasi yang belum lengkap.
 2. []{#o017-u01-h02} **O017-U01-H02.** Belum tentu sah: sisi teringan dalam $T\setminus T'$
@@ -223,7 +223,7 @@ Ketaksamaan menjadi tegas karena bobot semua sisi berbeda.
    selisih simetris memberi perbandingan yang diperlukan.
 3. []{#o017-u01-h03} **O017-U01-H03.** Gunakan segitiga berbobot $1,1,2$.
 4. []{#o017-u01-h04} **O017-U01-H04.** Dua simpul tanpa sisi di antaranya sudah cukup; graf itu
-   tidak mempunyai pohon rentang.
+   tidak mempunyai pohon merentang.
 5. []{#o017-u01-h05} **O017-U01-H05.** Pemeriksaan hanya mencakup satu graf dan kasus berhingga;
    keluarannya juga bergantung pada implementasi.
 6. []{#o017-u01-h06} **O017-U01-H06.** Memo dinilai dari keterlacakan setiap klaim, bukan dari
@@ -245,10 +245,10 @@ keluaran komputasi. Memo lulus jika:
 Petikan sintetis, eksposisi, pembuktian, latihan, panduan jawaban, dan kode
 adalah materi asli O017. Teorema ketunggalan MST untuk bobot sisi berbeda adalah
 hasil klasik; presentasi ini tidak menyalin redaksi sumber tertentu. Artikel
-Kruskal merupakan rujukan sejarah algoritme pohon rentang minimum
+Kruskal merupakan rujukan sejarah algoritme pohon merentang minimum
 [@kruskal1956], bukan klaim bahwa redaksi pembuktian di atas berasal darinya.
 
-Untuk praktik reproduktibilitas dan rekayasa artefak penelitian yang lebih
+Untuk praktik reproduksibilitas dan rekayasa artefak penelitian yang lebih
 luas, lihat *The Turing Way* [@turingway2022] dan *Research Software Engineering
 with Python* [@irving2021]. Modul yang diadaptasi dari kedua karya itu baru akan
 masuk pada unit selanjutnya setelah identitas berkas dan hak komponennya

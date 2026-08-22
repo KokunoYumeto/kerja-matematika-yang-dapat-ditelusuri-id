@@ -1,9 +1,9 @@
 ---
-author: "Floris — diproduksi dengan OpenAI Codex"
+author: "KokunoYumeto — diproduksi dengan OpenAI Codex gpt-5.6-sol, Ultra"
 date: "2026-08-22"
 date-format: iso
-doi: "10.5281/zenodo.22051978"
-abstract: "Buku praktik sembilan unit tentang pembacaan penelitian matematika, rekonstruksi pembuktian, sitasi dan provenance, eksposisi, komputasi yang dapat direproduksi, errata, penelaahan, serta kontribusi komunitas terbatas."
+doi: "10.5281/zenodo.22060136"
+abstract: "Buku praktik sembilan unit beserta perangkat penyampaian autentik tentang pembacaan penelitian matematika, rekonstruksi pembuktian, sitasi dan provenance, eksposisi, komputasi yang dapat direproduksi, errata, penelaahan, serta kontribusi komunitas terbatas."
 ---
 
 # Tentang edisi ini {.unnumbered}
@@ -13,13 +13,15 @@ matematika sehingga klaim, sumber, komputasi, koreksi, dan batas kepastiannya
 dapat ditelusuri.
 
 ::: {.callout-note title="Edisi, DOI, dan akses"}
-- **Versi:** 2026.08.22
-- **DOI versi:** <https://doi.org/10.5281/zenodo.22051978>
+- **Versi:** 2026.08.22.1
+- **DOI versi:** <https://doi.org/10.5281/zenodo.22060136>
 - **DOI semua versi:** <https://doi.org/10.5281/zenodo.22051866>
-- **Pembaca HTML:** <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>
-- **Sumber dan riwayat edisi:** <https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id>
-- **Produksi:** diproduksi dengan OpenAI Codex atas instruksi Floris; Floris adalah kreator dan pemegang hak materi asli.
-- **Hak:** pembaca asli CC BY-SA 4.0; adaptasi donor CC BY 4.0; perangkat lunak/runtime MIT atau Apache-2.0. `LICENSES.md` dan `THIRD_PARTY_NOTICES.md` mengendalikan pemetaan per komponen.
+- **Pembaca HTML aksesibel:** <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>; arsip luring identik `o017-d120-id-2026.08.22.1-reader-html.zip` tersedia pada <https://zenodo.org/records/22060136>.
+- **Sumber GitHub:** <https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id>
+- **Sumber, backend, bukti QA, dan riwayat edisi yang terpreservasi:** <https://zenodo.org/records/22060136>
+- **Batas aksesibilitas PDF:** PDF ini tidak bertag dan bukan edisi aksesibel; gunakan pembaca HTML untuk struktur semantik, navigasi papan tik, teks alternatif, dan MathML.
+- **Produksi:** OpenAI Codex gpt-5.6-sol, Ultra. Sistem ini digunakan atas instruksi kreator manusia; **KokunoYumeto** adalah identitas publik kreator dan pemegang hak materi asli.
+- **Hak:** pembaca asli CC BY-SA 4.0; adaptasi donor CC BY 4.0; perangkat lunak/runtime MIT atau Apache-2.0. [LICENSES.md](LICENSES.md) dan [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) mengendalikan pemetaan per komponen.
 :::
 
 Mata kuliah ini mengandaikan bahwa pembaca sudah dapat menulis pembuktian dasar,
@@ -43,6 +45,58 @@ klaim](units/01-membaca-argumen.qmd).
 8. [Catatan seminar, laporan penelaah, dan tanggapan](units/08-seminar-penelaah-tanggapan-kritik.qmd)
 9. [Kontribusi komunitas terbatas dan portofolio akhir](units/09-kontribusi-komunitas-portofolio.qmd)
 
+Sesudah sembilan unit, gunakan [perangkat penyampaian dan penilaian autentik](wrapper/index.qmd). Perangkat itu memisahkan latihan simulasi dari bukti dunia nyata, mensyaratkan penelaah independen bila diperlukan, dan tidak pernah menganggap draf lokal sebagai kontribusi komunitas.
+
+## Glosarium istilah teknis utama
+
+Glosarium ringkas ini mengendalikan istilah yang dipakai lintasunit. Ia
+membedakan istilah yang dekat tetapi tidak identik; padanan Inggris dicantumkan
+hanya ketika membantu menjaga identitas teknis.
+
+- **bukti** (*proof*) adalah objek argumen yang mendukung klaim matematika;
+  **pembuktian** adalah proses menyusun atau memeriksanya. Bukti empiris tetap
+  dibedakan dari bukti matematika.
+- **graf**, **simpul**, **sisi**, dan **graf terhubung** adalah istilah dasar
+  teori graf. *Spanning tree* ditulis **pohon merentang**; *spanning subgraph*
+  ialah **upagraf merentang**; dan *minimum spanning forest* ialah **hutan
+  merentang minimum**.
+- **graf ketergantungan** dipakai untuk jejaring logis antarklaim. **Dependensi**
+  dipertahankan untuk paket atau komponen perangkat lunak bila konteks teknis
+  memerlukannya.
+- **fungsi** adalah nomina matematis utama; **pemetaan** dipakai ketika tindakan
+  atau sudut pandang pemetaan memang dimaksudkan.
+- **barisan** berarti *sequence* dan **deret** berarti *series*. Prosesnya ialah
+  **rekursi**, sifatnya **rekursif**, dan *recurrence relation* ditulis **relasi
+  rekurens**.
+- **kontinu** adalah sifat fungsi; nominanya **kekontinuan**. **Integral** ialah
+  objeknya dan **integrasi** ialah operasi atau metodenya.
+- **galat** dipakai untuk kesalahan numerik atau hampiran. Koreksi publikasi
+  diperkenalkan sebagai **koreksi (erratum)**, bukan sebagai galat numerik.
+- **reproduksibilitas** adalah bentuk nomina baku internal untuk kemampuan
+  mengulang proses dengan artefak dan kondisi yang dinyatakan. Istilah teknis
+  **reproducer minimal** diperkenalkan sekali sebagai **kasus reproduksi
+  minimal**, kemudian dapat disingkat sesuai konteks.
+- **provenance** berarti riwayat asal-usul, versi, transformasi, dan hubungan
+  bukti yang dapat diaudit; istilah ini tidak disamakan dengan *provenans*
+  biologis. **Manifes** adalah daftar identitas artefak, ukuran, hash, hak, dan
+  statusnya.
+
+::: {.callout-note title="QA terminologi dan provenance produksi"}
+Sebelum edisi ini diselesaikan, istilah matematika dibandingkan dengan bahan
+Bahasa Indonesia 2026 karya Rinaldi Munir yang dihoskan resmi oleh Institut
+Teknologi Bandung: bahan IF1220 tentang pembuktian, fungsi, barisan, rekursi,
+graf, dan pohon, serta bahan *Metode Numerik* tentang integral dan galat.
+Pencarian terbatas tidak menemukan sumber TeX berbahasa Indonesia yang layak
+di arXiv; karena itu, bahan PDF universitas tersebut dipakai hanya sebagai
+saksi terminologi dan tidak didistribusikan bersama edisi ini. Rekaman identitas,
+hash, lokator halaman, dan keputusan tersimpan dalam bukti QA sumber.
+
+Sistem produksi: **OpenAI Codex gpt-5.6-sol, Ultra.** Digunakan atas instruksi
+kreator manusia. **KokunoYumeto** adalah identitas publik kreator dan pemegang
+hak materi asli; semua kredit donor,
+penulis sumber, dan kontributor manusia dipertahankan.
+:::
+
 Setiap unit mempunyai hasil belajar, kasus matematika yang dikerjakan, latihan
 terbimbing, enam latihan, enam panduan jawaban, dan tugas penyelesaian. ID yang
 terlihat pada pembaca juga dipertahankan dalam ekspor backend agar versi bahasa
@@ -62,8 +116,7 @@ kurikulum 40 mata kuliah akhirnya memilih corpus ini untuk peran D120.
 ## Hak dan perangkat lunak yang dibundel
 
 Konten, kode, data faktual, donor metodologis, dan runtime HTML memiliki lisensi
-per komponen. Baca [peta lisensi
-lengkap](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/blob/main/LICENSES.md)
-dan [pemberitahuan perangkat lunak pihak
-ketiga](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/blob/main/THIRD_PARTY_NOTICES.md)
-yang ikut dalam pembaca luring ini.
+per komponen. Baca [LICENSES.md](LICENSES.md) dan
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) yang ikut dalam
+pembaca luring ini; arsip sumber dan backend pada rekaman Zenodo menyimpan peta
+hak per jalur serta bukti asalnya.

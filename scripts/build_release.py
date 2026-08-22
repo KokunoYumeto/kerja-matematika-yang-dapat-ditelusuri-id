@@ -11,6 +11,7 @@ import subprocess
 import sys
 import zipfile
 
+from o017_pipeline import extension_release_paths, validate_extension_packages
 from o017_specs import COURSE
 
 
@@ -19,7 +20,7 @@ BUILD = ROOT / "build"
 HTML = BUILD / "html"
 QA = ROOT / "qa"
 RELEASE = ROOT / "release"
-VERSION = "2026.08.22"
+VERSION = "2026.08.22.1"
 RELEASE_DATE = "2026-08-22"
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
 MANIFEST_NAME = "RELEASE_MANIFEST.json"
@@ -29,6 +30,10 @@ PDF_NAME = f"kerja-matematika-yang-dapat-ditelusuri-id-{VERSION}.pdf"
 PDF = ROOT / "output" / "pdf" / PDF_NAME
 PDF_QA = QA / "PDF_QA.json"
 PDF_VISUAL_QA = QA / "PDF_VISUAL_QA.md"
+PDF_FONT_QA = QA / f"PDF_FONT_AND_TAG_AUDIT_{VERSION}.json"
+PDF_FONT_QA_MD = QA / f"PDF_FONT_AND_TAG_AUDIT_{VERSION}.md"
+PDF_ACCESSIBILITY_DISCLOSURE = QA / "PDF_ACCESSIBILITY_DISCLOSURE_PROPOSED.md"
+FONT_PROVENANCE = ROOT / "licenses" / "FONT_COMPONENT_PROVENANCE.json"
 
 
 def fail(message: str) -> None:
@@ -80,11 +85,35 @@ def reader_entries() -> dict[str, Path]:
     for path in sorted(HTML.rglob("*"), key=lambda item: item.relative_to(HTML).as_posix()):
         if path.is_file():
             add_entry(entries, path, path.relative_to(HTML).as_posix())
-    expected_pages = {"index.html", *[unit.html_relative_path.as_posix() for unit in COURSE.units]}
+    expected_pages = {
+        "index.html",
+        *[unit.html_relative_path.as_posix() for unit in COURSE.units],
+        "wrapper/index.html",
+    }
     actual_pages = {name for name in entries if name.endswith(".html")}
     if actual_pages != expected_pages:
         fail("reader archive is not the exact landing-page plus nine-unit closure")
-    for required in ("LICENSES.md", "THIRD_PARTY_NOTICES.md", "licenses/MIT.txt", "licenses/APACHE-2.0.txt"):
+    for required in (
+        "LICENSES.md",
+        "THIRD_PARTY_NOTICES.md",
+        "licenses/MIT.txt",
+        "licenses/APACHE-2.0.txt",
+        "licenses/AMSFonts-3.04-OFL.txt",
+        "licenses/AMSFonts-3.04-README.txt",
+        "licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+        "licenses/GUST-FONT-LICENSE-1.0.txt",
+        "licenses/LATIN-MODERN-MATH-1.959-README.txt",
+        "licenses/SIL-OFL-1.1.txt",
+        "licenses/FONT_COMPONENT_PROVENANCE.json",
+        "qa/PDF_ACCESSIBILITY_DISCLOSURE_PROPOSED.md",
+        "licenses/AMSFonts-3.04-OFL.txt",
+        "licenses/AMSFonts-3.04-README.txt",
+        "licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+        "licenses/GUST-FONT-LICENSE-1.0.txt",
+        "licenses/LATIN-MODERN-MATH-1.959-README.txt",
+        "licenses/SIL-OFL-1.1.txt",
+        "licenses/FONT_COMPONENT_PROVENANCE.json",
+    ):
         if required not in entries:
             fail(f"reader archive lacks required notice: {required}")
     return entries
@@ -128,6 +157,15 @@ def source_entries() -> tuple[dict[str, Path], int]:
         "RELEASE_PROVENANCE.csv",
         "licenses/MIT.txt",
         "licenses/APACHE-2.0.txt",
+        "licenses/AMSFonts-3.04-OFL.txt",
+        "licenses/AMSFonts-3.04-README.txt",
+        "licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+        "licenses/GUST-FONT-LICENSE-1.0.txt",
+        "licenses/LATIN-MODERN-MATH-1.959-README.txt",
+        "licenses/SIL-OFL-1.1.txt",
+        "licenses/FONT_COMPONENT_PROVENANCE.json",
+        "integration/FONT_RIGHTS_MAP_ADDITIONS_DRAFT.csv",
+        "qa/PDF_ACCESSIBILITY_DISCLOSURE_PROPOSED.md",
         "release/zenodo_metadata.json",
         "authority/SOURCE_FREEZE.json",
         "controls/SOURCE_FREEZE.md",
@@ -138,6 +176,7 @@ def source_entries() -> tuple[dict[str, Path], int]:
         "source/_quarto-pdf.yml",
         "source/pdf-header.tex",
         "source/index.qmd",
+        "source/wrapper/index.qmd",
         "source/styles.css",
         "source/references.bib",
         "source/code/verify_mst_uniqueness.py",
@@ -155,6 +194,8 @@ def source_entries() -> tuple[dict[str, Path], int]:
         add_entry(entries, ROOT / Path(name), name)
     for unit in COURSE.units:
         add_entry(entries, unit.source_path)
+    for path in extension_release_paths():
+        add_entry(entries, path)
     for name in (
         "build_and_admit.py",
         "o017_pipeline.py",
@@ -164,6 +205,8 @@ def source_entries() -> tuple[dict[str, Path], int]:
         "visual_qa_full_reader.cjs",
         "finalize_course.py",
         "qa_pdf.py",
+        "audit_pdf_font_accessibility.py",
+        "generate_font_component_provenance.py",
         "build_release.py",
     ):
         add_entry(entries, ROOT / "scripts" / name)
@@ -177,6 +220,8 @@ def source_entries() -> tuple[dict[str, Path], int]:
         "FULL_COURSE_ADMISSION.md",
         "PDF_QA.json",
         "PDF_VISUAL_QA.md",
+        f"PDF_FONT_AND_TAG_AUDIT_{VERSION}.json",
+        f"PDF_FONT_AND_TAG_AUDIT_{VERSION}.md",
     ]
     screenshots: set[Path] = set()
     for name in receipt_names:
@@ -302,22 +347,81 @@ def fresh_extraction_check(source_archive: Path, temp: Path) -> dict[str, object
         archive.extractall(fresh)
     admit = run_checked([sys.executable, "scripts/build_and_admit.py", "--unit", "O017-U09"], fresh)
     final = run_checked([sys.executable, "scripts/finalize_course.py"], fresh)
+    fresh_font_json = fresh / "qa" / ".fresh-font-audit.json"
+    fresh_font_md = fresh / "qa" / ".fresh-font-audit.md"
+    font_audit = run_checked(
+        [
+            sys.executable,
+            "scripts/audit_pdf_font_accessibility.py",
+            "--pdf",
+            f"output/pdf/{PDF_NAME}",
+            "--json-output",
+            str(fresh_font_json),
+            "--markdown-output",
+            str(fresh_font_md),
+        ],
+        fresh,
+    )
+    observed_font = json.loads(fresh_font_json.read_text(encoding="utf-8"))
+    expected_font = json.loads((fresh / PDF_FONT_QA.relative_to(ROOT)).read_text(encoding="utf-8"))
+    for field in ("schema", "pdf", "logical_structure", "fonts"):
+        if observed_font.get(field) != expected_font.get(field):
+            fail(f"fresh extraction did not reproduce PDF font/tag field: {field}")
+    font_provenance = run_checked(
+        [
+            sys.executable,
+            "scripts/generate_font_component_provenance.py",
+            "--pdf",
+            f"output/pdf/{PDF_NAME}",
+            "--audit",
+            PDF_FONT_QA.relative_to(ROOT).as_posix(),
+            "--check",
+        ],
+        fresh,
+    )
     if directory_inventory(fresh / "build" / "html") != directory_inventory(HTML):
         fail("fresh extraction did not reproduce the exact reader tree")
-    for name in ("records.jsonl", "relations.csv", "relations-ledger.csv", "schema.json", "manifest.csv"):
+    for name in (
+        "records.jsonl",
+        "relations.csv",
+        "relations-ledger.csv",
+        "schema.json",
+        "manifest.csv",
+        "semantic-wrapper-v1.baseline.json",
+        "semantic-wrapper-v1.dataset.json",
+        "semantic-wrapper-v1.localizations.jsonl",
+        "semantic-wrapper-v1.records.jsonl",
+        "semantic-wrapper-v1.relations-ledger.csv",
+        "semantic-wrapper-v1.schema.json",
+        "SEMANTIC_WRAPPER_V1.md",
+    ):
         if (fresh / "backend" / name).read_bytes() != (ROOT / "backend" / name).read_bytes():
             fail(f"fresh extraction did not reproduce backend/{name}")
-    for name in ("UNIT_09_QA.json", "UNIT_09_ADMISSION.md", "FULL_COURSE_QA.json", "FULL_COURSE_ADMISSION.md"):
+    for name in (
+        "UNIT_09_QA.json",
+        "UNIT_09_ADMISSION.md",
+        "SEMANTIC_WRAPPER_QA.json",
+        "FULL_COURSE_QA.json",
+        "FULL_COURSE_ADMISSION.md",
+    ):
         if (fresh / "qa" / name).read_bytes() != (QA / name).read_bytes():
             fail(f"fresh extraction did not reproduce qa/{name}")
+    if directory_inventory(fresh / "delivery") != directory_inventory(ROOT / "delivery"):
+        fail("fresh extraction did not preserve and validate the delivery package")
+    if directory_inventory(fresh / "environment") != directory_inventory(ROOT / "environment"):
+        fail("fresh extraction did not preserve the immutable environment package")
     return {
         "status": "PASS",
         "commands": [
             "python scripts/build_and_admit.py --unit O017-U09",
             "python scripts/finalize_course.py",
+            f"python scripts/audit_pdf_font_accessibility.py --pdf output/pdf/{PDF_NAME} --json-output qa/.fresh-font-audit.json --markdown-output qa/.fresh-font-audit.md",
+            f"python scripts/generate_font_component_provenance.py --pdf output/pdf/{PDF_NAME} --audit {PDF_FONT_QA.relative_to(ROOT).as_posix()} --check",
         ],
         "admission_stdout_sha256": sha256_bytes(admit.stdout.encode("utf-8")),
         "final_stdout_sha256": sha256_bytes(final.stdout.encode("utf-8")),
+        "font_audit_stdout_sha256": sha256_bytes(font_audit.stdout.encode("utf-8")),
+        "font_provenance_stdout_sha256": sha256_bytes(font_provenance.stdout.encode("utf-8")),
         "reader_tree": directory_inventory(HTML),
     }
 
@@ -334,7 +438,7 @@ def text_secret_scan(entries: dict[str, Path]) -> dict[str, object]:
     )
     checked = 0
     for name, path in entries.items():
-        if PurePosixPath(name).suffix.lower() not in suffixes:
+        if PurePosixPath(name).suffix.lower() not in suffixes and PurePosixPath(name).name != "Containerfile":
             continue
         checked += 1
         text = path.read_text(encoding="utf-8", errors="ignore").casefold()
@@ -344,7 +448,7 @@ def text_secret_scan(entries: dict[str, Path]) -> dict[str, object]:
     return {"status": "PASS", "text_files_checked": checked, "patterns": list(patterns)}
 
 
-def validate_full_course_qa() -> dict[str, object]:
+def validate_full_course_qa(extension_validation: dict[str, object]) -> dict[str, object]:
     path = QA / "FULL_COURSE_QA.json"
     value = json.loads(path.read_text(encoding="utf-8"))
     expected_units = [unit.id for unit in COURSE.units]
@@ -380,25 +484,40 @@ def validate_full_course_qa() -> dict[str, object]:
     metadata = ROOT / "release" / "zenodo_metadata.json"
     if value.get("metadata", {}).get("sha256") != sha256_file(metadata):
         fail("full-course admission has stale Zenodo metadata")
+    if value.get("extensions") != extension_validation:
+        fail("full-course admission has stale delivery/backend/environment validation")
     return value
 
 
 def validate_pdf() -> dict[str, object]:
     if not PDF.is_file():
         fail(f"release PDF is missing: {PDF}")
-    if not PDF_QA.is_file() or not PDF_VISUAL_QA.is_file():
-        fail("PDF machine or visual QA receipt is missing")
+    if not all(
+        path.is_file()
+        for path in (
+            PDF_QA,
+            PDF_VISUAL_QA,
+            PDF_FONT_QA,
+            PDF_FONT_QA_MD,
+            PDF_ACCESSIBILITY_DISCLOSURE,
+            FONT_PROVENANCE,
+        )
+    ):
+        fail("PDF machine, visual, font/tag, disclosure, or provenance evidence is missing")
     value = json.loads(PDF_QA.read_text(encoding="utf-8"))
     pdf = value.get("pdf")
     front = value.get("front_matter")
     if value.get("status") != "PASS" or not isinstance(pdf, dict) or not isinstance(front, dict):
         fail("PDF QA is not a PASS with PDF and front-matter evidence")
     digest = sha256_file(PDF)
+    pages = pdf.get("pages")
+    if not isinstance(pages, int) or pages <= 128:
+        fail("PDF QA does not preserve the 128-page spine plus delivery wrapper")
     expected_pdf = {
         "path": PDF.relative_to(ROOT).as_posix(),
         "bytes": PDF.stat().st_size,
         "sha256": digest,
-        "pages": 128,
+        "pages": pages,
     }
     for field, expected in expected_pdf.items():
         if pdf.get(field) != expected:
@@ -410,15 +529,51 @@ def validate_pdf() -> dict[str, object]:
     if value.get("visual_qa") != PDF_VISUAL_QA.relative_to(ROOT).as_posix():
         fail("PDF QA points to the wrong visual receipt")
     visual = PDF_VISUAL_QA.read_text(encoding="utf-8")
-    for marker in ("- Status: `PASS`", PDF_NAME, digest, "128 A4 pages"):
+    for marker in ("- Status: `PASS`", PDF_NAME, digest, f"{pages} A4 pages"):
         if marker not in visual:
             fail(f"PDF visual QA lacks required identity marker: {marker}")
+
+    font_audit = json.loads(PDF_FONT_QA.read_text(encoding="utf-8"))
+    audit_pdf = font_audit.get("pdf", {})
+    logical = font_audit.get("logical_structure", {})
+    fonts = font_audit.get("fonts", {})
+    for field, expected in expected_pdf.items():
+        if audit_pdf.get(field) != expected:
+            fail(f"PDF font/tag audit has stale or invalid {field}")
+    if (
+        font_audit.get("schema") != "o017-pdf-font-tag-audit-v1"
+        or logical.get("tagged") is not False
+        or logical.get("catalog_has_struct_tree_root") is not False
+        or fonts.get("all_embedded") is not True
+        or fonts.get("font_objects") != 15
+        or fonts.get("without_to_unicode") != 1
+    ):
+        fail("PDF font/tag audit does not prove the frozen untagged, fully embedded state")
+    provenance = json.loads(FONT_PROVENANCE.read_text(encoding="utf-8"))
+    if provenance.get("schema") != "o017-font-component-provenance-v2":
+        fail("font component provenance is not v2")
+    provenance_pdf = provenance.get("audited_pdf", {})
+    for field in ("path", "bytes", "sha256", "pages"):
+        if provenance_pdf.get(field) != expected_pdf[field]:
+            fail(f"font component provenance has stale PDF {field}")
+    component_ids = {row.get("resource_id") for row in provenance.get("components", [])}
+    if component_ids != {
+        "O017-FONT-LM-TEXT",
+        "O017-FONT-LM-MATH",
+        "O017-FONT-FA5FREE",
+        "O017-FONT-MSAM10",
+    }:
+        fail("font component provenance is not the exact four-family closure")
+    disclosure = PDF_ACCESSIBILITY_DISCLOSURE.read_text(encoding="utf-8")
+    for marker in ("belum", "untagged", "PDF/UA", "HTML"):
+        if marker not in disclosure:
+            fail(f"PDF accessibility disclosure lacks required marker: {marker}")
     return {
         "filename": PDF_NAME,
         "source_path": PDF.relative_to(ROOT).as_posix(),
         "bytes": PDF.stat().st_size,
         "sha256": digest,
-        "pages": 128,
+        "pages": pages,
         "page_size": "A4",
         "machine_qa": {
             "path": PDF_QA.relative_to(ROOT).as_posix(),
@@ -429,6 +584,23 @@ def validate_pdf() -> dict[str, object]:
             "path": PDF_VISUAL_QA.relative_to(ROOT).as_posix(),
             "bytes": PDF_VISUAL_QA.stat().st_size,
             "sha256": sha256_file(PDF_VISUAL_QA),
+        },
+        "font_tag_audit": {
+            "path": PDF_FONT_QA.relative_to(ROOT).as_posix(),
+            "bytes": PDF_FONT_QA.stat().st_size,
+            "sha256": sha256_file(PDF_FONT_QA),
+            "tagged": False,
+            "font_objects": 15,
+        },
+        "font_provenance": {
+            "path": FONT_PROVENANCE.relative_to(ROOT).as_posix(),
+            "bytes": FONT_PROVENANCE.stat().st_size,
+            "sha256": sha256_file(FONT_PROVENANCE),
+        },
+        "accessibility_disclosure": {
+            "path": PDF_ACCESSIBILITY_DISCLOSURE.relative_to(ROOT).as_posix(),
+            "bytes": PDF_ACCESSIBILITY_DISCLOSURE.stat().st_size,
+            "sha256": sha256_file(PDF_ACCESSIBILITY_DISCLOSURE),
         },
     }
 
@@ -451,7 +623,8 @@ def copy_release_pdf() -> Path:
 
 
 def main() -> None:
-    validate_full_course_qa()
+    extension_validation = validate_extension_packages()
+    validate_full_course_qa(extension_validation)
     pdf_result = validate_pdf()
     reader = reader_entries()
     source, screenshot_count = source_entries()

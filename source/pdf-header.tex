@@ -1,0 +1,31 @@
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{xurl}
+\usepackage{seqsplit}
+\let\oTexttt\texttt
+\renewrobustcmd{\texttt}[1]{\oTexttt{\seqsplit{#1}}}
+\setlength{\emergencystretch}{3em}
+\raggedbottom
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Kerja Matematika yang Dapat Ditelusuri}
+\fancyhead[R]{\small O017 / D120}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+\AtBeginEnvironment{longtable}{\small}
+\newenvironment{refproof}{\begin{proof}}{\end{proof}}
+\publishers{%
+  \begin{minipage}{0.88\textwidth}
+  \centering\small
+  \textbf{DOI versi:} \href{https://doi.org/10.5281/zenodo.22060136}{10.5281/zenodo.22060136}\\
+  \textbf{DOI semua versi:} \href{https://doi.org/10.5281/zenodo.22051866}{10.5281/zenodo.22051866}\\[0.5em]
+  \textbf{Pembaca HTML aksesibel:} \url{https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/}\\
+  \textbf{Sumber GitHub:} \url{https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id}\\
+  \textbf{Arsip edisi, sumber, dan backend:} \url{https://zenodo.org/records/22060136}\\
+  \textbf{Batas aksesibilitas:} PDF ini tidak bertag dan bukan edisi aksesibel; gunakan pembaca HTML.\\[0.7em]
+  OpenAI Codex gpt-5.6-sol, Ultra. Digunakan atas instruksi kreator manusia.\\
+  Pemetaan hak per komponen tersedia dalam \texttt{LICENSES.md}.
+  \end{minipage}%
+}

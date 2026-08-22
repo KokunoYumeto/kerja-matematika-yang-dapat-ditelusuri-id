@@ -29,3 +29,20 @@ The official Quarto 1.9.37 dependency declaration fixes AnchorJS 5.0.0, Popper
 2.11.7, clipboard.js 2.0.11, Tippy.js 6.3.7, Autocomplete 1.19.1, and Fuse.js
 6.6.2. The exact bundled file SHA-256 values are recorded by the release
 manifest; this notice does not substitute a different upstream version.
+
+## Embedded PDF fonts
+
+The fixed-layout PDF contains embedded subsets of these font programs; they
+remain under their component licenses and are not covered by the reader's
+CC BY-SA grant.
+
+| Component | Version | PDF use | License / notice | Official source |
+|---|---:|---|---|---|
+| Latin Modern text | 2.004 | 12 embedded subset objects | GUST Font License 1.0; Copyright 2003, 2009 B. Jackowski and J. M. Nowacki (on behalf of TeX users groups); `licenses/GUST-FONT-LICENSE-1.0.txt` | <https://ctan.org/pkg/lm> |
+| Latin Modern Math | 1.959 | 1 embedded subset object | GUST Font License 1.0; Copyright 2012–2014 B. Jackowski, P. Strzelczyk, and P. Pianowski (on behalf of TeX Users Groups); `licenses/LATIN-MODERN-MATH-1.959-README.txt` and `licenses/GUST-FONT-LICENSE-1.0.txt` | <https://ctan.org/pkg/lm-math> |
+| Font Awesome 5 Free Solid font | 5.15.4 | 1 embedded subset object | SIL OFL 1.1 for the font; Copyright © Font Awesome; `licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt` and `licenses/SIL-OFL-1.1.txt` | <https://github.com/FortAwesome/Font-Awesome/tree/5.15.4> |
+| AMSFonts MSAM10 Type 1 | 003.002 (AMSFonts 3.04) | 1 embedded subset object | SIL OFL 1.1; Copyright © 1997, 2009 American Mathematical Society; Reserved Font Name `msam10`; `licenses/AMSFonts-3.04-README.txt` and `licenses/AMSFonts-3.04-OFL.txt` | <https://ctan.org/pkg/amsfonts> |
+
+The PDF carries font subsets, not standalone upstream source-font packages.
+Preserve the notices above and `licenses/FONT_COMPONENT_PROVENANCE.json` when
+redistributing it. Embedding/subsetting does not relicense any font.

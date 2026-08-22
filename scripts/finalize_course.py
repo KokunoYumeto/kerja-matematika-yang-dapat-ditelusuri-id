@@ -23,6 +23,7 @@ from o017_pipeline import (
     reader_tree_evidence,
     run_computations,
     unit_hashes,
+    validate_extension_packages,
     validate_visual_receipt,
     verify_local_links,
     verify_offline_css,
@@ -64,15 +65,32 @@ def verify_full_visual(tree: dict[str, object]) -> dict[str, object]:
     if not path.is_file():
         fail("full-reader browser receipt is missing")
     report = json.loads(path.read_text(encoding="utf-8"))
-    expected_pages = ["index.html", *[unit.html_relative_path.as_posix() for unit in COURSE.units]]
+    expected_pages = [
+        "index.html",
+        *[unit.html_relative_path.as_posix() for unit in COURSE.units],
+        "wrapper/index.html",
+    ]
     expected_legal = {
         "LICENSES.md": ROOT / "LICENSES.md",
         "THIRD_PARTY_NOTICES.md": ROOT / "THIRD_PARTY_NOTICES.md",
         "licenses/MIT.txt": ROOT / "licenses" / "MIT.txt",
         "licenses/APACHE-2.0.txt": ROOT / "licenses" / "APACHE-2.0.txt",
+        "licenses/AMSFonts-3.04-OFL.txt": ROOT / "licenses" / "AMSFonts-3.04-OFL.txt",
+        "licenses/AMSFonts-3.04-README.txt": ROOT / "licenses" / "AMSFonts-3.04-README.txt",
+        "licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt": ROOT
+        / "licenses"
+        / "FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+        "licenses/GUST-FONT-LICENSE-1.0.txt": ROOT / "licenses" / "GUST-FONT-LICENSE-1.0.txt",
+        "licenses/LATIN-MODERN-MATH-1.959-README.txt": ROOT
+        / "licenses"
+        / "LATIN-MODERN-MATH-1.959-README.txt",
+        "licenses/SIL-OFL-1.1.txt": ROOT / "licenses" / "SIL-OFL-1.1.txt",
+        "licenses/FONT_COMPONENT_PROVENANCE.json": ROOT
+        / "licenses"
+        / "FONT_COMPONENT_PROVENANCE.json",
     }
-    if report.get("schema") != "o017-full-reader-visual-qa-v1" or report.get("status") != "PASS":
-        fail("full-reader browser receipt is not PASS v1")
+    if report.get("schema") != "o017-full-reader-visual-qa-v2" or report.get("status") != "PASS":
+        fail("full-reader browser receipt is not PASS v2")
     if report.get("pages") != expected_pages or report.get("reader_tree") != tree:
         fail("full-reader browser receipt is stale for the final tree")
     script = ROOT / "scripts" / "visual_qa_full_reader.cjs"
@@ -110,14 +128,18 @@ def verify_full_visual(tree: dict[str, object]) -> dict[str, object]:
                 or "o017-skip-link" not in str(item.get("firstTab", {}).get("className", "")).split()
             ):
                 fail(f"full-reader {viewport} accessibility check failed: {page}")
-        coverage = values.get("indexVisualCoverage", {})
-        tiles = coverage.get("tiles", [])
-        if coverage.get("coverageComplete") is not True or coverage.get("tileCount") != len(tiles) or not tiles:
-            fail(f"landing-page visual coverage is incomplete at {viewport}")
-        for tile in tiles:
-            screenshot = ROOT / tile["screenshot"]
-            if not screenshot.is_file() or digest(screenshot) != tile["screenshotSha256"]:
-                fail(f"landing-page screenshot mismatch: {screenshot}")
+        for coverage_name, label in (
+            ("indexVisualCoverage", "landing-page"),
+            ("wrapperVisualCoverage", "delivery-wrapper"),
+        ):
+            coverage = values.get(coverage_name, {})
+            tiles = coverage.get("tiles", [])
+            if coverage.get("coverageComplete") is not True or coverage.get("tileCount") != len(tiles) or not tiles:
+                fail(f"{label} visual coverage is incomplete at {viewport}")
+            for tile in tiles:
+                screenshot = ROOT / tile["screenshot"]
+                if not screenshot.is_file() or digest(screenshot) != tile["screenshotSha256"]:
+                    fail(f"{label} screenshot mismatch: {screenshot}")
     return {
         "path": path.relative_to(ROOT).as_posix(),
         "sha256": digest(path),
@@ -135,16 +157,16 @@ def verify_release_metadata() -> dict[str, object]:
         "language": "ind",
         "license": "other-open",
         "access_right": "open",
-        "version": "2026.08.22",
+        "version": "2026.08.22.1",
     }
     for key, expected_value in expected.items():
         if value.get(key) != expected_value:
             fail(f"Zenodo metadata {key} is not frozen")
-    if value.get("creators") != [{"name": "Floris"}]:
+    if value.get("creators") != [{"name": "KokunoYumeto"}]:
         fail("Zenodo creator identity is not the declared release identity")
-    if value.get("contributors") != [{"name": "OpenAI Codex", "type": "Other"}]:
+    if value.get("contributors") != [{"name": "OpenAI Codex gpt-5.6-sol, Ultra", "type": "Other"}]:
         fail("Zenodo production-system disclosure is not frozen")
-    if "40-course" not in value.get("description", ""):
+    if "Curriculum admission remains a separate decision" not in value.get("description", ""):
         fail("Zenodo metadata lacks the curriculum-admission separation")
     return {"path": path.relative_to(ROOT).as_posix(), "sha256": digest(path)}
 
@@ -156,8 +178,14 @@ def main() -> None:
         if unit.expected_source_sha256 and digest(unit.source_path) != unit.expected_source_sha256:
             fail(f"source lock changed: {unit.id}")
 
+    extension_validation = validate_extension_packages()
+
     html_paths = sorted(HTML_ROOT.rglob("*.html"), key=lambda item: item.relative_to(HTML_ROOT).as_posix())
-    expected_html = {Path("index.html"), *[unit.html_relative_path for unit in COURSE.units]}
+    expected_html = {
+        Path("index.html"),
+        *[unit.html_relative_path for unit in COURSE.units],
+        Path("wrapper/index.html"),
+    }
     if {path.relative_to(HTML_ROOT) for path in html_paths} != expected_html:
         fail("final reader does not contain exactly the landing page and nine unit HTML pages")
     verify_offline_css(HTML_ROOT.rglob("*.css"))
@@ -241,15 +269,19 @@ def main() -> None:
     if (
         not edition
         or edition.get("status") != "release-candidate"
-        or edition.get("creator") != "Floris"
-        or edition.get("production_system") != "OpenAI Codex"
+        or edition.get("creator") != "KokunoYumeto"
+        or edition.get("production_system") != "OpenAI Codex gpt-5.6-sol, Ultra"
     ):
         fail("backend edition is not a transparent release candidate")
 
     bibliography = (SOURCE / "references.bib").read_text(encoding="utf-8")
     bibliography_keys = set(re.findall(r"(?m)^@[A-Za-z]+\{([^,]+),", bibliography))
     cited_keys: set[str] = set()
-    for path in [SOURCE / "index.qmd", *[unit.source_path for unit in COURSE.units]]:
+    for path in [
+        SOURCE / "index.qmd",
+        *[unit.source_path for unit in COURSE.units],
+        SOURCE / "wrapper" / "index.qmd",
+    ]:
         source_text = path.read_text(encoding="utf-8")
         for group in re.findall(r"\[([^\]]*@[A-Za-z0-9:_./+-]+[^\]]*)\]", source_text):
             cited_keys.update(re.findall(r"@([A-Za-z0-9:_./+-]+)", group))
@@ -261,16 +293,45 @@ def main() -> None:
     provenance_rows = list(csv.DictReader((ROOT / "RELEASE_PROVENANCE.csv").read_text(encoding="utf-8").splitlines()))
     if len(provenance_rows) != 3 or any(row["bundled"] != "false" for row in provenance_rows[1:]):
         fail("release provenance does not explicitly exclude donor witness trees")
+    font_provenance_path = ROOT / "licenses" / "FONT_COMPONENT_PROVENANCE.json"
+    font_provenance = json.loads(font_provenance_path.read_text(encoding="utf-8"))
+    font_components = {
+        row["resource_id"]: row for row in font_provenance.get("components", [])
+    }
+    expected_font_ids = {
+        "O017-FONT-LM-TEXT",
+        "O017-FONT-LM-MATH",
+        "O017-FONT-FA5FREE",
+        "O017-FONT-MSAM10",
+    }
+    if font_provenance.get("schema") != "o017-font-component-provenance-v2" or set(font_components) != expected_font_ids:
+        fail("font provenance is not the exact four-component v2 closure")
+    rights_manifest_path = ROOT / "controls" / "SOURCE_RIGHTS_MANIFEST.csv"
+    rights_rows = {
+        row["resource_id"]: row
+        for row in csv.DictReader(rights_manifest_path.read_text(encoding="utf-8").splitlines())
+    }
+    if not expected_font_ids.issubset(rights_rows):
+        fail("source-rights manifest lacks one or more embedded font components")
+    for resource_id, component in font_components.items():
+        row = rights_rows[resource_id]
+        if (
+            int(row["selected_files"]) != component["embedded_pdf_objects"]
+            or int(row["selected_bytes"]) != component["embedded_stream_bytes"]
+            or row["selected_manifest_sha256"] != component["component_manifest_sha256"]
+            or "PDF_FONT_AND_TAG_AUDIT_2026.08.22.1.json" not in row["release_evidence"]
+        ):
+            fail(f"source-rights manifest is stale for {resource_id}")
 
     qa = {
-        "schema": "o017-full-course-admission-v1",
+        "schema": "o017-full-course-admission-v2",
         "status": "PASS",
         "date": "2026-08-22",
         "lane_id": COURSE.lane_id,
         "edition_id": "O017-EDITION-01",
-        "version": "2026.08.22",
-        "creator": "Floris",
-        "production_system": "OpenAI Codex",
+        "version": "2026.08.22.1",
+        "creator": "KokunoYumeto",
+        "production_system": "OpenAI Codex gpt-5.6-sol, Ultra",
         "curriculum_selection": "separate decision; this receipt admits the edition, not the 40-course corpus choice",
         "units": [unit.id for unit in COURSE.units],
         "unit_receipts": unit_receipts,
@@ -299,11 +360,15 @@ def main() -> None:
             "manifest_input_bytes": manifest_bytes,
             "manifest_sha256": manifest_sha,
         },
+        "extensions": extension_validation,
         "rights": {
             "LICENSES.md": digest(ROOT / "LICENSES.md"),
             "THIRD_PARTY_NOTICES.md": digest(ROOT / "THIRD_PARTY_NOTICES.md"),
             "licenses/MIT.txt": digest(ROOT / "licenses" / "MIT.txt"),
             "licenses/APACHE-2.0.txt": digest(ROOT / "licenses" / "APACHE-2.0.txt"),
+            "licenses/FONT_COMPONENT_PROVENANCE.json": digest(font_provenance_path),
+            "controls/SOURCE_RIGHTS_MANIFEST.csv": digest(rights_manifest_path),
+            "font_component_ids": sorted(expected_font_ids),
             "RELEASE_PROVENANCE.csv": digest(ROOT / "RELEASE_PROVENANCE.csv"),
             "donor_witness_trees_bundled": False,
             "unauthorized_external_contact_claims": 0,
@@ -319,7 +384,7 @@ def main() -> None:
             "Status: **PASS / FULL_READER_BUILT**  ",
             "Date: 2026-08-22",
             "",
-            f"- Units: 9 admitted; 54 exercise–guidance pairs",
+            f"- Units: 9 admitted; 54 exercise–guidance pairs; authentic-delivery wrapper included",
             f"- Reader: {tree['files']} files / {tree['bytes']:,} bytes; tree `{tree['manifestSha256']}`",
             f"- Links: {local_links} local / {fragments} fragments; zero missing targets",
             f"- Backend: {backend.record_count} records / {backend.relation_count} issued relations; stable map `{backend.stable_relation_map_sha256}`",

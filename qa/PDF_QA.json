@@ -1,0 +1,68 @@
+{
+  "date": "2026-08-22",
+  "front_matter": {
+    "component_rights_pointer": "LICENSES.md",
+    "concept_doi": "10.5281/zenodo.22051866",
+    "html_access": "offline HTML archive on the Zenodo record",
+    "live_link_annotations": [
+      "https://doi.org/10.5281/zenodo.22051866",
+      "https://doi.org/10.5281/zenodo.22060136",
+      "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id",
+      "https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/",
+      "https://zenodo.org/records/22060136"
+    ],
+    "pdf_accessibility_disclosure": "untagged; not the accessible edition",
+    "production_disclosure": true,
+    "record_url": "https://zenodo.org/records/22060136",
+    "version": "2026.08.22.1",
+    "version_doi": "10.5281/zenodo.22060136"
+  },
+  "pdf": {
+    "author": "KokunoYumeto",
+    "bytes": 589303,
+    "encrypted": false,
+    "page_size": {
+      "name": "A4",
+      "points": [
+        595.28,
+        841.89
+      ]
+    },
+    "pages": 134,
+    "path": "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf",
+    "sha256": "bfac70f7efd2ce0a65fd0b2435ed817dee8186169f8f3a95b0fe526a0f46f2bf",
+    "title": "Kerja Matematika yang Dapat Ditelusuri"
+  },
+  "schema": "o017-pdf-qa-v2",
+  "status": "PASS",
+  "structure": {
+    "accessible_surface": "HTML",
+    "all_pages_have_extractable_text": true,
+    "delivery_wrapper_outline_position": 158,
+    "mark_info_marked": false,
+    "outline_entries": 164,
+    "replacement_characters": 0,
+    "structure_tree_present": false,
+    "tagged": false,
+    "text_bounds_points": {
+      "max_x1": 529.195,
+      "max_y1": 809.807,
+      "min_x0": 66.188,
+      "min_y0": 34.84
+    },
+    "text_boxes_outside_media_box": 0,
+    "unit_chapters": 9,
+    "unit_outline_positions": [
+      5,
+      17,
+      30,
+      46,
+      61,
+      78,
+      96,
+      116,
+      137
+    ]
+  },
+  "visual_qa": "qa/PDF_VISUAL_QA.md"
+}

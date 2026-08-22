@@ -1,0 +1,24 @@
+criterion_id,assessment_id,locale,label,requirement,pass_evidence,gate_id,noncompensable,score_scale
+O017-WRAP-C01,O017-WRAP-A01,id-ID,Pertanyaan awal,"Pertanyaan matematika dan batas ditulis sebelum pencarian.",artefak pertanyaan bertanggal,O017-WRAP-G02,true,fail|pass
+O017-WRAP-C02,O017-WRAP-A01,id-ID,Ledger kueri,"Kueri, layanan, waktu, dan hasil dipertahankan termasuk hasil yang dikeluarkan.",ledger kueri berurutan,O017-WRAP-G02,true,fail|pass
+O017-WRAP-C03,O017-WRAP-A01,id-ID,Otoritas dan versi,"Sedikitnya satu makalah atau monograf nyata dibekukan dengan lokator, versi, hak, dan otoritas.",rekaman pembekuan sumber,O017-WRAP-G01,true,fail|pass
+O017-WRAP-C04,O017-WRAP-A01,id-ID,Aturan berhenti,"Aturan berhenti ditulis sebelum kesimpulan dan cocok dengan bukti yang terkumpul.",aturan berhenti dan matriks calon,O017-WRAP-G02,true,fail|pass
+O017-WRAP-C05,O017-WRAP-A01,id-ID,Ketidakpastian,"Konflik versi, batas pencarian, dan klaim yang tidak diperiksa tetap terlihat.",ledger ketidakpastian,O017-WRAP-G02,true,fail|pass
+O017-WRAP-C06,O017-WRAP-A02,id-ID,Identitas konteks,"Acara nyata atau padanan tersupervisi memiliki tanggal, zona waktu, peran, dan label jalur yang benar.",identitas acara dan bukti kehadiran atau supervisi,O017-WRAP-G03,true,fail|pass
+O017-WRAP-C07,O017-WRAP-A02,id-ID,Catatan berlokator,"Catatan berwaktu atau bersegmen membedakan observasi, inferensi, dan verifikasi sesudah acara.",catatan berwaktu dan catatan akhir,O017-WRAP-G03,true,fail|pass
+O017-WRAP-C08,O017-WRAP-A02,id-ID,Dependensi dan pertanyaan,"Peta dependensi dan log pertanyaan mempertahankan bagian terbuka.",peta dependensi dan log pertanyaan,O017-WRAP-G03,true,fail|pass
+O017-WRAP-C09,O017-WRAP-A02,id-ID,Alternatif akses,"Jalur teks, matematika mesin, deskripsi visual, dan kanal nonbicara tersedia serta diuji.",laporan uji aksesibilitas,O017-WRAP-G08,true,fail|pass
+O017-WRAP-C10,O017-WRAP-A03,id-ID,Dua manusia berbeda,"Penulis dan penelaah adalah dua manusia berbeda dengan ID buram dan atestasi distingsi.",atestasi distingsi dan pemeriksaan konflik,O017-WRAP-G04,true,fail|pass
+O017-WRAP-C11,O017-WRAP-A03,id-ID,Artefak awal beku,"Naskah awal mempunyai versi, byte, hash, dan lingkup.",manifest naskah awal,O017-WRAP-G06,true,fail|pass
+O017-WRAP-C12,O017-WRAP-A03,id-ID,Laporan berbukti,"Setiap komentar mempunyai lokator, klaim, diagnosis, bukti, permintaan, keparahan, dan batas.",laporan penelaah,O017-WRAP-G06,true,fail|pass
+O017-WRAP-C13,O017-WRAP-A03,id-ID,Tanggapan dan disposisi,"Setiap komentar dipetakan ke tindakan, bukti, lokasi revisi, disposisi, dan masalah tersisa.",tanggapan dan tabel disposisi,O017-WRAP-G06,true,fail|pass
+O017-WRAP-C14,O017-WRAP-A03,id-ID,Perbandingan revisi,"Perubahan matematika dapat diaudit dari versi awal ke versi baru tanpa menimpa sejarah.",revisi dan bukti sebelum/sesudah,O017-WRAP-G06,true,fail|pass
+O017-WRAP-C15,O017-WRAP-A04,id-ID,Sumber erratum beku,"Sumber nyata, edisi atau representasi, lokator, dan hak dibekukan.",rekaman sumber dan saksi versi,O017-WRAP-G01,true,fail|pass
+O017-WRAP-C16,O017-WRAP-A04,id-ID,Diagnosis terpisah,"Status pernyataan, jenis cacat, keparahan, keyakinan, dan jangkauan tidak dilebur.",dossier klasifikasi,O017-WRAP-G05,true,fail|pass
+O017-WRAP-C17,O017-WRAP-A04,id-ID,Reproducer dan koreksi,"Reproducer minimal dapat diulang dan koreksi mempertahankan klaim sebanyak mungkin.","reproducer, koreksi, dan audit dampak",O017-WRAP-G05,true,fail|pass
+O017-WRAP-C18,O017-WRAP-A04,id-ID,Pemeriksaan independen,"Manusia kedua memeriksa matematika secara independen dan menyebut lingkup serta keterbatasan.",laporan pemeriksa kedua dan atestasi distingsi,O017-WRAP-G04,true,fail|pass
+O017-WRAP-C19,O017-WRAP-A05,id-ID,Hak dan nilai marjinal,"Paket mempunyai dasar hak, target yang tepat atau alasan berhenti, serta pemeriksaan duplikasi.","pemeriksaan hak, target, dan nilai marjinal",O017-WRAP-G05,true,fail|pass
+O017-WRAP-C20,O017-WRAP-A05,id-ID,Otorisasi dan status,"Tidak ada transmisi tanpa otorisasi khusus; setiap status luar mempunyai bukti peristiwa.","otorisasi, tanda terima bila ada, dan ledger append-only",O017-WRAP-G07,true,fail|pass
+O017-WRAP-C21,O017-WRAP-A05,id-ID,Label cabang,"Community transaction dan externally reviewed local dibedakan pada hasil dan kredensial.",hasil berlabel dan bukti cabang,O017-WRAP-G07,true,fail|pass
+O017-WRAP-C22,ALL,id-ID,Privasi evaluator,"ID publik acak dan buram; pemetaan identitas tidak masuk paket; data pribadi diminimalkan.",atestasi privasi dan inventaris data,O017-WRAP-G08,true,fail|pass
+O017-WRAP-C23,ALL,id-ID,Manifest bukti,"Setiap artefak mempunyai ID, lokator, byte, SHA-256, hak, status verifikasi, dan retensi.",manifest bukti yang lolos validasi,O017-WRAP-G09,true,fail|pass

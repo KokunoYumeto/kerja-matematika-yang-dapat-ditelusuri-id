@@ -23,13 +23,28 @@ const pages = [
   "units/07-errata-koreksi-batas-kepastian.html",
   "units/08-seminar-penelaah-tanggapan-kritik.html",
   "units/09-kontribusi-komunitas-portofolio.html",
+  "wrapper/index.html",
 ];
+
+const expectedToolTargets = new Set([
+  "https://zenodo.org/records/22060136/files/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf?download=1",
+  "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id",
+  "https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/",
+  "https://zenodo.org/records/22060136",
+]);
 
 const legalFiles = [
   "LICENSES.md",
   "THIRD_PARTY_NOTICES.md",
   "licenses/MIT.txt",
   "licenses/APACHE-2.0.txt",
+  "licenses/AMSFonts-3.04-OFL.txt",
+  "licenses/AMSFonts-3.04-README.txt",
+  "licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+  "licenses/GUST-FONT-LICENSE-1.0.txt",
+  "licenses/LATIN-MODERN-MATH-1.959-README.txt",
+  "licenses/SIL-OFL-1.1.txt",
+  "licenses/FONT_COMPONENT_PROVENANCE.json",
 ];
 
 const contentTypes = {
@@ -96,7 +111,7 @@ function serveFile(request, response) {
   fs.createReadStream(target).pipe(response);
 }
 
-async function captureIndexTiles(page, label, viewport) {
+async function capturePageTiles(page, label, viewport, slug) {
   await page.setViewportSize(viewport);
   const documentHeight = await page.evaluate(() => Math.max(
     document.body.scrollHeight,
@@ -124,7 +139,7 @@ async function captureIndexTiles(page, label, viewport) {
     }
     const screenshot = path.join(
       visualRoot,
-      `full-reader-index-${label}-tile-${String(index + 1).padStart(3, "0")}.png`,
+      `full-reader-${slug}-${label}-tile-${String(index + 1).padStart(3, "0")}.png`,
     );
     await page.screenshot({ path: screenshot, animations: "disabled" });
     tiles.push({
@@ -158,11 +173,18 @@ async function inspectPage(page, origin, relative, viewportName, viewport) {
     const navTargets = [...document.querySelectorAll("nav.navbar a.nav-link")]
       .map((node) => {
         const url = new URL(node.href, location.href);
-        return url.pathname.replace(/^\/+/, "") || "index.html";
+        const target = url.pathname.replace(/^\/+/, "") || "index.html";
+        return target.endsWith("/") ? `${target}index.html` : target;
       });
+    const homeNode = document.querySelector("nav.navbar a.navbar-brand");
+    const homeTarget = homeNode
+      ? new URL(homeNode.href, location.href).pathname.replace(/^\/+/, "") || "index.html"
+      : null;
     const legalTargets = [...main.querySelectorAll("a")]
       .map((node) => node.getAttribute("href"))
       .filter((href) => href && (href.includes("LICENSES") || href.includes("THIRD_PARTY_NOTICES")));
+    const toolTargets = [...document.querySelectorAll("a.quarto-navigation-tool")]
+      .map((node) => node.href);
     return {
       title: document.title,
       language: document.documentElement.lang,
@@ -177,7 +199,9 @@ async function inspectPage(page, origin, relative, viewportName, viewport) {
       skipLinks: document.querySelectorAll("a.o017-skip-link").length,
       skipTarget: document.querySelector("a.o017-skip-link")?.getAttribute("href") || null,
       navTargets,
+      homeTarget,
       legalTargets,
+      toolTargets,
       remoteRuntimeRequests: performance.getEntriesByType("resource")
         .map((entry) => entry.name)
         .filter((url) => !url.startsWith(location.origin + "/")),
@@ -194,7 +218,7 @@ async function inspectPage(page, origin, relative, viewportName, viewport) {
     href: document.activeElement?.getAttribute?.("href") || null,
   }));
 
-  const expectedNav = new Set(pages.map((item) => item === "index.html" ? "index.html" : item));
+  const expectedNav = new Set(pages);
   const observedNav = new Set(metrics.navTargets.map((item) => item || "index.html"));
   if (metrics.language !== "id-ID") throw new Error(`${relative}/${viewportName}: wrong language`);
   if (metrics.bodyScrollWidth > metrics.viewportWidth + 1 || metrics.documentScrollWidth > metrics.viewportWidth + 1) {
@@ -207,13 +231,26 @@ async function inspectPage(page, origin, relative, viewportName, viewport) {
     throw new Error(`${relative}/${viewportName}: first keyboard target is not the skip link`);
   }
   if (metrics.remoteRuntimeRequests.length) throw new Error(`${relative}/${viewportName}: remote runtime request`);
-  if (expectedNav.size !== observedNav.size || [...expectedNav].some((item) => !observedNav.has(item))) {
-    throw new Error(`${relative}/${viewportName}: navbar does not expose the complete nine-unit route`);
+  if (metrics.homeTarget !== "index.html") {
+    throw new Error(`${relative}/${viewportName}: navbar brand does not route to the reader index`);
   }
-  if (relative !== "index.html" && metrics.mathElements < 1) {
+  if (expectedNav.size !== observedNav.size || [...expectedNav].some((item) => !observedNav.has(item))) {
+    throw new Error(`${relative}/${viewportName}: navbar does not expose all nine units and the delivery wrapper: ${JSON.stringify({ expected: [...expectedNav], observed: [...observedNav] })}`);
+  }
+  const observedTools = new Set(metrics.toolTargets);
+  if (
+    expectedToolTargets.size !== observedTools.size
+    || [...expectedToolTargets].some((target) => !observedTools.has(target))
+  ) {
+    throw new Error(`${relative}/${viewportName}: navbar tools differ from the exact PDF, GitHub source, live reader, and Zenodo targets: ${JSON.stringify({ expected: [...expectedToolTargets], observed: [...observedTools] })}`);
+  }
+  if (relative.startsWith("units/") && metrics.mathElements < 1) {
     throw new Error(`${relative}/${viewportName}: unit lacks native MathML`);
   }
-  if (relative === "index.html" && metrics.legalTargets.length !== 2) {
+  if (relative === "index.html" && !(
+    metrics.legalTargets.some((href) => href.includes("LICENSES.md"))
+    && metrics.legalTargets.some((href) => href.includes("THIRD_PARTY_NOTICES.md"))
+  )) {
     throw new Error(`${relative}/${viewportName}: landing page lacks both legal links`);
   }
   return metrics;
@@ -257,15 +294,23 @@ async function main() {
         checks[viewportName][relative] = await inspectPage(page, origin, relative, viewportName, viewport);
       }
       await page.goto(`${origin}/index.html`, { waitUntil: "networkidle" });
-      checks[viewportName].indexVisualCoverage = await captureIndexTiles(
+      checks[viewportName].indexVisualCoverage = await capturePageTiles(
         page,
         `${viewportName}-${viewport.width}x${viewport.height}`,
         viewport,
+        "index",
+      );
+      await page.goto(`${origin}/wrapper/index.html`, { waitUntil: "networkidle" });
+      checks[viewportName].wrapperVisualCoverage = await capturePageTiles(
+        page,
+        `${viewportName}-${viewport.width}x${viewport.height}`,
+        viewport,
+        "wrapper",
       );
     }
     if (consoleErrors.length || pageErrors.length) throw new Error(JSON.stringify({ consoleErrors, pageErrors }));
     const report = {
-      schema: "o017-full-reader-visual-qa-v1",
+      schema: "o017-full-reader-visual-qa-v2",
       status: "PASS",
       date: "2026-08-22",
       pages,

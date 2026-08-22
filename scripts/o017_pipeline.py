@@ -34,6 +34,29 @@ BACKEND = ROOT / "backend"
 QA = ROOT / "qa"
 INDEX_RELATIVE_PATH = Path("index.html")
 
+ENVIRONMENT_FILES = (
+    "Containerfile",
+    "host_smoke_test.py",
+    "OCI_IMAGE_LOCK.json",
+    "rebuild_and_verify.sh",
+    "REBUILD_ENVIRONMENT.md",
+    "requirements.lock.txt",
+    "verify_environment.py",
+    "verify_rebuild.py",
+)
+SEMANTIC_WRAPPER_FILES = (
+    "backend/semantic-wrapper-v1.baseline.json",
+    "backend/semantic-wrapper-v1.dataset.json",
+    "backend/semantic-wrapper-v1.localizations.jsonl",
+    "backend/semantic-wrapper-v1.records.jsonl",
+    "backend/semantic-wrapper-v1.relations-ledger.csv",
+    "backend/semantic-wrapper-v1.schema.json",
+    "backend/SEMANTIC_WRAPPER_V1.md",
+    "scripts/generate_semantic_wrapper.py",
+    "scripts/validate_semantic_wrapper.py",
+    "qa/SEMANTIC_WRAPPER_QA.json",
+)
+
 
 def fail(message: str) -> None:
     raise RuntimeError(message)
@@ -102,6 +125,203 @@ def run_checked(command: list[str], cwd: Path) -> subprocess.CompletedProcess[st
             f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}"
         )
     return result
+
+
+def file_identity(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        fail(f"required validation artifact is missing: {path}")
+    return {
+        "path": canonical_rel(path),
+        "bytes": path.stat().st_size,
+        "sha256": digest(path),
+    }
+
+
+def extension_release_paths() -> tuple[Path, ...]:
+    delivery_root = ROOT / "delivery"
+    delivery = sorted(
+        (path for path in delivery_root.rglob("*") if path.is_file()),
+        key=lambda path: path.relative_to(delivery_root).as_posix().casefold(),
+    )
+    fixed = [
+        *(ROOT / "environment" / name for name in ENVIRONMENT_FILES),
+        *(ROOT / name for name in SEMANTIC_WRAPPER_FILES),
+        ROOT / "scripts" / "validate_delivery_wrapper.py",
+    ]
+    paths = [*delivery, *fixed]
+    if len({canonical_rel(path).casefold() for path in paths}) != len(paths):
+        fail("extension release inventory contains a duplicate or case collision")
+    for path in paths:
+        if not path.is_file():
+            fail(f"extension release input is missing: {path}")
+    return tuple(sorted(paths, key=lambda path: canonical_rel(path).casefold()))
+
+
+def validate_environment_package() -> dict[str, Any]:
+    environment = ROOT / "environment"
+    observed = {
+        path.relative_to(environment).as_posix()
+        for path in environment.rglob("*")
+        if path.is_file()
+    }
+    expected = set(ENVIRONMENT_FILES)
+    if observed != expected:
+        fail(
+            "immutable environment inventory differs: "
+            f"missing={sorted(expected - observed)}, extra={sorted(observed - expected)}"
+        )
+
+    lock_path = environment / "OCI_IMAGE_LOCK.json"
+    lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    if lock.get("schema") != "o017-rebuild-oci-lock-v1":
+        fail("immutable environment lock schema is invalid")
+    if lock.get("architecture") != "amd64" or lock.get("os") != "linux":
+        fail("immutable environment lock platform is not linux/amd64")
+    base = lock.get("base_image", {})
+    python = lock.get("python", {})
+    packages = lock.get("python_packages", [])
+    if (
+        not str(base.get("manifest_digest", "")).startswith("sha256:")
+        or python.get("version") != "3.13.9"
+        or len(packages) != 1
+        or packages[0].get("name") != "pypdf"
+        or packages[0].get("version") != "6.12.2"
+    ):
+        fail("immutable environment lock does not contain the frozen toolchain")
+
+    container = (environment / "Containerfile").read_text(encoding="utf-8")
+    requirements = (environment / "requirements.lock.txt").read_text(encoding="utf-8")
+    rebuild = (environment / "rebuild_and_verify.sh").read_text(encoding="utf-8")
+    instructions = (environment / "REBUILD_ENVIRONMENT.md").read_text(encoding="utf-8")
+    verify_environment = (environment / "verify_environment.py").read_text(encoding="utf-8")
+    for marker, text, label in (
+        (str(base["manifest_digest"]), container, "base image digest"),
+        (str(python["url"]), container, "Python archive URL"),
+        (str(python["sha256"]), container, "Python archive hash"),
+        (str(packages[0]["url"]), requirements, "pypdf wheel URL"),
+        (str(packages[0]["sha256"]), requirements, "pypdf wheel hash"),
+        ('EXPECTED_QUARTO = "1.9.37"', verify_environment, "Quarto version gate"),
+        ('EXPECTED_PYTHON = (3, 13, 9)', verify_environment, "Python version gate"),
+        ('EXPECTED_PYPDF = "6.12.2"', verify_environment, "pypdf version gate"),
+        ("--network none", instructions, "offline rebuild instruction"),
+    ):
+        if marker not in text:
+            fail(f"immutable environment package lacks {label}")
+    for marker in (
+        "verify_mst_uniqueness.py",
+        "u06_recurrence_witness.py",
+        "quarto render",
+        "--profile pdf",
+        "verify_rebuild.py",
+    ):
+        if marker not in rebuild:
+            fail(f"immutable rebuild script lacks gate: {marker}")
+
+    return {
+        "status": "PASS",
+        "schema": lock["schema"],
+        "platform": "linux/amd64",
+        "files": [file_identity(environment / name) for name in sorted(ENVIRONMENT_FILES)],
+    }
+
+
+def validate_extension_packages() -> dict[str, Any]:
+    environment = validate_environment_package()
+    delivery_validator = ROOT / "scripts" / "validate_delivery_wrapper.py"
+    generator = ROOT / "scripts" / "generate_semantic_wrapper.py"
+    semantic_validator = ROOT / "scripts" / "validate_semantic_wrapper.py"
+
+    run_checked([sys.executable, str(delivery_validator), "--write-qa"], ROOT)
+    run_checked([sys.executable, str(generator)], ROOT)
+    run_checked([sys.executable, str(semantic_validator), "--write-qa"], ROOT)
+    run_checked([sys.executable, str(generator), "--check"], ROOT)
+    run_checked([sys.executable, str(delivery_validator)], ROOT)
+
+    delivery_qa = ROOT / "delivery" / "VALIDATION.json"
+    delivery_value = json.loads(delivery_qa.read_text(encoding="utf-8"))
+    semantic_qa = ROOT / "qa" / "SEMANTIC_WRAPPER_QA.json"
+    semantic_value = json.loads(semantic_qa.read_text(encoding="utf-8"))
+    if delivery_value.get("status") != "PASS" or delivery_value.get("errors") != []:
+        fail("delivery validation did not produce a clean deterministic PASS")
+    if semantic_value.get("status") != "pass" or semantic_value.get("integration", {}).get(
+        "semantic_model_complete"
+    ) is not True:
+        fail("semantic-wrapper validation did not produce a complete deterministic pass")
+
+    return {
+        "delivery": {
+            "status": "PASS",
+            "validation": file_identity(delivery_qa),
+            "manifest": file_identity(ROOT / "delivery" / "FILE_MANIFEST.csv"),
+            "validator": file_identity(delivery_validator),
+        },
+        "semantic_wrapper": {
+            "status": "PASS",
+            "qa": file_identity(semantic_qa),
+            "dataset": file_identity(ROOT / "backend" / "semantic-wrapper-v1.dataset.json"),
+            "generator": file_identity(generator),
+            "validator": file_identity(semantic_validator),
+        },
+        "environment": environment,
+    }
+
+
+def validate_backend_transition(backend: "BackendBuild") -> None:
+    live_records_path = BACKEND / "records.jsonl"
+    if not live_records_path.is_file():
+        return
+    live_records = {
+        record_value["id"]: record_value
+        for record_value in (
+            json.loads(line)
+            for line in live_records_path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        )
+    }
+    candidate_records = {
+        record_value["id"]: record_value
+        for record_value in (
+            json.loads(line)
+            for line in backend.records_payload.decode("utf-8").splitlines()
+            if line.strip()
+        )
+    }
+    if set(live_records) != set(candidate_records):
+        fail("backend regeneration changes the stable record ID set")
+    permitted = {
+        "O017-EDITION-01": {
+            "version",
+            "admission_evidence",
+            "creator",
+            "production_system",
+            "production_disclosure",
+        },
+        **{
+            f"O017-U{unit:02d}-ARTIFACT-HTML": {"sha256"}
+            for unit in range(1, 10)
+        },
+        "O017-RIGHTS-ORIGINAL-TEXT": {"licensor"},
+        "O017-RIGHTS-ORIGINAL-CODE": {"licensor"},
+        "O017-RIGHTS-GENERATED-DATA": {"licensor"},
+    }
+    for record_id in sorted(live_records):
+        changed = {
+            key
+            for key in set(live_records[record_id]) | set(candidate_records[record_id])
+            if live_records[record_id].get(key) != candidate_records[record_id].get(key)
+        }
+        if changed - permitted.get(record_id, set()):
+            fail(
+                f"backend regeneration changes immutable fields on {record_id}: "
+                f"{sorted(changed)}"
+            )
+    for path, payload in (
+        (BACKEND / "relations.csv", backend.relations_payload),
+        (BACKEND / "relations-ledger.csv", backend.relations_ledger_payload),
+        (BACKEND / "schema.json", backend.schema_payload),
+    ):
+        if path.is_file() and path.read_bytes() != payload:
+            fail(f"backend regeneration changes stable graph/schema bytes: {path.name}")
 
 
 @dataclass(frozen=True)
@@ -813,9 +1033,45 @@ def install_reader_release_files(html_root: Path) -> None:
         (ROOT / "THIRD_PARTY_NOTICES.md", Path("THIRD_PARTY_NOTICES.md")),
         (ROOT / "licenses" / "MIT.txt", Path("licenses/MIT.txt")),
         (ROOT / "licenses" / "APACHE-2.0.txt", Path("licenses/APACHE-2.0.txt")),
+        (ROOT / "licenses" / "AMSFonts-3.04-OFL.txt", Path("licenses/AMSFonts-3.04-OFL.txt")),
+        (ROOT / "licenses" / "AMSFonts-3.04-README.txt", Path("licenses/AMSFonts-3.04-README.txt")),
+        (
+            ROOT / "licenses" / "FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+            Path("licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt"),
+        ),
+        (ROOT / "licenses" / "GUST-FONT-LICENSE-1.0.txt", Path("licenses/GUST-FONT-LICENSE-1.0.txt")),
+        (
+            ROOT / "licenses" / "LATIN-MODERN-MATH-1.959-README.txt",
+            Path("licenses/LATIN-MODERN-MATH-1.959-README.txt"),
+        ),
+        (ROOT / "licenses" / "SIL-OFL-1.1.txt", Path("licenses/SIL-OFL-1.1.txt")),
+        (
+            ROOT / "licenses" / "FONT_COMPONENT_PROVENANCE.json",
+            Path("licenses/FONT_COMPONENT_PROVENANCE.json"),
+        ),
+        (
+            ROOT / "qa" / "PDF_ACCESSIBILITY_DISCLOSURE_PROPOSED.md",
+            Path("qa/PDF_ACCESSIBILITY_DISCLOSURE_PROPOSED.md"),
+        ),
     ):
         if not source_path.is_file():
             fail(f"reader release file missing: {source_path}")
+        write_bytes(html_root / relative_path, source_path.read_bytes())
+
+    delivery_root = ROOT / "delivery"
+    allowed_suffixes = {".csv", ".json", ".md"}
+    delivery_files = sorted(
+        (
+            path
+            for path in delivery_root.rglob("*")
+            if path.is_file() and path.suffix.lower() in allowed_suffixes
+        ),
+        key=lambda path: path.relative_to(delivery_root).as_posix().casefold(),
+    )
+    if not delivery_files:
+        fail("authentic-delivery package is missing")
+    for source_path in delivery_files:
+        relative_path = Path("delivery") / source_path.relative_to(delivery_root)
         write_bytes(html_root / relative_path, source_path.read_bytes())
 
 
@@ -1042,6 +1298,7 @@ def admit_unit(unit_id: str, course: CourseSpec = COURSE) -> dict[str, Any]:
         local_links, fragments = verify_local_links(documents)
         hashes = {unit.id: unit_hashes(unit, checks[unit.id].html_path) for unit in course.units}
         backend = build_backend(course, hashes)
+        validate_backend_transition(backend)
 
         manifest_items = [
             manifest_item_from_path(SOURCE / "_quarto.yml"),
@@ -1171,6 +1428,7 @@ def admit_unit(unit_id: str, course: CourseSpec = COURSE) -> dict[str, Any]:
         write_bytes(BACKEND / "relations-ledger.csv", backend.relations_ledger_payload)
         write_bytes(BACKEND / "schema.json", backend.schema_payload)
         write_bytes(BACKEND / "manifest.csv", manifest_payload)
+        validate_extension_packages()
         write_bytes(QA / target.qa_filename, qa_payload)
         write_bytes(QA / target.admission_filename, admission_payload)
 

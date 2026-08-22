@@ -42,9 +42,9 @@ memberi izin untuk mengirim laporan. Semua formulasi isu di sini adalah draf
 lokal sampai ada kewenangan dan pemeriksaan yang terpisah.
 :::
 
-## Erratum adalah klaim terbatas, bukan ungkapan ketidaksukaan {#o017-u07-erratum-as-bounded-claim}
+## Koreksi (erratum) adalah klaim terbatas, bukan ungkapan ketidaksukaan {#o017-u07-erratum-as-bounded-claim}
 
-Kalimat “bagian ini tampaknya salah” belum merupakan erratum. Erratum yang
+Kalimat “bagian ini tampaknya salah” belum merupakan koreksi formal (erratum). Erratum yang
 dapat diaudit sekurang-kurangnya menyatakan lima hal:
 
 1. **objek tepat** yang diperiksa: karya, versi, salinan, dan lokasi;
@@ -662,7 +662,7 @@ Tiga klaim harus dipisahkan:
 Kita dapat menetapkan keyakinan `C3`. Keparahan belum dapat disimpulkan dari
 lemma saja: jika tidak ada hasil lain memakainya, mungkin `S1`; jika banyak
 turunan mengganti $\sqrt{x^2}$ dengan $x$ untuk nilai negatif, mungkin `S3`.
-Sampai graf dependensi diperiksa, catat `severity = unknown`, bukan memilih
+Sampai graf ketergantungan diperiksa, catat `severity = unknown`, bukan memilih
 angka yang terasa wajar.
 
 ## Daftar periksa sebelum menyelesaikan draf {#o017-u07-preflight}

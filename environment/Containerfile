@@ -1,0 +1,35 @@
+# syntax=docker/dockerfile:1.7
+# The tag is documentary; the manifest digest is the executable authority.
+FROM --platform=linux/amd64 ghcr.io/quarto-dev/quarto-full:1.9.37@sha256:f8a77fcebc054dff1ca887e1789feaaf65cd0e572c00dd81dff58aa1570323de
+
+ARG PYTHON_ARCHIVE_URL="https://github.com/astral-sh/python-build-standalone/releases/download/20251028/cpython-3.13.9%2B20251028-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz"
+ARG PYTHON_ARCHIVE_SHA256="99623e9ff4764f1c5dab80f0128986b5a09a2cb5021d291aa44e7cfa4684af00"
+
+RUN set -eux; \
+    curl -fsSL "$PYTHON_ARCHIVE_URL" -o /tmp/cpython.tar.gz; \
+    echo "$PYTHON_ARCHIVE_SHA256  /tmp/cpython.tar.gz" | sha256sum -c -; \
+    mkdir -p /opt/o017-python; \
+    tar -xzf /tmp/cpython.tar.gz -C /opt/o017-python --strip-components=1; \
+    rm /tmp/cpython.tar.gz; \
+    ln -sf /opt/o017-python/bin/python3.13 /usr/local/bin/python3.13; \
+    ln -sf /opt/o017-python/bin/python3.13 /usr/local/bin/python3; \
+    ln -sf /opt/o017-python/bin/python3.13 /usr/local/bin/python
+
+COPY environment/requirements.lock.txt /opt/o017/requirements.lock.txt
+RUN python -m pip install --disable-pip-version-check --no-cache-dir \
+      --require-hashes -r /opt/o017/requirements.lock.txt
+
+COPY environment/verify_environment.py /opt/o017/verify_environment.py
+COPY environment/verify_rebuild.py /opt/o017/verify_rebuild.py
+
+# Fail the image build if the immutable base does not contain the complete
+# XeLaTeX/font closure required by this book.
+RUN python /opt/o017/verify_environment.py
+
+ENV LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    TZ=UTC \
+    SOURCE_DATE_EPOCH=1787356800 \
+    PYTHONHASHSEED=0
+WORKDIR /work
+CMD ["bash"]

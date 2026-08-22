@@ -1,0 +1,23 @@
+vocabulary,status,locale,definition,minimum_evidence,external_event,terminal,next_states
+assessment,not_started,id-ID,Belum ada artefak penilaian yang dibuat,rekaman penugasan,false,false,in_progress|withdrawn
+assessment,in_progress,id-ID,Ada kerja tetapi persyaratan belum siap dinilai,artefak kerja,false,false,ready_for_review|withdrawn|unknown
+assessment,ready_for_review,id-ID,Paket lokal lengkap menurut pemeriksaan penulis,manifest paket,false,false,changes_requested|passed|failed|withdrawn|unknown
+assessment,changes_requested,id-ID,Evaluator meminta perubahan yang dapat ditindaklanjuti,laporan evaluator,false,false,in_progress|failed|withdrawn
+assessment,passed,id-ID,Semua kriteria dan gerbang nonkompensabel yang berlaku lulus,keputusan evaluator dan gate results,false,true,
+assessment,failed,id-ID,Satu atau lebih gerbang tidak lulus pada batas upaya ini,keputusan evaluator,false,true,
+assessment,withdrawn,id-ID,Pemilik menarik upaya dengan alasan,peristiwa penarikan,false,true,
+assessment,unknown,id-ID,Keadaan kini tidak dapat dibuktikan,status terakhir dan alasan ketidakpastian,false,false,in_progress|ready_for_review|withdrawn
+assessment,calibration_only,id-ID,Artefak demonstrasi sintetis yang tidak menghasilkan kredit,label paket dan credit eligible false,false,true,
+community,prepared,id-ID,Paket lokal siap ditinjau tetapi belum dikirim,manifest lokal,false,false,submitted|withdrawn
+community,submitted,id-ID,Versi tertentu benar-benar ditransmisikan ke target,tanda terima dan otorisasi,true,false,acknowledged|accepted|rejected|withdrawn|unknown
+community,acknowledged,id-ID,Sistem atau manusia target mengonfirmasi penerimaan,tanda terima atau respons dapat ditemukan,true,false,accepted|rejected|withdrawn|unknown
+community,accepted,id-ID,Target menerima kontribusi secara substantif,keputusan target,true,false,merged|published|withdrawn|unknown
+community,merged,id-ID,Perubahan dimasukkan ke cabang atau basis target,bukti merge dan identitas versi,true,false,published|withdrawn|unknown
+community,published,id-ID,Perubahan tampil pada rilis atau permukaan publik,bukti publik dan readback,true,true,
+community,rejected,id-ID,Target menolak kontribusi,keputusan target,true,true,
+community,withdrawn,id-ID,Pengirim menarik kontribusi,permintaan atau konfirmasi penarikan,true,true,
+community,unknown,id-ID,Keadaan eksternal kini tidak dapat dibuktikan,alasan dan last proven state,true,false,acknowledged|accepted|merged|published|rejected|withdrawn
+credential,complete_community_transaction,id-ID,A01 sampai A05 lulus dan transaksi pernah mencapai submitted,bukti semua gate plus otorisasi dan tanda terima,true,true,
+credential,complete_externally_reviewed_local,id-ID,A01 sampai A04 lulus dan cabang A05 ditelaah manusia independen secara lokal,bukti semua gate plus local external review,false,true,
+credential,incomplete,id-ID,Sedikitnya satu keluarga atau gerbang belum lulus,hasil keluarga dan gerbang,false,false,complete_community_transaction|complete_externally_reviewed_local
+credential,calibration_only,id-ID,Paket sintetis untuk penyetaraan penilaian tanpa kredit,schema package kind calibration only,false,true,

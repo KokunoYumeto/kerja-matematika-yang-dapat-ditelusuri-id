@@ -1,0 +1,328 @@
+{
+  "schema_id": "O017-WRAP-DELIVERY-SCHEMA-1",
+  "package_id": "O017-WRAP-CALIBRATION-PACKAGE-1",
+  "package_kind": "calibration_only",
+  "definitions_id": "O017-WRAP-DEFINITIONS-1",
+  "locale": "id-ID",
+  "created_at": "2026-08-22T20:07:42+02:00",
+  "credit_eligible": false,
+  "synthetic_personas": true,
+  "contact_control": {
+    "boundary_acknowledged": true,
+    "authorization_present": false,
+    "authorization_id": null,
+    "transmission_performed": false,
+    "transmission_evidence_id": null,
+    "notes_id": "Tidak ada kontak, unggahan, isu, pesan, atau transmisi. Paket hanya menyiapkan dan memvalidasi artefak lokal."
+  },
+  "evaluators": [
+    {
+      "evaluator_id": "O017-WRAP-EVAL-CAL-LEARNER",
+      "role": "synthetic_learner",
+      "human_status": "synthetic_persona",
+      "privacy_mode": "opaque_random_identifier",
+      "identity_mapping_in_package": false,
+      "conflict_status": "synthetic_not_applicable"
+    },
+    {
+      "evaluator_id": "O017-WRAP-EVAL-CAL-SUPERVISOR",
+      "role": "synthetic_supervisor",
+      "human_status": "synthetic_persona",
+      "privacy_mode": "opaque_random_identifier",
+      "identity_mapping_in_package": false,
+      "conflict_status": "synthetic_not_applicable"
+    },
+    {
+      "evaluator_id": "O017-WRAP-EVAL-CAL-AUTHOR",
+      "role": "synthetic_author",
+      "human_status": "synthetic_persona",
+      "privacy_mode": "opaque_random_identifier",
+      "identity_mapping_in_package": false,
+      "conflict_status": "synthetic_not_applicable"
+    },
+    {
+      "evaluator_id": "O017-WRAP-EVAL-CAL-REFEREE",
+      "role": "synthetic_referee",
+      "human_status": "synthetic_persona",
+      "privacy_mode": "opaque_random_identifier",
+      "identity_mapping_in_package": false,
+      "conflict_status": "synthetic_not_applicable"
+    },
+    {
+      "evaluator_id": "O017-WRAP-EVAL-CAL-CHECKER",
+      "role": "synthetic_independent_checker",
+      "human_status": "synthetic_persona",
+      "privacy_mode": "opaque_random_identifier",
+      "identity_mapping_in_package": false,
+      "conflict_status": "synthetic_not_applicable"
+    },
+    {
+      "evaluator_id": "O017-WRAP-EVAL-CAL-LOCAL-REVIEWER",
+      "role": "synthetic_local_external_reviewer",
+      "human_status": "synthetic_persona",
+      "privacy_mode": "opaque_random_identifier",
+      "identity_mapping_in_package": false,
+      "conflict_status": "synthetic_not_applicable"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "O017-WRAP-SRC-OPENSTAX-FTC",
+      "title": "Calculus Volume 1, Section 5.3: The Fundamental Theorem of Calculus",
+      "resource_type": "monograph_section",
+      "authority_url": "https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus",
+      "persistent_identifier": null,
+      "version_label": "official web representation retrieved 2026-08-22",
+      "version_frozen": true,
+      "version_witness": "HTTP 200; 584844 bytes; ETag 4253b01ceda870aaafd28b138d480603; Last-Modified 2026-08-04T15:28:25Z; sha256 f426a837c943b545698f9dc5f5918d8f1a0e901acb794cacb44383b59a3ea84a",
+      "retrieved_at": "2026-08-22T20:00:00+02:00",
+      "rights_statement": "Official OpenStax page identifies current Calculus Volume 1 as CC BY-NC-SA 4.0; this package redistributes no source prose, figures, or layout.",
+      "use_in_package": "bibliographic authority, theorem locator, and original paraphrase only",
+      "redistributed_source_content": false
+    },
+    {
+      "source_id": "O017-WRAP-SRC-MIT-FTC-LECTURE22",
+      "title": "MIT OpenCourseWare 18.100A Real Analysis, Lecture 22",
+      "resource_type": "lecture",
+      "authority_url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/resources/18100a-lecture-22-multicam/",
+      "persistent_identifier": null,
+      "version_label": "Fall 2020 official OCW page retrieved 2026-08-22",
+      "version_frozen": true,
+      "version_witness": "HTTP 200; 49617 bytes; ETag 5a2901baa2b34b376082baeb22d7f5b5; Last-Modified 2026-08-18T18:10:52Z; sha256 a9d4da8752e51471b94070b8ab1dbfed3ca35e79e527f2d97aa7bd3dae172261",
+      "retrieved_at": "2026-08-22T20:00:00+02:00",
+      "rights_statement": "MIT OpenCourseWare terms state CC BY-NC-SA 4.0 for OCW content subject to marked third-party exclusions; no video, image, or notes are redistributed here.",
+      "use_in_package": "official lecture identity and accessible-supervision calibration context",
+      "redistributed_source_content": false
+    },
+    {
+      "source_id": "O017-WRAP-SRC-HARDY-1928-CORRECTION",
+      "title": "Addenda and Corrigenda",
+      "resource_type": "official_correction",
+      "authority_url": "https://doi.org/10.1112/plms/s2-28.1.553-t",
+      "persistent_identifier": "doi:10.1112/plms/s2-28.1.553-t",
+      "version_label": "publisher version of record, 1928",
+      "version_frozen": true,
+      "version_witness": "DOI version of record and publisher metadata page; the correction identifies the repeated-integral values 1/2 and -1/2",
+      "retrieved_at": "2026-08-22T20:00:00+02:00",
+      "rights_statement": "Only bibliographic facts, mathematical formulas, and original analysis are retained; publisher prose, typography, and layout are not redistributed.",
+      "use_in_package": "real-source erratum audit and independently derived elementary calculation",
+      "redistributed_source_content": false
+    }
+  ],
+  "exemplars": [
+    {
+      "exemplar_id": "O017-WRAP-CAL-A01",
+      "assessment_id": "O017-WRAP-A01",
+      "calibration_only": true,
+      "status": "calibration_only",
+      "pathway": null,
+      "source_ids": ["O017-WRAP-SRC-OPENSTAX-FTC", "O017-WRAP-SRC-MIT-FTC-LECTURE22"],
+      "evaluator_ids": [],
+      "evidence_ids": ["O017-WRAP-CAL-EV-A01-DOSSIER"],
+      "demonstrated_required_elements": {
+        "question_precedes_search": true,
+        "unseeded_query_log": true,
+        "candidate_comparison": true,
+        "stop_rule": true,
+        "source_version_rights_authority": true,
+        "uncertainty_ledger": true
+      },
+      "actual_completion_claim": false,
+      "summary_id": "Skenario menelusuri dua sumber primer resmi tentang Teorema Dasar Kalkulus dan membekukan representasi webnya.",
+      "limitations_id": "Tidak ada pelajar atau evaluator; waktu kueri adalah bagian skenario kalibrasi."
+    },
+    {
+      "exemplar_id": "O017-WRAP-CAL-A02",
+      "assessment_id": "O017-WRAP-A02",
+      "calibration_only": true,
+      "status": "calibration_only",
+      "pathway": "supervised_equivalent",
+      "source_ids": ["O017-WRAP-SRC-MIT-FTC-LECTURE22", "O017-WRAP-SRC-OPENSTAX-FTC"],
+      "evaluator_ids": ["O017-WRAP-EVAL-CAL-LEARNER", "O017-WRAP-EVAL-CAL-SUPERVISOR"],
+      "evidence_ids": ["O017-WRAP-CAL-EV-A02-DOSSIER"],
+      "demonstrated_required_elements": {
+        "session_identity": true,
+        "timed_notes": true,
+        "dependency_map": true,
+        "question_log": true,
+        "corrected_notes": true,
+        "accessibility_alternative": true,
+        "supervision_record_shape": true
+      },
+      "actual_completion_claim": false,
+      "summary_id": "Gladi 24 menit menunjukkan catatan bersegmen, koreksi pascasesi, dan jalur teks tanpa audio.",
+      "limitations_id": "Sesi, pelajar, dan supervisor sintetis; bukan rekaman Lecture 22 atau bukti kehadiran."
+    },
+    {
+      "exemplar_id": "O017-WRAP-CAL-A03",
+      "assessment_id": "O017-WRAP-A03",
+      "calibration_only": true,
+      "status": "calibration_only",
+      "pathway": "two_role_synthetic_calibration",
+      "source_ids": ["O017-WRAP-SRC-HARDY-1928-CORRECTION"],
+      "evaluator_ids": ["O017-WRAP-EVAL-CAL-AUTHOR", "O017-WRAP-EVAL-CAL-REFEREE"],
+      "evidence_ids": ["O017-WRAP-CAL-EV-A03-DOSSIER"],
+      "demonstrated_required_elements": {
+        "frozen_initial_artifact": true,
+        "scoped_report": true,
+        "author_response": true,
+        "disposition_table": true,
+        "revised_artifact": true,
+        "before_after_evidence": true,
+        "unresolved_items": true,
+        "human_independence": false
+      },
+      "actual_completion_claim": false,
+      "summary_id": "Putaran sintetis memperbaiki penggunaan antisimetri yang tidak sah menjadi dua integral berulang bernilai 1/2 dan -1/2.",
+      "limitations_id": "Dua persona bukan dua manusia; G04 tidak dapat lulus."
+    },
+    {
+      "exemplar_id": "O017-WRAP-CAL-A04",
+      "assessment_id": "O017-WRAP-A04",
+      "calibration_only": true,
+      "status": "calibration_only",
+      "pathway": "published_correction_reproduction",
+      "source_ids": ["O017-WRAP-SRC-HARDY-1928-CORRECTION"],
+      "evaluator_ids": ["O017-WRAP-EVAL-CAL-CHECKER"],
+      "evidence_ids": ["O017-WRAP-CAL-EV-A04-DOSSIER"],
+      "demonstrated_required_elements": {
+        "real_source_frozen": true,
+        "defect_locator": true,
+        "statement_status_separate_from_cause": true,
+        "minimal_reproducer": true,
+        "minimal_correction": true,
+        "impact_audit": true,
+        "independent_check_shape": true,
+        "actual_independent_human": false
+      },
+      "actual_completion_claim": false,
+      "summary_id": "Dossier mereproduksi koreksi resmi Hardy 1928 dengan dua antiturunan elementer.",
+      "limitations_id": "Bukan temuan baru; pemeriksa sintetis bukan manusia independen; jangkauan karya lama tidak diaudit penuh."
+    },
+    {
+      "exemplar_id": "O017-WRAP-CAL-A05",
+      "assessment_id": "O017-WRAP-A05",
+      "calibration_only": true,
+      "status": "calibration_only",
+      "pathway": "externally_reviewed_local",
+      "source_ids": ["O017-WRAP-SRC-HARDY-1928-CORRECTION"],
+      "evaluator_ids": ["O017-WRAP-EVAL-CAL-LOCAL-REVIEWER"],
+      "evidence_ids": ["O017-WRAP-CAL-EV-A05-DOSSIER"],
+      "demonstrated_required_elements": {
+        "contribution_packet": true,
+        "rights_check": true,
+        "marginal_value_check": true,
+        "local_review_shape": true,
+        "honest_status_ledger": true,
+        "no_contact_boundary": true,
+        "accessibility_alternative": true,
+        "actual_independent_human": false,
+        "external_transmission": false
+      },
+      "actual_completion_claim": false,
+      "summary_id": "Paket berhenti lokal karena tidak ada otorisasi atau nilai marjinal luar yang dibuktikan; jalur lokal yang lebih lemah dipertahankan secara eksplisit.",
+      "limitations_id": "Hasil target externally_reviewed_local hanya diperagakan; hasil aktual tetap calibration_only."
+    }
+  ],
+  "evidence_items": [
+    {
+      "evidence_id": "O017-WRAP-CAL-EV-A01-DOSSIER",
+      "assessment_id": "O017-WRAP-A01",
+      "type_id": "O017-WRAP-EV-QUERY-LOG",
+      "artifact_locator": "delivery/calibration/01-real-source-search.md",
+      "bytes": 7200,
+      "sha256": "6c4bb64185822f3d8f08e2f39638c5be6ea51b157cd6ca23b0b2e334b7a47a56",
+      "verification_status": "verified",
+      "synthetic_calibration": true,
+      "rights_statement": "Original O017 calibration prose; source content not redistributed.",
+      "retention_class": "canonical_calibration"
+    },
+    {
+      "evidence_id": "O017-WRAP-CAL-EV-A02-DOSSIER",
+      "assessment_id": "O017-WRAP-A02",
+      "type_id": "O017-WRAP-EV-TIMED-NOTES",
+      "artifact_locator": "delivery/calibration/02-seminar-supervised-equivalent.md",
+      "bytes": 5884,
+      "sha256": "3282557576c3d7e83d4fc41d94fd990b20ae548c522dd6590e2030239f722101",
+      "verification_status": "verified",
+      "synthetic_calibration": true,
+      "rights_statement": "Original O017 calibration prose; MIT/OpenStax media not redistributed.",
+      "retention_class": "canonical_calibration"
+    },
+    {
+      "evidence_id": "O017-WRAP-CAL-EV-A03-DOSSIER",
+      "assessment_id": "O017-WRAP-A03",
+      "type_id": "O017-WRAP-EV-REFEREE-REPORT",
+      "artifact_locator": "delivery/calibration/03-independent-referee-cycle.md",
+      "bytes": 5343,
+      "sha256": "347bbf2089d155efc281f847294d9d119a2833230c144ea517648cbb8e6ee30a",
+      "verification_status": "verified",
+      "synthetic_calibration": true,
+      "rights_statement": "Original O017 calibration prose and mathematical calculation.",
+      "retention_class": "canonical_calibration"
+    },
+    {
+      "evidence_id": "O017-WRAP-CAL-EV-A04-DOSSIER",
+      "assessment_id": "O017-WRAP-A04",
+      "type_id": "O017-WRAP-EV-MINIMAL-REPRODUCER",
+      "artifact_locator": "delivery/calibration/04-real-source-erratum-dossier.md",
+      "bytes": 5345,
+      "sha256": "c76f61aea5e6104d360dbdd3ca7fcaba408a496ddc381f5ce77f3b16ef041355",
+      "verification_status": "verified",
+      "synthetic_calibration": true,
+      "rights_statement": "Original O017 analysis; bibliographic facts and mathematical formulas only from the cited correction.",
+      "retention_class": "canonical_calibration"
+    },
+    {
+      "evidence_id": "O017-WRAP-CAL-EV-A05-DOSSIER",
+      "assessment_id": "O017-WRAP-A05",
+      "type_id": "O017-WRAP-EV-CONTRIBUTION-PACKET",
+      "artifact_locator": "delivery/calibration/05-externally-reviewed-local.md",
+      "bytes": 5616,
+      "sha256": "36973f0241a17230773168466a83ab74cdca854427b75c62d356043d41f85cb0",
+      "verification_status": "verified",
+      "synthetic_calibration": true,
+      "rights_statement": "Original O017 calibration prose and local status model.",
+      "retention_class": "canonical_calibration"
+    }
+  ],
+  "gate_results": {
+    "O017-WRAP-G01": "not_evaluated",
+    "O017-WRAP-G02": "not_evaluated",
+    "O017-WRAP-G03": "not_evaluated",
+    "O017-WRAP-G04": "not_evaluated",
+    "O017-WRAP-G05": "not_evaluated",
+    "O017-WRAP-G06": "not_evaluated",
+    "O017-WRAP-G07": "not_evaluated",
+    "O017-WRAP-G08": "not_evaluated",
+    "O017-WRAP-G09": "not_evaluated"
+  },
+  "assessment_results": {
+    "O017-WRAP-A01": "calibration_only",
+    "O017-WRAP-A02": "calibration_only",
+    "O017-WRAP-A03": "calibration_only",
+    "O017-WRAP-A04": "calibration_only",
+    "O017-WRAP-A05": "calibration_only"
+  },
+  "community_lifecycle": {
+    "current_state": "prepared",
+    "last_proven_state": "prepared",
+    "events": [
+      {
+        "event_id": "O017-WRAP-EVT-CAL-A05-01",
+        "state": "prepared",
+        "occurred_at": "2026-08-22T20:07:42+02:00",
+        "external_event": false,
+        "evidence_id": "O017-WRAP-CAL-EV-A05-DOSSIER",
+        "synthetic_calibration": true
+      }
+    ]
+  },
+  "result": {
+    "credential_label": "calibration_only",
+    "a05_pathway": "not_applicable_calibration",
+    "decision_id": "Semua contoh bersifat sintetis; tidak ada kredit, evaluator manusia, atau transaksi komunitas.",
+    "decided_at": "2026-08-22T20:07:42+02:00",
+    "limitations_id": "Paket memperagakan bentuk penilaian; setiap penyerahan autentik memerlukan bukti dan ID baru."
+  }
+}

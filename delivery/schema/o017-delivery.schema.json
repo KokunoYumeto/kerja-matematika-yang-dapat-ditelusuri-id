@@ -1,0 +1,371 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:o017:wrapper:delivery-schema:1",
+  "title": "O017/D120 authentic delivery and calibration package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "package_id",
+    "package_kind",
+    "definitions_id",
+    "locale",
+    "created_at",
+    "credit_eligible",
+    "synthetic_personas",
+    "contact_control",
+    "evaluators",
+    "sources",
+    "exemplars",
+    "evidence_items",
+    "gate_results",
+    "assessment_results",
+    "community_lifecycle",
+    "result"
+  ],
+  "properties": {
+    "schema_id": {"const": "O017-WRAP-DELIVERY-SCHEMA-1"},
+    "package_id": {"type": "string", "pattern": "^O017-WRAP-[A-Z0-9-]+$"},
+    "package_kind": {"enum": ["calibration_only", "learner_submission"]},
+    "definitions_id": {"const": "O017-WRAP-DEFINITIONS-1"},
+    "locale": {"const": "id-ID"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "credit_eligible": {"type": "boolean"},
+    "synthetic_personas": {"type": "boolean"},
+    "contact_control": {"$ref": "#/$defs/contactControl"},
+    "evaluators": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/evaluator"}
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "exemplars": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/exemplar"},
+      "allOf": [
+        {"contains": {"type": "object", "required": ["assessment_id"], "properties": {"assessment_id": {"const": "O017-WRAP-A01"}}}},
+        {"contains": {"type": "object", "required": ["assessment_id"], "properties": {"assessment_id": {"const": "O017-WRAP-A02"}}}},
+        {"contains": {"type": "object", "required": ["assessment_id"], "properties": {"assessment_id": {"const": "O017-WRAP-A03"}}}},
+        {"contains": {"type": "object", "required": ["assessment_id"], "properties": {"assessment_id": {"const": "O017-WRAP-A04"}}}},
+        {"contains": {"type": "object", "required": ["assessment_id"], "properties": {"assessment_id": {"const": "O017-WRAP-A05"}}}}
+      ]
+    },
+    "evidence_items": {
+      "type": "array",
+      "minItems": 5,
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "gate_results": {"$ref": "#/$defs/gateResults"},
+    "assessment_results": {"$ref": "#/$defs/assessmentResults"},
+    "community_lifecycle": {"$ref": "#/$defs/communityLifecycle"},
+    "result": {"$ref": "#/$defs/result"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"package_kind": {"const": "calibration_only"}}, "required": ["package_kind"]},
+      "then": {
+        "properties": {
+          "credit_eligible": {"const": false},
+          "synthetic_personas": {"const": true},
+          "contact_control": {
+            "properties": {
+              "authorization_present": {"const": false},
+              "transmission_performed": {"const": false}
+            }
+          },
+          "assessment_results": {
+            "properties": {
+              "O017-WRAP-A01": {"const": "calibration_only"},
+              "O017-WRAP-A02": {"const": "calibration_only"},
+              "O017-WRAP-A03": {"const": "calibration_only"},
+              "O017-WRAP-A04": {"const": "calibration_only"},
+              "O017-WRAP-A05": {"const": "calibration_only"}
+            }
+          },
+          "result": {
+            "properties": {"credential_label": {"const": "calibration_only"}}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"contact_control": {"properties": {"transmission_performed": {"const": true}}, "required": ["transmission_performed"]}},
+        "required": ["contact_control"]
+      },
+      "then": {
+        "properties": {
+          "contact_control": {
+            "properties": {
+              "authorization_present": {"const": true},
+              "authorization_id": {"type": "string", "minLength": 1},
+              "transmission_evidence_id": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"result": {"properties": {"credential_label": {"enum": ["complete_community_transaction", "complete_externally_reviewed_local"]}}, "required": ["credential_label"]}}, "required": ["result"]},
+      "then": {
+        "properties": {
+          "package_kind": {"const": "learner_submission"},
+          "credit_eligible": {"const": true},
+          "gate_results": {"$ref": "#/$defs/allGatesPass"},
+          "assessment_results": {"$ref": "#/$defs/allAssessmentsPass"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"result": {"properties": {"credential_label": {"const": "complete_community_transaction"}}, "required": ["credential_label"]}}, "required": ["result"]},
+      "then": {
+        "properties": {
+          "result": {"properties": {"a05_pathway": {"const": "community_transaction"}}},
+          "contact_control": {
+            "properties": {
+              "authorization_present": {"const": true},
+              "transmission_performed": {"const": true}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"result": {"properties": {"credential_label": {"const": "complete_externally_reviewed_local"}}, "required": ["credential_label"]}}, "required": ["result"]},
+      "then": {
+        "properties": {
+          "result": {"properties": {"a05_pathway": {"const": "externally_reviewed_local"}}},
+          "contact_control": {"properties": {"transmission_performed": {"const": false}}}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nullableString": {"type": ["string", "null"]},
+    "contactControl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundary_acknowledged",
+        "authorization_present",
+        "authorization_id",
+        "transmission_performed",
+        "transmission_evidence_id",
+        "notes_id"
+      ],
+      "properties": {
+        "boundary_acknowledged": {"const": true},
+        "authorization_present": {"type": "boolean"},
+        "authorization_id": {"$ref": "#/$defs/nullableString"},
+        "transmission_performed": {"type": "boolean"},
+        "transmission_evidence_id": {"$ref": "#/$defs/nullableString"},
+        "notes_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "evaluator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evaluator_id", "role", "human_status", "privacy_mode", "identity_mapping_in_package", "conflict_status"],
+      "properties": {
+        "evaluator_id": {"type": "string", "pattern": "^O017-WRAP-EVAL-[A-Z0-9-]+$"},
+        "role": {"type": "string", "minLength": 1},
+        "human_status": {"enum": ["verified_human", "not_verified", "synthetic_persona"]},
+        "privacy_mode": {"const": "opaque_random_identifier"},
+        "identity_mapping_in_package": {"const": false},
+        "conflict_status": {"enum": ["checked_clear", "conflict_declared", "not_checked", "synthetic_not_applicable"]}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "title",
+        "resource_type",
+        "authority_url",
+        "persistent_identifier",
+        "version_label",
+        "version_frozen",
+        "version_witness",
+        "retrieved_at",
+        "rights_statement",
+        "use_in_package",
+        "redistributed_source_content"
+      ],
+      "properties": {
+        "source_id": {"type": "string", "pattern": "^O017-WRAP-SRC-[A-Z0-9-]+$"},
+        "title": {"type": "string", "minLength": 1},
+        "resource_type": {"enum": ["paper", "monograph", "monograph_section", "lecture", "official_correction", "publisher_metadata"]},
+        "authority_url": {"type": "string", "format": "uri"},
+        "persistent_identifier": {"type": ["string", "null"]},
+        "version_label": {"type": "string", "minLength": 1},
+        "version_frozen": {"type": "boolean"},
+        "version_witness": {"type": "string", "minLength": 1},
+        "retrieved_at": {"type": "string", "format": "date-time"},
+        "rights_statement": {"type": "string", "minLength": 1},
+        "use_in_package": {"type": "string", "minLength": 1},
+        "redistributed_source_content": {"type": "boolean"}
+      }
+    },
+    "exemplar": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exemplar_id",
+        "assessment_id",
+        "calibration_only",
+        "status",
+        "pathway",
+        "source_ids",
+        "evaluator_ids",
+        "evidence_ids",
+        "demonstrated_required_elements",
+        "actual_completion_claim",
+        "summary_id",
+        "limitations_id"
+      ],
+      "properties": {
+        "exemplar_id": {"type": "string", "pattern": "^O017-WRAP-CAL-A0[1-5]$"},
+        "assessment_id": {"enum": ["O017-WRAP-A01", "O017-WRAP-A02", "O017-WRAP-A03", "O017-WRAP-A04", "O017-WRAP-A05"]},
+        "calibration_only": {"const": true},
+        "status": {"const": "calibration_only"},
+        "pathway": {"type": ["string", "null"]},
+        "source_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^O017-WRAP-SRC-[A-Z0-9-]+$"}},
+        "evaluator_ids": {"type": "array", "items": {"type": "string", "pattern": "^O017-WRAP-EVAL-[A-Z0-9-]+$"}},
+        "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^O017-WRAP-CAL-EV-[A-Z0-9-]+$"}},
+        "demonstrated_required_elements": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "boolean"}},
+        "actual_completion_claim": {"const": false},
+        "summary_id": {"type": "string", "minLength": 1},
+        "limitations_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "assessment_id",
+        "type_id",
+        "artifact_locator",
+        "bytes",
+        "sha256",
+        "verification_status",
+        "synthetic_calibration",
+        "rights_statement",
+        "retention_class"
+      ],
+      "properties": {
+        "evidence_id": {"type": "string", "pattern": "^O017-WRAP-CAL-EV-[A-Z0-9-]+$"},
+        "assessment_id": {"enum": ["O017-WRAP-A01", "O017-WRAP-A02", "O017-WRAP-A03", "O017-WRAP-A04", "O017-WRAP-A05"]},
+        "type_id": {"type": "string", "pattern": "^O017-WRAP-EV-[A-Z0-9-]+$"},
+        "artifact_locator": {"type": "string", "pattern": "^delivery/calibration/"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "verification_status": {"enum": ["asserted", "observed", "verified", "invalidated", "unknown"]},
+        "synthetic_calibration": {"const": true},
+        "rights_statement": {"type": "string", "minLength": 1},
+        "retention_class": {"enum": ["canonical_calibration", "replaceable_calibration", "ephemeral"]}
+      }
+    },
+    "gateResults": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["O017-WRAP-G01", "O017-WRAP-G02", "O017-WRAP-G03", "O017-WRAP-G04", "O017-WRAP-G05", "O017-WRAP-G06", "O017-WRAP-G07", "O017-WRAP-G08", "O017-WRAP-G09"],
+      "properties": {
+        "O017-WRAP-G01": {"$ref": "#/$defs/gateStatus"},
+        "O017-WRAP-G02": {"$ref": "#/$defs/gateStatus"},
+        "O017-WRAP-G03": {"$ref": "#/$defs/gateStatus"},
+        "O017-WRAP-G04": {"$ref": "#/$defs/gateStatus"},
+        "O017-WRAP-G05": {"$ref": "#/$defs/gateStatus"},
+        "O017-WRAP-G06": {"$ref": "#/$defs/gateStatus"},
+        "O017-WRAP-G07": {"$ref": "#/$defs/gateStatus"},
+        "O017-WRAP-G08": {"$ref": "#/$defs/gateStatus"},
+        "O017-WRAP-G09": {"$ref": "#/$defs/gateStatus"}
+      }
+    },
+    "allGatesPass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["O017-WRAP-G01", "O017-WRAP-G02", "O017-WRAP-G03", "O017-WRAP-G04", "O017-WRAP-G05", "O017-WRAP-G06", "O017-WRAP-G07", "O017-WRAP-G08", "O017-WRAP-G09"],
+      "properties": {
+        "O017-WRAP-G01": {"const": "pass"},
+        "O017-WRAP-G02": {"const": "pass"},
+        "O017-WRAP-G03": {"const": "pass"},
+        "O017-WRAP-G04": {"const": "pass"},
+        "O017-WRAP-G05": {"const": "pass"},
+        "O017-WRAP-G06": {"const": "pass"},
+        "O017-WRAP-G07": {"const": "pass"},
+        "O017-WRAP-G08": {"const": "pass"},
+        "O017-WRAP-G09": {"const": "pass"}
+      }
+    },
+    "gateStatus": {"enum": ["pass", "fail", "not_evaluated", "unknown"]},
+    "assessmentResults": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["O017-WRAP-A01", "O017-WRAP-A02", "O017-WRAP-A03", "O017-WRAP-A04", "O017-WRAP-A05"],
+      "properties": {
+        "O017-WRAP-A01": {"$ref": "#/$defs/assessmentStatus"},
+        "O017-WRAP-A02": {"$ref": "#/$defs/assessmentStatus"},
+        "O017-WRAP-A03": {"$ref": "#/$defs/assessmentStatus"},
+        "O017-WRAP-A04": {"$ref": "#/$defs/assessmentStatus"},
+        "O017-WRAP-A05": {"$ref": "#/$defs/assessmentStatus"}
+      }
+    },
+    "allAssessmentsPass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["O017-WRAP-A01", "O017-WRAP-A02", "O017-WRAP-A03", "O017-WRAP-A04", "O017-WRAP-A05"],
+      "properties": {
+        "O017-WRAP-A01": {"const": "passed"},
+        "O017-WRAP-A02": {"const": "passed"},
+        "O017-WRAP-A03": {"const": "passed"},
+        "O017-WRAP-A04": {"const": "passed"},
+        "O017-WRAP-A05": {"const": "passed"}
+      }
+    },
+    "assessmentStatus": {"enum": ["not_started", "in_progress", "ready_for_review", "changes_requested", "passed", "failed", "withdrawn", "unknown", "calibration_only"]},
+    "communityLifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["current_state", "last_proven_state", "events"],
+      "properties": {
+        "current_state": {"$ref": "#/$defs/communityState"},
+        "last_proven_state": {"$ref": "#/$defs/communityState"},
+        "events": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/lifecycleEvent"}}
+      }
+    },
+    "communityState": {"enum": ["prepared", "submitted", "acknowledged", "accepted", "merged", "published", "rejected", "withdrawn", "unknown"]},
+    "lifecycleEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "state", "occurred_at", "external_event", "evidence_id", "synthetic_calibration"],
+      "properties": {
+        "event_id": {"type": "string", "pattern": "^O017-WRAP-EVT-[A-Z0-9-]+$"},
+        "state": {"$ref": "#/$defs/communityState"},
+        "occurred_at": {"type": "string", "format": "date-time"},
+        "external_event": {"type": "boolean"},
+        "evidence_id": {"type": ["string", "null"]},
+        "synthetic_calibration": {"type": "boolean"}
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["credential_label", "a05_pathway", "decision_id", "decided_at", "limitations_id"],
+      "properties": {
+        "credential_label": {"enum": ["complete_community_transaction", "complete_externally_reviewed_local", "incomplete", "calibration_only"]},
+        "a05_pathway": {"enum": ["community_transaction", "externally_reviewed_local", "not_applicable_calibration"]},
+        "decision_id": {"type": "string", "minLength": 1},
+        "decided_at": {"type": "string", "format": "date-time"},
+        "limitations_id": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

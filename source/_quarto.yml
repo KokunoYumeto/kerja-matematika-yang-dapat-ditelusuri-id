@@ -16,6 +16,7 @@ project:
     - units/07-errata-koreksi-batas-kepastian.qmd
     - units/08-seminar-penelaah-tanggapan-kritik.qmd
     - units/09-kontribusi-komunitas-portofolio.qmd
+    - wrapper/index.qmd
 
 website:
   title: "Kerja Matematika yang Dapat Ditelusuri"
@@ -41,13 +42,21 @@ website:
         text: "Unit 8"
       - href: units/09-kontribusi-komunitas-portofolio.qmd
         text: "Unit 9"
+      - href: wrapper/index.qmd
+        text: "Penyampaian"
     tools:
-      - href: https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/v2026.08.22/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.pdf
+      - href: https://zenodo.org/records/22060136/files/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf?download=1
         icon: file-pdf
         text: "Unduh PDF"
       - href: https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id
         icon: github
         text: "Sumber GitHub"
+      - href: https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/
+        icon: globe
+        text: "Pembaca HTML"
+      - href: https://zenodo.org/records/22060136
+        icon: archive
+        text: "Arsip edisi"
 
 lang: id-ID
 

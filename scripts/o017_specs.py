@@ -149,11 +149,11 @@ COMMON_RECORDS = (
         "O017-EDITION-01",
         locale="id-ID",
         status="release-candidate",
-        version="2026.08.22",
-        creator="Floris",
-        production_system="OpenAI Codex",
-        production_disclosure="produced with OpenAI Codex under Floris's direction",
-        admission_evidence="nine unit admissions plus final-reader and release QA receipts",
+        version="2026.08.22.1",
+        creator="KokunoYumeto",
+        production_system="OpenAI Codex gpt-5.6-sol, Ultra",
+        production_disclosure="produced with OpenAI Codex gpt-5.6-sol, Ultra under the human creator's direction",
+        admission_evidence="nine unit admissions plus authentic-delivery wrapper, semantic-backend, final-reader, and release QA receipts",
     ),
     record(
         "source",
@@ -211,7 +211,7 @@ COMMON_RECORDS = (
         "O017-RIGHTS-ORIGINAL-TEXT",
         license="CC BY-SA 4.0",
         license_url="https://creativecommons.org/licenses/by-sa/4.0/",
-        licensor="Floris",
+        licensor="KokunoYumeto",
         copyright_year=2026,
     ),
     record(
@@ -219,7 +219,7 @@ COMMON_RECORDS = (
         "O017-RIGHTS-ORIGINAL-CODE",
         license="MIT",
         license_url="https://opensource.org/license/mit/",
-        licensor="Floris",
+        licensor="KokunoYumeto",
         copyright_year=2026,
     ),
     record(
@@ -227,7 +227,7 @@ COMMON_RECORDS = (
         "O017-RIGHTS-GENERATED-DATA",
         license="CC0 1.0",
         license_url="https://creativecommons.org/publicdomain/zero/1.0/",
-        licensor="Floris",
+        licensor="KokunoYumeto",
         copyright_year=2026,
     ),
     record(
@@ -519,7 +519,7 @@ UNIT1 = UnitSpec(
     qa_filename="UNIT_01_QA.json",
     visual_qa_filename="UNIT_01_VISUAL_QA.json",
     visual_qa_script_filename="visual_qa_unit.cjs",
-    expected_source_sha256="a174ae167c2a84124ca189722b3d54c399aef8b038a4c863b329da64eaba7faa",
+    expected_source_sha256="3b76971189618fda69194013531c6e785b045ce36de523af63bac63eecf79b8c",
     expected_id_type_sha256="25e93aeb0a63e34942ef54b341f23e5cb01ee72d719f0cea909d8e9010da1521",
     expected_relation_map_sha256="9634a027bce6dbd6374b84b44ba7cc417b3379d23ba0977b6b14a3bfd3ef67b8",
     id_type_baseline_includes_common=True,
@@ -1187,7 +1187,7 @@ UNIT2 = UnitSpec(
     qa_filename="UNIT_02_QA.json",
     visual_qa_filename="UNIT_02_VISUAL_QA.json",
     visual_qa_script_filename="visual_qa_unit.cjs",
-    expected_source_sha256="f18e5579a6ece824a4a3dddb9344868755aeedc4c70665364023fa5e36c90d17",
+    expected_source_sha256="4d2744004d4bda52e07691c9bbcf6d42d47ec720479d8562dde50e4250eed2fa",
     expected_id_type_sha256="daeedc50cd916ceb97147e130a823c71896cf89727887e96269b625e87c444b4",
     expected_relation_map_sha256="7b4b1d453fc24a598c0f4a4a11ec9be28d5831aef623673db79d473d8295201e",
 )
@@ -1597,7 +1597,7 @@ UNIT3 = UnitSpec(
     qa_filename="UNIT_03_QA.json",
     visual_qa_filename="UNIT_03_VISUAL_QA.json",
     visual_qa_script_filename="visual_qa_unit.cjs",
-    expected_source_sha256="9c91ad1f451a9b00c4fd2b8513aebf66b5ff75575922b47fab8351ab4fee52d9",
+    expected_source_sha256="9f2e1a027a867fde79c085d30743b38160abf76d811dc700ccbf994595b2e285",
     expected_id_type_sha256="fb02c932290c89de347861df63f2a7bdd5aec326fdda1d8ce3de04235e772caf",
     expected_relation_map_sha256="e28010a1c7bb1240c5bc029be2e646c1625d827a32d07bec2b0c81c221cb3a78",
 )
@@ -2695,7 +2695,7 @@ UNIT6 = UnitSpec(
     qa_filename="UNIT_06_QA.json",
     visual_qa_filename="UNIT_06_VISUAL_QA.json",
     visual_qa_script_filename="visual_qa_unit.cjs",
-    expected_source_sha256="64ba7458df5cb1b1c923c6a4f6a56a55003fb03b21f7903b3ac94a97b3a98122",
+    expected_source_sha256="b4033d9a86114d8b88f6101da511ca01764009d374f811886f365a11b2535259",
     expected_id_type_sha256="06a17d81da9a5fbdebb745515f5d115709e111eb3915ec1cd8d213c1ca84ddf1",
     expected_relation_map_sha256="375b0a8fd6578b6940702aa3181acf735af479dc8a2e1920991aaea9b04de5e5",
 )
@@ -3021,7 +3021,7 @@ UNIT7 = UnitSpec(
     qa_filename="UNIT_07_QA.json",
     visual_qa_filename="UNIT_07_VISUAL_QA.json",
     visual_qa_script_filename="visual_qa_unit.cjs",
-    expected_source_sha256="5ba8f9051a059ab1f9b83588e9fd66a0e5c548bc0265a0592226782f3c32622f",
+    expected_source_sha256="dac211708a859a8bf93f800395ff252caa4554c30c0f3994356ab98fa6a24c91",
     expected_id_type_sha256="2f7cc7f9ce52f27bc5ce8bfb62d84aea25004a4f987417c3c563f97d93c51c11",
     expected_relation_map_sha256="64e5d5510d9db6e9889b59924ee7814b5ca801e8f28d8a5f549a12274ceb31c6",
 )
@@ -3316,7 +3316,7 @@ UNIT8 = UnitSpec(
     qa_filename="UNIT_08_QA.json",
     visual_qa_filename="UNIT_08_VISUAL_QA.json",
     visual_qa_script_filename="visual_qa_unit.cjs",
-    expected_source_sha256="340ed58452642f29cf4ce608ce6fde01068f460f2100878c913d9a0987e154a9",
+    expected_source_sha256="2437212b31b42f11b186eaf4a0a1edac3758a1fc4a21e1d4eaca6b1934a0e8ca",
     expected_id_type_sha256="65505dd9b19894fc1530da8ae5438a4e97631b7ff0f8c63c74848d283950ffbe",
     expected_relation_map_sha256="e5fab3f8cf5cd4614b9d584d96849f68f6968a90c11a0e3bf3c3c6dd29b07e2e",
 )
@@ -3575,7 +3575,7 @@ UNIT9 = UnitSpec(
     qa_filename="UNIT_09_QA.json",
     visual_qa_filename="UNIT_09_VISUAL_QA.json",
     visual_qa_script_filename="visual_qa_unit.cjs",
-    expected_source_sha256="7a2072c10f1714715856177e7e83f968baa1f079eaad92d138a71a05a01cc906",
+    expected_source_sha256="ad914ff7c17775ca3a9d0724d07b35157fdb47237dc1749363ff152b32cd554e",
     expected_id_type_sha256="922cf333c7e18116cd3de44b49c206db3dd28a17a521c9951027388d11d7f95e",
     expected_relation_map_sha256="481a066391cefe3eaea491b1232cd0f029d63f5d8e00db1c5cb97845928c36b7",
 )
