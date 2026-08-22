@@ -1,0 +1,9 @@
+{
+  "schema": "o017-unit-01-mst-check-v1",
+  "claim_tested": "Distinct edge weights imply a unique MST.",
+  "logical_status": "finite computational evidence; not a proof",
+  "k4_distinct_weight_assignments_checked": 720,
+  "k4_uniqueness_violations": 0,
+  "equal_weight_triangle_mst_count": 3,
+  "equal_weight_triangle_minimum_weight": 2
+}

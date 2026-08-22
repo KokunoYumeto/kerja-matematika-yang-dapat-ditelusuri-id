@@ -1,0 +1,47 @@
+{
+  "course_boundary": "Selected donor files are witnesses, not the O017 spine. Mathematics-specific units, exercises, examples, solutions, errata, review response, and contribution work are original O017 content.",
+  "date": "2026-08-21",
+  "network_method": "commit-pinned raw HTTPS reads; no Git and no repository-wide checkout",
+  "py_rse": {
+    "archive_observation": {
+      "bytes": 20728265,
+      "retained_locally": false,
+      "sha256": "840b78f1f0d8e5520126a25a8152cd198fc867042df08827158bcb44cf482e56",
+      "url": "https://codeload.github.com/merely-useful/py-rse/zip/62217e6606842ab9752fcf8e73954d1eb4a3cf07"
+    },
+    "build": "R Markdown/Bookdown; dependency versions unpinned and Makefile references missing CONDUCT.md, so the frozen upstream head is not reproducibly buildable as written",
+    "commit": "62217e6606842ab9752fcf8e73954d1eb4a3cf07",
+    "license": "CC BY 4.0 prose; preserve MIT notice for copied code",
+    "repository": "https://github.com/merely-useful/py-rse",
+    "reuse": "bounded provenance/inspectability donor only",
+    "selected_content_bytes": 124227,
+    "selected_content_files": 8,
+    "selected_content_manifest_sha256": "003333798535f050c359f26ea0d5936dd6e43a722b32890b3079b90b2333870f",
+    "selected_slice_bytes": 6759,
+    "selected_slice_lines": 134,
+    "selected_slice_sha256": "7c9ce175f20db5f248e56018ecabc3c364ce46f15d7f1e20564c8547b0a95dbc",
+    "tree": "f570f30bb8ace202550c474e81eb3414e8976be5"
+  },
+  "schema": "o017-source-freeze-v1",
+  "status": "SOURCE_FROZEN",
+  "the_turing_way": {
+    "archive_observation": {
+      "bytes": 167935841,
+      "retained_locally": false,
+      "sha256": "0aa12abcc930f63c402dc7fc070308808217da72d93d595d0f3d58fb0bb90446",
+      "url": "https://codeload.github.com/the-turing-way/the-turing-way/zip/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce"
+    },
+    "build": "MyST/Jupyter Book 2.1.6 HTML; no upstream PDF/EPUB target; full build also needs a pinned external plugin",
+    "build_evidence_bytes": 83435,
+    "build_evidence_files": 6,
+    "build_evidence_manifest_sha256": "a288e0bbdeb911941b42513693ac38965e73104a82b4b5f32956204d563dd9a4",
+    "commit": "c98a0e6ca47450456cca7c5eedda2d5ee131d1ce",
+    "license": "CC BY 4.0 content; MIT software/infrastructure",
+    "repository": "https://github.com/the-turing-way/the-turing-way",
+    "reuse": "bounded methodological donor only",
+    "selected_content_bytes": 2128347,
+    "selected_content_files": 21,
+    "selected_content_manifest_sha256": "82a352d497ecdf372b1628b405ef83754f960b7ace239e1710e06e4eb6c9c133",
+    "tree": "94b81b26ea209b4b067456b9b6740c76fff1eac9"
+  }
+}

@@ -1,0 +1,101 @@
+:root {
+  --o017-measure: 76rem;
+  --o017-reading-measure: 54rem;
+}
+
+body {
+  line-height: 1.62;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+.page-columns {
+  max-width: var(--o017-measure);
+  margin-inline: auto;
+}
+
+main.content {
+  max-width: var(--o017-reading-measure);
+}
+
+table {
+  width: 100%;
+}
+
+.o017-table-scroll {
+  contain: inline-size;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.o017-math-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+blockquote {
+  border-inline-start: 0.3rem solid #496a9e;
+  padding-inline-start: 1rem;
+}
+
+code {
+  overflow-wrap: anywhere;
+}
+
+p code,
+li code,
+td code,
+a code {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.o017-table-scroll td code,
+.o017-table-scroll th code {
+  overflow-wrap: normal;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+pre code {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.o017-skip-link {
+  background: #fff;
+  border: 2px solid #244f86;
+  color: #173b69;
+  left: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  position: fixed;
+  top: -8rem;
+  z-index: 2000;
+}
+
+.o017-skip-link:focus {
+  top: 0.75rem;
+}
+
+@media (max-width: 800px) {
+  body {
+    line-height: 1.55;
+  }
+
+  main.content {
+    max-width: none;
+  }
+
+  .navbar-brand .navbar-title {
+    display: block;
+    max-width: calc(100vw - 10rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

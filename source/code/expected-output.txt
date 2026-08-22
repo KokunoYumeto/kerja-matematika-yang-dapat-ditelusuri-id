@@ -1,0 +1,3 @@
+k4_distinct_weight_assignments_checked: 720
+k4_uniqueness_violations: 0
+equal_weight_triangle_mst_count: 3

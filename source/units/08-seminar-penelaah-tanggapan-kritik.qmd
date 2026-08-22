@@ -1,0 +1,882 @@
+---
+title: "Unit 8 — Catatan Seminar, Laporan Penelaah, dan Tanggapan terhadap Kritik"
+subtitle: "Mengubah apa yang benar-benar diamati menjadi pertukaran matematis yang dapat diaudit"
+description: "Unit praktik untuk membuat catatan seminar berpenunjuk, menulis laporan penelaah berbasis bukti, menanggapi kritik tanpa defensif, merevisi klaim dan bukti secara minimal, serta mempertahankan daftar masalah yang belum selesai."
+---
+
+## Hasil belajar {#o017-u08-outcomes}
+
+Unit ini mempunyai pengidentifikasi stabil **O017-U08**. Setelah
+menyelesaikannya, Anda mampu:
+
+1. mengubah sebuah pembicaraan matematika menjadi catatan klaim yang mempunyai
+   waktu, lokasi, jenis, dasar, status verifikasi, dan tingkat keyakinan;
+2. menandai bagian yang tidak terdengar atau tidak tercatat tanpa mengarang
+   isi pengganti;
+3. membedakan ringkasan, verifikasi, pertanyaan, dan keberatan, serta
+   memisahkan keparahan masalah dari keyakinan terhadap diagnosis;
+4. menulis komentar penelaah yang spesifik, terbatas pada bukti, menghormati
+   penulis, dan meminta tindakan yang dapat dilaksanakan;
+5. menilai rekomendasi menerima, revisi minor, revisi mayor, atau menolak
+   berdasarkan keadaan naskah, bukan reputasi atau dugaan mengenai penulis;
+6. menanggapi kritik dengan menyatakan setuju atau tidak setuju, tindakan,
+   bukti, lokasi perubahan, status, dan hal yang belum selesai;
+7. memperbaiki teorema dan pembuktian tanpa menyamarkan redaksi lama atau
+   mengklaim perbaikan lebih luas daripada yang telah dibuktikan; dan
+8. menghasilkan paket seminar–penelaahan–tanggapan yang dapat diperiksa tanpa
+   menghubungi pihak luar atau menerbitkan apa pun.
+
+::: {.callout-note title="Prasyarat, kesinambungan, dan batas fokus"}
+Unit ini memakai keluaran yang telah tersedia: jejaring klaim dari Unit 1,
+otoritas sumber dari Unit 2, rekonstruksi bukti dari Unit 3, lokator dan
+provenance dari Unit 4, eksposisi matang dari Unit 5, bukti komputasional dari
+Unit 6 bila ada, serta diagnosis cacat dan pasangan keparahan–keyakinan dari
+Unit 7. Unit 8 tidak mengulang cara menghasilkan keluaran tersebut. Fokusnya
+ialah **pertukaran**: apa yang dicatat dari seminar, apa yang layak dikatakan
+penelaah, dan bagaimana penulis menjawab serta mengubah naskah.
+
+Semua seminar, naskah, laporan, dan tanggapan pada unit ini bersifat sintetis.
+Tidak ada surel, komentar, isu, laporan, atau naskah yang dikirim kepada pihak
+luar. Pengiriman dan kontribusi komunitas berwenang berada pada Unit 9.
+:::
+
+## Penelaahan adalah kontrak bukti, bukan pertunjukan kepastian {#o017-u08-review-as-evidence-contract}
+
+Catatan seminar, laporan penelaah, dan tanggapan penulis memiliki fungsi yang
+berbeda.
+
+- **Catatan seminar** merekam apa yang dapat diamati pada waktu dan lokasi
+  tertentu, ditambah pemeriksaan atau pertanyaan pencatat.
+- **Laporan penelaah** menilai naskah beku dalam lingkup yang dinyatakan,
+  menunjukkan bukti, dan merumuskan permintaan revisi.
+- **Tanggapan penulis** memasangkan setiap komentar dengan keputusan,
+  perubahan atau alasan, bukti, lokasi baru, status, dan masalah yang tersisa.
+
+Ketiganya tidak boleh dilebur. Catatan “pembicara menyatakan Teorema 2 pada
+slide 6” membuktikan bahwa klaim itu terdengar atau terlihat; catatan tersebut
+belum membuktikan teoremanya. Laporan “langkah ketiga tidak mengikuti
+hipotesis” harus menunjuk langkah dan memberi alasan; nada tegas bukan bukti.
+Jawaban “telah diperbaiki” belum dapat diaudit tanpa redaksi baru dan lokasi.
+
+::: {#o017-u08-original-bridge .callout-important title="Jembatan asli O017"}
+Skema catatan klaim berwaktu, pemisahan empat jenis entri, kontrak komentar
+penelaah, matriks komentar–tindakan–bukti–lokasi–status, kasus titik tetap,
+gerbang rekomendasi, templat, latihan, dan paket penyelesaian pada unit ini
+merupakan materi asli O017. Unit ini memakai hasil diagnosis yang sudah
+dibangun unit sebelumnya, tetapi mengajarkan pekerjaan baru: komunikasi
+penelaahan yang terlacak dan revisi sebagai jawaban terhadap komentar.
+:::
+
+## Kontrak rekaman: tulis yang diamati, tandai yang hilang {#o017-u08-recording-contract}
+
+Sebuah catatan seminar yang dapat diaudit membedakan tiga lapisan.
+
+1. **Rekaman observasi:** apa yang tertulis pada slide, papan, atau bahan
+   pendamping, dan apa yang terdengar pada segmen tertentu.
+2. **Tindakan pencatat:** ringkasan, pemeriksaan, pertanyaan, atau keberatan
+   yang dibuat pencatat.
+3. **Status sesudah seminar:** terjawab, diverifikasi, ditolak, atau masih
+   terbuka setelah bahan tertentu diperiksa.
+
+Jika rekaman berhenti antara menit 06:10 dan 06:42, tulis “segmen tidak
+terekam 06:10–06:42”. Jangan mengisi celah dengan kalimat yang tampaknya cocok
+dengan slide berikutnya. Jika satu simbol tidak terdengar, tulis “simbol tidak
+terdengar; slide hanya memperlihatkan huruf yang tampak seperti $q$”. Jangan
+mengubah dugaan menjadi transkripsi.
+
+### Empat jenis entri {#o017-u08-four-entry-types}
+
+::: {.o017-table-scroll aria-label="Empat jenis entri catatan seminar dan beban buktinya" tabindex="0"}
+| Kode | Jenis | Fungsi | Bentuk yang memadai | Bukan |
+|---|---|---|---|---|
+| S | ringkasan | memadatkan isi yang benar-benar disajikan atau keadaan rekaman yang langsung diamati | “Slide 4 menyatakan klaim keberadaan”; atau “segmen 06:10–06:42 tidak terekam”. | pengesahan bahwa klaim matematika benar |
+| V | verifikasi | memeriksa langkah dengan argumen, hitungan, atau sumber yang tersedia | “Dari $f(0)\geq0$ dan $f(1)-1\leq0$, Teorema Nilai Antara memang memberi nol.” | kesan “tampak masuk akal” |
+| Q | pertanyaan | meminta definisi, alasan, batas, atau lokasi yang belum tersedia | “Apakah ketaksamaan kedua pada papan mengikuti hipotesis tambahan?” | tuduhan terselubung |
+| O | keberatan | menyatakan kegagalan tertentu dengan bukti yang cukup | “Peta identitas memenuhi hipotesis tetapi mempunyai tak berhingga banyak titik tetap.” | ketidaksukaan gaya atau tebakan niat |
+:::
+
+Satu entri mempunyai satu jenis utama. Sebuah pertanyaan dapat berubah menjadi
+keberatan setelah pemeriksaan, tetapi buat entri baru dan hubungkan keduanya;
+jangan menimpa sejarah sehingga pertanyaan tampak sejak awal sebagai diagnosis
+pasti.
+
+### Keparahan, keyakinan, dan status verifikasi {#o017-u08-severity-confidence-status}
+
+Ketiga bidang menjawab pertanyaan berbeda.
+
+- **Status verifikasi**: apakah isi matematis sudah diperiksa, belum diperiksa,
+  didukung, ditolak, atau belum terselesaikan?
+- **Keparahan**: jika masalah itu nyata, seberapa besar pengaruhnya pada
+  naskah atau pembicaraan?
+- **Keyakinan**: seberapa kuat dasar untuk menyatakan observasi atau diagnosis
+  itu?
+
+Unit 7 telah menetapkan cara menilai keparahan dan keyakinan. Unit 8 hanya
+membawa nilai beserta alasannya ke dalam komunikasi. Jangan mengubah
+“berpotensi mayor, keyakinan rendah” menjadi “kesalahan mayor telah terbukti”.
+Sebaliknya, sebuah salah ketik yang pasti dapat mempunyai keyakinan tinggi dan
+keparahan editorial.
+
+Untuk ringkasan, keyakinan dapat merujuk pada ketepatan rekaman, bukan
+kebenaran matematika. Misalnya, “keyakinan tinggi bahwa slide menyatakan
+klaim; klaim belum diverifikasi” adalah rekaman yang konsisten.
+
+## Templat catatan seminar berpenunjuk {#o017-u08-seminar-note-template}
+
+Isi identitas seminar sebelum membuat inferensi.
+
+::: {.o017-table-scroll aria-label="Templat identitas dan batas catatan seminar" tabindex="0"}
+| Bidang | Isi yang dicatat |
+|---|---|
+| ID catatan | pengidentifikasi lokal yang stabil |
+| Judul dan pembicara | sebagaimana tampil pada bahan; tandai jika tidak tersedia |
+| Tanggal dan zona waktu | waktu kejadian, bukan waktu catatan dirapikan |
+| Versi bahan | label slide, berkas, atau “tidak tersedia” |
+| Dasar rekaman | hadir langsung, rekaman audio/video, slide, papan, atau kombinasi |
+| Cakupan | waktu mulai–akhir yang benar-benar diperiksa |
+| Celah | rentang yang tidak terekam, tidak terdengar, atau tidak terlihat |
+| Konvensi waktu | misalnya cap waktu sejak awal rekaman |
+| Penulis catatan dan waktu revisi | identitas pencatat serta riwayat perubahan |
+:::
+
+Setelah itu, gunakan satu baris per klaim atau tindakan pencatat.
+
+::: {.o017-table-scroll aria-label="Templat entri klaim berwaktu untuk catatan seminar" tabindex="0"}
+| ID entri | Waktu | Lokasi | Jenis | Isi terbatas | Dasar | Status verifikasi | Keparahan | Keyakinan | Tindak lanjut |
+|---|---|---|---|---|---|---|---|---|---|
+| … | mm:ss–mm:ss | slide/papan/persamaan | S/V/Q/O | satu klaim atau satu pertanyaan | apa yang diamati atau dihitung | belum diperiksa/didukung/ditolak/terbuka | hanya bila relevan | nilai dan alasan | tindakan serta lokator hasil |
+:::
+
+Lokasi harus cukup untuk menemukan kembali isi. “Di tengah seminar” tidak
+cukup jika slide 5 atau papan kanan dapat disebut. Cap waktu saja tidak cukup
+untuk bahan yang dipotong ulang; pasangkan waktu dengan lokasi konseptual.
+
+### Aturan untuk segmen yang tidak tersedia {#o017-u08-missing-segment-rule}
+
+Gunakan salah satu redaksi berikut secara harfiah sesuai keadaan:
+
+- “tidak terekam” bila alat tidak menyimpan segmen;
+- “tidak terdengar” bila audio ada tetapi simbol atau kalimat tidak dapat
+  dibedakan;
+- “tidak terlihat” bila papan atau slide keluar dari bingkai;
+- “tidak dinyatakan pada bahan yang diperiksa” bila klaim dicari tetapi tidak
+  ditemukan dalam cakupan;
+- “belum diperiksa” bila bahan tersedia tetapi audit belum dilakukan.
+
+Kalimat terakhir berbeda dari “tidak ada”. Ketiadaan dalam bagian yang belum
+diperiksa tidak boleh dipakai sebagai bukti bahwa pembicara menghilangkan
+sesuatu.
+
+## Kasus seminar sintetis: satu klaim, satu celah, satu keberatan {#o017-u08-seminar-case}
+
+Paket berikut merupakan seluruh bahan seminar yang tersedia.
+
+::: {#o017-u08-talk-metadata .callout-note title="O017-U08-TALK-01 — Identitas seminar sintetis"}
+- Judul: *Titik Tetap pada Interval*.
+- Pembicara: tidak diberi nama; identitas eksternal tidak tersedia.
+- Tanggal: 2026-08-21.
+- Bahan: slide sintetis versi S1 dan rekaman sintetis 12:00.
+- Konvensi waktu: cap waktu dihitung dari awal rekaman.
+- Cakupan yang dapat diperiksa: 00:00–06:10 dan 06:42–12:00.
+- Celah: 06:10–06:42 tidak terekam.
+:::
+
+::: {#o017-u08-talk-claim-v1 .callout-warning title="O017-U08-TALK-C01 — Teorema pada slide 4"}
+Jika $f:[0,1]\to[0,1]$ kontinu dan meningkat ketat, maka terdapat tepat satu
+$c\in[0,1]$ sehingga $f(c)=c$.
+:::
+
+Pada slide 5, pembicara mendefinisikan $g(x)=f(x)-x$ dan menunjukkan
+$g(0)=f(0)\geq0$ serta $g(1)=f(1)-1\leq0$. Rekaman kemudian memasuki celah.
+Ketika rekaman kembali pada 06:42, papan kanan memuat
+
+$$
+0<f(y)-f(x)<y-x \qquad (x<y),
+$$
+
+dan slide 6 menyatakan “maka $g$ menurun ketat, sehingga nolnya unik”. Tidak
+ada hipotesis Lipschitz, kontraksi, atau ketaksamaan kenaikan lain pada slide
+1–6. Pada sesi pertanyaan, seorang peserta menyebut $f(x)=x$; pembicara
+menjawab bahwa contoh itu perlu diperiksa sesudah seminar.
+
+### Catatan yang setia pada bahan {#o017-u08-seminar-case-notes}
+
+::: {.o017-table-scroll aria-label="Catatan klaim berwaktu untuk seminar sintetis titik tetap" tabindex="0"}
+| ID | Waktu | Lokasi | Jenis | Isi | Dasar | Status | Keparahan | Keyakinan | Tindak lanjut |
+|---|---|---|---|---|---|---|---|---|---|
+| N01 | 00:35–01:05 | slide 4, C01 | S | Pembicara menyatakan keberadaan dan ketunggalan titik tetap di bawah kontinuitas serta kenaikan ketat. | teks slide terlihat lengkap | matematika belum diperiksa | belum dinilai | tinggi untuk transkripsi; bukan penilaian kebenaran | pisahkan dua kesimpulan |
+| N02 | 03:10–05:58 | slide 5 | V | Bagian keberadaan didukung: $g$ kontinu, $g(0)\geq0$, dan $g(1)\leq0$, sehingga ada nol. | langkah terlihat dan Teorema Nilai Antara diperiksa | didukung | tidak ada masalah pada bagian ini | tinggi | catat sebagai bagian yang dapat dipertahankan |
+| N03 | 06:10–06:42 | rekaman | S | Segmen tidak terekam; tidak ada transkripsi tentang cara ketaksamaan kedua diperoleh. | celah rekaman teramati | tidak berlaku | tidak diketahui | tinggi bahwa rekaman hilang | jangan merekonstruksi ucapan |
+| N04 | 06:42–07:15 | papan kanan | Q | Hipotesis mana yang memberi $f(y)-f(x)<y-x$? | ketaksamaan terlihat, tetapi dasar tidak tampak pada bahan | terbuka | berpotensi material | sedang; mungkin ada isi dalam celah | periksa semua slide dan naskah |
+| N05 | 10:44–11:20 | sesi pertanyaan | O | $f(x)=x$ kontinu, meningkat ketat, memetakan $[0,1]$ ke dirinya, dan setiap titik merupakan titik tetap; ketunggalan C01 salah. | contoh peserta diperiksa langsung terhadap semua hipotesis | ditolak pada klaim ketunggalan | mayor untuk C01, keberadaan tetap sah | tinggi | bawa sebagai komentar utama |
+| N06 | 11:20–11:42 | jawaban lisan | S | Pembicara mengatakan contoh akan diperiksa sesudah seminar. | audio jelas | bukan penyelesaian matematis | tidak berlaku | tinggi untuk rekaman | status keberatan tetap terbuka sampai ada revisi |
+:::
+
+N03 tidak menyatakan bahwa pembicara tidak memberi alasan; ia hanya menyatakan
+bahwa alasan tidak tersedia pada rekaman. N05 tidak bergantung pada isi celah:
+contoh identitas menolak teorema sebagaimana tertulis pada slide 4. Karena itu,
+keyakinan diagnosis dapat tinggi meskipun sejarah lisan pada celah tetap tidak
+diketahui.
+
+## Dari catatan ke komentar penelaah {#o017-u08-from-notes-to-review}
+
+Komentar penelaah yang dapat ditindaklanjuti mempunyai lima komponen.
+
+1. **Lokator:** halaman, bagian, teorema, persamaan, atau jangkar.
+2. **Klaim tepat:** redaksi yang dinilai, tanpa penguatan buatan penelaah.
+3. **Diagnosis dan bukti:** langkah yang gagal, contoh tandingan, atau
+   ketergantungan yang hilang.
+4. **Akibat terbatas:** bagian mana yang terpengaruh dan mana yang masih sah.
+5. **Permintaan:** tindakan yang dapat diperiksa, bukan perintah untuk
+   “memperbaiki semuanya”.
+
+Bandingkan dua kalimat berikut.
+
+> Bukti ini ceroboh dan penulis tampaknya tidak memahami fungsi monoton.
+
+Kalimat itu menilai orang, tidak memberi lokator, dan tidak menawarkan uji.
+
+> Pada Teorema 1, paragraf pembuktian ketiga memakai
+> $f(y)-f(x)<y-x$ untuk $x<y$. Kenaikan ketat hanya memberi
+> $f(y)-f(x)>0$; peta identitas memenuhi semua hipotesis tetapi mempunyai
+> banyak titik tetap. Mohon pertahankan bagian keberadaan, lalu revisi atau
+> hapus klaim ketunggalan dan audit hasil yang menggunakannya.
+
+Kalimat kedua tegas, tetapi objeknya naskah dan inferensinya. Tidak ada dugaan
+mengenai kemampuan, niat, atau motif penulis.
+
+### Hormat tidak berarti kabur {#o017-u08-respectful-specificity}
+
+Bahasa yang menghormati pembaca dan penulis:
+
+- menyebut klaim, bukan watak orang;
+- mengganti “jelas salah” dengan bukti yang membuat kegagalan dapat diperiksa;
+- mengakui bagian yang sah jika hanya sebagian argumen gagal;
+- membedakan syarat wajib dari saran opsional;
+- menghindari tuntutan yang melampaui lingkup audit; dan
+- mengakui ketidakpastian penelaah secara tepat.
+
+Hindari pujian kosong yang menutupi komentar utama. “Naskah menarik, tetapi
+mungkin ada sedikit kebingungan” tidak sesuai ketika teorema pusat memiliki
+contoh tandingan. Hormat dan ketepatan dapat hadir bersama.
+
+## Naskah sintetis dan diagnosis penelaah {#o017-u08-worked-manuscript}
+
+Kita sekarang beralih dari rekaman seminar ke naskah lengkap yang membekukan
+klaim dan pembuktiannya.
+
+::: {#o017-u08-manuscript-v1 .callout-note title="O017-U08-MS-V1 — Naskah Titik Tetap, versi sintetis 1.0"}
+- ID karya: **O017-U08-MS-W01**.
+- ID versi: **O017-U08-MS-V1**.
+- Salinan: seluruh cuplikan V1 pada unit ini.
+- Teorema 1: jangkar [#o017-u08-ms-v1-theorem](#o017-u08-ms-v1-theorem).
+- Bukti, langkah P1–P3: jangkar
+  [#o017-u08-ms-v1-proof](#o017-u08-ms-v1-proof).
+- Korolari 2: hanya diketahui bergantung pada “ketunggalan dalam Teorema 1”;
+  teks lengkap korolari tidak tersedia.
+:::
+
+::: {#o017-u08-ms-v1-theorem .callout-warning title="Teorema 1 — Redaksi V1"}
+Jika $f:[0,1]\to[0,1]$ kontinu dan meningkat ketat, maka terdapat tepat satu
+$c\in[0,1]$ sehingga $f(c)=c$.
+:::
+
+::: {#o017-u08-ms-v1-proof .callout-note title="Pembuktian V1"}
+**P1.** Definisikan $g(x)=f(x)-x$. Fungsi $g$ kontinu.
+
+**P2.** Karena $f$ bernilai di $[0,1]$, berlaku
+$g(0)=f(0)\geq0$ dan $g(1)=f(1)-1\leq0$. Teorema Nilai Antara memberi
+$c\in[0,1]$ dengan $g(c)=0$, jadi $f(c)=c$.
+
+**P3.** Jika $x<y$, kenaikan ketat $f$ memberi
+$0<f(y)-f(x)<y-x$. Maka
+$g(y)-g(x)=f(y)-f(x)-(y-x)<0$, sehingga $g$ menurun ketat dan nolnya unik.
+:::
+
+P1 dan P2 sah. Pada P3, ketaksamaan pertama
+$0<f(y)-f(x)$ mengikuti dari kenaikan ketat, tetapi ketaksamaan kedua
+$f(y)-f(x)<y-x$ tidak mengikuti. Sifat meningkat tidak membatasi besar
+kenaikan terhadap panjang interval.
+
+Ambil peta identitas $f(x)=x$. Fungsi ini kontinu, meningkat ketat, dan
+memetakan $[0,1]$ ke $[0,1]$. Namun, $f(c)=c$ untuk setiap
+$c\in[0,1]$. Jadi klaim ketunggalan pada V1 salah, sedangkan klaim
+keberadaannya tetap benar.
+
+### Komentar utama penelaah {#o017-u08-worked-review-comment}
+
+::: {#o017-u08-review-c01 .callout-warning title="R1-C01 — Ketunggalan tidak mengikuti hipotesis"}
+**Lokasi.** Teorema 1 dan P3 pada O017-U08-MS-V1.
+
+**Diagnosis.** Kenaikan ketat memberi $f(y)-f(x)>0$ ketika $x<y$, tetapi tidak
+memberi $f(y)-f(x)<y-x$. Peta identitas $f(x)=x$ memenuhi seluruh hipotesis
+tertulis dan mempunyai setiap titik di $[0,1]$ sebagai titik tetap.
+
+**Akibat.** Bagian keberadaan P1–P2 tetap sah. Klaim ketunggalan dan setiap
+hasil yang benar-benar bergantung padanya belum dapat dipertahankan dari V1.
+
+**Permintaan.** Ganti atau hapus klaim ketunggalan dan berikan bukti yang
+sesuai dengan redaksi baru. Permintaan untuk mempertahankan bagian keberadaan
+dan mengaudit Korolari 2 dikeluarkan sebagai komentar terpisah di bawah.
+Jangan menyimpulkan dampak di luar salinan yang diperiksa tanpa bahan
+tambahan.
+
+**Penilaian.** Keparahan mayor karena klaim utama terdiri atas keberadaan dan
+ketunggalan serta Korolari 2 dinyatakan bergantung pada ketunggalan. Keyakinan
+tinggi karena contoh tandingan eksak telah diperiksa terhadap semua hipotesis.
+:::
+
+Komentar tersebut tidak mengatakan bahwa seluruh naskah gagal. Ia juga tidak
+menyatakan apa yang “pasti dimaksud” penulis. Kedua batas itu penting: bukti
+keberadaan dapat diselamatkan, sedangkan pilihan perbaikan tetap keputusan
+penulis yang harus dibuktikan.
+
+### Komentar terkait yang dikeluarkan secara terpisah {#o017-u08-worked-related-comments}
+
+Supaya setiap permintaan dapat ditutup sendiri, penelaah menerbitkan tiga
+komentar terkait berikut alih-alih menyembunyikannya sebagai anak kalimat
+R1-C01.
+
+::: {#o017-u08-review-c02 .callout-note title="R1-C02 — Pertahankan bagian keberadaan"}
+P1–P2 memberi pembuktian keberadaan yang sah dan tidak bergantung pada
+kenaikan ketat. Mohon pertahankan hasil itu sebagai klaim tersendiri agar
+perbaikan ketunggalan tidak menghapus matematika yang sudah didukung.
+:::
+
+::: {#o017-u08-review-c03 .callout-note title="R1-C03 — Saran opsional tentang syarat yang mudah dikenali"}
+Sebagai pilihan eksposisi, penulis dapat mempertimbangkan syarat kontraksi
+untuk menjamin ketunggalan. Ini saran opsional, bukan syarat penerimaan:
+redaksi lain dapat dipakai jika tepat, terbukti, dan cukup untuk langkah
+ketunggalan.
+:::
+
+::: {#o017-u08-review-c04 .callout-warning title="R1-C04 — Audit ketergantungan Korolari 2"}
+Metadata V1 menyatakan bahwa Korolari 2 memakai ketunggalan Teorema 1, tetapi
+teks lengkap korolari tidak tersedia. Mohon tahan klaim tersebut dan audit
+ulang ketika salinan lengkap tersedia; laporan ini tidak menyimpulkan apakah
+korolari dapat diperbaiki.
+:::
+
+## Tanggapan penulis yang tidak defensif {#o017-u08-author-response}
+
+Tanggapan yang baik tidak diukur dari banyaknya ucapan terima kasih. Ia
+diukur dari apakah pembaca dapat menautkan komentar ke keputusan dan hasil
+baru. Untuk setiap komentar:
+
+1. nyatakan apakah Anda setuju, setuju sebagian, atau tidak setuju;
+2. parafrasakan diagnosis secara akurat;
+3. sebut tindakan yang dilakukan atau alasan berbukti untuk tidak
+   melakukannya;
+4. tunjukkan bukti dan lokasi perubahan;
+5. beri status yang jujur; dan
+6. pertahankan masalah yang belum selesai sebagai entri eksplisit.
+
+Respons “kami mohon maaf atas kebingungan” tidak memadai bila teoremanya
+salah. Respons “ini hanya persoalan notasi” juga tidak memadai bila ada contoh
+tandingan. Sebaliknya, penulis tidak wajib menerima saran yang lebih kuat dari
+yang diperlukan; penolakan yang disertai alasan matematis dapat sepenuhnya
+profesional.
+
+### Contoh tanggapan {#o017-u08-worked-author-response}
+
+::: {#o017-u08-response-r1-c01 .callout-important title="Tanggapan terhadap R1-C01"}
+Kami setuju bahwa hipotesis “meningkat ketat” tidak mendukung ketunggalan.
+Contoh $f(x)=x$ memenuhi seluruh hipotesis V1 dan menolak kesimpulan unik.
+Pada V2, Teorema 1 dipisahkan menjadi klaim keberadaan umum dan klaim
+ketunggalan bersyarat; syarat yang dipakai ialah bahwa
+$x\mapsto f(x)-x$ menurun ketat. Bukti baru berada pada
+[#o017-u08-ms-v2-proof](#o017-u08-ms-v2-proof).
+
+Kami tidak mengganti syarat tersebut dengan “$f$ kontraksi”, meskipun itu
+merupakan syarat cukup yang dikenal, karena kontraksi lebih kuat daripada
+ketaksamaan yang benar-benar dipakai pembuktian ini. Kami belum menutup audit
+Korolari 2 karena teks lengkapnya tidak tersedia dalam paket. Oleh karena itu,
+status Korolari 2 tetap **ditahan**, bukan “diperbaiki”.
+:::
+
+Respons ini mengakui masalah tanpa membela redaksi lama, tetapi juga
+menjelaskan mengapa satu saran potensial tidak diambil. Yang ditolak adalah
+pilihan formulasi lebih kuat, bukan diagnosis penelaah.
+
+## Teorema dan bukti yang direvisi secara minimal {#o017-u08-minimally-revised-result}
+
+“Minimal” di sini berarti minimal terhadap kontrak bukti V1: bagian keberadaan
+yang sah dipertahankan, sedangkan hipotesis ketunggalan diganti oleh sifat
+tepat yang dipakai untuk membuktikan bahwa $g$ mempunyai paling banyak satu
+nol. Ini bukan klaim bahwa redaksi berikut merupakan karakterisasi paling
+lemah di antara semua kemungkinan formulasi.
+
+::: {#o017-u08-ms-v2-theorem .callout-important title="Teorema 1 — Redaksi calon V2"}
+Misalkan $f:[0,1]\to[0,1]$ kontinu.
+
+1. Terdapat sekurang-kurangnya satu $c\in[0,1]$ sehingga $f(c)=c$.
+2. Jika fungsi $g:[0,1]\to\mathbb R$ yang didefinisikan oleh
+   $g(x)=f(x)-x$ menurun ketat, maka titik tetap tersebut unik.
+:::
+
+::: {#o017-u08-ms-v2-proof .callout-note title="Pembuktian calon V2"}
+Karena $f$ kontinu, fungsi $g(x)=f(x)-x$ kontinu. Dari
+$f(0)\in[0,1]$ diperoleh $g(0)=f(0)\geq0$, dan dari
+$f(1)\in[0,1]$ diperoleh $g(1)=f(1)-1\leq0$. Jika salah satu nilai ujung sama
+dengan nol, ujung tersebut merupakan titik tetap. Jika tidak, maka
+$g(0)>0>g(1)$; Teorema Nilai Antara memberi
+$c\in(0,1)$ dengan $g(c)=0$. Jadi titik tetap selalu ada.
+
+Sekarang andaikan $g$ menurun ketat. Jika terdapat dua titik tetap
+$c<d$, maka $g(c)=g(d)=0$. Namun, penurunan ketat memberi
+$g(c)>g(d)$, sebuah kontradiksi. Jadi terdapat paling banyak satu titik tetap.
+Bersama keberadaan yang telah dibuktikan, titik tetap itu tepat satu.
+:::
+
+Pembuktian baru tidak memakai kenaikan ketat $f$. Menghapus hipotesis yang
+tidak dipakai adalah bagian dari revisi, bukan kekurangan. Jika penulis ingin
+memberi syarat yang lebih mudah dikenali, ia boleh menambahkan korolari
+terpisah—misalnya ketaksamaan tertentu yang menjamin $g$ menurun—tetapi setiap
+korolari memerlukan pernyataan dan bukti sendiri.
+
+### Hal yang belum selesai {#o017-u08-worked-unresolved-items}
+
+Setelah revisi V2, tiga hal tetap terbuka:
+
+1. teks lengkap Korolari 2 tidak tersedia, sehingga jalur ketergantungannya
+   belum dapat diaudit;
+2. tidak diketahui apakah bagian lain memakai kenaikan ketat untuk tujuan
+   selain Teorema 1; dan
+3. pilihan pedagogis antara syarat tepat pada $g$ dan syarat cukup yang lebih
+   dikenal belum diputuskan.
+
+Ketiga entri tersebut tidak membatalkan bukti V2. Mereka membatasi klaim bahwa
+“seluruh naskah telah selesai direvisi”.
+
+## Matriks tanggapan sebagai alat penutupan {#o017-u08-response-matrix}
+
+Matriks bukan pengganti surat tanggapan; ia mencegah komentar hilang di antara
+paragraf. Status yang disarankan ialah **selesai**, **selesai sebagian**,
+**ditahan**, **tidak diambil dengan alasan**, atau **terbuka**.
+
+::: {.o017-table-scroll aria-label="Matriks komentar tindakan bukti lokasi dan status untuk naskah titik tetap" tabindex="0"}
+| ID komentar | Permintaan | Keputusan/tindakan | Bukti | Lokasi hasil | Status | Sisa |
+|---|---|---|---|---|---|---|
+| R1-C01 | perbaiki klaim ketunggalan | setuju; pisahkan keberadaan dan ketunggalan, ganti hipotesis | identitas menolak V1; bukti V2 lengkap | [Teorema V2](#o017-u08-ms-v2-theorem), [Bukti V2](#o017-u08-ms-v2-proof) | selesai untuk Teorema 1 | audit turunan belum selesai |
+| R1-C02 | pertahankan bagian keberadaan yang sah | setuju; P1–P2 disusun ulang tanpa perubahan kekuatan | tanda ujung dan Teorema Nilai Antara | [Bukti V2](#o017-u08-ms-v2-proof), paragraf pertama | selesai | tidak ada |
+| R1-C03 | gunakan kontraksi agar ketunggalan mudah dikenali | tidak diambil sebagai teorema utama | kontraksi lebih kuat daripada penurunan ketat $f(x)-x$ yang dipakai | [Batas minimalitas](#o017-u08-minimally-revised-result) | tidak diambil dengan alasan | dapat dipertimbangkan sebagai korolari |
+| R1-C04 | audit Korolari 2 | belum dapat diselesaikan karena teks korolari tidak tersedia | hanya pernyataan dependensi yang tersedia pada metadata V1 | [Hal belum selesai](#o017-u08-worked-unresolved-items) | ditahan | perlu salinan lengkap |
+:::
+
+Setiap baris harus menunjuk bukti atau keterbatasan, bukan hanya janji.
+“Akan diperiksa” merupakan status terbuka; jangan menandainya selesai. Jika
+satu komentar berisi dua permintaan yang dapat ditutup secara terpisah,
+pecah menjadi dua baris.
+
+## Menulis laporan penelaah {#o017-u08-writing-referee-report}
+
+Laporan yang berguna memungkinkan editor atau penulis mengambil keputusan
+tanpa menebak dasar penelaah. Struktur berikut cukup untuk banyak naskah
+matematika.
+
+### 1. Identitas dan lingkup {#o017-u08-report-scope}
+
+Sebut versi, salinan, bagian yang diperiksa, bahan yang tidak tersedia,
+keahlian atau aspek di luar lingkup, dan apakah kode atau lampiran benar-benar
+dijalankan. Jangan mengatakan “saya memeriksa seluruh naskah” jika lampiran
+tidak tersedia atau audit hanya mencakup teorema utama.
+
+### 2. Ringkasan netral {#o017-u08-report-summary}
+
+Dalam dua sampai lima kalimat, nyatakan masalah, hasil utama yang diklaim, dan
+pendekatan sebagaimana dipahami. Ringkasan memberi kesempatan mendeteksi salah
+baca sebelum komentar rinci. Ia bukan tempat memuji atau menyerang.
+
+### 3. Penilaian berbukti {#o017-u08-report-assessment}
+
+Bedakan:
+
+- bagian yang diperiksa dan didukung;
+- bagian yang belum cukup didukung;
+- bagian yang ditolak oleh bukti;
+- dampak yang telah dilacak; dan
+- dampak yang belum diketahui.
+
+Jika penelaah hanya memeriksa validitas matematika, jangan memberi kesan telah
+memeriksa lisensi, orisinalitas, kode, atau seluruh literatur.
+
+### 4. Komentar utama dan minor {#o017-u08-major-minor-comments}
+
+Komentar utama memengaruhi kebenaran, cakupan, ketergantungan inti, atau
+kemampuan mengaudit hasil. Komentar minor dapat berupa penunjuk lokal, notasi,
+atau perbaikan eksposisi yang tidak mengubah hasil. Nomori setiap komentar,
+beri lokator, pisahkan syarat wajib dari saran, dan jangan mengubur komentar
+utama dalam daftar salah ketik.
+
+### 5. Rekomendasi dan kondisi perubahan {#o017-u08-report-recommendation}
+
+Nyatakan rekomendasi global beserta alasan dan kondisi yang dapat diperiksa.
+Rekomendasi harus mengikuti komentar, bukan mendahuluinya sebagai kesan.
+
+### Templat laporan penelaah {#o017-u08-referee-report-template}
+
+::: {.o017-table-scroll aria-label="Templat laporan penelaah matematika berbasis bukti" tabindex="0"}
+| Bagian | Isi wajib |
+|---|---|
+| Target | ID karya, versi, tanggal/salinan, dan lokator yang diperiksa |
+| Lingkup | bagian diperiksa, bahan tidak tersedia, aspek di luar audit |
+| Ringkasan | pertanyaan, klaim utama, pendekatan, tanpa penilaian motif |
+| Bagian didukung | klaim yang berhasil diperiksa beserta lokator dan dasar |
+| Komentar utama | ID, lokasi, klaim, bukti, akibat, permintaan, keparahan, keyakinan |
+| Komentar minor | ID, lokasi, perubahan lokal, alasan, apakah wajib atau opsional |
+| Masalah terbuka | bukti atau bahan yang masih dibutuhkan |
+| Rekomendasi | menerima/minor/mayor/menolak, alasan global, kondisi perubahan |
+| Batas laporan | apa yang tidak disimpulkan oleh audit |
+:::
+
+## Empat rekomendasi dan gerbang buktinya {#o017-u08-recommendation-gates}
+
+Rekomendasi adalah keadaan naskah relatif terhadap lingkup dan standar yang
+dinyatakan. Ia bukan nilai tentang penulis.
+
+::: {.o017-table-scroll aria-label="Kriteria rekomendasi penelaahan berdasarkan bukti dan jalan perbaikan" tabindex="0"}
+| Rekomendasi | Gunakan bila | Jangan gunakan hanya karena | Bukti minimum |
+|---|---|---|---|
+| Menerima | klaim utama dalam lingkup didukung; perubahan tersisa benar-benar opsional atau editorial | penulis terkenal atau topiknya disukai | audit klaim pusat dan dependensi yang relevan tidak menyisakan syarat substantif |
+| Revisi minor | masalah terbatas dan lokal; perbaikannya tidak mengubah hasil utama atau memerlukan argumen baru yang substantif | daftar komentarnya pendek | lokasi dan koreksi jelas, dampak telah dibatasi, hasil pusat tetap didukung |
+| Revisi mayor | satu atau lebih klaim, bukti, lingkup, atau dependensi pusat memerlukan perubahan substantif, tetapi ada jalur perbaikan yang masuk akal dan dapat dinilai ulang | penelaah ingin melihat gaya berbeda | bukti masalah kuat, akibat pusat dijelaskan, dan permintaan revisi dapat dilaksanakan |
+| Menolak | klaim pusat gagal atau tidak didukung dan tidak ada jalur perbaikan yang layak dalam identitas/cakupan naskah; atau bukti yang diwajibkan tidak dapat disediakan | naskah memerlukan banyak kerja, bahasa belum halus, atau penelaah tidak menyukai pendekatan | kegagalan pusat dan ketiadaan jalan perbaikan dalam lingkup harus didokumentasikan; ketidakpastian material harus dinyatakan |
+:::
+
+Kasus V1 memperoleh **revisi mayor**, bukan otomatis “menolak”: klaim
+ketunggalan pusat salah dan turunan perlu diaudit, tetapi bagian keberadaan sah
+dan V2 menyediakan jalur koreksi yang dapat diperiksa. Jumlah komentar tidak
+menentukan kategori. Satu contoh tandingan terhadap teorema pusat dapat lebih
+penting daripada dua puluh koreksi tipografis.
+
+Keparahan komentar dan rekomendasi global juga tidak identik. Sebuah temuan
+mayor dapat ditutup oleh revisi yang jelas; sekumpulan masalah lokal yang
+berulang dapat menunjukkan bahwa audit keseluruhan belum matang. Jelaskan
+agregasinya.
+
+### Kapan menahan rekomendasi {#o017-u08-withhold-recommendation}
+
+Tahan rekomendasi jika salinan target tidak jelas, bagian pusat hilang, bukti
+penelaah belum selesai, atau konflik kepentingan menghalangi penilaian. Tulis
+apa yang diperlukan untuk melanjutkan. “Tidak dapat merekomendasikan karena
+Lampiran A tidak tersedia” berbeda dari “menolak karena Lampiran A salah”.
+
+## Menanggapi ketidaksetujuan {#o017-u08-disagreement}
+
+Penulis boleh tidak setuju dengan komentar. Bentuk tanggapan yang dapat
+diaudit ialah:
+
+1. nyatakan bagian komentar yang dipahami;
+2. nyatakan tepat bagian yang tidak disetujui;
+3. berikan bukti atau klarifikasi lokal;
+4. jelaskan apakah naskah tetap diubah untuk mencegah salah baca;
+5. sebut lokasi; dan
+6. biarkan editor atau penelaah menilai bukti tersebut.
+
+Contoh berikut menanggapi komentar tentang identitas deret geometri berhingga
+$\sum_{k=0}^{n}x^k=(1-x^{n+1})/(1-x)$ untuk $x\ne1$.
+
+> Kami setuju bahwa redaksi lama tidak menyebut domain $n$. Kami tidak setuju
+> bahwa identitas gagal pada $n=0$: ruas kiri ialah $x^0=1$, sedangkan ruas
+> kanan ialah $(1-x)/(1-x)=1$ karena $x\ne1$. Pada V2 kami menetapkan
+> $n\in\mathbb N_0$ tepat sebelum identitas itu dan menambahkan pemeriksaan
+> $n=0$ pada paragraf berikutnya.
+
+Tanggapan itu tidak menyebut komentar “tidak masuk akal” dan tidak memakai
+status penulis sebagai alasan. Ia menjawab dengan domain, hitungan, dan
+lokasi.
+
+### Pola defensif yang harus dihindari {#o017-u08-defensive-patterns}
+
+- “Pembaca yang teliti tentu memahami maksud kami.”
+- “Ini sudah standar, jadi bukti tidak diperlukan,” ketika justru syarat
+  penerapan dipersoalkan.
+- “Kami telah memperbaikinya,” tanpa redaksi dan lokasi.
+- “Penelaah salah,” tanpa menormalisasi komentar atau memberi bukti.
+- Membanjiri respons dengan perubahan kosmetik agar komentar utama sulit
+  ditemukan.
+- Menutup status sementara audit dependensi belum dilakukan.
+
+Mengakui batas bukan kehilangan wibawa. Kalimat “kami belum dapat menilai
+Korolari 2 tanpa salinan lengkap” mempertahankan integritas rekaman.
+
+## Protokol lengkap seminar–laporan–tanggapan {#o017-u08-end-to-end-protocol}
+
+Gunakan urutan berikut.
+
+1. **Bekukan konteks.** Catat identitas seminar atau naskah, versi, salinan,
+   waktu, lokasi, dan bagian yang tidak tersedia.
+2. **Pisahkan observasi dari evaluasi.** Buat entri ringkasan sebelum
+   menambahkan verifikasi, pertanyaan, atau keberatan.
+3. **Tandai celah.** Jangan merekonstruksi ucapan, simbol, atau niat yang tidak
+   terekam.
+4. **Normalisasi klaim.** Gunakan kuantor, domain, hipotesis, dan kesimpulan
+   yang benar-benar tertulis.
+5. **Periksa bukti.** Pakai hasil Unit 3, 6, atau 7 bila relevan; simpan dasar
+   dan batas.
+6. **Nilai komentar.** Pisahkan keparahan dari keyakinan dan sebut alasan
+   masing-masing.
+7. **Tulis komentar berkontrak.** Lokator, klaim, bukti, akibat, dan
+   permintaan.
+8. **Susun rekomendasi.** Agregasikan komentar berdasarkan sentralitas,
+   dampak, dan jalan perbaikan; jangan menghitung jumlah komentar.
+9. **Bangun matriks respons.** Satu baris per permintaan yang dapat ditutup.
+10. **Revisi secara tambahan.** Pertahankan V1, buat V2, dan tunjuk bukti baru;
+    jangan mengubah sejarah.
+11. **Audit masalah tersisa.** Pertahankan status terbuka atau ditahan sampai
+    bukti tersedia.
+12. **Lakukan pemeriksaan silang.** Pastikan laporan, matriks, naskah baru,
+    dan daftar belum selesai menyatakan keadaan yang sama.
+
+Protokol berhenti pada paket lokal. Mengirim laporan, menghubungi penulis,
+membuka isu, atau menerbitkan revisi memerlukan kewenangan terpisah dan tidak
+terjadi dalam unit ini.
+
+## Daftar periksa sebelum menutup putaran {#o017-u08-preflight}
+
+1. Apakah setiap catatan seminar mempunyai waktu dan lokasi?
+2. Apakah isi yang tidak terekam ditandai, bukan dilengkapi dari dugaan?
+3. Apakah ringkasan, verifikasi, pertanyaan, dan keberatan berbeda?
+4. Apakah keyakinan terhadap transkripsi tidak disamakan dengan kebenaran
+   klaim?
+5. Apakah setiap keberatan menyebut klaim tepat dan bukti?
+6. Apakah keparahan dan keyakinan mempunyai alasan terpisah?
+7. Apakah komentar menilai naskah, bukan watak atau niat penulis?
+8. Apakah bagian yang masih sah diakui?
+9. Apakah setiap respons mempunyai tindakan, bukti, lokasi, dan status?
+10. Apakah versi lama tetap dapat ditemukan?
+11. Apakah masalah belum selesai tetap terbuka?
+12. Apakah rekomendasi mengikuti gerbang bukti dan jalan perbaikan?
+13. Apakah laporan atau tanggapan tetap lokal dan belum dianggap terkirim?
+
+## Latihan {#o017-u08-exercises}
+
+1. **[O017-U08-E01]{#o017-u08-e01} — Empat jenis entri.** Klasifikasikan
+   setiap kalimat berikut sebagai ringkasan, verifikasi, pertanyaan, atau
+   keberatan: (a) “slide 3 menyatakan $a_n\to0$”; (b) “apakah kekompakan
+   dipakai pada pemilihan subbarisan?”; (c) “perhitungan langsung memberi
+   $T(0)=1$, jadi klaim $T(0)=0$ gagal”; dan (d) “dari batas monoton dan
+   keterbatasan, konvergensi barisan memang mengikuti”. Untuk masing-masing,
+   sebut dasar dan status verifikasinya. Lihat
+   **[O017-U08-H01](#o017-u08-h01)**.
+
+2. **[O017-U08-E02]{#o017-u08-e02} — Celah rekaman.** Rekaman seminar
+   kehilangan menit 14:20–15:05. Sebelum celah, pembicara menyatakan sebuah
+   lemma; sesudahnya, papan memuat “oleh lemma, $A\subseteq B$”. Tulis tiga
+   entri catatan yang sah: observasi sebelum celah, catatan celah, dan
+   pertanyaan sesudah celah. Jelaskan satu kalimat yang tidak boleh ditulis.
+   Lihat **[O017-U08-H02](#o017-u08-h02)**.
+
+3. **[O017-U08-E03]{#o017-u08-e03} — Diagnosis titik tetap.** Periksa P1–P3
+   pada naskah V1. Nyatakan tepat bagian yang sah, inferensi pertama yang
+   tidak didukung, semua hipotesis yang dipenuhi oleh $f(x)=x$, dan
+   kesimpulan yang gagal. Jelaskan mengapa contoh itu tidak menolak bagian
+   keberadaan. Lihat **[O017-U08-H03](#o017-u08-h03)**.
+
+4. **[O017-U08-E04]{#o017-u08-e04} — Kritik yang dapat ditindaklanjuti.**
+   Ubah komentar “bagian ini membingungkan dan buktinya buruk” menjadi satu
+   komentar penelaah tentang P3 dengan lima komponen: lokasi, klaim, bukti,
+   akibat, dan permintaan. Tambahkan keparahan serta keyakinan dengan alasan
+   terpisah. Lihat **[O017-U08-H04](#o017-u08-h04)**.
+
+5. **[O017-U08-E05]{#o017-u08-e05} — Matriks respons.** Seorang penelaah
+   meminta (i) pemisahan keberadaan dan ketunggalan, (ii) penggunaan syarat
+   kontraksi, dan (iii) audit sebuah korolari yang salinannya tidak tersedia.
+   Buat tiga baris komentar–tindakan–bukti–lokasi–status. Anda boleh menolak
+   permintaan kedua, tetapi harus memberi alasan matematis. Lihat
+   **[O017-U08-H05](#o017-u08-h05)**.
+
+6. **[O017-U08-E06]{#o017-u08-e06} — Rekomendasi berbukti.** Berikan
+   rekomendasi untuk tiga keadaan: (a) teorema pusat sah dan hanya dua
+   penunjuk salah; (b) satu teorema pusat salah, tetapi redaksi serta bukti
+   pengganti lengkap tersedia dan turunan dapat diaudit; (c) hasil pusat
+   bergantung pada lampiran yang tidak diberikan. Untuk setiap keadaan,
+   nyatakan kategori, dasar, dan satu kondisi yang dapat mengubah keputusan.
+   Lihat **[O017-U08-H06](#o017-u08-h06)**.
+
+## Petunjuk dan panduan jawaban {#o017-u08-guidance}
+
+1. **[O017-U08-H01]{#o017-u08-h01}.** (a) ringkasan; keyakinan dapat tinggi
+   bahwa slide memuat klaim, tetapi kebenaran limit belum diperiksa. (b)
+   pertanyaan; dasar pertanyaan ialah ketergantungan yang belum terlihat. (c)
+   keberatan jika nilai $T(0)=1$ dan domain telah diperiksa secara eksak; klaim
+   ditolak. (d) verifikasi jika hipotesis monoton dan terbatas benar-benar
+   tersedia dan teorema yang dipakai berada dalam prasyarat. Label jenis tidak
+   menggantikan kolom status. Kembali ke
+   **[O017-U08-E01](#o017-u08-e01)**.
+
+2. **[O017-U08-H02]{#o017-u08-h02}.** Catat teks lemma dengan waktu serta
+   lokasi, buat entri “14:20–15:05 tidak terekam”, lalu tanyakan langkah mana
+   yang menghubungkan lemma ke inklusi pada papan. Jangan menulis
+   “pembicara membuktikan $A\subseteq B$ selama celah”; rekaman tidak
+   mendukung kalimat itu. Kembali ke
+   **[O017-U08-E02](#o017-u08-e02)**.
+
+3. **[O017-U08-H03]{#o017-u08-h03}.** P1 sah karena selisih fungsi kontinu
+   kontinu. P2 sah karena rentang memberi tanda ujung dan Teorema Nilai Antara
+   memberi nol. P3 pertama kali gagal pada
+   $f(y)-f(x)<y-x$. Identitas kontinu, meningkat ketat, dan mempunyai rentang
+   tepat $[0,1]$, tetapi seluruh titik tetap; jadi ketunggalan gagal.
+   Keberadaan justru terpenuhi, bukan ditolak. Kembali ke
+   **[O017-U08-E03](#o017-u08-e03)**.
+
+4. **[O017-U08-H04]{#o017-u08-h04}.** Komentar memadai menunjuk P3, menulis
+   ketaksamaan yang tidak mengikuti, memberi identitas sebagai contoh
+   tandingan, mempertahankan P1–P2, dan meminta revisi klaim ketunggalan serta
+   audit turunan. Keparahan mayor berasal dari sentralitas klaim; keyakinan
+   tinggi berasal dari contoh eksak, bukan dari nada komentar. Kembali ke
+   **[O017-U08-E04](#o017-u08-e04)**.
+
+5. **[O017-U08-H05]{#o017-u08-h05}.** Baris pertama dapat berstatus selesai
+   dengan Teorema dan Bukti V2. Baris kedua dapat berstatus “tidak diambil
+   dengan alasan”: kontraksi cukup tetapi lebih kuat daripada penurunan ketat
+   $f(x)-x$ yang dipakai. Baris ketiga harus ditahan karena salinan korolari
+   tidak tersedia; jangan menjanjikan audit yang tidak dilakukan. Kembali ke
+   **[O017-U08-E05](#o017-u08-e05)**.
+
+6. **[O017-U08-H06]{#o017-u08-h06}.** (a) umumnya revisi minor jika
+   keterlacakan tetap dapat dipulihkan secara lokal; berubah menjadi menerima
+   setelah penunjuk diperbaiki. (b) revisi mayor karena hasil pusat berubah,
+   meskipun ada jalan perbaikan; dapat berubah setelah bukti dan semua turunan
+   diaudit. (c) tahan rekomendasi, bukan menolak lampiran yang belum dilihat;
+   keputusan berubah ketika lampiran tepat tersedia dan diperiksa. Kembali ke
+   **[O017-U08-E06](#o017-u08-e06)**.
+
+## Tugas penyelesaian unit {#o017-u08-completion-task}
+
+Susun satu paket lengkap catatan seminar, laporan penelaah, tanggapan penulis,
+dan revisi untuk bahan sintetis berikut. Paket merupakan seluruh konteks yang
+tersedia. Jangan menciptakan nama, DOI, institusi, halaman, rekaman, atau
+komentar tambahan.
+
+::: {#o017-u08-completion-metadata .callout-note title="O017-U08-PKT-META — Seminar dan naskah konvergensi"}
+- ID karya: **O017-U08-PKT-W01**, *Limit Fungsi Kontinu*.
+- Versi naskah: **O017-U08-PKT-V1**, label **1.0-sintetis**.
+- Bahan seminar: slide 1–7 dan rekaman 18:00.
+- Cakupan rekaman: 00:00–09:12 dan 09:50–18:00.
+- Celah: 09:12–09:50 tidak terekam.
+- Himpunan indeks untuk $n$ tidak dinyatakan pada V1; paket tidak menetapkan
+  apakah pencacahan dimulai dari $0$ atau $1$.
+- Tidak ada lampiran, kode, atau sumber eksternal.
+:::
+
+::: {#o017-u08-completion-claim .callout-warning title="O017-U08-PKT-C01 — Teorema 3 pada halaman sintetis 4"}
+Misalkan setiap $f_n:[0,1]\to\mathbb R$ kontinu dan $f_n(x)\to f(x)$ untuk
+setiap $x\in[0,1]$. Maka $f$ kontinu pada $[0,1]$.
+:::
+
+::: {#o017-u08-completion-proof .callout-note title="O017-U08-PKT-P01 — Pembuktian V1"}
+Tetapkan $x\in[0,1]$ dan $\varepsilon>0$. Pilih $N$ sehingga
+$|f_N(t)-f(t)|<\varepsilon/3$. Karena $f_N$ kontinu, jika $t$ cukup dekat
+dengan $x$, maka $|f_N(t)-f_N(x)|<\varepsilon/3$. Dengan ketaksamaan segitiga,
+$|f(t)-f(x)|<\varepsilon$; jadi $f$ kontinu.
+:::
+
+Pada 08:40–09:12, slide 5 menampilkan pemilihan $N$. Segmen 09:12–09:50 tidak
+terekam. Pada 09:50, papan kiri memuat satu nilai $N$ yang dipakai untuk
+$t$ di sekitar $x$. Pada 15:30, seorang peserta mengusulkan
+$f_n(x)=x^n$. Pembicara hanya menjawab, “Saya akan memeriksa kuantornya.”
+
+Gunakan fakta lokal berikut, dan periksa penerapannya:
+
+- setiap $f_n(x)=x^n$ kontinu pada $[0,1]$;
+- limit titik demi titiknya ialah $f(x)=0$ untuk $0\leq x<1$ dan $f(1)=1$,
+  sehingga $f$ tidak kontinu pada $1$;
+- jika $f_n\to f$ seragam pada $[0,1]$ dan setiap $f_n$ kontinu, maka
+  pembuktian segitiga dapat memilih satu $N$ yang berlaku bagi semua titik
+  dan menghasilkan kontinuitas $f$.
+
+Produk Anda harus memuat:
+
+1. identitas dan batas rekaman, termasuk satu entri eksplisit untuk celah;
+2. sedikitnya delapan entri berwaktu dan berlokasi yang memakai keempat jenis
+   S, V, Q, dan O tanpa mengarang isi celah;
+3. pemisahan keyakinan terhadap transkripsi, status verifikasi matematika,
+   keparahan, dan keyakinan diagnosis;
+4. laporan penelaah dengan ringkasan netral, lingkup, sedikitnya dua bagian
+   yang sah, satu komentar utama, satu komentar minor yang benar-benar lokal,
+   masalah terbuka, rekomendasi, dan batas laporan;
+5. diagnosis kuantor yang menunjukkan bahwa konvergensi titik demi titik hanya
+   memberi $N$ yang boleh bergantung pada titik, sedangkan P01 memakai satu
+   $N$ pada lingkungan tanpa pembenaran;
+6. pemeriksaan lengkap contoh $f_n(x)=x^n$ terhadap hipotesis dan kegagalan
+   kesimpulan;
+7. tanggapan penulis yang mengakui cacat, mempertahankan bagian sah, dan tidak
+   mengklaim bahwa isi celah diketahui;
+8. redaksi teorema baru dengan konvergensi seragam dan pembuktian
+   $\varepsilon$ lengkap, termasuk pembagian galat menjadi tiga suku;
+9. matriks komentar–tindakan–bukti–lokasi–status dengan sedikitnya satu status
+   terbuka atau ditahan yang benar-benar beralasan;
+10. daftar dampak yang diperiksa dan sedikitnya dua dampak yang belum
+    diketahui;
+11. rekomendasi V1 dan kondisi yang diperlukan sebelum rekomendasi dapat
+    berubah; dan
+12. pernyataan bahwa seluruh paket tetap lokal dan tidak dikirim atau
+    diterbitkan.
+
+### Rubrik {#o017-u08-completion-rubric}
+
+Setiap kriteria dinilai 0, 1, atau 2.
+
+::: {.o017-table-scroll aria-label="Rubrik tugas penyelesaian Unit 8" tabindex="0"}
+| Kriteria | 0 | 1 | 2 |
+|---|---|---|---|
+| Kesetiaan catatan | isi celah direka atau waktu/lokasi hilang | sebagian entri dapat ditemukan | setiap entri berwaktu, berlokasi, berjenis, dan celah ditandai tanpa rekonstruksi |
+| Status bukti | ringkasan dianggap verifikasi atau keyakinan dilebur dengan keparahan | sebagian bidang terpisah | observasi, verifikasi, keparahan, dan keyakinan mempunyai dasar berbeda dan konsisten |
+| Diagnosis matematika | contoh tidak memenuhi hipotesis atau cacat kuantor salah | contoh benar tetapi dependensi $N$ kabur | semua hipotesis $x^n$ diperiksa dan perpindahan dari $N(x)$ ke satu $N$ diidentifikasi tepat |
+| Laporan penelaah | menilai orang, tidak memberi bukti, atau tidak memberi lokasi | diagnosis benar tetapi permintaan/batas kurang | ringkasan netral, lingkup, komentar spesifik, bagian sah, permintaan, rekomendasi, dan batas lengkap |
+| Tanggapan dan revisi | defensif, hanya berjanji, atau teorema baru tetap salah | perubahan ada tetapi bukti/lokasi/status kabur | respons memetakan komentar ke tindakan; teorema seragam dan bukti tiga suku lengkap; masalah terbuka dipertahankan |
+| Keputusan global | kategori berasal dari jumlah komentar atau reputasi | kategori masuk akal tanpa kondisi perubahan | rekomendasi mengikuti sentralitas, bukti, jalan perbaikan, dampak diketahui, dan kondisi perubahan eksplisit |
+:::
+
+Nilai lulus sekurang-kurangnya 10 dari 12, dengan nilai 2 pada **Kesetiaan
+catatan**, **Diagnosis matematika**, dan **Tanggapan dan revisi**. Mengarang isi
+celah, menyebut konvergensi titik demi titik sebagai konvergensi seragam,
+mengabaikan titik $x=1$, menandai komentar selesai tanpa lokasi, atau menilai
+penulis alih-alih naskah mewajibkan revisi meskipun jumlah nilai cukup.
+
+## Batas dengan B80 dan unit lain {#o017-u08-boundary}
+
+Unit 8 tidak mengajarkan sintaks Python, notebook, API paket, visualisasi,
+pengujian, manajemen lingkungan, atau teknik komputasi numerik; semua itu
+berada pada B80. Jika laporan menilai keluaran komputasi, Unit 8 memakai paket
+yang dapat direproduksi dari Unit 6 dan mengomunikasikan temuan, bukan mengajarkan cara
+membangun perangkat lunaknya.
+
+Unit 4 menetapkan identitas sumber, versi, lisensi, dan buku catatan
+provenance. Unit 8 hanya membawa identitas dan lokator yang sudah tersedia ke
+dalam catatan dan laporan; ia tidak merancang ulang ledger. Unit 5 mengajarkan
+arsitektur eksposisi matematika. Unit 8 tidak menulis ulang naskah demi gaya
+umum; ia meminta dan melacak perubahan yang dijustifikasi oleh komentar.
+
+Unit 7 menetapkan apakah suatu klaim salah, jenis cacatnya, reproducer,
+keparahan, keyakinan, dan koreksi yang dibenarkan. Unit 8 tidak mengulangi
+protokol erratum itu. Ia menerima diagnosis sebagai masukan, lalu mengajarkan
+bagaimana diagnosis ditempatkan dalam laporan, bagaimana penulis menjawab,
+bagaimana rekomendasi global dibatasi, dan bagaimana masalah terbuka tetap
+terlihat. Unit 9, bukan Unit 8, menangani pengiriman atau kontribusi komunitas
+yang benar-benar berwenang.
+
+## Sumber, provenance, perubahan, dan hak {#o017-u08-provenance}
+
+Seluruh prosa berbahasa Indonesia, skema catatan seminar, taksonomi entri,
+kontrak komentar, templat laporan, gerbang rekomendasi, matriks respons,
+paket sintetis, kasus kerja, latihan, panduan jawaban, tugas penyelesaian, dan
+rubrik pada unit ini merupakan materi asli O017 oleh kontributor O017, 2026,
+dan dilisensikan di bawah
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Teorema Nilai Antara, fakta keberadaan titik tetap bagi fungsi kontinu dari
+$[0,1]$ ke dirinya, contoh peta identitas, dan teorema bahwa limit seragam
+fungsi kontinu adalah kontinu merupakan hasil matematika klasik. O017 tidak
+mengklaim penemuan hasil-hasil tersebut. Redaksi, susunan pedagogis,
+pembuktian yang disajikan, contoh penelaahan, dan fungsi auditnya ditulis
+khusus untuk unit ini dan tidak disalin dari sumber tertentu.
+
+Semua objek berawalan **O017-U08-TALK**, **O017-U08-MS**, dan
+**O017-U08-PKT** bersifat sintetis dan hanya ada sebagai bahan lokal unit ini.
+ID tersebut bukan DOI, identitas penerbit, atau bukti keberadaan karya
+eksternal. Tidak ada donor eksternal yang diadaptasi, tidak ada kutipan sumber
+eksternal, dan tidak ada komunikasi nyata yang dikirim. Lisensi CC BY-SA 4.0
+berlaku pada materi asli O017 ini; ia tidak mengubah hak atas karya lain yang
+mungkin kelak diperiksa pembaca.

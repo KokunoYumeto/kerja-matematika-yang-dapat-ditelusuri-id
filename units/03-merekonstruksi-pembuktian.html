@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id-ID" xml:lang="id-ID"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Unit praktik untuk membekukan target, mengaudit kuantor dan domain, menyusun graf ketergantungan, mengambil lemma yang tepat, serta menutup atau melaporkan celah pembuktian secara jujur.">
+
+<title>Unit 3 — Merekonstruksi Pembuktian yang Diringkas atau Dihilangkan – Kerja Matematika yang Dapat Ditelusuri</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e660844ac27f845a97ea4d6047b2f6e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Tidak ada hasil",
+    "search-matching-documents-text": "dokumen cocok",
+    "search-copy-link-title": "Salin tautan untuk mencari",
+    "search-hide-matches-text": "Sembunyikan kecocokan lainnya",
+    "search-more-match-text": "kecocokan lainnya di dokumen ini",
+    "search-more-matches-text": "kecocokan lainnya di dokumen ini",
+    "search-clear-button-title": "Hapus",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Batal",
+    "search-submit-button-title": "Kirim",
+    "search-label": "Mencari"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+<a class="o017-skip-link" href="#quarto-document-content">Langsung ke isi utama</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Kerja Matematika yang Dapat Ditelusuri</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Mencari"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alihkan navigasi" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Beranda</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/01-membaca-argumen.html"> 
+<span class="menu-text">Unit 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/02-menelusuri-sumber.html"> 
+<span class="menu-text">Unit 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../units/03-merekonstruksi-pembuktian.html" aria-current="page"> 
+<span class="menu-text">Unit 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/04-sitasi-provenance-catatan-sumber.html"> 
+<span class="menu-text">Unit 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/05-eksposisi-matematika.html"> 
+<span class="menu-text">Unit 5</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/06-komputasi-dapat-direproduksi.html"> 
+<span class="menu-text">Unit 6</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/07-errata-koreksi-batas-kepastian.html"> 
+<span class="menu-text">Unit 7</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/08-seminar-penelaah-tanggapan-kritik.html"> 
+<span class="menu-text">Unit 8</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/09-kontribusi-komunitas-portofolio.html"> 
+<span class="menu-text">Unit 9</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/v2026.08.22/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.pdf" title="Unduh PDF" class="quarto-navigation-tool px-1" aria-label="Unduh PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id" title="Sumber GitHub" class="quarto-navigation-tool px-1" aria-label="Sumber GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" aria-labelledby="toc-title">
+    <div id="toc-title" class="h2">Di halaman ini</div>
+   
+  <ul>
+  <li><a href="#o017-u03-outcomes" id="toc-o017-u03-outcomes" class="nav-link active" data-scroll-target="#o017-u03-outcomes"><span class="header-section-number">1</span> Hasil belajar</a></li>
+  <li><a href="#o017-u03-reconstruction-problem" id="toc-o017-u03-reconstruction-problem" class="nav-link" data-scroll-target="#o017-u03-reconstruction-problem"><span class="header-section-number">2</span> Masalah rekonstruksi: bukan menebak maksud penulis</a></li>
+  <li><a href="#o017-u03-seven-stage-protocol" id="toc-o017-u03-seven-stage-protocol" class="nav-link" data-scroll-target="#o017-u03-seven-stage-protocol"><span class="header-section-number">3</span> Protokol tujuh tahap</a>
+  <ul class="collapse">
+  <li><a href="#o017-u03-stage-freeze" id="toc-o017-u03-stage-freeze" class="nav-link" data-scroll-target="#o017-u03-stage-freeze"><span class="header-section-number">3.1</span> Tahap 1 — Bekukan klaim dan konteks</a></li>
+  <li><a href="#o017-u03-stage-quantifiers" id="toc-o017-u03-stage-quantifiers" class="nav-link" data-scroll-target="#o017-u03-stage-quantifiers"><span class="header-section-number">3.2</span> Tahap 2 — Kembangkan kuantor, domain, dan definisi sasaran</a></li>
+  <li><a href="#o017-u03-stage-obligations" id="toc-o017-u03-stage-obligations" class="nav-link" data-scroll-target="#o017-u03-stage-obligations"><span class="header-section-number">3.3</span> Tahap 3 — Nyatakan kewajiban pembuktian</a></li>
+  <li><a href="#o017-u03-stage-dependency-graph" id="toc-o017-u03-stage-dependency-graph" class="nav-link" data-scroll-target="#o017-u03-stage-dependency-graph"><span class="header-section-number">3.4</span> Tahap 4 — Susun graf ketergantungan</a></li>
+  <li><a href="#o017-u03-stage-lemma-retrieval" id="toc-o017-u03-stage-lemma-retrieval" class="nav-link" data-scroll-target="#o017-u03-stage-lemma-retrieval"><span class="header-section-number">3.5</span> Tahap 5 — Ambil lemma melalui kontraknya</a></li>
+  <li><a href="#o017-u03-stage-bidirectional-planning" id="toc-o017-u03-stage-bidirectional-planning" class="nav-link" data-scroll-target="#o017-u03-stage-bidirectional-planning"><span class="header-section-number">3.6</span> Tahap 6 — Rencanakan mundur dan maju</a></li>
+  <li><a href="#o017-u03-stage-minimal-proof" id="toc-o017-u03-stage-minimal-proof" class="nav-link" data-scroll-target="#o017-u03-stage-minimal-proof"><span class="header-section-number">3.7</span> Tahap 7 — Tulis rekonstruksi minimal yang memadai dan audit sisanya</a></li>
+  </ul></li>
+  <li><a href="#o017-u03-reconstruction-sheet" id="toc-o017-u03-reconstruction-sheet" class="nav-link" data-scroll-target="#o017-u03-reconstruction-sheet"><span class="header-section-number">4</span> Lembar kerja rekonstruksi</a></li>
+  <li><a href="#o017-u03-worked-case" id="toc-o017-u03-worked-case" class="nav-link" data-scroll-target="#o017-u03-worked-case"><span class="header-section-number">5</span> Kasus kerja: citra kontinu dari himpunan kompak</a>
+  <ul class="collapse">
+  <li><a href="#o017-u03-frozen-statement" id="toc-o017-u03-frozen-statement" class="nav-link" data-scroll-target="#o017-u03-frozen-statement"><span class="header-section-number">5.1</span> Membekukan pernyataan</a></li>
+  <li><a href="#o017-u03-quantifier-domain-audit" id="toc-o017-u03-quantifier-domain-audit" class="nav-link" data-scroll-target="#o017-u03-quantifier-domain-audit"><span class="header-section-number">5.2</span> Audit kuantor dan domain</a></li>
+  <li><a href="#o017-u03-obligations" id="toc-o017-u03-obligations" class="nav-link" data-scroll-target="#o017-u03-obligations"><span class="header-section-number">5.3</span> Daftar kewajiban</a></li>
+  <li><a href="#o017-u03-compact-image-graph" id="toc-o017-u03-compact-image-graph" class="nav-link" data-scroll-target="#o017-u03-compact-image-graph"><span class="header-section-number">5.4</span> Graf ketergantungan</a></li>
+  <li><a href="#o017-u03-needed-lemmas" id="toc-o017-u03-needed-lemmas" class="nav-link" data-scroll-target="#o017-u03-needed-lemmas"><span class="header-section-number">5.5</span> Kontrak hasil yang benar-benar diperlukan</a></li>
+  <li><a href="#o017-u03-two-way-plan" id="toc-o017-u03-two-way-plan" class="nav-link" data-scroll-target="#o017-u03-two-way-plan"><span class="header-section-number">5.6</span> Perencanaan dua arah</a></li>
+  <li><a href="#o017-u03-complete-reconstruction" id="toc-o017-u03-complete-reconstruction" class="nav-link" data-scroll-target="#o017-u03-complete-reconstruction"><span class="header-section-number">5.7</span> Rekonstruksi lengkap</a></li>
+  <li><a href="#o017-u03-minimality-audit" id="toc-o017-u03-minimality-audit" class="nav-link" data-scroll-target="#o017-u03-minimality-audit"><span class="header-section-number">5.8</span> Mengapa rekonstruksi ini minimal tetapi memadai</a></li>
+  </ul></li>
+  <li><a href="#o017-u03-invalid-shortcuts" id="toc-o017-u03-invalid-shortcuts" class="nav-link" data-scroll-target="#o017-u03-invalid-shortcuts"><span class="header-section-number">6</span> Jalan pintas yang tidak sah</a>
+  <ul class="collapse">
+  <li><a href="#o017-u03-cover-scope-error" id="toc-o017-u03-cover-scope-error" class="nav-link" data-scroll-target="#o017-u03-cover-scope-error"><span class="header-section-number">6.1</span> Liputan citra bukan liputan seluruh kodomain atau domain</a></li>
+  <li><a href="#o017-u03-image-preimage-error" id="toc-o017-u03-image-preimage-error" class="nav-link" data-scroll-target="#o017-u03-image-preimage-error"><span class="header-section-number">6.2</span> Citra pracitra tidak selalu mengembalikan himpunan asal</a></li>
+  <li><a href="#o017-u03-openness-domain-error" id="toc-o017-u03-openness-domain-error" class="nav-link" data-scroll-target="#o017-u03-openness-domain-error"><span class="header-section-number">6.3</span> Keterbukaan tidak berpindah tanpa memeriksa ruang</a></li>
+  </ul></li>
+  <li><a href="#o017-u03-assumption-stress-tests" id="toc-o017-u03-assumption-stress-tests" class="nav-link" data-scroll-target="#o017-u03-assumption-stress-tests"><span class="header-section-number">7</span> Menguji hipotesis dengan contoh tandingan</a>
+  <ul class="collapse">
+  <li><a href="#o017-u03-counterexample-noncompact" id="toc-o017-u03-counterexample-noncompact" class="nav-link" data-scroll-target="#o017-u03-counterexample-noncompact"><span class="header-section-number">7.1</span> Tanpa kekompakan domain</a></li>
+  <li><a href="#o017-u03-counterexample-discontinuous" id="toc-o017-u03-counterexample-discontinuous" class="nav-link" data-scroll-target="#o017-u03-counterexample-discontinuous"><span class="header-section-number">7.2</span> Tanpa kekontinuan</a></li>
+  </ul></li>
+  <li><a href="#o017-u03-lemma-audit" id="toc-o017-u03-lemma-audit" class="nav-link" data-scroll-target="#o017-u03-lemma-audit"><span class="header-section-number">8</span> Mengambil lemma dan menolak hipotesis tersembunyi</a></li>
+  <li><a href="#o017-u03-detail-level" id="toc-o017-u03-detail-level" class="nav-link" data-scroll-target="#o017-u03-detail-level"><span class="header-section-number">9</span> Menetapkan rincian minimal yang memadai</a></li>
+  <li><a href="#o017-u03-short-audit" id="toc-o017-u03-short-audit" class="nav-link" data-scroll-target="#o017-u03-short-audit"><span class="header-section-number">10</span> Praktik audit singkat</a></li>
+  <li><a href="#o017-u03-exercises" id="toc-o017-u03-exercises" class="nav-link" data-scroll-target="#o017-u03-exercises"><span class="header-section-number">11</span> Latihan</a></li>
+  <li><a href="#o017-u03-guidance" id="toc-o017-u03-guidance" class="nav-link" data-scroll-target="#o017-u03-guidance"><span class="header-section-number">12</span> Petunjuk dan panduan jawaban</a></li>
+  <li><a href="#o017-u03-completion-task" id="toc-o017-u03-completion-task" class="nav-link" data-scroll-target="#o017-u03-completion-task"><span class="header-section-number">13</span> Tugas penyelesaian unit</a>
+  <ul class="collapse">
+  <li><a href="#o017-u03-completion-rubric" id="toc-o017-u03-completion-rubric" class="nav-link" data-scroll-target="#o017-u03-completion-rubric"><span class="header-section-number">13.1</span> Rubrik</a></li>
+  </ul></li>
+  <li><a href="#o017-u03-boundary" id="toc-o017-u03-boundary" class="nav-link" data-scroll-target="#o017-u03-boundary"><span class="header-section-number">14</span> Batas dengan B80 dan unit lain</a></li>
+  <li><a href="#o017-u03-provenance" id="toc-o017-u03-provenance" class="nav-link" data-scroll-target="#o017-u03-provenance"><span class="header-section-number">15</span> Sumber, provenance, dan hak</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Unit 3 — Merekonstruksi Pembuktian yang Diringkas atau Dihilangkan</h1>
+<p class="subtitle lead">Dari celah yang terdeteksi menuju argumen minimal yang dapat diaudit</p>
+</div>
+
+<div>
+  <div class="description">
+    Unit praktik untuk membekukan target, mengaudit kuantor dan domain, menyusun graf ketergantungan, mengambil lemma yang tepat, serta menutup atau melaporkan celah pembuktian secara jujur.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="o017-u03-outcomes" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="o017-u03-outcomes"><span class="header-section-number">1</span> Hasil belajar</h2>
+<p>Unit ini mempunyai pengidentifikasi stabil <strong>O017-U03</strong>. Setelah menyelesaikannya, Anda mampu:</p>
+<ol type="1">
+<li>membekukan klaim yang hendak direkonstruksi tanpa diam-diam menambah atau mengurangi hipotesisnya;</li>
+<li>mengembangkan kuantor, domain, dan definisi yang menentukan bentuk sasaran pembuktian;</li>
+<li>mengubah bagian pembuktian yang diringkas menjadi daftar kewajiban yang mempunyai masukan dan keluaran jelas;</li>
+<li>menggambar graf ketergantungan antara sasaran, lemma, definisi, dan hipotesis;</li>
+<li>mengambil lemma berdasarkan kontrak matematisnya, lalu memeriksa setiap hipotesis lemma pada konteks yang sedang dibaca;</li>
+<li>mempertemukan perencanaan maju dari hipotesis dengan perencanaan mundur dari kesimpulan;</li>
+<li>menulis rekonstruksi minimal yang memadai—cukup lengkap untuk diaudit, tetapi tidak mengubah satu langkah menjadi buku teks baru; dan</li>
+<li>membedakan celah yang sudah ditutup, celah yang bersyarat pada rujukan, dan celah yang tetap belum terselesaikan.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Prasyarat dan batas fokus">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>Prasyarat dan batas fokus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unit 1 memperkenalkan rekonstruksi dengan memecah argumen menjadi definisi, asumsi, klaim, justifikasi, dan tugas terbuka. Unit 2 mengajarkan cara menetapkan sumber dan versi yang sedang dibaca. Unit 3 memperdalam praktik itu secara sistematis: tipe dan kuantor dibekukan, kewajiban disusun sebagai graf ketergantungan, lemma diambil melalui kontraknya, dan rincian diuji melalui audit minimalitas. Label D–A–K–J–T dan kasus pohon rentang minimum dari Unit 1 tidak diajarkan kembali di sini.</p>
+<p>Pembaca diandaikan mengenal fungsi, himpunan, pracitra, ruang topologis, kekontinuan, dan definisi kompak melalui liputan terbuka. Semua petikan kasus merupakan materi sintetis unit ini.</p>
+</div>
+</div>
+</section>
+<section id="o017-u03-reconstruction-problem" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="o017-u03-reconstruction-problem"><span class="header-section-number">2</span> Masalah rekonstruksi: bukan menebak maksud penulis</h2>
+<p>Perhatikan petikan sintetis berikut.</p>
+<blockquote class="blockquote">
+<p>Misalkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> kompak dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f:X\to Y</annotation></semantics></math> kontinu. Setiap liputan terbuka atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> ditarik balik menjadi liputan terbuka atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Ambil subliputan hingga; citranya memberi subliputan hingga atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Jadi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> kompak.</p>
+</blockquote>
+<p>Petikan itu mengarah pada teorema yang benar, tetapi beberapa kata kerjanya menyembunyikan pekerjaan:</p>
+<ul>
+<li>apa arti “liputan terbuka atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>” dan di ruang mana tiap himpunan terbuka;</li>
+<li>mengapa pracitra-pracitra tersebut terbuka;</li>
+<li>mengapa pracitra-pracitra itu meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, bukan harus meliputi seluruh <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>;</li>
+<li>indeks hingga mana yang dihasilkan kekompakan;</li>
+<li>mengapa himpunan asal dengan <strong>indeks yang sama</strong> meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>; dan</li>
+<li>apa arti “citranya”, mengingat persamaan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=V</annotation></semantics></math> tidak benar untuk fungsi umum.</li>
+</ul>
+<p>Rekonstruksi bukan upaya menulis pembuktian yang kira-kira mungkin dimaksud. Rekonstruksi adalah penyusunan argumen yang setiap tambahannya dapat dijawab dengan dua pertanyaan: <strong>mengapa langkah ini diperlukan</strong>, dan <strong>dari mana hak untuk memakainya berasal</strong>. Jika jawaban kedua belum tersedia, langkah itu tetap dicatat sebagai celah; ia tidak boleh disulap menjadi hipotesis baru.</p>
+</section>
+<section id="o017-u03-seven-stage-protocol" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="o017-u03-seven-stage-protocol"><span class="header-section-number">3</span> Protokol tujuh tahap</h2>
+<p>Gunakan protokol berikut setiap kali sumber melompati satu baris maupun satu halaman pembuktian. Hasil tiap tahap menjadi masukan tahap berikutnya.</p>
+<section id="o017-u03-stage-freeze" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="o017-u03-stage-freeze"><span class="header-section-number">3.1</span> Tahap 1 — Bekukan klaim dan konteks</h3>
+<p>Salin atau parafrasakan secara setia:</p>
+<ul>
+<li>klaim sasaran;</li>
+<li>seluruh hipotesis yang berlaku, termasuk yang dinyatakan pada awal bagian;</li>
+<li>definisi lokal dan konvensi notasi;</li>
+<li>penunjuk lokasi awal dan akhir celah; dan</li>
+<li>versi sumber yang sedang diperiksa.</li>
+</ul>
+<p>Pisahkan teks yang terlihat dari interpretasi pembaca. Misalnya, jika halaman menyatakan “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> kompak” tetapi tidak menyatakan “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> tak kosong”, jangan menambahkan ketak-kosongan hanya karena pembuktian yang terbayang ingin memilih sebuah titik di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</p>
+</section>
+<section id="o017-u03-stage-quantifiers" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="o017-u03-stage-quantifiers"><span class="header-section-number">3.2</span> Tahap 2 — Kembangkan kuantor, domain, dan definisi sasaran</h3>
+<p>Tuliskan tipe setiap objek dan kembangkan definisi <strong>kesimpulan</strong> lebih dahulu. Langkah ini menunjukkan bentuk saksi yang harus dibangun. Untuk membuktikan kekompakan, misalnya, pembaca tidak cukup mengatakan “ambil sebuah liputan”. Ia harus mengambil liputan terbuka yang sebarang dan menghasilkan himpunan indeks hingga yang masih meliputi objek yang tepat.</p>
+<p>Audit ini juga memeriksa pergeseran domain. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f:X\to Y</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊆</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">V\subseteq Y</annotation></semantics></math>, maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">f^{-1}[V]\subseteq X</annotation></semantics></math>; ekspresi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[V]</annotation></semantics></math> bahkan tidak bertipe kecuali <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊆</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">V\subseteq X</annotation></semantics></math>. Banyak pembuktian ringkas gagal bukan karena gagasan besarnya salah, melainkan karena satu objek berpindah ruang tanpa izin.</p>
+</section>
+<section id="o017-u03-stage-obligations" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="o017-u03-stage-obligations"><span class="header-section-number">3.3</span> Tahap 3 — Nyatakan kewajiban pembuktian</h3>
+<p>Ganti kata seperti <em>jelas</em>, <em>serupa</em>, <em>tarik balik</em>, atau <em>hasilnya mengikuti</em> dengan daftar bernomor. Satu kewajiban yang baik mempunyai:</p>
+<ul>
+<li>masukan yang sudah tersedia;</li>
+<li>keluaran yang diperlukan oleh langkah berikutnya; dan</li>
+<li>kriteria selesai yang dapat diperiksa.</li>
+</ul>
+<p>“Jelaskan pracitra” terlalu kabur. “Untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>, buktikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f^{-1}[V_i]</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>” mempunyai keluaran yang tegas.</p>
+</section>
+<section id="o017-u03-stage-dependency-graph" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="o017-u03-stage-dependency-graph"><span class="header-section-number">3.4</span> Tahap 4 — Susun graf ketergantungan</h3>
+<p>Buat satu simpul untuk sasaran, setiap kewajiban, setiap hipotesis aktif, dan setiap lemma yang mungkin dipakai. Tarik panah dari masukan menuju kesimpulan yang bergantung padanya. Graf itu mencegah dua kesalahan:</p>
+<ol type="1">
+<li>memakai sebuah kesimpulan sebelum simpul pendukungnya tertutup; dan</li>
+<li>membuktikan hasil menarik yang tidak mempunyai jalur menuju sasaran.</li>
+</ol>
+<p>Simpul daun harus berupa hipotesis, definisi, hasil yang sudah dibuktikan, atau rujukan yang dapat diambil kembali. “Teorema terkenal” bukan simpul daun yang dapat diaudit.</p>
+</section>
+<section id="o017-u03-stage-lemma-retrieval" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="o017-u03-stage-lemma-retrieval"><span class="header-section-number">3.5</span> Tahap 5 — Ambil lemma melalui kontraknya</h3>
+<p>Jangan mulai dari nama lemma saja. Tuliskan <strong>kontrak</strong> yang dibutuhkan:</p>
+<pre class="text"><code>masukan + hipotesis  ──&gt;  keluaran</code></pre>
+<p>Kemudian cocokkan lemma calon terhadap kontrak itu, kata demi kata. Catat pernyataan tepat, domain, semua hipotesis, dan penunjuk lokasinya. Buat tabel instansiasi yang menerangkan objek pada lemma menjadi objek apa dalam kasus sekarang. Sebuah lemma belum “diambil” bila namanya ditemukan tetapi salah satu hipotesisnya belum diperiksa.</p>
+<p>Jika hasil kecil dapat dibuktikan langsung dalam satu atau dua baris, pembuktian lokal sering lebih dapat diaudit daripada rujukan kabur. Jika hasilnya substantif, gunakan rujukan yang tepat; jangan menyalin kesimpulannya sambil menghilangkan syarat.</p>
+</section>
+<section id="o017-u03-stage-bidirectional-planning" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="o017-u03-stage-bidirectional-planning"><span class="header-section-number">3.6</span> Tahap 6 — Rencanakan mundur dan maju</h3>
+<p>Perencanaan <strong>mundur</strong> bertanya: agar kesimpulan berlaku, objek atau sifat apa yang harus tersedia tepat sebelumnya? Perencanaan <strong>maju</strong> bertanya: apa yang langsung dihasilkan hipotesis dan definisi? Rekonstruksi biasanya ditemukan pada titik pertemuan kedua arah itu.</p>
+<p>Rencana bukan pembuktian. Panah “kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⇒</mo><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math> indeks hingga” baru sah setelah keluarga yang menjadi masukannya terbukti sebagai liputan terbuka atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</p>
+</section>
+<section id="o017-u03-stage-minimal-proof" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="o017-u03-stage-minimal-proof"><span class="header-section-number">3.7</span> Tahap 7 — Tulis rekonstruksi minimal yang memadai dan audit sisanya</h3>
+<p>Tulis pembuktian dalam urutan baca yang wajar. Setelah itu lakukan dua uji.</p>
+<ul>
+<li><strong>Uji penghapusan:</strong> jika sebuah kalimat dihapus, apakah satu panah penting dalam graf kehilangan dasar? Jika tidak, kalimat itu mungkin tidak perlu.</li>
+<li><strong>Uji celah:</strong> apakah setiap panah yang tersisa berakhir pada definisi, hipotesis, pembuktian lokal, atau lemma dengan kontrak yang cocok?</li>
+</ul>
+<p>Catat status setiap celah sebagai <code>tertutup</code>, <code>bersyarat</code>, <code>belum dipastikan</code>, atau <code>ditolak</code>. Kata “minimal” tidak berarti sesingkat mungkin. Ia berarti tidak ada kewajiban penting yang disembunyikan dan tidak ada teori tambahan yang dibawa masuk tanpa fungsi.</p>
+</section>
+</section>
+<section id="o017-u03-reconstruction-sheet" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="o017-u03-reconstruction-sheet"><span class="header-section-number">4</span> Lembar kerja rekonstruksi</h2>
+<p>Satu lembar berikut biasanya cukup untuk menahan seluruh proses.</p>
+<div class="o017-table-scroll" role="region" aria-label="Lembar kerja rekonstruksi pembuktian" tabindex="0">
+<table aria-label="Lembar kerja rekonstruksi pembuktian" class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bidang</th>
+<th>Isi yang dapat diaudit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Klaim beku</td>
+<td>pernyataan, hipotesis, dan konteks yang benar-benar tersedia</td>
+</tr>
+<tr class="even">
+<td>Kamus objek</td>
+<td>simbol, domain, dan hubungan inklusi atau pemetaan</td>
+</tr>
+<tr class="odd">
+<td>Bentuk sasaran</td>
+<td>definisi kesimpulan dengan kuantor eksplisit</td>
+</tr>
+<tr class="even">
+<td>Kewajiban</td>
+<td>daftar keluaran kecil yang harus dibangun</td>
+</tr>
+<tr class="odd">
+<td>Graf</td>
+<td>panah ketergantungan dan simpul daun</td>
+</tr>
+<tr class="even">
+<td>Kontrak lemma</td>
+<td>masukan, hipotesis, keluaran, penunjuk, instansiasi</td>
+</tr>
+<tr class="odd">
+<td>Rencana dua arah</td>
+<td>jalur maju, jalur mundur, dan titik temu</td>
+</tr>
+<tr class="even">
+<td>Rekonstruksi</td>
+<td>pembuktian berurutan yang menutup graf</td>
+</tr>
+<tr class="odd">
+<td>Daftar celah</td>
+<td>status, dasar status, dan tindakan yang masih diperlukan</td>
+</tr>
+<tr class="even">
+<td>Batas klaim</td>
+<td>hal yang sengaja tidak disimpulkan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Lembar itu merupakan catatan kerja logis, bukan buku catatan provenance lengkap yang menjadi fokus Unit 4. Namun, suatu lemma yang diambil dari sumber tetap memerlukan identitas versi dan penunjuk secukupnya agar dapat diperiksa.</p>
+</section>
+<section id="o017-u03-worked-case" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="o017-u03-worked-case"><span class="header-section-number">5</span> Kasus kerja: citra kontinu dari himpunan kompak</h2>
+<p>Kita sekarang menjalankan ketujuh tahap pada petikan awal. Kasus ini sengaja memakai definisi liputan terbuka, bukan kriteria barisan, Heine–Borel, atau teorema nilai ekstrem. Dengan demikian, setiap perpindahan kuantor dan domain terlihat.</p>
+<section id="o017-u03-frozen-statement" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="o017-u03-frozen-statement"><span class="header-section-number">5.1</span> Membekukan pernyataan</h3>
+<div id="thm-o017-u03-compact-image" class="theorem" title="Citra kontinu dari himpunan kompak">
+<p><span class="theorem-title"><strong>Teorema 1</strong></span> Misalkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> ruang topologis, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">K\subseteq X</annotation></semantics></math> kompak, dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f:X\to Y</annotation></semantics></math> kontinu. Maka citra</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mi>x</mi><mo>∈</mo><mi>K</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+f[K]=\{f(x):x\in K\}
+</annotation></semantics></math></p>
+<p>kompak di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</p>
+</div>
+<p>Pernyataan beku ini tidak mengasumsikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> tak kosong, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> injektif, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> surjektif ke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, atau <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> Hausdorff. Rekonstruksi yang memakai salah satu dari keempat sifat itu akan memperkuat sumber tanpa izin.</p>
+<p>Untuk unit ini, “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> kompak di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>” berarti: untuk setiap keluarga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>U</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(U_i)_{i\in I}</annotation></semantics></math> yang terdiri atas himpunan terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> dan memenuhi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in I}U_i</annotation></semantics></math>, terdapat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">F\subseteq I</annotation></semantics></math> hingga sehingga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in F}U_i</annotation></semantics></math>. Definisi ini setara dengan kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> dalam topologi subruang, tetapi kesetaraan tersebut tidak diperlukan dalam rekonstruksi ini.</p>
+</section>
+<section id="o017-u03-quantifier-domain-audit" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="o017-u03-quantifier-domain-audit"><span class="header-section-number">5.2</span> Audit kuantor dan domain</h3>
+<p>Kesimpulan “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> kompak di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>” dikembangkan menjadi:</p>
+<div class="o017-math-scroll" role="region" aria-label="Kuantor eksplisit untuk kekompakan citra" tabindex="0">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mrow><mtext mathvariant="normal">untuk setiap himpunan indeks </mtext><mspace width="0.333em"></mspace></mrow><mi>I</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> dan keluarga </mtext><mspace width="0.333em"></mspace></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mrow><mo stretchy="true" form="prefix">[</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>i</mi><mo>∈</mo><mi>I</mi><mo>,</mo><mspace width="0.278em"></mspace><msub><mi>V</mi><mi>i</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> terbuka di </mtext><mspace width="0.333em"></mspace></mrow><mi>Y</mi><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo><mo>∧</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mspace width="2.0em"></mspace><mo>⇒</mo><mrow><mo stretchy="true" form="prefix">[</mo><mo>∃</mo><mi>F</mi><mo>⊆</mo><mi>I</mi><mo>,</mo><mspace width="0.278em"></mspace><mi>F</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> hingga dan </mtext><mspace width="0.333em"></mspace></mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></munder><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp;\text{untuk setiap himpunan indeks }I\text{ dan keluarga }(V_i)_{i\in I},\\
+&amp;\left[\bigl(\forall i\in I,\;V_i\text{ terbuka di }Y\bigr)
+\land f[K]\subseteq\bigcup_{i\in I}V_i\right]\\
+&amp;\qquad\Longrightarrow
+\left[\exists F\subseteq I,\;F\text{ hingga dan }
+f[K]\subseteq\bigcup_{i\in F}V_i\right].
+\end{aligned}
+</annotation></semantics></math></p>
+</div>
+<p>Kamus objeknya adalah sebagai berikut.</p>
+<div class="o017-table-scroll" role="region" aria-label="Kamus objek pembuktian citra kompak" tabindex="0">
+<table aria-label="Kamus objek pembuktian citra kompak" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Simbol</th>
+<th>Domain atau tipe</th>
+<th>Peran</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math></td>
+<td>anggota <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>, kemudian dibatasi ke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></td>
+<td>saksi pada sisi domain</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math></td>
+<td>anggota <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, kemudian dibatasi ke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math></td>
+<td>elemen yang harus diliputi</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math></td>
+<td>anggota himpunan indeks sebarang <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math></td>
+<td>menunjuk anggota liputan</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>i</mi></msub><annotation encoding="application/x-tex">V_i</annotation></semantics></math></td>
+<td>himpunan terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
+<td>anggota liputan awal</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">U_i=f^{-1}[V_i]</annotation></semantics></math></td>
+<td>himpunan bagian <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></td>
+<td>calon anggota liputan tarik-balik</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math></td>
+<td>himpunan bagian hingga dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math></td>
+<td>saksi subliputan hingga</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Urutan kuantornya penting. Keluarga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(V_i)</annotation></semantics></math> dipilih sebarang terlebih dahulu; barulah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> boleh bergantung pada keluarga itu. Memilih satu <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> sebelum liputan diketahui akan membuktikan pernyataan yang jauh lebih kuat dan biasanya salah.</p>
+</section>
+<section id="o017-u03-obligations" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="o017-u03-obligations"><span class="header-section-number">5.3</span> Daftar kewajiban</h3>
+<p>Dari petikan ringkas diperoleh lima kewajiban.</p>
+<ol type="1">
+<li><strong>P1 — Keterbukaan.</strong> Untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">i\in I</annotation></semantics></math>, buktikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">U_i=f^{-1}[V_i]</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</li>
+<li><strong>P2 — Peliputan balik.</strong> Buktikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in I}U_i</annotation></semantics></math>.</li>
+<li><strong>P3 — Pemakaian kekompakan.</strong> Dari P1 dan P2, hasilkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">F\subseteq I</annotation></semantics></math> hingga dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in F}U_i</annotation></semantics></math>.</li>
+<li><strong>P4 — Peliputan maju.</strong> Dengan indeks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> yang sama, buktikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f[K]\subseteq\bigcup_{i\in F}V_i</annotation></semantics></math>.</li>
+<li><strong>P5 — Penutupan kuantor.</strong> Karena liputan awal sebarang, simpulkan bahwa setiap liputan terbuka atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> memiliki subliputan hingga.</li>
+</ol>
+<p>P1 dan P2 berbeda: keluarga dapat terdiri atas himpunan terbuka tanpa meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, atau meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> tanpa terdiri atas himpunan terbuka. Kekompakan baru boleh dipakai setelah kedua sifat itu tersedia.</p>
+</section>
+<section id="o017-u03-compact-image-graph" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="o017-u03-compact-image-graph"><span class="header-section-number">5.4</span> Graf ketergantungan</h3>
+<p>Graf berikut dibaca dari kiri ke kanan. Tanda kurung siku menunjukkan simpul yang harus mempunyai dasar mandiri.</p>
+<pre class="text"><code>[D1: U_i := f^{-1}[V_i]]
+[V_i terbuka di Y] + [f kontinu] + D1
+    └─&gt; P1: U_i terbuka di X ───────────────────────────────┐
+                                                           │
+[V_i meliputi f[K]] + [definisi f[K]] +                    │
+[D2: x ∈ U_i ⇔ f(x) ∈ V_i] + D1                            │
+    └─&gt; P2: keluarga U_i meliputi K ───────────────────────┤
+                                                           v
+[K kompak] + P1 + P2 ──&gt; P3: ada F ⊆ I hingga             │
+                                                           v
+P3 + [definisi f[K]] + D1 + D2                             │
+    └─&gt; P4: keluarga V_i, i ∈ F, meliputi f[K]             │
+                                                           │
+[liputan awal sebarang] + P4 ──&gt; P5: f[K] kompak &lt;─────────┘</code></pre>
+<p>Graf tersebut juga menunjukkan apa yang <strong>tidak</strong> diperlukan: keterbatasan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, ketertutupan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, sifat Hausdorff <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, atau keberadaan nilai maksimum. Tidak satu pun mempunyai jalur yang perlu menuju P5.</p>
+</section>
+<section id="o017-u03-needed-lemmas" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="o017-u03-needed-lemmas"><span class="header-section-number">5.5</span> Kontrak hasil yang benar-benar diperlukan</h3>
+<p>Rekonstruksi ini memerlukan satu klausa definisi dan dua mikrolemma. Tidak ada teorema besar yang perlu diambil.</p>
+<div class="o017-table-scroll" role="region" aria-label="Kontrak mikrolemma pembuktian citra kompak" tabindex="0">
+<table aria-label="Kontrak mikrolemma pembuktian citra kompak" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID kerja</th>
+<th>Kontrak</th>
+<th>Dasar dan cara menutupnya</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C1</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> kontinu + <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\Rightarrow f^{-1}[V]</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></td>
+<td>klausa definisi kekontinuan</td>
+</tr>
+<tr class="even">
+<td>L1</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f[K]\subseteq\bigcup_{i\in I}V_i</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\Rightarrow K\subseteq\bigcup_{i\in I}f^{-1}[V_i]</annotation></semantics></math></td>
+<td>buktikan secara elementer dengan mengambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>L2</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in F}f^{-1}[V_i]</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Rightarrow f[K]\subseteq\bigcup_{i\in F}V_i</annotation></semantics></math></td>
+<td>buktikan secara elementer dengan mengambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math> dan saksi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Untuk C1, instansiasinya ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>↦</mo><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">V\mapsto V_i</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">i\in I</annotation></semantics></math>. L1 dan L2 tidak memerlukan injektivitas atau surjektivitas. Keduanya sengaja dibuktikan lokal di bawah, sebab pembuktian elementernya lebih pendek dan lebih jelas daripada rujukan ke “sifat citra dan pracitra” yang tidak berpenunjuk.</p>
+<p>Identitas</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">[</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></munder><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+f^{-1}\!\left[\bigcup_{i\in I}V_i\right]
+=\bigcup_{i\in I}f^{-1}[V_i]
+</annotation></semantics></math></p>
+<p>dapat menggantikan pembuktian elementer L1, tetapi tidak wajib. Jika identitas itu diambil sebagai lemma, kontraknya dan domain <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>⊆</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">V_i\subseteq Y</annotation></semantics></math> tetap harus diperiksa.</p>
+</section>
+<section id="o017-u03-two-way-plan" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="o017-u03-two-way-plan"><span class="header-section-number">5.6</span> Perencanaan dua arah</h3>
+<p>Rencana mundur dimulai dari sasaran:</p>
+<pre class="text"><code>f[K] kompak
+&lt; perlu: setiap liputan terbuka f[K] mempunyai subliputan hingga
+&lt; perlu: satu F hingga yang masih meliputi f[K]
+&lt; calon penghasil F: kekompakan K
+&lt; perlu: liputan terbuka atas K dengan indeks I yang sama</code></pre>
+<p>Rencana maju dimulai dari data:</p>
+<pre class="text"><code>V_i terbuka + f kontinu
+&gt; f^{-1}[V_i] terbuka
+
+V_i meliputi f[K] + x ∈ K
+&gt; f(x) ∈ salah satu V_i
+&gt; x ∈ salah satu f^{-1}[V_i]
+&gt; keluarga pracitra meliputi K
+
+liputan terbuka K + K kompak
+&gt; ada F hingga</code></pre>
+<p>Titik temu kedua rencana ialah kalimat: “keluarga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(f^{-1}[V_i])_{i\in I}</annotation></semantics></math> merupakan liputan terbuka atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.” Setelah titik itu, kekompakan menghasilkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>; L2 mengangkut <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> kembali ke sasaran.</p>
+</section>
+<section id="o017-u03-complete-reconstruction" class="level3" data-number="5.7">
+<h3 data-number="5.7" class="anchored" data-anchor-id="o017-u03-complete-reconstruction"><span class="header-section-number">5.7</span> Rekonstruksi lengkap</h3>
+<div id="prf-o017-u03-compact-image" class="proof">
+<p><span class="proof-title"><em>Bukti 1</em>. </span>Ambil himpunan indeks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math> dan keluarga sebarang <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in I}</annotation></semantics></math> dari himpunan-himpunan terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> yang meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>V</mi><mi>i</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f[K]\subseteq\bigcup_{i\in I}V_i.
+</annotation></semantics></math></p>
+<p>Untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">i\in I</annotation></semantics></math>, tetapkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">U_i=f^{-1}[V_i]</annotation></semantics></math>. Karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> kontinu dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>i</mi></msub><annotation encoding="application/x-tex">V_i</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, himpunan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>U</mi><mi>i</mi></msub><annotation encoding="application/x-tex">U_i</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+<p>Keluarga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>U</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(U_i)_{i\in I}</annotation></semantics></math> meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Memang, jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math>, maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f(x)\in f[K]</annotation></semantics></math>. Karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in I}</annotation></semantics></math> meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>, terdapat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">i\in I</annotation></semantics></math> sehingga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f(x)\in V_i</annotation></semantics></math>. Menurut definisi pracitra, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x\in f^{-1}[V_i]=U_i</annotation></semantics></math>.</p>
+<p>Kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> sekarang berlaku pada liputan terbuka tersebut. Jadi terdapat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">F\subseteq I</annotation></semantics></math> hingga sehingga</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></munder><msub><mi>U</mi><mi>i</mi></msub><mo>=</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></munder><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+K\subseteq\bigcup_{i\in F}U_i
+=\bigcup_{i\in F}f^{-1}[V_i].
+</annotation></semantics></math></p>
+<p>Keluarga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in F}</annotation></semantics></math> meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Untuk melihatnya, ambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math>. Menurut definisi citra, ada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math> dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y=f(x)</annotation></semantics></math>. Karena keluarga berindeks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, terdapat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">i\in F</annotation></semantics></math> sehingga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">x\in f^{-1}[V_i]</annotation></semantics></math>. Maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">y=f(x)\in V_i</annotation></semantics></math>.</p>
+<p>Dengan demikian, dari setiap liputan terbuka sebarang atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> telah diperoleh subliputan hingga. Jadi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> kompak di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>▫</mi><annotation encoding="application/x-tex">\square</annotation></semantics></math></p>
+</div>
+<p>Pembuktian tetap berlaku ketika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">K=\varnothing</annotation></semantics></math>. Pada paragraf terakhir, kalimat “ambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math>” berada di dalam pembuktian implikasi universal; tidak ada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> yang harus dipilih jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> kosong. Kita tidak perlu menambahkan hipotesis ketak-kosongan.</p>
+</section>
+<section id="o017-u03-minimality-audit" class="level3" data-number="5.8">
+<h3 data-number="5.8" class="anchored" data-anchor-id="o017-u03-minimality-audit"><span class="header-section-number">5.8</span> Mengapa rekonstruksi ini minimal tetapi memadai</h3>
+<div class="o017-table-scroll" role="region" aria-label="Audit minimalitas rekonstruksi citra kompak" tabindex="0">
+<table aria-label="Audit minimalitas rekonstruksi citra kompak" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bagian</th>
+<th>Panah yang ditutup</th>
+<th>Akibat jika dihapus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>liputan awal dipilih sebarang</td>
+<td>membuka kuantor definisi kompak</td>
+<td>pembuktian hanya menangani satu liputan tertentu</td>
+</tr>
+<tr class="even">
+<td>kekontinuan memberi keterbukaan pracitra</td>
+<td>P1</td>
+<td>kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> diterapkan pada keluarga yang belum terbukti terbuka</td>
+</tr>
+<tr class="odd">
+<td>argumen dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math></td>
+<td>P2/L1</td>
+<td>belum terbukti bahwa pracitra meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>pemakaian kekompakan</td>
+<td>P3</td>
+<td>tidak ada saksi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> yang hingga</td>
+</tr>
+<tr class="odd">
+<td>argumen dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math></td>
+<td>P4/L2</td>
+<td>belum terbukti indeks yang sama meliputi citra</td>
+</tr>
+<tr class="even">
+<td>penutupan “setiap liputan”</td>
+<td>P5</td>
+<td>kesimpulan kompak belum mengikuti secara eksplisit</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Sebaliknya, pembuktian tidak perlu membuktikan teorema Heine–Borel, tidak perlu mengganti liputan dengan barisan, dan tidak perlu menunjukkan bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> tertutup. Menambahkan semua itu memperpanjang teks tanpa menutup panah baru dalam graf.</p>
+</section>
+</section>
+<section id="o017-u03-invalid-shortcuts" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="o017-u03-invalid-shortcuts"><span class="header-section-number">6</span> Jalan pintas yang tidak sah</h2>
+<section id="o017-u03-cover-scope-error" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="o017-u03-cover-scope-error"><span class="header-section-number">6.1</span> Liputan citra bukan liputan seluruh kodomain atau domain</h3>
+<p>Dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f[K]\subseteq\bigcup_{i\in I}V_i</annotation></semantics></math> tidak mengikuti bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Y=\bigcup_{i\in I}V_i</annotation></semantics></math>. Karena itu juga tidak mengikuti bahwa pracitra meliputi seluruh <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+<p>Ambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>Y</mi><mo>=</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">X=Y=\mathbb{R}</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">K=\{0\}</annotation></semantics></math>, dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> fungsi identitas. Satu himpunan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V=(-1,1)</annotation></semantics></math> meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>, tetapi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> tidak meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f^{-1}[V]=(-1,1)</annotation></semantics></math> tidak meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. Yang diperlukan pembuktian hanyalah bahwa pracitra meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>; menuntut liputan atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> akan menciptakan kewajiban palsu.</p>
+</section>
+<section id="o017-u03-image-preimage-error" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="o017-u03-image-preimage-error"><span class="header-section-number">6.2</span> Citra pracitra tidak selalu mengembalikan himpunan asal</h3>
+<p>Untuk fungsi umum, identitas yang benar adalah</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>V</mi><mo>∩</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f[f^{-1}[V]]=V\cap f[X],
+</annotation></semantics></math></p>
+<p>bukan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=V</annotation></semantics></math>. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}\to\mathbb{R}</annotation></semantics></math> diberikan oleh <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)=0</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V=(-1,1)</annotation></semantics></math>, maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo><mo>≠</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=\{0\}\neq V</annotation></semantics></math>.</p>
+<p>Dalam rekonstruksi utama, kita tidak perlu menyamakan kedua himpunan. Kita hanya memakai implikasi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>⇒</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x\in f^{-1}[V_i]\Rightarrow f(x)\in V_i</annotation></semantics></math> untuk sebuah saksi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math>. Inilah sebab frasa ringkas “citranya memberi subliputan” perlu diganti dengan argumen elementer L2.</p>
+</section>
+<section id="o017-u03-openness-domain-error" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="o017-u03-openness-domain-error"><span class="header-section-number">6.3</span> Keterbukaan tidak berpindah tanpa memeriksa ruang</h3>
+<p>Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>i</mi></msub><annotation encoding="application/x-tex">V_i</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, kekontinuan menjadikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f^{-1}[V_i]</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>; ia tidak mengatakan bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>i</mi></msub><annotation encoding="application/x-tex">V_i</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. Jika fungsi yang tersedia hanya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><msub><mo stretchy="false" form="prefix">|</mo><mi>K</mi></msub><mo>:</mo><mi>K</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f|_K:K\to Y</annotation></semantics></math>, pracitranya terbuka di <strong>subruang <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></strong>, bukan otomatis di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. Versi teorema itu tetap dapat dibuktikan dengan definisi kekompakan subruang, tetapi kontrak dan domainnya berbeda. Rekonstruksi harus mengikuti versi yang benar-benar dinyatakan sumber.</p>
+</section>
+</section>
+<section id="o017-u03-assumption-stress-tests" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="o017-u03-assumption-stress-tests"><span class="header-section-number">7</span> Menguji hipotesis dengan contoh tandingan</h2>
+<p>Contoh tandingan tidak menggantikan rekonstruksi. Ia menguji apakah hipotesis yang dipakai dalam graf memang menjalankan pekerjaan yang diklaim.</p>
+<section id="o017-u03-counterexample-noncompact" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="o017-u03-counterexample-noncompact"><span class="header-section-number">7.1</span> Tanpa kekompakan domain</h3>
+<p>Fungsi inklusi</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>:</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>↪</mo><mi>ℝ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>j</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+j:(0,1)\hookrightarrow\mathbb{R},\qquad j(x)=x,
+</annotation></semantics></math></p>
+<p>kontinu, tetapi citranya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,1)</annotation></semantics></math> tidak kompak. Keluarga</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>n</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>n</mi><mo>≥</mo><mn>2</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+U_n=(1/n,1),\qquad n\geq2,
+</annotation></semantics></math></p>
+<p>meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,1)</annotation></semantics></math>. Subkeluarga kosong jelas tidak meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,1)</annotation></semantics></math>. Setiap subkeluarga hingga tak kosong termuat dalam satu <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mi>N</mi><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1/N,1)</annotation></semantics></math> untuk indeks terbesar <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math> yang dipilih dan karena itu melewatkan, misalnya, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">1/(2N)</annotation></semantics></math>. Jadi tidak ada subliputan hingga. Contoh ini memutus panah P1+P2 menuju P3: tanpa kekompakan, liputan terbuka tidak menghasilkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>.</p>
+</section>
+<section id="o017-u03-counterexample-discontinuous" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="o017-u03-counterexample-discontinuous"><span class="header-section-number">7.2</span> Tanpa kekontinuan</h3>
+<p>Ambil</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo>:</mo><mi>n</mi><mo>∈</mo><mi>ℕ</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>n</mi><mo>≥</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>⊆</mo><mi>ℝ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+K=\{0\}\cup\{1/n:n\in\mathbb{N},\ n\geq1\}\subseteq\mathbb{R}.
+</annotation></semantics></math></p>
+<p>Himpunan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> kompak menurut definisi liputan terbuka. Untuk setiap liputan, pilih satu anggota yang memuat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>. Karena anggota itu terbuka, ia memuat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1/n</annotation></semantics></math> untuk semua <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> yang cukup besar; hanya tersisa berhingga banyak titik, dan dari liputan semula dapat dipilih satu anggota untuk tiap titik yang tersisa.</p>
+<p>Definisikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>K</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">g:K\to\mathbb{R}</annotation></semantics></math> dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(0)=0</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">g(1/n)=n</annotation></semantics></math>. Fungsi ini tidak kontinu di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>: pracitra <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>g</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mi>/</mi><mn>2</mn><mo>,</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">g^{-1}[(-1/2,1/2)]=\{0\}</annotation></semantics></math> tidak terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, sebab setiap lingkungan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math> dalam <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> memuat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1/n</annotation></semantics></math> untuk <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> yang cukup besar. Selain itu,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">
+g[K]=\{0,1,2,3,\ldots\}
+</annotation></semantics></math></p>
+<p>tidak kompak. Keluarga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>m</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>m</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">W_m=(-1,m)</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m\geq1</annotation></semantics></math>, meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">g[K]</annotation></semantics></math> tetapi setiap subkeluarga hingga melewatkan semua bilangan bulat yang cukup besar. Di sini kegagalan kekontinuan memutus P1: pracitra dari anggota liputan tidak dijamin terbuka.</p>
+<p>Kedua contoh ini juga mencegah rekonstruksi yang diam-diam membuang salah satu hipotesis hanya karena pembuktian ringkas tidak menyebutkannya lagi.</p>
+</section>
+</section>
+<section id="o017-u03-lemma-audit" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="o017-u03-lemma-audit"><span class="header-section-number">8</span> Mengambil lemma dan menolak hipotesis tersembunyi</h2>
+<p>Nama sebuah hasil sering lebih luas daripada kontrak yang sebenarnya. Misalkan setelah teorema utama sebuah sumber menambahkan:</p>
+<blockquote class="blockquote">
+<p>Karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> kompak, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> tertutup di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</p>
+</blockquote>
+<p>Hasil calon yang lazim diingat pembaca mempunyai kontrak:</p>
+<div class="o017-math-scroll" role="region" aria-label="Kontrak lemma himpunan kompak dalam ruang Hausdorff" tabindex="0">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mi>Y</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> Hausdorff</mtext></mrow><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo><mo>∧</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mi>C</mi><mo>⊆</mo><mi>Y</mi><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo><mo>∧</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mi>C</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> kompak</mtext></mrow><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><mi>C</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> tertutup di </mtext><mspace width="0.333em"></mspace></mrow><mi>Y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bigl(Y\text{ Hausdorff}\bigr)
+\land\bigl(C\subseteq Y\bigr)
+\land\bigl(C\text{ kompak}\bigr)
+\quad\Longrightarrow\quad C\text{ tertutup di }Y.
+</annotation></semantics></math></p>
+</div>
+<p>Kontrak itu dapat dibuktikan secara lokal. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">C=\varnothing</annotation></semantics></math>, kesimpulannya langsung. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>≠</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">C\neq\varnothing</annotation></semantics></math>, ambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>Y</mi><mo>\</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">y\in Y\setminus C</annotation></semantics></math>. Untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">x\in C</annotation></semantics></math>, sifat Hausdorff memberi himpunan terbuka saling lepas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>U</mi><mi>x</mi></msub><annotation encoding="application/x-tex">U_x</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>x</mi></msub><annotation encoding="application/x-tex">V_x</annotation></semantics></math> dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msub><mi>U</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">x\in U_x</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><msub><mi>V</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">y\in V_x</annotation></semantics></math>. Keluarga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>U</mi><mi>x</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>x</mi><mo>∈</mo><mi>C</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(U_x)_{x\in C}</annotation></semantics></math> meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>; karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> kompak, ada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo>∈</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">x_1,\ldots,x_n\in C</annotation></semantics></math> sehingga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>⊆</mo><msub><mi>U</mi><msub><mi>x</mi><mn>1</mn></msub></msub><mo>∪</mo><mi>⋯</mi><mo>∪</mo><msub><mi>U</mi><msub><mi>x</mi><mi>n</mi></msub></msub></mrow><annotation encoding="application/x-tex">C\subseteq U_{x_1}\cup\cdots\cup U_{x_n}</annotation></semantics></math>. Himpunan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msub><mi>V</mi><msub><mi>x</mi><mn>1</mn></msub></msub><mo>∩</mo><mi>⋯</mi><mo>∩</mo><msub><mi>V</mi><msub><mi>x</mi><mi>n</mi></msub></msub></mrow><annotation encoding="application/x-tex">V=V_{x_1}\cap\cdots\cap V_{x_n}</annotation></semantics></math> terbuka, memuat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>, dan terpisah dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><msub><mi>x</mi><mn>1</mn></msub></msub><mo>∪</mo><mi>⋯</mi><mo>∪</mo><msub><mi>U</mi><msub><mi>x</mi><mi>n</mi></msub></msub></mrow><annotation encoding="application/x-tex">U_{x_1}\cup\cdots\cup U_{x_n}</annotation></semantics></math>, sehingga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊆</mo><mi>Y</mi><mo>\</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">V\subseteq Y\setminus C</annotation></semantics></math>. Jadi setiap titik di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>\</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">Y\setminus C</annotation></semantics></math> mempunyai lingkungan yang termuat di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>\</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">Y\setminus C</annotation></semantics></math>; komplemen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> terbuka dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> tertutup.</p>
+<p>Tabel instansiasinya harus berbentuk berikut.</p>
+<div class="o017-table-scroll" role="region" aria-label="Instansiasi lemma kompak menjadi tertutup" tabindex="0">
+<table aria-label="Instansiasi lemma kompak menjadi tertutup" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variabel lemma</th>
+<th>Instansiasi</th>
+<th>Status hipotesis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ruang induk <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> pada teorema utama</td>
+<td>tersedia sebagai ruang topologis</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> Hausdorff</td>
+<td>tidak ada padanan pada pernyataan beku</td>
+<td><strong>belum tersedia</strong></td>
+</tr>
+<tr class="odd">
+<td>himpunan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math></td>
+<td>tersedia</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> kompak</td>
+<td>hasil rekonstruksi utama</td>
+<td>tersedia</td>
+</tr>
+<tr class="odd">
+<td>kesimpulan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> tertutup</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> tertutup di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
+<td>sasaran tambahan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Kontrak tidak cocok karena syarat Hausdorff tidak tersedia. Hal ini bukan sekadar kehati-hatian formal; kesimpulan tambahan memang salah secara umum.</p>
+<p>Ambil ruang Sierpiński <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">Y=\{0,1\}</annotation></semantics></math> dengan topologi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>⌀</mi><mo>,</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{\varnothing,\{1\},Y\}</annotation></semantics></math>. Misalkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>K</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>*</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">X=K=\{*\}</annotation></semantics></math> dengan topologi satu titik dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>K</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f:K\to Y</annotation></semantics></math> diberikan oleh <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>*</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(*)=1</annotation></semantics></math>. Himpunan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> kompak. Fungsi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> kontinu karena pracitra ketiga himpunan terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> masing-masing adalah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⌀</mi><annotation encoding="application/x-tex">\varnothing</annotation></semantics></math> atau <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, yang terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Citranya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1\}</annotation></semantics></math> juga kompak, tetapi tidak tertutup di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, sebab komplemennya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0\}</annotation></semantics></math> tidak terbuka.</p>
+<p>Jika halaman terdahulu sumber mungkin menetapkan bahwa semua ruang Hausdorff, catatan yang jujur bukan “tentu diasumsikan Hausdorff”, melainkan:</p>
+<div class="o017-table-scroll" role="region" aria-label="Daftar celah hipotesis Hausdorff" tabindex="0">
+<table aria-label="Daftar celah hipotesis Hausdorff" class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID celah</th>
+<th>Klaim</th>
+<th>Status</th>
+<th>Dasar</th>
+<th>Tindakan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>G-H</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> Hausdorff berlaku dalam konteks</td>
+<td>belum dipastikan</td>
+<td>tidak ada pada petikan yang dibekukan</td>
+<td>periksa konteks dan versi sumber</td>
+</tr>
+<tr class="even">
+<td>G-C</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> tertutup di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
+<td>ditolak sebagai klaim mandiri; bersyarat pada G-H</td>
+<td>kontrak lemma dan contoh Sierpiński</td>
+<td>tambahkan syarat hanya jika sumber mendukung</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ada tiga hasil yang mungkin dari pengambilan lemma:</p>
+<ol type="1">
+<li>seluruh hipotesis cocok, sehingga simpul dapat ditutup;</li>
+<li>hipotesis belum dapat ditemukan, sehingga simpul tetap terbuka; atau</li>
+<li>hipotesis bertentangan dengan konteks atau ada contoh tandingan, sehingga jalur itu ditolak.</li>
+</ol>
+<p>Hanya hasil pertama yang memberi izin untuk melanjutkan seolah-olah lemma telah diterapkan.</p>
+</section>
+<section id="o017-u03-detail-level" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="o017-u03-detail-level"><span class="header-section-number">9</span> Menetapkan rincian minimal yang memadai</h2>
+<p>Tingkat rincian bergantung pada apa yang sudah tersedia bagi pembaca sasaran, bukan pada selera penulis rekonstruksi. Gunakan urutan keputusan berikut.</p>
+<ol type="1">
+<li>Jika langkah itu definisional tetapi memindahkan kuantor atau domain, tuliskan instansiasinya. Pada kasus utama, C1 perlu ditulis karena ia menghasilkan keterbukaan di ruang yang tepat.</li>
+<li>Jika langkah itu mikrolemma yang membentuk jembatan utama, buktikan secara elementer. L1 dan L2 masing-masing hanya memerlukan satu saksi.</li>
+<li>Jika lemma substantif sudah tersedia dalam sumber yang sama, sitasi nomor hasil dan periksa hipotesisnya; jangan salin seluruh pembuktiannya.</li>
+<li>Jika lemma substantif belum tersedia, ambil sumber yang dapat ditelusuri atau tandai celah. Jangan mengisi kekosongan dengan nama teorema tanpa kontrak.</li>
+<li>Jika suatu paragraf tidak mendukung jalur mana pun dalam graf, pindahkan ke catatan tambahan atau hapus dari rekonstruksi inti.</li>
+</ol>
+<p>Rekonstruksi minimal juga mempertahankan <strong>kekuatan tepat</strong> dari klaim sumber. Teorema utama membuktikan kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>; ia tidak membuktikan bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> tertutup, terbatas, atau mempunyai titik maksimum dalam setiap kodomain. Kesimpulan-kesimpulan itu memerlukan struktur dan lemma tambahan.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Aturan berhenti rekonstruksi">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Penting</span>Aturan berhenti rekonstruksi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Berhenti ketika semua jalur menuju klaim beku telah tertutup dan setiap celah lain sudah diberi status. Jangan memperluas pekerjaan untuk membuktikan semua hasil yang berdekatan. Sebaliknya, jangan menyatakan selesai hanya karena gagasan besar tampak benar jika satu panah domain, kuantor, atau hipotesis masih tanpa dasar.</p>
+</div>
+</div>
+</section>
+<section id="o017-u03-short-audit" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="o017-u03-short-audit"><span class="header-section-number">10</span> Praktik audit singkat</h2>
+<p>Seorang pembaca menawarkan rekonstruksi berikut untuk petikan utama:</p>
+<blockquote class="blockquote">
+<p>Ambil liputan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(V_i)</annotation></semantics></math> atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> kontinu, setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[V_i]</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>. Himpunan-himpunan ini meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> memberi beberapa indeks hingga, jadi selesai.</p>
+</blockquote>
+<p>Audit tipe langsung menemukan tiga kerusakan sebelum kita menilai gagasan besarnya.</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>⊆</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">V_i\subseteq Y</annotation></semantics></math>, sedangkan domain <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> adalah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[V_i]</annotation></semantics></math> tidak bertipe secara umum. Objek yang diperlukan ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo><mo>⊆</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">f^{-1}[V_i]\subseteq X</annotation></semantics></math>.</li>
+<li>Keluarga pracitra harus dibuktikan meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, bukan dinyatakan begitu saja.</li>
+<li>Hipotesis kompak dimiliki <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, bukan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</li>
+</ul>
+<p>Setelah perbaikan itu, masih diperlukan langkah mengangkut subliputan hingga kembali ke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Menemukan tiga kesalahan pertama belum dengan sendirinya menutup P4.</p>
+</section>
+<section id="o017-u03-exercises" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="o017-u03-exercises"><span class="header-section-number">11</span> Latihan</h2>
+<ol type="1">
+<li><strong><span id="o017-u03-x01">O017-U03-X01</span> — Audit kuantor.</strong> Tulis bentuk berkuantor dari “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> kompak” dan jelaskan mengapa himpunan indeks hingga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> boleh bergantung pada liputan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in I}</annotation></semantics></math>, tetapi tidak sebaliknya.</li>
+<li><strong><span id="o017-u03-x02">O017-U03-X02</span> — Graf ketergantungan.</strong> Tanpa melihat graf kasus kerja, susun graf minimal dari liputan terbuka atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> sampai kesimpulan kompak. Tandai mana yang ditutup oleh definisi, kekontinuan, kekompakan, L1, dan L2.</li>
+<li><strong><span id="o017-u03-x03">O017-U03-X03</span> — Jalan pintas salah.</strong> Berikan contoh konkret yang menyangkal <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=V</annotation></semantics></math>. Nyatakan identitas yang benar dan jelaskan mengapa pembuktian utama hanya memerlukan satu arah implikasi.</li>
+<li><strong><span id="o017-u03-x04">O017-U03-X04</span> — Uji hipotesis.</strong> Bangun atau jelaskan satu contoh ketika domain tidak kompak dan satu contoh ketika fungsi tidak kontinu sehingga citranya tidak kompak. Hubungkan tiap kegagalan dengan simpul pada graf.</li>
+<li><strong><span id="o017-u03-x05">O017-U03-X05</span> — Kontrak lemma.</strong> Audit kalimat “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> kompak, maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> tertutup di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.” Tuliskan kontrak lemma yang dibutuhkan, hipotesis yang hilang, dan status celah yang jujur bila konteks terdahulu belum dapat diperiksa.</li>
+<li><strong><span id="o017-u03-x06">O017-U03-X06</span> — Perbaikan minimal.</strong> Perbaiki petikan pada bagian Praktik audit singkat. Buat tabel tiga kolom berisi fragmen rusak, jenis kerusakan, dan pengganti minimal; lalu tambahkan langkah P4 yang semula hilang.</li>
+</ol>
+</section>
+<section id="o017-u03-guidance" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="o017-u03-guidance"><span class="header-section-number">12</span> Petunjuk dan panduan jawaban</h2>
+<ol type="1">
+<li><strong><span id="o017-u03-h01">O017-U03-H01</span>.</strong> Urutannya ialah: untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math> dan setiap keluarga terbuka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in I}</annotation></semantics></math> yang meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>, terdapat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">F\subseteq I</annotation></semantics></math> hingga yang masih meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> adalah saksi untuk liputan yang dipilih, ia berada setelah kuantor keluarga.</li>
+<li><strong><span id="o017-u03-h02">O017-U03-H02</span>.</strong> Jalur minimalnya adalah liputan awal <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> pracitra terbuka (kekontinuan) dan pracitra meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> (L1) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> indeks hingga (kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> indeks yang sama meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> (L2) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> definisi kompak.</li>
+<li><strong><span id="o017-u03-h03">O017-U03-H03</span>.</strong> Gunakan fungsi konstan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}\to\mathbb{R}</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)=0</annotation></semantics></math>, dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V=(-1,1)</annotation></semantics></math>. Identitas yang benar ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mi>V</mi><mo>∩</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>X</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=V\cap f[X]</annotation></semantics></math>. P4 hanya memakai <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><mi>V</mi><mo stretchy="false" form="postfix">]</mo><mo>⇒</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">x\in f^{-1}[V]\Rightarrow f(x)\in V</annotation></semantics></math>.</li>
+<li><strong><span id="o017-u03-h04">O017-U03-H04</span>.</strong> Inklusi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>:</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>↪</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">j:(0,1)\hookrightarrow\mathbb{R}</annotation></semantics></math> memutus langkah dari liputan terbuka menuju subliputan hingga. Fungsi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(0)=0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">g(1/n)=n</annotation></semantics></math> pada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0\}\cup\{1/n\}</annotation></semantics></math> memutus langkah yang menjamin keterbukaan pracitra.</li>
+<li><strong><span id="o017-u03-h05">O017-U03-H05</span>.</strong> Kontrak yang sah memerlukan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> Hausdorff dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> kompak. Tanpa dasar bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> Hausdorff, penerapan bersifat <code>belum dipastikan</code>; sebagai klaim mandiri ia ditolak oleh contoh Sierpiński. Jangan menambahkan Hausdorff ke pernyataan beku.</li>
+<li><strong><span id="o017-u03-h06">O017-U03-H06</span>.</strong> Ganti <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[V_i]</annotation></semantics></math> dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f^{-1}[V_i]</annotation></semantics></math>, buktikan keluarga itu meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, dan terapkan kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, bukan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>. Untuk P4, ambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>K</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math>, pilih <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math> dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y=f(x)</annotation></semantics></math>, lalu gunakan keanggotaan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> dalam salah satu pracitra berindeks hingga.</li>
+</ol>
+</section>
+<section id="o017-u03-completion-task" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="o017-u03-completion-task"><span class="header-section-number">13</span> Tugas penyelesaian unit</h2>
+<p>Rekonstruksi petikan sintetis berikut sebagai <strong>dosier pembuktian</strong>.</p>
+<blockquote class="blockquote">
+<p>Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> kompak dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> tertutup di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> kompak. Memang, tambahkan komplemen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> pada sebuah liputan atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>, gunakan kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, lalu buang komplemennya.</p>
+</blockquote>
+<p>Gunakan konvensi bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> adalah ruang topologis kompak, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">F\subseteq K</annotation></semantics></math> tertutup, dan kekompakan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> diuji dengan keluarga himpunan yang terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> dan meliputi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>. Dossier harus memuat:</p>
+<ol type="1">
+<li>klaim beku, urutan kuantor, serta kamus domain untuk <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>, keluarga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>U</mi><mi>i</mi></msub><msub><mo stretchy="false" form="postfix">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(U_i)_{i\in I}</annotation></semantics></math>, komplemen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>\</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">K\setminus F</annotation></semantics></math>, dan himpunan indeks hingga;</li>
+<li>daftar kewajiban yang mengganti kata “tambahkan”, “gunakan”, dan “buang”;</li>
+<li>graf ketergantungan yang semua simpul daunnya mempunyai dasar;</li>
+<li>kontrak dan instansiasi klausa “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> tertutup di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> jika dan hanya jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>\</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">K\setminus F</annotation></semantics></math> terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>”;</li>
+<li>rencana mundur dan maju beserta titik temunya;</li>
+<li>pembuktian minimal yang menangani kemungkinan bahwa subliputan hingga dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> tidak memilih <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>\</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">K\setminus F</annotation></semantics></math>;</li>
+<li>uji penghapusan untuk sekurang-kurangnya empat kalimat pembuktian;</li>
+<li>daftar celah dengan status akhir; dan</li>
+<li>satu batas klaim: jelaskan mengapa pembuktian itu tidak dengan sendirinya menunjukkan bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> tertutup dalam ruang induk yang lebih besar dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</li>
+</ol>
+<section id="o017-u03-completion-rubric" class="level3" data-number="13.1">
+<h3 data-number="13.1" class="anchored" data-anchor-id="o017-u03-completion-rubric"><span class="header-section-number">13.1</span> Rubrik</h3>
+<p>Setiap kriteria dinilai 0, 1, atau 2.</p>
+<div class="o017-table-scroll" role="region" aria-label="Rubrik tugas penyelesaian Unit 3" tabindex="0">
+<table aria-label="Rubrik tugas penyelesaian Unit 3" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kriteria</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Klaim dan domain</td>
+<td>hipotesis/ruang berubah</td>
+<td>sebagian tipe atau kuantor tersirat</td>
+<td>semua objek, kuantor, dan topologi ruang induk tepat</td>
+</tr>
+<tr class="even">
+<td>Kewajiban dan graf</td>
+<td>lompatan utama tetap tersembunyi</td>
+<td>graf ada tetapi mempunyai daun tanpa dasar</td>
+<td>setiap kata ringkas menjadi kewajiban dan setiap jalur tertutup</td>
+</tr>
+<tr class="odd">
+<td>Kontrak lemma</td>
+<td>lemma hanya disebut namanya</td>
+<td>kontrak ada tetapi instansiasi tidak lengkap</td>
+<td>masukan, hipotesis, keluaran, dan instansiasi diperiksa</td>
+</tr>
+<tr class="even">
+<td>Rekonstruksi</td>
+<td>argumen tidak menghasilkan subliputan hingga atas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math></td>
+<td>gagasan benar dengan satu perpindahan yang belum dijustifikasi</td>
+<td>pembuktian elementer lengkap dan menangani dua kemungkinan pemilihan komplemen</td>
+</tr>
+<tr class="odd">
+<td>Minimal tetapi memadai</td>
+<td>terlalu ringkas atau membawa teori tak relevan</td>
+<td>sebagian kalimat belum diuji</td>
+<td>uji penghapusan menunjukkan setiap rincian inti mempunyai fungsi</td>
+</tr>
+<tr class="even">
+<td>Kejujuran celah dan batas</td>
+<td>celah disembunyikan atau klaim diperkuat</td>
+<td>status/batas disebut tanpa dasar</td>
+<td>semua celah berstatus, berdasar, dan kesimpulan pada ruang induk dibatasi tepat</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nilai lulus adalah sekurang-kurangnya 10 dari 12, dengan nilai 2 pada <strong>Rekonstruksi</strong> dan <strong>Kejujuran celah dan batas</strong>. Menambahkan hipotesis yang tidak ada, memakai kekompakan sebelum keluarga terbukti sebagai liputan terbuka, atau menyatakan celah tertutup hanya berdasarkan nama lemma mewajibkan revisi meskipun jumlah nilai cukup.</p>
+</section>
+</section>
+<section id="o017-u03-boundary" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="o017-u03-boundary"><span class="header-section-number">14</span> Batas dengan B80 dan unit lain</h2>
+<p>Unit ini mengajarkan rekonstruksi logis, bukan keterampilan komputasi. Ia tidak mengajarkan sintaks Python, SageMath, SymPy, NumPy/SciPy, API paket, metode numerik, pembuatan plot, penulisan pengujian, notebook, lingkungan perangkat lunak, atau perbedaan implementasi bilangan eksak dan titik-mengambang. Semua itu berada pada B80.</p>
+<p>Program dapat dipakai oleh pembaca yang sudah memiliki keterampilan B80 untuk mencari contoh atau menguji dugaan selama rekonstruksi. Keluarannya tetap bukti empiris diagnostik, bukan pengganti jalur pembuktian dalam graf. Unit ini juga tidak mengajarkan kembali penelusuran versi dari Unit 2, buku catatan provenance lengkap dari Unit 4, atau reproduktibilitas komputasional dari Unit 6. Jika pengambilan lemma menemukan masalah sumber, catat kebutuhan itu dan teruskan ke unit yang tepat.</p>
+</section>
+<section id="o017-u03-provenance" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="o017-u03-provenance"><span class="header-section-number">15</span> Sumber, provenance, dan hak</h2>
+<p>Petikan sintetis, protokol tujuh tahap, susunan graf, tabel kontrak, eksposisi, rekonstruksi pembuktian, contoh, contoh tandingan, latihan, panduan jawaban, tugas penyelesaian, dan rubrik pada unit ini merupakan materi asli O017 oleh kontributor O017, 2026, dan dilisensikan di bawah <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+<p>Teorema bahwa citra kontinu dari himpunan kompak bersifat kompak dan teorema bahwa subhimpunan tertutup dari ruang kompak bersifat kompak adalah hasil klasik topologi. Unit ini tidak mengklaim penemuan hasil tersebut dan tidak menyalin redaksi pembuktian dari sumber tertentu; presentasi melalui audit kuantor, kontrak lemma, dan graf ketergantungan ditulis khusus untuk O017. Contoh ruang Sierpiński juga merupakan contoh matematika standar, dengan redaksi dan fungsi pedagogis asli unit ini.</p>
+<p>Tidak ada petikan atau adaptasi dari <em>The Turing Way</em> maupun <em>Research Software Engineering with Python</em> dalam Unit 3. Kedua sumber beku itu tetap tercatat dalam manifes hak O017 untuk unit-unit yang benar-benar mengadaptasinya dan tetap tunduk pada lisensinya masing-masing. Lisensi CC BY-SA 4.0 di atas berlaku untuk materi asli unit ini; ia tidak mengganti hak atas sumber lain yang kelak disitasi atau ditambahkan.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Disalin!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Disalin!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

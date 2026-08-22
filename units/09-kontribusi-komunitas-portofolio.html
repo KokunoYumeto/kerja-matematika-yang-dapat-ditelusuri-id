@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id-ID" xml:lang="id-ID"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Unit penutup untuk membatasi satu kontribusi matematika, menyiapkan paket koreksi yang dapat diperiksa, membedakan status eksternal secara ketat, merancang jalur penarikan, dan menyusun portofolio bukti dari Unit 1–8.">
+
+<title>Unit 9 — Kontribusi Komunitas Terbatas dan Portofolio yang Dapat Diaudit – Kerja Matematika yang Dapat Ditelusuri</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e660844ac27f845a97ea4d6047b2f6e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Tidak ada hasil",
+    "search-matching-documents-text": "dokumen cocok",
+    "search-copy-link-title": "Salin tautan untuk mencari",
+    "search-hide-matches-text": "Sembunyikan kecocokan lainnya",
+    "search-more-match-text": "kecocokan lainnya di dokumen ini",
+    "search-more-matches-text": "kecocokan lainnya di dokumen ini",
+    "search-clear-button-title": "Hapus",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Batal",
+    "search-submit-button-title": "Kirim",
+    "search-label": "Mencari"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+<a class="o017-skip-link" href="#quarto-document-content">Langsung ke isi utama</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Kerja Matematika yang Dapat Ditelusuri</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Mencari"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alihkan navigasi" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Beranda</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/01-membaca-argumen.html"> 
+<span class="menu-text">Unit 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/02-menelusuri-sumber.html"> 
+<span class="menu-text">Unit 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/03-merekonstruksi-pembuktian.html"> 
+<span class="menu-text">Unit 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/04-sitasi-provenance-catatan-sumber.html"> 
+<span class="menu-text">Unit 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/05-eksposisi-matematika.html"> 
+<span class="menu-text">Unit 5</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/06-komputasi-dapat-direproduksi.html"> 
+<span class="menu-text">Unit 6</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/07-errata-koreksi-batas-kepastian.html"> 
+<span class="menu-text">Unit 7</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/08-seminar-penelaah-tanggapan-kritik.html"> 
+<span class="menu-text">Unit 8</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../units/09-kontribusi-komunitas-portofolio.html" aria-current="page"> 
+<span class="menu-text">Unit 9</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/v2026.08.22/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.pdf" title="Unduh PDF" class="quarto-navigation-tool px-1" aria-label="Unduh PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id" title="Sumber GitHub" class="quarto-navigation-tool px-1" aria-label="Sumber GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" aria-labelledby="toc-title">
+    <div id="toc-title" class="h2">Di halaman ini</div>
+   
+  <ul>
+  <li><a href="#o017-u09-outcomes" id="toc-o017-u09-outcomes" class="nav-link active" data-scroll-target="#o017-u09-outcomes"><span class="header-section-number">1</span> Hasil belajar</a></li>
+  <li><a href="#o017-u09-bounded-contribution" id="toc-o017-u09-bounded-contribution" class="nav-link" data-scroll-target="#o017-u09-bounded-contribution"><span class="header-section-number">2</span> Kontribusi kecil harus mempunyai batas yang keras</a></li>
+  <li><a href="#o017-u09-seven-states" id="toc-o017-u09-seven-states" class="nav-link" data-scroll-target="#o017-u09-seven-states"><span class="header-section-number">3</span> Tujuh status yang tidak dapat dipertukarkan</a>
+  <ul class="collapse">
+  <li><a href="#o017-u09-terminal-and-side-states" id="toc-o017-u09-terminal-and-side-states" class="nav-link" data-scroll-target="#o017-u09-terminal-and-side-states"><span class="header-section-number">3.1</span> Status tambahan tanpa menghapus sejarah</a></li>
+  <li><a href="#o017-u09-state-machine" id="toc-o017-u09-state-machine" class="nav-link" data-scroll-target="#o017-u09-state-machine"><span class="header-section-number">3.2</span> Rute kanonik nonlengkap dan aturan pembuktian</a></li>
+  </ul></li>
+  <li><a href="#o017-u09-selection-gate" id="toc-o017-u09-selection-gate" class="nav-link" data-scroll-target="#o017-u09-selection-gate"><span class="header-section-number">4</span> Gerbang pemilihan satu kontribusi</a></li>
+  <li><a href="#o017-u09-worked-contribution" id="toc-o017-u09-worked-contribution" class="nav-link" data-scroll-target="#o017-u09-worked-contribution"><span class="header-section-number">5</span> Kasus kerja: satu suku indeks yang salah</a>
+  <ul class="collapse">
+  <li><a href="#o017-u09-minimal-reproducer" id="toc-o017-u09-minimal-reproducer" class="nav-link" data-scroll-target="#o017-u09-minimal-reproducer"><span class="header-section-number">5.1</span> Reproducer minimum</a></li>
+  <li><a href="#o017-u09-proof-repair" id="toc-o017-u09-proof-repair" class="nav-link" data-scroll-target="#o017-u09-proof-repair"><span class="header-section-number">5.2</span> Perbaikan bukti</a></li>
+  <li><a href="#o017-u09-before-after-validation" id="toc-o017-u09-before-after-validation" class="nav-link" data-scroll-target="#o017-u09-before-after-validation"><span class="header-section-number">5.3</span> Validasi sebelum dan sesudah</a></li>
+  </ul></li>
+  <li><a href="#o017-u09-minimal-patch" id="toc-o017-u09-minimal-patch" class="nav-link" data-scroll-target="#o017-u09-minimal-patch"><span class="header-section-number">6</span> Draf patch dan erratum yang minimal</a>
+  <ul class="collapse">
+  <li><a href="#o017-u09-scope-and-uncertainty" id="toc-o017-u09-scope-and-uncertainty" class="nav-link" data-scroll-target="#o017-u09-scope-and-uncertainty"><span class="header-section-number">6.1</span> Cakupan dan ketidakpastian</a></li>
+  </ul></li>
+  <li><a href="#o017-u09-rights-and-attribution" id="toc-o017-u09-rights-and-attribution" class="nav-link" data-scroll-target="#o017-u09-rights-and-attribution"><span class="header-section-number">7</span> Hak, lisensi, dan atribusi kontribusi</a></li>
+  <li><a href="#o017-u09-contribution-packet" id="toc-o017-u09-contribution-packet" class="nav-link" data-scroll-target="#o017-u09-contribution-packet"><span class="header-section-number">8</span> Paket kontribusi yang siap ditinjau</a>
+  <ul class="collapse">
+  <li><a href="#o017-u09-packet-checklist" id="toc-o017-u09-packet-checklist" class="nav-link" data-scroll-target="#o017-u09-packet-checklist"><span class="header-section-number">8.1</span> Daftar periksa paket</a></li>
+  <li><a href="#o017-u09-worked-state-ledger" id="toc-o017-u09-worked-state-ledger" class="nav-link" data-scroll-target="#o017-u09-worked-state-ledger"><span class="header-section-number">8.2</span> Ledger status kasus kerja</a></li>
+  </ul></li>
+  <li><a href="#o017-u09-single-message" id="toc-o017-u09-single-message" class="nav-link" data-scroll-target="#o017-u09-single-message"><span class="header-section-number">9</span> Satu pesan, tidak dikirim</a></li>
+  <li><a href="#o017-u09-rollback-withdrawal" id="toc-o017-u09-rollback-withdrawal" class="nav-link" data-scroll-target="#o017-u09-rollback-withdrawal"><span class="header-section-number">10</span> Jalur tahan, tarik, ganti, dan balik</a>
+  <ul class="collapse">
+  <li><a href="#o017-u09-worked-withdrawal-triggers" id="toc-o017-u09-worked-withdrawal-triggers" class="nav-link" data-scroll-target="#o017-u09-worked-withdrawal-triggers"><span class="header-section-number">10.1</span> Pemicu penarikan kasus kerja</a></li>
+  </ul></li>
+  <li><a href="#o017-u09-portfolio-as-evidence-map" id="toc-o017-u09-portfolio-as-evidence-map" class="nav-link" data-scroll-target="#o017-u09-portfolio-as-evidence-map"><span class="header-section-number">11</span> Portofolio adalah peta klaim ke bukti</a>
+  <ul class="collapse">
+  <li><a href="#o017-u09-portfolio-architecture" id="toc-o017-u09-portfolio-architecture" class="nav-link" data-scroll-target="#o017-u09-portfolio-architecture"><span class="header-section-number">11.1</span> Arsitektur portofolio minimum</a></li>
+  <li><a href="#o017-u09-u01-u08-evidence-map" id="toc-o017-u09-u01-u08-evidence-map" class="nav-link" data-scroll-target="#o017-u09-u01-u08-evidence-map"><span class="header-section-number">11.2</span> Pemetaan bukti dari Unit 1–8</a></li>
+  </ul></li>
+  <li><a href="#o017-u09-portfolio-manifest" id="toc-o017-u09-portfolio-manifest" class="nav-link" data-scroll-target="#o017-u09-portfolio-manifest"><span class="header-section-number">12</span> Kontrak manifest dan identitas bukti</a></li>
+  <li><a href="#o017-u09-accessibility" id="toc-o017-u09-accessibility" class="nav-link" data-scroll-target="#o017-u09-accessibility"><span class="header-section-number">13</span> Aksesibilitas paket dan portofolio</a></li>
+  <li><a href="#o017-u09-evidence-based-reflection" id="toc-o017-u09-evidence-based-reflection" class="nav-link" data-scroll-target="#o017-u09-evidence-based-reflection"><span class="header-section-number">14</span> Refleksi yang berbukti</a></li>
+  <li><a href="#o017-u09-exercises" id="toc-o017-u09-exercises" class="nav-link" data-scroll-target="#o017-u09-exercises"><span class="header-section-number">15</span> Latihan</a></li>
+  <li><a href="#o017-u09-guidance" id="toc-o017-u09-guidance" class="nav-link" data-scroll-target="#o017-u09-guidance"><span class="header-section-number">16</span> Petunjuk dan panduan jawaban</a></li>
+  <li><a href="#o017-u09-capstone" id="toc-o017-u09-capstone" class="nav-link" data-scroll-target="#o017-u09-capstone"><span class="header-section-number">17</span> Tugas akhir: kontribusi terbatas dan portofolio O017</a>
+  <ul class="collapse">
+  <li><a href="#o017-u09-capstone-rubric" id="toc-o017-u09-capstone-rubric" class="nav-link" data-scroll-target="#o017-u09-capstone-rubric"><span class="header-section-number">17.1</span> Rubrik analitik</a></li>
+  </ul></li>
+  <li><a href="#o017-u09-boundary" id="toc-o017-u09-boundary" class="nav-link" data-scroll-target="#o017-u09-boundary"><span class="header-section-number">18</span> Batas dengan B80 dan Unit 1–8</a></li>
+  <li><a href="#o017-u09-provenance" id="toc-o017-u09-provenance" class="nav-link" data-scroll-target="#o017-u09-provenance"><span class="header-section-number">19</span> Sumber, provenance, perubahan, dan hak</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Unit 9 — Kontribusi Komunitas Terbatas dan Portofolio yang Dapat Diaudit</h1>
+<p class="subtitle lead">Membawa satu temuan kecil sampai siap diserahkan tanpa melebihkan statusnya</p>
+</div>
+
+<div>
+  <div class="description">
+    Unit penutup untuk membatasi satu kontribusi matematika, menyiapkan paket koreksi yang dapat diperiksa, membedakan status eksternal secara ketat, merancang jalur penarikan, dan menyusun portofolio bukti dari Unit 1–8.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="o017-u09-outcomes" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="o017-u09-outcomes"><span class="header-section-number">1</span> Hasil belajar</h2>
+<p>Unit ini mempunyai pengidentifikasi stabil <strong>O017-U09</strong>. Setelah menyelesaikannya, Anda mampu:</p>
+<ol type="1">
+<li>memilih satu kontribusi komunitas yang kecil, berguna, sah, dan dapat diselesaikan tanpa memperluas lingkup diam-diam;</li>
+<li>membedakan secara operasional status <strong>draf (draft)</strong>, <strong>siap (prepared)</strong>, <strong>dikirim (submitted)</strong>, <strong>diakui (acknowledged)</strong>, <strong>diterima (accepted)</strong>, <strong>digabung (merged)</strong>, dan <strong>diterbitkan (published)</strong>;</li>
+<li>menolak klaim status eksternal yang tidak mempunyai bukti peristiwa;</li>
+<li>mengemas target, lokator, diagnosis, perbaikan minimal, validasi, cakupan, ketidakpastian, hak, dan atribusi dalam satu paket kontribusi;</li>
+<li>menulis satu pesan ringkas yang menghormati pengelola dan dapat ditindaklanjuti tanpa membanjiri kanal dengan komentar terpisah;</li>
+<li>menetapkan jalur penghentian, penarikan, koreksi, atau pembalikan bila kontribusi ternyata salah, usang, duplikat, atau tidak lagi berwenang;</li>
+<li>menyusun portofolio yang memetakan setiap klaim kompetensi ke bukti nyata dari Unit 1–8; dan</li>
+<li>menilai kelengkapan kursus berdasarkan mutu, keterlacakan, serta keterbatasan bukti, bukan jumlah berkas atau klaim aktivitas.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Prasyarat, keadaan unit, dan batas tindakan">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>Prasyarat, keadaan unit, dan batas tindakan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unit 9 memakai hasil seluruh unit sebelumnya. Ia tidak mengulangi cara membaca klaim, mencari sumber, menutup celah bukti, membangun provenance, menulis eksposisi, menjalankan komputasi, mendiagnosis errata, atau menulis laporan penelaah. Ia mengambil satu temuan yang sudah layak dan mengubahnya menjadi <strong>paket kontribusi terbatas</strong> serta <strong>bukti portofolio</strong>.</p>
+<p>Kasus pada unit ini sepenuhnya sintetis. Paket contoh berhenti pada status <strong>siap secara lokal</strong>. Pesan contoh tidak dikirim, tidak ada pihak luar yang dihubungi, dan tidak ada koreksi yang diterima, digabung, atau diterbitkan. Pengiriman masa depan memerlukan instruksi terpisah yang secara eksplisit memberi kewenangan untuk tujuan tertentu.</p>
+</div>
+</div>
+</section>
+<section id="o017-u09-bounded-contribution" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="o017-u09-bounded-contribution"><span class="header-section-number">2</span> Kontribusi kecil harus mempunyai batas yang keras</h2>
+<p>Kontribusi komunitas bukan ukuran seberapa banyak hal yang dapat ditemukan. Satu koreksi yang tepat, dapat direproduksi, dan mudah ditinjau sering lebih berguna daripada daftar panjang temuan setengah matang.</p>
+<p>Sebuah kontribusi disebut <strong>terbatas</strong> bila paketnya menjawab enam pertanyaan.</p>
+<ol type="1">
+<li>Objek dan versi tepat mana yang disentuh?</li>
+<li>Satu masalah apa yang benar-benar dibuktikan?</li>
+<li>Perubahan minimum apa yang mengatasi masalah tersebut?</li>
+<li>Uji apa yang menunjukkan bahwa perubahan bekerja dan tidak melampaui klaim?</li>
+<li>Apa yang sengaja tidak diperiksa atau tidak diubah?</li>
+<li>Siapa yang berwenang memutuskan pengiriman, penerimaan, penggabungan, dan penerbitan?</li>
+</ol>
+<p>Jika jawaban nomor dua berisi lima cacat yang tidak saling bergantung, buat paket terpisah atau pilih satu yang paling koheren. “Sekalian merapikan seluruh bab” biasanya mengaburkan ulasan, atribusi, dan pembalikan.</p>
+<div id="o017-u09-original-bridge" class="callout callout-style-default callout-important callout-titled" title="Jembatan asli O017">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Penting</span>Jembatan asli O017
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mesin status tujuh tahap, paket kontribusi dengan gerbang bukti, kasus induksi bilangan ganjil, pesan tunggal bersyarat, jalur penarikan, arsitektur portofolio lintas Unit 1–8, latihan, dan capstone pada unit ini merupakan materi asli O017. Unit ini memindahkan temuan dari keadaan “telah didokumentasikan” menuju keadaan “siap dipertimbangkan oleh komunitas” tanpa mengarang satu pun peristiwa eksternal.</p>
+</div>
+</div>
+</section>
+<section id="o017-u09-seven-states" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="o017-u09-seven-states"><span class="header-section-number">3</span> Tujuh status yang tidak dapat dipertukarkan</h2>
+<p>Status adalah klaim tentang peristiwa. Setiap kenaikan status memerlukan bukti baru. Isi kontribusi yang sempurna tidak pernah, dengan sendirinya, membuktikan bahwa pihak luar telah melihat atau menyetujuinya.</p>
+<p>Ketujuh label di bawah adalah <strong>predikat peristiwa yang dibuktikan secara mandiri</strong>, bukan satu angka tingkat kemajuan. Rekaman sebuah artefak dapat menyatakan <code>published=true</code> sambil tetap menyatakan <code>merged=unknown</code> jika salinan publik diamati tetapi jalur penggabungannya tidak tersedia. Peristiwa yang lebih akhir tidak mengisi peristiwa antara secara otomatis.</p>
+<div class="o017-table-scroll" role="region" aria-label="Definisi tujuh status kontribusi komunitas dan bukti minimumnya" tabindex="0">
+<table aria-label="Definisi tujuh status kontribusi komunitas dan bukti minimumnya" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Status</th>
+<th>Makna operasional</th>
+<th>Bukti minimum</th>
+<th>Klaim yang belum boleh dibuat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Draf (draft)</td>
+<td>isi masih disusun atau belum melewati semua gerbang lokal</td>
+<td>berkas lokal atau rekaman kerja</td>
+<td>siap dikirim, diperiksa pihak lain</td>
+</tr>
+<tr class="even">
+<td>Siap (prepared)</td>
+<td>paket lokal lengkap, tervalidasi, berhak digunakan, dan mempunyai tujuan serta pesan yang ditetapkan</td>
+<td>manifes, hasil uji, audit hak, keputusan lokal GO</td>
+<td>telah dikirim atau dilihat</td>
+</tr>
+<tr class="odd">
+<td>Dikirim (submitted)</td>
+<td>paket benar-benar dipindahkan ke kanal tujuan</td>
+<td>URL/ID transaksi, waktu, akun/pelaksana, dan byte atau isi yang dikirim</td>
+<td>penerima membacanya</td>
+</tr>
+<tr class="even">
+<td>Diakui (acknowledged)</td>
+<td>sistem atau manusia tujuan mengonfirmasi penerimaan</td>
+<td>tanda terima, respons, atau status platform yang dapat ditemukan</td>
+<td>isi diterima secara substantif</td>
+</tr>
+<tr class="odd">
+<td>Diterima (accepted)</td>
+<td>pihak berwenang menyetujui kontribusi atau rencana perbaikannya</td>
+<td>keputusan eksplisit yang menunjuk kontribusi</td>
+<td>perubahan telah digabung</td>
+</tr>
+<tr class="even">
+<td>Digabung (merged)</td>
+<td>perubahan menjadi bagian dari cabang atau sumber aktif yang ditetapkan</td>
+<td>identitas commit/perubahan atau pembacaan byte sumber aktif</td>
+<td>rilis publik memuatnya</td>
+</tr>
+<tr class="odd">
+<td>Diterbitkan (published)</td>
+<td>artefak publik tertentu benar-benar memuat perubahan</td>
+<td>URL/DOI/rilis dan pembacaan balik byte atau isi publik</td>
+<td>semua salinan dan edisi lain telah diperbarui</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>“Dikirim” tidak boleh diturunkan dari keberadaan tombol kirim. “Diakui” tidak berarti diterima. “Diterima” tidak berarti digabung. “Digabung” tidak berarti diterbitkan. Sebaliknya, sebuah situs dapat menerbitkan salinan hasil bangun tanpa penggabungan ke cabang yang diasumsikan; rekam jalur nyata, jangan memaksa peristiwa ke urutan yang tidak terjadi.</p>
+<section id="o017-u09-terminal-and-side-states" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="o017-u09-terminal-and-side-states"><span class="header-section-number">3.1</span> Status tambahan tanpa menghapus sejarah</h3>
+<p>Selain tujuh status utama, satu rekaman dapat memakai:</p>
+<ul>
+<li><strong>ditahan</strong>: gerbang belum terpenuhi atau kewenangan belum tersedia;</li>
+<li><strong>ditarik</strong>: pengirim meminta agar kontribusi yang sudah dikirim tidak diproses lebih lanjut;</li>
+<li><strong>ditolak</strong>: pihak berwenang tidak menerima kontribusi;</li>
+<li><strong>diganti</strong>: paket baru menggantikan paket lama, dengan hubungan eksplisit;</li>
+<li><strong>dibalik</strong>: perubahan yang pernah aktif dikembalikan melalui peristiwa baru.</li>
+</ul>
+<p>Tidak satu pun status ini menghapus bukti bahwa keadaan sebelumnya pernah terjadi. Jika kontribusi dikirim lalu ditarik, rekam kedua peristiwa. Jangan mengubah sejarah menjadi “tidak pernah dikirim”.</p>
+</section>
+<section id="o017-u09-state-machine" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="o017-u09-state-machine"><span class="header-section-number">3.2</span> Rute kanonik nonlengkap dan aturan pembuktian</h3>
+<div class="o017-table-scroll" role="region" aria-label="Transisi status kontribusi dan gerbang bukti" tabindex="0">
+<table aria-label="Transisi status kontribusi dan gerbang bukti" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Predikat yang sudah terbukti</th>
+<th>Predikat baru pada rute kanonik</th>
+<th>Peristiwa yang diperlukan</th>
+<th>Gerbang gagal bila</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Draf</td>
+<td>Siap</td>
+<td>validasi selesai, lingkup dan hak jelas, pesan tunggal disetujui secara lokal</td>
+<td>uji gagal, target kabur, atau lisensi belum jelas</td>
+</tr>
+<tr class="even">
+<td>Siap</td>
+<td>Dikirim</td>
+<td>tindakan pengiriman yang berwenang dan tanda transaksi</td>
+<td>hanya ada niat, pratinjau, atau formulir belum dikirim</td>
+</tr>
+<tr class="odd">
+<td>Dikirim</td>
+<td>Diakui</td>
+<td>bukti penerimaan oleh sistem atau manusia tujuan</td>
+<td>hanya ada tangkapan layar lokal sebelum kirim</td>
+</tr>
+<tr class="even">
+<td>Diakui</td>
+<td>Diterima</td>
+<td>keputusan substantif pihak berwenang</td>
+<td>hanya ada balasan otomatis atau ucapan terima kasih</td>
+</tr>
+<tr class="odd">
+<td>Diterima</td>
+<td>Digabung</td>
+<td>perubahan aktif dapat diidentifikasi</td>
+<td>persetujuan belum diterapkan</td>
+</tr>
+<tr class="even">
+<td>Digabung</td>
+<td>Diterbitkan</td>
+<td>artefak publik tertentu memuat byte atau isi baru</td>
+<td>rilis masih membangun atau salinan publik masih lama</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Transisi boleh bercabang menuju ditahan, ditolak, ditarik, diganti, atau dibalik. Tabel tersebut mencatat satu rute yang lazim, <strong>bukan</strong> daftar semua jalur yang mungkin dan bukan implikasi logis antarpredikat. Jika byte publik tertentu telah dibaca balik tetapi bukti penggabungan tidak tersedia, catat <code>diterbitkan</code> sebagai terbukti dan <code>digabung</code> sebagai tidak diketahui; jangan menciptakan peristiwa penggabungan. Demikian pula, perubahan aktif dapat diamati tanpa arsip keputusan penerimaan.</p>
+<p>Setiap predikat yang dicatat harus disertai waktu, pelaku atau sistem, objek, bukti, dan batas. Tanpa bukti baru, jangan menambahkan predikat baru. Simpan linimasa peristiwa serta nilai terbukti/tidak terbukti/tidak diketahui untuk masing-masing predikat.</p>
+</section>
+</section>
+<section id="o017-u09-selection-gate" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="o017-u09-selection-gate"><span class="header-section-number">4</span> Gerbang pemilihan satu kontribusi</h2>
+<p>Sebelum menyiapkan perubahan, nilai kandidat dengan gerbang berikut.</p>
+<div class="o017-table-scroll" role="region" aria-label="Gerbang untuk memilih kontribusi komunitas yang terbatas" tabindex="0">
+<table aria-label="Gerbang untuk memilih kontribusi komunitas yang terbatas" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gerbang</th>
+<th>Pertanyaan</th>
+<th>GO lokal</th>
+<th>HOLD atau NO-GO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Target</td>
+<td>apakah karya, versi, salinan, dan lokator beku?</td>
+<td>target dapat ditemukan kembali</td>
+<td>hanya “edisi terbaru” atau lokasi kabur</td>
+</tr>
+<tr class="even">
+<td>Nilai marjinal</td>
+<td>apakah kontribusi menambah koreksi atau bukti yang belum tersedia pada paket yang diperiksa?</td>
+<td>perbedaan spesifik dapat disebut</td>
+<td>duplikat diketahui atau manfaat tidak jelas</td>
+</tr>
+<tr class="odd">
+<td>Diagnosis</td>
+<td>apakah kegagalan atau celah dapat direproduksi?</td>
+<td>contoh, hitungan, atau bukti lengkap</td>
+<td>hanya kesan atau dugaan niat</td>
+</tr>
+<tr class="even">
+<td>Minimalitas</td>
+<td>apakah perubahan terkecil yang cukup telah dipilih?</td>
+<td>satu klaim atau jalur bukti dapat dipisahkan</td>
+<td>perubahan gaya luas bercampur dengan koreksi</td>
+</tr>
+<tr class="odd">
+<td>Validasi</td>
+<td>apakah klaim lama dan baru diuji sesuai kuantornya?</td>
+<td>uji gagal sebelum dan lulus sesudah</td>
+<td>hanya tampilan visual atau satu contoh pendukung</td>
+</tr>
+<tr class="even">
+<td>Hak</td>
+<td>apakah lisensi sumber dan lisensi kontribusi kompatibel serta atribusi siap?</td>
+<td>dasar hak per komponen tercatat</td>
+<td>lisensi tidak diketahui atau materi pihak ketiga kabur</td>
+</tr>
+<tr class="odd">
+<td>Komunikasi</td>
+<td>apakah satu pesan ringkas memuat lokator, bukti, patch, dan batas?</td>
+<td>pesan dapat ditindaklanjuti</td>
+<td>banyak komentar terpisah atau bahasa menuduh</td>
+</tr>
+<tr class="even">
+<td>Wewenang</td>
+<td>apakah tindakan saat ini hanya lokal, atau ada izin terpisah untuk pengiriman?</td>
+<td>status dan pelaku jelas</td>
+<td>kesiapan disamakan dengan izin kirim</td>
+</tr>
+<tr class="odd">
+<td>Pembalikan</td>
+<td>apakah ada cara menahan, menarik, atau membalik jika premis berubah?</td>
+<td>pemicu dan tindakan ditetapkan</td>
+<td>perubahan dianggap tidak mungkin salah</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Kandidat yang gagal pada hak, target, atau diagnosis berhenti sebelum status siap. Kandidat yang lulus seluruh gerbang lokal dapat berstatus siap, tetapi tetap tidak dikirim tanpa kewenangan pengiriman.</p>
+</section>
+<section id="o017-u09-worked-contribution" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="o017-u09-worked-contribution"><span class="header-section-number">5</span> Kasus kerja: satu suku indeks yang salah</h2>
+<p>Kasus ini memakai sebuah sumber komunitas sintetis. Seluruh konteks yang tersedia tertanam di bawah; tidak ada repositori atau pengelola nyata.</p>
+<div id="o017-u09-target-metadata" class="callout callout-style-default callout-note callout-titled" title="O017-U09-UP-V1 — Target sintetis yang dibekukan">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>O017-U09-UP-V1 — Target sintetis yang dibekukan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>ID karya: <strong>O017-U09-UP-W01</strong>, <em>Lembar Induksi untuk Jumlah Ganjil</em>.</li>
+<li>Versi: <strong>O017-U09-UP-V1</strong>, label <strong>1.2-sintetis</strong>.</li>
+<li>Salinan: cuplikan lengkap pada unit ini.</li>
+<li>Lisensi sumber: CC BY-SA 4.0, sebagai materi sintetis O017.</li>
+<li>Lokator: Lemma 2, bukti baris L1–L5, <a href="#o017-u09-upstream-snippet">#o017-u09-upstream-snippet</a>.</li>
+<li>Tujuan simulasi: <strong>O017-U09-DEST-01</strong>, kanal kelas yang hanya menerima satu pesan teks paling banyak 150 kata dan patch pada cuplikan L3–L5 berlisensi sama. Ini bukan layanan, akun, atau kanal eksternal.</li>
+<li>Dalam konteks simulasi yang lengkap, V1 adalah satu-satunya versi terdaftar dan tidak ada laporan duplikat.</li>
+<li>Dampak luar cuplikan: tidak diketahui; tidak ada graf dependensi lain.</li>
+</ul>
+</div>
+</div>
+<div id="o017-u09-upstream-snippet" class="callout callout-style-default callout-warning callout-titled" title="Lemma 2 dan bukti pada O017-U09-UP-V1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Peringatan</span>Lemma 2 dan bukti pada O017-U09-UP-V1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Lemma 2.</strong> Untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mi>ℕ</mi></mrow><annotation encoding="application/x-tex">n\in\mathbb N</annotation></semantics></math> dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℕ</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mi>…</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathbb N=\{1,2,3,\ldots\}</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>n</mi></msub><mo>:=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S_n:=\sum_{k=1}^{n}(2k-1)=n^2.
+</annotation></semantics></math></p>
+<p><strong>L1.</strong> Untuk <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>, berlaku <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mo>=</mo><msup><mn>1</mn><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">S_1=1=1^2</annotation></semantics></math>.</p>
+<p><strong>L2.</strong> Andaikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>n</mi></msub><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">S_n=n^2</annotation></semantics></math> untuk suatu <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\geq1</annotation></semantics></math>.</p>
+<p><strong>L3.</strong> Suku baru ketika batas jumlah berubah dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> menjadi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>.</p>
+<p><strong>L4.</strong> Jadi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>S</mi><mi>n</mi></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">S_{n+1}=S_n+(2n-1)=n^2+2n-1</annotation></semantics></math>.</p>
+<p><strong>L5.</strong> Bentuk terakhir sama dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(n+1)^2</annotation></semantics></math>, sehingga induksi selesai.</p>
+</div>
+</div>
+<p>Pernyataan lemma benar, basis L1 benar, dan bentuk hipotesis induksi L2 benar. Cacat pertama muncul pada L3: suku berindeks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> ialah</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+2(n+1)-1=2n+1,
+</annotation></semantics></math></p>
+<p>bukan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>. Akibatnya, kesamaan pada L5 juga salah karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn><mo>≠</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2+2n-1\neq(n+1)^2</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\geq1</annotation></semantics></math>.</p>
+<section id="o017-u09-minimal-reproducer" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="o017-u09-minimal-reproducer"><span class="header-section-number">5.1</span> Reproducer minimum</h3>
+<p>Ambil langkah pertama, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>.</p>
+<ul>
+<li>Definisi langsung memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn><mo>+</mo><mn>3</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">S_2=1+3=4</annotation></semantics></math>.</li>
+<li>Rekurensi V1 pada L4 memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><msub><mi>S</mi><mn>1</mn></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>⋅</mo><mn>1</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">S_2=S_1+(2\cdot1-1)=1+1=2</annotation></semantics></math>.</li>
+<li>Kesimpulan lemma memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">2^2=4</annotation></semantics></math>.</li>
+</ul>
+<p>Jadi baris L3–L4 tidak menghitung objek <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math> yang didefinisikan, dan L5 tidak dapat menutup induksi. Pemeriksaan ini eksak, memenuhi domain <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\geq1</annotation></semantics></math>, dan menolak langkah bukti, bukan pernyataan lemma.</p>
+</section>
+<section id="o017-u09-proof-repair" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="o017-u09-proof-repair"><span class="header-section-number">5.2</span> Perbaikan bukti</h3>
+<p>Pertahankan L1, L2, dan L5. Ganti hanya L3–L4 dengan L3′–L4′ berikut; L5 ditampilkan kembali sesudahnya agar penutupan bukti dapat diperiksa.</p>
+<div id="o017-u09-repaired-lines" class="callout callout-style-default callout-important callout-titled" title="L3′–L4′ dan L5 yang dipertahankan — perbaikan minimum">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Penting</span>L3′–L4′ dan L5 yang dipertahankan — perbaikan minimum
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>L3′.</strong> Suku baru ketika batas jumlah berubah dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> menjadi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2(n+1)-1=2n+1</annotation></semantics></math>.</p>
+<p><strong>L4′.</strong> Dengan hipotesis induksi,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>S</mi><mi>n</mi></msub><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S_{n+1}=S_n+(2n+1)=n^2+2n+1.
+</annotation></semantics></math></p>
+<p><strong>L5 (dipertahankan tanpa perubahan).</strong> Bentuk terakhir sama dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(n+1)^2</annotation></semantics></math>, sehingga induksi selesai. Memang, setelah L4′, bentuk terakhir ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2+2n+1=(n+1)^2</annotation></semantics></math>. Bersama kasus dasar L1, prinsip induksi membuktikan lemma untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>∈</mo><mi>ℕ</mi></mrow><annotation encoding="application/x-tex">n\in\mathbb N</annotation></semantics></math>.</p>
+</div>
+</div>
+<p>Ini perbaikan minimum dalam lingkup yang dinyatakan: hanya L3 dan L4 diubah. L5 tidak perlu diubah karena menjadi benar setelah ekspresi pada L4 diperbaiki; penampilannya kembali di atas bukan perubahan sumber. Pernyataan lemma, kasus dasar, definisi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℕ</mi><annotation encoding="application/x-tex">\mathbb N</annotation></semantics></math>, dan bagian lain tidak disentuh.</p>
+</section>
+<section id="o017-u09-before-after-validation" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="o017-u09-before-after-validation"><span class="header-section-number">5.3</span> Validasi sebelum dan sesudah</h3>
+<div class="o017-table-scroll" role="region" aria-label="Validasi cacat dan perbaikan bukti jumlah bilangan ganjil" tabindex="0">
+<table aria-label="Validasi cacat dan perbaikan bukti jumlah bilangan ganjil" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Uji</th>
+<th>V1 sebelum perbaikan</th>
+<th>Calon V2 sesudah perbaikan</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>basis <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">S_1=1</annotation></semantics></math></td>
+<td>tidak berubah</td>
+<td>lulus pada keduanya</td>
+</tr>
+<tr class="even">
+<td>langkah pertama</td>
+<td>memprediksi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">S_2=2</annotation></semantics></math></td>
+<td>memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn><mo>+</mo><mn>3</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">S_2=1+3=4</annotation></semantics></math></td>
+<td>V1 gagal, V2 lulus</td>
+</tr>
+<tr class="odd">
+<td>suku baru umum</td>
+<td>memakai <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>, yaitu suku ke-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math></td>
+<td>memakai <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2(n+1)-1=2n+1</annotation></semantics></math></td>
+<td>V2 cocok dengan definisi</td>
+</tr>
+<tr class="even">
+<td>identitas aljabar</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2+2n-1=(n+1)^2</annotation></semantics></math> salah</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2+2n+1=(n+1)^2</annotation></semantics></math> benar</td>
+<td>kegagalan V1 dan perbaikan V2 eksak</td>
+</tr>
+<tr class="odd">
+<td>kuantor</td>
+<td>langkah dimaksudkan untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\geq1</annotation></semantics></math></td>
+<td>identitas baru berlaku untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\geq1</annotation></semantics></math></td>
+<td>lingkup terjaga</td>
+</tr>
+<tr class="even">
+<td>kesimpulan</td>
+<td>induksi tidak lengkap</td>
+<td>basis dan langkah induksi lengkap</td>
+<td>lemma terbukti pada V2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Validasi memakai contoh gagal untuk membuka cacat dan identitas umum untuk menutup perbaikan. Menguji hanya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n=1,2,3</annotation></semantics></math> setelah perubahan belum cukup untuk membuktikan langkah bagi semua <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.</p>
+</section>
+</section>
+<section id="o017-u09-minimal-patch" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="o017-u09-minimal-patch"><span class="header-section-number">6</span> Draf patch dan erratum yang minimal</h2>
+<p>Paket perubahan menyimpan bentuk lama dan baru.</p>
+<div class="o017-table-scroll" role="region" aria-label="Patch konseptual minimum untuk bukti jumlah bilangan ganjil" tabindex="0">
+<table aria-label="Patch konseptual minimum untuk bukti jumlah bilangan ganjil" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lokasi</th>
+<th>Sebelum, V1</th>
+<th>Sesudah, calon V2</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L3</td>
+<td>suku baru ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math></td>
+<td>suku baru ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2(n+1)-1=2n+1</annotation></semantics></math></td>
+<td>indeks baru adalah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>L4</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">S_{n+1}=n^2+2n-1</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">S_{n+1}=n^2+2n+1</annotation></semantics></math></td>
+<td>substitusi suku baru dan hipotesis induksi</td>
+</tr>
+<tr class="odd">
+<td>L5</td>
+<td>bentuk sebelumnya disebut <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(n+1)^2</annotation></semantics></math></td>
+<td>tidak berubah; bentuk sebelumnya kini <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n^2+2n+1</annotation></semantics></math></td>
+<td>L5 sah setelah L4 diperbaiki, jadi perubahan tambahan tidak diperlukan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="o017-u09-erratum-draft" class="callout callout-style-default callout-note callout-titled" title="Ringkasan teknis internal — bukan pesan keluar">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>Ringkasan teknis internal — bukan pesan keluar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pada O017-U09-UP-V1, Lemma 2, bukti L3–L5, suku yang ditambahkan untuk beralih dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>n</mi></msub><annotation encoding="application/x-tex">S_n</annotation></semantics></math> ke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">S_{n+1}</annotation></semantics></math> tertulis <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>. Suku baru sebenarnya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2(n+1)-1=2n+1</annotation></semantics></math>. Dengan perubahan itu, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">S_{n+1}=n^2+2n+1=(n+1)^2</annotation></semantics></math>, sehingga langkah induksi sah. Untuk <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>, redaksi lama memprediksi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">S_2=2</annotation></semantics></math>, sedangkan definisi memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">S_2=4</annotation></semantics></math>. Pernyataan Lemma 2 dan kasus dasarnya tidak berubah. Dampak pada materi di luar cuplikan belum diperiksa.</p>
+</div>
+</div>
+<p>Ringkasan ini adalah isi teknis paket, bukan komunikasi kedua. Satu-satunya draf erratum keluar berada pada <a href="#o017-u09-outbound-draft">#o017-u09-outbound-draft</a>.</p>
+<section id="o017-u09-scope-and-uncertainty" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="o017-u09-scope-and-uncertainty"><span class="header-section-number">6.1</span> Cakupan dan ketidakpastian</h3>
+<p>Yang telah ditetapkan:</p>
+<ul>
+<li>V1 memuat salah indeks pada L3;</li>
+<li>L4–L5 gagal sebagai akibat langsung;</li>
+<li>pernyataan lemma tetap benar;</li>
+<li>L3′–L4′ bersama L5 yang dipertahankan memberi langkah induksi yang lengkap; dan</li>
+<li>perubahan tidak memerlukan materi pihak ketiga.</li>
+</ul>
+<p>Yang belum diketahui:</p>
+<ul>
+<li>apakah target nyata pada masa depan mempunyai versi atau laporan yang berbeda dari konteks simulasi;</li>
+<li>apakah cuplikan dipakai oleh hasil lain;</li>
+<li>aturan dan hak tujuan nyata, jika suatu hari target sintetis diganti;</li>
+<li>apakah pengelola akan memilih perbaikan yang sama; dan</li>
+<li>apakah calon V2 kelak diterima, digabung, atau diterbitkan.</li>
+</ul>
+<p>Ketidakpastian tersebut tidak mengurangi validitas matematika perbaikan. Ia mencegah kita mengklaim nilai marjinal eksternal atau status komunitas yang belum dibuktikan.</p>
+</section>
+</section>
+<section id="o017-u09-rights-and-attribution" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="o017-u09-rights-and-attribution"><span class="header-section-number">7</span> Hak, lisensi, dan atribusi kontribusi</h2>
+<p>Empat objek hak harus dibedakan:</p>
+<ol type="1">
+<li><strong>sumber target</strong>: teks yang hendak diubah dan lisensinya;</li>
+<li><strong>diagnosis</strong>: redaksi serta bukti baru yang ditulis pemeriksa;</li>
+<li><strong>patch</strong>: bentuk perubahan yang mungkin menjadi karya turunan;</li>
+<li><strong>artefak pendukung</strong>: gambar, kode, data, atau kutipan, bila ada.</li>
+</ol>
+<p>Pada kasus sintetis ini, sumber dan kontribusi merupakan materi asli O017 berlisensi CC BY-SA 4.0. Tidak ada donor atau artefak pihak ketiga. Atribusi paket harus tetap menyebut karya sintetis, versi V1, lokator L3–L5, dan lisensi yang sama. Status sintetis harus dipertahankan agar ID lokal tidak disalahpahami sebagai proyek eksternal.</p>
+<p>Untuk target nyata, jangan menyimpulkan bahwa izin membaca sama dengan izin mendistribusikan patch. Bekukan teks lisensi dan aturan kontribusi yang benar- benar berlaku pada versi target. Jika satu gambar atau tabel mempunyai hak berbeda, catat per komponen. Ketidakjelasan lisensi merupakan gerbang HOLD, bukan undangan untuk menebak.</p>
+</section>
+<section id="o017-u09-contribution-packet" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="o017-u09-contribution-packet"><span class="header-section-number">8</span> Paket kontribusi yang siap ditinjau</h2>
+<p>Paket yang lengkap dapat tetap kecil. Gunakan manifes berikut.</p>
+<div class="o017-table-scroll" role="region" aria-label="Manifes paket kontribusi terbatas O017 Unit 9" tabindex="0">
+<table aria-label="Manifes paket kontribusi terbatas O017 Unit 9" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Komponen</th>
+<th>Isi kasus kerja</th>
+<th>Uji penerimaan lokal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Identitas target</td>
+<td>O017-U09-UP-W01, V1, Lemma 2 L3–L5</td>
+<td>versi dan lokator dapat ditemukan kembali</td>
+</tr>
+<tr class="even">
+<td>Klaim masalah</td>
+<td>suku baru salah indeks; bukti induksi gagal</td>
+<td>reproducer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math> dan identitas umum tersedia</td>
+</tr>
+<tr class="odd">
+<td>Perbaikan minimum</td>
+<td>ganti L3–L4; pertahankan L5</td>
+<td>pernyataan, basis, dan baris yang sudah sah tidak diubah</td>
+</tr>
+<tr class="even">
+<td>Validasi</td>
+<td>tabel sebelum/sesudah dan bukti induksi</td>
+<td>V1 gagal, V2 lulus untuk alasan yang tepat</td>
+</tr>
+<tr class="odd">
+<td>Cakupan</td>
+<td>hanya cuplikan Lemma 2</td>
+<td>hasil lain tidak dinyatakan telah diaudit</td>
+</tr>
+<tr class="even">
+<td>Ketidakpastian</td>
+<td>versi lain, duplikasi, dependensi, aturan tujuan</td>
+<td>semua tetap eksplisit</td>
+</tr>
+<tr class="odd">
+<td>Hak</td>
+<td>sumber dan kontribusi sintetis CC BY-SA 4.0</td>
+<td>tidak ada komponen tanpa dasar hak</td>
+</tr>
+<tr class="even">
+<td>Pesan</td>
+<td>satu draf ringkas</td>
+<td>lokator, bukti, usulan, dan batas hadir</td>
+</tr>
+<tr class="odd">
+<td>Status</td>
+<td>siap (prepared) untuk simulasi lokal; belum dikirim</td>
+<td>tidak ada tanda transaksi eksternal</td>
+</tr>
+<tr class="even">
+<td>Pembalikan</td>
+<td>tahan, ganti, atau tarik menurut pemicu</td>
+<td>sejarah lama dipertahankan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="o017-u09-packet-checklist" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="o017-u09-packet-checklist"><span class="header-section-number">8.1</span> Daftar periksa paket</h3>
+<p>Sebelum status berubah dari draf menjadi siap, periksa:</p>
+<ol type="1">
+<li>target, versi, salinan, dan lokator tepat;</li>
+<li>redaksi lama disimpan tanpa parafrasa yang mengubah klaim;</li>
+<li>reproducer memenuhi semua hipotesis;</li>
+<li>perbaikan minimum mempunyai pembuktian atau validasi umum;</li>
+<li>hasil yang tidak terpengaruh disebut;</li>
+<li>dampak yang tidak diaudit tetap tidak diketahui;</li>
+<li>lisensi dan atribusi ada untuk setiap komponen;</li>
+<li>tidak ada temuan tak terkait yang disisipkan;</li>
+<li>pesan tunggal cukup ringkas dan tidak menilai orang;</li>
+<li>status eksternal tidak melampaui bukti;</li>
+<li>kewenangan pengiriman disebut terpisah; dan</li>
+<li>pemicu penghentian serta jalur penarikan tersedia.</li>
+</ol>
+<p>Satu jawaban “tidak” pada target, matematika, hak, atau status menahan paket pada draf.</p>
+</section>
+<section id="o017-u09-worked-state-ledger" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="o017-u09-worked-state-ledger"><span class="header-section-number">8.2</span> Ledger status kasus kerja</h3>
+<div class="o017-table-scroll" role="region" aria-label="Ledger status lokal dan status eksternal kasus kontribusi Unit 9" tabindex="0">
+<table aria-label="Ledger status lokal dan status eksternal kasus kontribusi Unit 9" class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Peristiwa</th>
+<th>Tanggal</th>
+<th>Status sesudah peristiwa</th>
+<th>Bukti</th>
+<th>Klaim eksternal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EVT-01: target, diagnosis, dan patch dicatat</td>
+<td>2026-08-21</td>
+<td>Draf (draft)</td>
+<td>target V1, reproducer, L3′–L4′, dan L5 yang dipertahankan pada unit ini</td>
+<td>tidak ada</td>
+</tr>
+<tr class="even">
+<td>EVT-02: matematika, lingkup, hak, pesan, dan jalur pembalikan lolos gerbang lokal</td>
+<td>2026-08-21</td>
+<td>Siap (prepared) untuk O017-U09-DEST-01</td>
+<td>tabel validasi, manifes, daftar periksa, dan pesan beku</td>
+<td>belum dikirim</td>
+</tr>
+<tr class="odd">
+<td>Tidak ada EVT-03</td>
+<td>tidak berlaku</td>
+<td>bukan Dikirim (submitted)</td>
+<td>tidak ada URL, ID transaksi, akun, atau waktu kirim</td>
+<td>tidak ada kontak</td>
+</tr>
+<tr class="even">
+<td>Tidak ada peristiwa tujuan</td>
+<td>tidak berlaku</td>
+<td>bukan Diakui, Diterima, Digabung, atau Diterbitkan</td>
+<td>tidak ada tanda terima, keputusan, perubahan aktif, atau rilis</td>
+<td>tidak ada</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Status terakhir yang terbukti ialah <strong>Siap (prepared) dalam simulasi lokal</strong>. Kata “siap” tidak memperluas O017-U09-DEST-01 menjadi tujuan nyata.</p>
+</section>
+</section>
+<section id="o017-u09-single-message" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="o017-u09-single-message"><span class="header-section-number">9</span> Satu pesan, tidak dikirim</h2>
+<p>Berikut satu-satunya draf komunikasi keluar untuk kasus kerja. Ia merupakan artefak lokal dan <strong>belum dikirim</strong>.</p>
+<div id="o017-u09-outbound-draft" class="callout callout-style-default callout-warning callout-titled" title="Draf pesan ringkas — status: belum dikirim">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Peringatan</span>Draf pesan ringkas — status: belum dikirim
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Judul:</strong> Lemma 2: indeks suku pada langkah induksi</p>
+<p>Pada versi 1.2-sintetis, Lemma 2, bukti L3–L5, perpindahan dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>n</mi></msub><annotation encoding="application/x-tex">S_n</annotation></semantics></math> ke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">S_{n+1}</annotation></semantics></math> menambahkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>. Suku baru seharusnya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2(n+1)-1=2n+1</annotation></semantics></math>. Redaksi lama memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">S_2=2</annotation></semantics></math> saat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>, sedangkan definisi memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn><mo>+</mo><mn>3</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">S_2=1+3=4</annotation></semantics></math>. Usulan minimum ialah mengganti L3–L4 sehingga <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">S_{n+1}=n^2+2n+1</annotation></semantics></math>; L5 kemudian benar tanpa perubahan karena bentuk itu sama dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(n+1)^2</annotation></semantics></math>. Pernyataan lemma dan kasus dasar tetap. Saya hanya memeriksa cuplikan ini; dampak di luar Lemma 2 dan kemungkinan perbaikan pada versi lain belum diketahui.</p>
+</div>
+</div>
+<p>Jangan menambahkan beberapa komentar permintaan maaf, koreksi lanjutan, atau pesan penjelas sebelum ada respons; paket sudah memuat bukti dan batas. Jika pada masa depan Floris memberi kewenangan terpisah dan pesan ini benar-benar dikirim, tambahkan satu baris penutup persis:</p>
+<blockquote class="blockquote">
+<p>Codex, atas instruksi Floris</p>
+</blockquote>
+<p>Jangan menambahkan baris tersebut pada draf lokal sebagai bukti pengiriman, dan jangan mengklaim identitas, penerimaan, atau dukungan pihak lain. Unit ini tidak melakukan pengiriman.</p>
+</section>
+<section id="o017-u09-rollback-withdrawal" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="o017-u09-rollback-withdrawal"><span class="header-section-number">10</span> Jalur tahan, tarik, ganti, dan balik</h2>
+<p>Kontribusi dapat berubah setelah validasi. Jalur pemulihan harus ada sebelum pengiriman, bukan diciptakan ketika masalah muncul.</p>
+<div class="o017-table-scroll" role="region" aria-label="Jalur pemulihan kontribusi menurut keadaan dan pemicu" tabindex="0">
+<table aria-label="Jalur pemulihan kontribusi menurut keadaan dan pemicu" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Keadaan</th>
+<th>Pemicu</th>
+<th>Tindakan yang benar</th>
+<th>Bukti yang dipertahankan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Draf/Siap</td>
+<td>diagnosis ternyata salah atau duplikat telah dibuktikan</td>
+<td>tahan; tandai diganti atau batal secara lokal</td>
+<td>paket lama, alasan, pemeriksaan baru</td>
+</tr>
+<tr class="even">
+<td>Dikirim belum diakui</td>
+<td>target salah atau patch berbahaya</td>
+<td>gunakan kanal yang sama untuk meminta penarikan bila berwenang</td>
+<td>tanda kirim dan permintaan tarik</td>
+</tr>
+<tr class="odd">
+<td>Diakui belum diterima</td>
+<td>informasi baru mengubah diagnosis</td>
+<td>kirim satu koreksi terkonsolidasi atau minta penahanan</td>
+<td>respons tujuan dan bukti baru</td>
+</tr>
+<tr class="even">
+<td>Diterima belum digabung</td>
+<td>patch baru gagal validasi</td>
+<td>beri tahu pengelola melalui jalur yang ditetapkan dan tarik persetujuan pengirim</td>
+<td>keputusan diterima dan kegagalan uji</td>
+</tr>
+<tr class="odd">
+<td>Digabung belum diterbitkan</td>
+<td>regresi ditemukan</td>
+<td>usulkan pembalikan atau patch koreksi yang dapat diuji</td>
+<td>identitas perubahan aktif dan hasil regresi</td>
+</tr>
+<tr class="even">
+<td>Diterbitkan</td>
+<td>artefak publik salah</td>
+<td>siapkan koreksi baru, catatan rilis, dan pembacaan balik; jangan menghapus sejarah</td>
+<td>identitas rilis lama dan baru</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Tindakan aktual selalu mengikuti kewenangan kanal. Bila tidak berwenang, siapkan dossier dan eskalasi kepada pemilik keputusan; jangan mencoba memperbaiki keadaan eksternal secara diam-diam.</p>
+<section id="o017-u09-worked-withdrawal-triggers" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="o017-u09-worked-withdrawal-triggers"><span class="header-section-number">10.1</span> Pemicu penarikan kasus kerja</h3>
+<p>Paket jumlah ganjil harus ditahan atau ditarik jika:</p>
+<ul>
+<li>salinan target ternyata bukan V1 yang disebut;</li>
+<li>konteks yang hilang mendefinisikan L3 dengan indeks berbeda;</li>
+<li>versi tujuan sudah memuat koreksi L3′–L4′ dan kontribusi menjadi duplikat;</li>
+<li>lisensi atau aturan tujuan tidak mengizinkan bentuk kontribusi;</li>
+<li>validasi independen menemukan bahwa patch menyentuh lebih banyak materi daripada yang dinyatakan; atau</li>
+<li>Floris mencabut kewenangan sebelum tindakan keluar selesai.</li>
+</ul>
+<p>Penarikan tidak berarti diagnosis harus dihapus. Catat alasan dan status baru.</p>
+</section>
+</section>
+<section id="o017-u09-portfolio-as-evidence-map" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="o017-u09-portfolio-as-evidence-map"><span class="header-section-number">11</span> Portofolio adalah peta klaim ke bukti</h2>
+<p>Portofolio tidak sama dengan folder yang berisi semua hasil kerja. Ia adalah argumen terbatas:</p>
+<blockquote class="blockquote">
+<p>Saya mengklaim kompetensi tertentu; artefak ini menunjukkan tindakan tertentu; lokator ini memuat bukti; batas ini menyatakan apa yang belum ditunjukkan.</p>
+</blockquote>
+<p>Setiap klaim kompetensi harus mempunyai bukti primer, lokator, kriteria penerimaan, dan refleksi singkat. Satu artefak boleh mendukung beberapa kompetensi, tetapi hubungan harus dijelaskan. Banyak berkas tanpa peta tidak menjadi bukti dengan sendirinya.</p>
+<section id="o017-u09-portfolio-architecture" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="o017-u09-portfolio-architecture"><span class="header-section-number">11.1</span> Arsitektur portofolio minimum</h3>
+<ol type="1">
+<li><strong>Manifes:</strong> daftar artefak, versi, format, hak, dan identitas byte jika tersedia.</li>
+<li><strong>Peta klaim–bukti:</strong> kompetensi, artefak, lokator, tindakan, dan batas.</li>
+<li><strong>Sampel utama:</strong> satu produk koheren per kelompok kompetensi, bukan semua draf.</li>
+<li><strong>Riwayat revisi:</strong> bukti sebelum/sesudah dan alasan perubahan.</li>
+<li><strong>Buku besar ketidakpastian:</strong> pertanyaan yang belum selesai.</li>
+<li><strong>Pernyataan hak:</strong> asal, adaptasi, lisensi, dan atribusi per komponen.</li>
+<li><strong>Catatan aksesibilitas:</strong> struktur judul, teks alternatif, tabel, rumus, navigasi, dan format alternatif yang benar-benar diperiksa.</li>
+<li><strong>Refleksi terbatas:</strong> apa yang berubah karena bukti, satu kesalahan yang dikoreksi, dan satu kemampuan yang belum dibuktikan.</li>
+</ol>
+</section>
+<section id="o017-u09-u01-u08-evidence-map" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="o017-u09-u01-u08-evidence-map"><span class="header-section-number">11.2</span> Pemetaan bukti dari Unit 1–8</h3>
+<div class="o017-table-scroll" role="region" aria-label="Peta bukti portofolio O017 dari Unit 1 sampai Unit 8" tabindex="0">
+<table aria-label="Peta bukti portofolio O017 dari Unit 1 sampai Unit 8" class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Unit</th>
+<th>Klaim kompetensi</th>
+<th>Bukti yang layak dipilih</th>
+<th>Lokator atau bidang wajib</th>
+<th>Batas yang harus disebut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>U1</td>
+<td>membaca argumen sebagai jejaring klaim</td>
+<td>graf klaim bertipe dan satu audit jalur</td>
+<td>ID simpul, jenis panah, titik masuk, keluaran</td>
+<td>graf bukan bukti kebenaran setiap klaim</td>
+</tr>
+<tr class="even">
+<td>U2</td>
+<td>menilai otoritas dan versi sumber</td>
+<td>keputusan sumber dengan pembanding terbatas</td>
+<td>karya, edisi/commit, salinan, lisensi, alasan GO/NO-GO</td>
+<td>pencarian tidak membuktikan kelengkapan seluruh literatur</td>
+</tr>
+<tr class="odd">
+<td>U3</td>
+<td>merekonstruksi langkah yang hilang</td>
+<td>rekonstruksi dengan kontrak masukan/keluaran</td>
+<td>klaim sumber, celah, lemma baru, bukti, batas kekuatan</td>
+<td>redaksi baru bukan teks asli sumber</td>
+</tr>
+<tr class="even">
+<td>U4</td>
+<td>menjaga sitasi dan provenance</td>
+<td>ledger sumber serta keputusan yang dapat ditelusuri</td>
+<td>versi, lokator, hubungan, hak, peristiwa</td>
+<td>ledger tidak menggantikan pembuktian matematika</td>
+</tr>
+<tr class="odd">
+<td>U5</td>
+<td>menulis eksposisi yang dapat diaudit</td>
+<td>naskah bersih dan audit ketergantungan terpisah</td>
+<td>kontrak pembaca, klaim, bukti, contoh, batas</td>
+<td>mutu eksposisi tidak membuktikan orisinalitas</td>
+</tr>
+<tr class="even">
+<td>U6</td>
+<td>memakai komputasi sebagai bukti empiris</td>
+<td>paket yang dapat dijalankan ulang dan rekaman hasil</td>
+<td>kode, masukan, lingkungan, perintah, keluaran, oracle/hash</td>
+<td>keluaran empiris tidak otomatis menjadi bukti universal</td>
+</tr>
+<tr class="odd">
+<td>U7</td>
+<td>merumuskan koreksi terbatas</td>
+<td>dossier erratum dengan reproducer dan koreksi</td>
+<td>target, status klaim, jenis cacat, keparahan, keyakinan, sejarah</td>
+<td>draf lokal bukan laporan yang telah dikirim</td>
+</tr>
+<tr class="even">
+<td>U8</td>
+<td>memberi dan menanggapi kritik</td>
+<td>catatan seminar, laporan, respons, dan matriks</td>
+<td>waktu/lokasi, komentar, tindakan, bukti, status, masalah terbuka</td>
+<td>rekomendasi menilai naskah dalam lingkup, bukan orang</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Peta ini menentukan jenis bukti, bukan nama berkas wajib. Pilih artefak yang paling kuat dan paling mudah diperiksa. Jika satu unit belum mempunyai bukti yang lolos gerbangnya, tulis “belum dibuktikan” dan rencanakan perbaikan; jangan mengisi sel dengan refleksi tanpa artefak.</p>
+</section>
+</section>
+<section id="o017-u09-portfolio-manifest" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="o017-u09-portfolio-manifest"><span class="header-section-number">12</span> Kontrak manifest dan identitas bukti</h2>
+<p>Setiap artefak portofolio sekurang-kurangnya mempunyai:</p>
+<div class="o017-table-scroll" role="region" aria-label="Bidang manifes artefak portofolio yang dapat diaudit" tabindex="0">
+<table aria-label="Bidang manifes artefak portofolio yang dapat diaudit" class="caption-top table">
+<thead>
+<tr class="header">
+<th>Bidang</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>evidence_id</td>
+<td>identitas stabil dalam portofolio</td>
+</tr>
+<tr class="even">
+<td>unit</td>
+<td>asal kompetensi U1–U8</td>
+</tr>
+<tr class="odd">
+<td>claim</td>
+<td>kemampuan yang didukung</td>
+</tr>
+<tr class="even">
+<td>artifact</td>
+<td>judul dan jalur atau URL yang benar-benar tersedia</td>
+</tr>
+<tr class="odd">
+<td>version</td>
+<td>edisi, tanggal, commit, atau status lokal</td>
+</tr>
+<tr class="even">
+<td>locator</td>
+<td>bagian tepat yang menunjukkan tindakan</td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td>apa yang dilakukan peserta</td>
+</tr>
+<tr class="even">
+<td>validation</td>
+<td>uji, audit, atau tinjauan yang telah lulus</td>
+</tr>
+<tr class="odd">
+<td>rights</td>
+<td>lisensi, atribusi, dan komponen pihak ketiga</td>
+</tr>
+<tr class="even">
+<td>state</td>
+<td>draf/siap/dikirim/dan seterusnya bila relevan</td>
+</tr>
+<tr class="odd">
+<td>limitation</td>
+<td>klaim yang tidak didukung artefak</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jika checksum dicatat, hitung dari byte artefak yang benar-benar disimpan. Jangan menyalin checksum dari manifes lain tanpa pembacaan ulang. Jika artefak berubah, buat versi dan hash baru; jangan mempertahankan identitas byte lama.</p>
+</section>
+<section id="o017-u09-accessibility" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="o017-u09-accessibility"><span class="header-section-number">13</span> Aksesibilitas paket dan portofolio</h2>
+<p>Keterlacakan tidak berguna bila bukti tidak dapat dibaca. Untuk setiap artefak:</p>
+<ul>
+<li>gunakan hierarki judul yang bermakna;</li>
+<li>beri nama tabel dan bungkus tabel lebar agar dapat digulir serta difokuskan;</li>
+<li>jangan memakai warna sebagai satu-satunya penanda status;</li>
+<li>sediakan teks alternatif untuk gambar yang membawa informasi;</li>
+<li>sediakan transkrip atau catatan berwaktu untuk media;</li>
+<li>jelaskan simbol pada pemakaian pertama;</li>
+<li>pertahankan tautan yang bermakna tanpa bergantung pada “klik di sini”;</li>
+<li>uji navigasi papan ketik dan pembesaran pada keluaran akhir; dan</li>
+<li>catat permukaan yang belum diuji, bukan mengklaim aksesibilitas lengkap.</li>
+</ul>
+<p>Portofolio boleh mempunyai PDF, HTML, dan sumber suntingan. Kesamaan judul tidak menjamin kesamaan isi; manifes harus memasangkan format yang benar-benar dibangun dan diperiksa.</p>
+</section>
+<section id="o017-u09-evidence-based-reflection" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="o017-u09-evidence-based-reflection"><span class="header-section-number">14</span> Refleksi yang berbukti</h2>
+<p>Refleksi bukan autobiografi umum. Gunakan pola tiga bagian.</p>
+<ol type="1">
+<li><strong>Keputusan awal:</strong> apa yang dipilih dan berdasarkan bukti apa?</li>
+<li><strong>Perubahan:</strong> temuan mana memaksa revisi konkret?</li>
+<li><strong>Batas kini:</strong> kemampuan apa yang belum ditunjukkan dan bukti apa yang akan diperlukan?</li>
+</ol>
+<p>Contoh:</p>
+<blockquote class="blockquote">
+<p>Saya mula-mula menganggap pemeriksaan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math> hanya menemukan salah ketik. Audit identitas umum menunjukkan bahwa L5 juga salah sebagai persamaan, jadi paket memperbaiki L3–L4, mempertahankan L5, dan mempertahankan pernyataan lemma. Bukti ini belum menunjukkan bahwa saya telah mengaudit hasil turunan karena salinan di luar cuplikan tidak tersedia.</p>
+</blockquote>
+<p>Refleksi tersebut menunjuk perubahan dan batas. Kalimat “saya belajar banyak tentang induksi” tidak cukup sebagai bukti kompetensi.</p>
+</section>
+<section id="o017-u09-exercises" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="o017-u09-exercises"><span class="header-section-number">15</span> Latihan</h2>
+<ol type="1">
+<li><p><strong><span id="o017-u09-e01">O017-U09-E01</span> — Status tanpa lompatan.</strong> Untuk setiap keadaan berikut, tetapkan predikat peristiwa yang terbukti, predikat yang belum terbukti atau tidak diketahui, dan bukti yang masih hilang: (a) paket lulus validasi lokal; (b) formulir tujuan menampilkan pratinjau tetapi belum dikirim; (c) platform memberi ID transaksi otomatis; (d) pengelola menulis “kami akan meninjau”; (e) pengelola menyetujui patch; (f) commit aktif memuat patch; dan (g) rilis publik telah dibaca balik dan memuat perubahan. Lihat <strong><a href="#o017-u09-h01">O017-U09-H01</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-e02">O017-U09-E02</span> — Reproducer dan cakupan.</strong> Periksa cacat pada cuplikan L3–L5 dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>, lalu buktikan identitas yang dipakai L3′–L4′ dan jelaskan mengapa L5 dapat dipertahankan untuk <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> umum. Tulis tiga hal yang ditetapkan dan tiga hal yang tetap tidak diketahui. Lihat <strong><a href="#o017-u09-h02">O017-U09-H02</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-e03">O017-U09-E03</span> — Minimalitas patch.</strong> Seorang kontributor ingin sekaligus mengganti notasi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>n</mi></msub><annotation encoding="application/x-tex">S_n</annotation></semantics></math>, menulis ulang seluruh pengantar induksi, mengubah enam contoh, dan memperbaiki L3. Pisahkan perubahan wajib, perubahan opsional, dan perubahan di luar lingkup. Susun satu paket yang dapat ditinjau tanpa kehilangan perbaikan matematika. Lihat <strong><a href="#o017-u09-h03">O017-U09-H03</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-e04">O017-U09-E04</span> — Hak dan atribusi.</strong> Sebuah target berlisensi CC BY-SA 4.0, satu diagram di dalamnya mempunyai kredit terpisah tanpa lisensi, dan patch hanya mengubah prosa bukti. Tentukan komponen mana dapat dibawa ke paket, atribusi apa yang diperlukan, dan gerbang apa yang menahan penggunaan diagram. Lihat <strong><a href="#o017-u09-h04">O017-U09-H04</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-e05">O017-U09-E05</span> — Pesan dan penarikan.</strong> Tulis satu pesan paling banyak 120 kata untuk cacat L3–L5 yang memuat lokator, reproducer, patch, dan batas. Setelah itu, andaikan versi tujuan ternyata sudah diperbaiki. Tulis jalur status serta tindakan penarikan atau penghentian yang tidak menghapus sejarah. Pesan tetap tidak dikirim. Lihat <strong><a href="#o017-u09-h05">O017-U09-H05</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-e06">O017-U09-E06</span> — Peta portofolio.</strong> Pilih empat klaim kompetensi dari empat unit berbeda. Untuk masing-masing, isi evidence_id, artefak, lokator, tindakan, validasi, hak, status, dan batas. Temukan satu klaim yang belum mempunyai bukti cukup dan tulis tindakan perbaikannya tanpa mengisi bukti fiktif. Lihat <strong><a href="#o017-u09-h06">O017-U09-H06</a></strong>.</p></li>
+</ol>
+</section>
+<section id="o017-u09-guidance" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="o017-u09-guidance"><span class="header-section-number">16</span> Petunjuk dan panduan jawaban</h2>
+<ol type="1">
+<li><p><strong><span id="o017-u09-h01">O017-U09-H01</span>.</strong> (a) siap; (b) tetap hanya siap karena pratinjau bukan pengiriman; (c) dikirim bila ID menunjuk transaksi yang benar-benar selesai; (d) diakui, sedangkan pengiriman dan penerimaan hanya boleh ditambahkan bila buktinya juga tersedia; (e) diterima, tetapi tidak otomatis diakui, dikirim, atau digabung; (f) digabung, tanpa mengarang keputusan penerimaan; dan (g) diterbitkan untuk rilis yang dibaca balik, tanpa menyimpulkan penggabungan. Setiap predikat tetap memerlukan identitas objek dan waktu; predikat lain diberi nilai tidak diketahui bila kasus tidak menyediakan buktinya. Kembali ke <strong><a href="#o017-u09-e01">O017-U09-E01</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-h02">O017-U09-H02</span>.</strong> Untuk <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>, V1 memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo>⋅</mo><mn>1</mn><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">S_2=1+(2\cdot1-1)=2</annotation></semantics></math>, sedangkan definisi memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>. Secara umum, suku ke-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2(n+1)-1=2n+1</annotation></semantics></math>, dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2+2n+1=(n+1)^2</annotation></semantics></math>. Yang ditetapkan meliputi lokasi cacat, kegagalan langkah, dan kecukupan patch; versi lain, dampak turunan, dan keputusan pengelola tetap tidak diketahui. Kembali ke <strong><a href="#o017-u09-e02">O017-U09-E02</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-h03">O017-U09-H03</span>.</strong> Perubahan wajib hanya L3–L4. L5 sudah tepat sebagai langkah struktural setelah L4 diperbaiki, sehingga boleh ditampilkan kembali untuk audit tetapi tidak boleh dihitung sebagai baris yang diubah. Penjelasan satu kalimat dapat masuk jika diperlukan untuk audit. Pergantian notasi, pengantar, dan enam contoh merupakan pekerjaan opsional atau paket terpisah. Mencampurnya memperbesar permukaan regresi dan menyulitkan pembalikan. Kembali ke <strong><a href="#o017-u09-e03">O017-U09-E03</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-h04">O017-U09-H04</span>.</strong> Prosa target dan patch dapat diperlakukan menurut CC BY-SA 4.0 dengan atribusi, penunjuk perubahan, dan lisensi kompatibel. Diagram tidak diperlukan oleh patch dan harus dikeluarkan; kredit tanpa dasar lisensi tidak cukup untuk redistribusi. Jika diagram diperlukan kelak, tahan komponen itu sampai haknya jelas. Kembali ke <strong><a href="#o017-u09-e04">O017-U09-E04</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-h05">O017-U09-H05</span>.</strong> Pesan harus menyerupai <a href="#o017-u09-outbound-draft">draf tunggal</a>: satu lokator, kegagalan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n=1</annotation></semantics></math>, dua baris pengganti, penjelasan bahwa L5 dipertahankan, dan batas audit. Jika versi tujuan sudah diperbaiki sebelum kirim, status tetap siap lalu ditahan atau diganti sebagai duplikat; tidak ada penarikan eksternal karena tidak pernah dikirim. Jika baru diketahui sesudah kirim, pertahankan tanda transaksi dan minta penarikan melalui kanal yang sama bila berwenang. Kembali ke <strong><a href="#o017-u09-e05">O017-U09-E05</a></strong>.</p></li>
+<li><p><strong><span id="o017-u09-h06">O017-U09-H06</span>.</strong> Satu baris yang memadai menautkan klaim tindakan ke lokator yang benar-benar memperlihatkannya dan menyebut uji serta batas. Refleksi tanpa artefak tidak menggantikan bukti. Untuk klaim yang belum didukung, gunakan status “belum dibuktikan” dan sebut produk serta gerbang yang perlu diselesaikan. Kembali ke <strong><a href="#o017-u09-e06">O017-U09-E06</a></strong>.</p></li>
+</ol>
+</section>
+<section id="o017-u09-capstone" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="o017-u09-capstone"><span class="header-section-number">17</span> Tugas akhir: kontribusi terbatas dan portofolio O017</h2>
+<p>Bangun satu <strong>paket capstone lokal</strong> dari pekerjaan Anda sendiri di Unit 1–8. Tugas ini tidak memberi kewenangan untuk menghubungi pihak luar. Jika tidak ada target nyata yang hak dan versinya sudah jelas, gunakan target sintetis kasus kerja dan nyatakan pilihan itu.</p>
+<p>Produk harus memuat:</p>
+<ol type="1">
+<li>satu pernyataan lingkup paling banyak 120 kata yang menyebut target, satu masalah atau celah, perbaikan yang diusulkan, dan hal yang tidak disentuh;</li>
+<li>identitas target, versi, salinan, lokator, waktu pemeriksaan, dan dasar hak;</li>
+<li>redaksi tepat sebelum perubahan dan redaksi tepat sesudah perubahan;</li>
+<li>reproducer atau rekonstruksi bukti yang memeriksa hipotesis, kegagalan, serta batas;</li>
+<li>validasi sebelum/sesudah yang mencakup satu kasus pembeda dan argumen umum;</li>
+<li>manifes kontribusi, daftar periksa dua belas butir, dan keputusan GO, HOLD, atau NO-GO dengan alasan;</li>
+<li>satu draf pesan paling banyak 150 kata; tandai <strong>belum dikirim</strong> dan jangan membuat pesan kedua;</li>
+<li>ledger status yang berhenti pada draf atau siap, kecuali bukti transaksi aktual dan kewenangan terpisah benar-benar tersedia di luar tugas ini;</li>
+<li>jalur tahan, tarik, ganti, atau balik dengan sedikitnya tiga pemicu;</li>
+<li>pernyataan lisensi dan atribusi per komponen, termasuk komponen yang dikeluarkan karena haknya belum jelas;</li>
+<li>manifes portofolio dan peta klaim–bukti untuk setiap Unit 1–8;</li>
+<li>sedikitnya satu artefak sebelum/sesudah, satu masalah belum selesai, dan satu refleksi tiga bagian berbasis bukti;</li>
+<li>laporan aksesibilitas yang menyebut permukaan yang benar-benar diuji dan yang belum diuji; dan</li>
+<li>ringkasan eksekutif enam kalimat yang tidak mengklaim pengiriman, penerimaan, penggabungan, atau penerbitan tanpa bukti.</li>
+</ol>
+<p>Jika pada tindakan masa depan yang terpisah pesan benar-benar dikirim, ikuti aturan penutup bersyarat pada <a href="#o017-u09-single-message">#o017-u09-single-message</a>. Jangan memakai aturan itu untuk menyiratkan bahwa draf capstone sudah dikirim.</p>
+<section id="o017-u09-capstone-rubric" class="level3" data-number="17.1">
+<h3 data-number="17.1" class="anchored" data-anchor-id="o017-u09-capstone-rubric"><span class="header-section-number">17.1</span> Rubrik analitik</h3>
+<p>Setiap kriteria dinilai 0, 1, atau 2.</p>
+<div class="o017-table-scroll" role="region" aria-label="Rubrik analitik capstone kontribusi dan portofolio O017" tabindex="0">
+<table aria-label="Rubrik analitik capstone kontribusi dan portofolio O017" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kriteria</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Batas dan target</td>
+<td>target/lokator kabur atau banyak masalah bercampur</td>
+<td>target jelas tetapi satu batas lemah</td>
+<td>satu target, satu kontribusi, versi/lokator tepat, serta pengecualian eksplisit</td>
+</tr>
+<tr class="even">
+<td>Diagnosis matematika</td>
+<td>reproducer tidak memenuhi hipotesis atau patch salah</td>
+<td>cacat benar tetapi validasi umum kurang</td>
+<td>kegagalan dan perbaikan dibuktikan, dengan kasus pembeda serta argumen umum</td>
+</tr>
+<tr class="odd">
+<td>Minimalitas dan validasi</td>
+<td>perubahan luas tanpa alasan atau tidak diuji</td>
+<td>patch cukup tetapi permukaan regresi kabur</td>
+<td>perubahan terkecil yang cukup diuji sebelum/sesudah dan hasil tak terpengaruh dipertahankan</td>
+</tr>
+<tr class="even">
+<td>Hak dan atribusi</td>
+<td>lisensi direka, hilang, atau komponen kabur</td>
+<td>lisensi utama ada tetapi satu komponen belum dipisah</td>
+<td>hak, atribusi, perubahan, dan pengecualian tercatat per komponen</td>
+</tr>
+<tr class="odd">
+<td>Kejujuran status</td>
+<td>siap disebut dikirim/diterima atau sejarah ditimpa</td>
+<td>status benar tetapi bukti transisi kurang</td>
+<td>setiap status mempunyai peristiwa/bukti; draf/siap berhenti jujur dan sejarah tambahan</td>
+</tr>
+<tr class="even">
+<td>Komunikasi dan pemulihan</td>
+<td>pesan menuduh, jamak, atau tanpa jalan tarik</td>
+<td>pesan ringkas tetapi satu batas/pemicu kurang</td>
+<td>satu pesan spesifik, belum dikirim, dengan jalur tahan/tarik/ganti/balik yang dapat dijalankan</td>
+</tr>
+<tr class="odd">
+<td>Peta Unit 1–8</td>
+<td>portofolio hanya daftar berkas atau unit hilang</td>
+<td>semua unit disebut tetapi beberapa lokator/batas lemah</td>
+<td>setiap unit mempunyai klaim, bukti, lokator, validasi, hak, status, dan batas</td>
+</tr>
+<tr class="even">
+<td>Aksesibilitas dan refleksi</td>
+<td>aksesibilitas diklaim tanpa uji atau refleksi umum</td>
+<td>sebagian permukaan/uji/perubahan disebut</td>
+<td>laporan membedakan diuji/belum diuji dan refleksi menautkan keputusan, perubahan, serta batas</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nilai lulus sekurang-kurangnya 14 dari 16, dengan nilai 2 pada <strong>Diagnosis matematika</strong>, <strong>Hak dan atribusi</strong>, <strong>Kejujuran status</strong>, serta <strong>Peta Unit 1–8</strong>. Mengarang peristiwa eksternal, mengirim tanpa kewenangan, menyebut draf sebagai diterima, menghapus sejarah penarikan, memakai materi tanpa dasar hak, atau memasukkan banyak temuan tak terkait mewajibkan revisi berapa pun jumlah nilainya.</p>
+</section>
+</section>
+<section id="o017-u09-boundary" class="level2" data-number="18">
+<h2 data-number="18" class="anchored" data-anchor-id="o017-u09-boundary"><span class="header-section-number">18</span> Batas dengan B80 dan Unit 1–8</h2>
+<p><strong>B80.</strong> Unit 9 tidak mengajarkan Git, API platform, sintaks bahasa pemrograman, pengujian perangkat lunak, pembuatan lingkungan, atau proses deploy. Jika sebuah kontribusi membutuhkan tindakan itu, peserta memakai kompetensi B80 dan memasukkan bukti hasilnya; Unit 9 hanya menilai paket, status, hak, komunikasi, dan pembalikan.</p>
+<p><strong>Unit 1–3.</strong> Unit 1 memetakan jejaring klaim, Unit 2 membekukan otoritas sumber, dan Unit 3 merekonstruksi celah bukti. Unit 9 tidak mengajari ulang ketiganya. Ia memilih bukti yang sudah lolos dan membatasi satu kontribusi.</p>
+<p><strong>Unit 4.</strong> Unit 4 merancang ledger sitasi dan provenance. Unit 9 mengimpor identitas, lokator, hak, dan hubungan dari ledger ke manifes kontribusi serta portofolio; ia tidak mengganti ledger sumber.</p>
+<p><strong>Unit 5.</strong> Unit 5 mengajarkan eksposisi matematika. Unit 9 tidak melakukan penyuntingan gaya luas; prosa diubah hanya sejauh kontribusi minimal dan pesannya perlu dapat ditinjau.</p>
+<p><strong>Unit 6.</strong> Unit 6 membangun paket komputasi yang dapat dijalankan ulang. Unit 9 dapat menyertakan hasil validasinya, tetapi tidak mengajarkan alat atau lingkungannya.</p>
+<p><strong>Unit 7.</strong> Unit 7 menetapkan status cacat, reproducer, keparahan, keyakinan, koreksi, dan dossier erratum. Unit 9 tidak mendiagnosis ulang seluruh target; ia memilih satu diagnosis yang matang lalu mengemasnya untuk kontribusi terbatas.</p>
+<p><strong>Unit 8.</strong> Unit 8 mengajarkan catatan seminar, laporan penelaah, tanggapan, dan rekomendasi. Unit 9 tidak menjalankan putaran penelaahan baru; ia memakai komentar yang sudah diselesaikan untuk menyiapkan satu pesan dan menjaga status peristiwa komunitas.</p>
+<p>Tidak ada bagian unit ini yang mengirim pesan, membuka isu, membuat perubahan upstream, menggabungkan patch, atau menerbitkan artefak.</p>
+</section>
+<section id="o017-u09-provenance" class="level2" data-number="19">
+<h2 data-number="19" class="anchored" data-anchor-id="o017-u09-provenance"><span class="header-section-number">19</span> Sumber, provenance, perubahan, dan hak</h2>
+<p>Seluruh prosa berbahasa Indonesia, mesin status, gerbang kontribusi, kasus jumlah bilangan ganjil, reproducer, pembuktian perbaikan, patch konseptual, draf erratum dan pesan, manifes, jalur penarikan, arsitektur portofolio, latihan, panduan jawaban, capstone, dan rubrik pada unit ini merupakan materi asli O017 oleh kontributor O017, 2026, dan dilisensikan di bawah <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+<p>Identitas jumlah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> bilangan ganjil pertama <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sum_{k=1}^{n}(2k-1)=n^2</annotation></semantics></math> dan pembuktiannya dengan induksi merupakan matematika elementer klasik. O017 tidak mengklaim penemuan hasil itu. Redaksi target yang sengaja cacat, diagnosis, susunan pedagogis, validasi, dan paket kontribusi ditulis khusus untuk unit ini dan tidak disalin dari sumber tertentu.</p>
+<p>Objek <strong>O017-U09-UP-W01</strong> dan semua versinya bersifat sintetis; ID tersebut bukan repositori, penerbit, atau proyek eksternal. Tidak ada donor eksternal, kutipan eksternal, kode, gambar, atau data pihak ketiga yang digunakan. Tidak ada komunikasi nyata yang dilakukan. Lisensi CC BY-SA 4.0 berlaku pada materi asli O017 ini dan tidak mengubah hak atas target lain yang mungkin digunakan peserta pada pekerjaan mereka sendiri.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Disalin!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Disalin!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

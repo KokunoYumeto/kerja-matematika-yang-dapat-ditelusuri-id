@@ -1,0 +1,17 @@
+term_id,english,preferred_id,rejected_or_scoped,scope,note
+O017-TERM-0001,claim,klaim,pernyataan,reading and argument audit; use pernyataan for a formal proposition when natural
+O017-TERM-0002,proof,pembuktian,bukti,logical derivation; bukti is reserved for evidence unless context is unambiguous
+O017-TERM-0003,evidence,bukti empiris,bukti,computation observation or source witness; never equate with proof
+O017-TERM-0004,provenance,provenance,asal-usul,technical record of source identity transformations and custody
+O017-TERM-0005,dependency,ketergantungan,dependensi,logical or source dependency
+O017-TERM-0006,erratum,erratum,koreksi,formal report of a source defect
+O017-TERM-0007,reproducible,dapat direproduksi,reprodusibel,work that can be rerun from declared inputs and procedure
+O017-TERM-0008,peer review,penelaahan sejawat,review sejawat,formal critical review
+O017-TERM-0009,source authority,otoritas sumber,otoritas karya,authority is assessed against a specific question
+O017-TERM-0010,finding aid,sarana penelusuran,sumber utama,index or search surface that identifies candidates but does not establish content
+O017-TERM-0011,persistent identifier,pengidentifikasi persisten,identitas permanen,use PID after first expansion when natural
+O017-TERM-0012,concept record,rekaman karya atau konsep,versi terbaru,record spanning versions; never treat it as an exact version
+O017-TERM-0013,version record,rekaman versi,rekaman karya,identity of one exact scholarly state
+O017-TERM-0014,citation chain,rantai sitasi,rantai referensi,directed typed graph of source relationships
+O017-TERM-0015,locator,penunjuk lokasi,lokasi,exact page section theorem or fragment within a source
+O017-TERM-0016,inference,inferensi,fakta metadata,analyst conclusion that must remain distinct from recorded source metadata

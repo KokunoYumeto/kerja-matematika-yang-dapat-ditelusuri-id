@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id-ID" xml:lang="id-ID"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Unit praktik untuk mengklasifikasikan cacat matematika dan komputasional, memisahkan keparahan dari keyakinan, menyusun reproducer minimal, serta menulis draf erratum yang dapat diaudit.">
+
+<title>Unit 7 — Errata, Koreksi, dan Batas Kepastian – Kerja Matematika yang Dapat Ditelusuri</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e660844ac27f845a97ea4d6047b2f6e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Tidak ada hasil",
+    "search-matching-documents-text": "dokumen cocok",
+    "search-copy-link-title": "Salin tautan untuk mencari",
+    "search-hide-matches-text": "Sembunyikan kecocokan lainnya",
+    "search-more-match-text": "kecocokan lainnya di dokumen ini",
+    "search-more-matches-text": "kecocokan lainnya di dokumen ini",
+    "search-clear-button-title": "Hapus",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Batal",
+    "search-submit-button-title": "Kirim",
+    "search-label": "Mencari"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+<a class="o017-skip-link" href="#quarto-document-content">Langsung ke isi utama</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Kerja Matematika yang Dapat Ditelusuri</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Mencari"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alihkan navigasi" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Beranda</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/01-membaca-argumen.html"> 
+<span class="menu-text">Unit 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/02-menelusuri-sumber.html"> 
+<span class="menu-text">Unit 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/03-merekonstruksi-pembuktian.html"> 
+<span class="menu-text">Unit 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/04-sitasi-provenance-catatan-sumber.html"> 
+<span class="menu-text">Unit 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/05-eksposisi-matematika.html"> 
+<span class="menu-text">Unit 5</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/06-komputasi-dapat-direproduksi.html"> 
+<span class="menu-text">Unit 6</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../units/07-errata-koreksi-batas-kepastian.html" aria-current="page"> 
+<span class="menu-text">Unit 7</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/08-seminar-penelaah-tanggapan-kritik.html"> 
+<span class="menu-text">Unit 8</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../units/09-kontribusi-komunitas-portofolio.html"> 
+<span class="menu-text">Unit 9</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/v2026.08.22/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.pdf" title="Unduh PDF" class="quarto-navigation-tool px-1" aria-label="Unduh PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id" title="Sumber GitHub" class="quarto-navigation-tool px-1" aria-label="Sumber GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" aria-labelledby="toc-title">
+    <div id="toc-title" class="h2">Di halaman ini</div>
+   
+  <ul>
+  <li><a href="#o017-u07-outcomes" id="toc-o017-u07-outcomes" class="nav-link active" data-scroll-target="#o017-u07-outcomes"><span class="header-section-number">1</span> Hasil belajar</a></li>
+  <li><a href="#o017-u07-erratum-as-bounded-claim" id="toc-o017-u07-erratum-as-bounded-claim" class="nav-link" data-scroll-target="#o017-u07-erratum-as-bounded-claim"><span class="header-section-number">2</span> Erratum adalah klaim terbatas, bukan ungkapan ketidaksukaan</a></li>
+  <li><a href="#o017-u07-defect-taxonomy" id="toc-o017-u07-defect-taxonomy" class="nav-link" data-scroll-target="#o017-u07-defect-taxonomy"><span class="header-section-number">3</span> Enam jenis cacat yang tidak boleh dilebur</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-status-versus-cause" id="toc-o017-u07-status-versus-cause" class="nav-link" data-scroll-target="#o017-u07-status-versus-cause"><span class="header-section-number">3.1</span> Status salah dan penyebabnya merupakan dua bidang</a></li>
+  <li><a href="#o017-u07-typo-with-impact" id="toc-o017-u07-typo-with-impact" class="nav-link" data-scroll-target="#o017-u07-typo-with-impact"><span class="header-section-number">3.2</span> Salah ketik dapat mempunyai akibat matematika</a></li>
+  <li><a href="#o017-u07-exposition-defect-limit" id="toc-o017-u07-exposition-defect-limit" class="nav-link" data-scroll-target="#o017-u07-exposition-defect-limit"><span class="header-section-number">3.3</span> Cacat eksposisi bukan izin untuk menulis ulang sumber</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-severity-and-confidence" id="toc-o017-u07-severity-and-confidence" class="nav-link" data-scroll-target="#o017-u07-severity-and-confidence"><span class="header-section-number">4</span> Keparahan dan keyakinan berada pada dua sumbu</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-action-matrix" id="toc-o017-u07-action-matrix" class="nav-link" data-scroll-target="#o017-u07-action-matrix"><span class="header-section-number">4.1</span> Matriks tindakan yang tidak mengubah bukti</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-freeze-before-diagnosis" id="toc-o017-u07-freeze-before-diagnosis" class="nav-link" data-scroll-target="#o017-u07-freeze-before-diagnosis"><span class="header-section-number">5</span> Bekukan objek sebelum mendiagnosis</a></li>
+  <li><a href="#o017-u07-minimal-reproducer" id="toc-o017-u07-minimal-reproducer" class="nav-link" data-scroll-target="#o017-u07-minimal-reproducer"><span class="header-section-number">6</span> Reproducer minimal untuk cacat matematika</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-reproducer-tests" id="toc-o017-u07-reproducer-tests" class="nav-link" data-scroll-target="#o017-u07-reproducer-tests"><span class="header-section-number">6.1</span> Uji reproducer sebelum mengandalkannya</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-worked-case" id="toc-o017-u07-worked-case" class="nav-link" data-scroll-target="#o017-u07-worked-case"><span class="header-section-number">7</span> Kasus kerja: tanda tetap tanpa keterhubungan</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-worked-version" id="toc-o017-u07-worked-version" class="nav-link" data-scroll-target="#o017-u07-worked-version"><span class="header-section-number">7.1</span> Versi dan penunjuk yang diperiksa</a></li>
+  <li><a href="#o017-u07-two-point-counterexample" id="toc-o017-u07-two-point-counterexample" class="nav-link" data-scroll-target="#o017-u07-two-point-counterexample"><span class="header-section-number">7.2</span> Reproducer minimal dua titik</a></li>
+  <li><a href="#o017-u07-missing-connectedness" id="toc-o017-u07-missing-connectedness" class="nav-link" data-scroll-target="#o017-u07-missing-connectedness"><span class="header-section-number">7.3</span> Diagnosis: hipotesis keterhubungan hilang</a></li>
+  <li><a href="#o017-u07-connected-proof" id="toc-o017-u07-connected-proof" class="nav-link" data-scroll-target="#o017-u07-connected-proof"><span class="header-section-number">7.4</span> Pembuktian versi yang diperbaiki</a></li>
+  <li><a href="#o017-u07-minimal-repair" id="toc-o017-u07-minimal-repair" class="nav-link" data-scroll-target="#o017-u07-minimal-repair"><span class="header-section-number">7.5</span> Mengapa perbaikannya minimal dalam arti yang relevan</a></li>
+  <li><a href="#o017-u07-worked-triage" id="toc-o017-u07-worked-triage" class="nav-link" data-scroll-target="#o017-u07-worked-triage"><span class="header-section-number">7.6</span> Keparahan, keyakinan, dan jangkauan</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-history-preserving-correction" id="toc-o017-u07-history-preserving-correction" class="nav-link" data-scroll-target="#o017-u07-history-preserving-correction"><span class="header-section-number">8</span> Koreksi harus mempertahankan sejarah</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-worked-event-ledger" id="toc-o017-u07-worked-event-ledger" class="nav-link" data-scroll-target="#o017-u07-worked-event-ledger"><span class="header-section-number">8.1</span> Buku besar peristiwa kasus kerja</a></li>
+  <li><a href="#o017-u07-correction-record-fields" id="toc-o017-u07-correction-record-fields" class="nav-link" data-scroll-target="#o017-u07-correction-record-fields"><span class="header-section-number">8.2</span> Isi minimum satu rekaman koreksi</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-concise-draft" id="toc-o017-u07-concise-draft" class="nav-link" data-scroll-target="#o017-u07-concise-draft"><span class="header-section-number">9</span> Menulis draf isu atau erratum yang ringkas</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-six-sentence-template" id="toc-o017-u07-six-sentence-template" class="nav-link" data-scroll-target="#o017-u07-six-sentence-template"><span class="header-section-number">9.1</span> Templat enam kalimat</a></li>
+  <li><a href="#o017-u07-accessible-report" id="toc-o017-u07-accessible-report" class="nav-link" data-scroll-target="#o017-u07-accessible-report"><span class="header-section-number">9.2</span> Laporan harus tetap dapat diakses</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-uncertainty-ledger" id="toc-o017-u07-uncertainty-ledger" class="nav-link" data-scroll-target="#o017-u07-uncertainty-ledger"><span class="header-section-number">10</span> Buku besar ketidakpastian</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-certainty-language" id="toc-o017-u07-certainty-language" class="nav-link" data-scroll-target="#o017-u07-certainty-language"><span class="header-section-number">10.1</span> Bahasa yang sesuai dengan kekuatan bukti</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-stop-and-escalate" id="toc-o017-u07-stop-and-escalate" class="nav-link" data-scroll-target="#o017-u07-stop-and-escalate"><span class="header-section-number">11</span> Gerbang berhenti dan eskalasi</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-stop-before-claim" id="toc-o017-u07-stop-before-claim" class="nav-link" data-scroll-target="#o017-u07-stop-before-claim"><span class="header-section-number">11.1</span> Berhenti sebelum menyatakan kesalahan</a></li>
+  <li><a href="#o017-u07-escalation-rule" id="toc-o017-u07-escalation-rule" class="nav-link" data-scroll-target="#o017-u07-escalation-rule"><span class="header-section-number">11.2</span> Eskalasi tanpa melebih-lebihkan</a></li>
+  <li><a href="#o017-u07-closure-conditions" id="toc-o017-u07-closure-conditions" class="nav-link" data-scroll-target="#o017-u07-closure-conditions"><span class="header-section-number">11.3</span> Kondisi penutupan</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-correction-protocol" id="toc-o017-u07-correction-protocol" class="nav-link" data-scroll-target="#o017-u07-correction-protocol"><span class="header-section-number">12</span> Protokol audit dan koreksi</a></li>
+  <li><a href="#o017-u07-guided-practice" id="toc-o017-u07-guided-practice" class="nav-link" data-scroll-target="#o017-u07-guided-practice"><span class="header-section-number">13</span> Praktik terpandu: satu temuan, dua sumbu, tiga klaim</a></li>
+  <li><a href="#o017-u07-preflight" id="toc-o017-u07-preflight" class="nav-link" data-scroll-target="#o017-u07-preflight"><span class="header-section-number">14</span> Daftar periksa sebelum menyelesaikan draf</a></li>
+  <li><a href="#o017-u07-exercises" id="toc-o017-u07-exercises" class="nav-link" data-scroll-target="#o017-u07-exercises"><span class="header-section-number">15</span> Latihan</a></li>
+  <li><a href="#o017-u07-guidance" id="toc-o017-u07-guidance" class="nav-link" data-scroll-target="#o017-u07-guidance"><span class="header-section-number">16</span> Petunjuk dan panduan jawaban</a></li>
+  <li><a href="#o017-u07-completion-task" id="toc-o017-u07-completion-task" class="nav-link" data-scroll-target="#o017-u07-completion-task"><span class="header-section-number">17</span> Tugas penyelesaian unit</a>
+  <ul class="collapse">
+  <li><a href="#o017-u07-completion-rubric" id="toc-o017-u07-completion-rubric" class="nav-link" data-scroll-target="#o017-u07-completion-rubric"><span class="header-section-number">17.1</span> Rubrik</a></li>
+  </ul></li>
+  <li><a href="#o017-u07-boundary" id="toc-o017-u07-boundary" class="nav-link" data-scroll-target="#o017-u07-boundary"><span class="header-section-number">18</span> Batas dengan B80 dan unit lain</a></li>
+  <li><a href="#o017-u07-provenance" id="toc-o017-u07-provenance" class="nav-link" data-scroll-target="#o017-u07-provenance"><span class="header-section-number">19</span> Sumber, provenance, perubahan, dan hak</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Unit 7 — Errata, Koreksi, dan Batas Kepastian</h1>
+<p class="subtitle lead">Membuktikan cacat, membatasi dampak, dan memperbaiki tanpa menghapus sejarah</p>
+</div>
+
+<div>
+  <div class="description">
+    Unit praktik untuk mengklasifikasikan cacat matematika dan komputasional, memisahkan keparahan dari keyakinan, menyusun reproducer minimal, serta menulis draf erratum yang dapat diaudit.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="o017-u07-outcomes" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="o017-u07-outcomes"><span class="header-section-number">1</span> Hasil belajar</h2>
+<p>Unit ini mempunyai pengidentifikasi stabil <strong>O017-U07</strong>. Setelah menyelesaikannya, Anda mampu:</p>
+<ol type="1">
+<li>membedakan salah ketik, cacat eksposisi lokal, hipotesis yang hilang, teorema yang salah sebagaimana ditulis, penunjuk ambigu, dan cacat komputasional;</li>
+<li>memisahkan <strong>keparahan dampak</strong> dari <strong>tingkat keyakinan</strong> terhadap diagnosis;</li>
+<li>membekukan versi, salinan, penunjuk, dan redaksi yang benar-benar diperiksa;</li>
+<li>membuat reproducer minimal yang memeriksa semua hipotesis sebelum menunjukkan kegagalan kesimpulan;</li>
+<li>membedakan apa yang teramati, dibuktikan, disimpulkan sementara, dan belum diketahui;</li>
+<li>merumuskan koreksi yang cukup sempit dan membuktikan bahwa perbaikannya memang memadai;</li>
+<li>menyimpan rekaman koreksi sebagai riwayat tambahan tanpa menimpa klaim atau versi lama;</li>
+<li>menulis satu draf isu atau erratum yang ringkas, spesifik, dan dapat ditindaklanjuti tanpa menghubungi pihak luar; serta</li>
+<li>menghentikan atau mengeskalasi pemeriksaan ketika bukti, otoritas, atau cakupan dampaknya belum cukup.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Prasyarat, kesinambungan, dan batas fokus">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>Prasyarat, kesinambungan, dan batas fokus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unit 2 menyediakan identitas karya dan versi; Unit 3 menyediakan cara memeriksa celah pembuktian; Unit 4 menyediakan rekaman klaim, penunjuk, dan provenance; Unit 5 menyediakan eksposisi yang dapat diaudit; dan Unit 6 menyediakan paket komputasi yang dapat dijalankan ulang. Unit 7 memakai semua keluaran itu untuk pekerjaan yang lebih sempit: menetapkan <strong>apa yang rusak, seberapa jauh dampaknya, seberapa yakin diagnosisnya, dan bentuk koreksi apa yang telah dibenarkan</strong>.</p>
+<p>Unit ini tidak mengajarkan sintaks platform isu, perintah Git, debugging program, pemasangan lingkungan, atau cara menjalankan notebook. Ia juga tidak memberi izin untuk mengirim laporan. Semua formulasi isu di sini adalah draf lokal sampai ada kewenangan dan pemeriksaan yang terpisah.</p>
+</div>
+</div>
+</section>
+<section id="o017-u07-erratum-as-bounded-claim" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="o017-u07-erratum-as-bounded-claim"><span class="header-section-number">2</span> Erratum adalah klaim terbatas, bukan ungkapan ketidaksukaan</h2>
+<p>Kalimat “bagian ini tampaknya salah” belum merupakan erratum. Erratum yang dapat diaudit sekurang-kurangnya menyatakan lima hal:</p>
+<ol type="1">
+<li><strong>objek tepat</strong> yang diperiksa: karya, versi, salinan, dan lokasi;</li>
+<li><strong>redaksi atau keluaran tepat</strong> yang dipersoalkan;</li>
+<li><strong>bukti kegagalan</strong> yang dapat diperiksa dengan beban minimum;</li>
+<li><strong>cakupan akibat</strong>: kalimat, lemma, teorema, latihan, hasil komputasi, atau turunan mana yang terkena; dan</li>
+<li><strong>koreksi yang dibenarkan</strong>, termasuk hal-hal yang masih belum diketahui.</li>
+</ol>
+<p>Erratum tidak perlu panjang. Ia perlu mempunyai rantai inferensi yang utuh. Sebaliknya, laporan panjang dapat tetap lemah jika tidak menyebut versi, hanya memperlihatkan contoh numerik yang tidak memenuhi hipotesis, atau mengusulkan redaksi baru tanpa membuktikannya.</p>
+<div id="o017-u07-original-bridge" class="callout callout-style-default callout-important callout-titled" title="Jembatan asli O017">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Penting</span>Jembatan asli O017
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Taksonomi dua lapis antara status pernyataan dan jenis cacat, sumbu terpisah untuk keparahan dan keyakinan, protokol reproducer minimal, rekaman koreksi tambahan, kasus keterhubungan, buku besar ketidakpastian, serta gerbang berhenti/eskalasi pada unit ini merupakan materi asli O017. Unit ini tidak menyalin prosa, contoh, latihan, atau alur dari donor eksternal.</p>
+</div>
+</div>
+</section>
+<section id="o017-u07-defect-taxonomy" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="o017-u07-defect-taxonomy"><span class="header-section-number">3</span> Enam jenis cacat yang tidak boleh dilebur</h2>
+<p>Klasifikasi membantu memilih tindakan. Ia bukan pengganti bukti. Satu temuan dapat mempunyai satu <strong>jenis utama</strong> dan beberapa akibat sekunder, tetapi masing-masing label harus mempunyai alasan.</p>
+<div class="o017-table-scroll" role="region" aria-label="Taksonomi enam jenis cacat untuk errata matematika" tabindex="0">
+<table aria-label="Taksonomi enam jenis cacat untuk errata matematika" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Jenis</th>
+<th>Uji diagnostik</th>
+<th>Contoh ringkas</th>
+<th>Tindakan awal yang wajar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Salah ketik</td>
+<td>Apakah perubahan karakter yang hampir mekanis memulihkan redaksi yang konsisten tanpa mengubah gagasan?</td>
+<td>indeks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">a_{n-1}</annotation></semantics></math> tercetak <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">a_{n+1}</annotation></semantics></math> padahal semua baris sekitar memakai <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">a_{n-1}</annotation></semantics></math></td>
+<td>catat kedua bentuk, tunjukkan konteks, dan hindari menebak bila lebih dari satu perbaikan masuk akal</td>
+</tr>
+<tr class="even">
+<td>Cacat eksposisi lokal</td>
+<td>Apakah argumen dapat benar, tetapi satu transisi, definisi, rujukan balik, atau perubahan notasi tidak cukup dijelaskan?</td>
+<td>“maka jelas” melewati satu inklusi himpunan yang perlu dibuktikan</td>
+<td>isi langkah lokal dan periksa bahwa tidak ada hipotesis baru yang diselundupkan</td>
+</tr>
+<tr class="odd">
+<td>Hipotesis hilang</td>
+<td>Apakah pernyataan menjadi benar setelah asumsi tertentu dinyatakan, sedangkan tanpa asumsi itu ada contoh tandingan?</td>
+<td>kesimpulan tanda tetap kehilangan asumsi bahwa domain terhubung</td>
+<td>berikan contoh tandingan, nyatakan asumsi calon, lalu buktikan versi yang diperbaiki</td>
+</tr>
+<tr class="even">
+<td>Teorema salah sebagaimana ditulis</td>
+<td>Apakah ada objek yang memenuhi semua hipotesis tertulis tetapi melanggar kesimpulan?</td>
+<td>fungsi pada domain tak terhubung mengambil nilai positif dan negatif tanpa nol</td>
+<td>tandai status pernyataan terbit sebagai salah; diagnosis akar dapat dicatat terpisah</td>
+</tr>
+<tr class="odd">
+<td>Penunjuk ambigu</td>
+<td>Apakah pembaca yang memakai versi yang sama masih dapat memilih lebih dari satu lokasi yang masuk akal?</td>
+<td>“lihat teorema sebelumnya” ketika dua teorema berada di antara paragraf dan klaim</td>
+<td>buat penunjuk bagian/label/halaman yang membedakan lokasi dan sebut versi yang dipakai</td>
+</tr>
+<tr class="even">
+<td>Cacat komputasional</td>
+<td>Apakah kode, masukan, lingkungan, prosedur, atau keluaran tidak cocok dengan klaim komputasi yang dibuat?</td>
+<td>manifes menyebut revisi program <code>r2</code>, tetapi log menyatakan eksekusi <code>r1</code></td>
+<td>bekukan artefak dan rekaman eksekusi; jangan menaikkan keluaran menjadi bukti sebelum ketidakcocokan diselesaikan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="o017-u07-status-versus-cause" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="o017-u07-status-versus-cause"><span class="header-section-number">3.1</span> Status salah dan penyebabnya merupakan dua bidang</h3>
+<p>“Hipotesis hilang” dan “teorema salah” tampak tumpang tindih karena keduanya dapat benar sekaligus, tetapi keduanya menjawab pertanyaan berbeda.</p>
+<ul>
+<li><code>statement_status = false_as_written</code> menyatakan bahwa redaksi yang diterbitkan mempunyai contoh tandingan.</li>
+<li><code>defect_kind = missing_hypothesis</code> menyatakan diagnosis mengenai bagaimana redaksi itu mungkin diperbaiki.</li>
+</ul>
+<p>Gunakan nilai status secara eksplisit: <code>supported_as_written</code> bila bukti yang memadai mendukung klaim dalam cakupannya; <code>false_as_written</code> bila bukti eksak menolaknya; <code>unsupported_as_written</code> bila dasar yang diberikan tidak cukup meskipun kebenaran klaim belum diputuskan; <code>unresolved</code> bila audit klaim belum selesai; dan <code>not_applicable</code> bila rekaman cacat hanya mengenai objek nonklaim, misalnya penunjuk ambigu atau bentuk karakter. Jika salah ketik berada di dalam rumus, rekam temuan tipografinya dan status klaim matematikanya sebagai dua objek; jangan memaksa satu nilai menjawab dua pertanyaan.</p>
+<p>Contoh tandingan cukup untuk menetapkan bidang pertama. Ia belum otomatis menetapkan bidang kedua. Mungkin kesimpulannya terlalu kuat, domainnya salah, kuantornya keliru, atau definisi sebelumnya tidak cocok. Karena itu, jangan mengganti “salah sebagaimana ditulis” dengan “jelas hanya salah ketik” sebelum perbaikan tunggal benar-benar didukung konteks.</p>
+</section>
+<section id="o017-u07-typo-with-impact" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="o017-u07-typo-with-impact"><span class="header-section-number">3.2</span> Salah ketik dapat mempunyai akibat matematika</h3>
+<p>Jenis cacat tidak mengukur besarnya dampak. Tanda minus yang hilang mungkin merupakan salah ketik yang mudah didiagnosis, tetapi dapat membalik teorema utama. Sebaliknya, teorema salah dalam satu latihan opsional mungkin tidak memengaruhi bab lain. Itulah sebabnya klasifikasi dan keparahan harus disimpan di bidang terpisah.</p>
+</section>
+<section id="o017-u07-exposition-defect-limit" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="o017-u07-exposition-defect-limit"><span class="header-section-number">3.3</span> Cacat eksposisi bukan izin untuk menulis ulang sumber</h3>
+<p>Jika satu langkah hilang tetapi dapat direkonstruksi dari hipotesis tertulis, catat rekonstruksi sebagai argumen baru dan tautkan ke lokasi lama. Jangan mengubah sumber sehingga seolah-olah langkah itu selalu ada. Jika rekonstruksi memerlukan asumsi baru, temuan telah melewati batas cacat eksposisi lokal dan harus ditinjau sebagai hipotesis yang hilang atau pernyataan yang salah.</p>
+</section>
+</section>
+<section id="o017-u07-severity-and-confidence" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="o017-u07-severity-and-confidence"><span class="header-section-number">4</span> Keparahan dan keyakinan berada pada dua sumbu</h2>
+<p><strong>Keparahan</strong> menjawab “jika diagnosis ini benar, seberapa luas akibatnya?”. <strong>Keyakinan</strong> menjawab “seberapa kuat bukti bahwa diagnosis ini benar?”. Keduanya tidak boleh dirata-ratakan menjadi satu angka.</p>
+<div class="o017-table-scroll" role="region" aria-label="Skala keparahan temuan errata" tabindex="0">
+<table aria-label="Skala keparahan temuan errata" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kode</th>
+<th>Nama</th>
+<th>Kriteria dampak</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>S0</code></td>
+<td>editorial</td>
+<td>makna matematika, keterlacakan, dan hasil komputasi tidak berubah</td>
+</tr>
+<tr class="even">
+<td><code>S1</code></td>
+<td>lokal</td>
+<td>satu kalimat, langkah, contoh, atau penunjuk terganggu; hasil utama tetap dapat dipertahankan dengan bukti yang tersedia</td>
+</tr>
+<tr class="odd">
+<td><code>S2</code></td>
+<td>material</td>
+<td>satu lemma, latihan, tabel, atau cabang argumen gagal; dampaknya telah dibatasi dan tidak mencapai keseluruhan karya</td>
+</tr>
+<tr class="even">
+<td><code>S3</code></td>
+<td>mayor</td>
+<td>teorema utama, banyak turunan, atau hasil publik utama mungkin tidak sah; jangkauan penuh belum tentu diketahui</td>
+</tr>
+<tr class="odd">
+<td><code>S4</code></td>
+<td>kritis</td>
+<td>cacat memengaruhi landasan banyak hasil atau pemakaian berisiko tinggi dan memerlukan penghentian pemakaian sementara</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="o017-table-scroll" role="region" aria-label="Skala keyakinan diagnosis errata" tabindex="0">
+<table aria-label="Skala keyakinan diagnosis errata" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kode</th>
+<th>Nama</th>
+<th>Dasar yang tersedia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>C0</code></td>
+<td>belum dinilai</td>
+<td>laporan ada, tetapi versi, lokasi, atau redaksi belum berhasil dibekukan</td>
+</tr>
+<tr class="even">
+<td><code>C1</code></td>
+<td>dugaan beralasan</td>
+<td>gejala nyata, tetapi reproducer, konteks, atau satu langkah audit masih hilang</td>
+</tr>
+<tr class="odd">
+<td><code>C2</code></td>
+<td>kuat</td>
+<td>reproducer dan konteks mendukung diagnosis; satu verifikasi independen atau bukti formal masih layak dicari</td>
+</tr>
+<tr class="even">
+<td><code>C3</code></td>
+<td>ditetapkan</td>
+<td>contoh tandingan atau pembuktian lengkap telah diperiksa terhadap versi dan penunjuk tepat</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Pasangan <code>S3/C1</code> berarti “potensi dampak besar, diagnosis belum tuntas”; ia bukan alasan untuk menyatakan teorema pasti salah. Pasangan <code>S0/C3</code> berarti “salah ketik telah dipastikan, tetapi tidak mengubah makna”. Pasangan <code>S2/C3</code> dapat lebih siap dikoreksi daripada <code>S4/C1</code>, meskipun angka keparahannya lebih rendah.</p>
+<div id="o017-u07-no-product-score" class="callout callout-style-default callout-warning callout-titled" title="Jangan kalikan dua sumbu">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Peringatan</span>Jangan kalikan dua sumbu
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Skor seperti <code>severity × confidence = priority</code> menyembunyikan alasan. Temuan berdampak kritis dengan bukti awal dapat memperoleh angka sama dengan temuan lokal yang sudah pasti, padahal tindakan yang dibutuhkan berbeda. Simpan pasangan kode, dasar masing-masing, dan aturan tindakan secara eksplisit.</p>
+</div>
+</div>
+<section id="o017-u07-action-matrix" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="o017-u07-action-matrix"><span class="header-section-number">4.1</span> Matriks tindakan yang tidak mengubah bukti</h3>
+<div class="o017-table-scroll" role="region" aria-label="Contoh tindakan menurut pasangan keparahan dan keyakinan" tabindex="0">
+<table aria-label="Contoh tindakan menurut pasangan keparahan dan keyakinan" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Keadaan</th>
+<th>Tindakan lokal</th>
+<th>Kalimat yang dilarang</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dampak rendah, keyakinan tinggi</td>
+<td>siapkan koreksi ringkas dan cek konsistensi silang</td>
+<td>“seluruh karya tidak dapat dipercaya”</td>
+</tr>
+<tr class="even">
+<td>dampak tinggi, keyakinan tinggi</td>
+<td>hentikan ketergantungan pada klaim, audit turunan, dan siapkan eskalasi</td>
+<td>“mungkin hanya gaya penulisan”</td>
+</tr>
+<tr class="odd">
+<td>dampak tinggi, keyakinan rendah</td>
+<td>bekukan bukti, tandai risiko, cari konteks atau penelaah yang tepat</td>
+<td>“teorema terbukti salah”</td>
+</tr>
+<tr class="even">
+<td>dampak tidak diketahui</td>
+<td>jangan isi keparahan dengan tebakan; petakan dependensi terlebih dahulu</td>
+<td>“hanya memengaruhi satu baris”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Prioritas juga dapat dipengaruhi oleh pemakaian aktif, tenggat, dan kemampuan menahan rilis. Faktor itu dicatat tersendiri; ia tidak mengubah fakta matematika.</p>
+</section>
+</section>
+<section id="o017-u07-freeze-before-diagnosis" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="o017-u07-freeze-before-diagnosis"><span class="header-section-number">5</span> Bekukan objek sebelum mendiagnosis</h2>
+<p>Satu laporan harus dapat membedakan karya, versi, salinan, dan lokasi. Bidang minimum berikut mencegah koreksi terhadap objek yang salah.</p>
+<div class="o017-table-scroll" role="region" aria-label="Bidang minimum untuk membekukan objek erratum" tabindex="0">
+<table aria-label="Bidang minimum untuk membekukan objek erratum" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bidang</th>
+<th>Isi</th>
+<th>Uji kelengkapan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>work_id</code></td>
+<td>identitas karya intelektual</td>
+<td>versi lain dapat ditautkan tanpa dianggap byte yang sama</td>
+</tr>
+<tr class="even">
+<td><code>version_id</code></td>
+<td>edisi, rilis, tanggal, commit, atau label keadaan</td>
+<td>nilai “terbaru” tidak diterima sebagai identitas</td>
+</tr>
+<tr class="odd">
+<td><code>copy_id</code></td>
+<td>salinan yang benar-benar diperiksa</td>
+<td>format, kelengkapan, dan identitas byte dicatat bila tersedia</td>
+</tr>
+<tr class="even">
+<td><code>locator</code></td>
+<td>bagian, teorema, persamaan, halaman, paragraf, baris, atau jangkar</td>
+<td>pembaca dengan salinan sama sampai pada redaksi yang sama</td>
+</tr>
+<tr class="odd">
+<td><code>observed_text</code></td>
+<td>kutipan pendek terkendali atau transkripsi tepat</td>
+<td>perbedaan antara teks sumber dan parafrasa laporan terlihat</td>
+</tr>
+<tr class="even">
+<td><code>observed_at</code></td>
+<td>waktu pemeriksaan</td>
+<td>bukan disamakan dengan tanggal terbit</td>
+</tr>
+<tr class="odd">
+<td><code>context_scope</code></td>
+<td>konvensi, definisi, atau asumsi yang berlaku di lokasi</td>
+<td>pemeriksa tahu apakah potongan berdiri sendiri</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jika hanya PDF tersedia, halaman cetak dan halaman berkas mungkin berbeda; catat keduanya bila perlu. Jika HTML berubah, jangkar saja mungkin tidak cukup; pasangkan dengan versi atau identitas arsip. Jika redaksi berasal dari gambar, bedakan karakter yang terlihat dari karakter yang hanya diduga. Jangan mengubah “huruf tampaknya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>O</mi><annotation encoding="application/x-tex">O</annotation></semantics></math>” menjadi “angka pasti <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>” tanpa dasar.</p>
+</section>
+<section id="o017-u07-minimal-reproducer" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="o017-u07-minimal-reproducer"><span class="header-section-number">6</span> Reproducer minimal untuk cacat matematika</h2>
+<p><strong>Reproducer minimal</strong>, atau kasus reproduksi minimal, adalah objek kecil yang menunjukkan kegagalan klaim tanpa meminta pembaca mempercayai narasi pelapor. Ia mempunyai lima bagian.</p>
+<ol type="1">
+<li><strong>Klaim beku.</strong> Tulis ulang kuantor, domain, hipotesis, dan kesimpulan tanpa memperkuat atau melemahkan teks sumber.</li>
+<li><strong>Objek calon.</strong> Pilih objek sesederhana mungkin yang masih berada dalam domain klaim.</li>
+<li><strong>Pemeriksaan hipotesis.</strong> Verifikasi satu per satu; jangan berhenti pada “jelas memenuhi”.</li>
+<li><strong>Kegagalan kesimpulan.</strong> Hitung atau buktikan negasi kesimpulan secara eksplisit.</li>
+<li><strong>Batas reproducer.</strong> Nyatakan klaim tepat yang ditolak dan klaim berdekatan yang tidak disentuh.</li>
+</ol>
+<p>Kecil tidak berarti kabur. Contoh dengan dua titik dapat lebih kuat daripada simulasi besar bila semua hipotesisnya dapat diperiksa secara eksak.</p>
+<p>Untuk cacat komputasional, bentuk paralelnya ialah versi kode, masukan, dependensi, perintah atau prosedur, keluaran aktual, keluaran yang diklaim, dan perbedaan yang teramati. Pembuatan lingkungan serta eksekusinya berada pada B80 dan Unit 6; Unit 7 menilai apakah bukti yang dihasilkan cukup untuk merumuskan koreksi.</p>
+<section id="o017-u07-reproducer-tests" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="o017-u07-reproducer-tests"><span class="header-section-number">6.1</span> Uji reproducer sebelum mengandalkannya</h3>
+<ul>
+<li>Apakah objek contoh benar-benar berada dalam domain dan memenuhi semua hipotesis eksplisit?</li>
+<li>Apakah konvensi yang berlaku pada bagian sumber telah dimasukkan?</li>
+<li>Apakah kegagalan bersifat eksak, atau hanya berasal dari pembulatan dan tampilan?</li>
+<li>Apakah contoh menolak klaim sumber, bukan penguatan buatan pelapor?</li>
+<li>Apakah bagian yang dapat dihapus tanpa menghilangkan kegagalan telah dihapus?</li>
+<li>Apakah pembaca dapat memeriksa reproducer tanpa akses tersembunyi?</li>
+</ul>
+</section>
+</section>
+<section id="o017-u07-worked-case" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="o017-u07-worked-case"><span class="header-section-number">7</span> Kasus kerja: tanda tetap tanpa keterhubungan</h2>
+<p>Kasus berikut sepenuhnya sintetis. Paket lokalnya menyatakan bahwa proposisi berdiri sendiri; tidak ada asumsi bagian yang diwariskan. Karena itu, temuan dapat diaudit tanpa mencari sumber luar.</p>
+<section id="o017-u07-worked-version" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="o017-u07-worked-version"><span class="header-section-number">7.1</span> Versi dan penunjuk yang diperiksa</h3>
+<div id="o017-u07-packet-v1" class="callout callout-style-default callout-warning callout-titled" title="O017-U07-V01 — Proposisi 7.3, versi sintetis 1.0">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Peringatan</span>O017-U07-V01 — Proposisi 7.3, versi sintetis 1.0
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Redaksi V01.</strong> Misalkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> ruang topologis dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> kontinu. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)\neq0</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>, maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> bertanda tetap: salah satu dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)&gt;0</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math> atau <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)&lt;0</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math> berlaku.</p>
+</div>
+</div>
+<p>Rekaman sumber lokal untuk kasus ini adalah:</p>
+<div class="o017-table-scroll" role="region" aria-label="Identitas versi dan lokasi kasus tanda tetap" tabindex="0">
+<table aria-label="Identitas versi dan lokasi kasus tanda tetap" class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bidang</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>work_id</code></td>
+<td><code>O017-U07-W01</code>, <em>Paket Topologi Sintetis</em></td>
+</tr>
+<tr class="even">
+<td><code>version_id</code></td>
+<td><code>O017-U07-V01</code>, label keadaan <code>1.0-sintetis</code></td>
+</tr>
+<tr class="odd">
+<td><code>copy_id</code></td>
+<td><code>O017-U07-CP01</code>, cuplikan lengkap yang tertanam pada unit ini</td>
+</tr>
+<tr class="even">
+<td><code>locator</code></td>
+<td><code>#o017-u07-packet-v1</code>, Proposisi 7.3</td>
+</tr>
+<tr class="odd">
+<td><code>claim_id</code></td>
+<td><code>O017-U07-C01</code></td>
+</tr>
+<tr class="even">
+<td><code>context_scope</code></td>
+<td>pernyataan berdiri sendiri; tidak ada konvensi keterhubungan yang diwariskan</td>
+</tr>
+<tr class="odd">
+<td><code>observed_text</code></td>
+<td>seluruh redaksi dalam kotak V01 di atas</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Istilah “bertanda tetap” pada V01 berarti disjungsi dua klaim universal, bukan hanya bahwa setiap titik mempunyai salah satu tanda. Hipotesis tidak pernah nol sudah menjamin tanda pada setiap titik; kesimpulan tambahan menuntut tanda yang sama di seluruh domain.</p>
+</section>
+<section id="o017-u07-two-point-counterexample" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="o017-u07-two-point-counterexample"><span class="header-section-number">7.2</span> Reproducer minimal dua titik</h3>
+<p>Ambil</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>⊂</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">
+X=\{-1,1\}\subset\mathbb R
+</annotation></semantics></math></p>
+<p>dengan topologi subruang, dan definisikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> oleh <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math>. Kita periksa semua hipotesis.</p>
+<ol type="1">
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> merupakan ruang topologis dengan topologi subruang. Bahkan, kedua singleton terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>=</mo><mi>X</mi><mo>∩</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>3</mn><mi>/</mi><mn>2</mn><mo>,</mo><mi>−</mi><mn>1</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\{-1\}=X\cap(-3/2,-1/2)</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>=</mo><mi>X</mi><mo>∩</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo>,</mo><mn>3</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\{1\}=X\cap(1/2,3/2)</annotation></semantics></math>.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> adalah pembatasan fungsi identitas kontinu pada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math>, sehingga kontinu pada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</li>
+<li>Untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>, berlaku <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)\neq0</annotation></semantics></math> karena nilainya hanya <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math> atau <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>.</li>
+<li>Kesimpulan pertama gagal sebab <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>1</mn><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(-1)=-1&lt;0</annotation></semantics></math>. Kesimpulan kedua gagal sebab <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(1)=1&gt;0</annotation></semantics></math>.</li>
+</ol>
+<p>Jadi kedua alternatif kesimpulan V01 gagal meskipun semua hipotesis tertulis terpenuhi. Ini menetapkan <code>statement_status(O017-U07-C01) = false_as_written</code> dengan keyakinan <code>C3</code>. Reproducer hanya membutuhkan dua titik; domain satu titik tidak mungkin memuat nilai positif dan negatif sekaligus, sehingga contoh ini juga minimal dalam jumlah titik.</p>
+<p>Temuan tersebut menolak V01. Ia tidak menolak pernyataan tentang domain terhubung, tidak menyatakan bahwa setiap fungsi pada domain tak terhubung berganti tanda, dan tidak mengungkap maksud penulis sintetis.</p>
+</section>
+<section id="o017-u07-missing-connectedness" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="o017-u07-missing-connectedness"><span class="header-section-number">7.3</span> Diagnosis: hipotesis keterhubungan hilang</h3>
+<p>Contoh tandingan memakai dua komponen domain. Kandidat perbaikan alami ialah menambahkan keterhubungan, bukan kekompakan, keterhubungan lintasan, atau asumsi bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> merupakan interval.</p>
+<div id="o017-u07-packet-v2" class="callout callout-style-default callout-important callout-titled" title="O017-U07-V02 — Proposisi 7.3, redaksi koreksi calon 1.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Penting</span>O017-U07-V02 — Proposisi 7.3, redaksi koreksi calon 1.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Redaksi V02.</strong> Misalkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> ruang topologis <strong>terhubung</strong> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> kontinu. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)\neq0</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>, maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)&gt;0</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math> atau <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)&lt;0</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>.</p>
+</div>
+</div>
+</section>
+<section id="o017-u07-connected-proof" class="level3" data-number="7.4">
+<h3 data-number="7.4" class="anchored" data-anchor-id="o017-u07-connected-proof"><span class="header-section-number">7.4</span> Pembuktian versi yang diperbaiki</h3>
+<p>Definisikan dua himpunan relatif terbuka</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>∞</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mspace width="2.0em"></mspace><mtext mathvariant="normal">dan</mtext><mspace width="2.0em"></mspace><mi>V</mi><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+U=f^{-1}((-\infty,0))
+\qquad\text{dan}\qquad
+V=f^{-1}((0,\infty)).
+</annotation></semantics></math></p>
+<p>Keduanya terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> kontinu. Keduanya saling lepas. Hipotesis <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)\neq0</annotation></semantics></math> untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> memberi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>U</mi><mo>∪</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">X=U\cup V</annotation></semantics></math>. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> sama-sama tak kosong, keduanya membentuk pemisahan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> menjadi dua himpunan terbuka tak kosong yang saling lepas, bertentangan dengan keterhubungan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. Maka salah satu dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> atau <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> kosong.</p>
+<p>Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> kosong, setiap nilai <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> tidak negatif; karena tidak ada nilai nol, setiap nilai positif. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> kosong, argumen yang sama menunjukkan setiap nilai negatif. Jadi salah satu alternatif V02 berlaku. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>▫</mi><annotation encoding="application/x-tex">\square</annotation></semantics></math></p>
+<p>Pembuktian memakai keterhubungan dan kekontinuan tepat satu kali melalui prahimpunan dua sinar terbuka. Ia tidak memakai metrik, kekompakan, keterhubungan lintasan, diferensiabilitas, atau Teorema Nilai Antara dalam bentuk khusus interval.</p>
+</section>
+<section id="o017-u07-minimal-repair" class="level3" data-number="7.5">
+<h3 data-number="7.5" class="anchored" data-anchor-id="o017-u07-minimal-repair"><span class="header-section-number">7.5</span> Mengapa perbaikannya minimal dalam arti yang relevan</h3>
+<p>“Minimal” harus menyebut kelas perbandingannya. Di sini kita mencari kondisi pada <strong>domain</strong> yang menjamin kesimpulan untuk setiap fungsi kontinu bernilai real yang tidak pernah bernilai nol. Dalam kelas itu, keterhubungan bukan hanya cukup, tetapi perlu.</p>
+<p>Andaikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> tidak terhubung. Maka terdapat himpunan terbuka tak kosong, saling lepas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math> dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">X=A\cup B</annotation></semantics></math>. Karena masing-masing merupakan komplemen yang lain, keduanya juga tertutup. Definisikan</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mi>−</mi><mn>1</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>x</mi><mo>∈</mo><mi>A</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>1</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>x</mi><mo>∈</mo><mi>B</mi><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+g(x)=
+\begin{cases}
+-1,&amp;x\in A,\\
+ 1,&amp;x\in B.
+\end{cases}
+</annotation></semantics></math></p>
+<p>Fungsi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math> kontinu: prahimpunan setiap himpunan terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math> adalah salah satu dari <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⌀</mi><annotation encoding="application/x-tex">\varnothing</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>, atau <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>, semuanya terbuka di <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. Fungsi itu tidak pernah nol tetapi mengambil kedua tanda. Dengan demikian,</p>
+<blockquote class="blockquote">
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> terhubung jika dan hanya jika setiap fungsi kontinu <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> yang tidak pernah nol bertanda tetap.</p>
+</blockquote>
+<p>Jadi menambahkan “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> terhubung” memulihkan teorema universal secara tepat. Menambahkan “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> terhubung lintasan”, “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> interval”, atau “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> kompak dan terhubung” juga cukup, tetapi lebih kuat dari yang diperlukan. Untuk satu fungsi tertentu, syarat bahwa citra <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(X)</annotation></semantics></math> terhubung juga cukup; itu bukan pengganti diagnosis mengenai kondisi domain yang menjamin hasil bagi <strong>semua</strong> fungsi kontinu.</p>
+</section>
+<section id="o017-u07-worked-triage" class="level3" data-number="7.6">
+<h3 data-number="7.6" class="anchored" data-anchor-id="o017-u07-worked-triage"><span class="header-section-number">7.6</span> Keparahan, keyakinan, dan jangkauan</h3>
+<div class="o017-table-scroll" role="region" aria-label="Triage kasus proposisi tanda tetap" tabindex="0">
+<table aria-label="Triage kasus proposisi tanda tetap" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bidang</th>
+<th>Nilai</th>
+<th>Dasar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>status pernyataan</td>
+<td><code>false_as_written</code></td>
+<td>reproducer dua titik memenuhi semua hipotesis dan melanggar kedua alternatif</td>
+</tr>
+<tr class="even">
+<td>jenis utama</td>
+<td><code>missing_hypothesis</code></td>
+<td>versi dengan keterhubungan terbukti benar dan kondisi itu perlu untuk jaminan universal pada domain</td>
+</tr>
+<tr class="odd">
+<td>akibat sekunder</td>
+<td>teorema salah sebagaimana ditulis</td>
+<td>status teks V01, bukan dugaan tentang maksud penulis</td>
+</tr>
+<tr class="even">
+<td>keparahan</td>
+<td><code>S2 material</code> untuk paket ini</td>
+<td>satu proposisi gagal; paket tidak menyediakan turunan lain</td>
+</tr>
+<tr class="odd">
+<td>keyakinan</td>
+<td><code>C3 ditetapkan</code></td>
+<td>contoh tandingan dan pembuktian koreksi lengkap tersedia</td>
+</tr>
+<tr class="even">
+<td>jangkauan belum diketahui</td>
+<td>pemakaian di luar paket</td>
+<td>tidak ada daftar dependensi eksternal dalam paket sintetis</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Keparahan tidak dinaikkan menjadi <code>S3</code> hanya karena kata “teorema” muncul. Paket yang tersedia hanya membuktikan satu proposisi terkena. Sebaliknya, jika audit dependensi kelak menemukan banyak hasil utama memakai V01 pada domain tak terhubung, keparahan dapat diubah oleh peristiwa baru tanpa mengubah bukti awal.</p>
+</section>
+</section>
+<section id="o017-u07-history-preserving-correction" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="o017-u07-history-preserving-correction"><span class="header-section-number">8</span> Koreksi harus mempertahankan sejarah</h2>
+<p>Mengganti teks V01 dengan V02 di tempat yang sama lalu menghapus V01 menghilangkan jawaban atas pertanyaan penting: versi mana pernah memuat klaim salah, bukti apa yang menemukannya, dan keluaran mana mungkin bergantung padanya. Koreksi yang dapat diaudit memakai identitas baru dan hubungan berarah.</p>
+<pre class="text"><code>V01 --contains--&gt; C01 --refutedBy--&gt; CE01
+ |                    |
+ |                    +--diagnosedAs--&gt; missing_hypothesis
+ |
+ +--succeededBy--&gt; V02 --contains--&gt; C02 --provedBy--&gt; PR01
+
+COR01 --corrects--&gt; C01
+COR01 --proposes--&gt; C02</code></pre>
+<p><code>C01</code> tetap berstatus ditolak; ia tidak berubah menjadi <code>C02</code>. <code>V01</code> tetap ada sebagai versi historis; ia tidak diberi label “tidak pernah berlaku”. <code>V02</code> memperoleh bukti dan statusnya sendiri.</p>
+<section id="o017-u07-worked-event-ledger" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="o017-u07-worked-event-ledger"><span class="header-section-number">8.1</span> Buku besar peristiwa kasus kerja</h3>
+<div class="o017-table-scroll" role="region" aria-label="Buku besar peristiwa koreksi kasus tanda tetap" tabindex="0">
+<table aria-label="Buku besar peristiwa koreksi kasus tanda tetap" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Peristiwa</th>
+<th>Tindakan tambahan</th>
+<th>Objek</th>
+<th>Alasan dan bukti</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>O017-U07-EVT01</code></td>
+<td><code>observed</code></td>
+<td><code>C01 at V01/#o017-u07-packet-v1</code></td>
+<td>redaksi dan konteks paket dibekukan</td>
+</tr>
+<tr class="even">
+<td><code>O017-U07-EVT02</code></td>
+<td><code>refuted</code></td>
+<td><code>C01</code></td>
+<td><code>O017-U07-CE01</code>, reproducer dua titik di <code>#o017-u07-two-point-counterexample</code></td>
+</tr>
+<tr class="odd">
+<td><code>O017-U07-EVT03</code></td>
+<td><code>classified</code></td>
+<td>temuan <code>F01</code></td>
+<td>status salah; diagnosis utama hipotesis keterhubungan hilang; <code>S2/C3</code></td>
+</tr>
+<tr class="even">
+<td><code>O017-U07-EVT04</code></td>
+<td><code>proposed</code></td>
+<td><code>C02 in V02</code></td>
+<td>redaksi calon pada <code>#o017-u07-packet-v2</code></td>
+</tr>
+<tr class="odd">
+<td><code>O017-U07-EVT05</code></td>
+<td><code>proved</code></td>
+<td><code>C02</code></td>
+<td>pembuktian pada <code>#o017-u07-connected-proof</code></td>
+</tr>
+<tr class="even">
+<td><code>O017-U07-EVT06</code></td>
+<td><code>bounded</code></td>
+<td>dampak <code>F01</code></td>
+<td>paket tidak memuat audit hasil turunan; jangkauan luar tetap belum diketahui</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jika kelak V02 juga perlu koreksi, tambahkan V03 dan hubungan baru. Jangan menghapus EVT04 atau EVT05; pembaca perlu mengetahui apa yang pernah diusulkan dan dasar penerimaannya pada saat itu.</p>
+</section>
+<section id="o017-u07-correction-record-fields" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="o017-u07-correction-record-fields"><span class="header-section-number">8.2</span> Isi minimum satu rekaman koreksi</h3>
+<div class="o017-table-scroll" role="region" aria-label="Bidang minimum rekaman koreksi yang mempertahankan sejarah" tabindex="0">
+<table aria-label="Bidang minimum rekaman koreksi yang mempertahankan sejarah" class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bidang</th>
+<th>Pertanyaan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>correction_id</code></td>
+<td>koreksi mana yang sedang dibicarakan?</td>
+</tr>
+<tr class="even">
+<td><code>target_version</code> dan <code>target_locator</code></td>
+<td>redaksi historis mana yang terkena?</td>
+</tr>
+<tr class="odd">
+<td><code>target_claim</code></td>
+<td>klaim ternormalisasi apa yang dinilai?</td>
+</tr>
+<tr class="even">
+<td><code>observation</code></td>
+<td>apa yang benar-benar tampak pada salinan?</td>
+</tr>
+<tr class="odd">
+<td><code>reproducer</code></td>
+<td>bukti kecil apa menunjukkan kegagalan?</td>
+</tr>
+<tr class="even">
+<td><code>statement_status</code> dan <code>defect_kind</code></td>
+<td>apa akibat formal dan diagnosis penyebabnya?</td>
+</tr>
+<tr class="odd">
+<td><code>severity</code> dan <code>confidence</code></td>
+<td>seberapa luas akibat jika benar, dan seberapa kuat buktinya?</td>
+</tr>
+<tr class="even">
+<td><code>replacement_claim</code></td>
+<td>redaksi baru apa yang diusulkan?</td>
+</tr>
+<tr class="odd">
+<td><code>verification</code></td>
+<td>bukti apa mendukung redaksi baru?</td>
+</tr>
+<tr class="even">
+<td><code>supersession_relation</code></td>
+<td>objek baru mengganti pemakaian aktif yang mana tanpa menghapus sejarah?</td>
+</tr>
+<tr class="odd">
+<td><code>uncertainties</code></td>
+<td>konteks, niat, atau dampak apa yang belum diketahui?</td>
+</tr>
+<tr class="even">
+<td><code>event_log</code></td>
+<td>kapan dan atas dasar apa status berubah?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="o017-u07-concise-draft" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="o017-u07-concise-draft"><span class="header-section-number">9</span> Menulis draf isu atau erratum yang ringkas</h2>
+<p>Draf yang baik mendahulukan fakta yang dapat diperiksa. Salam panjang, penilaian terhadap penulis, riwayat seluruh proses, dan dugaan tentang niat tidak diperlukan. Judul menyebut lokasi dan jenis masalah. Isi menyebut versi, redaksi, reproducer, koreksi calon, dan batas.</p>
+<div id="o017-u07-draft-only" class="callout callout-style-default callout-note callout-titled" title="Draf lokal — tidak dikirim ke pihak mana pun">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>Draf lokal — tidak dikirim ke pihak mana pun
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Judul:</strong> Proposisi 7.3 pada versi 1.0 kehilangan hipotesis keterhubungan</p>
+<p><strong>Versi dan lokasi:</strong> <code>O017-U07-V01</code>, Proposisi 7.3, <code>#o017-u07-packet-v1</code>.</p>
+<p><strong>Masalah:</strong> Pernyataan mengklaim bahwa setiap fungsi kontinu yang tidak pernah bernilai nol <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> bertanda tetap untuk ruang topologis sebarang.</p>
+<p><strong>Reproducer minimal:</strong> Ambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">X=\{-1,1\}</annotation></semantics></math> dengan topologi subruang dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math>. Fungsi ini kontinu dan tidak pernah nol, tetapi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn><mo>&lt;</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-1)&lt;0&lt;f(1)</annotation></semantics></math>.</p>
+<p><strong>Koreksi calon:</strong> Tambahkan bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> terhubung. Dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>∞</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">U=f^{-1}((-\infty,0))</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V=f^{-1}((0,\infty))</annotation></semantics></math>, kedua himpunan terbuka, saling lepas, dan menutupi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>; keterhubungan memaksa salah satunya kosong.</p>
+<p><strong>Cakupan:</strong> Contoh tandingan menetapkan bahwa proposisi salah sebagaimana ditulis. Paket yang diperiksa tidak cukup untuk menentukan semua hasil turunan yang mungkin terpengaruh.</p>
+</div>
+</div>
+<p>Draf tersebut tidak mengklaim mengetahui maksud penulis, tidak meminta penggantian seluruh karya, dan tidak menyatakan dampak yang belum diaudit. Jika laporan ditujukan ke proyek nyata, identitas versi publik, penunjuk yang dapat diakses penerima, kebijakan kontribusi, serta kewenangan untuk mengirim harus diperiksa secara terpisah.</p>
+<section id="o017-u07-six-sentence-template" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="o017-u07-six-sentence-template"><span class="header-section-number">9.1</span> Templat enam kalimat</h3>
+<p>Jika kasusnya sederhana, enam kalimat berikut sering cukup.</p>
+<ol type="1">
+<li>“Saya memeriksa <strong>[versi/salinan]</strong> pada <strong>[penunjuk]</strong>.”</li>
+<li>“Teks menyatakan <strong>[klaim ternormalisasi]</strong>.”</li>
+<li>“Ambil <strong>[objek minimal]</strong>; ia memenuhi <strong>[daftar hipotesis]</strong>.”</li>
+<li>“Namun <strong>[perhitungan atau argumen]</strong> melanggar <strong>[kesimpulan]</strong>.”</li>
+<li>“Redaksi <strong>[koreksi calon]</strong> cukup karena <strong>[bukti singkat atau lokator bukti]</strong>.”</li>
+<li>“Saya belum menentukan <strong>[jangkauan, niat, atau ketidakpastian yang nyata]</strong>.”</li>
+</ol>
+<p>Jika koreksi tidak dapat dibuktikan dalam ruang yang ringkas, kalimat kelima harus berbunyi “koreksi belum ditetapkan”, lalu menautkan dossier bukti; jangan memadatkan celah menjadi kepastian palsu.</p>
+</section>
+<section id="o017-u07-accessible-report" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="o017-u07-accessible-report"><span class="header-section-number">9.2</span> Laporan harus tetap dapat diakses</h3>
+<p>Jangan menjadikan warna, posisi visual, atau tangkapan layar sebagai satu-satunya bukti. Transkripsikan redaksi yang dipersoalkan secara singkat, beri nama pada setiap tabel dan rumus penting, serta jelaskan perbedaan dengan kata-kata. Penunjuk seperti “kotak merah di kanan” harus disertai versi dan label yang bermakna tanpa gambar. Jika bentuk karakter justru merupakan masalah—misalnya huruf <code>O</code> yang menyerupai angka <code>0</code>—catat apa yang terlihat dan sediakan deskripsi tekstual; jangan menyelesaikan ambiguitas hanya dengan warna atau tipografi. Urutan draf harus tetap logis ketika dibaca secara linear: target, klaim, reproducer, koreksi calon, lalu batas kepastian.</p>
+</section>
+</section>
+<section id="o017-u07-uncertainty-ledger" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="o017-u07-uncertainty-ledger"><span class="header-section-number">10</span> Buku besar ketidakpastian</h2>
+<p>Ketidakpastian bukan paragraf permintaan maaf. Ia merupakan objek kerja dengan pertanyaan, bukti yang ada, akibat jika salah, uji berikut, dan aturan berhenti.</p>
+<div class="o017-table-scroll" role="region" aria-label="Buku besar ketidakpastian untuk kasus tanda tetap" tabindex="0">
+<table aria-label="Buku besar ketidakpastian untuk kasus tanda tetap" class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Pertanyaan</th>
+<th>Yang diketahui</th>
+<th>Yang belum diketahui</th>
+<th>Dampak</th>
+<th>Uji atau tindakan berikut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>O017-U07-UQ01</code></td>
+<td>apakah V01 salah sebagai pernyataan berdiri sendiri?</td>
+<td>paket menyatakan tidak ada asumsi bagian; contoh tandingan eksak tersedia</td>
+<td>tidak ada ketidakpastian material yang tersisa</td>
+<td>status C01</td>
+<td>tutup pada <code>C3</code></td>
+</tr>
+<tr class="even">
+<td><code>O017-U07-UQ02</code></td>
+<td>apakah keterhubungan merupakan perbaikan yang cukup?</td>
+<td>pembuktian lengkap tersedia</td>
+<td>tidak ada untuk kecukupan</td>
+<td>status C02</td>
+<td>tutup pada <code>C3</code></td>
+</tr>
+<tr class="odd">
+<td><code>O017-U07-UQ03</code></td>
+<td>apakah itu redaksi yang dimaksud pencipta?</td>
+<td>perbaikan alami dan tepat untuk teorema universal</td>
+<td>niat pencipta tidak direkam</td>
+<td>pilihan redaksional</td>
+<td>jangan mengklaim niat; minta keputusan pemilik bila penerbitan nyata dilakukan</td>
+</tr>
+<tr class="even">
+<td><code>O017-U07-UQ04</code></td>
+<td>hasil mana bergantung pada V01?</td>
+<td>paket lokal tidak memuat dependensi lain</td>
+<td>seluruh jangkauan di luar paket</td>
+<td>keparahan</td>
+<td>pertahankan <code>S2</code> untuk paket; audit dependensi sebelum klaim yang lebih luas</td>
+</tr>
+<tr class="odd">
+<td><code>O017-U07-UQ05</code></td>
+<td>apakah V02 sudah diterbitkan?</td>
+<td>V02 hanya koreksi calon di unit ini</td>
+<td>tidak ada rilis eksternal</td>
+<td>status versi</td>
+<td>jangan menyebut V01 telah diganti di luar paket</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Gunakan status seperti <code>terbuka</code>, <code>sedang diuji</code>, <code>ditutup-didukung</code>, dan <code>ditutup-tidak dapat dipastikan</code>. “Ditutup-tidak dapat dipastikan” bukan “benar”; status itu menyimpan batas pemeriksaan.</p>
+<section id="o017-u07-certainty-language" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="o017-u07-certainty-language"><span class="header-section-number">10.1</span> Bahasa yang sesuai dengan kekuatan bukti</h3>
+<div class="o017-table-scroll" role="region" aria-label="Padanan bahasa laporan dengan status bukti" tabindex="0">
+<table aria-label="Padanan bahasa laporan dengan status bukti" class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Status bukti</th>
+<th>Bahasa yang tepat</th>
+<th>Bahasa yang terlalu kuat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>teks terlihat pada salinan beku</td>
+<td>“salinan CP01 memuat …”</td>
+<td>“semua edisi menyatakan …”</td>
+</tr>
+<tr class="even">
+<td>reproducer eksak telah diperiksa</td>
+<td>“klaim salah sebagaimana ditulis”</td>
+<td>“penulis tidak memahami …”</td>
+</tr>
+<tr class="odd">
+<td>satu koreksi terbukti cukup</td>
+<td>“menambahkan keterhubungan menghasilkan pernyataan benar”</td>
+<td>“inilah satu-satunya koreksi yang mungkin”</td>
+</tr>
+<tr class="even">
+<td>konteks belum lengkap</td>
+<td>“belum diketahui apakah ada konvensi bagian”</td>
+<td>“pasti tidak ada asumsi lain”</td>
+</tr>
+<tr class="odd">
+<td>beberapa turunan telah diaudit</td>
+<td>“dampak telah ditemukan pada A dan B”</td>
+<td>“hanya A dan B yang terpengaruh”</td>
+</tr>
+<tr class="even">
+<td>keluaran komputasi tidak cocok</td>
+<td>“rekaman eksekusi tidak konsisten”</td>
+<td>“algoritmenya pasti salah”</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="o017-u07-stop-and-escalate" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="o017-u07-stop-and-escalate"><span class="header-section-number">11</span> Gerbang berhenti dan eskalasi</h2>
+<p>Ketelitian tidak berarti memeriksa tanpa batas. Gunakan gerbang yang dapat diamati.</p>
+<section id="o017-u07-stop-before-claim" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="o017-u07-stop-before-claim"><span class="header-section-number">11.1</span> Berhenti sebelum menyatakan kesalahan</h3>
+<p>Berhenti sebelum menetapkan <strong>status klaim lama</strong> dan simpan temuan sebagai <code>C0</code> atau <code>C1</code> jika salah satu keadaan berikut berlaku:</p>
+<ul>
+<li>versi atau lokasi tidak dapat dibedakan;</li>
+<li>redaksi hanya tersedia sebagai parafrasa pihak kedua;</li>
+<li>contoh calon gagal memenuhi satu hipotesis;</li>
+<li>konvensi bagian yang mungkin memasok hipotesis belum diperiksa; atau</li>
+<li>kegagalan numerik berada dalam batas pembulatan yang tidak diketahui.</li>
+</ul>
+<p>Berhenti berarti jangan menaikkan status, bukan membuang catatan. Simpan bukti, pertanyaan, dan langkah berikutnya.</p>
+<p>Status <strong>koreksi calon</strong> mempunyai gerbang tersendiri. Jika contoh tandingan eksak telah menetapkan klaim lama sebagai <code>false_as_written/C3</code>, pertahankan status itu meskipun penggantinya belum terbukti. Tandai pengganti <code>unresolved</code>, jangan aktifkan sebagai koreksi, dan berhenti sebelum menyatakan bahwa masalah telah diperbaiki. Ketidakpastian perbaikan tidak menurunkan kekuatan bukti terhadap klaim lama.</p>
+</section>
+<section id="o017-u07-escalation-rule" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="o017-u07-escalation-rule"><span class="header-section-number">11.2</span> Eskalasi tanpa melebih-lebihkan</h3>
+<p>Eskalasi ke penelaah yang sesuai atau pemilik keputusan jika:</p>
+<ol type="1">
+<li>keparahan aktual atau potensial <code>S3</code> atau <code>S4</code>, pada tingkat keyakinan apa pun; <code>C1/C2</code> memerlukan verifikasi tambahan, sedangkan <code>C3</code> memerlukan audit dependensi dan keputusan penahanan atau koreksi keluaran aktif;</li>
+<li>pembuktian koreksi bergantung pada keahlian di luar pemeriksa;</li>
+<li>dua perbaikan tak ekuivalen sama-sama cocok dengan konteks;</li>
+<li>identitas lisensi atau hak komponen memengaruhi bentuk koreksi yang dapat diterbitkan;</li>
+<li>audit dependensi menemukan keluaran aktif yang mungkin memakai klaim salah; atau</li>
+<li>ketidakcocokan komputasi tidak dapat dipisahkan antara kode, data, lingkungan, dan interpretasi hasil.</li>
+</ol>
+<p>Eskalasi harus membawa dossier, bukan hanya alarm: versi, penunjuk, reproducer, pasangan keparahan/keyakinan, pertanyaan terbuka, dan keputusan yang diminta. Menghubungi pihak luar merupakan tindakan terpisah dan tidak dilakukan oleh unit ini.</p>
+</section>
+<section id="o017-u07-closure-conditions" class="level3" data-number="11.3">
+<h3 data-number="11.3" class="anchored" data-anchor-id="o017-u07-closure-conditions"><span class="header-section-number">11.3</span> Kondisi penutupan</h3>
+<p>Satu temuan dapat ditutup sebagai <strong>dikoreksi secara lokal</strong> ketika:</p>
+<ul>
+<li>target historis tetap dapat dikenali;</li>
+<li>status klaim lama dan bukti kegagalannya tercatat;</li>
+<li>klaim pengganti mempunyai bukti yang cukup;</li>
+<li>jangkauan dampak yang diperiksa dinyatakan;</li>
+<li>ketidakpastian yang tersisa tidak disamarkan; dan</li>
+<li>artefak aktif menunjuk versi baru tanpa menghapus versi lama.</li>
+</ul>
+<p>Penutupan lokal tidak berarti koreksi telah diterima atau diterbitkan oleh pihak lain.</p>
+</section>
+</section>
+<section id="o017-u07-correction-protocol" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="o017-u07-correction-protocol"><span class="header-section-number">12</span> Protokol audit dan koreksi</h2>
+<p>Gunakan urutan berikut untuk temuan matematika atau komputasional.</p>
+<ol type="1">
+<li><strong>Daftarkan temuan.</strong> Beri ID dan catat siapa atau apa yang memicu pemeriksaan; jangan langsung memberi vonis.</li>
+<li><strong>Bekukan target.</strong> Catat karya, versi, salinan, penunjuk, redaksi, waktu, dan cakupan konteks.</li>
+<li><strong>Normalisasi klaim.</strong> Tulis kuantor, tipe, hipotesis, dan kesimpulan.</li>
+<li><strong>Klasifikasikan sementara.</strong> Pisahkan status pernyataan dari jenis cacat.</li>
+<li><strong>Bangun reproducer minimal.</strong> Periksa semua hipotesis dan tunjukkan kegagalan tepat.</li>
+<li><strong>Nilai dua sumbu.</strong> Tetapkan keparahan dan keyakinan dengan dasar masing-masing; tandai jangkauan yang belum diaudit.</li>
+<li><strong>Cari koreksi tersempit.</strong> Uji pengurangan asumsi atau pelemahan kesimpulan; jangan menebak maksud.</li>
+<li><strong>Buktikan koreksi.</strong> Simpan bukti baru sebagai objek terpisah.</li>
+<li><strong>Audit dependensi.</strong> Tentukan hasil mana benar-benar memakai klaim lama dan pada domain apa.</li>
+<li><strong>Tambahkan peristiwa.</strong> Hubungkan versi lama, bukti kegagalan, koreksi, dan versi calon; jangan timpa.</li>
+<li><strong>Tulis draf ringkas.</strong> Sertakan fakta, reproducer, koreksi, dan batas; biarkan kontak eksternal tetap di luar proses ini.</li>
+<li><strong>Terapkan gerbang.</strong> Tutup, tahan, atau eskalasi menurut bukti dan kewenangan yang tersedia.</li>
+</ol>
+<p>Urutan dapat kembali ke langkah sebelumnya. Penemuan konvensi bagian baru, misalnya, mengubah normalisasi klaim dan mungkin membatalkan reproducer. Log peristiwa harus menyimpan perubahan itu alih-alih menyajikan keputusan akhir sebagai keputusan pertama.</p>
+</section>
+<section id="o017-u07-guided-practice" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="o017-u07-guided-practice"><span class="header-section-number">13</span> Praktik terpandu: satu temuan, dua sumbu, tiga klaim</h2>
+<p>Sebuah naskah sintetis versi <code>2.1</code> menulis pada Lemma 4:</p>
+<blockquote class="blockquote">
+<p>Untuk setiap bilangan real <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\sqrt{x^2}=x</annotation></semantics></math>.</p>
+</blockquote>
+<p>Ambil <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=-2</annotation></semantics></math>. Hipotesis “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> real” terpenuhi, sedangkan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></msqrt><mo>=</mo><msqrt><mn>4</mn></msqrt><mo>=</mo><mn>2</mn><mo>≠</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\sqrt{(-2)^2}=\sqrt4=2\neq-2</annotation></semantics></math>. Jadi lemma salah sebagaimana ditulis. Perbaikan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">\sqrt{x^2}=|x|</annotation></semantics></math> benar untuk setiap <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">x\in\mathbb R</annotation></semantics></math> berdasarkan definisi akar kuadrat utama. Perbaikan lain, “jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\geq0</annotation></semantics></math>, maka <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\sqrt{x^2}=x</annotation></semantics></math>”, juga benar tetapi mempersempit domain.</p>
+<p>Tiga klaim harus dipisahkan:</p>
+<ul>
+<li><code>C-old</code>: pernyataan universal lama, ditolak oleh <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=-2</annotation></semantics></math>;</li>
+<li><code>C-abs</code>: identitas dengan nilai mutlak, diterima dengan bukti definisional;</li>
+<li><code>C-nonneg</code>: pembatasan domain, diterima tetapi lebih sempit.</li>
+</ul>
+<p>Kita dapat menetapkan keyakinan <code>C3</code>. Keparahan belum dapat disimpulkan dari lemma saja: jika tidak ada hasil lain memakainya, mungkin <code>S1</code>; jika banyak turunan mengganti <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><annotation encoding="application/x-tex">\sqrt{x^2}</annotation></semantics></math> dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> untuk nilai negatif, mungkin <code>S3</code>. Sampai graf dependensi diperiksa, catat <code>severity = unknown</code>, bukan memilih angka yang terasa wajar.</p>
+</section>
+<section id="o017-u07-preflight" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="o017-u07-preflight"><span class="header-section-number">14</span> Daftar periksa sebelum menyelesaikan draf</h2>
+<ol type="1">
+<li>Apakah versi, salinan, penunjuk, dan redaksi yang diperiksa tepat?</li>
+<li>Apakah klaim telah dinormalisasi tanpa perubahan diam-diam?</li>
+<li>Apakah setiap hipotesis reproducer benar-benar diperiksa?</li>
+<li>Apakah kegagalan kesimpulan bersifat eksak dan relevan?</li>
+<li>Apakah status pernyataan dibedakan dari diagnosis jenis cacat?</li>
+<li>Apakah keparahan dan keyakinan mempunyai dasar yang berbeda?</li>
+<li>Apakah koreksi calon terbukti cukup dan tidak lebih kuat dari kebutuhan tanpa alasan?</li>
+<li>Apakah versi dan klaim lama masih tersimpan dalam sejarah?</li>
+<li>Apakah dampak yang belum diaudit serta niat yang tidak diketahui tetap disebut tidak diketahui?</li>
+<li>Apakah draf meminta satu tindakan yang jelas tanpa penilaian pribadi?</li>
+<li>Apakah gerbang berhenti, eskalasi, dan kewenangan kontak dipatuhi?</li>
+</ol>
+</section>
+<section id="o017-u07-exercises" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="o017-u07-exercises"><span class="header-section-number">15</span> Latihan</h2>
+<ol type="1">
+<li><p><strong><span id="o017-u07-x01">O017-U07-X01</span> — Klasifikasi dua lapis.</strong> Untuk setiap kasus berikut, berikan <code>statement_status</code>, <code>defect_kind</code> utama, dan satu akibat sekunder bila ada: (a) indeks <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> tercetak <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>, tetapi substitusi di baris berikut hanya konsisten dengan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math>; (b) bukti memakai kekompakan yang tidak tercantum dan teorema gagal pada domain tak kompak;</p>
+<ol start="3" type="a">
+<li>“lihat Lemma 2” ketika dua lampiran masing-masing mempunyai Lemma 2;</li>
+<li>log menyebut kode revisi <code>r3</code>, sedangkan manifes dan keluaran menyebut <code>r2</code>; (e) sebuah implikasi benar, tetapi satu paragraf memakai konversnya; dan (f) satu definisi benar tetapi simbolnya berubah tipe tanpa penjelasan. Tautkan jawaban Anda ke <strong><a href="#o017-u07-h01">O017-U07-H01</a></strong>.</li>
+</ol></li>
+<li><p><strong><span id="o017-u07-x02">O017-U07-X02</span> — Keparahan bukan keyakinan.</strong> Buat pasangan kode dan alasan untuk: (a) salah ketik judul yang pasti dan tidak memengaruhi temu kembali; (b) dugaan bahwa teorema utama salah karena satu simulasi tidak stabil; (c) contoh tandingan eksak terhadap latihan mandiri yang tidak dipakai di tempat lain; dan (d) ketidakcocokan versi kode pada hasil utama dengan jangkauan belum diaudit. Jangan menghasilkan satu skor gabungan. Tautkan jawaban Anda ke <strong><a href="#o017-u07-h02">O017-U07-H02</a></strong>.</p></li>
+<li><p><strong><span id="o017-u07-x03">O017-U07-X03</span> — Versi, penunjuk, dan reproducer.</strong> Sebuah laporan hanya berbunyi “edisi baru, teorema monoton salah untuk <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">x=-1</annotation></semantics></math>”. Tulis daftar pertanyaan minimum yang harus dijawab sebelum status dapat dinaikkan dari <code>C0</code>. Lalu tulis kerangka reproducer yang memisahkan hipotesis, objek, kegagalan kesimpulan, dan batas. Tautkan jawaban Anda ke <strong><a href="#o017-u07-h03">O017-U07-H03</a></strong>.</p></li>
+<li><p><strong><span id="o017-u07-x04">O017-U07-X04</span> — Perbaikan keterhubungan.</strong> Buktikan bahwa jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> terhubung dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi><mo>\</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R\setminus\{0\}</annotation></semantics></math> kontinu, maka citra <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(X)</annotation></semantics></math> terletak seluruhnya dalam satu komponen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℝ</mi><mo>\</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathbb R\setminus\{0\}</annotation></semantics></math>. Kemudian, untuk ruang tak terhubung sebarang, bangun fungsi kontinu ke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{-1,1\}</annotation></semantics></math> yang mengambil kedua nilai. Jelaskan mengapa “terhubung lintasan” merupakan perbaikan yang terlalu kuat untuk klaim ini. Tautkan jawaban Anda ke <strong><a href="#o017-u07-h04">O017-U07-H04</a></strong>.</p></li>
+<li><p><strong><span id="o017-u07-x05">O017-U07-X05</span> — Sejarah koreksi.</strong> Suatu versi <code>V1</code> memuat klaim <code>CLM1</code>; contoh tandingan <code>CE1</code> menolaknya; <code>V2</code> memuat klaim pengganti <code>CLM2</code>; kemudian <code>V3</code> mempersempit notasi tanpa mengubah makna <code>CLM2</code>. Rancang peristiwa dan hubungan berarah yang menyimpan ketiga versi. Jelaskan mengapa mengubah isi <code>CLM1</code> menjadi isi <code>CLM2</code> merusak audit. Tautkan jawaban Anda ke <strong><a href="#o017-u07-h05">O017-U07-H05</a></strong>.</p></li>
+<li><p><strong><span id="o017-u07-x06">O017-U07-X06</span> — Draf dan gerbang.</strong> Tulis draf enam kalimat untuk kasus <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\sqrt{x^2}=x</annotation></semantics></math> pada praktik terpandu. Tambahkan dua entri ketidakpastian: jangkauan hasil turunan dan pilihan antara koreksi nilai mutlak atau pembatasan domain. Tentukan kondisi berhenti dan satu keputusan yang harus dieskalasi. Draf tetap lokal. Tautkan jawaban Anda ke <strong><a href="#o017-u07-h06">O017-U07-H06</a></strong>.</p></li>
+</ol>
+</section>
+<section id="o017-u07-guidance" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="o017-u07-guidance"><span class="header-section-number">16</span> Petunjuk dan panduan jawaban</h2>
+<ol type="1">
+<li><p><strong><span id="o017-u07-h01">O017-U07-H01</span>.</strong> (a) terutama salah ketik; status matematika bergantung pada redaksi yang dianggap aktif, jadi jangan mengubahnya tanpa mencatat bukti konteks; gunakan <code>not_applicable</code> bila temuan hanya mengenai bentuk cetak, lalu nilai klaim rumus sebagai objek terpisah. (b) teorema <code>false_as_written</code> dengan diagnosis hipotesis kekompakan hilang. (c) penunjuk ambigu dengan status klaim <code>not_applicable</code>. (d) cacat komputasional/provenance; klaim bahwa revisi <code>r3</code> telah dijalankan masih <code>unsupported_as_written</code>, dan bukti belum cukup untuk menyatakan algoritme salah. (e) penggunaan lokal salah meskipun implikasi sumber dapat tetap benar. (f) cacat eksposisi lokal dengan <code>not_applicable</code> jika belum ada klaim yang dinilai, kecuali perubahan tipe membuat klaim tertentu salah. Simpan status dan penyebab sebagai bidang berbeda.</p></li>
+<li><p><strong><span id="o017-u07-h02">O017-U07-H02</span>.</strong> Bentuk yang masuk akal ialah (a) <code>S0/C3</code>; (b) potensi <code>S3/C1</code>, karena simulasi belum menjadi contoh tandingan eksak; (c) <code>S1</code> atau <code>S2</code> dengan <code>C3</code>, bergantung pada peran latihan tetapi jangkauan telah dibatasi; dan (d) keparahan belum diketahui atau potensi <code>S3</code>, dengan keyakinan kuat hanya terhadap ketidakcocokan artefak, bukan terhadap salahnya hasil matematika. Alasan setiap sumbu lebih penting dari kode tunggal.</p></li>
+<li><p><strong><span id="o017-u07-h03">O017-U07-H03</span>.</strong> Mintalah judul karya, nomor edisi atau identitas versi, salinan, format, halaman/bagian/label, redaksi lengkap, definisi “monoton”, domain, asumsi bagian, dan waktu observasi. Reproducer harus menuliskan klaim dengan kuantor, memeriksa bahwa <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math> berada dalam domain dan memenuhi hipotesis, menghitung kegagalan tepat, lalu menyatakan apakah ia menolak klaim sumber atau penguatan buatan pelapor.</p></li>
+<li><p><strong><span id="o017-u07-h04">O017-U07-H04</span>.</strong> Citra kontinu ruang terhubung terhubung, sedangkan dua komponen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℝ</mi><mo>\</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathbb R\setminus\{0\}</annotation></semantics></math> ialah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>∞</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(-\infty,0)</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,\infty)</annotation></semantics></math>. Atau gunakan prahimpunan seperti pada bukti unit. Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">X=A\cup B</annotation></semantics></math> merupakan pemisahan, fungsi bernilai <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math> pada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math> pada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math> kontinu karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math> terbuka sekaligus tertutup. Keterhubungan saja telah cukup, sehingga keterhubungan lintasan menambahkan struktur yang tidak dipakai.</p></li>
+<li><p><strong><span id="o017-u07-h05">O017-U07-H05</span>.</strong> Simpan sedikitnya <code>V1 contains CLM1</code>, <code>CLM1 refutedBy CE1</code>, <code>V2 succeeds V1</code>, <code>V2 contains CLM2</code>, <code>CLM2 provedBy P2</code>, <code>V3 succeeds V2</code>, dan <code>V3 restates CLM2</code> atau klaim baru yang dinyatakan ekuivalen dengan bukti. Peristiwa observasi, penolakan, pengusulan, pembuktian, dan perubahan notasi tetap terurut. Menimpa <code>CLM1</code> menghapus objek yang sebenarnya ditolak CE1 dan membuat turunan historis tampak memakai klaim yang belum ada.</p></li>
+<li><p><strong><span id="o017-u07-h06">O017-U07-H06</span>.</strong> Draf harus menyebut versi dan lokasi, redaksi universal, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=-2</annotation></semantics></math>, pemeriksaan hipotesis, nilai <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></msqrt><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\sqrt{(-2)^2}=2</annotation></semantics></math>, dan dua koreksi yang benar. Berhenti sebelum memilih salah satu koreksi sebagai maksud sumber bila konteks tujuan tidak tersedia. Eskalasi pilihan redaksional kepada pemilik karya; audit graf dependensi sebelum menetapkan keparahan. Jangan mengirim draf dari latihan.</p></li>
+</ol>
+</section>
+<section id="o017-u07-completion-task" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="o017-u07-completion-task"><span class="header-section-number">17</span> Tugas penyelesaian unit</h2>
+<p>Susun <strong>dossier erratum lengkap</strong> untuk paket sintetis berikut. Paket merupakan seluruh konteks yang tersedia; jangan menciptakan penulis, DOI, halaman, commit, hasil eksekusi, atau versi tambahan.</p>
+<div id="o017-u07-completion-metadata" class="callout callout-style-default callout-note callout-titled" title="O017-U07-PKT-META — Identitas paket">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>O017-U07-PKT-META — Identitas paket
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>work_id</code>: <code>O017-U07-PKT-W01</code>, <em>Catatan Ekstrem pada Interval</em>.</li>
+<li><code>version_id</code>: <code>O017-U07-PKT-V1</code>, label <code>1.2-sintetis</code>.</li>
+<li><code>copy_id</code>: <code>O017-U07-PKT-CP1</code>, seluruh lima cuplikan paket pada unit ini.</li>
+<li><code>observed_at</code>: <code>2026-08-21</code>.</li>
+<li>Tidak ada asumsi bagian selain yang tertulis pada setiap cuplikan.</li>
+</ul>
+</div>
+</div>
+<div id="o017-u07-completion-statement" class="callout callout-style-default callout-warning callout-titled" title="O017-U07-PKT-S01 — Proposisi 6.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Peringatan</span>O017-U07-PKT-S01 — Proposisi 6.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Jika <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:[0,1]\to\mathbb R</annotation></semantics></math> kontinu, maka terdapat tepat satu <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>∈</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">c\in(0,1)</annotation></semantics></math> tempat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> mencapai maksimum, dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f'(c)=0</annotation></semantics></math>.</p>
+</div>
+</div>
+<div id="o017-u07-completion-proof" class="callout callout-style-default callout-note callout-titled" title="O017-U07-PKT-P01 — Cuplikan pembuktian">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>O017-U07-PKT-P01 — Cuplikan pembuktian
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Teorema nilai ekstrem memberi titik maksimum <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>. Karena <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math> titik maksimum, turunannya nol. Keunikan mengikuti karena titik maksimum itu telah dipilih.”</p>
+</div>
+</div>
+<div id="o017-u07-completion-typo" class="callout callout-style-default callout-note callout-titled" title="O017-U07-PKT-T01 — Keterangan gambar">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>O017-U07-PKT-T01 — Keterangan gambar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Grafik fungsi kontinu pada interval <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>O</mi><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[O,1]</annotation></semantics></math>.” Huruf pertama di dalam interval terlihat sebagai huruf kapital <code>O</code>; paket tidak menyediakan berkas sumber atau catatan penyunting.</p>
+</div>
+</div>
+<div id="o017-u07-completion-locator" class="callout callout-style-default callout-note callout-titled" title="O017-U07-PKT-L01 — Rujukan balik">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>O017-U07-PKT-L01 — Rujukan balik
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Paragraf berikutnya berbunyi “keunikan ini akan dipakai lagi; lihat teorema di atas”. Di antara paragraf dan Proposisi 6.2 terdapat dua hasil lain. Tidak ada label atau penunjuk lain.</p>
+</div>
+</div>
+<div id="o017-u07-completion-computation" class="callout callout-style-default callout-note callout-titled" title="O017-U07-PKT-C01 — Rekaman komputasi terlampir">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Catatan</span>O017-U07-PKT-C01 — Rekaman komputasi terlampir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Manifes menyebut <code>program=gridmax.py@r2</code>, <code>step=0.01</code>, dan domain <code>[0,1]</code>. Header log menyebut <code>program=gridmax.py@r1</code>; satu-satunya baris keluaran ialah <code>argmax_grid=0.99</code>. Prosa setelah log menyatakan “komputasi membuktikan titik maksimum eksak adalah <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">c=1</annotation></semantics></math>”. Kode, identitas lingkungan, dan keluaran lain tidak tersedia dalam paket.</p>
+</div>
+</div>
+<p>Gunakan fungsi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math>, fungsi konstan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x)=0</annotation></semantics></math>, dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">h(x)=-|x-1/2|</annotation></semantics></math> sebagai calon reproducer, tetapi periksa sendiri klaim mana yang ditolak oleh masing-masing fungsi. Produk akhir harus memuat:</p>
+<ol type="1">
+<li>tabel target beku dengan versi, salinan, penunjuk untuk setiap cuplikan, dan redaksi ternormalisasi Proposisi 6.2;</li>
+<li>klasifikasi setiap temuan dengan <code>statement_status</code>, jenis utama, akibat sekunder, keparahan, keyakinan, dan dasar masing-masing;</li>
+<li>reproducer minimal yang memeriksa kekontinuan, lokasi maksimum, interior, keunikan, dan keberadaan turunan sejauh relevan: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> menguji maksimum pada batas, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math> menguji keunikan, dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math> menguji diferensiabilitas pada maksimum interior;</li>
+<li>pemisahan koreksi menjadi dua hasil yang sah: Teorema Nilai Ekstrem hanya menjamin suatu maksimum pada <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math>, sedangkan syarat turunan nol memerlukan diferensiabilitas pada titik maksimum lokal di interior;</li>
+<li>pembuktian atau alasan lengkap bagi setiap hasil pengganti, tanpa menyimpulkan keunikan;</li>
+<li>diagnosis terpisah terhadap huruf <code>O</code>, rujukan “teorema di atas”, dan ketidakcocokan revisi komputasi; jangan menebak bahwa algoritme salah;</li>
+<li>rekaman koreksi tambahan dengan ID klaim lama, dua klaim pengganti, bukti, versi calon, hubungan suksesi, dan peristiwa; V1 tidak boleh ditimpa;</li>
+<li>audit dampak terhadap paragraf yang mengandalkan keunikan, dengan status <code>belum diketahui</code> untuk pemakaian di luar paket;</li>
+<li>buku besar sedikitnya lima ketidakpastian, termasuk maksud karakter <code>O</code>, pilihan redaksi pengganti, kode yang sebenarnya dijalankan, dan cakupan turunan;</li>
+<li>draf isu maksimum 180 kata yang menyebut versi, lokasi, dua reproducer, koreksi terpisah, dan batas bukti; draf tidak dikirim;</li>
+<li>aturan berhenti dan eskalasi yang menjelaskan apa yang dapat ditutup pada bukti paket serta apa yang memerlukan pemilik karya atau pemeriksa komputasi; dan</li>
+<li>ringkasan eksekutif empat kalimat yang tidak memakai bahasa lebih kuat daripada dossier.</li>
+</ol>
+<section id="o017-u07-completion-rubric" class="level3" data-number="17.1">
+<h3 data-number="17.1" class="anchored" data-anchor-id="o017-u07-completion-rubric"><span class="header-section-number">17.1</span> Rubrik</h3>
+<p>Setiap kriteria dinilai 0, 1, atau 2.</p>
+<div class="o017-table-scroll" role="region" aria-label="Rubrik tugas penyelesaian Unit 7" tabindex="0">
+<table aria-label="Rubrik tugas penyelesaian Unit 7" class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kriteria</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Target dan penunjuk</td>
+<td>versi/lokasi direka atau hilang</td>
+<td>sebagian cuplikan dapat ditemukan</td>
+<td>semua temuan menunjuk versi, salinan, lokator paket, dan redaksi tepat</td>
+</tr>
+<tr class="even">
+<td>Reproducer matematika</td>
+<td>contoh tidak memenuhi hipotesis atau kegagalan tidak ditunjukkan</td>
+<td>satu akibat ditolak dengan benar</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x)=0</annotation></semantics></math>, dan <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">h(x)=-|x-1/2|</annotation></semantics></math> memisahkan kegagalan interior, keunikan, dan diferensiabilitas, dengan semua hipotesis diperiksa</td>
+</tr>
+<tr class="odd">
+<td>Koreksi dan bukti</td>
+<td>satu redaksi tambalan tetap salah</td>
+<td>dua hasil disebut tetapi satu syarat atau bukti kabur</td>
+<td>keberadaan maksimum dan syarat Fermat dipisahkan, dibatasi, dan dibenarkan tanpa klaim keunikan</td>
+</tr>
+<tr class="even">
+<td>Klasifikasi dua sumbu</td>
+<td>jenis, status, keparahan, dan keyakinan dilebur</td>
+<td>sebagian bidang dipisahkan</td>
+<td>setiap temuan mempunyai bidang serta dasar terpisah, termasuk jangkauan belum diketahui</td>
+</tr>
+<tr class="odd">
+<td>Sejarah dan ketidakpastian</td>
+<td>V1 ditimpa atau ketidakpastian diisi tebakan</td>
+<td>versi lama ada tetapi peristiwa/pertanyaan kurang</td>
+<td>klaim, versi, bukti, suksesi, peristiwa, dan sedikitnya lima ketidakpastian tersimpan</td>
+</tr>
+<tr class="even">
+<td>Draf dan gerbang</td>
+<td>draf menuduh, melebihkan, atau dianggap sudah dikirim</td>
+<td>fakta utama ada tetapi tindakan/batas kabur</td>
+<td>draf paling banyak 180 kata, spesifik dan lokal; aturan tutup, tahan, dan eskalasi dapat dijalankan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nilai lulus adalah sekurang-kurangnya 10 dari 12, dengan nilai 2 pada <strong>Reproducer matematika</strong>, <strong>Koreksi dan bukti</strong>, serta <strong>Sejarah dan ketidakpastian</strong>. Mengarang metadata, menyebut komputasi grid sebagai bukti maksimum eksak, menyimpulkan maksimum unik dari pemilihan satu titik, menerapkan syarat turunan pada ujung interval, atau menghapus V1 mewajibkan revisi meskipun jumlah nilai cukup.</p>
+</section>
+</section>
+<section id="o017-u07-boundary" class="level2" data-number="18">
+<h2 data-number="18" class="anchored" data-anchor-id="o017-u07-boundary"><span class="header-section-number">18</span> Batas dengan B80 dan unit lain</h2>
+<p>Unit ini tidak mengajarkan pemrograman, API paket, algoritme pencarian akar atau optimisasi, analisis galat numerik, pengujian perangkat lunak, pengelolaan lingkungan, notebook, checksum, atau perintah sistem. Semua pekerjaan implementasi itu berada pada B80. Bila cacat komputasional ditemukan, Unit 7 membekukan klaim, membandingkan kontrak dengan keluaran, menilai bukti, dan merumuskan koreksi; Unit 6 menyediakan paket serta rekaman eksekusi yang harus diperiksa.</p>
+<p>Unit 2 menangani pencarian dan otoritas sumber, Unit 3 merekonstruksi langkah pembuktian yang hilang, Unit 4 merancang provenance, dan Unit 5 menyusun eksposisi. Unit 7 tidak mengulang pekerjaan itu: ia memakai hasilnya untuk keputusan erratum. Jika langkah hilang dapat diisi tanpa mengubah klaim, hasil rekonstruksi berasal dari Unit 3; Unit 7 hanya menentukan apakah sumber perlu catatan koreksi. Jika sebuah paragraf perlu ditulis ulang agar terbaca tetapi tidak salah, revisi eksposisinya berada pada Unit 5.</p>
+<p>Unit 8 menangani laporan penelaah dan tanggapan terhadap kritik sebagai pertukaran antarorang. Unit 7 berhenti pada dossier dan draf lokal; ia tidak mengirim pesan, menegosiasikan respons, atau menilai perilaku penulis. Unit 9 menangani kontribusi komunitas yang benar-benar berwenang dan terbatas.</p>
+</section>
+<section id="o017-u07-provenance" class="level2" data-number="19">
+<h2 data-number="19" class="anchored" data-anchor-id="o017-u07-provenance"><span class="header-section-number">19</span> Sumber, provenance, perubahan, dan hak</h2>
+<p>Seluruh prosa berbahasa Indonesia, taksonomi operasional, skala keparahan/keyakinan, protokol, templat, tabel, paket sintetis, kasus kerja, reproducer, pembuktian, draf erratum, latihan, panduan jawaban, tugas penyelesaian, dan rubrik pada unit ini merupakan materi asli O017 oleh kontributor O017, 2026, dan dilisensikan di bawah <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+<p>Karakterisasi keterhubungan melalui fungsi kontinu yang tidak pernah bernilai nol, fakta bahwa citra kontinu ruang terhubung terhubung, Teorema Nilai Ekstrem, dan syarat turunan nol pada titik maksimum lokal interior merupakan hasil matematika klasik. O017 tidak mengklaim penemuan hasil-hasil tersebut. Redaksi, pengurutan pedagogis, contoh dua titik, pembuktian yang disajikan, dan fungsi auditnya ditulis khusus untuk unit ini dan tidak disalin dari sumber tertentu.</p>
+<p>Paket <code>O017-U07-W01</code> dan <code>O017-U07-PKT-W01</code> bersifat sintetis dan hanya ada sebagai bahan lokal dalam unit ini. ID paket bukan DOI, identitas penerbit, atau bukti bahwa ada karya eksternal dengan judul tersebut. Tidak ada donor eksternal yang diadaptasi dalam Unit 7 dan tidak ada prosa donor yang disalin. Lisensi CC BY-SA 4.0 di atas berlaku pada materi asli O017; ia tidak mengubah hak atas sumber lain yang mungkin dipakai pembaca dalam latihan mandiri.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Disalin!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Disalin!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

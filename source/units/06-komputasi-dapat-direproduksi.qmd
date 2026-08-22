@@ -1,0 +1,771 @@
+---
+title: "Unit 6 — Komputasi Matematika yang Dapat Direproduksi"
+subtitle: "Membekukan klaim, artefak, lingkungan, eksekusi, dan batas bukti"
+description: "Unit praktik untuk mengubah keluaran komputasi menjadi paket bukti yang dapat dijalankan ulang, diaudit, dicoba dipatahkan, dan ditempatkan secara tepat terhadap pembuktian matematika."
+---
+
+## Hasil belajar {#o017-u06-outcomes}
+
+Unit ini mempunyai pengidentifikasi stabil **O017-U06**. Setelah
+menyelesaikannya, Anda mampu:
+
+1. memisahkan klaim tentang satu eksekusi, keterulangan keluaran, kebenaran
+   implementasi, hasil berhingga, dan teorema universal;
+2. membedakan eksperimen pembentuk dugaan, pencarian contoh tandingan,
+   pemeriksaan berhingga yang menyeluruh, sertifikat komputasional, dan
+   pembuktian;
+3. membekukan kode, masukan, parameter, versi, dependensi, model aritmetika,
+   benih acak, keluaran, serta prosedur eksekusi sebagai satu paket provenance;
+4. menjalankan ulang sebuah artefak sedikitnya dua kali dan membandingkan byte
+   aktual dengan keluaran yang diharapkan tanpa memperbarui oracle diam-diam;
+5. mengaudit apakah program benar-benar menguji klaim yang ditulis, termasuk
+   domain, batas indeks, kasus batas, dan arti numeriknya;
+6. merancang upaya falsifikasi yang dapat membedakan kegagalan lingkungan,
+   ketidakdeterministikan, oracle yang lemah, dan kesalahan matematika;
+7. menyajikan keluaran mesin bersama ringkasan teks biasa yang dapat dibaca
+   tanpa warna, plot, atau perangkat lunak tertentu;
+8. menilai secara tepat apa yang ditetapkan dan tidak ditetapkan oleh saksi
+   komputasional identitas Cassini; dan
+9. menyusun dossier komputasi matematika yang dapat diaudit oleh pembaca lain.
+
+::: {.callout-note title="Prasyarat, kesinambungan, dan batas fokus"}
+Unit 4 menetapkan informasi provenance apa yang harus dipertahankan. Unit 5
+menetapkan cara menulis klaim, bukti, contoh, dan batasnya secara dapat
+diaudit. Unit 6 menganggap pembaca sudah mempunyai keterampilan B80 untuk
+menjalankan program, menangani berkas, lingkungan, pengujian, dan checksum.
+Fokus di sini ialah **fungsi epistemik** komputasi dalam kerja matematika:
+paket mana yang harus dijalankan, apa yang dibandingkan, kegagalan apa yang
+dicari, dan kesimpulan apa yang sah.
+
+Unit ini tidak mengajarkan sintaks Python, shell, Git, pengelola paket,
+kontainer, penulisan pengujian, atau implementasi fungsi hash. Perintah yang
+dicantumkan adalah resep eksekusi untuk artefak yang sudah tersedia, bukan
+pelajaran pemrograman.
+:::
+
+::: {#o017-u06-original-bridge .callout-important title="Jembatan asli O017"}
+Tangga klaim komputasional, kontrak klaim–eksekusi–bukti, audit saksi
+rekurensi, pemisahan saksi berhingga dari bukti universal, matriks
+falsifikasi, latihan, panduan jawaban, dan tugas penyelesaian pada unit ini
+merupakan materi jembatan asli O017. Donor metodologis yang dibekukan memberi
+prinsip umum tentang reproduksibilitas dan provenance; donor tersebut tidak
+menyediakan alur matematika lengkap yang dikembangkan di sini.
+:::
+
+## Menjalankan kembali tidak sama dengan membuktikan {#o017-u06-rerun-is-not-proof}
+
+Komputer menghasilkan suatu **kejadian**: program tertentu dijalankan dengan
+kondisi tertentu, lalu menghasilkan byte, pesan galat, atau tidak selesai.
+Kejadian itu baru dapat menjadi bukti setelah dihubungkan ke klaim yang
+jelas. Kalimat “hasilnya dapat direproduksi” terlalu longgar bila tidak
+menyebut hasil mana dan pada tingkat apa.
+
+Untuk unit ini, gunakan lima tingkat klaim berikut.
+
+::: {.o017-table-scroll aria-label="Lima tingkat klaim komputasional" tabindex="0"}
+| ID tingkat | Klaim yang mungkin dibuat | Bukti minimum | Batas yang wajib disebut |
+|---|---|---|---|
+| `RUN` | satu eksekusi menghasilkan keluaran tertentu | rekaman perintah/prosedur, kondisi, kode keluar, stdout/stderr, dan identitas keluaran | belum menunjukkan eksekusi kedua akan sama |
+| `REPEAT` | eksekusi ulang pada kondisi yang dinyatakan menghasilkan keluaran yang sama | sedikitnya dua eksekusi aktual dan aturan kesetaraan yang dibekukan | belum menunjukkan implementasi sesuai spesifikasi |
+| `IMPL` | implementasi menghitung objek yang dimaksud | inspeksi kontrak, pengujian yang relevan, pemeriksaan kasus batas, dan/atau argumen kebenaran implementasi | dapat tetap terbatas pada domain dan model aritmetika tertentu |
+| `FINITE` | proposisi berhingga tertentu telah diperiksa | cakupan lengkap, enumerasi tanpa kehilangan/duplikasi, predikat yang benar, dan hasil untuk semua kasus | tidak melampaui himpunan berhingga itu |
+| `UNIVERSAL` | pernyataan berlaku untuk semua objek pada domain tak berhingga | pembuktian, atau objek formal yang diverifikasi dengan asumsi serta pemeriksa yang diaudit | banyak contoh yang lolos bukan pengganti kuantor universal |
+:::
+
+Dua eksekusi identik dapat mereproduksi bug yang sama. Sebaliknya, dua berkas
+yang berbeda byte dapat menyampaikan hasil matematika yang sama, misalnya
+karena urutan kunci, cap waktu, atau spasi berubah. Karena itu aturan
+perbandingan harus ditulis **sebelum** melihat hasil:
+
+- `byte-exact` bila setiap byte harus sama;
+- `semantic` bila berkas diurai dan bidang tertentu dibandingkan;
+- `tolerance-bounded` bila bilangan hampiran dibandingkan dengan toleransi dan
+  model galat yang telah ditetapkan; atau
+- `certificate-valid` bila keluaran diterima hanya setelah pemeriksa terpisah
+  memvalidasi sertifikatnya.
+
+Mengganti aturan dari `byte-exact` menjadi `semantic` setelah byte berbeda
+adalah perubahan protokol. Catat sebagai versi baru; jangan menyebut uji lama
+lulus.
+
+## Lima peran komputasi dalam matematika {#o017-u06-five-roles}
+
+Status bukti tidak ditentukan oleh ukuran program atau banyaknya keluaran.
+Status ditentukan oleh hubungan antara domain, predikat, cakupan, aritmetika,
+dan kesimpulan.
+
+::: {.o017-table-scroll aria-label="Peran komputasi dan daya buktinya" tabindex="0"}
+| Peran | Bentuk kerja | Kesimpulan yang sah | Kesalahan umum |
+|---|---|---|---|
+| Eksperimen pembentuk dugaan | menghitung pola, contoh, distribusi, atau visualisasi | “data ini menyarankan dugaan” | menulis “maka berlaku untuk semua” |
+| Pencarian contoh tandingan | mencari objek yang melanggar klaim universal | satu pelanggar yang tepat dan dapat diperiksa menolak klaim universal | menganggap tidak ditemukannya pelanggar sebagai bukti |
+| Pemeriksaan berhingga menyeluruh | menguji setiap elemen satu himpunan berhingga yang benar-benar tertutup | proposisi untuk himpunan berhingga itu, bila enumerasi dan predikat benar | menyembunyikan kasus yang tidak terenumerasi |
+| Sertifikat komputasional | menghasilkan saksi ringkas yang diperiksa secara independen | klaim yang tepat diimplikasikan oleh sertifikat dan pemeriksanya | menyamakan pencetak sertifikat dengan pemeriksa independen |
+| Pembuktian berbantuan mesin | menghasilkan objek bukti yang diperiksa kernel terhadap asumsi formal | teorema formal yang benar-benar dinyatakan dan diperiksa | mengabaikan formalisasi, aksioma, kernel, atau jembatan ke klaim informal |
+:::
+
+Ada nuansa penting pada contoh tandingan. Program yang **mencari** sebuah
+contoh tandingan sedang melakukan pencarian empiris. Setelah program memberi
+calon, pemeriksaan eksak yang sederhana dapat menjadi bukti deduktif bahwa
+calon itu berada dalam domain dan melanggar kesimpulan. Yang membuktikan
+penolakan bukan reputasi program, melainkan verifikasi lengkap atas saksi yang
+ditemukan.
+
+## Bekukan klaim sebelum menjalankan kode {#o017-u06-freeze-claim}
+
+Sebuah eksekusi tidak dapat diaudit bila sasaran bergerak. Sebelum menjalankan
+kode, tulis **kontrak klaim** berikut.
+
+::: {.o017-table-scroll aria-label="Bidang kontrak klaim komputasional" tabindex="0"}
+| Bidang | Pertanyaan yang harus dijawab | Contoh nilai yang tepat |
+|---|---|---|
+| `claim_id` | klaim stabil mana yang diuji? | `O017-U06-C-FINITE-01` |
+| `statement` | apa pernyataannya, termasuk kuantor? | identitas berlaku untuk setiap integer $n$ dengan $1\leq n\leq24$ |
+| `domain` | objek apa yang termasuk dan dikecualikan? | integer; indeks negatif tidak termasuk |
+| `role` | eksperimen, pencarian, pemeriksaan berhingga, sertifikat, atau bukti? | pemeriksaan berhingga |
+| `numeric_model` | aritmetika eksak, titik-mengambang, interval, simbolik, atau lainnya? | integer eksak |
+| `acceptance_rule` | kondisi lulus apa yang dibekukan? | keluaran byte-identik dengan oracle dan semua 24 rekaman valid |
+| `failure_rule` | kejadian apa yang menolak atau menahan klaim? | satu rekaman salah, indeks hilang, eksekusi gagal, atau byte berbeda |
+| `scope_limit` | apa yang sengaja tidak disimpulkan? | tidak membuktikan identitas untuk semua $n\geq1$ |
+:::
+
+Kontrak harus menunjuk redaksi matematika, bukan hanya nama program. Program
+bernama `verify_identity.py` belum memberi tahu identitas yang dimaksud,
+definisi variabelnya, atau domain yang diperiksa.
+
+## Protokol paket reproduksibilitas {#o017-u06-protocol}
+
+Paket minimal terdiri atas **klaim**, **artefak**, **lingkungan**, **eksekusi**,
+**verifikasi**, dan **batas kesimpulan**. Urutan berikut mencegah keluaran
+dipilih lebih dahulu lalu klaim disesuaikan sesudahnya.
+
+### 1. Bekukan klaim dan perannya {#o017-u06-protocol-claim}
+
+Tuliskan kontrak klaim, status epistemik yang diharapkan, aturan penerimaan,
+dan aturan kegagalan. Jika tujuan hanya eksplorasi, katakan demikian. Jika
+tujuan pemeriksaan berhingga, buktikan bahwa enumerasinya menutup domain
+berhingga yang dinyatakan.
+
+### 2. Bekukan artefak {#o017-u06-protocol-artifacts}
+
+Daftarkan setiap berkas yang dapat memengaruhi hasil: kode, modul lokal,
+masukan, konfigurasi, data, oracle, dan pemeriksa. Untuk setiap artefak, simpan
+jalur logis, ukuran byte, SHA-256 atau identitas byte lain, peran, asal, dan
+haknya. Nama berkas saja tidak cukup karena isi bernama sama dapat berubah.
+
+Jangan menimpa keluaran yang diharapkan ketika eksekusi baru gagal cocok.
+Pertahankan oracle lama, simpan hasil aktual sebagai artefak baru, lalu buka
+keputusan koreksi seperti pada buku catatan Unit 4.
+
+### 3. Bekukan lingkungan {#o017-u06-protocol-environment}
+
+Catat lingkungan pada tingkat yang relevan terhadap klaim.
+
+::: {.o017-table-scroll aria-label="Kapsul lingkungan komputasi" tabindex="0"}
+| Lapisan | Rekam sedikitnya | Mengapa diperlukan |
+|---|---|---|
+| mesin dan sistem | arsitektur, sistem operasi, versi yang tampak | perilaku proses, jalur, dan pustaka sistem dapat berbeda |
+| runtime | implementasi dan versi lengkap | bahasa yang sama dapat mempunyai perubahan semantik atau serialisasi |
+| dependensi | nama, versi, sumber, dan penguncian | algoritme dan nilai bawaan dapat berubah |
+| lokalisasi | zona waktu, locale, encoding, pemisah desimal bila relevan | teks dan tanggal dapat berubah tanpa perubahan matematika |
+| sumber nondeterminisme | benih acak, jumlah thread, perangkat akselerator, urutan paralel | hasil dapat berubah antar-eksekusi |
+| prosedur | direktori kerja, argumen, variabel relevan, stdin, batas waktu | perintah yang sama dari konteks berbeda dapat membaca objek berbeda |
+:::
+
+Rekaman “Python terbaru” atau “lingkungan biasa” tidak dapat diverifikasi.
+Namun, jangan menimbun metadata yang tidak berkaitan tanpa alasan. Jelaskan
+mengapa setiap lapisan dapat memengaruhi hasil dan beri `tidak berlaku` atau
+`tidak diketahui` secara eksplisit bila perlu.
+
+### 4. Bekukan masukan, parameter, dan nondeterminisme {#o017-u06-protocol-inputs}
+
+Masukan mencakup lebih dari berkas data. Ia juga mencakup konstanta dalam kode,
+argumen, urutan iterasi, kondisi awal, batas indeks, toleransi, strategi
+pembulatan, dan pilihan cabang. Untuk proses acak, rekam sedikitnya:
+
+- algoritme pembangkit bilangan acak;
+- versi pustaka yang menyediakannya;
+- setiap benih dan cara benih diturunkan;
+- jumlah aliran atau worker; dan
+- apakah tujuan klaim adalah mengulang **lintasan yang sama** atau menilai
+  **distribusi** melalui banyak lintasan.
+
+Satu benih tidak menjamin byte sama lintas versi, perangkat, atau algoritme.
+Menjalankan satu benih berkali-kali juga tidak menilai variasi distribusi.
+Jika tidak ada keacakan, tulis `seed: none`; jangan kosongkan bidang tersebut.
+
+### 5. Jalankan dan tangkap kejadian {#o017-u06-protocol-run}
+
+Untuk setiap eksekusi, beri `run_id` dan simpan waktu observasi, prosedur,
+identitas artefak, lingkungan, kode keluar, durasi bila relevan, stdout,
+stderr, serta keluaran berkas. Pisahkan **fakta observasi** dari interpretasi.
+
+Contoh fakta: “`RUN-002` berakhir dengan kode 0 dan stdout 1.872 byte.”
+Contoh interpretasi: “`RUN-002` mendukung keterulangan byte pada lingkungan
+yang dicatat.” Interpretasi kedua tidak boleh ditulis bila `RUN-001` tidak ada
+atau aturan kesetaraannya belum dibekukan.
+
+### 6. Verifikasi dengan oracle yang tidak bergerak {#o017-u06-protocol-verify}
+
+Bandingkan hasil aktual dengan keluaran yang diharapkan menggunakan aturan
+yang telah ditetapkan. Simpan nilai aktual dan nilai harapan, bukan hanya kata
+`PASS`. Pemeriksa harus gagal tertutup: indeks hilang, nilai nonhingga, bidang
+tak dikenal, atau format rusak tidak boleh berubah menjadi kelulusan karena
+baris bermasalah dilewati.
+
+### 7. Audit, jalankan ulang, dan coba patahkan {#o017-u06-protocol-falsify}
+
+Kelulusan pertama memulai audit, bukan mengakhirinya.
+
+1. Jalankan artefak kedua kali tanpa memakai keluaran proses pertama.
+2. Periksa kontrak program terhadap klaim matematika, termasuk kuantor dan
+   domain.
+3. Uji kasus batas, masukan kosong, nilai ekstrem, dan bentuk yang diketahui.
+4. Lakukan satu mutasi terkendali yang seharusnya ditolak pemeriksa.
+5. Cari kegagalan bersama yang dapat membuat generator dan pemeriksa sepakat
+   pada keluaran salah.
+6. Bila mungkin, gunakan jalur independen: hitungan tangan, implementasi lain,
+   sertifikat, atau pembuktian.
+7. Catat setiap penyimpangan dan keputusan; jangan hanya menyimpan lulus.
+
+## Kasus kerja: saksi berhingga identitas Cassini {#o017-u06-worked-case}
+
+Kasus ini memakai dua artefak lokal asli O017. Keduanya merupakan bagian
+normatif dari unit, bukan tautan ke layanan yang dapat berubah.
+
+::: {#def-o017-u06-fibonacci .definition title="Barisan Fibonacci"}
+Tetapkan $F_0=0$, $F_1=1$, dan
+
+$$
+F_{n+1}=F_n+F_{n-1}
+$$
+
+untuk setiap integer $n\geq1$.
+:::
+
+::: {#thm-o017-u06-cassini .theorem title="Identitas Cassini"}
+Untuk setiap integer $n\geq1$,
+
+::: {.o017-math-scroll aria-label="Identitas Cassini untuk bilangan Fibonacci" tabindex="0"}
+$$
+F_{n-1}F_{n+1}-F_n^2=(-1)^n.
+$$
+:::
+:::
+
+### Kontrak saksi {#o017-u06-witness-contract}
+
+Program tidak mengklaim membuktikan seluruh
+[`O017-U06-THM-CASSINI`](#thm-o017-u06-cassini). Kontrak berhingganya adalah:
+
+> **O017-U06-C-FINITE-01.** Untuk setiap integer $n$ dengan
+> $1\leq n\leq24$, nilai Fibonacci yang dibangun dari kondisi awal dan
+> rekurensi di atas memenuhi identitas Cassini; setiap operasi yang dipakai
+> merupakan aritmetika integer eksak.
+
+Peran komputasinya adalah `FINITE`, dengan keluaran mesin yang juga dapat
+dipakai sebagai eksperimen pendukung terhadap dugaan universal. Batas
+`1..24` bukan singkatan untuk “cukup banyak sehingga berlaku selamanya”.
+
+### Artefak beku dan tautan tepat {#o017-u06-witness-artifacts}
+
+::: {.o017-table-scroll aria-label="Artefak saksi berhingga Unit 6" tabindex="0"}
+| ID artefak | Tautan lokal | Peran | Ukuran | SHA-256 |
+|---|---|---|---:|---|
+| `O017-U06-CODE-01` | [`u06_recurrence_witness.py`](../code/u06_recurrence_witness.py) | generator dan validator saksi berhingga | 3.505 byte | `9effb4dd4d17ce6b26fd108585ff0adc5110d8903c9c283b56a909613e7aa93d` |
+| `O017-U06-OUT-EXPECTED-01` | [`u06-expected-output.txt`](../code/u06-expected-output.txt) | oracle keluaran kanonik teks biasa | 1.872 byte | `4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112` |
+:::
+
+Program hanya menggunakan pustaka standar Python. Ia tidak membaca stdin,
+berkas data, jaringan, jam, locale, variabel lingkungan, atau sumber acak.
+Parameter cakupannya adalah konstanta `INDEX_MIN = 1` dan `INDEX_MAX = 24`.
+Nilai `seed` yang benar untuk rekaman ini adalah `none`, bukan bidang kosong.
+
+### Apa yang ditulis program {#o017-u06-witness-output}
+
+Keluaran lengkap disediakan sebagai
+[`O017-U06-OUT-EXPECTED-01`](../code/u06-expected-output.txt). Berkas itu
+merupakan JSON kanonik satu baris, diakhiri satu byte LF. Ringkasan teks biasa
+berikut menyediakan jalur baca manusia tanpa mewajibkan pembaca menelusuri
+baris JSON yang panjang.
+
+```text
+schema: o017-u06-recurrence-witness-v1
+statement: F[n-1]*F[n+1]-F[n]^2=(-1)^n
+finite scope: n = 1..24
+arithmetic: exact integers
+records: 24
+all records valid: true
+controlled tamper detected: true
+records SHA-256: 37866b46aa1bf0854b4b4ad1a6476fb65419e0e52305d860c7bec0f18979e4b5
+universal status: not established by this finite computation
+```
+
+Ringkasan tersebut membantu navigasi dan teknologi bantu, tetapi oracle tetap
+berkas lengkap. Jangan menghitung ulang hash dari ringkasan lalu menyebutnya
+hash keluaran lengkap.
+
+### Eksekusi observasi yang benar-benar dilakukan {#o017-u06-observed-runs}
+
+Pada 2026-08-21, program dijalankan dua kali sebagai dua subprocess terpisah
+dengan interpreter aktif dan tanpa masukan. Stdout masing-masing ditangkap
+sebagai byte; hasil proses pertama tidak dipakai sebagai masukan proses kedua.
+
+::: {.o017-table-scroll aria-label="Rekaman dua eksekusi saksi Cassini" tabindex="0"}
+| Bidang | `O017-U06-RUN-001` | `O017-U06-RUN-002` |
+|---|---|---|
+| artefak kode | `O017-U06-CODE-01` | `O017-U06-CODE-01` |
+| pemanggilan logis | `python source/code/u06_recurrence_witness.py` | sama, proses baru |
+| direktori kerja | akar lane `01a0216a-4b9f-7d30-a376-60e4e3859979` | sama |
+| runtime | CPython 3.13.9, paket Anaconda, MSC v.1929 64-bit | sama |
+| sistem teramati | Windows 11, build yang dilaporkan `10.0.26200`, little-endian | sama |
+| dependensi eksternal | tidak ada | tidak ada |
+| stdin / seed | tidak ada / `none` | tidak ada / `none` |
+| kode keluar | 0 | 0 |
+| stderr | 0 byte | 0 byte |
+| panjang stdout | 1.872 byte | 1.872 byte |
+| pengodean stdout | subhimpunan ASCII dari JSON kanonik UTF-8, ditutup satu LF | sama |
+| SHA-256 stdout | `4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112` | sama |
+| cocok byte dengan oracle | ya | ya |
+:::
+
+Hasil tersebut menetapkan dua fakta terbatas: pada lingkungan yang dicatat,
+dua eksekusi menghasilkan byte identik; dan setiap keluaran identik dengan
+oracle beku. Ia tidak dengan sendirinya menetapkan bahwa oracle benar, bahwa
+program bekerja pada semua runtime, atau bahwa teorema universal telah
+dibuktikan.
+
+### Audit terhadap implementasi {#o017-u06-implementation-audit}
+
+Audit kode memeriksa hubungan antarbagian berikut.
+
+1. `fibonacci_values` mulai dari `[0, 1]` dan menambahkan jumlah dua nilai
+   terakhir hingga indeks 25 tersedia.
+2. `make_records` mengenumerasi tepat `range(1, 25)`, sehingga 24 indeks dalam
+   kontrak muncul sekali dan berurutan.
+3. Setiap rekaman menyimpan $F_{n-1}$, $F_n$, $F_{n+1}$, ruas kiri, dan
+   $(-1)^n$ sebagai integer.
+4. `records_are_valid` memeriksa daftar indeks, rekurensi, perhitungan ruas
+   kiri, paritas ruas kanan, kesamaan kedua ruas, konsistensi antarrekaman, dan
+   kondisi awal.
+5. `tamper_control_is_detected` menaikkan `f_n` pada rekaman kedelapan lalu
+   menuntut validator menolaknya.
+6. `canonical_json` mengurutkan kunci, melarang NaN, memakai pemisah tanpa
+   spasi, membatasi keluaran ke ASCII, dan `main` menambahkan tepat satu LF.
+
+Kontrol mutasi menunjukkan validator mendeteksi **satu jenis kerusakan yang
+disengaja**. Ia bukan bukti bahwa validator mendeteksi semua kemungkinan
+kesalahan. Generator dan validator juga berada pada berkas yang sama; sebuah
+kesalahan konseptual bersama dapat membuat keduanya sepakat. Karena itu audit
+independen berikutnya adalah pembuktian matematika, bukan eksekusi ketiga yang
+sama.
+
+### Pembuktian universal yang terpisah {#o017-u06-universal-proof}
+
+Definisikan
+
+$$
+D_n=F_{n-1}F_{n+1}-F_n^2
+\qquad(n\geq1).
+$$
+
+::: {#prf-o017-u06-cassini .proof}
+Untuk $n=1$, $F_0=0$, $F_1=1$, dan $F_2=1$, sehingga
+
+$$
+D_1=F_0F_2-F_1^2=0\cdot1-1=-1=(-1)^1.
+$$
+
+Sekarang ambil sembarang $n\geq1$. Dari rekurensi,
+$F_{n-1}=F_{n+1}-F_n$ dan $F_{n+2}=F_{n+1}+F_n$. Maka
+
+::: {.o017-math-scroll aria-label="Perhitungan bahwa D sub n tambah satu sama dengan negatif D sub n" tabindex="0"}
+$$
+\begin{aligned}
+D_{n+1}
+  &=F_nF_{n+2}-F_{n+1}^2\\
+  &=F_n(F_{n+1}+F_n)-F_{n+1}^2\\
+  &=-\bigl((F_{n+1}-F_n)F_{n+1}-F_n^2\bigr)\\
+  &=-\bigl(F_{n-1}F_{n+1}-F_n^2\bigr)\\
+  &=-D_n.
+\end{aligned}
+$$
+:::
+
+Jadi, jika $D_n=(-1)^n$, maka
+$D_{n+1}=-(-1)^n=(-1)^{n+1}$. Induksi dari kasus dasar memberi
+$D_n=(-1)^n$ untuk setiap integer $n\geq1$. $\square$
+:::
+
+Pembuktian ini menutup kuantor universal dengan kasus dasar dan langkah
+induksi. Saksi komputasional tetap berguna: ia menguji implementasi pada 24
+kasus, menyediakan contoh konkret, dan dapat mendeteksi regresi artefak. Namun,
+status universal datang dari
+[`O017-U06-PRF-CASSINI`](#prf-o017-u06-cassini), bukan dari panjang tabel.
+
+### Buku keputusan untuk kasus kerja {#o017-u06-worked-decisions}
+
+::: {.o017-table-scroll aria-label="Keputusan epistemik kasus saksi Cassini" tabindex="0"}
+| ID klaim | Bukti yang tersedia | Keputusan | Batas |
+|---|---|---|---|
+| `O017-U06-C-RUN-01` | rekaman `RUN-001` dan hash stdout | diterima untuk kejadian yang diamati | tidak memprediksi eksekusi lain |
+| `O017-U06-C-REPEAT-01` | `RUN-001`, `RUN-002`, dan oracle mempunyai 1.872 byte serta SHA-256 sama | diterima pada lingkungan teramati dengan aturan `byte-exact` | belum menunjukkan portabilitas lintas runtime |
+| `O017-U06-C-FINITE-01` | 24 rekaman, pemeriksaan cakupan, audit kode, dan oracle | didukung untuk $1\leq n\leq24$ | generator dan validator belum independen |
+| `O017-U06-C-UNIVERSAL-01` | pembuktian induksi `O017-U06-PRF-CASSINI` | dibuktikan untuk semua integer $n\geq1$ | tidak bergantung pada keberhasilan menjalankan Python |
+| `O017-U06-C-PORTABLE-01` | hanya satu keluarga lingkungan yang diamati | belum dipastikan | memerlukan matriks lingkungan dan aturan kesetaraan |
+:::
+
+## Matriks audit, eksekusi ulang, dan falsifikasi {#o017-u06-audit-matrix}
+
+Rencana falsifikasi harus menyebut klaim mana yang akan berubah bila uji gagal.
+“Mencoba berbagai hal” bukan rencana audit.
+
+::: {.o017-table-scroll aria-label="Matriks falsifikasi paket saksi Cassini" tabindex="0"}
+| Uji | Hasil yang diharapkan | Jika hasil berbeda | Klaim yang terdampak |
+|---|---|---|---|
+| jalankan proses kedua dari kode beku | byte sama dengan proses pertama dan oracle | simpan kedua keluaran; jangan ganti oracle; periksa lingkungan dan sumber nondeterminisme | `REPEAT`, belum tentu identitas matematika |
+| hapus satu rekaman pada salinan kerja | validator menolak urutan indeks | bila lulus, pemeriksa gagal tertutup terhadap kehilangan kasus | `IMPL` dan `FINITE` |
+| ubah satu `f_n` pada salinan kerja | kontrol mutasi terdeteksi | bila lulus, oracle pemeriksaan terlalu lemah | `IMPL` dan `FINITE` |
+| periksa tangan $n=1,2,24$ | ruas kiri sama dengan $(-1)^n$ | satu ketidakcocokan eksak menolak saksi atau kontrak | `FINITE`; mungkin implementasi |
+| minta program menangani $n=0$ tanpa mengubah definisi | harus ditolak sebagai di luar kontrak karena $F_{-1}$ tidak didefinisikan di sini | bila diam-diam diterima, domain program tidak cocok dengan klaim | `IMPL` |
+| audit pembuktian induksi | setiap transformasi mengikuti rekurensi dan langkah induksi menutup semua $n\geq1$ | celah pembuktian menahan klaim universal meski 24 rekaman lulus | `UNIVERSAL` |
+:::
+
+Perbedaan byte pada sistem lain tidak otomatis menolak identitas Cassini. Ia
+menolak atau membatasi klaim reproduksibilitas tertentu. Sebaliknya, keluaran
+byte-identik tidak menyelamatkan pembuktian yang salah. Pisahkan sumbu
+**eksekusi**, **implementasi**, dan **matematika** pada setiap keputusan.
+
+## Kasus pendek: pencarian contoh tandingan {#o017-u06-counterexample-search}
+
+Pertimbangkan klaim universal berikut.
+
+> **O017-U06-C-FALSE-01.** Untuk setiap integer $n\geq0$,
+> $n^2+n+41$ adalah prima.
+
+Pemeriksaan untuk $0\leq n\leq39$ menghasilkan bilangan prima. Itu merupakan
+data yang menarik, tetapi hanya mendukung pernyataan berhingga untuk 40
+masukan. Pada $n=40$,
+
+$$
+40^2+40+41=1681=41^2,
+$$
+
+yang bukan prima. Komputasi dapat menemukan calon `40`; pembuktian penolakan
+selesai melalui tiga pemeriksaan eksak: $40$ berada dalam domain, nilai
+polinomnya $1681$, dan $1681$ mempunyai faktor nontrivial $41$.
+
+Pelajaran kasus ini bukan “uji satu nilai tambahan”. Pelajarannya ialah:
+
+- kegagalan menemukan pelanggar pada rentang terbatas tidak menutup kuantor;
+- satu saksi yang dapat diverifikasi dapat menolak klaim universal;
+- cakupan eksekusi harus tampak pada kesimpulan; dan
+- keluaran pencarian harus dipisahkan dari argumen yang memvalidasi calon.
+
+## Ketidakdeterministikan, hampiran, dan hasil yang tetap jujur {#o017-u06-nondeterminism}
+
+Tidak semua komputasi sebersih integer eksak. Untuk simulasi acak, optimisasi,
+komputasi paralel, dan aritmetika titik-mengambang, byte yang berbeda dapat
+sesuai kontrak. Namun, “hasilnya kira-kira sama” bukan aturan penerimaan.
+
+### Kontrak untuk keluaran hampiran {#o017-u06-approximate-contract}
+
+Kontrak harus menetapkan:
+
+1. besaran matematika yang diperkirakan;
+2. representasi dan satuannya;
+3. sumber galat: pembulatan, diskretisasi, sampling, penghentian, atau lainnya;
+4. toleransi absolut/relatif dan kasus ketika masing-masing tidak bermakna;
+5. statistik atau interval yang dibandingkan;
+6. jumlah ulangan dan aturan agregasi; serta
+7. kondisi yang membuat hasil `tidak dapat diputuskan`, bukan dipaksa lulus.
+
+Jika nilai harapan nol, galat relatif dapat tidak terdefinisi atau menyesatkan.
+Jika hasil berada dekat ambang, toleransi yang dipilih setelah melihat nilai
+akan membiaskan keputusan. Bekukan aturan sebelum eksekusi dan laporkan nilai
+mentah bersama keputusan.
+
+### Keterulangan lintasan bukan validasi distribusi {#o017-u06-seed-boundary}
+
+Menjalankan simulasi dua kali dengan benih yang sama menguji apakah lintasan
+tertentu dapat diulang pada kondisi tertentu. Menjalankan banyak benih menguji
+variasi empiris. Keduanya belum membuktikan bahwa model probabilistik,
+pembangkit, statistik, atau interpretasinya benar. Audit harus menyentuh
+keempat lapisan tersebut secara terpisah.
+
+## Status kegagalan dan koreksi {#o017-u06-failure-status}
+
+Gunakan status yang tidak menyembunyikan informasi.
+
+::: {.o017-table-scroll aria-label="Status eksekusi dan tindak lanjut" tabindex="0"}
+| Status | Arti | Tindakan |
+|---|---|---|
+| `PASS-BYTE` | byte aktual sama dengan oracle beku | lanjutkan audit implementasi dan matematika |
+| `PASS-SEMANTIC` | byte berbeda tetapi objek yang ditentukan kontrak sama | simpan kedua byte dan bukti perbandingan semantik; jangan sebut byte-identik |
+| `FAIL-OUTPUT` | proses selesai tetapi melanggar oracle/predikat | pertahankan kegagalan, cari penyebab, buka versi koreksi |
+| `FAIL-EXECUTION` | proses tidak menghasilkan kejadian sesuai prosedur | simpan kode keluar/stderr dan periksa lingkungan atau artefak |
+| `BLOCKED` | artefak, hak, dependensi, atau informasi wajib tidak tersedia | jangan mengarang hasil; sebut prasyarat yang hilang |
+| `INCONCLUSIVE` | hasil berada pada wilayah yang kontraknya tidak dapat putuskan | perlu metode, presisi, atau bukti lain |
+:::
+
+Jika sebuah bug diperbaiki, terbitkan identitas kode, oracle, dan keputusan
+baru. Jangan menimpa rekaman lama seolah-olah eksekusi gagal tidak pernah
+terjadi. Hubungan seperti `CODE-02 corrects CODE-01` dan
+`OUT-EXPECTED-02 supersedes OUT-EXPECTED-01` mempertahankan sejarah tanpa
+menjadikan artefak lama sebagai pilihan aktif.
+
+## Aksesibilitas dan keluaran teks biasa {#o017-u06-accessibility}
+
+Paket komputasi harus dapat diperiksa tanpa mengandalkan tangkapan layar,
+warna, animasi, atau aplikasi tunggal.
+
+- Simpan hasil normatif dalam format teks terdokumentasi dengan encoding dan
+  akhir baris yang disebutkan.
+- Sediakan ringkasan manusia yang menyebut klaim, cakupan, status, dan batas;
+  jangan hanya menulis `true` atau ikon hijau.
+- Pertahankan keluaran mentah agar pembaca dapat menghitung ulang dan mengurai
+  dengan alat lain.
+- Beri nama tabel, rumus lebar, dan wilayah yang dapat digulir; urutan baca
+  harus tetap bermakna dengan pembaca layar.
+- Jika plot diperlukan, sediakan deskripsi yang menyatakan tren, sumbu, satuan,
+  jumlah pengamatan, pencilan relevan, dan ketidakpastian. Plot bukan satu-satunya
+  pembawa kesimpulan.
+- Jangan memakai warna sebagai satu-satunya penanda lulus/gagal. Tulis status,
+  nilai aktual, nilai harapan, dan aturan perbandingan.
+- Gunakan nama berkas dan ID stabil pada pranala. “Klik di sini” tidak memberi
+  konteks ketika pranala dibaca di luar paragraf.
+
+JSON satu baris pada kasus Cassini dipilih untuk byte kanonik dan pemrosesan
+mesin. Ringkasan multiline disediakan untuk manusia. Kedua permukaan saling
+melengkapi; ringkasan tidak menggantikan artefak normatif.
+
+## Daftar periksa sebelum menerima hasil {#o017-u06-preflight}
+
+Sebelum menyebut suatu hasil dapat direproduksi, periksa bahwa:
+
+- [ ] klaim, kuantor, domain, dan status epistemiknya dibekukan;
+- [ ] kode, masukan, konfigurasi, oracle, dan pemeriksa mempunyai identitas byte;
+- [ ] runtime, dependensi, sistem, encoding, dan sumber nondeterminisme dicatat;
+- [ ] parameter, toleransi, model aritmetika, dan `seed`/`none` eksplisit;
+- [ ] prosedur eksekusi serta aturan perbandingan dapat dilakukan pembaca lain;
+- [ ] sedikitnya dua eksekusi aktual dicatat sebagai kejadian terpisah;
+- [ ] hasil aktual disimpan bahkan ketika gagal;
+- [ ] satu kontrol negatif atau mutasi yang seharusnya gagal benar-benar diuji;
+- [ ] implementasi diaudit terhadap klaim, tidak hanya terhadap oracle;
+- [ ] bukti universal dipisahkan dari pemeriksaan berhingga;
+- [ ] ringkasan teks biasa menyebut hasil, cakupan, dan batas; serta
+- [ ] provenance dan hak setiap komponen dinyatakan.
+
+## Latihan {#o017-u06-exercises}
+
+1. **[O017-U06-EX01]{#o017-u06-ex01}.** Klasifikasikan setiap pernyataan
+   berikut sebagai `RUN`, `REPEAT`, `IMPL`, `FINITE`, atau `UNIVERSAL`, lalu
+   sebutkan bukti yang masih hilang: (a) “program selesai dengan kode 0”; (b)
+   “dua keluaran mempunyai SHA-256 sama”; (c) “semua graf sederhana pada paling
+   banyak delapan simpul yang telah terenumerasi memenuhi $P$”; (d) “karena
+   satu juta kasus lolos, $P$ berlaku untuk setiap graf”; (e) “sertifikat dari
+   program A diterima pemeriksa B yang kode dan kontraknya diaudit.”
+
+2. **[O017-U06-EX02]{#o017-u06-ex02}.** Tulis kontrak klaim dan kapsul
+   lingkungan untuk simulasi yang memperkirakan peluang munculnya jumlah 7
+   ketika dua dadu adil dilempar. Bedakan tujuan mengulang satu lintasan dari
+   tujuan memperkirakan distribusi. Sertakan algoritme acak, versi, benih,
+   jumlah ulangan, statistik, interval/toleransi, dan aturan `INCONCLUSIVE`.
+
+3. **[O017-U06-EX03]{#o017-u06-ex03}.** Audit
+   [`O017-U06-CODE-01`](../code/u06_recurrence_witness.py). Temukan sedikitnya
+   empat pemeriksaan yang benar-benar dilakukan, dua kegagalan bersama yang
+   mungkin luput karena generator dan validator berada dalam berkas yang sama,
+   serta satu mutasi tambahan yang seharusnya ditolak. Jangan menjalankan
+   mutasi pada berkas kanonik.
+
+4. **[O017-U06-EX04]{#o017-u06-ex04}.** Untuk klaim
+   `O017-U06-C-FALSE-01`, jelaskan status bukti setelah memeriksa hanya
+   $0\leq n\leq39$. Lalu verifikasi calon $n=40$ tanpa mengandalkan keluaran
+   program. Nyatakan persis klaim mana yang ditolak dan klaim berhingga mana
+   yang tetap benar.
+
+5. **[O017-U06-EX05]{#o017-u06-ex05}.** Dua eksekusi solver titik-mengambang
+   memberi `0.4999999998` dan `0.5000000001`; ambang keputusan adalah `0.5`.
+   Jelaskan mengapa “sama hingga pembulatan” belum cukup. Rancang kontrak yang
+   membedakan nilai numerik, keputusan klasifikasi, toleransi, galat, dan
+   wilayah `INCONCLUSIVE` tanpa memilih toleransi sesudah melihat keluaran.
+
+6. **[O017-U06-EX06]{#o017-u06-ex06}.** Sebuah laporan hanya memuat tangkapan
+   layar plot hijau bertuliskan “all tests passed”. Rancang penggantinya berupa
+   paket yang dapat diakses: keluaran mesin, ringkasan teks biasa, label,
+   statistik, artefak, status, dan batas. Jelaskan bagaimana Anda akan
+   mempertahankan laporan lama bila uji berikutnya gagal dan oracle perlu
+   dikoreksi.
+
+## Petunjuk dan panduan jawaban {#o017-u06-guidance}
+
+1. **[O017-U06-H01]{#o017-u06-h01}.** (a) hanya `RUN`; kode 0 tidak menjamin
+   keluaran benar. (b) mendukung `REPEAT` bila dua eksekusi dan identitas
+   artefaknya benar-benar dicatat, tetapi belum `IMPL`. (c) dapat menjadi
+   `FINITE` bila enumerasi graf lengkap dan predikat benar. (d) adalah lompatan
+   tidak sah ke `UNIVERSAL`. (e), sebagai fakta yang benar-benar dinyatakan,
+   baru `RUN`: pemeriksa menerima satu sertifikat. Perannya dapat berupa
+   sertifikat komputasional, tetapi kenaikan ke `FINITE` atau `UNIVERSAL`
+   memerlukan target klaim yang tepat, audit bunyi dan independensi pemeriksa
+   B, serta jembatan implikasi dari sertifikat ke pernyataan matematika.
+
+2. **[O017-U06-H02]{#o017-u06-h02}.** Satu lintasan memerlukan identitas
+   algoritme, versi, dan satu benih untuk menguji keterulangan lintasan. Estimasi
+   distribusi memerlukan banyak ulangan/benih, statistik yang dibekukan, serta
+   interval atau batas galat. Contoh aturan jujur: `PASS` bila interval
+   prakomitmen memuat $1/6$ dan lebarnya di bawah batas; `INCONCLUSIVE` bila
+   lebarnya terlalu besar. Jangan memakai keberulangan satu lintasan sebagai
+   bukti bahwa dadu adil.
+
+3. **[O017-U06-H03]{#o017-u06-h03}.** Pemeriksaan nyata mencakup urutan indeks,
+   rekurensi, perhitungan ruas kiri, paritas ruas kanan, kesamaan, konsistensi
+   antarrekaman, dan kondisi awal. Kegagalan bersama dapat muncul bila generator
+   dan validator memakai definisi paritas salah yang sama atau kondisi awal
+   salah yang sama. Mutasi aman pada salinan kerja misalnya menghapus indeks
+   13, menukar dua rekaman, atau mengubah `rhs` pada satu indeks; validator harus
+   menolak.
+
+4. **[O017-U06-H04]{#o017-u06-h04}.** Hasil $0..39$ hanya mendukung klaim
+   berhingga “semua 40 nilai itu prima”. Untuk $n=40$, hitung
+   $40^2+40+41=1681=41\cdot41$; $40$ berada dalam domain dan 41 merupakan faktor
+   nontrivial. Jadi klaim untuk semua $n\geq0$ ditolak, sedangkan hasil
+   berhingga $0..39$ tidak berubah.
+
+5. **[O017-U06-H05]{#o017-u06-h05}.** Kedua nilai berada di sisi berbeda dari
+   ambang, sehingga kesamaan numerik dekat tidak menjamin keputusan sama.
+   Bekukan galat absolut/interval sebelum eksekusi. Contoh: klasifikasikan
+   hanya jika seluruh interval tersertifikasi berada di atas atau di bawah
+   0,5; jika interval memotong 0,5, beri `INCONCLUSIVE`. Laporkan nilai mentah,
+   interval, dan keputusan terpisah.
+
+6. **[O017-U06-H06]{#o017-u06-h06}.** Paket minimum memuat klaim dan domain,
+   ID kode/masukan/oracle, lingkungan dan seed, prosedur, kode keluar, hasil
+   mentah terstruktur, statistik bernama, status tertulis, serta paragraf batas.
+   Beri tabel/plot nama dan deskripsi tekstual. Jika kelak gagal, simpan
+   `RUN-OLD` dan oracle lama; buat artefak serta keputusan baru dengan hubungan
+   `corrects` atau `supersedes`, tanpa mengubah sejarah.
+
+## Tugas penyelesaian unit {#o017-u06-completion-task}
+
+Buat dossier **1.200–1.600 kata** untuk paket Cassini pada unit ini. Gunakan
+artefak kanonik yang ditautkan; semua keluaran percobaan, mutasi, atau catatan
+Anda harus mempunyai nama baru dan tidak boleh menimpa kedua artefak tersebut.
+Dossier harus memuat:
+
+1. kontrak terpisah untuk klaim `RUN`, `REPEAT`, `FINITE`, dan `UNIVERSAL`,
+   termasuk domain, aturan penerimaan, kegagalan, serta batas;
+2. manifes kode dan oracle dengan jalur, ukuran, SHA-256, peran, asal, dan hak;
+3. kapsul lingkungan yang menyebut sistem, runtime, dependensi, direktori
+   kerja, encoding, stdin, parameter, model integer, dan `seed: none`;
+4. dua eksekusi baru sebagai kejadian terpisah, perbandingan byte antarkeduanya
+   dan terhadap oracle, serta penyimpanan stdout/stderr dan kode keluar;
+5. audit cakupan `1..24` yang membuktikan tidak ada indeks hilang atau ganda dan
+   yang menghubungkan setiap bidang rekaman ke definisi Fibonacci;
+6. satu kontrol mutasi pada salinan kerja, dengan prediksi prakomitmen dan
+   hasil aktual; berkas kanonik tidak boleh diubah;
+7. dua kemungkinan kegagalan bersama generator–validator dan satu jalur
+   pemeriksaan independen;
+8. rekonstruksi pembuktian identitas Cassini yang menyebut kasus dasar,
+   persamaan $D_{n+1}=-D_n$, dan penutupan induksi;
+9. matriks keputusan yang menyatakan bukti, status, dan batas untuk setiap
+   klaim tanpa memindahkan kekuatan bukti dari satu baris ke baris lain;
+10. ringkasan teks biasa yang dapat dipahami tanpa membaca JSON satu baris,
+    tanpa warna, dan tanpa tangkapan layar;
+11. log penyimpangan yang tetap ada walaupun semua uji lulus; dan
+12. pernyataan provenance, hak per komponen, perubahan, dan ketidakdukungan
+    donor.
+
+### Rubrik {#o017-u06-completion-rubric}
+
+Setiap kriteria dinilai 0, 1, atau 2.
+
+::: {.o017-table-scroll aria-label="Rubrik tugas penyelesaian Unit 6" tabindex="0"}
+| Kriteria | 0 | 1 | 2 |
+|---|---|---|---|
+| Kontrak dan status bukti | klaim/kuantor kabur atau komputasi disebut bukti universal | beberapa tingkat dibedakan tetapi satu batas hilang | `RUN`, `REPEAT`, `FINITE`, dan `UNIVERSAL` dipisahkan dengan domain, aturan, bukti, dan batas tepat |
+| Artefak dan lingkungan | kode/oracle atau lingkungan tidak teridentifikasi | sebagian versi/hash/kondisi tersedia | semua artefak, runtime, dependensi, parameter, encoding, model numerik, dan `seed` dapat ditelusuri |
+| Eksekusi dan perbandingan | hanya menulis `PASS` atau mengklaim eksekusi yang tidak dilakukan | dua run ada tetapi satu byte/status tidak disimpan | dua kejadian lengkap dibandingkan satu sama lain dan dengan oracle menggunakan aturan prakomitmen |
+| Audit dan falsifikasi | tidak memeriksa cakupan atau kontrol negatif | audit atau mutasi tersedia tetapi kegagalan bersama kabur | cakupan dibuktikan, mutasi diprediksi dan diuji, serta jalur independen membatasi kegagalan bersama |
+| Matematika | 24 kasus dipakai sebagai bukti semua $n$ atau induksi bercelah | gagasan induksi benar tetapi satu transformasi/kuantor tersirat | bukti universal lengkap dan dipisahkan tegas dari saksi berhingga |
+| Aksesibilitas, sejarah, dan hak | hanya gambar/warna, kegagalan dihapus, atau hak hilang | ringkasan/provenance ada tetapi tidak lengkap | keluaran mentah dan ringkasan teks tersedia; versi gagal dipertahankan; provenance, perubahan, hak, dan batas lengkap |
+:::
+
+Nilai lulus adalah sekurang-kurangnya 10 dari 12, dengan nilai 2 pada
+**Kontrak dan status bukti**, **Audit dan falsifikasi**, serta **Matematika**.
+Menimpa artefak kanonik, mengklaim eksekusi yang tidak dilakukan, memperbarui
+oracle agar cocok dengan hasil, memakai 24 kasus sebagai bukti universal, atau
+menyembunyikan kegagalan mewajibkan revisi meskipun jumlah nilai cukup.
+
+## Batas dengan B80 dan unit lain {#o017-u06-boundary}
+
+B80 mengajarkan mekanika pemrograman dan alat: sintaks, struktur data,
+algoritme, command line, lingkungan dan dependensi, pengujian, debugging,
+kontrol versi, CI, kontainer, hashing, aritmetika eksak/titik-mengambang,
+paralelisme, serta pembuatan otomatisasi. Unit 6 **tidak** mengulang atau
+menilai pengajaran mekanika tersebut. Ia memakai keterampilan B80 yang sudah
+ada untuk pekerjaan riset matematika: membekukan klaim, menghubungkan run ke
+bukti, mengaudit cakupan, merancang falsifikasi, dan membatasi kesimpulan.
+
+Unit 4 merancang buku catatan provenance secara umum; Unit 6 mengisi buku itu
+dengan kejadian eksekusi aktual dan menilai daya buktinya. Unit 5 mengajarkan
+eksposisi; Unit 6 menuntut ringkasan yang dapat diaudit tetapi tidak mengulang
+arsitektur naskah lengkap. Unit 7 akan menangani erratum setelah kesalahan
+ditemukan, sedangkan Unit 8 akan menangani penelaahan dan tanggapan. Dengan
+demikian, kontribusi O017 di sini ialah **praktik bukti komputasional dalam
+matematika**, bukan kursus perangkat lunak kedua.
+
+## Sumber, provenance, perubahan, dan hak {#o017-u06-provenance}
+
+Prosa berbahasa Indonesia, tangga klaim, tabel status bukti, kontrak paket,
+kasus matematika Cassini, pembuktian induksi, kasus polinom prima, matriks
+falsifikasi, latihan, panduan jawaban, tugas penyelesaian, dan rubrik pada unit
+ini merupakan materi asli O017 oleh kontributor O017, 2026, dan dilisensikan
+di bawah [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Tidak ada kutipan, gambar, tangkapan layar, latihan, atau prosa donor yang
+disalin.
+
+Prinsip umum tentang definisi reproduksibilitas, paket riset, notebook terbuka,
+dan pemisahan kondisi komputasi dari hasil ditinjau dan diadaptasi secara
+terbatas dari *The Turing Way* [@turingway2022; @turingwaycommitc98a], The
+Turing Way Community, pada commit tetap
+[`c98a0e6ca47450456cca7c5eedda2d5ee131d1ce`](https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce),
+tree `94b81b26ea209b4b067456b9b6740c76fff1eac9`. Closure pilihan O017 terdiri
+atas 21 berkas / 2.128.347 byte dengan SHA-256 manifes
+`82a352d497ecdf372b1628b405ef83754f960b7ace239e1710e06e4eb6c9c133`.
+Konten donor yang dipakai berlisensi
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); konsep terpilih
+diringkas, disusun ulang, dibatasi, dan diekspresikan kembali dalam bahasa
+Indonesia dengan konteks matematika baru. Tidak ada kalimat donor yang
+diterjemahkan secara langsung.
+
+Model tiga bagian provenance komputasi dan dokumentasi per-hasil ditinjau dari
+*Research Software Engineering with Python* [@irving2021;
+@pyrsecommit62217] oleh Damien Irving, Kate Hertweck, Luke Johnston, Joel
+Ostblom, Charlotte Wickham, dan Greg Wilson, pada commit tetap
+[`62217e6606842ab9752fcf8e73954d1eb4a3cf07`](https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07),
+tree `f570f30bb8ace202550c474e81eb3414e8976be5`, khususnya
+`chapters/provenance.Rmd` melalui slice pilihan lokal 134 baris / 6.759 byte,
+SHA-256
+`7c9ce175f20db5f248e56018ecabc3c364ce46f15d7f1e20564c8547b0a95dbc`.
+Prosa donor tersebut berlisensi
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Tidak ada kode,
+aktivitas eksternal, atau contoh donor yang disalin.
+
+[`u06_recurrence_witness.py`](../code/u06_recurrence_witness.py) adalah kode
+asli O017 dan tetap berada di bawah lisensi MIT sesuai kebijakan komponen
+paket. [`u06-expected-output.txt`](../code/u06-expected-output.txt) adalah data
+faktual hasil mesin dan didedikasikan sebagai CC0 sesuai kebijakan komponen.
+Lisensi CC BY-SA 4.0 untuk prosa unit tidak melisensikan ulang kedua komponen
+tersebut. Impor pustaka standar Python tidak menyalin kode donor ke paket.
+
+Barisan Fibonacci, identitas Cassini, induksi matematika, dan faktorisasi
+$1681=41^2$ merupakan fakta matematika klasik; O017 tidak mengklaim
+penemuannya. Redaksi, urutan pembuktian, peran pedagogis, program saksi, dan
+struktur audit ditulis khusus untuk unit ini.
+
+The Turing Way Community, enam penulis *Research Software Engineering with
+Python*, penerbit, dan afiliasi mereka **tidak mendukung, mengesahkan, atau
+mensponsori** O017. Setiap sumber beku tetap tunduk pada lisensinya sendiri;
+semua perubahan dan pengontekstualisasian merupakan tanggung jawab kontributor
+O017.

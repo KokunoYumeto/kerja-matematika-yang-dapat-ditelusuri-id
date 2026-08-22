@@ -1,0 +1,936 @@
+---
+title: "Unit 7 — Errata, Koreksi, dan Batas Kepastian"
+subtitle: "Membuktikan cacat, membatasi dampak, dan memperbaiki tanpa menghapus sejarah"
+description: "Unit praktik untuk mengklasifikasikan cacat matematika dan komputasional, memisahkan keparahan dari keyakinan, menyusun reproducer minimal, serta menulis draf erratum yang dapat diaudit."
+---
+
+## Hasil belajar {#o017-u07-outcomes}
+
+Unit ini mempunyai pengidentifikasi stabil **O017-U07**. Setelah
+menyelesaikannya, Anda mampu:
+
+1. membedakan salah ketik, cacat eksposisi lokal, hipotesis yang hilang,
+   teorema yang salah sebagaimana ditulis, penunjuk ambigu, dan cacat
+   komputasional;
+2. memisahkan **keparahan dampak** dari **tingkat keyakinan** terhadap diagnosis;
+3. membekukan versi, salinan, penunjuk, dan redaksi yang benar-benar diperiksa;
+4. membuat reproducer minimal yang memeriksa semua hipotesis sebelum
+   menunjukkan kegagalan kesimpulan;
+5. membedakan apa yang teramati, dibuktikan, disimpulkan sementara, dan belum
+   diketahui;
+6. merumuskan koreksi yang cukup sempit dan membuktikan bahwa perbaikannya
+   memang memadai;
+7. menyimpan rekaman koreksi sebagai riwayat tambahan tanpa menimpa klaim atau
+   versi lama;
+8. menulis satu draf isu atau erratum yang ringkas, spesifik, dan dapat
+   ditindaklanjuti tanpa menghubungi pihak luar; serta
+9. menghentikan atau mengeskalasi pemeriksaan ketika bukti, otoritas, atau
+   cakupan dampaknya belum cukup.
+
+::: {.callout-note title="Prasyarat, kesinambungan, dan batas fokus"}
+Unit 2 menyediakan identitas karya dan versi; Unit 3 menyediakan cara
+memeriksa celah pembuktian; Unit 4 menyediakan rekaman klaim, penunjuk, dan
+provenance; Unit 5 menyediakan eksposisi yang dapat diaudit; dan Unit 6
+menyediakan paket komputasi yang dapat dijalankan ulang. Unit 7 memakai semua
+keluaran itu untuk pekerjaan yang lebih sempit: menetapkan **apa yang rusak,
+seberapa jauh dampaknya, seberapa yakin diagnosisnya, dan bentuk koreksi apa
+yang telah dibenarkan**.
+
+Unit ini tidak mengajarkan sintaks platform isu, perintah Git, debugging
+program, pemasangan lingkungan, atau cara menjalankan notebook. Ia juga tidak
+memberi izin untuk mengirim laporan. Semua formulasi isu di sini adalah draf
+lokal sampai ada kewenangan dan pemeriksaan yang terpisah.
+:::
+
+## Erratum adalah klaim terbatas, bukan ungkapan ketidaksukaan {#o017-u07-erratum-as-bounded-claim}
+
+Kalimat “bagian ini tampaknya salah” belum merupakan erratum. Erratum yang
+dapat diaudit sekurang-kurangnya menyatakan lima hal:
+
+1. **objek tepat** yang diperiksa: karya, versi, salinan, dan lokasi;
+2. **redaksi atau keluaran tepat** yang dipersoalkan;
+3. **bukti kegagalan** yang dapat diperiksa dengan beban minimum;
+4. **cakupan akibat**: kalimat, lemma, teorema, latihan, hasil komputasi, atau
+   turunan mana yang terkena; dan
+5. **koreksi yang dibenarkan**, termasuk hal-hal yang masih belum diketahui.
+
+Erratum tidak perlu panjang. Ia perlu mempunyai rantai inferensi yang utuh.
+Sebaliknya, laporan panjang dapat tetap lemah jika tidak menyebut versi, hanya
+memperlihatkan contoh numerik yang tidak memenuhi hipotesis, atau mengusulkan
+redaksi baru tanpa membuktikannya.
+
+::: {#o017-u07-original-bridge .callout-important title="Jembatan asli O017"}
+Taksonomi dua lapis antara status pernyataan dan jenis cacat, sumbu terpisah
+untuk keparahan dan keyakinan, protokol reproducer minimal, rekaman koreksi
+tambahan, kasus keterhubungan, buku besar ketidakpastian, serta gerbang
+berhenti/eskalasi pada unit ini merupakan materi asli O017. Unit ini tidak
+menyalin prosa, contoh, latihan, atau alur dari donor eksternal.
+:::
+
+## Enam jenis cacat yang tidak boleh dilebur {#o017-u07-defect-taxonomy}
+
+Klasifikasi membantu memilih tindakan. Ia bukan pengganti bukti. Satu temuan
+dapat mempunyai satu **jenis utama** dan beberapa akibat sekunder, tetapi
+masing-masing label harus mempunyai alasan.
+
+::: {.o017-table-scroll aria-label="Taksonomi enam jenis cacat untuk errata matematika" tabindex="0"}
+| Jenis | Uji diagnostik | Contoh ringkas | Tindakan awal yang wajar |
+|---|---|---|---|
+| Salah ketik | Apakah perubahan karakter yang hampir mekanis memulihkan redaksi yang konsisten tanpa mengubah gagasan? | indeks $a_{n-1}$ tercetak $a_{n+1}$ padahal semua baris sekitar memakai $a_{n-1}$ | catat kedua bentuk, tunjukkan konteks, dan hindari menebak bila lebih dari satu perbaikan masuk akal |
+| Cacat eksposisi lokal | Apakah argumen dapat benar, tetapi satu transisi, definisi, rujukan balik, atau perubahan notasi tidak cukup dijelaskan? | “maka jelas” melewati satu inklusi himpunan yang perlu dibuktikan | isi langkah lokal dan periksa bahwa tidak ada hipotesis baru yang diselundupkan |
+| Hipotesis hilang | Apakah pernyataan menjadi benar setelah asumsi tertentu dinyatakan, sedangkan tanpa asumsi itu ada contoh tandingan? | kesimpulan tanda tetap kehilangan asumsi bahwa domain terhubung | berikan contoh tandingan, nyatakan asumsi calon, lalu buktikan versi yang diperbaiki |
+| Teorema salah sebagaimana ditulis | Apakah ada objek yang memenuhi semua hipotesis tertulis tetapi melanggar kesimpulan? | fungsi pada domain tak terhubung mengambil nilai positif dan negatif tanpa nol | tandai status pernyataan terbit sebagai salah; diagnosis akar dapat dicatat terpisah |
+| Penunjuk ambigu | Apakah pembaca yang memakai versi yang sama masih dapat memilih lebih dari satu lokasi yang masuk akal? | “lihat teorema sebelumnya” ketika dua teorema berada di antara paragraf dan klaim | buat penunjuk bagian/label/halaman yang membedakan lokasi dan sebut versi yang dipakai |
+| Cacat komputasional | Apakah kode, masukan, lingkungan, prosedur, atau keluaran tidak cocok dengan klaim komputasi yang dibuat? | manifes menyebut revisi program `r2`, tetapi log menyatakan eksekusi `r1` | bekukan artefak dan rekaman eksekusi; jangan menaikkan keluaran menjadi bukti sebelum ketidakcocokan diselesaikan |
+:::
+
+### Status salah dan penyebabnya merupakan dua bidang {#o017-u07-status-versus-cause}
+
+“Hipotesis hilang” dan “teorema salah” tampak tumpang tindih karena keduanya
+dapat benar sekaligus, tetapi keduanya menjawab pertanyaan berbeda.
+
+- `statement_status = false_as_written` menyatakan bahwa redaksi yang
+  diterbitkan mempunyai contoh tandingan.
+- `defect_kind = missing_hypothesis` menyatakan diagnosis mengenai bagaimana
+  redaksi itu mungkin diperbaiki.
+
+Gunakan nilai status secara eksplisit: `supported_as_written` bila bukti yang
+memadai mendukung klaim dalam cakupannya; `false_as_written` bila bukti eksak
+menolaknya; `unsupported_as_written` bila dasar yang diberikan tidak cukup
+meskipun kebenaran klaim belum diputuskan; `unresolved` bila audit klaim belum
+selesai; dan `not_applicable` bila rekaman cacat hanya mengenai objek nonklaim,
+misalnya penunjuk ambigu atau bentuk karakter. Jika salah ketik berada di dalam
+rumus, rekam temuan tipografinya dan status klaim matematikanya sebagai dua
+objek; jangan memaksa satu nilai menjawab dua pertanyaan.
+
+Contoh tandingan cukup untuk menetapkan bidang pertama. Ia belum otomatis
+menetapkan bidang kedua. Mungkin kesimpulannya terlalu kuat, domainnya salah,
+kuantornya keliru, atau definisi sebelumnya tidak cocok. Karena itu, jangan
+mengganti “salah sebagaimana ditulis” dengan “jelas hanya salah ketik” sebelum
+perbaikan tunggal benar-benar didukung konteks.
+
+### Salah ketik dapat mempunyai akibat matematika {#o017-u07-typo-with-impact}
+
+Jenis cacat tidak mengukur besarnya dampak. Tanda minus yang hilang mungkin
+merupakan salah ketik yang mudah didiagnosis, tetapi dapat membalik teorema
+utama. Sebaliknya, teorema salah dalam satu latihan opsional mungkin tidak
+memengaruhi bab lain. Itulah sebabnya klasifikasi dan keparahan harus disimpan
+di bidang terpisah.
+
+### Cacat eksposisi bukan izin untuk menulis ulang sumber {#o017-u07-exposition-defect-limit}
+
+Jika satu langkah hilang tetapi dapat direkonstruksi dari hipotesis tertulis,
+catat rekonstruksi sebagai argumen baru dan tautkan ke lokasi lama. Jangan
+mengubah sumber sehingga seolah-olah langkah itu selalu ada. Jika rekonstruksi
+memerlukan asumsi baru, temuan telah melewati batas cacat eksposisi lokal dan
+harus ditinjau sebagai hipotesis yang hilang atau pernyataan yang salah.
+
+## Keparahan dan keyakinan berada pada dua sumbu {#o017-u07-severity-and-confidence}
+
+**Keparahan** menjawab “jika diagnosis ini benar, seberapa luas akibatnya?”.
+**Keyakinan** menjawab “seberapa kuat bukti bahwa diagnosis ini benar?”.
+Keduanya tidak boleh dirata-ratakan menjadi satu angka.
+
+::: {.o017-table-scroll aria-label="Skala keparahan temuan errata" tabindex="0"}
+| Kode | Nama | Kriteria dampak |
+|---|---|---|
+| `S0` | editorial | makna matematika, keterlacakan, dan hasil komputasi tidak berubah |
+| `S1` | lokal | satu kalimat, langkah, contoh, atau penunjuk terganggu; hasil utama tetap dapat dipertahankan dengan bukti yang tersedia |
+| `S2` | material | satu lemma, latihan, tabel, atau cabang argumen gagal; dampaknya telah dibatasi dan tidak mencapai keseluruhan karya |
+| `S3` | mayor | teorema utama, banyak turunan, atau hasil publik utama mungkin tidak sah; jangkauan penuh belum tentu diketahui |
+| `S4` | kritis | cacat memengaruhi landasan banyak hasil atau pemakaian berisiko tinggi dan memerlukan penghentian pemakaian sementara |
+:::
+
+::: {.o017-table-scroll aria-label="Skala keyakinan diagnosis errata" tabindex="0"}
+| Kode | Nama | Dasar yang tersedia |
+|---|---|---|
+| `C0` | belum dinilai | laporan ada, tetapi versi, lokasi, atau redaksi belum berhasil dibekukan |
+| `C1` | dugaan beralasan | gejala nyata, tetapi reproducer, konteks, atau satu langkah audit masih hilang |
+| `C2` | kuat | reproducer dan konteks mendukung diagnosis; satu verifikasi independen atau bukti formal masih layak dicari |
+| `C3` | ditetapkan | contoh tandingan atau pembuktian lengkap telah diperiksa terhadap versi dan penunjuk tepat |
+:::
+
+Pasangan `S3/C1` berarti “potensi dampak besar, diagnosis belum tuntas”; ia
+bukan alasan untuk menyatakan teorema pasti salah. Pasangan `S0/C3` berarti
+“salah ketik telah dipastikan, tetapi tidak mengubah makna”. Pasangan `S2/C3`
+dapat lebih siap dikoreksi daripada `S4/C1`, meskipun angka keparahannya lebih
+rendah.
+
+::: {#o017-u07-no-product-score .callout-warning title="Jangan kalikan dua sumbu"}
+Skor seperti `severity × confidence = priority` menyembunyikan alasan. Temuan
+berdampak kritis dengan bukti awal dapat memperoleh angka sama dengan temuan
+lokal yang sudah pasti, padahal tindakan yang dibutuhkan berbeda. Simpan
+pasangan kode, dasar masing-masing, dan aturan tindakan secara eksplisit.
+:::
+
+### Matriks tindakan yang tidak mengubah bukti {#o017-u07-action-matrix}
+
+::: {.o017-table-scroll aria-label="Contoh tindakan menurut pasangan keparahan dan keyakinan" tabindex="0"}
+| Keadaan | Tindakan lokal | Kalimat yang dilarang |
+|---|---|---|
+| dampak rendah, keyakinan tinggi | siapkan koreksi ringkas dan cek konsistensi silang | “seluruh karya tidak dapat dipercaya” |
+| dampak tinggi, keyakinan tinggi | hentikan ketergantungan pada klaim, audit turunan, dan siapkan eskalasi | “mungkin hanya gaya penulisan” |
+| dampak tinggi, keyakinan rendah | bekukan bukti, tandai risiko, cari konteks atau penelaah yang tepat | “teorema terbukti salah” |
+| dampak tidak diketahui | jangan isi keparahan dengan tebakan; petakan dependensi terlebih dahulu | “hanya memengaruhi satu baris” |
+:::
+
+Prioritas juga dapat dipengaruhi oleh pemakaian aktif, tenggat, dan kemampuan
+menahan rilis. Faktor itu dicatat tersendiri; ia tidak mengubah fakta
+matematika.
+
+## Bekukan objek sebelum mendiagnosis {#o017-u07-freeze-before-diagnosis}
+
+Satu laporan harus dapat membedakan karya, versi, salinan, dan lokasi. Bidang
+minimum berikut mencegah koreksi terhadap objek yang salah.
+
+::: {.o017-table-scroll aria-label="Bidang minimum untuk membekukan objek erratum" tabindex="0"}
+| Bidang | Isi | Uji kelengkapan |
+|---|---|---|
+| `work_id` | identitas karya intelektual | versi lain dapat ditautkan tanpa dianggap byte yang sama |
+| `version_id` | edisi, rilis, tanggal, commit, atau label keadaan | nilai “terbaru” tidak diterima sebagai identitas |
+| `copy_id` | salinan yang benar-benar diperiksa | format, kelengkapan, dan identitas byte dicatat bila tersedia |
+| `locator` | bagian, teorema, persamaan, halaman, paragraf, baris, atau jangkar | pembaca dengan salinan sama sampai pada redaksi yang sama |
+| `observed_text` | kutipan pendek terkendali atau transkripsi tepat | perbedaan antara teks sumber dan parafrasa laporan terlihat |
+| `observed_at` | waktu pemeriksaan | bukan disamakan dengan tanggal terbit |
+| `context_scope` | konvensi, definisi, atau asumsi yang berlaku di lokasi | pemeriksa tahu apakah potongan berdiri sendiri |
+:::
+
+Jika hanya PDF tersedia, halaman cetak dan halaman berkas mungkin berbeda;
+catat keduanya bila perlu. Jika HTML berubah, jangkar saja mungkin tidak cukup;
+pasangkan dengan versi atau identitas arsip. Jika redaksi berasal dari gambar,
+bedakan karakter yang terlihat dari karakter yang hanya diduga. Jangan
+mengubah “huruf tampaknya $O$” menjadi “angka pasti $0$” tanpa dasar.
+
+## Reproducer minimal untuk cacat matematika {#o017-u07-minimal-reproducer}
+
+**Reproducer minimal**, atau kasus reproduksi minimal, adalah objek kecil yang
+menunjukkan kegagalan klaim
+tanpa meminta pembaca mempercayai narasi pelapor. Ia mempunyai lima bagian.
+
+1. **Klaim beku.** Tulis ulang kuantor, domain, hipotesis, dan kesimpulan tanpa
+   memperkuat atau melemahkan teks sumber.
+2. **Objek calon.** Pilih objek sesederhana mungkin yang masih berada dalam
+   domain klaim.
+3. **Pemeriksaan hipotesis.** Verifikasi satu per satu; jangan berhenti pada
+   “jelas memenuhi”.
+4. **Kegagalan kesimpulan.** Hitung atau buktikan negasi kesimpulan secara
+   eksplisit.
+5. **Batas reproducer.** Nyatakan klaim tepat yang ditolak dan klaim berdekatan
+   yang tidak disentuh.
+
+Kecil tidak berarti kabur. Contoh dengan dua titik dapat lebih kuat daripada
+simulasi besar bila semua hipotesisnya dapat diperiksa secara eksak.
+
+Untuk cacat komputasional, bentuk paralelnya ialah versi kode, masukan,
+dependensi, perintah atau prosedur, keluaran aktual, keluaran yang diklaim, dan
+perbedaan yang teramati. Pembuatan lingkungan serta eksekusinya berada pada
+B80 dan Unit 6; Unit 7 menilai apakah bukti yang dihasilkan cukup untuk
+merumuskan koreksi.
+
+### Uji reproducer sebelum mengandalkannya {#o017-u07-reproducer-tests}
+
+- Apakah objek contoh benar-benar berada dalam domain dan memenuhi semua
+  hipotesis eksplisit?
+- Apakah konvensi yang berlaku pada bagian sumber telah dimasukkan?
+- Apakah kegagalan bersifat eksak, atau hanya berasal dari pembulatan dan
+  tampilan?
+- Apakah contoh menolak klaim sumber, bukan penguatan buatan pelapor?
+- Apakah bagian yang dapat dihapus tanpa menghilangkan kegagalan telah
+  dihapus?
+- Apakah pembaca dapat memeriksa reproducer tanpa akses tersembunyi?
+
+## Kasus kerja: tanda tetap tanpa keterhubungan {#o017-u07-worked-case}
+
+Kasus berikut sepenuhnya sintetis. Paket lokalnya menyatakan bahwa proposisi
+berdiri sendiri; tidak ada asumsi bagian yang diwariskan. Karena itu, temuan
+dapat diaudit tanpa mencari sumber luar.
+
+### Versi dan penunjuk yang diperiksa {#o017-u07-worked-version}
+
+::: {#o017-u07-packet-v1 .callout-warning title="O017-U07-V01 — Proposisi 7.3, versi sintetis 1.0"}
+**Redaksi V01.** Misalkan $X$ ruang topologis dan $f:X\to\mathbb R$ kontinu.
+Jika $f(x)\neq0$ untuk setiap $x\in X$, maka $f$ bertanda tetap: salah satu
+dari $f(x)>0$ untuk setiap $x\in X$ atau $f(x)<0$ untuk setiap $x\in X$
+berlaku.
+:::
+
+Rekaman sumber lokal untuk kasus ini adalah:
+
+::: {.o017-table-scroll aria-label="Identitas versi dan lokasi kasus tanda tetap" tabindex="0"}
+| Bidang | Nilai |
+|---|---|
+| `work_id` | `O017-U07-W01`, *Paket Topologi Sintetis* |
+| `version_id` | `O017-U07-V01`, label keadaan `1.0-sintetis` |
+| `copy_id` | `O017-U07-CP01`, cuplikan lengkap yang tertanam pada unit ini |
+| `locator` | `#o017-u07-packet-v1`, Proposisi 7.3 |
+| `claim_id` | `O017-U07-C01` |
+| `context_scope` | pernyataan berdiri sendiri; tidak ada konvensi keterhubungan yang diwariskan |
+| `observed_text` | seluruh redaksi dalam kotak V01 di atas |
+:::
+
+Istilah “bertanda tetap” pada V01 berarti disjungsi dua klaim universal, bukan
+hanya bahwa setiap titik mempunyai salah satu tanda. Hipotesis tidak pernah
+nol sudah menjamin tanda pada setiap titik; kesimpulan tambahan menuntut tanda
+yang sama di seluruh domain.
+
+### Reproducer minimal dua titik {#o017-u07-two-point-counterexample}
+
+Ambil
+
+$$
+X=\{-1,1\}\subset\mathbb R
+$$
+
+dengan topologi subruang, dan definisikan $f:X\to\mathbb R$ oleh $f(x)=x$.
+Kita periksa semua hipotesis.
+
+1. $X$ merupakan ruang topologis dengan topologi subruang. Bahkan, kedua
+   singleton terbuka di $X$ karena
+   $\{-1\}=X\cap(-3/2,-1/2)$ dan
+   $\{1\}=X\cap(1/2,3/2)$.
+2. $f$ adalah pembatasan fungsi identitas kontinu pada $\mathbb R$, sehingga
+   kontinu pada $X$.
+3. Untuk setiap $x\in X$, berlaku $f(x)\neq0$ karena nilainya hanya $-1$ atau
+   $1$.
+4. Kesimpulan pertama gagal sebab $f(-1)=-1<0$. Kesimpulan kedua gagal sebab
+   $f(1)=1>0$.
+
+Jadi kedua alternatif kesimpulan V01 gagal meskipun semua hipotesis tertulis
+terpenuhi. Ini menetapkan
+`statement_status(O017-U07-C01) = false_as_written` dengan keyakinan `C3`.
+Reproducer hanya membutuhkan dua titik; domain satu titik tidak mungkin
+memuat nilai positif dan negatif sekaligus, sehingga contoh ini juga minimal
+dalam jumlah titik.
+
+Temuan tersebut menolak V01. Ia tidak menolak pernyataan tentang domain
+terhubung, tidak menyatakan bahwa setiap fungsi pada domain tak terhubung
+berganti tanda, dan tidak mengungkap maksud penulis sintetis.
+
+### Diagnosis: hipotesis keterhubungan hilang {#o017-u07-missing-connectedness}
+
+Contoh tandingan memakai dua komponen domain. Kandidat perbaikan alami ialah
+menambahkan keterhubungan, bukan kekompakan, keterhubungan lintasan, atau
+asumsi bahwa $X$ merupakan interval.
+
+::: {#o017-u07-packet-v2 .callout-important title="O017-U07-V02 — Proposisi 7.3, redaksi koreksi calon 1.1"}
+**Redaksi V02.** Misalkan $X$ ruang topologis **terhubung** dan
+$f:X\to\mathbb R$ kontinu. Jika $f(x)\neq0$ untuk setiap $x\in X$, maka
+$f(x)>0$ untuk setiap $x\in X$ atau $f(x)<0$ untuk setiap $x\in X$.
+:::
+
+### Pembuktian versi yang diperbaiki {#o017-u07-connected-proof}
+
+Definisikan dua himpunan relatif terbuka
+
+$$
+U=f^{-1}((-\infty,0))
+\qquad\text{dan}\qquad
+V=f^{-1}((0,\infty)).
+$$
+
+Keduanya terbuka di $X$ karena $f$ kontinu. Keduanya saling lepas. Hipotesis
+$f(x)\neq0$ untuk setiap $x$ memberi $X=U\cup V$. Jika $U$ dan $V$ sama-sama
+tak kosong, keduanya membentuk pemisahan $X$ menjadi dua himpunan terbuka tak
+kosong yang saling lepas, bertentangan dengan keterhubungan $X$. Maka salah
+satu dari $U$ atau $V$ kosong.
+
+Jika $U$ kosong, setiap nilai $f$ tidak negatif; karena tidak ada nilai nol,
+setiap nilai positif. Jika $V$ kosong, argumen yang sama menunjukkan setiap
+nilai negatif. Jadi salah satu alternatif V02 berlaku. $\square$
+
+Pembuktian memakai keterhubungan dan kekontinuan tepat satu kali melalui
+prahimpunan dua sinar terbuka. Ia tidak memakai metrik, kekompakan,
+keterhubungan lintasan, diferensiabilitas, atau Teorema Nilai Antara dalam
+bentuk khusus interval.
+
+### Mengapa perbaikannya minimal dalam arti yang relevan {#o017-u07-minimal-repair}
+
+“Minimal” harus menyebut kelas perbandingannya. Di sini kita mencari kondisi
+pada **domain** yang menjamin kesimpulan untuk setiap fungsi kontinu bernilai
+real yang tidak pernah bernilai nol. Dalam kelas itu, keterhubungan bukan hanya cukup,
+tetapi perlu.
+
+Andaikan $X$ tidak terhubung. Maka terdapat himpunan terbuka tak kosong,
+saling lepas $A$ dan $B$ dengan $X=A\cup B$. Karena masing-masing merupakan
+komplemen yang lain, keduanya juga tertutup. Definisikan
+
+$$
+g(x)=
+\begin{cases}
+-1,&x\in A,\\
+ 1,&x\in B.
+\end{cases}
+$$
+
+Fungsi $g$ kontinu: prahimpunan setiap himpunan terbuka di $\mathbb R$ adalah
+salah satu dari $\varnothing$, $A$, $B$, atau $X$, semuanya terbuka di $X$.
+Fungsi itu tidak pernah nol tetapi mengambil kedua tanda. Dengan demikian,
+
+> $X$ terhubung jika dan hanya jika setiap fungsi kontinu
+> $f:X\to\mathbb R$ yang tidak pernah nol bertanda tetap.
+
+Jadi menambahkan “$X$ terhubung” memulihkan teorema universal secara tepat.
+Menambahkan “$X$ terhubung lintasan”, “$X$ interval”, atau “$X$ kompak dan
+terhubung” juga cukup, tetapi lebih kuat dari yang diperlukan. Untuk satu
+fungsi tertentu, syarat bahwa citra $f(X)$ terhubung juga cukup; itu bukan
+pengganti diagnosis mengenai kondisi domain yang menjamin hasil bagi **semua**
+fungsi kontinu.
+
+### Keparahan, keyakinan, dan jangkauan {#o017-u07-worked-triage}
+
+::: {.o017-table-scroll aria-label="Triage kasus proposisi tanda tetap" tabindex="0"}
+| Bidang | Nilai | Dasar |
+|---|---|---|
+| status pernyataan | `false_as_written` | reproducer dua titik memenuhi semua hipotesis dan melanggar kedua alternatif |
+| jenis utama | `missing_hypothesis` | versi dengan keterhubungan terbukti benar dan kondisi itu perlu untuk jaminan universal pada domain |
+| akibat sekunder | teorema salah sebagaimana ditulis | status teks V01, bukan dugaan tentang maksud penulis |
+| keparahan | `S2 material` untuk paket ini | satu proposisi gagal; paket tidak menyediakan turunan lain |
+| keyakinan | `C3 ditetapkan` | contoh tandingan dan pembuktian koreksi lengkap tersedia |
+| jangkauan belum diketahui | pemakaian di luar paket | tidak ada daftar dependensi eksternal dalam paket sintetis |
+:::
+
+Keparahan tidak dinaikkan menjadi `S3` hanya karena kata “teorema” muncul.
+Paket yang tersedia hanya membuktikan satu proposisi terkena. Sebaliknya, jika
+audit dependensi kelak menemukan banyak hasil utama memakai V01 pada domain
+tak terhubung, keparahan dapat diubah oleh peristiwa baru tanpa mengubah bukti
+awal.
+
+## Koreksi harus mempertahankan sejarah {#o017-u07-history-preserving-correction}
+
+Mengganti teks V01 dengan V02 di tempat yang sama lalu menghapus V01
+menghilangkan jawaban atas pertanyaan penting: versi mana pernah memuat klaim
+salah, bukti apa yang menemukannya, dan keluaran mana mungkin bergantung
+padanya. Koreksi yang dapat diaudit memakai identitas baru dan hubungan
+berarah.
+
+```text
+V01 --contains--> C01 --refutedBy--> CE01
+ |                    |
+ |                    +--diagnosedAs--> missing_hypothesis
+ |
+ +--succeededBy--> V02 --contains--> C02 --provedBy--> PR01
+
+COR01 --corrects--> C01
+COR01 --proposes--> C02
+```
+
+`C01` tetap berstatus ditolak; ia tidak berubah menjadi `C02`. `V01` tetap
+ada sebagai versi historis; ia tidak diberi label “tidak pernah berlaku”.
+`V02` memperoleh bukti dan statusnya sendiri.
+
+### Buku besar peristiwa kasus kerja {#o017-u07-worked-event-ledger}
+
+::: {.o017-table-scroll aria-label="Buku besar peristiwa koreksi kasus tanda tetap" tabindex="0"}
+| Peristiwa | Tindakan tambahan | Objek | Alasan dan bukti |
+|---|---|---|---|
+| `O017-U07-EVT01` | `observed` | `C01 at V01/#o017-u07-packet-v1` | redaksi dan konteks paket dibekukan |
+| `O017-U07-EVT02` | `refuted` | `C01` | `O017-U07-CE01`, reproducer dua titik di `#o017-u07-two-point-counterexample` |
+| `O017-U07-EVT03` | `classified` | temuan `F01` | status salah; diagnosis utama hipotesis keterhubungan hilang; `S2/C3` |
+| `O017-U07-EVT04` | `proposed` | `C02 in V02` | redaksi calon pada `#o017-u07-packet-v2` |
+| `O017-U07-EVT05` | `proved` | `C02` | pembuktian pada `#o017-u07-connected-proof` |
+| `O017-U07-EVT06` | `bounded` | dampak `F01` | paket tidak memuat audit hasil turunan; jangkauan luar tetap belum diketahui |
+:::
+
+Jika kelak V02 juga perlu koreksi, tambahkan V03 dan hubungan baru. Jangan
+menghapus EVT04 atau EVT05; pembaca perlu mengetahui apa yang pernah diusulkan
+dan dasar penerimaannya pada saat itu.
+
+### Isi minimum satu rekaman koreksi {#o017-u07-correction-record-fields}
+
+::: {.o017-table-scroll aria-label="Bidang minimum rekaman koreksi yang mempertahankan sejarah" tabindex="0"}
+| Bidang | Pertanyaan |
+|---|---|
+| `correction_id` | koreksi mana yang sedang dibicarakan? |
+| `target_version` dan `target_locator` | redaksi historis mana yang terkena? |
+| `target_claim` | klaim ternormalisasi apa yang dinilai? |
+| `observation` | apa yang benar-benar tampak pada salinan? |
+| `reproducer` | bukti kecil apa menunjukkan kegagalan? |
+| `statement_status` dan `defect_kind` | apa akibat formal dan diagnosis penyebabnya? |
+| `severity` dan `confidence` | seberapa luas akibat jika benar, dan seberapa kuat buktinya? |
+| `replacement_claim` | redaksi baru apa yang diusulkan? |
+| `verification` | bukti apa mendukung redaksi baru? |
+| `supersession_relation` | objek baru mengganti pemakaian aktif yang mana tanpa menghapus sejarah? |
+| `uncertainties` | konteks, niat, atau dampak apa yang belum diketahui? |
+| `event_log` | kapan dan atas dasar apa status berubah? |
+:::
+
+## Menulis draf isu atau erratum yang ringkas {#o017-u07-concise-draft}
+
+Draf yang baik mendahulukan fakta yang dapat diperiksa. Salam panjang,
+penilaian terhadap penulis, riwayat seluruh proses, dan dugaan tentang niat
+tidak diperlukan. Judul menyebut lokasi dan jenis masalah. Isi menyebut versi,
+redaksi, reproducer, koreksi calon, dan batas.
+
+::: {#o017-u07-draft-only .callout-note title="Draf lokal — tidak dikirim ke pihak mana pun"}
+**Judul:** Proposisi 7.3 pada versi 1.0 kehilangan hipotesis keterhubungan
+
+**Versi dan lokasi:** `O017-U07-V01`, Proposisi 7.3,
+`#o017-u07-packet-v1`.
+
+**Masalah:** Pernyataan mengklaim bahwa setiap fungsi kontinu yang tidak pernah bernilai nol
+$f:X\to\mathbb R$ bertanda tetap untuk ruang topologis sebarang.
+
+**Reproducer minimal:** Ambil $X=\{-1,1\}$ dengan topologi subruang dan
+$f(x)=x$. Fungsi ini kontinu dan tidak pernah nol, tetapi
+$f(-1)<0<f(1)$.
+
+**Koreksi calon:** Tambahkan bahwa $X$ terhubung. Dengan
+$U=f^{-1}((-\infty,0))$ dan $V=f^{-1}((0,\infty))$, kedua himpunan terbuka,
+saling lepas, dan menutupi $X$; keterhubungan memaksa salah satunya kosong.
+
+**Cakupan:** Contoh tandingan menetapkan bahwa proposisi salah sebagaimana
+ditulis. Paket yang diperiksa tidak cukup untuk menentukan semua hasil turunan
+yang mungkin terpengaruh.
+:::
+
+Draf tersebut tidak mengklaim mengetahui maksud penulis, tidak meminta
+penggantian seluruh karya, dan tidak menyatakan dampak yang belum diaudit. Jika
+laporan ditujukan ke proyek nyata, identitas versi publik, penunjuk yang dapat
+diakses penerima, kebijakan kontribusi, serta kewenangan untuk mengirim harus
+diperiksa secara terpisah.
+
+### Templat enam kalimat {#o017-u07-six-sentence-template}
+
+Jika kasusnya sederhana, enam kalimat berikut sering cukup.
+
+1. “Saya memeriksa **[versi/salinan]** pada **[penunjuk]**.”
+2. “Teks menyatakan **[klaim ternormalisasi]**.”
+3. “Ambil **[objek minimal]**; ia memenuhi **[daftar hipotesis]**.”
+4. “Namun **[perhitungan atau argumen]** melanggar **[kesimpulan]**.”
+5. “Redaksi **[koreksi calon]** cukup karena **[bukti singkat atau lokator
+   bukti]**.”
+6. “Saya belum menentukan **[jangkauan, niat, atau ketidakpastian yang nyata]**.”
+
+Jika koreksi tidak dapat dibuktikan dalam ruang yang ringkas, kalimat kelima
+harus berbunyi “koreksi belum ditetapkan”, lalu menautkan dossier bukti; jangan
+memadatkan celah menjadi kepastian palsu.
+
+### Laporan harus tetap dapat diakses {#o017-u07-accessible-report}
+
+Jangan menjadikan warna, posisi visual, atau tangkapan layar sebagai satu-satunya
+bukti. Transkripsikan redaksi yang dipersoalkan secara singkat, beri nama pada
+setiap tabel dan rumus penting, serta jelaskan perbedaan dengan kata-kata.
+Penunjuk seperti “kotak merah di kanan” harus disertai versi dan label yang
+bermakna tanpa gambar. Jika bentuk karakter justru merupakan masalah—misalnya
+huruf `O` yang menyerupai angka `0`—catat apa yang terlihat dan sediakan
+deskripsi tekstual; jangan menyelesaikan ambiguitas hanya dengan warna atau
+tipografi. Urutan draf harus tetap logis ketika dibaca secara linear: target,
+klaim, reproducer, koreksi calon, lalu batas kepastian.
+
+## Buku besar ketidakpastian {#o017-u07-uncertainty-ledger}
+
+Ketidakpastian bukan paragraf permintaan maaf. Ia merupakan objek kerja dengan
+pertanyaan, bukti yang ada, akibat jika salah, uji berikut, dan aturan berhenti.
+
+::: {.o017-table-scroll aria-label="Buku besar ketidakpastian untuk kasus tanda tetap" tabindex="0"}
+| ID | Pertanyaan | Yang diketahui | Yang belum diketahui | Dampak | Uji atau tindakan berikut |
+|---|---|---|---|---|---|
+| `O017-U07-UQ01` | apakah V01 salah sebagai pernyataan berdiri sendiri? | paket menyatakan tidak ada asumsi bagian; contoh tandingan eksak tersedia | tidak ada ketidakpastian material yang tersisa | status C01 | tutup pada `C3` |
+| `O017-U07-UQ02` | apakah keterhubungan merupakan perbaikan yang cukup? | pembuktian lengkap tersedia | tidak ada untuk kecukupan | status C02 | tutup pada `C3` |
+| `O017-U07-UQ03` | apakah itu redaksi yang dimaksud pencipta? | perbaikan alami dan tepat untuk teorema universal | niat pencipta tidak direkam | pilihan redaksional | jangan mengklaim niat; minta keputusan pemilik bila penerbitan nyata dilakukan |
+| `O017-U07-UQ04` | hasil mana bergantung pada V01? | paket lokal tidak memuat dependensi lain | seluruh jangkauan di luar paket | keparahan | pertahankan `S2` untuk paket; audit dependensi sebelum klaim yang lebih luas |
+| `O017-U07-UQ05` | apakah V02 sudah diterbitkan? | V02 hanya koreksi calon di unit ini | tidak ada rilis eksternal | status versi | jangan menyebut V01 telah diganti di luar paket |
+:::
+
+Gunakan status seperti `terbuka`, `sedang diuji`, `ditutup-didukung`, dan
+`ditutup-tidak dapat dipastikan`. “Ditutup-tidak dapat dipastikan” bukan
+“benar”; status itu menyimpan batas pemeriksaan.
+
+### Bahasa yang sesuai dengan kekuatan bukti {#o017-u07-certainty-language}
+
+::: {.o017-table-scroll aria-label="Padanan bahasa laporan dengan status bukti" tabindex="0"}
+| Status bukti | Bahasa yang tepat | Bahasa yang terlalu kuat |
+|---|---|---|
+| teks terlihat pada salinan beku | “salinan CP01 memuat …” | “semua edisi menyatakan …” |
+| reproducer eksak telah diperiksa | “klaim salah sebagaimana ditulis” | “penulis tidak memahami …” |
+| satu koreksi terbukti cukup | “menambahkan keterhubungan menghasilkan pernyataan benar” | “inilah satu-satunya koreksi yang mungkin” |
+| konteks belum lengkap | “belum diketahui apakah ada konvensi bagian” | “pasti tidak ada asumsi lain” |
+| beberapa turunan telah diaudit | “dampak telah ditemukan pada A dan B” | “hanya A dan B yang terpengaruh” |
+| keluaran komputasi tidak cocok | “rekaman eksekusi tidak konsisten” | “algoritmenya pasti salah” |
+:::
+
+## Gerbang berhenti dan eskalasi {#o017-u07-stop-and-escalate}
+
+Ketelitian tidak berarti memeriksa tanpa batas. Gunakan gerbang yang dapat
+diamati.
+
+### Berhenti sebelum menyatakan kesalahan {#o017-u07-stop-before-claim}
+
+Berhenti sebelum menetapkan **status klaim lama** dan simpan temuan sebagai
+`C0` atau `C1` jika salah satu keadaan berikut berlaku:
+
+- versi atau lokasi tidak dapat dibedakan;
+- redaksi hanya tersedia sebagai parafrasa pihak kedua;
+- contoh calon gagal memenuhi satu hipotesis;
+- konvensi bagian yang mungkin memasok hipotesis belum diperiksa; atau
+- kegagalan numerik berada dalam batas pembulatan yang tidak diketahui.
+
+Berhenti berarti jangan menaikkan status, bukan membuang catatan. Simpan bukti,
+pertanyaan, dan langkah berikutnya.
+
+Status **koreksi calon** mempunyai gerbang tersendiri. Jika contoh tandingan
+eksak telah menetapkan klaim lama sebagai `false_as_written/C3`, pertahankan
+status itu meskipun penggantinya belum terbukti. Tandai pengganti
+`unresolved`, jangan aktifkan sebagai koreksi, dan berhenti sebelum menyatakan
+bahwa masalah telah diperbaiki. Ketidakpastian perbaikan tidak menurunkan
+kekuatan bukti terhadap klaim lama.
+
+### Eskalasi tanpa melebih-lebihkan {#o017-u07-escalation-rule}
+
+Eskalasi ke penelaah yang sesuai atau pemilik keputusan jika:
+
+1. keparahan aktual atau potensial `S3` atau `S4`, pada tingkat keyakinan apa
+   pun; `C1/C2` memerlukan verifikasi tambahan, sedangkan `C3` memerlukan audit
+   dependensi dan keputusan penahanan atau koreksi keluaran aktif;
+2. pembuktian koreksi bergantung pada keahlian di luar pemeriksa;
+3. dua perbaikan tak ekuivalen sama-sama cocok dengan konteks;
+4. identitas lisensi atau hak komponen memengaruhi bentuk koreksi yang dapat
+   diterbitkan;
+5. audit dependensi menemukan keluaran aktif yang mungkin memakai klaim salah;
+   atau
+6. ketidakcocokan komputasi tidak dapat dipisahkan antara kode, data,
+   lingkungan, dan interpretasi hasil.
+
+Eskalasi harus membawa dossier, bukan hanya alarm: versi, penunjuk, reproducer,
+pasangan keparahan/keyakinan, pertanyaan terbuka, dan keputusan yang diminta.
+Menghubungi pihak luar merupakan tindakan terpisah dan tidak dilakukan oleh
+unit ini.
+
+### Kondisi penutupan {#o017-u07-closure-conditions}
+
+Satu temuan dapat ditutup sebagai **dikoreksi secara lokal** ketika:
+
+- target historis tetap dapat dikenali;
+- status klaim lama dan bukti kegagalannya tercatat;
+- klaim pengganti mempunyai bukti yang cukup;
+- jangkauan dampak yang diperiksa dinyatakan;
+- ketidakpastian yang tersisa tidak disamarkan; dan
+- artefak aktif menunjuk versi baru tanpa menghapus versi lama.
+
+Penutupan lokal tidak berarti koreksi telah diterima atau diterbitkan oleh
+pihak lain.
+
+## Protokol audit dan koreksi {#o017-u07-correction-protocol}
+
+Gunakan urutan berikut untuk temuan matematika atau komputasional.
+
+1. **Daftarkan temuan.** Beri ID dan catat siapa atau apa yang memicu
+   pemeriksaan; jangan langsung memberi vonis.
+2. **Bekukan target.** Catat karya, versi, salinan, penunjuk, redaksi, waktu,
+   dan cakupan konteks.
+3. **Normalisasi klaim.** Tulis kuantor, tipe, hipotesis, dan kesimpulan.
+4. **Klasifikasikan sementara.** Pisahkan status pernyataan dari jenis cacat.
+5. **Bangun reproducer minimal.** Periksa semua hipotesis dan tunjukkan
+   kegagalan tepat.
+6. **Nilai dua sumbu.** Tetapkan keparahan dan keyakinan dengan dasar
+   masing-masing; tandai jangkauan yang belum diaudit.
+7. **Cari koreksi tersempit.** Uji pengurangan asumsi atau pelemahan kesimpulan;
+   jangan menebak maksud.
+8. **Buktikan koreksi.** Simpan bukti baru sebagai objek terpisah.
+9. **Audit dependensi.** Tentukan hasil mana benar-benar memakai klaim lama dan
+   pada domain apa.
+10. **Tambahkan peristiwa.** Hubungkan versi lama, bukti kegagalan, koreksi,
+    dan versi calon; jangan timpa.
+11. **Tulis draf ringkas.** Sertakan fakta, reproducer, koreksi, dan batas;
+    biarkan kontak eksternal tetap di luar proses ini.
+12. **Terapkan gerbang.** Tutup, tahan, atau eskalasi menurut bukti dan
+    kewenangan yang tersedia.
+
+Urutan dapat kembali ke langkah sebelumnya. Penemuan konvensi bagian baru,
+misalnya, mengubah normalisasi klaim dan mungkin membatalkan reproducer. Log
+peristiwa harus menyimpan perubahan itu alih-alih menyajikan keputusan akhir
+sebagai keputusan pertama.
+
+## Praktik terpandu: satu temuan, dua sumbu, tiga klaim {#o017-u07-guided-practice}
+
+Sebuah naskah sintetis versi `2.1` menulis pada Lemma 4:
+
+> Untuk setiap bilangan real $x$, $\sqrt{x^2}=x$.
+
+Ambil $x=-2$. Hipotesis “$x$ real” terpenuhi, sedangkan
+$\sqrt{(-2)^2}=\sqrt4=2\neq-2$. Jadi lemma salah sebagaimana ditulis. Perbaikan
+$\sqrt{x^2}=|x|$ benar untuk setiap $x\in\mathbb R$ berdasarkan definisi akar
+kuadrat utama. Perbaikan lain, “jika $x\geq0$, maka $\sqrt{x^2}=x$”, juga
+benar tetapi mempersempit domain.
+
+Tiga klaim harus dipisahkan:
+
+- `C-old`: pernyataan universal lama, ditolak oleh $x=-2$;
+- `C-abs`: identitas dengan nilai mutlak, diterima dengan bukti definisional;
+- `C-nonneg`: pembatasan domain, diterima tetapi lebih sempit.
+
+Kita dapat menetapkan keyakinan `C3`. Keparahan belum dapat disimpulkan dari
+lemma saja: jika tidak ada hasil lain memakainya, mungkin `S1`; jika banyak
+turunan mengganti $\sqrt{x^2}$ dengan $x$ untuk nilai negatif, mungkin `S3`.
+Sampai graf dependensi diperiksa, catat `severity = unknown`, bukan memilih
+angka yang terasa wajar.
+
+## Daftar periksa sebelum menyelesaikan draf {#o017-u07-preflight}
+
+1. Apakah versi, salinan, penunjuk, dan redaksi yang diperiksa tepat?
+2. Apakah klaim telah dinormalisasi tanpa perubahan diam-diam?
+3. Apakah setiap hipotesis reproducer benar-benar diperiksa?
+4. Apakah kegagalan kesimpulan bersifat eksak dan relevan?
+5. Apakah status pernyataan dibedakan dari diagnosis jenis cacat?
+6. Apakah keparahan dan keyakinan mempunyai dasar yang berbeda?
+7. Apakah koreksi calon terbukti cukup dan tidak lebih kuat dari kebutuhan
+   tanpa alasan?
+8. Apakah versi dan klaim lama masih tersimpan dalam sejarah?
+9. Apakah dampak yang belum diaudit serta niat yang tidak diketahui tetap
+   disebut tidak diketahui?
+10. Apakah draf meminta satu tindakan yang jelas tanpa penilaian pribadi?
+11. Apakah gerbang berhenti, eskalasi, dan kewenangan kontak dipatuhi?
+
+## Latihan {#o017-u07-exercises}
+
+1. **[O017-U07-X01]{#o017-u07-x01} — Klasifikasi dua lapis.** Untuk setiap
+   kasus berikut, berikan `statement_status`, `defect_kind` utama, dan satu
+   akibat sekunder bila ada: (a) indeks $n+1$ tercetak $n-1$, tetapi
+   substitusi di baris berikut hanya konsisten dengan $n+1$; (b) bukti memakai
+   kekompakan yang tidak tercantum dan teorema gagal pada domain tak kompak;
+   (c) “lihat Lemma 2” ketika dua lampiran masing-masing mempunyai Lemma 2;
+   (d) log menyebut kode revisi `r3`, sedangkan manifes dan keluaran menyebut
+   `r2`; (e) sebuah implikasi benar, tetapi satu paragraf memakai konversnya;
+   dan (f) satu definisi benar tetapi simbolnya berubah tipe tanpa penjelasan.
+   Tautkan jawaban Anda ke **[O017-U07-H01](#o017-u07-h01)**.
+
+2. **[O017-U07-X02]{#o017-u07-x02} — Keparahan bukan keyakinan.** Buat
+   pasangan kode dan alasan untuk: (a) salah ketik judul yang pasti dan tidak
+   memengaruhi temu kembali; (b) dugaan bahwa teorema utama salah karena satu
+   simulasi tidak stabil; (c) contoh tandingan eksak terhadap latihan mandiri
+   yang tidak dipakai di tempat lain; dan (d) ketidakcocokan versi kode pada
+   hasil utama dengan jangkauan belum diaudit. Jangan menghasilkan satu skor
+   gabungan. Tautkan jawaban Anda ke
+   **[O017-U07-H02](#o017-u07-h02)**.
+
+3. **[O017-U07-X03]{#o017-u07-x03} — Versi, penunjuk, dan reproducer.** Sebuah
+   laporan hanya berbunyi “edisi baru, teorema monoton salah untuk $x=-1$”.
+   Tulis daftar pertanyaan minimum yang harus dijawab sebelum status dapat
+   dinaikkan dari `C0`. Lalu tulis kerangka reproducer yang memisahkan
+   hipotesis, objek, kegagalan kesimpulan, dan batas. Tautkan jawaban Anda ke
+   **[O017-U07-H03](#o017-u07-h03)**.
+
+4. **[O017-U07-X04]{#o017-u07-x04} — Perbaikan keterhubungan.** Buktikan bahwa
+   jika $X$ terhubung dan $f:X\to\mathbb R\setminus\{0\}$ kontinu, maka citra
+   $f(X)$ terletak seluruhnya dalam satu komponen
+   $\mathbb R\setminus\{0\}$. Kemudian, untuk ruang tak terhubung sebarang,
+   bangun fungsi kontinu ke $\{-1,1\}$ yang mengambil kedua nilai. Jelaskan
+   mengapa “terhubung lintasan” merupakan perbaikan yang terlalu kuat untuk
+   klaim ini. Tautkan jawaban Anda ke
+   **[O017-U07-H04](#o017-u07-h04)**.
+
+5. **[O017-U07-X05]{#o017-u07-x05} — Sejarah koreksi.** Suatu versi `V1`
+   memuat klaim `CLM1`; contoh tandingan `CE1` menolaknya; `V2` memuat klaim
+   pengganti `CLM2`; kemudian `V3` mempersempit notasi tanpa mengubah makna `CLM2`.
+   Rancang peristiwa dan hubungan berarah yang menyimpan ketiga versi. Jelaskan
+   mengapa mengubah isi `CLM1` menjadi isi `CLM2` merusak audit. Tautkan jawaban
+   Anda ke **[O017-U07-H05](#o017-u07-h05)**.
+
+6. **[O017-U07-X06]{#o017-u07-x06} — Draf dan gerbang.** Tulis draf enam
+   kalimat untuk kasus $\sqrt{x^2}=x$ pada praktik terpandu. Tambahkan dua entri
+   ketidakpastian: jangkauan hasil turunan dan pilihan antara koreksi nilai
+   mutlak atau pembatasan domain. Tentukan kondisi berhenti dan satu keputusan
+   yang harus dieskalasi. Draf tetap lokal. Tautkan jawaban Anda ke
+   **[O017-U07-H06](#o017-u07-h06)**.
+
+## Petunjuk dan panduan jawaban {#o017-u07-guidance}
+
+1. **[O017-U07-H01]{#o017-u07-h01}.** (a) terutama salah ketik; status
+   matematika bergantung pada redaksi yang dianggap aktif, jadi jangan
+   mengubahnya tanpa mencatat bukti konteks; gunakan `not_applicable` bila
+   temuan hanya mengenai bentuk cetak, lalu nilai klaim rumus sebagai objek
+   terpisah. (b) teorema `false_as_written` dengan diagnosis hipotesis
+   kekompakan hilang. (c) penunjuk ambigu dengan status klaim
+   `not_applicable`. (d) cacat komputasional/provenance; klaim bahwa revisi
+   `r3` telah dijalankan masih `unsupported_as_written`, dan bukti belum cukup
+   untuk menyatakan algoritme salah. (e) penggunaan lokal salah meskipun
+   implikasi sumber dapat tetap benar. (f) cacat eksposisi lokal dengan
+   `not_applicable` jika belum ada klaim yang dinilai, kecuali perubahan tipe
+   membuat klaim tertentu salah. Simpan status dan penyebab sebagai bidang
+   berbeda.
+
+2. **[O017-U07-H02]{#o017-u07-h02}.** Bentuk yang masuk akal ialah (a)
+   `S0/C3`; (b) potensi `S3/C1`, karena simulasi belum menjadi contoh tandingan
+   eksak; (c) `S1` atau `S2` dengan `C3`, bergantung pada peran latihan tetapi
+   jangkauan telah dibatasi; dan (d) keparahan belum diketahui atau potensi
+   `S3`, dengan keyakinan kuat hanya terhadap ketidakcocokan artefak, bukan
+   terhadap salahnya hasil matematika. Alasan setiap sumbu lebih penting dari
+   kode tunggal.
+
+3. **[O017-U07-H03]{#o017-u07-h03}.** Mintalah judul karya, nomor edisi atau
+   identitas versi, salinan, format, halaman/bagian/label, redaksi lengkap,
+   definisi “monoton”, domain, asumsi bagian, dan waktu observasi. Reproducer
+   harus menuliskan klaim dengan kuantor, memeriksa bahwa $-1$ berada dalam
+   domain dan memenuhi hipotesis, menghitung kegagalan tepat, lalu menyatakan
+   apakah ia menolak klaim sumber atau penguatan buatan pelapor.
+
+4. **[O017-U07-H04]{#o017-u07-h04}.** Citra kontinu ruang terhubung terhubung,
+   sedangkan dua komponen $\mathbb R\setminus\{0\}$ ialah
+   $(-\infty,0)$ dan $(0,\infty)$. Atau gunakan prahimpunan seperti pada bukti
+   unit. Jika $X=A\cup B$ merupakan pemisahan, fungsi bernilai $-1$ pada $A$
+   dan $1$ pada $B$ kontinu karena $A$ dan $B$ terbuka sekaligus tertutup.
+   Keterhubungan saja telah cukup, sehingga keterhubungan lintasan menambahkan
+   struktur yang tidak dipakai.
+
+5. **[O017-U07-H05]{#o017-u07-h05}.** Simpan sedikitnya
+   `V1 contains CLM1`, `CLM1 refutedBy CE1`, `V2 succeeds V1`,
+   `V2 contains CLM2`, `CLM2 provedBy P2`, `V3 succeeds V2`, dan
+   `V3 restates CLM2` atau klaim baru
+   yang dinyatakan ekuivalen dengan bukti. Peristiwa observasi, penolakan,
+   pengusulan, pembuktian, dan perubahan notasi tetap terurut. Menimpa `CLM1`
+   menghapus objek yang sebenarnya ditolak CE1 dan membuat turunan historis
+   tampak memakai klaim yang belum ada.
+
+6. **[O017-U07-H06]{#o017-u07-h06}.** Draf harus menyebut versi dan lokasi,
+   redaksi universal, $x=-2$, pemeriksaan hipotesis, nilai
+   $\sqrt{(-2)^2}=2$, dan dua koreksi yang benar. Berhenti sebelum memilih
+   salah satu koreksi sebagai maksud sumber bila konteks tujuan tidak
+   tersedia. Eskalasi pilihan redaksional kepada pemilik karya; audit graf
+   dependensi sebelum menetapkan keparahan. Jangan mengirim draf dari latihan.
+
+## Tugas penyelesaian unit {#o017-u07-completion-task}
+
+Susun **dossier erratum lengkap** untuk paket sintetis berikut. Paket merupakan
+seluruh konteks yang tersedia; jangan menciptakan penulis, DOI, halaman,
+commit, hasil eksekusi, atau versi tambahan.
+
+::: {#o017-u07-completion-metadata .callout-note title="O017-U07-PKT-META — Identitas paket"}
+- `work_id`: `O017-U07-PKT-W01`, *Catatan Ekstrem pada Interval*.
+- `version_id`: `O017-U07-PKT-V1`, label `1.2-sintetis`.
+- `copy_id`: `O017-U07-PKT-CP1`, seluruh lima cuplikan paket pada unit ini.
+- `observed_at`: `2026-08-21`.
+- Tidak ada asumsi bagian selain yang tertulis pada setiap cuplikan.
+:::
+
+::: {#o017-u07-completion-statement .callout-warning title="O017-U07-PKT-S01 — Proposisi 6.2"}
+Jika $f:[0,1]\to\mathbb R$ kontinu, maka terdapat tepat satu
+$c\in(0,1)$ tempat $f$ mencapai maksimum, dan $f'(c)=0$.
+:::
+
+::: {#o017-u07-completion-proof .callout-note title="O017-U07-PKT-P01 — Cuplikan pembuktian"}
+“Teorema nilai ekstrem memberi titik maksimum $c$. Karena $c$ titik maksimum,
+turunannya nol. Keunikan mengikuti karena titik maksimum itu telah dipilih.”
+:::
+
+::: {#o017-u07-completion-typo .callout-note title="O017-U07-PKT-T01 — Keterangan gambar"}
+“Grafik fungsi kontinu pada interval $[O,1]$.” Huruf pertama di dalam interval
+terlihat sebagai huruf kapital `O`; paket tidak menyediakan berkas sumber atau
+catatan penyunting.
+:::
+
+::: {#o017-u07-completion-locator .callout-note title="O017-U07-PKT-L01 — Rujukan balik"}
+Paragraf berikutnya berbunyi “keunikan ini akan dipakai lagi; lihat teorema di
+atas”. Di antara paragraf dan Proposisi 6.2 terdapat dua hasil lain. Tidak ada
+label atau penunjuk lain.
+:::
+
+::: {#o017-u07-completion-computation .callout-note title="O017-U07-PKT-C01 — Rekaman komputasi terlampir"}
+Manifes menyebut `program=gridmax.py@r2`, `step=0.01`, dan domain `[0,1]`.
+Header log menyebut `program=gridmax.py@r1`; satu-satunya baris keluaran ialah
+`argmax_grid=0.99`. Prosa setelah log menyatakan “komputasi membuktikan titik
+maksimum eksak adalah $c=1$”. Kode, identitas lingkungan, dan keluaran lain
+tidak tersedia dalam paket.
+:::
+
+Gunakan fungsi $f(x)=x$, fungsi konstan $g(x)=0$, dan
+$h(x)=-|x-1/2|$ sebagai calon reproducer, tetapi periksa sendiri klaim mana
+yang ditolak oleh masing-masing fungsi.
+Produk akhir harus memuat:
+
+1. tabel target beku dengan versi, salinan, penunjuk untuk setiap cuplikan, dan
+   redaksi ternormalisasi Proposisi 6.2;
+2. klasifikasi setiap temuan dengan `statement_status`, jenis utama, akibat
+   sekunder, keparahan, keyakinan, dan dasar masing-masing;
+3. reproducer minimal yang memeriksa kekontinuan, lokasi maksimum, interior,
+   keunikan, dan keberadaan turunan sejauh relevan: $f$ menguji maksimum pada
+   batas, $g$ menguji keunikan, dan $h$ menguji diferensiabilitas pada maksimum
+   interior;
+4. pemisahan koreksi menjadi dua hasil yang sah: Teorema Nilai Ekstrem hanya
+   menjamin suatu maksimum pada $[0,1]$, sedangkan syarat turunan nol memerlukan
+   diferensiabilitas pada titik maksimum lokal di interior;
+5. pembuktian atau alasan lengkap bagi setiap hasil pengganti, tanpa
+   menyimpulkan keunikan;
+6. diagnosis terpisah terhadap huruf `O`, rujukan “teorema di atas”, dan
+   ketidakcocokan revisi komputasi; jangan menebak bahwa algoritme salah;
+7. rekaman koreksi tambahan dengan ID klaim lama, dua klaim pengganti, bukti,
+   versi calon, hubungan suksesi, dan peristiwa; V1 tidak boleh ditimpa;
+8. audit dampak terhadap paragraf yang mengandalkan keunikan, dengan status
+   `belum diketahui` untuk pemakaian di luar paket;
+9. buku besar sedikitnya lima ketidakpastian, termasuk maksud karakter `O`,
+   pilihan redaksi pengganti, kode yang sebenarnya dijalankan, dan cakupan
+   turunan;
+10. draf isu maksimum 180 kata yang menyebut versi, lokasi, dua reproducer,
+    koreksi terpisah, dan batas bukti; draf tidak dikirim;
+11. aturan berhenti dan eskalasi yang menjelaskan apa yang dapat ditutup pada
+    bukti paket serta apa yang memerlukan pemilik karya atau pemeriksa
+    komputasi; dan
+12. ringkasan eksekutif empat kalimat yang tidak memakai bahasa lebih kuat
+    daripada dossier.
+
+### Rubrik {#o017-u07-completion-rubric}
+
+Setiap kriteria dinilai 0, 1, atau 2.
+
+::: {.o017-table-scroll aria-label="Rubrik tugas penyelesaian Unit 7" tabindex="0"}
+| Kriteria | 0 | 1 | 2 |
+|---|---|---|---|
+| Target dan penunjuk | versi/lokasi direka atau hilang | sebagian cuplikan dapat ditemukan | semua temuan menunjuk versi, salinan, lokator paket, dan redaksi tepat |
+| Reproducer matematika | contoh tidak memenuhi hipotesis atau kegagalan tidak ditunjukkan | satu akibat ditolak dengan benar | $f(x)=x$, $g(x)=0$, dan $h(x)=-|x-1/2|$ memisahkan kegagalan interior, keunikan, dan diferensiabilitas, dengan semua hipotesis diperiksa |
+| Koreksi dan bukti | satu redaksi tambalan tetap salah | dua hasil disebut tetapi satu syarat atau bukti kabur | keberadaan maksimum dan syarat Fermat dipisahkan, dibatasi, dan dibenarkan tanpa klaim keunikan |
+| Klasifikasi dua sumbu | jenis, status, keparahan, dan keyakinan dilebur | sebagian bidang dipisahkan | setiap temuan mempunyai bidang serta dasar terpisah, termasuk jangkauan belum diketahui |
+| Sejarah dan ketidakpastian | V1 ditimpa atau ketidakpastian diisi tebakan | versi lama ada tetapi peristiwa/pertanyaan kurang | klaim, versi, bukti, suksesi, peristiwa, dan sedikitnya lima ketidakpastian tersimpan |
+| Draf dan gerbang | draf menuduh, melebihkan, atau dianggap sudah dikirim | fakta utama ada tetapi tindakan/batas kabur | draf paling banyak 180 kata, spesifik dan lokal; aturan tutup, tahan, dan eskalasi dapat dijalankan |
+:::
+
+Nilai lulus adalah sekurang-kurangnya 10 dari 12, dengan nilai 2 pada
+**Reproducer matematika**, **Koreksi dan bukti**, serta **Sejarah dan
+ketidakpastian**. Mengarang metadata, menyebut komputasi grid sebagai bukti
+maksimum eksak, menyimpulkan maksimum unik dari pemilihan satu titik,
+menerapkan syarat turunan pada ujung interval, atau menghapus V1 mewajibkan
+revisi meskipun jumlah nilai cukup.
+
+## Batas dengan B80 dan unit lain {#o017-u07-boundary}
+
+Unit ini tidak mengajarkan pemrograman, API paket, algoritme pencarian akar
+atau optimisasi, analisis galat numerik, pengujian perangkat lunak, pengelolaan
+lingkungan, notebook, checksum, atau perintah sistem. Semua pekerjaan
+implementasi itu berada pada B80. Bila cacat komputasional ditemukan, Unit 7
+membekukan klaim, membandingkan kontrak dengan keluaran, menilai bukti, dan
+merumuskan koreksi; Unit 6 menyediakan paket serta rekaman eksekusi yang harus
+diperiksa.
+
+Unit 2 menangani pencarian dan otoritas sumber, Unit 3 merekonstruksi langkah
+pembuktian yang hilang, Unit 4 merancang provenance, dan Unit 5 menyusun
+eksposisi. Unit 7 tidak mengulang pekerjaan itu: ia memakai hasilnya untuk
+keputusan erratum. Jika langkah hilang dapat diisi tanpa mengubah klaim, hasil
+rekonstruksi berasal dari Unit 3; Unit 7 hanya menentukan apakah sumber perlu
+catatan koreksi. Jika sebuah paragraf perlu ditulis ulang agar terbaca tetapi
+tidak salah, revisi eksposisinya berada pada Unit 5.
+
+Unit 8 menangani laporan penelaah dan tanggapan terhadap kritik sebagai
+pertukaran antarorang. Unit 7 berhenti pada dossier dan draf lokal; ia tidak
+mengirim pesan, menegosiasikan respons, atau menilai perilaku penulis. Unit 9
+menangani kontribusi komunitas yang benar-benar berwenang dan terbatas.
+
+## Sumber, provenance, perubahan, dan hak {#o017-u07-provenance}
+
+Seluruh prosa berbahasa Indonesia, taksonomi operasional, skala
+keparahan/keyakinan, protokol, templat, tabel, paket sintetis, kasus kerja,
+reproducer, pembuktian, draf erratum, latihan, panduan jawaban, tugas
+penyelesaian, dan rubrik pada unit ini merupakan materi asli O017 oleh
+kontributor O017, 2026, dan dilisensikan di bawah
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Karakterisasi keterhubungan melalui fungsi kontinu yang tidak pernah bernilai nol, fakta bahwa
+citra kontinu ruang terhubung terhubung, Teorema Nilai Ekstrem, dan syarat
+turunan nol pada titik maksimum lokal interior merupakan hasil matematika
+klasik. O017 tidak mengklaim penemuan hasil-hasil tersebut. Redaksi,
+pengurutan pedagogis, contoh dua titik, pembuktian yang disajikan, dan fungsi
+auditnya ditulis khusus untuk unit ini dan tidak disalin dari sumber tertentu.
+
+Paket `O017-U07-W01` dan `O017-U07-PKT-W01` bersifat sintetis dan hanya ada
+sebagai bahan lokal dalam unit ini. ID paket bukan DOI, identitas penerbit,
+atau bukti bahwa ada karya eksternal dengan judul tersebut. Tidak ada donor
+eksternal yang diadaptasi dalam Unit 7 dan tidak ada prosa donor yang disalin.
+Lisensi CC BY-SA 4.0 di atas berlaku pada materi asli O017; ia tidak mengubah
+hak atas sumber lain yang mungkin dipakai pembaca dalam latihan mandiri.

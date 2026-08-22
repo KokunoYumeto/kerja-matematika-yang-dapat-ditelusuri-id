@@ -1,0 +1,741 @@
+---
+title: "Unit 4 — Sitasi, Provenance, dan Buku Catatan Sumber"
+subtitle: "Menghubungkan setiap klaim ke versi, lokasi, bukti, dan batas kepastiannya"
+description: "Unit praktik untuk membedakan sitasi dari provenance bukti dan provenance komputasi, merawat buku catatan sumber, serta mengaudit koreksi matematika tanpa menghapus sejarah versinya."
+---
+
+## Hasil belajar {#o017-u04-outcomes}
+
+Unit ini mempunyai pengidentifikasi stabil **O017-U04**. Setelah
+menyelesaikannya, Anda mampu:
+
+1. membedakan fungsi **sitasi**, **provenance bukti**, dan **provenance
+   komputasi** tanpa memakai salah satunya sebagai pengganti yang lain;
+2. mencatat karya, versi, salinan, dan lokasi internal sebagai objek yang
+   berbeda tetapi saling terhubung;
+3. menghubungkan sebuah klaim ternormalisasi ke penunjuk yang cukup tepat agar
+   pembaca lain dapat menemukan redaksi yang benar-benar diperiksa;
+4. menyimpan dasar penerimaan, penolakan, atau pembatasan klaim matematika,
+   bukan hanya menyimpan daftar pustakanya;
+5. mencatat koreksi sebagai hubungan antarversi tanpa menimpa atau menghapus
+   keadaan historis sumber lama;
+6. menulis ketidakpastian secara terstruktur dan menolak pengisian metadata
+   yang hilang dengan tebakan;
+7. merancang buku catatan sumber yang dapat diperbarui, ditinjau, dan diekspor
+   tanpa kehilangan jejak keputusan; dan
+8. menyusun satu dossier klaim yang menyatukan sitasi, provenance, audit
+   matematika, dan batas kesimpulan.
+
+::: {.callout-note title="Prasyarat, kesinambungan, dan batas fokus"}
+Unit 2 mengajarkan cara menemukan calon sumber, membedakan karya dari versi,
+dan menilai otoritasnya. Unit 3 mengajarkan cara menutup celah pembuktian
+melalui kontrak lemma dan graf ketergantungan. Unit 4 menganggap kedua pekerjaan
+itu telah dilakukan, lalu mempertahankan **jejak yang menghubungkan hasilnya**:
+klaim mana, redaksi mana, versi mana, lokasi mana, bukti mana, keputusan apa,
+dan ketidakpastian apa yang tersisa.
+
+Unit ini tidak mengajarkan gaya bibliografi tertentu, penggunaan pengelola
+referensi, sintaks basis data, perintah Git, cara menghitung checksum, atau cara
+menyiapkan lingkungan komputasi. Format alat boleh berubah; hubungan logis yang
+harus dipertahankan tidak berubah.
+:::
+
+## Daftar pustaka belum merupakan jejak bukti {#o017-u04-bibliography-is-not-evidence}
+
+Satu entri daftar pustaka biasanya menjawab pertanyaan seperti “karya apa yang
+dirujuk?” dan “bagaimana pembaca dapat mengenalinya?”. Untuk audit matematika,
+itu belum cukup. Perhatikan kalimat:
+
+> Hasil ini mengikuti Sumber A.
+
+Sedikitnya tujuh pertanyaan masih terbuka.
+
+1. Edisi atau versi Sumber A yang mana?
+2. Apakah pembaca memeriksa teks penuh atau hanya metadata?
+3. Di halaman, bagian, teorema, persamaan, atau paragraf mana hasil itu muncul?
+4. Apakah redaksinya sama dengan klaim yang sedang dipakai?
+5. Apakah semua hipotesisnya cocok?
+6. Apakah ada koreksi sesudah versi tersebut?
+7. Apakah “mengikuti” berarti disitir, dibuktikan, diuji dengan contoh, atau
+   hanya dianggap masuk akal?
+
+Sebuah catatan sumber yang baik tidak memperpanjang sitasi menjadi cerita
+panjang. Ia menambahkan struktur yang memungkinkan setiap pertanyaan di atas
+dijawab, atau diberi status `belum diketahui` secara jujur.
+
+::: {#o017-u04-original-bridge .callout-important title="Jembatan asli O017"}
+Model **rantai klaim–penunjuk–versi**, pemisahan tiga jenis catatan, status
+ketidakpastian, buku catatan berlapis, serta kasus matematika pada unit ini
+merupakan materi jembatan asli O017. Konsep umum metadata, versi, sitasi objek
+riset, dan provenance komputasi dibatasi pada donor yang dibekukan; donor tidak
+menyediakan alur lengkap untuk mengaudit klaim matematika seperti yang
+dikembangkan di sini.
+:::
+
+## Tiga catatan dengan tiga pekerjaan berbeda {#o017-u04-three-records}
+
+Ketiga istilah berikut sering muncul dalam satu proyek, tetapi menjawab
+pertanyaan yang berbeda.
+
+::: {.o017-table-scroll aria-label="Perbedaan sitasi, provenance bukti, dan provenance komputasi" tabindex="0"}
+| Catatan | Pertanyaan utama | Isi minimum | Tidak dengan sendirinya menunjukkan |
+|---|---|---|---|
+| Sitasi | Karya atau objek apa yang harus diakui dan dapat ditemukan? | pencipta, judul, wadah, tahun, pengidentifikasi atau URL, versi bila relevan | bahwa klaim yang dikutip benar atau hipotesisnya cocok |
+| Provenance bukti | Dari mana tepatnya redaksi dan dasar keputusan atas klaim ini berasal? | ID klaim, ID versi, penunjuk, jenis bukti, hubungan, keputusan, alasan, ketidakpastian | bahwa suatu proses komputasi dapat dijalankan ulang |
+| Provenance komputasi | Artefak dan kondisi apa menghasilkan keluaran komputasional tertentu? | kode, masukan, dependensi, runtime, parameter, perintah atau prosedur, keluaran, identitas byte | bahwa keluaran berhingga membuktikan klaim universal |
+:::
+
+Ketiganya dapat berpotongan. Sebuah paket kode dapat disitasi; salah satu keluarannya
+dapat menjadi bukti empiris; rekaman eksekusinya dapat menyimpan provenance
+komputasi. Namun, satu DOI tidak menggantikan rekaman eksekusi, dan satu
+rekaman eksekusi tidak menggantikan pembuktian teorema.
+
+### Sitasi adalah kredit dan jalur temu {#o017-u04-citation-role}
+
+Sitasi harus dipilih sesuai objek yang benar-benar digunakan. Jika pembaca
+mengandalkan redaksi pada satu versi, sitasi versi lebih tepat daripada rekaman
+karya umum. Jika pembaca merekomendasikan agar orang lain mencari versi terbaru,
+rekaman karya dapat lebih tepat. Perbedaan itu telah diperkenalkan pada Unit 2;
+di sini pilihan tersebut dicatat sebagai **keputusan** beserta alasannya.
+
+### Provenance bukti adalah rantai pertanggungjawaban {#o017-u04-evidence-provenance}
+
+Provenance bukti menghubungkan sedikitnya empat objek:
+
+```text
+[klaim ternormalisasi] -> [penunjuk] -> [versi yang diperiksa] -> [karya]
+          |
+          +-> [pembuktian / contoh tandingan / data / rujukan]
+          |
+          +-> [keputusan + alasan + ketidakpastian]
+```
+
+Panah harus mempunyai arti. `appearsAt` berbeda dari `provedBy`,
+`refutedBy`, `correctedBy`, dan `isVersionOf`. Satu sumber dapat **memuat**
+klaim yang salah; karena itu panah `appearsAt` tidak boleh dibaca sebagai
+`provedBy`.
+
+### Provenance komputasi adalah riwayat hasil tertentu {#o017-u04-computation-provenance}
+
+Untuk satu hasil komputasional, catat objek dan kondisi yang cukup agar orang
+yang memiliki keterampilan B80 dapat mencoba menjalankannya kembali. Rekaman
+yang hanya berbunyi “dihitung dengan Python” tidak menetapkan program, masukan,
+versi dependensi, parameter, maupun keluaran yang dimaksud.
+
+Unit ini menilai **kelengkapan dan cakupan klaim** rekaman tersebut. Cara
+menulis program, memasang paket, memilih tipe bilangan, membuat pengujian, dan
+menghasilkan checksum tetap berada pada B80. Bahkan rekaman yang sempurna hanya
+menjamin bahwa suatu hasil dapat dilacak; keberhasilan menjalankan ulang perlu
+dibuktikan dengan eksekusi yang benar-benar dilakukan.
+
+## Empat tingkat identitas sumber {#o017-u04-four-source-levels}
+
+Buku catatan harus dapat membedakan empat tingkat berikut.
+
+1. **Karya.** Identitas intelektual yang mungkin mempunyai banyak edisi atau
+   versi.
+2. **Versi.** Keadaan karya pada tanggal, rilis, edisi, revisi, atau commit
+   tertentu.
+3. **Salinan.** Byte atau benda yang benar-benar diperiksa: berkas lokal,
+   cetakan, arsip, atau tangkapan yang mungkin tidak lengkap.
+4. **Lokasi.** Bagian di dalam versi atau salinan: halaman, teorema, persamaan,
+   paragraf, baris, atau jangkar stabil.
+
+Menyebut halaman tanpa edisi dapat menunjuk teks yang berbeda. Menyebut versi
+tanpa lokasi membuat pembaca mencari ulang seluruh dokumen. Menyebut checksum
+salinan tanpa identitas karya menjaga byte, tetapi tidak menjelaskan apa isi
+intelektualnya. Keempat tingkat diperlukan ketika risiko salah kutip cukup
+tinggi.
+
+::: {.o017-table-scroll aria-label="Bidang minimal rekaman sumber" tabindex="0"}
+| Bidang | Pertanyaan yang dijawab | Aturan pengisian |
+|---|---|---|
+| `source_id` | rekaman mana yang sedang dirujuk? | ID lokal stabil; jangan dipakai ulang |
+| `work_id` | karya intelektual mana? | tautkan semua versi yang benar-benar sekeluarga |
+| `version_id` | keadaan karya yang mana? | edisi/rilis/commit/tanggal; `tidak diketahui` bila bukti tidak cukup |
+| `copy_id` | salinan apa yang diperiksa? | bentuk, tempat simpan, kelengkapan, dan identitas byte bila tersedia |
+| `locator` | di mana isi ditemukan? | gunakan skema terkuat yang dimiliki sumber; boleh gabungkan bagian dan halaman |
+| `relation` | bagaimana rekaman berhubungan? | kata kerja berarah, misalnya `corrects` atau `isVersionOf` |
+| `rights` | apa hak dan kewajiban komponennya? | lisensi, atribusi, dan pembatasan yang dapat dibuktikan |
+| `observed_at` | kapan pemeriksaan dilakukan? | tanggal observasi, bukan tanggal terbit |
+| `missing` | bidang apa yang belum diketahui? | daftar eksplisit; jangan mengarang nilai |
+:::
+
+## Buku catatan sumber dua lapis {#o017-u04-two-layer-notebook}
+
+Buku catatan yang tahan perubahan mempunyai dua lapis.
+
+### Lapis objek {#o017-u04-object-layer}
+
+Lapis objek menyimpan keadaan yang sedang diketahui tentang karya, versi,
+salinan, lokasi, klaim, bukti, dan eksekusi. Setiap objek mempunyai ID stabil.
+Jika judul dikoreksi, ID tidak berubah; nilai baru diberi dasar dan tanggal.
+Jika ternyata dua rekaman merujuk karya berbeda, jangan menyatukannya hanya
+karena judul mirip.
+
+### Lapis peristiwa {#o017-u04-event-layer}
+
+Lapis peristiwa merupakan log tambahan yang tidak menimpa entri lama. Contoh:
+
+- `2026-08-21T09:10 — LOC-01 observedIn VERSION-01`;
+- `2026-08-21T09:24 — CLAIM-01 refutedBy ARG-CE01`;
+- `2026-08-21T09:31 — VERSION-02 corrects VERSION-01`;
+- `2026-08-21T09:42 — DEC-01 changedFrom uncertain to rejected`.
+
+Jika keputusan berubah, tambahkan keputusan baru dengan alasan dan tautan ke
+keputusan lama. Jangan mengubah catatan lama seolah-olah kesalahan tidak pernah
+terjadi. Buku catatan bukan hanya gambaran akhir; ia juga menjelaskan bagaimana
+gambaran itu diperoleh.
+
+### Tujuh tabel yang cukup untuk banyak proyek {#o017-u04-six-tables}
+
+Implementasinya boleh berupa kertas, teks biasa, lembar kerja, atau basis data.
+Secara konseptual, tujuh tabel berikut sudah memadai untuk banyak bacaan
+matematika.
+
+::: {.o017-table-scroll aria-label="Tujuh tabel konseptual buku catatan sumber" tabindex="0"}
+| Tabel | Kunci | Isi inti |
+|---|---|---|
+| `works` | `work_id` | judul, pencipta, wadah, identitas karya |
+| `versions` | `version_id` | versi/edisi/commit, tanggal, hubungan ke karya dan versi lain |
+| `copies` | `copy_id` | versi yang diwujudkan, format, lokasi salinan, kelengkapan salinan, identitas byte atau ciri salinan yang benar-benar diamati |
+| `locators` | `locator_id` | salinan dan versi, skema lokasi, nilai lokasi, kutipan pendek atau parafrasa terkendali |
+| `claims` | `claim_id` | pernyataan ternormalisasi, kuantor, domain, status |
+| `evidence` | `evidence_id` | jenis bukti, sasaran klaim, dasar, arah dukungan, batas |
+| `events` | `event_id` | waktu, pelaku pencatatan, tindakan, objek, alasan |
+:::
+
+Rekaman komputasi dapat menjadi tabel kedelapan atau artefak terpisah yang
+ditautkan dari `evidence`. Pemisahan ini mencegah satu baris klaim menampung
+seluruh lingkungan komputasi dan menjadi tidak dapat dibaca.
+
+## Protokol dari klaim ke buku catatan {#o017-u04-ledger-protocol}
+
+Gunakan urutan berikut untuk setiap klaim yang cukup penting untuk disitir.
+
+1. **Bekukan redaksi kerja.** Tulis klaim dengan kuantor, domain, dan
+   hipotesis eksplisit; beri `claim_id`.
+2. **Tetapkan objek sumber.** Pisahkan karya, versi, dan salinan yang benar-benar
+   diperiksa. Catat bidang yang hilang.
+3. **Buat penunjuk.** Pilih lokasi yang masih bermakna bagi versi tersebut.
+   Simpan awal dan akhir bila satu klaim melintasi beberapa paragraf.
+4. **Catat hubungan faktual.** Misalnya `CLAIM-01 appearsAt LOC-01` dan
+   `VERSION-02 corrects VERSION-01`. Jangan menyisipkan kesimpulan matematika
+   ke hubungan bibliografis.
+5. **Audit matematika.** Hubungkan pembuktian, rekonstruksi, contoh tandingan,
+   atau hasil komputasi sebagai bukti terpisah.
+6. **Putuskan status.** Gunakan `diterima`, `ditolak`, `dibatasi`, atau
+   `belum dipastikan`, lalu tulis alasan dan cakupannya.
+7. **Pilih sitasi.** Pilih karya atau versi sesuai tujuan kalimat yang akan
+   ditulis; rekam alasan pilihan.
+8. **Simpan ketidakpastian dan peristiwa.** Tambahkan apa yang belum diketahui
+   serta perubahan keputusan; jangan membersihkan sejarah setelah koreksi.
+
+Protokol berakhir ketika pembaca lain dapat mengikuti rantai tersebut tanpa
+harus menebak versi, lokasi, arti panah, atau alasan status.
+
+## Kasus kerja: klaim integral yang kehilangan laju {#o017-u04-worked-case}
+
+Kasus berikut sepenuhnya sintetis dan tertanam di unit ini. ID-nya merupakan
+ID kelas, bukan DOI atau pengidentifikasi publik. Tujuannya bukan menemukan
+sumber di luar unit, melainkan membangun buku catatan yang benar dari paket
+kutipan terbatas yang lengkap untuk kasus ini. Paket itu tidak mewakili isi
+lengkap sebuah buku.
+
+### Paket versi dan koreksi {#o017-u04-version-packet}
+
+::: {#o017-u04-packet-v1 .callout-warning title="Paket kutipan parsial — Proposisi 4.1, label V1"}
+**V1.** Jika $f:[0,1]\to\mathbb{R}$ kontinu dan $f(0)=0$, maka integral
+tak wajar
+
+$$
+\int_0^1 \frac{f(x)}{x}\,dx
+$$
+
+konvergen.
+:::
+
+::: {#o017-u04-packet-correction .callout-note title="Paket kutipan parsial — butir koreksi K-04"}
+Hipotesis kekontinuan dan nilai $f(0)=0$ tidak mengendalikan **laju** $f(x)$
+menuju nol. Proposisi 4.1 versi 1 ditarik. Versi berikutnya menggantinya dengan
+syarat pertumbuhan yang cukup; koreksi tidak mengklaim bahwa syarat baru itu
+perlu.
+:::
+
+::: {#thm-o017-u04-packet-v2 .theorem title="Paket kutipan parsial — Proposisi 4.1, label V2"}
+**V2.** Misalkan $f:[0,1]\to\mathbb{R}$ kontinu. Jika terdapat $C\geq0$ dan
+$\alpha>0$ sehingga
+
+$$
+|f(x)|\leq Cx^\alpha
+\qquad\text{untuk setiap }0<x\leq1,
+$$
+
+maka integral $\int_0^1 f(x)/x\,dx$ konvergen mutlak.
+:::
+
+### Rekaman karya dan versi {#o017-u04-source-ledger}
+
+Kita membuat ID yang tidak mengandung makna bibliografis. Hubungan dan
+metadata berada dalam bidang tersendiri.
+
+::: {.o017-table-scroll aria-label="Buku catatan karya dan versi untuk kasus integral" tabindex="0"}
+| ID | Jenis | Identitas dan lokasi | Hubungan | Integritas dan bidang hilang |
+|---|---|---|---|---|
+| `O017-U04-W01` | identitas karya sintetis | *Catatan Analisis Elementer*; pencipta: kontributor O017; tahun: 2026 | objek induk konseptual untuk kutipan proposisi | paket tidak memuat karya lengkap, sehingga isi bagian lain, penerbit, dan bentuk terbitnya tidak diketahui |
+| `O017-U04-V01` | versi kutipan proposisi | redaksi Proposisi 4.1 versi 1 sebagaimana diberikan dalam paket | `isPropositionExcerptOf W01` | hanya menetapkan redaksi proposisi yang dikutip, bukan keadaan seluruh buku atau catatan |
+| `O017-U04-K01` | kutipan koreksi | butir K-04 | `appearsAt LOC02`; `corrects V01`; `motivates V02` | tanggal koreksi terpisah tidak diberikan dalam paket dan dicatat sebagai tidak diketahui |
+| `O017-U04-V02` | versi kutipan proposisi | redaksi Proposisi 4.1 versi 2 sebagaimana diberikan dalam paket | `isPropositionExcerptOf W01` | hanya menetapkan redaksi proposisi pengganti; tidak ada dasar untuk menyatakan seluruh karya telah diganti |
+| `O017-U04-CP01` | paket kutipan parsial | tiga cuplikan teks sintetis yang tertanam pada Unit 4: V01, K01, dan V02 | cakupan fisik dibatasi pada tiga cuplikan tersebut | bukan salinan lengkap W01; kelengkapannya hanya berarti ketiga kutipan paket tersedia; identitas byte berada pada manifes artefak |
+| `O017-U04-LOC01` | lokasi | `#o017-u04-packet-v1` | `locatesIn V01`; `partOf CP01` | jangkar stabil di dalam paket kutipan parsial |
+| `O017-U04-LOC02` | lokasi | `#o017-u04-packet-correction` | `partOf CP01` | jangkar stabil di dalam paket kutipan parsial |
+| `O017-U04-LOC03` | lokasi | `#thm-o017-u04-packet-v2` | `locatesIn V02`; `partOf CP01` | jangkar stabil di dalam paket kutipan parsial |
+:::
+
+Label V01 dan V02 berlaku pada **kutipan Proposisi 4.1 di dalam paket**, bukan
+pada dua salinan lengkap *Catatan Analisis Elementer*. Keputusan D03 di bawah
+memilih V02 untuk pemakaian proposisi saat ini. Keputusan itu tidak menambahkan
+hubungan “seluruh buku V2 menggantikan seluruh buku V1”, dan tidak berarti V01
+boleh dihapus: sejarah kesalahan serta koreksinya justru merupakan bagian
+provenance.
+
+### Membekukan dua klaim {#o017-u04-normalized-claims}
+
+::: {.o017-table-scroll aria-label="Klaim ternormalisasi untuk dua versi kasus integral" tabindex="0"}
+| ID klaim | Pernyataan ternormalisasi | Muncul pada | Status awal |
+|---|---|---|---|
+| `O017-U04-C01` | untuk setiap $f\in C([0,1])$ dengan $f(0)=0$, integral $\int_0^1 f(x)/x\,dx$ konvergen | LOC01 dalam kutipan proposisi V01 | perlu diaudit |
+| `O017-U04-C02` | untuk setiap $f\in C([0,1])$, $C\geq0$, dan $\alpha>0$ dengan $|f(x)|\leq Cx^\alpha$ pada $(0,1]$, integral itu konvergen mutlak | LOC03 dalam kutipan proposisi V02 | perlu diaudit |
+:::
+
+Klaim C01 dan C02 bukan dua redaksi untuk pernyataan yang sama. C02 mempunyai
+hipotesis tambahan dan kesimpulan lebih kuat, yakni konvergensi mutlak. Karena
+itu buku catatan menyimpan dua `claim_id`, bukan mengubah isi C01 diam-diam.
+
+### Menolak C01 dengan contoh tandingan {#o017-u04-v1-counterexample}
+
+Definisikan $f:[0,1]\to\mathbb{R}$ dengan
+
+::: {.o017-math-scroll aria-label="Definisi contoh tandingan untuk klaim integral versi 1" tabindex="0"}
+$$
+f(0)=0,
+\qquad
+f(x)=\frac{1}{\log(e/x)}\quad (0<x\leq1).
+$$
+:::
+
+Fungsi ini kontinu pada $(0,1]$. Ketika $x\downarrow0$,
+$\log(e/x)\to\infty$, sehingga $f(x)\to0=f(0)$. Jadi $f$ kontinu pada seluruh
+$[0,1]$ dan memenuhi hipotesis C01.
+
+Namun, untuk $0<\varepsilon<1$, substitusi
+$u=\log(e/x)$ memberi $du=-dx/x$ dan
+
+::: {.o017-math-scroll aria-label="Perhitungan integral terpotong untuk contoh tandingan" tabindex="0"}
+$$
+\int_\varepsilon^1 \frac{f(x)}{x}\,dx
+=\int_\varepsilon^1\frac{dx}{x\log(e/x)}
+=\int_1^{\log(e/\varepsilon)}\frac{du}{u}
+=\log\!\bigl(\log(e/\varepsilon)\bigr).
+$$
+:::
+
+Saat $\varepsilon\downarrow0$, ruas terakhir menuju $+\infty$. Integral
+tak wajar tersebut tidak konvergen. Ini merupakan bukti deduktif bahwa C01 **ditolak**,
+bukan sekadar hasil beberapa nilai numerik yang tampak membesar.
+
+Catat bukti sebagai objek `O017-U04-EV01` dengan jenis `counterexample`, dasar
+`#o017-u04-v1-counterexample`, hubungan `C01 refutedBy EV01`, dan batas “menolak
+klaim universal C01; tidak mengatakan bahwa setiap fungsi kontinu dengan
+$f(0)=0$ menghasilkan divergensi”.
+
+### Menerima C02 dengan pembuktian perbandingan {#o017-u04-v2-proof}
+
+::: {#prf-o017-u04-v2 .proof}
+Ambil $f$, $C$, dan $\alpha$ yang memenuhi hipotesis C02. Untuk setiap
+$0<x\leq1$,
+
+$$
+\left|\frac{f(x)}{x}\right|
+\leq Cx^{\alpha-1}.
+$$
+
+Karena $\alpha>0$, integral pembanding ada dan
+
+$$
+\int_0^1 Cx^{\alpha-1}\,dx=\frac{C}{\alpha}<\infty.
+$$
+
+Maka
+
+$$
+\int_0^1\left|\frac{f(x)}{x}\right|\,dx
+\leq\frac{C}{\alpha}<\infty.
+$$
+
+Jadi integral yang dinyatakan pada C02 konvergen mutlak. $\square$
+:::
+
+Bukti ini dicatat sebagai `O017-U04-EV02`, jenis `proof`, hubungan
+`C02 provedBy EV02`, dan lokasi `#prf-o017-u04-v2`. Batasnya penting: pembuktian
+menetapkan bahwa syarat pangkat tersebut **cukup**. Ia tidak menetapkan bahwa
+semua integral yang konvergen harus memenuhi satu batas $Cx^\alpha$.
+
+### Rantai klaim ke penunjuk {#o017-u04-claim-locator-chain}
+
+Setelah audit, graf provenance yang ringkas adalah:
+
+```text
+C01 --appearsAt--> LOC01 --locatesIn--> V01 --isPropositionExcerptOf--> W01
+                       |
+                       +--partOf--> CP01
+  |
+  +--refutedBy--> EV01 (contoh tandingan dan integral eksak)
+
+K01 --appearsAt--> LOC02 --partOf--> CP01
+K01 --corrects--> V01
+K01 --motivates--> V02 --isPropositionExcerptOf--> W01
+
+C02 --appearsAt--> LOC03 --locatesIn--> V02
+                       |
+                       +--partOf--> CP01
+  |
+  +--provedBy--> EV02 (pembuktian perbandingan)
+```
+
+Graf ini menjawab dua pertanyaan secara terpisah: **di mana** klaim muncul dan
+**mengapa** status matematikanya diberikan. Menghapus salah satu cabang akan
+menyamarkan sumber atau dasar keputusan.
+
+Tabel semantik berikut menyampaikan hubungan yang sama tanpa mengandalkan
+susunan visual karakter pada graf. Tabel inilah daftar hubungan otoritatif
+untuk latihan dan audit unit ini.
+
+::: {.o017-table-scroll aria-label="Daftar semantik hubungan provenance kasus integral" tabindex="0"}
+| Subjek | Hubungan | Objek | Dasar atau fungsi |
+|---|---|---|---|
+| C01 | `appearsAt` | LOC01 | pengamatan redaksi paket |
+| LOC01 | `locatesIn` | V01 | lokasi klaim dalam kutipan proposisi V01 |
+| LOC01 | `partOf` | CP01 | keanggotaan dalam paket parsial |
+| V01 | `isPropositionExcerptOf` | W01 | cakupan hanya pada kutipan Proposisi 4.1 |
+| C01 | `refutedBy` | EV01 | contoh tandingan dan integral eksak |
+| K01 | `appearsAt` | LOC02 | pengamatan teks koreksi |
+| LOC02 | `partOf` | CP01 | keanggotaan dalam paket parsial |
+| K01 | `corrects` | V01 | hubungan yang dinyatakan teks K01 |
+| K01 | `motivates` | V02 | hubungan yang dinyatakan teks K01 |
+| V02 | `isPropositionExcerptOf` | W01 | cakupan hanya pada kutipan Proposisi 4.1 |
+| C02 | `appearsAt` | LOC03 | pengamatan redaksi paket |
+| LOC03 | `locatesIn` | V02 | lokasi klaim dalam kutipan proposisi V02 |
+| LOC03 | `partOf` | CP01 | keanggotaan dalam paket parsial |
+| C02 | `provedBy` | EV02 | pembuktian perbandingan |
+:::
+
+### Buku catatan keputusan dan ketidakpastian {#o017-u04-decision-ledger}
+
+::: {.o017-table-scroll aria-label="Keputusan dan ketidakpastian kasus integral" tabindex="0"}
+| ID keputusan | Klaim | Status | Dasar | Batas dan ketidakpastian |
+|---|---|---|---|---|
+| `O017-U04-D01` | C01 | ditolak | EV01 memenuhi hipotesis tetapi integral divergen | motif historis kesalahan V1 tidak diketahui; tidak diperlukan untuk penolakan |
+| `O017-U04-D02` | C02 | diterima | EV02 membuktikan kesimpulan dari semua hipotesis | syarat cukup, bukan diklaim perlu atau optimal |
+| `O017-U04-D03` | hubungan kutipan | dibatasi | K01 mengoreksi V01 dan memotivasi kutipan proposisi V02 | paket tidak menetapkan keadaan karya lengkap, tanggal koreksi terpisah, atau pengidentifikasi publik |
+:::
+
+Kata `diterima` selalu mempunyai ruang lingkup: klaim C02 sebagaimana
+dinormalisasi, berdasarkan argumen yang dicatat. Ia bukan penilaian menyeluruh
+atas seluruh karya W01.
+
+Gunakan kosakata ketidakpastian berikut.
+
+- `diketahui`: ada observasi atau argumen dengan penunjuk.
+- `disimpulkan`: ada inferensi eksplisit dari fakta yang tercatat; tulis
+  alasannya.
+- `diperselisihkan`: dua bukti atau sumber yang relevan bertentangan.
+- `tidak diketahui`: bukti yang tersedia tidak menjawab pertanyaan.
+- `tidak berlaku`: bidang memang tidak mempunyai makna untuk objek tersebut.
+
+Jangan mengganti `tidak diketahui` dengan angka keyakinan yang tidak mempunyai
+model atau data. Dalam kasus ini, pencipta eksternal W01 `tidak berlaku` karena
+paket sintetis dibuat oleh O017; tanggal koreksi terpisah `tidak diketahui`
+karena paket sengaja tidak memberikannya.
+
+### Memilih sitasi setelah audit {#o017-u04-citation-after-audit}
+
+Tiga kalimat memerlukan pilihan berbeda.
+
+1. Untuk sejarah kesalahan, rujuk V1 **dan** K01: pembaca perlu melihat redaksi
+   salah serta koreksinya.
+2. Untuk memakai hasil yang sah, rujuk V2 pada Proposisi 4.1 dan, bila ruang
+   memungkinkan, tautkan EV02 sebagai audit lokal.
+3. Untuk menyebut paket secara umum tanpa mengandalkan redaksi tertentu, W01
+   cukup, asalkan kalimat tidak menyiratkan bahwa semua versinya sama.
+
+Sitasi V2 memberi kredit dan jalur temu. Status `diterima` tetap berasal dari
+EV02, bukan dari fakta bahwa V2 lebih baru.
+
+### Di mana provenance komputasi masuk? {#o017-u04-computation-in-case}
+
+Pembuktian di atas tidak memerlukan komputasi. Andaikan seorang pembaca juga
+menghasilkan tabel
+$\log(\log(e/\varepsilon))$ untuk beberapa nilai $\varepsilon$. Tabel itu
+dapat membantu melihat pertumbuhan, tetapi tidak menggantikan limit eksak.
+Satu rekaman eksekusi yang layak sekurang-kurangnya mempunyai bentuk berikut.
+
+::: {.o017-table-scroll aria-label="Templat provenance komputasi untuk tabel diagnostik" tabindex="0"}
+| Bidang | Isi yang harus diisi setelah eksekusi nyata |
+|---|---|
+| `run_id` | ID stabil untuk satu eksekusi |
+| `code_artifact` | berkas dan identitas byte kode yang benar-benar dijalankan |
+| `input` | daftar nilai $\varepsilon$ beserta format bilangannya |
+| `environment` | runtime dan dependensi dengan versi yang diamati |
+| `parameters` | semua opsi yang mengubah hasil |
+| `invocation` | perintah atau prosedur persis yang dijalankan, termasuk direktori kerja bila berpengaruh |
+| `output` | berkas/tabel keluaran dan identitas bytenya |
+| `claim_scope` | “ilustrasi pertumbuhan pada input terpilih”, bukan “membuktikan divergensi” |
+| `status_pelaksanaan_ulang` | belum dicoba / berhasil / gagal, disertai waktu dan bukti |
+:::
+
+Tabel tersebut adalah **templat**, bukan klaim bahwa eksekusi telah dilakukan.
+Menuliskan nilai rekaan untuk membuatnya tampak lengkap justru merusak
+provenance.
+
+## Koreksi tidak menghapus versi lama {#o017-u04-corrections-preserve-history}
+
+Ketika sebuah koreksi ditemukan, lakukan lima tindakan.
+
+1. Bekukan identitas versi lama dan lokasi klaim yang terpengaruh.
+2. Catat koreksi sebagai objek tersendiri dengan penunjuk dan hubungan berarah.
+3. Buat klaim baru jika hipotesis atau kesimpulannya berubah.
+4. Perbarui keputusan penggunaan saat ini, tetapi pertahankan keputusan lama
+   di log peristiwa.
+5. Periksa semua tulisan turunan yang menyitir klaim lama; jangan berasumsi
+   bahwa mengganti satu entri daftar pustaka memperbaiki argumennya.
+
+Sebuah versi baru tidak otomatis lebih benar. Ia hanya menjadi kandidat baru
+yang perlu diaudit. Sebaliknya, menemukan kesalahan pada satu proposisi tidak
+memberi dasar untuk menyatakan seluruh karya tidak berguna.
+
+## Praktik terpandu: satu baris yang dapat ditelusuri kembali {#o017-u04-guided-practice}
+
+Mulailah dari kalimat “versi 2 memperbaiki syarat pada versi 1”. Pecah kalimat
+itu menjadi enam rekaman:
+
+1. V01 dan V02 sebagai dua versi kutipan proposisi dari W01;
+2. LOC01 dan LOC03 sebagai dua penunjuk;
+3. C01 dan C02 sebagai dua klaim ternormalisasi;
+4. K01 sebagai objek koreksi yang `corrects V01`;
+5. EV01 dan EV02 sebagai dasar matematika yang berbeda; dan
+6. D01 serta D02 sebagai keputusan yang cakupannya dinyatakan.
+
+Sekarang coba hapus EV01. Jejak masih menunjukkan bahwa koreksi **dinyatakan**,
+tetapi tidak lagi menunjukkan secara mandiri bahwa C01 salah. Hapus LOC01:
+contoh tandingan masih menolak C01, tetapi pembaca tidak lagi dapat memeriksa
+apakah C01 benar-benar redaksi V1. Uji penghapusan ini menunjukkan mengapa
+provenance sumber dan bukti harus bertemu tetapi tidak dilebur.
+
+## Latihan {#o017-u04-exercises}
+
+1. **[O017-U04-E01]{#o017-u04-e01}.** Klasifikasikan setiap catatan berikut
+   sebagai sitasi, provenance bukti, provenance komputasi, atau gabungan:
+   (a) DOI karya; (b) “Teorema 3.7, halaman 82, edisi kedua”; (c) berkas kode,
+   versi runtime, parameter, dan checksum keluaran; (d) contoh tandingan yang
+   ditautkan ke C01; (e) nama penulis dan judul; (f) keputusan `ditolak` dengan
+   alasan EV01. Jelaskan untuk setiap butir satu pertanyaan yang masih belum
+   dijawabnya.
+
+2. **[O017-U04-E02]{#o017-u04-e02}.** Sebuah catatan hanya berbunyi “Lemma 5
+   pada buku biru membuktikan hasil ini”. Ubah menjadi skema rekaman yang dapat
+   diaudit: karya, versi, salinan, lokasi, klaim ternormalisasi, kontrak lemma,
+   dan bidang yang masih `tidak diketahui`. Jangan mengarang penulis, tahun,
+   atau halaman.
+
+3. **[O017-U04-E03]{#o017-u04-e03}.** Dengan memakai tabel hubungan semantik
+   sebagai daftar otoritatif, pisahkan panah yang mencatat observasi sumber dari
+   panah yang mencatat kesimpulan matematika. Apakah `K01 corrects V01`,
+   `K01 motivates V02`, dan `C02 provedBy EV02` memperoleh dasar dari objek yang
+   sama? Jelaskan.
+
+4. **[O017-U04-E04]{#o017-u04-e04}.** Untuk $0<\beta\leq1$, ambil
+   $f_\beta(x)=x^\beta$. Tentukan apakah fungsi itu memenuhi C01 dan C02,
+   hitung $\int_0^1 f_\beta(x)/x\,dx$, lalu jelaskan mengapa keluarga contoh
+   yang berhasil ini tidak menyelamatkan klaim universal C01.
+
+5. **[O017-U04-E05]{#o017-u04-e05}.** Misalkan paket menambahkan kutipan
+   Proposisi 4.1 berlabel V03 dengan redaksi matematika yang sama seperti V02,
+   tetapi tata letak dan nomor halamannya berubah. Nyatakan objek mana yang
+   tetap, mana yang baru, hubungan apa yang perlu ditambah, dan mengapa sitasi
+   “hlm. 9” tanpa versi kutipan tidak cukup. Bedakan perubahan isi dari
+   perubahan penunjuk.
+
+6. **[O017-U04-E06]{#o017-u04-e06}.** Rancang rekaman untuk eksperimen numerik
+   yang mengevaluasi integral terpotong pada lima nilai $\varepsilon$. Jangan
+   menulis kode. Tentukan masukan, artefak, lingkungan, parameter, perintah atau
+   prosedur pemanggilan, keluaran, status pelaksanaan ulang, dan kalimat cakupan
+   klaim yang mencegah lima sampel diperlakukan sebagai pembuktian limit.
+
+## Petunjuk dan panduan jawaban {#o017-u04-guidance}
+
+1. **[O017-U04-H01]{#o017-u04-h01}.** (a) dan (e) terutama sitasi; (b)
+   merupakan unsur temu yang menjadi bagian provenance bukti bila ditautkan ke
+   klaim dan versi; (c) provenance komputasi; (d) dan (f) provenance bukti.
+   Tidak satu pun sendirian menetapkan sekaligus identitas sumber, kebenaran
+   klaim, dan kemampuan menjalankan ulang komputasi.
+
+2. **[O017-U04-H02]{#o017-u04-h02}.** Buat ID lokal untuk karya, versi,
+   salinan, lokasi, klaim, dan lemma. Isi hanya “buku bersampul biru” sebagai
+   ciri salinan yang diamati. Penulis, judul resmi, edisi, tahun, serta nomor
+   halaman tetap `tidak diketahui` sampai ada bukti. Kontrak lemma harus
+   membandingkan semua hipotesisnya dengan konteks klaim.
+
+3. **[O017-U04-H03]{#o017-u04-h03}.** `K01 corrects V01` dan
+   `K01 motivates V02` merupakan dua hubungan sumber yang sama-sama didukung
+   oleh teks K01. Keduanya tidak membuktikan C02. Hubungan
+   `C02 provedBy EV02` memperoleh dasar dari pembuktian EV02 dan mencatat
+   kesimpulan matematika. Hubungan sumber dan dasar kebenaran tidak boleh
+   dilebur.
+
+4. **[O017-U04-H04]{#o017-u04-h04}.** Ambil $C=1$ dan $\alpha=\beta$; maka
+   C02 berlaku dan integralnya $1/\beta$. Contoh-contoh itu juga memenuhi C01,
+   tetapi satu contoh tandingan cukup menolak klaim universal, sedangkan
+   banyak contoh positif tidak membuktikannya.
+
+5. **[O017-U04-H05]{#o017-u04-h05}.** W01 tetap; V03 merupakan versi kutipan
+   proposisi baru. Catat `V03 isPropositionExcerptOf W01` serta, bila bukti
+   mendukung, `V03 hasSamePropositionTextAs V02`. LOC03 tetap menunjuk V02,
+   sedangkan V03 memerlukan penunjuk baru karena paginasi berubah. Jangan
+   memakai `corrects` jika isi matematika tidak berubah.
+
+6. **[O017-U04-H06]{#o017-u04-h06}.** Rekaman harus menunjuk satu eksekusi,
+   bukan “program secara umum”, dan harus menyimpan perintah atau urutan
+   prosedur yang benar-benar dipakai. Cakupan yang tepat misalnya: “lima keluaran
+   menunjukkan nilai meningkat pada input terpilih dan berfungsi sebagai
+   diagnosis; divergensi ditetapkan oleh perhitungan limit eksak EV01.” Status
+   pelaksanaan ulang tidak boleh `berhasil` sebelum eksekusi kedua benar-benar
+   dilakukan.
+
+## Tugas penyelesaian unit {#o017-u04-completion-task}
+
+Susun **dossier sitasi dan provenance** untuk paket sintetis berikut. Semua ID
+merupakan ID kelas nonpublik.
+
+::: {#o017-u04-completion-v1 .callout-warning title="Catatan Norma Matriks, V1 — Proposisi 2.6"}
+Untuk setiap matriks real $2\times2$, norma operator Euclidean memenuhi
+$\lVert A^2\rVert_2=\lVert A\rVert_2^2$.
+:::
+
+::: {#o017-u04-completion-correction .callout-note title="Koreksi C-2.6"}
+Tanda sama pada Proposisi 2.6 tidak berlaku secara umum. Ganti dengan
+$\lVert A^2\rVert_2\leq\lVert A\rVert_2^2$. Tidak ada perubahan pada definisi
+$\lVert A\rVert_2=\sup_{x\ne0}\lVert Ax\rVert_2/\lVert x\rVert_2$.
+:::
+
+::: {#o017-u04-completion-v2 .callout-important title="Catatan Norma Matriks, V2 — Proposisi 2.6"}
+Untuk setiap matriks real $2\times2$, norma operator Euclidean memenuhi
+$\lVert A^2\rVert_2\leq\lVert A\rVert_2^2$.
+:::
+
+Dossier harus memuat:
+
+1. rekaman terpisah untuk karya, V1, koreksi, V2, satu salinan/paket parsial,
+   ketiga penunjuk, dan semua hubungan berarah; nyatakan dengan eksplisit bahwa
+   paket tidak lengkap dan tautkan setiap penunjuk ke salinan serta versinya;
+2. dua klaim ternormalisasi dengan kuantor, domain, serta simbol norma yang
+   tidak ambigu;
+3. contoh tandingan bagi V1 menggunakan
+   $A=\begin{pmatrix}0&1\\0&0\end{pmatrix}$: buktikan $A^2=0$ dan
+   $\lVert A\rVert_2=1$, bukan hanya menyatakan hasil perangkat lunak;
+4. pembuktian V2 langsung dari definisi norma operator, dengan menunjukkan
+   $\lVert A^2x\rVert_2\leq\lVert A\rVert_2\lVert Ax\rVert_2$ dan kemudian
+   mengambil supremum yang tepat;
+5. objek bukti, keputusan dengan cakupan eksplisit, dan graf
+   klaim–penunjuk–salinan–versi–karya untuk
+   kedua klaim;
+6. satu sitasi untuk membahas sejarah kesalahan dan satu sitasi untuk memakai
+   hasil yang berlaku, beserta alasan pilihan;
+7. daftar metadata yang tersedia, `tidak diketahui`, dan `tidak berlaku`,
+   tanpa menciptakan DOI, penulis, tanggal, atau checksum;
+8. rancangan rekaman provenance komputasi untuk pemeriksaan matriks calon,
+   diberi label `belum dieksekusi` kecuali ada bukti eksekusi nyata; dan
+9. catatan batas: jelaskan mengapa contoh matriks menolak persamaan universal,
+   tetapi tidak menunjukkan bahwa persamaan gagal untuk setiap matriks.
+
+### Rubrik {#o017-u04-completion-rubric}
+
+Setiap kriteria dinilai 0, 1, atau 2.
+
+::: {.o017-table-scroll aria-label="Rubrik tugas penyelesaian Unit 4" tabindex="0"}
+| Kriteria | 0 | 1 | 2 |
+|---|---|---|---|
+| Identitas dan versi | karya, versi, dan salinan dicampur | sebagian objek terpisah | semua objek, penunjuk, dan hubungan versi eksplisit |
+| Klaim dan lokasi | klaim tidak ternormalisasi atau tanpa lokasi | kuantor/lokasi sebagian lengkap | kedua klaim tepat dan terhubung ke lokasi versi masing-masing |
+| Audit matematika | contoh atau pembuktian salah | gagasan benar dengan celah | norma contoh dihitung dan submultiplikativitas dibuktikan lengkap |
+| Provenance bukti | sitasi dipakai sebagai bukti | sebagian hubungan/dasar tercatat | kemunculan, penolakan, pembuktian, keputusan, dan batas dipisahkan |
+| Provenance komputasi | hasil atau eksekusi direka | templat ada tetapi cakupan/status kabur | semua bidang minimum ada, status jujur, dan cakupan empiris dibatasi |
+| Ketidakpastian dan eksposisi | metadata diisi dengan tebakan atau sejarah ditimpa | sebagian bidang hilang terlihat | data hilang berstatus, koreksi mempertahankan V1, dan sitasi sesuai tujuan |
+:::
+
+Nilai lulus adalah sekurang-kurangnya 10 dari 12, dengan nilai 2 pada **Audit
+matematika**, **Provenance bukti**, dan **Ketidakpastian dan eksposisi**.
+Menghapus V1 setelah menemukan koreksi, memperlakukan V2 sebagai benar hanya
+karena lebih baru, mengarang metadata, atau mengklaim eksekusi yang tidak
+dilakukan mewajibkan revisi meskipun jumlah nilai cukup.
+
+## Batas dengan B80 dan unit lain {#o017-u04-boundary}
+
+Unit ini tidak mengajarkan sintaks Python, SageMath, SymPy, NumPy/SciPy, API
+pengelola referensi, skema basis data tertentu, perintah Git, pembuatan
+checksum, pengelolaan lingkungan, atau penulisan pengujian. Semua keterampilan
+implementasi tersebut berada pada B80. Unit ini hanya menetapkan informasi apa
+yang harus dipertahankan dan bagaimana membatasi kesimpulan dari hasil
+komputasi.
+
+Unit 4 juga tidak mengulang strategi pencarian dan matriks otoritas Unit 2,
+rekonstruksi celah Unit 3, penulisan eksposisi lengkap Unit 5, paket
+reproduksibilitas Unit 6, atau format erratum Unit 7. Buku catatan yang dibuat
+di sini akan menjadi masukan bagi unit-unit tersebut: ia mempertahankan
+identitas dan keputusan, sedangkan unit berikutnya mengajarkan produk yang
+memakainya.
+
+## Sumber, provenance, perubahan, dan hak {#o017-u04-provenance}
+
+Prosa berbahasa Indonesia, model rantai klaim–penunjuk–versi, buku catatan dua
+lapis, tabel keputusan, paket integral dan norma matriks, contoh tandingan,
+pembuktian, latihan, panduan jawaban, tugas penyelesaian, serta rubrik pada unit
+ini merupakan materi asli O017 oleh kontributor O017, 2026, dan dilisensikan di
+bawah [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Konsep umum tentang metadata sitasi, pengidentifikasi karya dan versi, serta
+hubungan versi ditinjau dan diadaptasi secara terbatas dari *The Turing Way*
+[@turingway2022; @turingwaycommitc98a], The Turing Way Community, pada commit
+tetap
+[`c98a0e6ca47450456cca7c5eedda2d5ee131d1ce`](https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce),
+khususnya:
+
+- `book/website/communication/citable/citable-versioning.md`; dan
+- `book/website/communication/citable/citable-metadata.md`.
+
+Materi donor tersebut berlisensi
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Konsep yang dipakai
+telah diringkas, dibatasi, disusun ulang, dan dikontekstualisasikan; tidak ada
+kalimat, gambar, atau latihan donor yang disalin.
+
+Pembedaan elemen provenance komputasi dan dokumentasi per-hasil ditinjau dari
+*Research Software Engineering with Python* [@irving2021; @pyrsecommit62217]
+oleh Damien Irving,
+Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, dan Greg Wilson,
+pada commit tetap
+[`62217e6606842ab9752fcf8e73954d1eb4a3cf07`](https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07),
+khususnya `chapters/provenance.Rmd` (salinan pilihan lokal:
+`selected-slice/provenance-selected.Rmd`). Prosa donor berlisensi
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Unit ini tidak
+menyalin kode, gambar, petikan, atau aktivitas eksternal donor.
+
+Semua adaptasi diberi konteks baru untuk audit sumber matematika dan telah
+diubah secara substantif. The Turing Way Community, keenam penulis *Research
+Software Engineering with Python*, penerbit, dan afiliasi mereka **tidak
+mendukung, mengesahkan, atau mensponsori** O017.
+
+Fakta kalkulus mengenai integral $x^{\alpha-1}$ dan submultiplikativitas norma
+operator adalah hasil matematika standar. O017 tidak mengklaim penemuan hasil
+tersebut; redaksi pembuktian dan fungsi pedagogisnya asli untuk unit ini.
+Sumber beku tetap tunduk pada haknya sendiri. Lisensi CC BY-SA 4.0 untuk materi
+asli O017 tidak mengganti atau melisensikan ulang komponen donor.

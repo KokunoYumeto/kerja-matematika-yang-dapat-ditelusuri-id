@@ -1,0 +1,481 @@
+---
+title: "Unit 2 — Menelusuri Literatur dan Menilai Otoritas Sumber"
+subtitle: "Menetapkan versi yang tepat, mengikuti rantai sitasi, dan menguji klaimnya"
+description: "Unit praktik untuk mengubah klaim matematika menjadi penelusuran terbatas, membedakan rekaman karya dari versi tertentu, dan mencatat dasar penilaian sumber secara dapat diaudit."
+---
+
+## Hasil belajar {#o017-u02-outcomes}
+
+Unit ini mempunyai pengidentifikasi stabil **O017-U02**. Setelah
+menyelesaikannya, Anda mampu:
+
+1. mengubah sebuah klaim matematika menjadi pertanyaan penelusuran yang
+   terbatas dan dapat diulang;
+2. membedakan sarana penelusuran, rekaman metadata, teks lengkap, edisi atau
+   versi tertentu, dan catatan koreksi;
+3. menilai otoritas sumber terhadap pertanyaan tertentu, bukan berdasarkan
+   nama besar atau urutan hasil pencarian saja;
+4. membedakan pengidentifikasi persisten untuk karya secara umum dari
+   pengidentifikasi untuk satu versi tertentu;
+5. menggambar rantai sitasi sebagai graf berarah dengan hubungan yang diberi
+   jenis;
+6. memisahkan bukti bahwa “sumber ini menyatakan klaim” dari pembuktian bahwa
+   klaim itu benar; dan
+7. mencatat ketidakpastian tanpa mengisi data yang hilang dengan tebakan.
+
+::: {.callout-note title="Prasyarat dan cara memakai unit ini"}
+Unit ini mengandaikan kemampuan membaca definisi, teorema, dan pembuktian
+seperti pada Unit 1, serta materi dasar deret fungsi. Seluruh penilaian inti
+dapat dilakukan dari paket sumber sintetis yang tertanam di halaman ini.
+Penelusuran basis data daring merupakan perluasan, bukan syarat untuk
+menyelesaikan unit.
+:::
+
+## Dari jejaring klaim ke jejaring sumber {#o017-u02-claim-to-source}
+
+Pada Unit 1, kita memecah argumen menjadi definisi, asumsi, klaim,
+justifikasi, dan tugas terbuka. Kini tambahkan pertanyaan sumber pada setiap
+klaim penting:
+
+- siapa atau badan apa yang menyatakannya;
+- di karya mana klaim itu muncul;
+- edisi atau versi mana yang benar-benar dibaca;
+- di halaman, bagian, atau nomor hasil mana pernyataannya berada;
+- apakah ada versi baru, koreksi, atau erratum;
+- sumber mana yang dirujuk oleh karya tersebut; dan
+- dukungan matematis apa yang dapat diperiksa secara mandiri.
+
+Jejaring sumber bukan pengganti jejaring klaim. Rekaman penerbit dapat menjadi
+otoritas yang baik untuk judul dan tahun terbit, tetapi tidak dengan sendirinya
+membuktikan teorema. Sebaliknya, pembuktian yang sah dapat menetapkan kebenaran
+sebuah klaim meskipun salinan yang memuatnya mempunyai metadata yang buruk.
+
+::: {#o017-u02-def01 .callout-important title="Prinsip: otoritas bergantung pada pertanyaan"}
+Sebuah sumber tidak “paling otoritatif” untuk segala keperluan. Nyatakan lebih
+dahulu pertanyaannya: identitas bibliografis, isi versi tertentu, sejarah
+perubahan, prioritas historis, atau kebenaran matematis. Baru kemudian nilai
+sumber terhadap pertanyaan itu.
+:::
+
+## Menulis kartu penelusuran {#o017-u02-search-card}
+
+Pencarian yang dimulai dari kata umum mudah melebar tanpa batas. Sebelum
+membuka katalog atau mesin pencari, tulis **kartu penelusuran**.
+
+::: {.o017-table-scroll aria-label="Kartu penelusuran" tabindex="0"}
+| Bidang | Isi yang perlu dicatat |
+|---|---|
+| Objek | objek matematika yang dibicarakan |
+| Klaim | hipotesis, kesimpulan, dan kuantor secara eksplisit |
+| Variasi | sinonim, terjemahan, notasi, dan ejaan nama yang mungkin |
+| Pertanyaan | identitas, versi, pembuktian, koreksi, atau prioritas yang dicari |
+| Batas | jalur yang akan diperiksa dan syarat berhenti |
+| Ketidakpastian awal | apa yang belum diketahui dan tidak boleh ditebak |
+:::
+
+Misalnya, frasa “kuadrat deret konvergen tetap konvergen” belum merupakan
+kartu yang baik. Kata *konvergen* mungkin berarti konvergen biasa atau
+konvergen mutlak; “kuadrat” mungkin berarti $\sum a_n^2$ atau kuadrat dari
+jumlah. Kartu yang baik menuliskan dua kemungkinan itu sebagai pertanyaan,
+bukan diam-diam memilih salah satunya.
+
+### Prosedur tiga lintasan {#o017-u02-three-pass}
+
+Gunakan prosedur terbatas berikut.
+
+1. **Lintasan istilah.** Cari frasa khas, notasi, objek, dan variasi istilah.
+   Hasilnya adalah calon sumber, bukan bukti.
+2. **Lintasan ke belakang.** Dari satu calon yang relevan, ikuti satu atau dua
+   rujukan yang benar-benar menopang klaim yang sedang ditelaah.
+3. **Lintasan pembanding.** Cari satu sumber independen yang menyatakan atau
+   membuktikan hasil yang sama, atau satu catatan koreksi yang mengubahnya.
+
+Setiap lintasan menghasilkan catatan singkat: kueri atau titik awal, tanggal,
+calon yang diperiksa, alasan menerima atau menolak calon itu, dan langkah
+berikutnya. Catatan “tidak ditemukan” tetap informatif jika batas
+penelusurannya jelas.
+
+### Syarat berhenti {#o017-u02-stop-rule}
+
+Penelusuran boleh berhenti bila:
+
+- teks klaim yang tepat beserta penunjuk lokasinya telah ditemukan;
+- edisi atau versinya telah ditetapkan sejauh yang dimungkinkan bukti;
+- setidaknya satu hubungan ke belakang atau satu pembanding independen telah
+  diperiksa; dan
+- pertentangan atau data yang masih hilang dicatat secara terbuka.
+
+Syarat ini bukan jaminan bahwa seluruh literatur telah ditemukan. Ia menjamin
+bahwa batas pekerjaan dapat dilihat dan diuji orang lain.
+
+## Lima permukaan yang tidak boleh dicampur {#o017-u02-five-surfaces}
+
+::: {.o017-table-scroll aria-label="Lima permukaan bukti sumber" tabindex="0"}
+| Permukaan | Fungsi yang wajar | Hal yang belum dibuktikannya |
+|---|---|---|
+| Hasil pencarian atau indeks | menemukan calon dan variasi istilah | isi lengkap atau versi yang dikutip |
+| Rekaman katalog/penerbit | identitas karya, penerbit, tahun, edisi | kebenaran klaim di dalam karya |
+| Rekaman karya/konsep | mengelompokkan versi dari karya yang sama | byte atau redaksi versi yang dipakai |
+| Artefak versi tertentu | menunjukkan apa yang tertulis dalam versi itu | kebenaran matematis pernyataannya |
+| Pembuktian atau contoh tandingan | menguji status matematis klaim | identitas bibliografis sumber asal |
+:::
+
+Satu laman dapat memuat lebih dari satu permukaan, tetapi peran buktinya tetap
+harus dipisahkan. Tangkapan layar hasil pencarian, misalnya, mungkin membantu
+menjelaskan bagaimana calon ditemukan. Ia bukan pengganti berkas lengkap dan
+penunjuk halaman.
+
+### Matriks penilaian sumber {#o017-u02-authority-matrix}
+
+Alih-alih memberi satu skor “terpercaya”, catat dimensi berikut.
+
+::: {.o017-table-scroll aria-label="Matriks penilaian sumber" tabindex="0"}
+| Dimensi | Pertanyaan audit |
+|---|---|
+| Kedekatan | Apakah sumber memuat pernyataan/pembuktian, atau hanya parafrasa? |
+| Keterlacakan versi | Apakah edisi atau versi dapat ditentukan dan dipanggil kembali? |
+| Provenance | Apakah pencipta, penerbit/repositori, tanggal, dan riwayat perubahan jelas? |
+| Penunjuk | Dapatkah pembaca lain menuju halaman, bagian, atau nomor hasil yang sama? |
+| Dukungan | Apakah ada pembuktian, contoh tandingan, atau sumber independen? |
+:::
+
+Sumber sekunder dapat menjadi pengantar yang lebih jelas daripada sumber
+pertama. Sumber pertama dapat menjadi bukti terbaik untuk prioritas historis.
+Keduanya menjawab pertanyaan berbeda.
+
+## Edisi, versi, dan pengidentifikasi persisten {#o017-u02-editions-pids}
+
+::: {#o017-u02-def-pid .callout-note title="Definisi kerja: PID karya dan PID versi"}
+Sebuah **pengidentifikasi persisten** atau **PID** dirancang agar identitas
+objek tetap dapat dirujuk meskipun lokasi akses berubah. PID tidak selalu
+menunjuk pada tingkat yang sama.
+
+- **PID karya atau konsep** mengacu pada karya secara keseluruhan dan dapat
+  membawa pembaca ke versi terbaru.
+- **PID versi** mengacu pada satu keadaan tertentu dari karya. Gunakan ini
+  ketika orang lain harus memeriksa redaksi atau berkas yang sama.
+:::
+
+Sebagian repositori menerapkan pembedaan ini sebagai **DOI konsep** dan
+**DOI versi** [@turingway2022]. Jangan menyimpulkan bahwa semua DOI berperilaku
+sama: periksa dokumentasi dan metadata repositori yang menerbitkannya.
+
+::: {.callout-tip title="Uji pemilihan pengidentifikasi"}
+Tanyakan: *apakah pembaca berikutnya memerlukan keadaan karya yang sama, atau
+memerlukan karya secara umum dalam keadaan terbarunya?* Untuk reproduksi
+kutipan, audit pembuktian, dan laporan koreksi, biasanya diperlukan versi yang
+tepat. Untuk merekomendasikan sebuah buku hidup secara umum, rekaman konsep
+dapat lebih sesuai.
+:::
+
+Sebuah sitasi yang dapat diaudit sekurang-kurangnya mencatat pencipta, judul,
+tahun atau tanggal, penerbit atau repositori, edisi/versi bila ada, informasi
+akses atau PID, dan penunjuk di dalam karya. Praktik ini mengadaptasi unsur
+sitasi objek riset yang dijelaskan dalam *The Turing Way* [@turingway2022].
+
+### Hubungan harus diberi jenis {#o017-u02-typed-relations}
+
+Metadata hubungan memungkinkan dua objek dihubungkan dengan kata kerja yang
+tepat. Contoh yang relevan bagi pembaca matematika:
+
+- `cites`: karya A menyitasi karya B;
+- `references`: A menyebut B tanpa menyatakan hubungan versi;
+- `isVersionOf`: V1 merupakan sebuah versi dari karya K;
+- `isNewVersionOf`: V2 adalah penerus V1;
+- `corrects`: pernyataan atau versi baru memperbaiki yang lama;
+- `quotes`: A menyalin redaksi yang dapat dilokasikan dari B.
+
+Empat label pertama mengikuti kosakata hubungan yang dicontohkan dalam
+metadata donor. `corrects` dan `quotes` adalah label pedagogis lokal unit ini,
+bukan klaim bahwa setiap repositori menyediakan kedua jenis hubungan tersebut.
+
+Hubungan itu berarah. “V2 adalah versi baru dari V1” tidak sama dengan “V1
+adalah versi baru dari V2”. Hubungan `cites` juga tidak membuktikan bahwa A
+diturunkan dari B, bahwa A menyetujui B, atau bahwa klaim B benar.
+
+## Kasus kerja: dua versi klaim tentang deret {#o017-u02-worked-case}
+
+Semua nama orang, judul, tanggal, dan pengidentifikasi dalam kasus ini dibuat
+khusus untuk pembelajaran. Bentuk `PID-KELAS-...` adalah **pengidentifikasi
+simulasi lokal**, bukan DOI, tidak terdaftar di layanan publik, dan tidak boleh
+dipakai sebagai sitasi dunia nyata.
+
+### Paket calon sumber {#o017-u02-source-packet-series}
+
+::: {.o017-table-scroll aria-label="Paket calon sumber sintetis" tabindex="0"}
+| ID | Calon | Isi yang tersedia | Peran awal |
+|---|---|---|---|
+| []{#o017-u02-src-s0}`O017-U02-SRC-S0` | cuplikan indeks kelas | judul dan satu kalimat terpotong | sarana penelusuran |
+| []{#o017-u02-src-s1}`O017-U02-SRC-S1` | *Ringkasan Seminar Deret*, 20 Maret | mengutip klaim dan merujuk rekaman konsep | sumber sekunder |
+| []{#o017-u02-src-s2}`O017-U02-SRC-S2` | *Kuadrat Deret Konvergen*, versi 1, 10 Maret | pernyataan K1 dan pembuktian yang diringkas | artefak versi |
+| []{#o017-u02-src-s3}`O017-U02-SRC-S3` | karya yang sama, versi 2, 8 April | pernyataan K2, pembuktian baru, catatan perubahan | artefak versi/koreksi |
+| []{#o017-u02-src-s4}`O017-U02-SRC-S4` | *Analisis Real: Edisi Kelas*, edisi 3 | uji deret berselang-seling, deret harmonik, perbandingan | pembanding sintetis |
+:::
+
+Rekaman konsep mempunyai pengidentifikasi simulasi
+[]{#o017-u02-pid-concept}`PID-KELAS-O017-DERET-KONSEP`. Versi 1 dan versi 2
+masing-masing mempunyai []{#o017-u02-pid-v1}`PID-KELAS-O017-DERET-V1` dan
+[]{#o017-u02-pid-v2}`PID-KELAS-O017-DERET-V2`. Rekaman kelas
+menyatakan hubungan berikut:
+
+::: {.o017-table-scroll aria-label="Rantai sitasi sintetis" tabindex="0"}
+| Sumber | Hubungan | Target |
+|---|---|---|
+| Ringkasan seminar | `cites` | Rekaman konsep |
+| Rekaman konsep | `hasVersion` | Versi 1 |
+| Rekaman konsep | `hasVersion` | Versi 2 |
+| Versi 2 | `isNewVersionOf` | Versi 1 |
+| Klaim K2 | `corrects` | Klaim K1 |
+| Versi 2 | `cites` | *Analisis Real*, edisi 3 |
+:::
+
+Ringkasan seminar terbit setelah versi 1 tetapi sebelum versi 2. Redaksinya
+sama dengan K1, tetapi sitasinya hanya menunjuk rekaman konsep. Setelah 8
+April, rekaman konsep membawa pembaca ke versi 2. Karena itu, rekaman konsep
+tidak cukup untuk memanggil kembali redaksi yang mungkin dilihat penulis
+seminar. Kecocokan redaksi dan urutan tanggal mendukung inferensi bahwa versi 1
+dipakai, tetapi inferensi ini bukan metadata yang dicatat oleh sumber.
+
+### Mengaudit klaim versi 1 {#o017-u02-series-v1-audit}
+
+::: {#thm-o017-u02-v1 .theorem title="K1 — Pernyataan sintetis versi 1"}
+Untuk setiap barisan riil $(a_n)$, jika deret
+$\sum_{n=1}^{\infty}a_n$ konvergen, maka deret
+$\sum_{n=1}^{\infty}a_n^2$ konvergen.
+:::
+
+::: {#o017-u02-counterexample-v1 .callout-warning title="Contoh tandingan terhadap K1"}
+K1 salah. Ambil
+
+$$
+a_n=\frac{(-1)^{n+1}}{\sqrt n}.
+$$
+
+Barisan $1/\sqrt n$ menurun menuju nol, sehingga uji deret berselang-seling
+menunjukkan bahwa $\sum a_n$ konvergen. Namun,
+
+$$
+\sum_{n=1}^{\infty}a_n^2
+=\sum_{n=1}^{\infty}\frac1n
+$$
+
+adalah deret harmonik dan divergen. Contoh tandingan ini menguji kebenaran
+matematis K1; artefak versi 1 menetapkan bahwa K1 memang tertulis di sana.
+Kedua pekerjaan itu berbeda.
+:::
+
+### Mengaudit koreksi versi 2 {#o017-u02-series-v2-audit}
+
+::: {#thm-o017-u02-v2 .theorem title="K2 — Pernyataan sintetis versi 2"}
+Untuk setiap barisan riil $(a_n)$, jika
+$\sum_{n=1}^{\infty}|a_n|$ konvergen, maka
+$\sum_{n=1}^{\infty}a_n^2$ konvergen.
+:::
+
+::: {#prf-o017-u02-v2 .proof}
+Konvergensi mutlak mengakibatkan $a_n\to0$. Jadi terdapat $N$ sehingga
+$|a_n|\leq1$ untuk semua $n\geq N$. Untuk indeks tersebut,
+
+$$
+0\leq a_n^2=|a_n|^2\leq |a_n|.
+$$
+
+Uji perbandingan menunjukkan bahwa ekor
+$\sum_{n=N}^{\infty}a_n^2$ konvergen. Menambahkan jumlah berhingga
+$\sum_{n=1}^{N-1}a_n^2$ tidak mengubah konvergensi. Maka seluruh deret
+$\sum a_n^2$ konvergen. $\square$
+:::
+
+Catatan audit akhir harus mengatakan tiga hal, bukan satu: versi 1 memuat K1;
+K1 salah karena contoh tandingan di atas; versi 2 mengganti hipotesis dengan
+konvergensi mutlak dan K2 sah menurut pembuktian perbandingan.
+
+### Memilih sitasi untuk pertanyaan yang berbeda {#o017-u02-citation-choice}
+
+- Untuk mengutip redaksi K1 atau menjelaskan kesalahan, gunakan identitas
+  versi 1 dan penunjuk K1.
+- Untuk mengutip hasil yang telah diperbaiki, gunakan identitas versi 2 dan
+  penunjuk K2.
+- Untuk merekomendasikan karya sintetis itu secara umum, rekaman konsep boleh
+  dipakai, disertai keterangan bahwa ia menuju versi terbaru.
+- Untuk menyatakan bahwa ringkasan seminar memakai versi 1, tulis “kemungkinan
+  besar” dan berikan dasar inferensinya; jangan ubah inferensi menjadi fakta.
+
+## Catatan penelusuran minimal {#o017-u02-minimal-ledger}
+
+Unit ini belum mengajarkan buku catatan provenance lengkap; itu menjadi fokus
+Unit 4. Untuk sekarang, gunakan satu baris per keputusan:
+
+::: {.o017-table-scroll aria-label="Contoh catatan penelusuran" tabindex="0"}
+| Waktu | Pertanyaan/kueri | Calon | Keputusan | Dasar | Ketidakpastian |
+|---|---|---|---|---|---|
+| 10 April, 10.00 | frasa K1 + “deret kuadrat” | S1 | ikuti sitasi | memuat redaksi lengkap | versi tidak disebut |
+| 10 April, 10.08 | rekaman konsep | S2, S3 | periksa keduanya | dua versi terhubung | berkas yang dilihat S1 belum pasti |
+:::
+
+Jangan menambah waktu, kueri, atau hasil yang tidak benar-benar diamati.
+Kelengkapan catatan berarti setiap keputusan penting dapat ditelusuri, bukan
+berarti setiap klik harus direkam.
+
+## Latihan {#o017-u02-exercises}
+
+1. []{#o017-u02-x01} **O017-U02-X01. Kartu klaim.** Ubah frasa “kuadrat deret
+   konvergen tetap konvergen” menjadi kartu penelusuran yang memuat objek,
+   dua kemungkinan hipotesis, kesimpulan, variasi istilah, pertanyaan, dan
+   syarat berhenti.
+2. []{#o017-u02-x02} **O017-U02-X02. Peran calon sumber.** Untuk S0–S4,
+   tuliskan satu pertanyaan yang dapat dijawab oleh tiap calon dan satu
+   kesimpulan yang belum boleh ditarik darinya.
+3. []{#o017-u02-x03} **O017-U02-X03. Identitas tanpa menebak.** Anggap salinan
+   S4 hanya memperlihatkan judul, “edisi 3”, halaman 141, dan tahun 2024,
+   tetapi tidak memperlihatkan nama penerbit. Buat rekaman sitasi sementara
+   dan tandai semua bidang yang belum diketahui.
+4. []{#o017-u02-x04} **O017-U02-X04. Memilih tingkat PID.** Pilih rekaman
+   konsep atau versi tertentu untuk: (a) mereproduksi audit K1, (b)
+   merekomendasikan karya yang terus diperbarui, (c) melaporkan koreksi K1,
+   dan (d) mengutip satu kalimat versi 2. Jelaskan setiap pilihan.
+5. []{#o017-u02-x05} **O017-U02-X05. Rantai berarah.** Gambar kembali rantai
+   S1–S4. Beri jenis dan arah pada setiap sisi, lalu tandai hubungan
+   “ringkasan seminar memakai versi 1” sebagai fakta metadata atau inferensi.
+6. []{#o017-u02-x06} **O017-U02-X06. Audit matematika dan sumber.** Tulis
+   memo paling banyak 500 kata yang memisahkan: apa yang dikatakan versi 1,
+   contoh tandingan terhadapnya, apa yang diubah versi 2, pembuktian K2, dan
+   ketidakpastian tentang sumber ringkasan seminar.
+
+## Petunjuk dan panduan jawaban {#o017-u02-guidance}
+
+1. []{#o017-u02-h01} **O017-U02-H01.** Pisahkan “konvergen” dari “konvergen
+   mutlak”, dan bedakan $\sum a_n^2$ dari $(\sum a_n)^2$. Syarat berhenti
+   harus menyebut versi, penunjuk, dan pemeriksaan satu pembanding.
+2. []{#o017-u02-h02} **O017-U02-H02.** S0 menemukan calon; S1 menunjukkan
+   redaksi sumber sekunder; S2 dan S3 menetapkan isi versi; S4 memberi alat
+   matematis pembanding. Tidak ada kesimpulan yang menjadi benar hanya karena
+   sumbernya muncul lebih dahulu atau diterbitkan sebagai buku.
+3. []{#o017-u02-h03} **O017-U02-H03.** Catat judul, edisi, tahun, dan halaman
+   yang terlihat. Isi penerbit dengan “tidak diketahui pada salinan yang
+   diperiksa”, bukan dengan tebakan dari sumber lain tanpa catatan.
+4. []{#o017-u02-h04} **O017-U02-H04.** Gunakan versi tertentu untuk (a), (c),
+   dan (d), sebab redaksi yang sama harus dapat dipanggil kembali. Rekaman
+   konsep sesuai untuk (b) jika tujuan eksplisitnya adalah versi terbaru.
+5. []{#o017-u02-h05} **O017-U02-H05.** Setiap panah memerlukan kata kerja dan
+   arah. Sitasi konsep oleh S1 adalah fakta; pemakaian versi 1 adalah inferensi
+   berdasarkan redaksi dan tanggal.
+6. []{#o017-u02-h06} **O017-U02-H06.** Memo yang baik menggunakan artefak versi
+   untuk menetapkan isi, contoh $(-1)^{n+1}/\sqrt n$ untuk menolak K1, dan
+   perbandingan $a_n^2\leq|a_n|$ pada ekor untuk membuktikan K2.
+
+## Tugas penyelesaian unit {#o017-u02-completion-task}
+
+Susun **dossier penelusuran sumber** dari paket sintetis kedua. Semua ID di
+bawah ini kembali merupakan ID kelas nonpublik, bukan DOI.
+
+- `PID-KELAS-O017-FUNGSI-KONSEP`: rekaman karya *Batas Fungsi Kontinu*.
+- `PID-KELAS-O017-FUNGSI-V1`: versi 1 menyatakan bahwa limit titik demi titik
+  dari fungsi-fungsi kontinu pada $[0,1]$ selalu kontinu.
+- `PID-KELAS-O017-FUNGSI-V2`: versi 2 mengganti “titik demi titik” dengan
+  “seragam” dan mencatat perubahan itu.
+- Sebuah catatan kuliah menyitasi rekaman konsep tanpa nomor versi.
+- Sebuah buku teks sintetis, edisi 2, §6.4, memuat teorema limit seragam.
+
+Dossier harus memuat:
+
+1. kartu klaim terpisah untuk versi 1 dan versi 2;
+2. log penelusuran terbatas beserta alasan berhenti;
+3. tabel peran dan otoritas setiap calon sumber;
+4. identitas versi/edisi dan penunjuk yang tepat, tanpa mengarang bidang yang
+   tidak tersedia;
+5. graf rantai sitasi dengan sedikitnya lima simpul dan enam sisi berjenis;
+6. contoh tandingan $f_n(x)=x^n$ pada $[0,1]$: tentukan limit titik demi
+   titik dan tunjukkan bahwa fungsi limit tidak kontinu di $x=1$;
+7. pembuktian $\varepsilon/3$ bahwa limit seragam fungsi-fungsi kontinu
+   bersifat kontinu;
+8. satu sitasi versi untuk audit dan satu sitasi konsep untuk rekomendasi,
+   disertai alasan pemilihan; dan
+9. paragraf ketidakpastian: apa yang dapat dan tidak dapat disimpulkan tentang
+   versi yang dipakai catatan kuliah.
+
+Untuk langkah 7, tetapkan $x_0$ dan $\varepsilon>0$. Pilih $N$ agar
+$|f-f_N|<\varepsilon/3$ secara seragam. Gunakan kekontinuan $f_N$ di $x_0$
+untuk suku tengah, lalu terapkan ketaksamaan segitiga pada
+
+::: {.o017-math-scroll aria-label="Ketaksamaan segitiga untuk teorema limit seragam" tabindex="0"}
+$$
+|f(x)-f(x_0)|
+\leq |f(x)-f_N(x)|
++|f_N(x)-f_N(x_0)|
++|f_N(x_0)-f(x_0)|.
+$$
+:::
+
+### Rubrik {#o017-u02-completion-rubric}
+
+Setiap kriteria dinilai 0, 1, atau 2.
+
+::: {.o017-table-scroll aria-label="Rubrik penyelesaian Unit 2" tabindex="0"}
+| Kriteria | 0 | 1 | 2 |
+|---|---|---|---|
+| Penelusuran | tanpa batas atau tak terlacak | sebagian langkah tercatat | pertanyaan, lintasan, keputusan, dan syarat berhenti lengkap |
+| Identitas sumber | versi/edisi dikacaukan | sebagian bidang/penunjuk tepat | konsep, versi, edisi, penunjuk, dan data hilang dibedakan tepat |
+| Rantai sitasi | arah/jenis tidak dapat diperiksa | graf sebagian benar | semua simpul dan sisi berarah, berjenis, serta fakta/inferensi terpisah |
+| Audit matematika | contoh atau pembuktian salah | gagasan benar tetapi ada celah | limit titik demi titik, contoh tandingan, dan pembuktian teorema limit seragam lengkap |
+| Eksposisi | kesimpulan melebihi bukti | sebagian ketidakpastian terlihat | setiap kesimpulan terhubung ke sumber atau argumen dan batasnya dinyatakan |
+:::
+
+Nilai lulus adalah sekurang-kurangnya 8 dari 10, dengan nilai 2 pada
+**Identitas sumber** dan **Audit matematika**. Data bibliografis yang dibuat-buat,
+PID konsep yang dipakai seolah-olah menunjuk versi tetap, atau reputasi yang
+diperlakukan sebagai pembuktian mewajibkan revisi meskipun jumlah nilai cukup.
+
+## Batas dengan B80 dan unit lain {#o017-u02-boundary}
+
+Unit ini tidak mengajarkan sintaks Python, API katalog/DOI, pengikisan laman,
+Git, pembuatan rilis, lingkungan perangkat lunak, atau cara menghitung hash.
+Jika checksum tersedia, kita hanya menafsirkan fungsinya sebagai saksi byte
+yang tepat. Keterampilan komputasional tersebut merupakan prasyarat B80, bukan
+materi ulang O017.
+
+Catatan penelusuran di sini sengaja minimal. Desain buku catatan sumber dan
+provenance lengkap menjadi materi Unit 4; reproduktibilitas komputasional
+menjadi materi Unit 6; penulisan erratum menjadi materi Unit 7. Unit 2 hanya
+mengajarkan informasi sitasi dan hubungan versi yang diperlukan untuk menilai
+otoritas sumber.
+
+## Provenance, hak komponen, dan perubahan {#o017-u02-provenance}
+
+Teks penghubung berbahasa Indonesia, kedua paket sumber sintetis, contoh
+matematika, pembuktian, latihan, panduan jawaban, dan rubrik unit ini merupakan
+materi asli O017 oleh kontributor O017, 2026, dan dilisensikan di bawah
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Pembedaan DOI versi dan DOI konsep, pengelolaan versi, metadata hubungan
+berjenis, serta unsur sitasi objek riset diadaptasi dari *The Turing Way*
+[@turingway2022; @turingwaycommitc98a], The Turing Way Community, pada commit tetap
+[`c98a0e6ca47450456cca7c5eedda2d5ee131d1ce`](https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce),
+khususnya:
+
+- `book/website/communication/citable/citable-versioning.md`;
+- `book/website/communication/citable/citable-metadata.md`; dan
+- `book/website/communication/citable/citable-otherscite.md`.
+
+Materi donor tersebut berlisensi
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Materinya telah
+diterjemahkan, diringkas, disusun ulang, dan dikontekstualisasikan untuk
+penelusuran literatur matematika; contoh, pembuktian, latihan, serta paket
+sumbernya tidak disalin dari donor.
+
+Pembedaan identitas artefak melalui DOI dan identitas peneliti melalui ORCID
+ditinjau dengan bantuan bagian provenance dalam *Research Software Engineering
+with Python* [@irving2021; @pyrsecommit62217] oleh Damien Irving, Kate Hertweck, Luke Johnston,
+Joel Ostblom, Charlotte Wickham, dan Greg Wilson, pada commit tetap
+[`62217e6606842ab9752fcf8e73954d1eb4a3cf07`](https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07),
+khususnya `chapters/provenance.Rmd` (salinan pilihan lokal:
+`selected-slice/provenance-selected.Rmd`). Prosa sumber ini berlisensi
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Unit ini tidak
+menyalin kode, gambar, atau latihannya.
+
+Perubahan telah dibuat pada semua materi yang diadaptasi. The Turing Way
+Community, keenam penulis *Research Software Engineering with Python*, dan
+penerbit atau afiliasi mereka **tidak mendukung, mengesahkan, atau mensponsori**
+adaptasi O017 ini. Setiap sumber beku tetap tunduk pada lisensinya sendiri;
+lisensi CC BY-SA 4.0 untuk materi asli O017 tidak dimaksudkan untuk mengganti
+lisensi sumber donor.

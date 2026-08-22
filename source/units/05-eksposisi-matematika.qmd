@@ -1,0 +1,717 @@
+---
+title: "Unit 5 — Menulis Eksposisi Matematika yang Dapat Diaudit"
+subtitle: "Mengubah argumen yang sah menjadi jalur baca yang jelas, terbatas, dan dapat diperiksa"
+description: "Unit praktik untuk menetapkan pembaca dan cakupan, menata definisi–teorema–bukti–contoh, menjaga notasi, menautkan klaim ke lokator, serta merevisi eksposisi melalui audit ketergantungan."
+---
+
+## Hasil belajar {#o017-u05-outcomes}
+
+Unit ini mempunyai pengidentifikasi stabil **O017-U05**. Setelah
+menyelesaikannya, Anda mampu:
+
+1. menetapkan pembaca sasaran, prasyarat, tujuan, dan batas sebuah eksposisi
+   sebelum memilih tingkat rinciannya;
+2. menyusun definisi, teorema, pembuktian, contoh, dan contoh tandingan sebagai
+   bagian dengan fungsi berbeda;
+3. memakai notasi yang bertipe, diperkenalkan sebelum dipakai, dan konsisten
+   sepanjang dokumen;
+4. memberi penunjuk lokal pada klaim penting serta memakai sitasi eksternal
+   hanya untuk pekerjaan yang benar-benar dilakukan sumber tersebut;
+5. memasang penanda arah lokal agar pembaca mengetahui tujuan, alasan sebuah
+   langkah muncul, dan tempat argumen akan kembali;
+6. merevisi draf melalui audit ketergantungan klaim tanpa menyembunyikan
+   hipotesis, batas, atau ketidakpastian;
+7. membedakan pernyataan yang dibuktikan dari ilustrasi, contoh tandingan,
+   heuristik, dan komentar historis; dan
+8. mengubah eksposisi tertulis menjadi catatan seminar yang dapat diikuti,
+   ditanya, dan dikoreksi secara jujur.
+
+::: {.callout-note title="Prasyarat, kesinambungan, dan batas fokus"}
+Unit ini mengandaikan bahwa jejaring klaim sudah dapat dibaca (Unit 1), sumber
+dan versinya sudah dipilih (Unit 2), celah pembuktian sudah direkonstruksi
+(Unit 3), serta lokator dan keputusan sumber sudah tersedia (Unit 4). Unit 5
+tidak mengulangi pekerjaan tersebut. Masukannya ialah argumen yang telah
+diaudit; keluarannya ialah eksposisi yang memungkinkan pembaca lain memeriksa
+argumen itu tanpa menebak struktur atau cakupannya.
+
+Pembaca kasus utama diandaikan mengenal bilangan bulat positif, keterbagian,
+kontradiksi, dan prinsip urutan-baik pada bilangan asli. Tidak diperlukan
+teori bilangan analitik ataupun algoritme pengujian keprimaan.
+:::
+
+## Eksposisi adalah antarmuka untuk argumen {#o017-u05-exposition-interface}
+
+Pembuktian yang benar belum tentu menjadi eksposisi yang baik. Sebuah naskah
+dapat memuat seluruh langkah sah tetapi tetap menyulitkan audit karena simbol
+muncul sebelum didefinisikan, tujuan paragraf tidak dinyatakan, contoh
+dipresentasikan seolah-olah membuktikan teorema, atau sebuah sitasi diletakkan
+di akhir paragraf tanpa memperjelas klaim mana yang didukungnya.
+
+Eksposisi yang dapat diaudit memberi pembaca tiga jalur sekaligus:
+
+1. **jalur matematis:** dari hipotesis menuju kesimpulan;
+2. **jalur retoris:** dari pertanyaan menuju alasan setiap bagian diperlukan;
+3. **jalur pemeriksaan:** dari klaim menuju definisi, bukti, contoh, atau sumber
+   yang mendukungnya.
+
+Ketiga jalur itu berhubungan, tetapi tidak boleh dilebur. Kalimat “lihat
+contoh berikut” membantu jalur retoris; ia bukan justifikasi matematis. Sitasi
+menyediakan jalur penelusuran dan atribusi; ia tidak otomatis menggantikan pemeriksaan
+hipotesis. Nomor teorema membantu pemeriksaan; ia tidak membuat teorema benar.
+
+::: {#o017-u05-original-bridge .callout-important title="Jembatan asli O017"}
+Unit 3 menanyakan, “Bagaimana kita menutup langkah yang hilang?” Unit 4
+menanyakan, “Versi, lokasi, dan dasar keputusan apa yang harus dipertahankan?”
+Unit 5 menanyakan, “Bagaimana hasil yang sudah diaudit itu disajikan agar
+pembaca tertentu dapat mengikuti, menemukan, dan mengkritiknya?” Perubahan
+pertanyaan inilah yang mencegah audit editorial di unit ini menjadi pengulangan
+rekonstruksi pembuktian atau desain buku catatan sumber.
+:::
+
+## Mulai dengan kontrak pembaca dan cakupan {#o017-u05-reader-contract}
+
+Sebelum menulis paragraf pertama, isi kontrak singkat berikut.
+
+::: {.o017-table-scroll aria-label="Kontrak pembaca dan cakupan eksposisi" tabindex="0"}
+| Bidang | Pertanyaan yang harus dijawab | Kontrak kasus utama |
+|---|---|---|
+| Pembaca | Pengetahuan apa yang sungguh dapat diasumsikan? | keterbagian, kontradiksi, urutan-baik |
+| Tujuan | Setelah membaca, tindakan apa yang dapat dilakukan? | menjelaskan mengapa prima tidak berhingga dan menolak satu penafsiran keliru |
+| Klaim inti | Pernyataan tepat apa yang akan dibuktikan? | terdapat tak berhingga banyak bilangan prima |
+| Batas | Klaim berdekatan apa yang tidak dijanjikan? | distribusi prima, keunikan faktorisasi, dan algoritme keprimaan |
+| Bentuk | Untuk penggunaan apa naskah disiapkan? | bacaan mandiri dan seminar 10–12 menit |
+| Bukti masuk | Hasil apa yang boleh dipakai tanpa dibuktikan ulang? | hanya fakta dasar yang dinyatakan eksplisit di bawah |
+:::
+
+Kontrak ini bukan pengantar seremonial. Ia menentukan rincian yang diperlukan.
+Untuk pembaca yang mengenal keterbagian tetapi belum mengenal faktorisasi,
+kalimat “ambil suatu pembagi prima” memerlukan lemma. Untuk pembaca teori
+bilangan lanjut, lemma yang sama dapat diberi lokator dan diringkas. Karena
+pembaca kasus utama belum diberi teorema faktorisasi prima, unit ini membuktikan
+lemma yang diperlukan secara elementer.
+
+### Empat uji cakupan {#o017-u05-scope-tests}
+
+Setiap janji eksposisi harus lolos empat uji.
+
+1. **Uji subjek:** apakah objek dan domainnya jelas?
+2. **Uji kekuatan:** apakah kata “ada”, “unik”, “untuk semua”, dan “hanya jika”
+   dipakai tepat?
+3. **Uji prasyarat:** apakah semua hasil masuk tersedia bagi pembaca sasaran?
+4. **Uji penghentian:** apakah penulis tahu klaim berdekatan mana yang tidak
+   akan dikejar?
+
+Kegagalan uji penghentian sering menghasilkan naskah yang panjang tetapi tidak
+lebih dapat diaudit. Menjelaskan ketakterhinggaan bilangan prima tidak mewajibkan penulis
+menjelaskan seberapa rapat prima tersebar atau bagaimana mesin menemukan prima
+besar.
+
+## Arsitektur dan lokator klaim {#o017-u05-claim-architecture}
+
+Dalam unit ini, setiap komponen utama mempunyai lokator stabil. Lokator adalah
+alamat; status adalah pekerjaan epistemiknya. Keduanya perlu dinyatakan.
+
+::: {.o017-table-scroll aria-label="Arsitektur komponen eksposisi kasus utama" tabindex="0"}
+| ID klaim | Status | Lokator lokal | Pekerjaan |
+|---|---|---|---|
+| `DEF-01` | definisi | [`#def-o017-u05-prime`](#def-o017-u05-prime) | menetapkan arti “prima” |
+| `LEM-01` | lemma terbukti | [`#lem-o017-u05-prime-divisor`](#lem-o017-u05-prime-divisor) | menjamin pembagi prima bagi bilangan $>1$ |
+| `THM-01` | teorema terbukti | [`#thm-o017-u05-infinitely-many-primes`](#thm-o017-u05-infinitely-many-primes) | menetapkan ketakterhinggaan bilangan prima |
+| `EXM-01` | ilustrasi | [`#o017-u05-example-euclid-number`](#o017-u05-example-euclid-number) | memperlihatkan mekanisme pada tiga prima |
+| `CTR-01` | contoh tandingan | [`#o017-u05-counterexample-euclid-number`](#o017-u05-counterexample-euclid-number) | menolak klaim lebih kuat bahwa hasil kali tambah satu selalu prima |
+:::
+
+Daftar itu sengaja tidak menyebut contoh sebagai bukti `THM-01`. Pembaca dapat
+menemukan contoh dan memeriksa hitungannya, tetapi dukungan universal untuk
+`THM-01` tetap berada pada pembuktiannya.
+
+### Sitasi dan lokator bukan hiasan yang dapat dipertukarkan {#o017-u05-honest-citation}
+
+Gunakan **lokator lokal** ketika dukungan berada di dokumen yang sedang
+dibaca. Gunakan **sitasi eksternal** ketika identitas, pernyataan, data, atau
+gagasan berasal dari karya lain. Bila sebuah sumber mempunyai banyak versi,
+cantumkan versi yang benar-benar diperiksa dan lokasi secukupnya. Prinsip
+umum tentang metadata dan versi objek yang dapat disitir diadaptasi secara
+terbatas dari *The Turing Way* [@turingway2022; @turingwaycommitc98a]. Sitasi
+itu mendukung prinsip dokumentasi tersebut; sitasi itu **tidak** dipakai
+sebagai bukti teorema bilangan prima pada unit ini.
+
+Sebelum mempertahankan sebuah sitasi, lengkapi kalimat berikut:
+
+> Saya menyitir **[versi karya]**, pada **[lokasi]**, untuk mendukung
+> **[klaim berskop]**, berdasarkan **[teks atau bukti yang benar-benar
+> diperiksa]**.
+
+Jika salah satu kurung tidak dapat diisi, sempitkan klaim atau tandai
+ketidakpastian. Jangan meletakkan satu sitasi di akhir paragraf yang memuat
+empat klaim lalu membiarkan pembaca menebak cakupannya. Jangan menyitir sumber
+metodologis untuk memberi kesan bahwa sumber itu membuktikan hasil matematika
+yang tidak dibahasnya. Unit 4 menyimpan rekamannya; Unit 5 menempatkan sitasi
+itu tepat pada kalimat yang mendapat dukungan.
+
+## Disiplin notasi sebelum pembuktian {#o017-u05-notation-discipline}
+
+Notasi yang ringkas membantu hanya jika kontraknya terlihat. Untuk kasus
+utama, kita memakai kamus berikut.
+
+::: {.o017-table-scroll aria-label="Kamus notasi kasus ketakterhinggaan bilangan prima" tabindex="0"}
+| Simbol | Tipe dan arti | Pertama dipakai |
+|---|---|---|
+| $a\mid b$ | $a,b\in\mathbb Z$ dan ada $c\in\mathbb Z$ dengan $b=ac$ | definisi keterbagian di bawah |
+| $p$ atau $q$ | bilangan prima positif | definisi dan lemma |
+| $p_1,\ldots,p_k$ | daftar hipotetis seluruh prima, tanpa pengulangan | pembuktian teorema |
+| $P$ | $\prod_{i=1}^{k}p_i$ | pembuktian teorema |
+| $N$ | $P+1$ | pembuktian teorema |
+:::
+
+Huruf yang sama tidak akan dipakai sekaligus untuk bilangan dan himpunan.
+Indeks $i$ selalu berjalan dari $1$ sampai $k$ ketika muncul dalam hasil kali.
+Kata “prima” selalu berarti prima positif. Konvensi ini menghindari dua
+pertanyaan sampingan—prima negatif dan hasil kali kosong—yang tidak diperlukan
+oleh klaim inti.
+
+::: {#def-o017-u05-prime .definition title="Keterbagian dan bilangan prima"}
+Untuk $a,b\in\mathbb Z$, kita menulis $a\mid b$ jika terdapat
+$c\in\mathbb Z$ sehingga $b=ac$. Bilangan bulat $p$ disebut **prima** jika
+$p>1$ dan pembagi positifnya hanya $1$ dan $p$.
+:::
+
+Definisi ditempatkan sebelum teorema agar kata “prima” tidak bergantung pada
+ingatan pembaca tentang konvensi yang mungkin berbeda. Namun, kita tidak
+mengulang seluruh teori keterbagian. Hanya fakta berikut yang dibutuhkan:
+jika $d\mid a$ dan $d\mid b$, maka $d\mid(a-b)$.
+
+## Kasus kerja: menulis teorema ketakterhinggaan bilangan prima {#o017-u05-worked-exposition}
+
+Bagian ini menunjukkan urutan yang akan dibaca pembaca: sebuah lemma membuka
+izin, teorema memakai izin itu, contoh memperlihatkan mekanisme, dan contoh
+tandingan membatasi tafsir. Penanda arah pada awal setiap bagian menyatakan
+mengapa bagian tersebut hadir.
+
+### Lemma yang membuka langkah “ambil pembagi prima” {#o017-u05-prime-divisor-section}
+
+Pembuktian teorema nanti membentuk suatu bilangan $N>1$ lalu memilih pembagi
+primanya. Agar pilihan itu tidak tanpa dasar, kita buktikan izin berikut.
+
+::: {#lem-o017-u05-prime-divisor .lemma title="Setiap bilangan bulat lebih dari satu mempunyai pembagi prima"}
+Untuk setiap bilangan bulat $n>1$, terdapat bilangan prima $q$ dengan
+$q\mid n$.
+:::
+
+::: {#prf-o017-u05-prime-divisor .proof}
+Tetapkan $n>1$ dan bentuk
+
+$$
+D=\{d\in\mathbb N: d>1\text{ dan }d\mid n\}.
+$$
+
+Himpunan $D$ tidak kosong karena $n\in D$. Menurut prinsip urutan-baik, $D$
+mempunyai unsur terkecil; sebut unsur itu $q$.
+
+Andaikan $q$ bukan prima. Karena $q>1$, terdapat bilangan bulat $a,b$ dengan
+$q=ab$ dan $1<a<q$ serta $1<b<q$. Dari $a\mid q$ dan $q\mid n$ diperoleh
+$a\mid n$. Jadi $a\in D$, bertentangan dengan minimalitas $q$. Maka $q$
+prima, dan dari cara pemilihannya $q\mid n$.
+:::
+
+Kalimat terakhir menutup dua keluaran lemma secara terpisah: $q$ prima dan
+$q$ membagi $n$. Keduanya akan dipakai pada teorema.
+
+### Teorema dan pembuktiannya {#o017-u05-infinitude-section}
+
+Kita sekarang dapat menyatakan janji utama tanpa menyebut algoritme atau laju
+pertumbuhan jumlah prima.
+
+::: {#thm-o017-u05-infinitely-many-primes .theorem title="Terdapat tak berhingga banyak bilangan prima"}
+Himpunan bilangan prima tidak berhingga.
+:::
+
+::: {#prf-o017-u05-infinitely-many-primes .proof}
+Andaikan, untuk memperoleh kontradiksi, bahwa hanya ada berhingga banyak
+bilangan prima. Karena $2$ prima, seluruh prima dapat didaftarkan sebagai
+
+$$
+p_1,p_2,\ldots,p_k
+$$
+
+untuk suatu $k\geq1$. Bentuk
+
+$$
+P=\prod_{i=1}^{k}p_i
+\qquad\text{dan}\qquad
+N=P+1.
+$$
+
+Karena $N>1$, [LEM-01](#lem-o017-u05-prime-divisor) memberi suatu bilangan
+prima $q$ dengan $q\mid N$. Hipotesis bahwa daftar tersebut memuat seluruh
+prima mengharuskan $q=p_j$ untuk suatu $j\in\{1,\ldots,k\}$. Oleh karena itu
+$q\mid P$. Bersama $q\mid N$, fakta dasar keterbagian memberi
+
+$$
+q\mid(N-P)=1,
+$$
+
+yang mustahil bagi $q>1$. Kontradiksi ini menolak anggapan bahwa daftar seluruh
+prima berhingga. Jadi terdapat tak berhingga banyak bilangan prima.
+:::
+
+Perhatikan fungsi setiap paragraf. Paragraf pertama membuka kerangka
+kontradiksi dan memberi tipe pada daftar. Paragraf kedua membangun objek baru.
+Paragraf ketiga memasukkan keluaran lemma ke dalam hipotesis daftar lengkap.
+Paragraf terakhir menyebut tepat anggapan yang ditolak.
+
+### Contoh: melihat mekanisme tanpa mengubahnya menjadi bukti universal {#o017-u05-example-euclid-number}
+
+::: {#o017-u05-example-01 .callout-tip title="EXM-01 — Contoh dari tiga prima"}
+Ambil daftar $2,3,5$. Hasil kalinya $P=30$, sehingga $N=P+1=31$. Tidak satu
+pun dari $2,3,5$ membagi $31$. Fakta itulah satu-satunya hal yang diperlukan
+contoh ini; kita tidak memerlukan uji keprimaan $31$. Perhitungan
+ini memperlihatkan mengapa menambah satu menghindari setiap pembagi dalam
+daftar yang dipakai.
+:::
+
+Contoh tersebut membantu pembaca melihat kongruensi sisa satu. Namun, tiga
+prima bukan “seluruh prima”, sehingga hitungan itu bukan pembuktian
+ketakterhinggaan bilangan prima.
+Pembuktian universal tetap berada pada
+[`#prf-o017-u05-infinitely-many-primes`](#prf-o017-u05-infinitely-many-primes).
+
+### Contoh tandingan: hasil kali tambah satu tidak harus prima {#o017-u05-counterexample-euclid-number}
+
+::: {#o017-u05-counterexample-01 .callout-warning title="CTR-01 — Menolak penguatan yang salah"}
+Untuk enam prima pertama,
+
+$$
+2\cdot3\cdot5\cdot7\cdot11\cdot13+1
+=30031
+=59\cdot509.
+$$
+
+Jadi kalimat “hasil kali seluruh prima dalam daftar ditambah satu pasti prima”
+salah.
+:::
+
+Contoh tandingan tidak merusak teorema. Pembuktian hanya memerlukan bahwa
+$N>1$ mempunyai **suatu pembagi prima** $q$. Karena tidak ada $p_i$ yang
+membagi $N$, setiap pembagi prima itu berada di luar daftar. Mengganti klaim
+yang diperlukan (“ada pembagi prima baru”) dengan klaim yang lebih kuat
+(“$N$ prima”) membuat eksposisi bukan sekadar terlalu tegas, melainkan salah.
+
+### Apa yang telah dan belum ditetapkan {#o017-u05-worked-scope-close}
+
+Pada titik ini pembaca berhak menyimpulkan:
+
+- untuk setiap daftar berhingga yang diklaim memuat seluruh prima, dapat
+  dibentuk bilangan yang mempunyai pembagi prima di luar daftar; dan
+- akibatnya, tidak ada daftar berhingga yang memuat seluruh prima.
+
+Pembaca belum berhak menyimpulkan:
+
+- setiap bilangan berbentuk $p_1\cdots p_k+1$ adalah prima;
+- terdapat tepat satu prima baru yang membagi bilangan tersebut;
+- cara ini menghasilkan semua prima tanpa pengulangan; atau
+- prima muncul dengan frekuensi tertentu di antara bilangan bulat.
+
+Daftar batas di akhir argumen mencegah pembaca membawa retorika “prima baru”
+melewati kekuatan pembuktian.
+
+## Penanda arah lokal {#o017-u05-local-signposting}
+
+Judul bagian membantu navigasi global, tetapi pembaca juga membutuhkan tanda
+arah di dalam argumen. Tiga jenis kalimat cukup untuk banyak eksposisi.
+
+1. **Tujuan:** “Agar dapat memilih pembagi prima dari $N$, kita buktikan lemma
+   keberadaan terlebih dahulu.”
+2. **Alasan transisi:** “Sekarang lemma tersedia, jadi kita kembali ke daftar
+   hipotetis seluruh prima.”
+3. **Penutup cakupan:** “Kontradiksi menolak keberhinggaan; ia tidak menyatakan
+   bahwa $N$ sendiri prima.”
+
+Penanda arah harus membawa informasi. Kalimat “jelas”, “mudah dilihat”, atau
+“seperti biasa” bukan tanda arah karena tidak menyebut tujuan, dasar, ataupun
+tempat kembali. Sebaliknya, jangan mendahului setiap baris aljabar dengan
+ringkasan panjang. Pasang tanda pada perubahan pekerjaan: dari definisi ke
+lemma, dari lemma ke teorema, dari pembuktian ke pengujian batas.
+
+### Satu paragraf, satu beban utama {#o017-u05-paragraph-load}
+
+Paragraf boleh memuat beberapa kalimat, tetapi sebaiknya mempunyai satu beban
+utama yang dapat dinamai: menetapkan konteks, membangun objek, menerapkan hasil,
+atau membatasi kesimpulan. Jika satu paragraf sekaligus memperkenalkan simbol,
+menyatakan teorema, memberi bukti, membuat klaim sejarah, dan menawarkan
+contoh, lokator sitasi menjadi kabur dan pembaca sulit mengetahui bagian mana
+yang sedang diuji.
+
+## Revisi melalui audit ketergantungan {#o017-u05-dependency-revision}
+
+Audit Unit 5 dimulai setelah isi matematis tersedia. Tujuannya bukan menemukan
+pembuktian dari nol, melainkan menguji apakah hubungan yang sudah sah tampak
+dalam naskah. Pertimbangkan draf berikut.
+
+::: {#o017-u05-flawed-draft .callout-warning title="Draf yang tidak boleh diterbitkan"}
+Misalkan semua prima ialah $p_1,\ldots,p_k$. Kalikan semuanya dan tambahkan
+satu. Bilangan yang diperoleh prima karena tidak dibagi satu pun $p_i$. Jadi
+ada prima lain dan hasilnya terbukti.
+:::
+
+Kesalahan sentralnya matematis: bilangan yang diperoleh tidak harus prima,
+seperti ditunjukkan `CTR-01`. Namun, sekadar mengganti satu kata belum membuat
+eksposisi dapat diaudit. Susun ketergantungannya.
+
+::: {.o017-table-scroll aria-label="Audit ketergantungan draf ketakterhinggaan bilangan prima" tabindex="0"}
+| Klaim draf | Masukan yang diperlukan | Status | Revisi editorial |
+|---|---|---|---|
+| daftar memuat seluruh prima | anggapan kontradiksi dan $k\geq1$ | tersirat | nyatakan kerangka dan tipe daftar |
+| $N=p_1\cdots p_k+1>1$ | definisi $N$ dan positifnya faktor | sebagian | beri nama $P,N$ dan nyatakan $N>1$ |
+| $N$ prima | tidak mengikuti dari sisa satu | salah | hapus; gunakan `LEM-01` untuk memilih pembagi prima $q$ |
+| tidak ada $p_i$ membagi $N$ | $p_i\mid P$ dan $N-P=1$ | alasan hilang | tulis argumen keterbagian |
+| ada prima di luar daftar | $q$ prima, $q\mid N$, dan $q\neq p_i$ | menjadi sah setelah revisi | tautkan ke lemma dan kontradiksi |
+| teorema selesai | anggapan keberhinggaan benar-benar ditolak | terlalu kabur | sebut kembali anggapan yang ditolak |
+:::
+
+Lakukan revisi dalam urutan berikut.
+
+1. Tandai semua kalimat yang membawa klaim, bukan hanya rumus.
+2. Untuk setiap klaim, tulis masukan yang dibutuhkan dan lokator tempat masukan
+   itu tersedia.
+3. Hapus klaim yang lebih kuat daripada kebutuhan atau bukti.
+4. Pindahkan definisi sebelum pemakaian pertama dan samakan tipe simbol.
+5. Tambahkan penanda arah hanya pada perubahan pekerjaan.
+6. Baca kembali kesimpulan terhadap kontrak cakupan, lalu hapus janji yang
+   tidak ditutup argumen.
+
+Hasil revisi bukan tabel auditnya. Hasil revisi adalah eksposisi lancar pada
+kasus kerja di atas; tabel hanya alat editorial. Buku catatan sumber Unit 4
+tetap menjadi tempat permanen bagi identitas dan riwayat keputusan. Unit 5
+tidak membuat duplikat buku catatan itu di dalam prosa.
+
+## Praktik terpandu: jumlah geometri tanpa lubang retoris {#o017-u05-guided-practice}
+
+Misalkan sebuah catatan kelas hanya menulis:
+
+> $1+x+\cdots+x^n=(x^{n+1}-1)/(x-1)$. Kalikan saja, maka selesai.
+
+Draf itu tidak menyebut domain $n$ dan $x$, memakai pembagian sebelum
+mengecualikan $x=1$, serta tidak menunjukkan apa yang harus dikalikan. Kita
+akan memperbaikinya untuk pembaca yang mengenal aljabar sekolah.
+
+### Model revisi {#o017-u05-guided-model}
+
+Untuk $n\in\mathbb N_0:=\{0,1,2,\ldots\}$ dan $x\in\mathbb R$, definisikan
+
+$$
+S_n(x)=\sum_{j=0}^{n}x^j.
+$$
+
+Jika $x\neq1$, maka
+
+::: {#eq-o017-u05-gs aria-label="Identitas jumlah geometri berhingga"}
+$$
+S_n(x)=\frac{x^{n+1}-1}{x-1}.
+\tag{GS}
+$$
+:::
+
+Memang, perkalian dengan $x-1$ menghasilkan pembatalan berurutan:
+
+$$
+\begin{aligned}
+(x-1)S_n(x)
+&=\sum_{j=0}^{n}x^{j+1}-\sum_{j=0}^{n}x^j\\
+&=x^{n+1}-1.
+\end{aligned}
+$$
+
+Karena $x\neq1$, pembagian oleh $x-1$ sah dan memberi (GS). Untuk $x=1$,
+definisi langsung memberi $S_n(1)=n+1$; bentuk pecahan (GS) tidak boleh
+dipakai karena penyebutnya nol.
+
+Sebagai pemeriksaan ilustratif, $S_3(2)=1+2+4+8=15$, sama dengan
+$(2^4-1)/(2-1)$. Hitungan itu memeriksa satu instans, bukan membuktikan rumus
+untuk semua $n$ dan $x$. Nilai $x=1$ menjadi kasus domain yang dikecualikan dan
+menunjukkan bahwa klaim **bentuk pecahan** untuk setiap bilangan real tidak sah,
+meskipun jumlah $S_n(1)$ sendiri tetap terdefinisi.
+
+### Apa yang berubah {#o017-u05-guided-audit}
+
+- Pembaca dan prasyarat menetapkan tingkat rincian.
+- $n$, $x$, dan $S_n$ bertipe sebelum dipakai.
+- Klaim memisahkan kasus $x\neq1$ dari $x=1$.
+- Kalimat “kalikan saja” diganti oleh identitas yang benar-benar dapat
+  diperiksa.
+- Contoh diberi status ilustratif dan kasus batas tidak disembunyikan.
+
+Perbaikan ini bukan pelajaran baru tentang cara menemukan identitas geometri.
+Ia menunjukkan cara menyajikan identitas yang sudah diketahui secara utuh dan
+jujur.
+
+## Dari naskah ke seminar yang dapat diaudit {#o017-u05-seminar-exposition}
+
+Catatan seminar bukan naskah yang dipotong secara acak. Urutan argumen harus
+tetap terlihat ketika sebagian rincian dipindahkan ke lembar pendamping.
+Untuk kasus ketakterhinggaan bilangan prima, rancangan 10–12 menit berikut cukup.
+
+::: {.o017-table-scroll aria-label="Rancangan seminar kasus ketakterhinggaan bilangan prima" tabindex="0"}
+| Waktu | Pekerjaan | Apa yang tampak atau diucapkan |
+|---|---|---|
+| 0–2 menit | pertanyaan dan kontrak | klaim inti, prasyarat, serta tiga hal yang tidak akan dibahas |
+| 2–4 menit | definisi dan izin | definisi prima dan pernyataan `LEM-01`; bukti lemma tersedia di lokator |
+| 4–8 menit | argumen utama | daftar hipotetis, $P$, $N$, pembagi $q$, dan kontradiksi $q\mid1$ |
+| 8–10 menit | salah tafsir | contoh $31$ lalu contoh tandingan $30031=59\cdot509$ |
+| 10–12 menit | batas dan pertanyaan | kesimpulan tepat, lokator klaim, serta pertanyaan terbuka |
+:::
+
+Untuk membuat presentasi dapat diikuti:
+
+- ucapkan arti simbol pada pemakaian pertama, bukan hanya menampilkannya;
+- jangan mengandalkan warna sebagai satu-satunya pembeda antara hipotesis dan
+  kesimpulan;
+- biarkan definisi dan klaim utama tetap terlihat ketika bukti dibahas;
+- beri tahu pembaca ketika sebuah rincian tersedia di lokator tertulis; dan
+- jika pertanyaan mengungkap kesalahan, catat klaim dan lokasinya, koreksi
+  hanya sejauh yang dapat dipastikan, lalu pisahkan koreksi dari perluasan.
+
+Jawaban “saya belum dapat memastikan langkah itu dari bahan yang tersedia”
+lebih baik daripada menyebut nama teorema yang belum diperiksa. Unit 8 akan
+memperdalam laporan penelaah dan tanggapan terhadap kritik; di sini fokusnya
+ialah arsitektur eksposisi dan keterlacakan seminar.
+
+## Daftar periksa sebelum menyerahkan naskah {#o017-u05-preflight}
+
+Gunakan daftar berikut setelah isi matematis stabil.
+
+1. Apakah pembaca, prasyarat, tujuan, dan batas dinyatakan?
+2. Apakah setiap simbol diperkenalkan sebelum pemakaian pertamanya dan tetap
+   mempunyai tipe yang sama?
+3. Apakah definisi, teorema, pembuktian, contoh, dan contoh tandingan diberi
+   status serta lokator berbeda?
+4. Apakah setiap klaim universal benar-benar memperoleh bukti universal,
+   bukan sekadar contoh?
+5. Apakah setiap sitasi mempunyai cakupan, versi, dan lokasi yang jujur?
+6. Apakah transisi menyatakan tujuan atau alasan, bukan hanya “jelas”?
+7. Apakah audit ketergantungan menyisakan simpul tanpa dukungan?
+8. Apakah kesimpulan mengulang kekuatan tepat teorema dan menyebut batasnya?
+9. Apakah versi seminar mempertahankan jalur argumen dan menyediakan lokator
+   bagi rincian yang dipindahkan?
+
+Satu jawaban “tidak” tidak selalu berarti teoremanya salah, tetapi berarti
+eksposisinya belum siap disebut dapat diaudit.
+
+## Latihan {#o017-u05-exercises}
+
+1. **[O017-U05-E01]{#o017-u05-e01} — Kontrak pembaca.** Seorang penulis ingin
+   menjelaskan bahwa $\sqrt2$ irasional kepada siswa yang mengetahui bilangan
+   genap dan ganjil tetapi belum mengenal lemma pembagian prima. Tulis kontrak
+   enam bidang: pembaca, tujuan, klaim inti, batas, bentuk, dan bukti masuk.
+   Sebutkan satu rincian yang harus ditambah dan satu topik berdekatan yang
+   harus dikeluarkan.
+
+2. **[O017-U05-E02]{#o017-u05-e02} — Bedah notasi.** Audit kalimat “Ambil
+   $a_n\in A$ dan karena $a$ konvergen maka batasnya $A$.” Temukan
+   sekurang-kurangnya empat masalah tipe atau notasi. Tulis ulang sebagai pernyataan
+   yang bermakna tentang barisan $(a_n)$ dalam suatu himpunan $A\subseteq
+   \mathbb R$ dan batas $L$; jangan menambahkan kesimpulan $L\in A$ tanpa
+   hipotesis yang sesuai.
+
+3. **[O017-U05-E03]{#o017-u05-e03} — Peta klaim–lokator.** Untuk kasus
+   ketakterhinggaan bilangan prima, buat graf berarah dengan simpul `DEF-01`, `LEM-01`,
+   `THM-01`, pembuktian lemma, pembuktian teorema, `EXM-01`, dan `CTR-01`.
+   Beri jenis pada setiap panah (`defines`, `proves`, `uses`, `illustrates`,
+   atau `refutes-strengthening`). Jelaskan mengapa tidak ada panah `proves`
+   dari `EXM-01` ke `THM-01`.
+
+4. **[O017-U05-E04]{#o017-u05-e04} — Sitasi jujur.** Tulis dua kalimat dengan
+   penunjuk tentang unit ini: satu yang menyitir *The Turing Way* untuk
+   prinsip metadata/versi dan satu yang menyatakan bahwa pembuktian
+   ketakterhinggaan bilangan prima bersifat mandiri di lokator lokal. Lalu tulis satu kalimat bersitasi yang
+   tidak jujur dan jelaskan secara tepat pekerjaan apa yang secara keliru
+   dibebankan pada sumber donor.
+
+5. **[O017-U05-E05]{#o017-u05-e05} — Audit revisi.** Seorang penulis
+   mengubah `CTR-01` menjadi kalimat “metode hasil kali gagal karena $30031$
+   komposit.” Revisi kalimat itu agar membedakan klaim yang ditolak dari
+   mekanisme yang tetap sah. Sertakan lokator contoh tandingan, klaim yang
+   benar, dan satu kalimat batas.
+
+6. **[O017-U05-E06]{#o017-u05-e06} — Rencana seminar.** Ubah model jumlah
+   geometri menjadi catatan seminar lima menit. Nyatakan apa yang tetap di
+   layar, apa yang diucapkan, apa yang tersedia melalui lokator, kapan kasus
+   $x=1$ muncul, dan bagaimana Anda akan menjawab pertanyaan “bukankah contoh
+   $x=2$ sudah membuktikan rumusnya?”.
+
+## Petunjuk dan panduan jawaban {#o017-u05-guidance}
+
+1. **[O017-U05-H01]{#o017-u05-h01}.** Kontrak yang memadai menyebut
+   pembuktian kontradiksi sebagai bentuk, klaim “tidak ada rasio dua bilangan
+   bulat dengan penyebut bukan nol yang kuadratnya $2$”, dan kebutuhan
+   menjelaskan bahwa kuadrat genap mengharuskan bilangannya genap. Keunikan
+   faktorisasi penuh atau pendekatan desimal $\sqrt2$ dapat dikeluarkan.
+
+2. **[O017-U05-H02]{#o017-u05-h02}.** $a_n$ adalah suku, bukan barisan;
+   “$a$ konvergen” tidak bertipe; batas harus berupa bilangan, bukan himpunan;
+   kuantifikasi $n$ dan arti keanggotaan belum jelas; dan $L\in A$ memerlukan
+   misalnya ketertutupan $A$. Bentuk aman: “Misalkan $A\subseteq\mathbb R$ dan
+   $(a_n)$ barisan real dengan $a_n\in A$ untuk setiap $n$, serta
+   $a_n\to L$ untuk suatu $L\in\mathbb R$.” Berhenti
+   di sana jika $A$ belum diketahui tertutup.
+
+3. **[O017-U05-H03]{#o017-u05-h03}.** Definisi memberi arti simbol pada lemma
+   dan teorema; pembuktian lemma `proves LEM-01`; pembuktian teorema `uses
+   LEM-01` dan `proves THM-01`; contoh `illustrates THM-01`; contoh tandingan
+   `refutes-strengthening` tetapi tidak menolak `THM-01`. Satu instans tidak
+   menutup kuantor universal.
+
+4. **[O017-U05-H04]{#o017-u05-h04}.** Sitasi donor dapat mendukung anjuran
+   mencatat metadata dan versi. Untuk matematika, tulis bahwa argumen lengkap
+   tersedia pada `#prf-o017-u05-infinitely-many-primes`, tanpa mengklaim donor
+   membuktikannya. Kalimat tidak jujur misalnya “Menurut *The Turing Way*,
+   terdapat tak berhingga banyak prima”; sumber metodologis itu tidak diberi
+   lokator matematika dan tidak diperiksa untuk pekerjaan tersebut.
+
+5. **[O017-U05-H05]{#o017-u05-h05}.** Bentuk yang tepat: “`CTR-01` menolak
+   penguatan bahwa $P+1$ selalu prima; ia tidak menolak konstruksi karena
+   setiap pembagi prima dari $P+1$ tetap berada di luar daftar faktor.”
+   Tambahkan bahwa teorema tidak menjamin satu-satunya pembagi baru atau
+   prosedur enumerasi tanpa pengulangan.
+
+6. **[O017-U05-H06]{#o017-u05-h06}.** Biarkan definisi $S_n(x)$ dan klaim dua
+   kasus tetap terlihat. Ucapkan pembatalan suku sambil menunjuk dua baris
+   aljabar; tampilkan $x=1$ sebelum contoh numerik agar batas tidak tampak
+   sebagai catatan kaki. Jawaban yang jujur: contoh $x=2,n=3$ hanya memeriksa
+   satu pasangan masukan, sedangkan identitas aljabar menangani semua
+   $n\in\mathbb N_0$ dan $x\neq1$.
+
+## Tugas penyelesaian unit {#o017-u05-completion-task}
+
+Tulis eksposisi matematika **1.000–1.400 kata** dan rancangan seminar **8
+menit** berdasarkan paket sintetis berikut. Paket adalah bahan lokal kelas,
+bukan publikasi eksternal; gunakan lokator paket, jangan menciptakan penulis,
+DOI, tahun, atau halaman.
+
+::: {#o017-u05-completion-packet .callout-note title="Paket O017-U05-PKT — Polinom berderajat ganjil"}
+- **[PKT-DEF-01]{#o017-u05-pkt-def01}.** Polinom real berderajat ganjil mempunyai bentuk
+  $p(x)=a_dx^d+\cdots+a_0$ dengan $a_d\neq0$ dan $d$ ganjil.
+- **[PKT-LEM-01]{#o017-u05-pkt-lem01}.** Setiap polinom real kontinu pada $\mathbb R$.
+- **[PKT-LEM-02]{#o017-u05-pkt-lem02}.** Jika $d$ ganjil, terdapat $R>0$ sehingga $p(-R)$ dan $p(R)$
+  berlainan tanda. Tanda yang mana positif bergantung pada $a_d$.
+- **[PKT-LEM-03]{#o017-u05-pkt-lem03}.** Jika fungsi kontinu pada $[-R,R]$ dan nilai di kedua ujung
+  berlainan tanda, terdapat $c\in(-R,R)$ dengan nilai fungsi $0$.
+- **[PKT-EXM-01]{#o017-u05-pkt-exm01}.** Untuk $p(x)=x^3+x+1$, berlaku $p(-1)=-1$ dan $p(0)=1$.
+- **[PKT-CTR-01]{#o017-u05-pkt-ctr01}.** Polinom berderajat genap $x^2+1$ tidak mempunyai akar real.
+- **[PKT-CTR-02]{#o017-u05-pkt-ctr02}.** Polinom ganjil $x^3-x$ mempunyai tiga akar real; derajat
+  ganjil menjamin keberadaan, bukan ketunggalan.
+:::
+
+Produk akhir harus memuat:
+
+1. kontrak pembaca untuk mahasiswa kalkulus awal yang mengenal kekontinuan dan
+   Teorema Nilai Antara, tetapi belum mempelajari analisis asimtotik formal;
+2. definisi dan teorema utama dengan lokator stabil buatan Anda sendiri;
+3. kamus notasi yang membedakan derajat $d$, koefisien utama $a_d$, batas
+   $R$, dan akar $c$;
+4. pembuktian lengkap yang menautkan secara eksplisit
+   [`PKT-LEM-01`](#o017-u05-pkt-lem01),
+   [`PKT-LEM-02`](#o017-u05-pkt-lem02), dan
+   [`PKT-LEM-03`](#o017-u05-pkt-lem03), termasuk pemeriksaan interval serta tanda;
+5. satu contoh yang mengurung akar dan dua contoh tandingan yang membatasi dua
+   penguatan berbeda;
+6. daftar klaim–lokator yang membedakan bahan paket, pernyataan Anda,
+   pembuktian, contoh, dan batas;
+7. satu paragraf yang menjelaskan mengapa lokator paket bukan sitasi
+   bibliografis dan mengapa metadata yang tidak tersedia tetap harus ditandai
+   `tidak diketahui`;
+8. audit ketergantungan terhadap draf pertama, diikuti naskah revisi bersih
+   tanpa tabel audit yang mengganggu alur;
+9. penanda arah pada perpindahan definisi → lemma → teorema → contoh → batas;
+10. rancangan seminar delapan menit yang mempertahankan klaim utama di layar,
+    menyediakan lokator untuk rincian, dan menyebut dua hal yang tidak
+    dibuktikan; serta
+11. catatan revisi singkat yang menyebut satu kalimat dihapus, satu kalimat
+    dipersempit, dan satu ketergantungan dibuat eksplisit.
+
+### Rubrik {#o017-u05-completion-rubric}
+
+Setiap kriteria dinilai 0, 1, atau 2.
+
+::: {.o017-table-scroll aria-label="Rubrik tugas penyelesaian Unit 5" tabindex="0"}
+| Kriteria | 0 | 1 | 2 |
+|---|---|---|---|
+| Pembaca dan cakupan | pembaca atau janji tidak dinyatakan | sebagian prasyarat/batas terlihat | pembaca, tujuan, prasyarat, bentuk, dan batas menentukan rincian secara konsisten |
+| Klaim dan notasi | objek, kuantor, atau simbol berubah arti | sebagian tipe/lokator tersirat | definisi, teorema, simbol, kuantor, dan lokator tepat sebelum dipakai |
+| Jalur pembuktian | tanda, interval, atau penggunaan lemma salah | gagasan benar dengan satu panah tersirat | ketiga lemma dipakai dengan kontrak tepat dan menghasilkan akar real tanpa lompatan |
+| Contoh dan batas | contoh dipakai sebagai bukti atau contoh tandingan salah sasaran | status contoh disebut tetapi satu penguatan kabur | ilustrasi dan dua contoh tandingan membatasi keberadaan, paritas derajat, dan ketunggalan secara tepat |
+| Lokator dan sitasi | metadata direka atau sitasi menggantikan bukti | lokator ada tetapi cakupan dukungan kabur | setiap klaim dapat ditemukan, bahan lokal dibedakan dari sumber eksternal, dan ketidakpastian jujur |
+| Revisi dan seminar | draf mentah dipindahkan ke lisan atau catatan revisi hilang | sebagian audit, catatan revisi, atau alur lisan tersedia | audit menghasilkan naskah bersih; catatan revisi menyebut penghapusan, penyempitan, dan ketergantungan eksplisit; rancangan delapan menit memakai penanda arah, menyebut dua hal yang tidak dibuktikan, serta memberi akses ke rincian |
+:::
+
+Nilai lulus adalah sekurang-kurangnya 10 dari 12, dengan nilai 2 pada **Jalur
+pembuktian** dan **Lokator dan sitasi**. Menyimpulkan akar unik, menerapkan
+Teorema Nilai Antara tanpa kekontinuan atau tanpa perubahan tanda, mengarang
+metadata paket, atau memakai contoh numerik sebagai bukti universal mewajibkan
+revisi meskipun jumlah nilai cukup. Catatan revisi tiga bagian, penanda arah,
+dua batas yang tidak dibuktikan, dan batas delapan menit juga merupakan gerbang
+wajib, bukan butir opsional yang dapat ditebus oleh skor lain.
+
+## Batas dengan B80 dan unit lain {#o017-u05-boundary}
+
+Unit ini tidak mengajarkan sintaks Python, SageMath, SymPy, NumPy/SciPy,
+algoritme faktorisasi atau pencarian akar, pembuatan plot, penulisan pengujian,
+notebook, pengelolaan lingkungan, implementasi aritmetika eksak atau
+titik-mengambang, ataupun teknik sertifikasi galat. Semua keterampilan
+implementasi itu berada pada B80. Di sini pembaca hanya mengklasifikasikan
+status epistemik keluaran yang sudah tersedia menurut kontraknya: perkalian bilangan bulat eksak
+$30031=59\cdot509$ merupakan sertifikat berhingga yang dapat diperiksa sebagai
+pembuktian, dan evaluasi tanda eksak dapat menjadi bagian sah dari argumen
+Teorema Nilai Antara. Sebaliknya, keluaran numerik tanpa sertifikat,
+pengurungan tanpa jaminan galat, atau pemeriksaan yang prosedur dan
+aritmetikanya tidak diaudit
+tetap bukti empiris; ia tidak boleh dinaikkan menjadi pembuktian universal.
+
+Unit ini juga tidak mengulang pemetaan jejaring klaim Unit 1, pencarian dan
+penilaian otoritas Unit 2, rekonstruksi langkah hilang Unit 3, atau desain buku
+catatan provenance Unit 4. Ia memakai keluaran unit-unit tersebut untuk
+menulis produk yang dapat dibaca. Paket komputasi yang dapat dijalankan ulang
+menjadi materi Unit 6; format erratum Unit 7; dan proses penelaahan serta
+tanggapan rinci Unit 8. Penyebutan seminar di sini terbatas pada arsitektur
+penyampaian, bukan proses penelaahan sejawat.
+
+## Sumber, provenance, perubahan, dan hak {#o017-u05-provenance}
+
+Prosa berbahasa Indonesia, kontrak pembaca, arsitektur eksposisi, kamus notasi,
+penyajian lemma dan teorema ketakterhinggaan bilangan prima, pembuktian, contoh $31$, contoh
+tandingan $30031$, model jumlah geometri, paket polinom sintetis, latihan,
+panduan jawaban, tugas penyelesaian, dan rubrik pada unit ini merupakan materi
+asli O017 oleh kontributor O017, 2026, dan dilisensikan di bawah
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Teorema ketakterhinggaan bilangan prima, lemma keberadaan pembagi prima, identitas
+jumlah geometri, dan teorema keberadaan akar real bagi polinom berderajat
+ganjil adalah hasil matematika klasik. O017 tidak mengklaim penemuan hasil
+tersebut. Redaksi, susunan pedagogis, bukti yang disajikan, contoh, audit
+ketergantungan, dan fungsi lokator ditulis khusus untuk unit ini dan tidak
+disalin dari sumber matematika tertentu.
+
+Prinsip umum bahwa objek ilmiah perlu metadata yang memadai, bahwa versi yang
+dirujuk harus dapat dibedakan, dan bahwa sitasi perlu ditempatkan sesuai
+pekerjaannya diadaptasi secara terbatas dari *The Turing Way*
+[@turingway2022; @turingwaycommitc98a], The Turing Way Community, pada commit
+tetap
+[`c98a0e6ca47450456cca7c5eedda2d5ee131d1ce`](https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce),
+khususnya:
+
+- `book/website/communication/citable/citable-metadata.md`; dan
+- `book/website/communication/citable/citable-versioning.md`.
+
+Materi donor tersebut berlisensi
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Konsepnya telah
+diringkas, dibatasi, disusun ulang, diekspresikan kembali dalam bahasa
+Indonesia, dan dikontekstualisasikan untuk eksposisi matematika. Tidak ada
+kalimat, gambar, contoh, atau latihan donor yang disalin. *Research Software
+Engineering with Python* tidak diadaptasi
+dalam Unit 5; sumber beku itu tetap relevan untuk unit komputasi berikutnya,
+tetapi tidak diberi kredit atas materi yang tidak dipakai di sini.
+
+The Turing Way Community, penulis donor lain, penerbit, dan afiliasi mereka
+**tidak mendukung, mengesahkan, atau mensponsori** O017. Setiap sumber beku
+tetap tunduk pada lisensinya sendiri. Lisensi CC BY-SA 4.0 untuk materi asli
+O017 tidak mengganti atau melisensikan ulang komponen donor.

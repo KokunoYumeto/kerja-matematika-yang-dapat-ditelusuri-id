@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this reader, cite the Zenodo record and this edition."
+type: book
+title: "Kerja Matematika yang Dapat Ditelusuri: Pembaca Bahasa Indonesia O017/D120"
+authors:
+  - name: "Floris"
+version: "2026.08.22"
+date-released: "2026-08-22"
+doi: "10.5281/zenodo.22051978"
+url: "https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/"
+repository-code: "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id"
+license: CC-BY-SA-4.0
+abstract: >-
+  A nine-unit Indonesian self-study reader on mathematical literature search,
+  proof reconstruction, provenance, exposition, reproducible computation,
+  errata, peer criticism, and bounded community contribution. Software,
+  factual data, donor adaptations, and bundled browser runtimes retain the
+  component-specific licenses stated in LICENSES.md. Produced with OpenAI
+  Codex under Floris's direction.
+keywords:
+  - mathematics education
+  - mathematical writing
+  - research practice
+  - reproducibility
+  - proof reconstruction
+  - Bahasa Indonesia

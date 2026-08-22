@@ -1,0 +1,795 @@
+---
+title: "Unit 9 — Kontribusi Komunitas Terbatas dan Portofolio yang Dapat Diaudit"
+subtitle: "Membawa satu temuan kecil sampai siap diserahkan tanpa melebihkan statusnya"
+description: "Unit penutup untuk membatasi satu kontribusi matematika, menyiapkan paket koreksi yang dapat diperiksa, membedakan status eksternal secara ketat, merancang jalur penarikan, dan menyusun portofolio bukti dari Unit 1–8."
+---
+
+## Hasil belajar {#o017-u09-outcomes}
+
+Unit ini mempunyai pengidentifikasi stabil **O017-U09**. Setelah
+menyelesaikannya, Anda mampu:
+
+1. memilih satu kontribusi komunitas yang kecil, berguna, sah, dan dapat
+   diselesaikan tanpa memperluas lingkup diam-diam;
+2. membedakan secara operasional status **draf (draft)**,
+   **siap (prepared)**, **dikirim (submitted)**,
+   **diakui (acknowledged)**, **diterima (accepted)**,
+   **digabung (merged)**, dan **diterbitkan (published)**;
+3. menolak klaim status eksternal yang tidak mempunyai bukti peristiwa;
+4. mengemas target, lokator, diagnosis, perbaikan minimal, validasi, cakupan,
+   ketidakpastian, hak, dan atribusi dalam satu paket kontribusi;
+5. menulis satu pesan ringkas yang menghormati pengelola dan dapat
+   ditindaklanjuti tanpa membanjiri kanal dengan komentar terpisah;
+6. menetapkan jalur penghentian, penarikan, koreksi, atau pembalikan bila
+   kontribusi ternyata salah, usang, duplikat, atau tidak lagi berwenang;
+7. menyusun portofolio yang memetakan setiap klaim kompetensi ke bukti nyata
+   dari Unit 1–8; dan
+8. menilai kelengkapan kursus berdasarkan mutu, keterlacakan, serta
+   keterbatasan bukti, bukan jumlah berkas atau klaim aktivitas.
+
+::: {.callout-note title="Prasyarat, keadaan unit, dan batas tindakan"}
+Unit 9 memakai hasil seluruh unit sebelumnya. Ia tidak mengulangi cara
+membaca klaim, mencari sumber, menutup celah bukti, membangun provenance,
+menulis eksposisi, menjalankan komputasi, mendiagnosis errata, atau menulis
+laporan penelaah. Ia mengambil satu temuan yang sudah layak dan mengubahnya
+menjadi **paket kontribusi terbatas** serta **bukti portofolio**.
+
+Kasus pada unit ini sepenuhnya sintetis. Paket contoh berhenti pada status
+**siap secara lokal**. Pesan contoh tidak dikirim, tidak ada pihak luar yang
+dihubungi, dan tidak ada koreksi yang diterima, digabung, atau diterbitkan.
+Pengiriman masa depan memerlukan instruksi terpisah yang secara eksplisit
+memberi kewenangan untuk tujuan tertentu.
+:::
+
+## Kontribusi kecil harus mempunyai batas yang keras {#o017-u09-bounded-contribution}
+
+Kontribusi komunitas bukan ukuran seberapa banyak hal yang dapat ditemukan.
+Satu koreksi yang tepat, dapat direproduksi, dan mudah ditinjau sering lebih
+berguna daripada daftar panjang temuan setengah matang.
+
+Sebuah kontribusi disebut **terbatas** bila paketnya menjawab enam pertanyaan.
+
+1. Objek dan versi tepat mana yang disentuh?
+2. Satu masalah apa yang benar-benar dibuktikan?
+3. Perubahan minimum apa yang mengatasi masalah tersebut?
+4. Uji apa yang menunjukkan bahwa perubahan bekerja dan tidak melampaui
+   klaim?
+5. Apa yang sengaja tidak diperiksa atau tidak diubah?
+6. Siapa yang berwenang memutuskan pengiriman, penerimaan, penggabungan, dan
+   penerbitan?
+
+Jika jawaban nomor dua berisi lima cacat yang tidak saling bergantung, buat
+paket terpisah atau pilih satu yang paling koheren. “Sekalian merapikan seluruh
+bab” biasanya mengaburkan ulasan, atribusi, dan pembalikan.
+
+::: {#o017-u09-original-bridge .callout-important title="Jembatan asli O017"}
+Mesin status tujuh tahap, paket kontribusi dengan gerbang bukti, kasus
+induksi bilangan ganjil, pesan tunggal bersyarat, jalur penarikan, arsitektur
+portofolio lintas Unit 1–8, latihan, dan capstone pada unit ini merupakan
+materi asli O017. Unit ini memindahkan temuan dari keadaan “telah
+didokumentasikan” menuju keadaan “siap dipertimbangkan oleh komunitas” tanpa
+mengarang satu pun peristiwa eksternal.
+:::
+
+## Tujuh status yang tidak dapat dipertukarkan {#o017-u09-seven-states}
+
+Status adalah klaim tentang peristiwa. Setiap kenaikan status memerlukan bukti
+baru. Isi kontribusi yang sempurna tidak pernah, dengan sendirinya,
+membuktikan bahwa pihak luar telah melihat atau menyetujuinya.
+
+Ketujuh label di bawah adalah **predikat peristiwa yang dibuktikan secara
+mandiri**, bukan satu angka tingkat kemajuan. Rekaman sebuah artefak dapat
+menyatakan `published=true` sambil tetap menyatakan `merged=unknown` jika
+salinan publik diamati tetapi jalur penggabungannya tidak tersedia. Peristiwa
+yang lebih akhir tidak mengisi peristiwa antara secara otomatis.
+
+::: {.o017-table-scroll aria-label="Definisi tujuh status kontribusi komunitas dan bukti minimumnya" tabindex="0"}
+| Status | Makna operasional | Bukti minimum | Klaim yang belum boleh dibuat |
+|---|---|---|---|
+| Draf (draft) | isi masih disusun atau belum melewati semua gerbang lokal | berkas lokal atau rekaman kerja | siap dikirim, diperiksa pihak lain |
+| Siap (prepared) | paket lokal lengkap, tervalidasi, berhak digunakan, dan mempunyai tujuan serta pesan yang ditetapkan | manifes, hasil uji, audit hak, keputusan lokal GO | telah dikirim atau dilihat |
+| Dikirim (submitted) | paket benar-benar dipindahkan ke kanal tujuan | URL/ID transaksi, waktu, akun/pelaksana, dan byte atau isi yang dikirim | penerima membacanya |
+| Diakui (acknowledged) | sistem atau manusia tujuan mengonfirmasi penerimaan | tanda terima, respons, atau status platform yang dapat ditemukan | isi diterima secara substantif |
+| Diterima (accepted) | pihak berwenang menyetujui kontribusi atau rencana perbaikannya | keputusan eksplisit yang menunjuk kontribusi | perubahan telah digabung |
+| Digabung (merged) | perubahan menjadi bagian dari cabang atau sumber aktif yang ditetapkan | identitas commit/perubahan atau pembacaan byte sumber aktif | rilis publik memuatnya |
+| Diterbitkan (published) | artefak publik tertentu benar-benar memuat perubahan | URL/DOI/rilis dan pembacaan balik byte atau isi publik | semua salinan dan edisi lain telah diperbarui |
+:::
+
+“Dikirim” tidak boleh diturunkan dari keberadaan tombol kirim. “Diakui” tidak
+berarti diterima. “Diterima” tidak berarti digabung. “Digabung” tidak berarti
+diterbitkan. Sebaliknya, sebuah situs dapat menerbitkan salinan hasil bangun
+tanpa penggabungan ke cabang yang diasumsikan; rekam jalur nyata, jangan
+memaksa peristiwa ke urutan yang tidak terjadi.
+
+### Status tambahan tanpa menghapus sejarah {#o017-u09-terminal-and-side-states}
+
+Selain tujuh status utama, satu rekaman dapat memakai:
+
+- **ditahan**: gerbang belum terpenuhi atau kewenangan belum tersedia;
+- **ditarik**: pengirim meminta agar kontribusi yang sudah dikirim tidak
+  diproses lebih lanjut;
+- **ditolak**: pihak berwenang tidak menerima kontribusi;
+- **diganti**: paket baru menggantikan paket lama, dengan hubungan eksplisit;
+- **dibalik**: perubahan yang pernah aktif dikembalikan melalui peristiwa baru.
+
+Tidak satu pun status ini menghapus bukti bahwa keadaan sebelumnya pernah
+terjadi. Jika kontribusi dikirim lalu ditarik, rekam kedua peristiwa. Jangan
+mengubah sejarah menjadi “tidak pernah dikirim”.
+
+### Rute kanonik nonlengkap dan aturan pembuktian {#o017-u09-state-machine}
+
+::: {.o017-table-scroll aria-label="Transisi status kontribusi dan gerbang bukti" tabindex="0"}
+| Predikat yang sudah terbukti | Predikat baru pada rute kanonik | Peristiwa yang diperlukan | Gerbang gagal bila |
+|---|---|---|---|
+| Draf | Siap | validasi selesai, lingkup dan hak jelas, pesan tunggal disetujui secara lokal | uji gagal, target kabur, atau lisensi belum jelas |
+| Siap | Dikirim | tindakan pengiriman yang berwenang dan tanda transaksi | hanya ada niat, pratinjau, atau formulir belum dikirim |
+| Dikirim | Diakui | bukti penerimaan oleh sistem atau manusia tujuan | hanya ada tangkapan layar lokal sebelum kirim |
+| Diakui | Diterima | keputusan substantif pihak berwenang | hanya ada balasan otomatis atau ucapan terima kasih |
+| Diterima | Digabung | perubahan aktif dapat diidentifikasi | persetujuan belum diterapkan |
+| Digabung | Diterbitkan | artefak publik tertentu memuat byte atau isi baru | rilis masih membangun atau salinan publik masih lama |
+:::
+
+Transisi boleh bercabang menuju ditahan, ditolak, ditarik, diganti, atau
+dibalik. Tabel tersebut mencatat satu rute yang lazim, **bukan** daftar semua
+jalur yang mungkin dan bukan implikasi logis antarpredikat. Jika byte publik
+tertentu telah dibaca balik tetapi bukti penggabungan tidak tersedia, catat
+`diterbitkan` sebagai terbukti dan `digabung` sebagai tidak diketahui; jangan
+menciptakan peristiwa penggabungan. Demikian pula, perubahan aktif dapat
+diamati tanpa arsip keputusan penerimaan.
+
+Setiap predikat yang dicatat harus disertai waktu, pelaku atau sistem, objek,
+bukti, dan batas. Tanpa bukti baru, jangan menambahkan predikat baru. Simpan
+linimasa peristiwa serta nilai terbukti/tidak terbukti/tidak diketahui untuk
+masing-masing predikat.
+
+## Gerbang pemilihan satu kontribusi {#o017-u09-selection-gate}
+
+Sebelum menyiapkan perubahan, nilai kandidat dengan gerbang berikut.
+
+::: {.o017-table-scroll aria-label="Gerbang untuk memilih kontribusi komunitas yang terbatas" tabindex="0"}
+| Gerbang | Pertanyaan | GO lokal | HOLD atau NO-GO |
+|---|---|---|---|
+| Target | apakah karya, versi, salinan, dan lokator beku? | target dapat ditemukan kembali | hanya “edisi terbaru” atau lokasi kabur |
+| Nilai marjinal | apakah kontribusi menambah koreksi atau bukti yang belum tersedia pada paket yang diperiksa? | perbedaan spesifik dapat disebut | duplikat diketahui atau manfaat tidak jelas |
+| Diagnosis | apakah kegagalan atau celah dapat direproduksi? | contoh, hitungan, atau bukti lengkap | hanya kesan atau dugaan niat |
+| Minimalitas | apakah perubahan terkecil yang cukup telah dipilih? | satu klaim atau jalur bukti dapat dipisahkan | perubahan gaya luas bercampur dengan koreksi |
+| Validasi | apakah klaim lama dan baru diuji sesuai kuantornya? | uji gagal sebelum dan lulus sesudah | hanya tampilan visual atau satu contoh pendukung |
+| Hak | apakah lisensi sumber dan lisensi kontribusi kompatibel serta atribusi siap? | dasar hak per komponen tercatat | lisensi tidak diketahui atau materi pihak ketiga kabur |
+| Komunikasi | apakah satu pesan ringkas memuat lokator, bukti, patch, dan batas? | pesan dapat ditindaklanjuti | banyak komentar terpisah atau bahasa menuduh |
+| Wewenang | apakah tindakan saat ini hanya lokal, atau ada izin terpisah untuk pengiriman? | status dan pelaku jelas | kesiapan disamakan dengan izin kirim |
+| Pembalikan | apakah ada cara menahan, menarik, atau membalik jika premis berubah? | pemicu dan tindakan ditetapkan | perubahan dianggap tidak mungkin salah |
+:::
+
+Kandidat yang gagal pada hak, target, atau diagnosis berhenti sebelum status
+siap. Kandidat yang lulus seluruh gerbang lokal dapat berstatus siap, tetapi
+tetap tidak dikirim tanpa kewenangan pengiriman.
+
+## Kasus kerja: satu suku indeks yang salah {#o017-u09-worked-contribution}
+
+Kasus ini memakai sebuah sumber komunitas sintetis. Seluruh konteks yang
+tersedia tertanam di bawah; tidak ada repositori atau pengelola nyata.
+
+::: {#o017-u09-target-metadata .callout-note title="O017-U09-UP-V1 — Target sintetis yang dibekukan"}
+- ID karya: **O017-U09-UP-W01**, *Lembar Induksi untuk Jumlah Ganjil*.
+- Versi: **O017-U09-UP-V1**, label **1.2-sintetis**.
+- Salinan: cuplikan lengkap pada unit ini.
+- Lisensi sumber: CC BY-SA 4.0, sebagai materi sintetis O017.
+- Lokator: Lemma 2, bukti baris L1–L5,
+  [#o017-u09-upstream-snippet](#o017-u09-upstream-snippet).
+- Tujuan simulasi: **O017-U09-DEST-01**, kanal kelas yang hanya menerima satu
+  pesan teks paling banyak 150 kata dan patch pada cuplikan L3–L5 berlisensi
+  sama. Ini bukan
+  layanan, akun, atau kanal eksternal.
+- Dalam konteks simulasi yang lengkap, V1 adalah satu-satunya versi terdaftar
+  dan tidak ada laporan duplikat.
+- Dampak luar cuplikan: tidak diketahui; tidak ada graf dependensi lain.
+:::
+
+::: {#o017-u09-upstream-snippet .callout-warning title="Lemma 2 dan bukti pada O017-U09-UP-V1"}
+**Lemma 2.** Untuk setiap $n\in\mathbb N$ dengan
+$\mathbb N=\{1,2,3,\ldots\}$,
+
+$$
+S_n:=\sum_{k=1}^{n}(2k-1)=n^2.
+$$
+
+**L1.** Untuk $n=1$, berlaku $S_1=1=1^2$.
+
+**L2.** Andaikan $S_n=n^2$ untuk suatu $n\geq1$.
+
+**L3.** Suku baru ketika batas jumlah berubah dari $n$ menjadi $n+1$ ialah
+$2n-1$.
+
+**L4.** Jadi $S_{n+1}=S_n+(2n-1)=n^2+2n-1$.
+
+**L5.** Bentuk terakhir sama dengan $(n+1)^2$, sehingga induksi selesai.
+:::
+
+Pernyataan lemma benar, basis L1 benar, dan bentuk hipotesis induksi L2 benar.
+Cacat pertama muncul pada L3: suku berindeks $n+1$ ialah
+
+$$
+2(n+1)-1=2n+1,
+$$
+
+bukan $2n-1$. Akibatnya, kesamaan pada L5 juga salah karena
+$n^2+2n-1\neq(n+1)^2$ untuk setiap $n\geq1$.
+
+### Reproducer minimum {#o017-u09-minimal-reproducer}
+
+Ambil langkah pertama, $n=1$.
+
+- Definisi langsung memberi $S_2=1+3=4$.
+- Rekurensi V1 pada L4 memberi
+  $S_2=S_1+(2\cdot1-1)=1+1=2$.
+- Kesimpulan lemma memberi $2^2=4$.
+
+Jadi baris L3–L4 tidak menghitung objek $S_2$ yang didefinisikan, dan L5 tidak
+dapat menutup induksi. Pemeriksaan ini eksak, memenuhi domain $n\geq1$, dan
+menolak langkah bukti, bukan pernyataan lemma.
+
+### Perbaikan bukti {#o017-u09-proof-repair}
+
+Pertahankan L1, L2, dan L5. Ganti hanya L3–L4 dengan L3′–L4′ berikut; L5
+ditampilkan kembali sesudahnya agar penutupan bukti dapat diperiksa.
+
+::: {#o017-u09-repaired-lines .callout-important title="L3′–L4′ dan L5 yang dipertahankan — perbaikan minimum"}
+**L3′.** Suku baru ketika batas jumlah berubah dari $n$ menjadi $n+1$ ialah
+$2(n+1)-1=2n+1$.
+
+**L4′.** Dengan hipotesis induksi,
+
+$$
+S_{n+1}=S_n+(2n+1)=n^2+2n+1.
+$$
+
+**L5 (dipertahankan tanpa perubahan).** Bentuk terakhir sama dengan
+$(n+1)^2$, sehingga induksi selesai. Memang, setelah L4′, bentuk terakhir ialah
+$n^2+2n+1=(n+1)^2$. Bersama kasus dasar L1, prinsip induksi membuktikan lemma
+untuk setiap $n\in\mathbb N$.
+:::
+
+Ini perbaikan minimum dalam lingkup yang dinyatakan: hanya L3 dan L4 diubah.
+L5 tidak perlu diubah karena menjadi benar setelah ekspresi pada L4
+diperbaiki; penampilannya kembali di atas bukan perubahan sumber. Pernyataan
+lemma, kasus dasar, definisi $\mathbb N$, dan bagian lain tidak disentuh.
+
+### Validasi sebelum dan sesudah {#o017-u09-before-after-validation}
+
+::: {.o017-table-scroll aria-label="Validasi cacat dan perbaikan bukti jumlah bilangan ganjil" tabindex="0"}
+| Uji | V1 sebelum perbaikan | Calon V2 sesudah perbaikan | Hasil |
+|---|---|---|---|
+| basis $n=1$ | $S_1=1$ | tidak berubah | lulus pada keduanya |
+| langkah pertama | memprediksi $S_2=2$ | memberi $S_2=1+3=4$ | V1 gagal, V2 lulus |
+| suku baru umum | memakai $2n-1$, yaitu suku ke-$n$ | memakai $2(n+1)-1=2n+1$ | V2 cocok dengan definisi |
+| identitas aljabar | $n^2+2n-1=(n+1)^2$ salah | $n^2+2n+1=(n+1)^2$ benar | kegagalan V1 dan perbaikan V2 eksak |
+| kuantor | langkah dimaksudkan untuk setiap $n\geq1$ | identitas baru berlaku untuk setiap $n\geq1$ | lingkup terjaga |
+| kesimpulan | induksi tidak lengkap | basis dan langkah induksi lengkap | lemma terbukti pada V2 |
+:::
+
+Validasi memakai contoh gagal untuk membuka cacat dan identitas umum untuk
+menutup perbaikan. Menguji hanya $n=1,2,3$ setelah perubahan belum cukup
+untuk membuktikan langkah bagi semua $n$.
+
+## Draf patch dan erratum yang minimal {#o017-u09-minimal-patch}
+
+Paket perubahan menyimpan bentuk lama dan baru.
+
+::: {.o017-table-scroll aria-label="Patch konseptual minimum untuk bukti jumlah bilangan ganjil" tabindex="0"}
+| Lokasi | Sebelum, V1 | Sesudah, calon V2 | Alasan |
+|---|---|---|---|
+| L3 | suku baru ialah $2n-1$ | suku baru ialah $2(n+1)-1=2n+1$ | indeks baru adalah $n+1$ |
+| L4 | $S_{n+1}=n^2+2n-1$ | $S_{n+1}=n^2+2n+1$ | substitusi suku baru dan hipotesis induksi |
+| L5 | bentuk sebelumnya disebut $(n+1)^2$ | tidak berubah; bentuk sebelumnya kini $n^2+2n+1$ | L5 sah setelah L4 diperbaiki, jadi perubahan tambahan tidak diperlukan |
+:::
+
+::: {#o017-u09-erratum-draft .callout-note title="Ringkasan teknis internal — bukan pesan keluar"}
+Pada O017-U09-UP-V1, Lemma 2, bukti L3–L5, suku yang ditambahkan untuk
+beralih dari $S_n$ ke $S_{n+1}$ tertulis $2n-1$. Suku baru sebenarnya
+$2(n+1)-1=2n+1$. Dengan perubahan itu,
+$S_{n+1}=n^2+2n+1=(n+1)^2$, sehingga langkah induksi sah. Untuk $n=1$,
+redaksi lama memprediksi $S_2=2$, sedangkan definisi memberi $S_2=4$.
+Pernyataan Lemma 2 dan kasus dasarnya tidak berubah. Dampak pada materi di
+luar cuplikan belum diperiksa.
+:::
+
+Ringkasan ini adalah isi teknis paket, bukan komunikasi kedua. Satu-satunya
+draf erratum keluar berada pada
+[#o017-u09-outbound-draft](#o017-u09-outbound-draft).
+
+### Cakupan dan ketidakpastian {#o017-u09-scope-and-uncertainty}
+
+Yang telah ditetapkan:
+
+- V1 memuat salah indeks pada L3;
+- L4–L5 gagal sebagai akibat langsung;
+- pernyataan lemma tetap benar;
+- L3′–L4′ bersama L5 yang dipertahankan memberi langkah induksi yang lengkap;
+  dan
+- perubahan tidak memerlukan materi pihak ketiga.
+
+Yang belum diketahui:
+
+- apakah target nyata pada masa depan mempunyai versi atau laporan yang
+  berbeda dari konteks simulasi;
+- apakah cuplikan dipakai oleh hasil lain;
+- aturan dan hak tujuan nyata, jika suatu hari target sintetis diganti;
+- apakah pengelola akan memilih perbaikan yang sama; dan
+- apakah calon V2 kelak diterima, digabung, atau diterbitkan.
+
+Ketidakpastian tersebut tidak mengurangi validitas matematika perbaikan. Ia
+mencegah kita mengklaim nilai marjinal eksternal atau status komunitas yang
+belum dibuktikan.
+
+## Hak, lisensi, dan atribusi kontribusi {#o017-u09-rights-and-attribution}
+
+Empat objek hak harus dibedakan:
+
+1. **sumber target**: teks yang hendak diubah dan lisensinya;
+2. **diagnosis**: redaksi serta bukti baru yang ditulis pemeriksa;
+3. **patch**: bentuk perubahan yang mungkin menjadi karya turunan;
+4. **artefak pendukung**: gambar, kode, data, atau kutipan, bila ada.
+
+Pada kasus sintetis ini, sumber dan kontribusi merupakan materi asli O017
+berlisensi CC BY-SA 4.0. Tidak ada donor atau artefak pihak ketiga. Atribusi
+paket harus tetap menyebut karya sintetis, versi V1, lokator L3–L5, dan lisensi
+yang sama. Status sintetis harus dipertahankan agar ID lokal tidak disalahpahami
+sebagai proyek eksternal.
+
+Untuk target nyata, jangan menyimpulkan bahwa izin membaca sama dengan izin
+mendistribusikan patch. Bekukan teks lisensi dan aturan kontribusi yang benar-
+benar berlaku pada versi target. Jika satu gambar atau tabel mempunyai hak
+berbeda, catat per komponen. Ketidakjelasan lisensi merupakan gerbang HOLD,
+bukan undangan untuk menebak.
+
+## Paket kontribusi yang siap ditinjau {#o017-u09-contribution-packet}
+
+Paket yang lengkap dapat tetap kecil. Gunakan manifes berikut.
+
+::: {.o017-table-scroll aria-label="Manifes paket kontribusi terbatas O017 Unit 9" tabindex="0"}
+| Komponen | Isi kasus kerja | Uji penerimaan lokal |
+|---|---|---|
+| Identitas target | O017-U09-UP-W01, V1, Lemma 2 L3–L5 | versi dan lokator dapat ditemukan kembali |
+| Klaim masalah | suku baru salah indeks; bukti induksi gagal | reproducer $n=1$ dan identitas umum tersedia |
+| Perbaikan minimum | ganti L3–L4; pertahankan L5 | pernyataan, basis, dan baris yang sudah sah tidak diubah |
+| Validasi | tabel sebelum/sesudah dan bukti induksi | V1 gagal, V2 lulus untuk alasan yang tepat |
+| Cakupan | hanya cuplikan Lemma 2 | hasil lain tidak dinyatakan telah diaudit |
+| Ketidakpastian | versi lain, duplikasi, dependensi, aturan tujuan | semua tetap eksplisit |
+| Hak | sumber dan kontribusi sintetis CC BY-SA 4.0 | tidak ada komponen tanpa dasar hak |
+| Pesan | satu draf ringkas | lokator, bukti, usulan, dan batas hadir |
+| Status | siap (prepared) untuk simulasi lokal; belum dikirim | tidak ada tanda transaksi eksternal |
+| Pembalikan | tahan, ganti, atau tarik menurut pemicu | sejarah lama dipertahankan |
+:::
+
+### Daftar periksa paket {#o017-u09-packet-checklist}
+
+Sebelum status berubah dari draf menjadi siap, periksa:
+
+1. target, versi, salinan, dan lokator tepat;
+2. redaksi lama disimpan tanpa parafrasa yang mengubah klaim;
+3. reproducer memenuhi semua hipotesis;
+4. perbaikan minimum mempunyai pembuktian atau validasi umum;
+5. hasil yang tidak terpengaruh disebut;
+6. dampak yang tidak diaudit tetap tidak diketahui;
+7. lisensi dan atribusi ada untuk setiap komponen;
+8. tidak ada temuan tak terkait yang disisipkan;
+9. pesan tunggal cukup ringkas dan tidak menilai orang;
+10. status eksternal tidak melampaui bukti;
+11. kewenangan pengiriman disebut terpisah; dan
+12. pemicu penghentian serta jalur penarikan tersedia.
+
+Satu jawaban “tidak” pada target, matematika, hak, atau status menahan paket
+pada draf.
+
+### Ledger status kasus kerja {#o017-u09-worked-state-ledger}
+
+::: {.o017-table-scroll aria-label="Ledger status lokal dan status eksternal kasus kontribusi Unit 9" tabindex="0"}
+| Peristiwa | Tanggal | Status sesudah peristiwa | Bukti | Klaim eksternal |
+|---|---|---|---|---|
+| EVT-01: target, diagnosis, dan patch dicatat | 2026-08-21 | Draf (draft) | target V1, reproducer, L3′–L4′, dan L5 yang dipertahankan pada unit ini | tidak ada |
+| EVT-02: matematika, lingkup, hak, pesan, dan jalur pembalikan lolos gerbang lokal | 2026-08-21 | Siap (prepared) untuk O017-U09-DEST-01 | tabel validasi, manifes, daftar periksa, dan pesan beku | belum dikirim |
+| Tidak ada EVT-03 | tidak berlaku | bukan Dikirim (submitted) | tidak ada URL, ID transaksi, akun, atau waktu kirim | tidak ada kontak |
+| Tidak ada peristiwa tujuan | tidak berlaku | bukan Diakui, Diterima, Digabung, atau Diterbitkan | tidak ada tanda terima, keputusan, perubahan aktif, atau rilis | tidak ada |
+:::
+
+Status terakhir yang terbukti ialah **Siap (prepared) dalam simulasi lokal**.
+Kata “siap” tidak memperluas O017-U09-DEST-01 menjadi tujuan nyata.
+
+## Satu pesan, tidak dikirim {#o017-u09-single-message}
+
+Berikut satu-satunya draf komunikasi keluar untuk kasus kerja. Ia merupakan
+artefak lokal dan **belum dikirim**.
+
+::: {#o017-u09-outbound-draft .callout-warning title="Draf pesan ringkas — status: belum dikirim"}
+**Judul:** Lemma 2: indeks suku pada langkah induksi
+
+Pada versi 1.2-sintetis, Lemma 2, bukti L3–L5, perpindahan dari $S_n$ ke
+$S_{n+1}$ menambahkan $2n-1$. Suku baru seharusnya
+$2(n+1)-1=2n+1$. Redaksi lama memberi $S_2=2$ saat $n=1$, sedangkan definisi
+memberi $S_2=1+3=4$. Usulan minimum ialah mengganti L3–L4 sehingga
+$S_{n+1}=n^2+2n+1$; L5 kemudian benar tanpa perubahan karena bentuk itu sama
+dengan $(n+1)^2$. Pernyataan lemma dan kasus dasar tetap. Saya hanya
+memeriksa cuplikan ini; dampak di luar Lemma 2 dan kemungkinan perbaikan pada
+versi lain belum diketahui.
+:::
+
+Jangan menambahkan beberapa komentar permintaan maaf, koreksi lanjutan, atau
+pesan penjelas sebelum ada respons; paket sudah memuat bukti dan batas. Jika
+pada masa depan Floris memberi kewenangan terpisah dan pesan ini benar-benar
+dikirim, tambahkan satu baris penutup persis:
+
+> Codex, atas instruksi Floris
+
+Jangan menambahkan baris tersebut pada draf lokal sebagai bukti pengiriman,
+dan jangan mengklaim identitas, penerimaan, atau dukungan pihak lain. Unit ini
+tidak melakukan pengiriman.
+
+## Jalur tahan, tarik, ganti, dan balik {#o017-u09-rollback-withdrawal}
+
+Kontribusi dapat berubah setelah validasi. Jalur pemulihan harus ada sebelum
+pengiriman, bukan diciptakan ketika masalah muncul.
+
+::: {.o017-table-scroll aria-label="Jalur pemulihan kontribusi menurut keadaan dan pemicu" tabindex="0"}
+| Keadaan | Pemicu | Tindakan yang benar | Bukti yang dipertahankan |
+|---|---|---|---|
+| Draf/Siap | diagnosis ternyata salah atau duplikat telah dibuktikan | tahan; tandai diganti atau batal secara lokal | paket lama, alasan, pemeriksaan baru |
+| Dikirim belum diakui | target salah atau patch berbahaya | gunakan kanal yang sama untuk meminta penarikan bila berwenang | tanda kirim dan permintaan tarik |
+| Diakui belum diterima | informasi baru mengubah diagnosis | kirim satu koreksi terkonsolidasi atau minta penahanan | respons tujuan dan bukti baru |
+| Diterima belum digabung | patch baru gagal validasi | beri tahu pengelola melalui jalur yang ditetapkan dan tarik persetujuan pengirim | keputusan diterima dan kegagalan uji |
+| Digabung belum diterbitkan | regresi ditemukan | usulkan pembalikan atau patch koreksi yang dapat diuji | identitas perubahan aktif dan hasil regresi |
+| Diterbitkan | artefak publik salah | siapkan koreksi baru, catatan rilis, dan pembacaan balik; jangan menghapus sejarah | identitas rilis lama dan baru |
+:::
+
+Tindakan aktual selalu mengikuti kewenangan kanal. Bila tidak berwenang,
+siapkan dossier dan eskalasi kepada pemilik keputusan; jangan mencoba
+memperbaiki keadaan eksternal secara diam-diam.
+
+### Pemicu penarikan kasus kerja {#o017-u09-worked-withdrawal-triggers}
+
+Paket jumlah ganjil harus ditahan atau ditarik jika:
+
+- salinan target ternyata bukan V1 yang disebut;
+- konteks yang hilang mendefinisikan L3 dengan indeks berbeda;
+- versi tujuan sudah memuat koreksi L3′–L4′ dan kontribusi menjadi duplikat;
+- lisensi atau aturan tujuan tidak mengizinkan bentuk kontribusi;
+- validasi independen menemukan bahwa patch menyentuh lebih banyak materi
+  daripada yang dinyatakan; atau
+- Floris mencabut kewenangan sebelum tindakan keluar selesai.
+
+Penarikan tidak berarti diagnosis harus dihapus. Catat alasan dan status baru.
+
+## Portofolio adalah peta klaim ke bukti {#o017-u09-portfolio-as-evidence-map}
+
+Portofolio tidak sama dengan folder yang berisi semua hasil kerja. Ia adalah
+argumen terbatas:
+
+> Saya mengklaim kompetensi tertentu; artefak ini menunjukkan tindakan
+> tertentu; lokator ini memuat bukti; batas ini menyatakan apa yang belum
+> ditunjukkan.
+
+Setiap klaim kompetensi harus mempunyai bukti primer, lokator, kriteria
+penerimaan, dan refleksi singkat. Satu artefak boleh mendukung beberapa
+kompetensi, tetapi hubungan harus dijelaskan. Banyak berkas tanpa peta tidak
+menjadi bukti dengan sendirinya.
+
+### Arsitektur portofolio minimum {#o017-u09-portfolio-architecture}
+
+1. **Manifes:** daftar artefak, versi, format, hak, dan identitas byte jika
+   tersedia.
+2. **Peta klaim–bukti:** kompetensi, artefak, lokator, tindakan, dan batas.
+3. **Sampel utama:** satu produk koheren per kelompok kompetensi, bukan semua
+   draf.
+4. **Riwayat revisi:** bukti sebelum/sesudah dan alasan perubahan.
+5. **Buku besar ketidakpastian:** pertanyaan yang belum selesai.
+6. **Pernyataan hak:** asal, adaptasi, lisensi, dan atribusi per komponen.
+7. **Catatan aksesibilitas:** struktur judul, teks alternatif, tabel, rumus,
+   navigasi, dan format alternatif yang benar-benar diperiksa.
+8. **Refleksi terbatas:** apa yang berubah karena bukti, satu kesalahan yang
+   dikoreksi, dan satu kemampuan yang belum dibuktikan.
+
+### Pemetaan bukti dari Unit 1–8 {#o017-u09-u01-u08-evidence-map}
+
+::: {.o017-table-scroll aria-label="Peta bukti portofolio O017 dari Unit 1 sampai Unit 8" tabindex="0"}
+| Unit | Klaim kompetensi | Bukti yang layak dipilih | Lokator atau bidang wajib | Batas yang harus disebut |
+|---|---|---|---|---|
+| U1 | membaca argumen sebagai jejaring klaim | graf klaim bertipe dan satu audit jalur | ID simpul, jenis panah, titik masuk, keluaran | graf bukan bukti kebenaran setiap klaim |
+| U2 | menilai otoritas dan versi sumber | keputusan sumber dengan pembanding terbatas | karya, edisi/commit, salinan, lisensi, alasan GO/NO-GO | pencarian tidak membuktikan kelengkapan seluruh literatur |
+| U3 | merekonstruksi langkah yang hilang | rekonstruksi dengan kontrak masukan/keluaran | klaim sumber, celah, lemma baru, bukti, batas kekuatan | redaksi baru bukan teks asli sumber |
+| U4 | menjaga sitasi dan provenance | ledger sumber serta keputusan yang dapat ditelusuri | versi, lokator, hubungan, hak, peristiwa | ledger tidak menggantikan pembuktian matematika |
+| U5 | menulis eksposisi yang dapat diaudit | naskah bersih dan audit ketergantungan terpisah | kontrak pembaca, klaim, bukti, contoh, batas | mutu eksposisi tidak membuktikan orisinalitas |
+| U6 | memakai komputasi sebagai bukti empiris | paket yang dapat dijalankan ulang dan rekaman hasil | kode, masukan, lingkungan, perintah, keluaran, oracle/hash | keluaran empiris tidak otomatis menjadi bukti universal |
+| U7 | merumuskan koreksi terbatas | dossier erratum dengan reproducer dan koreksi | target, status klaim, jenis cacat, keparahan, keyakinan, sejarah | draf lokal bukan laporan yang telah dikirim |
+| U8 | memberi dan menanggapi kritik | catatan seminar, laporan, respons, dan matriks | waktu/lokasi, komentar, tindakan, bukti, status, masalah terbuka | rekomendasi menilai naskah dalam lingkup, bukan orang |
+:::
+
+Peta ini menentukan jenis bukti, bukan nama berkas wajib. Pilih artefak yang
+paling kuat dan paling mudah diperiksa. Jika satu unit belum mempunyai bukti
+yang lolos gerbangnya, tulis “belum dibuktikan” dan rencanakan perbaikan;
+jangan mengisi sel dengan refleksi tanpa artefak.
+
+## Kontrak manifest dan identitas bukti {#o017-u09-portfolio-manifest}
+
+Setiap artefak portofolio sekurang-kurangnya mempunyai:
+
+::: {.o017-table-scroll aria-label="Bidang manifes artefak portofolio yang dapat diaudit" tabindex="0"}
+| Bidang | Fungsi |
+|---|---|
+| evidence_id | identitas stabil dalam portofolio |
+| unit | asal kompetensi U1–U8 |
+| claim | kemampuan yang didukung |
+| artifact | judul dan jalur atau URL yang benar-benar tersedia |
+| version | edisi, tanggal, commit, atau status lokal |
+| locator | bagian tepat yang menunjukkan tindakan |
+| action | apa yang dilakukan peserta |
+| validation | uji, audit, atau tinjauan yang telah lulus |
+| rights | lisensi, atribusi, dan komponen pihak ketiga |
+| state | draf/siap/dikirim/dan seterusnya bila relevan |
+| limitation | klaim yang tidak didukung artefak |
+:::
+
+Jika checksum dicatat, hitung dari byte artefak yang benar-benar disimpan.
+Jangan menyalin checksum dari manifes lain tanpa pembacaan ulang. Jika artefak
+berubah, buat versi dan hash baru; jangan mempertahankan identitas byte lama.
+
+## Aksesibilitas paket dan portofolio {#o017-u09-accessibility}
+
+Keterlacakan tidak berguna bila bukti tidak dapat dibaca. Untuk setiap artefak:
+
+- gunakan hierarki judul yang bermakna;
+- beri nama tabel dan bungkus tabel lebar agar dapat digulir serta difokuskan;
+- jangan memakai warna sebagai satu-satunya penanda status;
+- sediakan teks alternatif untuk gambar yang membawa informasi;
+- sediakan transkrip atau catatan berwaktu untuk media;
+- jelaskan simbol pada pemakaian pertama;
+- pertahankan tautan yang bermakna tanpa bergantung pada “klik di sini”;
+- uji navigasi papan ketik dan pembesaran pada keluaran akhir; dan
+- catat permukaan yang belum diuji, bukan mengklaim aksesibilitas lengkap.
+
+Portofolio boleh mempunyai PDF, HTML, dan sumber suntingan. Kesamaan judul
+tidak menjamin kesamaan isi; manifes harus memasangkan format yang benar-benar
+dibangun dan diperiksa.
+
+## Refleksi yang berbukti {#o017-u09-evidence-based-reflection}
+
+Refleksi bukan autobiografi umum. Gunakan pola tiga bagian.
+
+1. **Keputusan awal:** apa yang dipilih dan berdasarkan bukti apa?
+2. **Perubahan:** temuan mana memaksa revisi konkret?
+3. **Batas kini:** kemampuan apa yang belum ditunjukkan dan bukti apa yang
+   akan diperlukan?
+
+Contoh:
+
+> Saya mula-mula menganggap pemeriksaan $n=1$ hanya menemukan salah ketik.
+> Audit identitas umum menunjukkan bahwa L5 juga salah sebagai persamaan, jadi
+> paket memperbaiki L3–L4, mempertahankan L5, dan mempertahankan pernyataan
+> lemma. Bukti ini belum
+> menunjukkan bahwa saya telah mengaudit hasil turunan karena salinan di luar
+> cuplikan tidak tersedia.
+
+Refleksi tersebut menunjuk perubahan dan batas. Kalimat “saya belajar banyak
+tentang induksi” tidak cukup sebagai bukti kompetensi.
+
+## Latihan {#o017-u09-exercises}
+
+1. **[O017-U09-E01]{#o017-u09-e01} — Status tanpa lompatan.** Untuk setiap
+   keadaan berikut, tetapkan predikat peristiwa yang terbukti, predikat yang
+   belum terbukti atau tidak diketahui, dan bukti yang masih hilang: (a) paket
+   lulus validasi lokal; (b) formulir tujuan
+   menampilkan pratinjau tetapi belum dikirim; (c) platform memberi ID
+   transaksi otomatis; (d) pengelola menulis “kami akan meninjau”; (e)
+   pengelola menyetujui patch; (f) commit aktif memuat patch; dan (g) rilis
+   publik telah dibaca balik dan memuat perubahan. Lihat
+   **[O017-U09-H01](#o017-u09-h01)**.
+
+2. **[O017-U09-E02]{#o017-u09-e02} — Reproducer dan cakupan.** Periksa
+   cacat pada cuplikan L3–L5 dengan $n=1$, lalu buktikan identitas yang dipakai
+   L3′–L4′ dan jelaskan mengapa L5 dapat dipertahankan
+   untuk $n$ umum. Tulis tiga hal yang ditetapkan dan tiga hal yang tetap
+   tidak diketahui. Lihat **[O017-U09-H02](#o017-u09-h02)**.
+
+3. **[O017-U09-E03]{#o017-u09-e03} — Minimalitas patch.** Seorang
+   kontributor ingin sekaligus mengganti notasi $S_n$, menulis ulang seluruh
+   pengantar induksi, mengubah enam contoh, dan memperbaiki L3. Pisahkan
+   perubahan wajib, perubahan opsional, dan perubahan di luar lingkup. Susun
+   satu paket yang dapat ditinjau tanpa kehilangan perbaikan matematika. Lihat
+   **[O017-U09-H03](#o017-u09-h03)**.
+
+4. **[O017-U09-E04]{#o017-u09-e04} — Hak dan atribusi.** Sebuah target
+   berlisensi CC BY-SA 4.0, satu diagram di dalamnya mempunyai kredit terpisah
+   tanpa lisensi, dan patch hanya mengubah prosa bukti. Tentukan komponen mana
+   dapat dibawa ke paket, atribusi apa yang diperlukan, dan gerbang apa yang
+   menahan penggunaan diagram. Lihat
+   **[O017-U09-H04](#o017-u09-h04)**.
+
+5. **[O017-U09-E05]{#o017-u09-e05} — Pesan dan penarikan.** Tulis satu
+   pesan paling banyak 120 kata untuk cacat L3–L5 yang memuat lokator,
+   reproducer, patch, dan batas. Setelah itu, andaikan versi tujuan ternyata
+   sudah diperbaiki. Tulis jalur status serta tindakan penarikan atau
+   penghentian yang tidak menghapus sejarah. Pesan tetap tidak dikirim. Lihat
+   **[O017-U09-H05](#o017-u09-h05)**.
+
+6. **[O017-U09-E06]{#o017-u09-e06} — Peta portofolio.** Pilih empat klaim
+   kompetensi dari empat unit berbeda. Untuk masing-masing, isi
+   evidence_id, artefak, lokator, tindakan, validasi, hak, status, dan batas.
+   Temukan satu klaim yang belum mempunyai bukti cukup dan tulis tindakan
+   perbaikannya tanpa mengisi bukti fiktif. Lihat
+   **[O017-U09-H06](#o017-u09-h06)**.
+
+## Petunjuk dan panduan jawaban {#o017-u09-guidance}
+
+1. **[O017-U09-H01]{#o017-u09-h01}.** (a) siap; (b) tetap hanya siap karena
+   pratinjau bukan pengiriman; (c) dikirim bila ID menunjuk transaksi yang
+   benar-benar selesai; (d) diakui, sedangkan pengiriman dan penerimaan hanya
+   boleh ditambahkan bila buktinya juga tersedia; (e) diterima, tetapi tidak
+   otomatis diakui, dikirim, atau digabung; (f) digabung, tanpa mengarang
+   keputusan penerimaan; dan (g) diterbitkan untuk rilis yang dibaca balik,
+   tanpa menyimpulkan penggabungan. Setiap predikat tetap memerlukan identitas
+   objek dan waktu; predikat lain diberi nilai tidak diketahui bila kasus tidak
+   menyediakan buktinya. Kembali ke
+   **[O017-U09-E01](#o017-u09-e01)**.
+
+2. **[O017-U09-H02]{#o017-u09-h02}.** Untuk $n=1$, V1 memberi
+   $S_2=1+(2\cdot1-1)=2$, sedangkan definisi memberi $4$. Secara umum, suku
+   ke-$n+1$ ialah $2(n+1)-1=2n+1$, dan
+   $n^2+2n+1=(n+1)^2$. Yang ditetapkan meliputi lokasi cacat, kegagalan langkah,
+   dan kecukupan patch; versi lain, dampak turunan, dan keputusan pengelola
+   tetap tidak diketahui. Kembali ke
+   **[O017-U09-E02](#o017-u09-e02)**.
+
+3. **[O017-U09-H03]{#o017-u09-h03}.** Perubahan wajib hanya L3–L4. L5 sudah
+   tepat sebagai langkah struktural setelah L4 diperbaiki, sehingga boleh
+   ditampilkan kembali untuk audit tetapi tidak boleh dihitung sebagai baris
+   yang diubah. Penjelasan satu kalimat dapat masuk jika diperlukan untuk
+   audit. Pergantian notasi,
+   pengantar, dan enam contoh merupakan pekerjaan opsional atau paket terpisah.
+   Mencampurnya memperbesar permukaan regresi dan menyulitkan pembalikan.
+   Kembali ke **[O017-U09-E03](#o017-u09-e03)**.
+
+4. **[O017-U09-H04]{#o017-u09-h04}.** Prosa target dan patch dapat
+   diperlakukan menurut CC BY-SA 4.0 dengan atribusi, penunjuk perubahan, dan
+   lisensi kompatibel. Diagram tidak diperlukan oleh patch dan harus
+   dikeluarkan; kredit tanpa dasar lisensi tidak cukup untuk redistribusi.
+   Jika diagram diperlukan kelak, tahan komponen itu sampai haknya jelas.
+   Kembali ke **[O017-U09-E04](#o017-u09-e04)**.
+
+5. **[O017-U09-H05]{#o017-u09-h05}.** Pesan harus menyerupai
+   [draf tunggal](#o017-u09-outbound-draft): satu lokator, kegagalan
+   $n=1$, dua baris pengganti, penjelasan bahwa L5 dipertahankan, dan batas
+   audit. Jika versi tujuan sudah
+   diperbaiki sebelum kirim, status tetap siap lalu ditahan atau diganti
+   sebagai duplikat; tidak ada penarikan eksternal karena tidak pernah
+   dikirim. Jika baru diketahui sesudah kirim, pertahankan tanda transaksi dan
+   minta penarikan melalui kanal yang sama bila berwenang. Kembali ke
+   **[O017-U09-E05](#o017-u09-e05)**.
+
+6. **[O017-U09-H06]{#o017-u09-h06}.** Satu baris yang memadai menautkan klaim
+   tindakan ke lokator yang benar-benar memperlihatkannya dan menyebut uji
+   serta batas. Refleksi tanpa artefak tidak menggantikan bukti. Untuk klaim
+   yang belum didukung, gunakan status “belum dibuktikan” dan sebut produk
+   serta gerbang yang perlu diselesaikan. Kembali ke
+   **[O017-U09-E06](#o017-u09-e06)**.
+
+## Tugas akhir: kontribusi terbatas dan portofolio O017 {#o017-u09-capstone}
+
+Bangun satu **paket capstone lokal** dari pekerjaan Anda sendiri di Unit 1–8.
+Tugas ini tidak memberi kewenangan untuk menghubungi pihak luar. Jika tidak
+ada target nyata yang hak dan versinya sudah jelas, gunakan target sintetis
+kasus kerja dan nyatakan pilihan itu.
+
+Produk harus memuat:
+
+1. satu pernyataan lingkup paling banyak 120 kata yang menyebut target,
+   satu masalah atau celah, perbaikan yang diusulkan, dan hal yang tidak
+   disentuh;
+2. identitas target, versi, salinan, lokator, waktu pemeriksaan, dan dasar
+   hak;
+3. redaksi tepat sebelum perubahan dan redaksi tepat sesudah perubahan;
+4. reproducer atau rekonstruksi bukti yang memeriksa hipotesis, kegagalan,
+   serta batas;
+5. validasi sebelum/sesudah yang mencakup satu kasus pembeda dan argumen umum;
+6. manifes kontribusi, daftar periksa dua belas butir, dan keputusan GO,
+   HOLD, atau NO-GO dengan alasan;
+7. satu draf pesan paling banyak 150 kata; tandai **belum dikirim** dan jangan
+   membuat pesan kedua;
+8. ledger status yang berhenti pada draf atau siap, kecuali bukti transaksi
+   aktual dan kewenangan terpisah benar-benar tersedia di luar tugas ini;
+9. jalur tahan, tarik, ganti, atau balik dengan sedikitnya tiga pemicu;
+10. pernyataan lisensi dan atribusi per komponen, termasuk komponen yang
+    dikeluarkan karena haknya belum jelas;
+11. manifes portofolio dan peta klaim–bukti untuk setiap Unit 1–8;
+12. sedikitnya satu artefak sebelum/sesudah, satu masalah belum selesai, dan
+    satu refleksi tiga bagian berbasis bukti;
+13. laporan aksesibilitas yang menyebut permukaan yang benar-benar diuji dan
+    yang belum diuji; dan
+14. ringkasan eksekutif enam kalimat yang tidak mengklaim pengiriman,
+    penerimaan, penggabungan, atau penerbitan tanpa bukti.
+
+Jika pada tindakan masa depan yang terpisah pesan benar-benar dikirim, ikuti
+aturan penutup bersyarat pada
+[#o017-u09-single-message](#o017-u09-single-message). Jangan memakai aturan
+itu untuk menyiratkan bahwa draf capstone sudah dikirim.
+
+### Rubrik analitik {#o017-u09-capstone-rubric}
+
+Setiap kriteria dinilai 0, 1, atau 2.
+
+::: {.o017-table-scroll aria-label="Rubrik analitik capstone kontribusi dan portofolio O017" tabindex="0"}
+| Kriteria | 0 | 1 | 2 |
+|---|---|---|---|
+| Batas dan target | target/lokator kabur atau banyak masalah bercampur | target jelas tetapi satu batas lemah | satu target, satu kontribusi, versi/lokator tepat, serta pengecualian eksplisit |
+| Diagnosis matematika | reproducer tidak memenuhi hipotesis atau patch salah | cacat benar tetapi validasi umum kurang | kegagalan dan perbaikan dibuktikan, dengan kasus pembeda serta argumen umum |
+| Minimalitas dan validasi | perubahan luas tanpa alasan atau tidak diuji | patch cukup tetapi permukaan regresi kabur | perubahan terkecil yang cukup diuji sebelum/sesudah dan hasil tak terpengaruh dipertahankan |
+| Hak dan atribusi | lisensi direka, hilang, atau komponen kabur | lisensi utama ada tetapi satu komponen belum dipisah | hak, atribusi, perubahan, dan pengecualian tercatat per komponen |
+| Kejujuran status | siap disebut dikirim/diterima atau sejarah ditimpa | status benar tetapi bukti transisi kurang | setiap status mempunyai peristiwa/bukti; draf/siap berhenti jujur dan sejarah tambahan |
+| Komunikasi dan pemulihan | pesan menuduh, jamak, atau tanpa jalan tarik | pesan ringkas tetapi satu batas/pemicu kurang | satu pesan spesifik, belum dikirim, dengan jalur tahan/tarik/ganti/balik yang dapat dijalankan |
+| Peta Unit 1–8 | portofolio hanya daftar berkas atau unit hilang | semua unit disebut tetapi beberapa lokator/batas lemah | setiap unit mempunyai klaim, bukti, lokator, validasi, hak, status, dan batas |
+| Aksesibilitas dan refleksi | aksesibilitas diklaim tanpa uji atau refleksi umum | sebagian permukaan/uji/perubahan disebut | laporan membedakan diuji/belum diuji dan refleksi menautkan keputusan, perubahan, serta batas |
+:::
+
+Nilai lulus sekurang-kurangnya 14 dari 16, dengan nilai 2 pada **Diagnosis
+matematika**, **Hak dan atribusi**, **Kejujuran status**, serta **Peta Unit
+1–8**. Mengarang peristiwa eksternal, mengirim tanpa kewenangan, menyebut draf
+sebagai diterima, menghapus sejarah penarikan, memakai materi tanpa dasar hak,
+atau memasukkan banyak temuan tak terkait mewajibkan revisi berapa pun jumlah
+nilainya.
+
+## Batas dengan B80 dan Unit 1–8 {#o017-u09-boundary}
+
+**B80.** Unit 9 tidak mengajarkan Git, API platform, sintaks bahasa
+pemrograman, pengujian perangkat lunak, pembuatan lingkungan, atau proses
+deploy. Jika sebuah kontribusi membutuhkan tindakan itu, peserta memakai
+kompetensi B80 dan memasukkan bukti hasilnya; Unit 9 hanya menilai paket,
+status, hak, komunikasi, dan pembalikan.
+
+**Unit 1–3.** Unit 1 memetakan jejaring klaim, Unit 2 membekukan otoritas
+sumber, dan Unit 3 merekonstruksi celah bukti. Unit 9 tidak mengajari ulang
+ketiganya. Ia memilih bukti yang sudah lolos dan membatasi satu kontribusi.
+
+**Unit 4.** Unit 4 merancang ledger sitasi dan provenance. Unit 9 mengimpor
+identitas, lokator, hak, dan hubungan dari ledger ke manifes kontribusi serta
+portofolio; ia tidak mengganti ledger sumber.
+
+**Unit 5.** Unit 5 mengajarkan eksposisi matematika. Unit 9 tidak melakukan
+penyuntingan gaya luas; prosa diubah hanya sejauh kontribusi minimal dan
+pesannya perlu dapat ditinjau.
+
+**Unit 6.** Unit 6 membangun paket komputasi yang dapat dijalankan ulang. Unit
+9 dapat menyertakan hasil validasinya, tetapi tidak mengajarkan alat atau
+lingkungannya.
+
+**Unit 7.** Unit 7 menetapkan status cacat, reproducer, keparahan,
+keyakinan, koreksi, dan dossier erratum. Unit 9 tidak mendiagnosis ulang
+seluruh target; ia memilih satu diagnosis yang matang lalu mengemasnya untuk
+kontribusi terbatas.
+
+**Unit 8.** Unit 8 mengajarkan catatan seminar, laporan penelaah, tanggapan,
+dan rekomendasi. Unit 9 tidak menjalankan putaran penelaahan baru; ia memakai
+komentar yang sudah diselesaikan untuk menyiapkan satu pesan dan menjaga
+status peristiwa komunitas.
+
+Tidak ada bagian unit ini yang mengirim pesan, membuka isu, membuat perubahan
+upstream, menggabungkan patch, atau menerbitkan artefak.
+
+## Sumber, provenance, perubahan, dan hak {#o017-u09-provenance}
+
+Seluruh prosa berbahasa Indonesia, mesin status, gerbang kontribusi, kasus
+jumlah bilangan ganjil, reproducer, pembuktian perbaikan, patch konseptual,
+draf erratum dan pesan, manifes, jalur penarikan, arsitektur portofolio,
+latihan, panduan jawaban, capstone, dan rubrik pada unit ini merupakan materi
+asli O017 oleh kontributor O017, 2026, dan dilisensikan di bawah
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Identitas jumlah $n$ bilangan ganjil pertama
+$\sum_{k=1}^{n}(2k-1)=n^2$ dan pembuktiannya dengan induksi merupakan
+matematika elementer klasik. O017 tidak mengklaim penemuan hasil itu. Redaksi
+target yang sengaja cacat, diagnosis, susunan pedagogis, validasi, dan paket
+kontribusi ditulis khusus untuk unit ini dan tidak disalin dari sumber
+tertentu.
+
+Objek **O017-U09-UP-W01** dan semua versinya bersifat sintetis; ID tersebut
+bukan repositori, penerbit, atau proyek eksternal. Tidak ada donor eksternal,
+kutipan eksternal, kode, gambar, atau data pihak ketiga yang digunakan. Tidak
+ada komunikasi nyata yang dilakukan. Lisensi CC BY-SA 4.0 berlaku pada materi
+asli O017 ini dan tidak mengubah hak atas target lain yang mungkin digunakan
+peserta pada pekerjaan mereka sendiri.

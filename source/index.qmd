@@ -1,0 +1,69 @@
+---
+author: "Floris — diproduksi dengan OpenAI Codex"
+date: "2026-08-22"
+date-format: iso
+doi: "10.5281/zenodo.22051978"
+abstract: "Buku praktik sembilan unit tentang pembacaan penelitian matematika, rekonstruksi pembuktian, sitasi dan provenance, eksposisi, komputasi yang dapat direproduksi, errata, penelaahan, serta kontribusi komunitas terbatas."
+---
+
+# Tentang edisi ini {.unnumbered}
+
+Buku praktik ini mengajarkan cara membaca, menulis, memeriksa, dan membagikan
+matematika sehingga klaim, sumber, komputasi, koreksi, dan batas kepastiannya
+dapat ditelusuri.
+
+::: {.callout-note title="Edisi, DOI, dan akses"}
+- **Versi:** 2026.08.22
+- **DOI versi:** <https://doi.org/10.5281/zenodo.22051978>
+- **DOI semua versi:** <https://doi.org/10.5281/zenodo.22051866>
+- **Pembaca HTML:** <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>
+- **Sumber dan riwayat edisi:** <https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id>
+- **Produksi:** diproduksi dengan OpenAI Codex atas instruksi Floris; Floris adalah kreator dan pemegang hak materi asli.
+- **Hak:** pembaca asli CC BY-SA 4.0; adaptasi donor CC BY 4.0; perangkat lunak/runtime MIT atau Apache-2.0. `LICENSES.md` dan `THIRD_PARTY_NOTICES.md` mengendalikan pemetaan per komponen.
+:::
+
+Mata kuliah ini mengandaikan bahwa pembaca sudah dapat menulis pembuktian dasar,
+menggunakan matematika diskret, dan menjalankan komputasi matematika yang dapat
+direproduksi. Fokusnya bukan belajar Python atau teknik pembuktian dari awal,
+melainkan menggunakan keterampilan tersebut dalam kerja penelitian yang dapat
+diaudit.
+
+Mulailah dengan [Unit 1: Membaca argumen sebagai jejaring
+klaim](units/01-membaca-argumen.qmd).
+
+## Sembilan unit
+
+1. [Membaca argumen sebagai jejaring klaim](units/01-membaca-argumen.qmd)
+2. [Menelusuri literatur dan menilai otoritas sumber](units/02-menelusuri-sumber.qmd)
+3. [Merekonstruksi pembuktian yang diringkas](units/03-merekonstruksi-pembuktian.qmd)
+4. [Sitasi, provenance, dan buku catatan sumber](units/04-sitasi-provenance-catatan-sumber.qmd)
+5. [Eksposisi matematika yang dapat diaudit](units/05-eksposisi-matematika.qmd)
+6. [Komputasi yang dapat direproduksi sebagai bukti empiris](units/06-komputasi-dapat-direproduksi.qmd)
+7. [Errata, koreksi, dan batas kepastian](units/07-errata-koreksi-batas-kepastian.qmd)
+8. [Catatan seminar, laporan penelaah, dan tanggapan](units/08-seminar-penelaah-tanggapan-kritik.qmd)
+9. [Kontribusi komunitas terbatas dan portofolio akhir](units/09-kontribusi-komunitas-portofolio.qmd)
+
+Setiap unit mempunyai hasil belajar, kasus matematika yang dikerjakan, latihan
+terbimbing, enam latihan, enam panduan jawaban, dan tugas penyelesaian. ID yang
+terlihat pada pembaca juga dipertahankan dalam ekspor backend agar versi bahasa
+lain tidak perlu direkonstruksi dari HTML.
+
+## Batas mata kuliah
+
+Pembaca ini menggunakan pemrograman dan komputasi sebagai prasyarat, tetapi
+tidak mengajarkan kembali sintaks Python, API paket, metode numerik, lingkungan,
+pengujian perangkat lunak, atau deployment. Materi tersebut berada dalam B80.
+O017 berfokus pada status klaim, pembuktian, sumber, provenance, eksposisi,
+errata, eksperimen versus pembuktian, kritik ilmiah, dan kontribusi terbatas.
+
+Penyelesaian dan publikasi edisi ini berdiri sendiri dari keputusan apakah akar
+kurikulum 40 mata kuliah akhirnya memilih corpus ini untuk peran D120.
+
+## Hak dan perangkat lunak yang dibundel
+
+Konten, kode, data faktual, donor metodologis, dan runtime HTML memiliki lisensi
+per komponen. Baca [peta lisensi
+lengkap](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/blob/main/LICENSES.md)
+dan [pemberitahuan perangkat lunak pihak
+ketiga](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/blob/main/THIRD_PARTY_NOTICES.md)
+yang ikut dalam pembaca luring ini.

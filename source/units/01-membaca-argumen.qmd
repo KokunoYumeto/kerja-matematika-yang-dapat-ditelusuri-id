@@ -1,0 +1,255 @@
+---
+title: "Unit 1 — Membaca Argumen sebagai Jejaring Klaim"
+subtitle: "Merekonstruksi langkah yang hilang dan menguji batas pengetahuan"
+description: "Unit praktik untuk membaca klaim, asumsi, pembuktian, dan bukti empiris secara terpisah serta dapat ditelusuri."
+---
+
+## Hasil belajar {#o017-u01-outcomes}
+
+Setelah menyelesaikan unit ini, Anda mampu:
+
+1. membedakan definisi, asumsi, klaim, ilustrasi, dan kesimpulan dalam teks
+   matematika;
+2. mengubah frasa seperti *jelas* atau *mengikuti argumen pertukaran* menjadi
+   kewajiban pembuktian yang eksplisit;
+3. merekonstruksi langkah yang dihilangkan tanpa memperkuat klaim secara tidak
+   sah;
+4. menguji peranan asumsi menggunakan contoh dan contoh tandingan;
+5. menggunakan komputasi sebagai bukti empiris diagnostik, bukan sebagai
+   pengganti pembuktian; dan
+6. mencatat sumber, keputusan interpretatif, serta ketidakpastian dalam memo
+   pembacaan yang dapat diaudit.
+
+::: {.callout-note title="Prasyarat"}
+Unit ini mengandaikan bahwa Anda sudah mengenal graf berhingga, lintasan,
+siklus, pohon, pembuktian kontradiksi, dan cara menjalankan skrip Python yang
+sudah tersedia. Sintaks Python dan algoritme pohon rentang minimum bukan materi
+unit ini.
+:::
+
+## Membaca bukan sekadar bergerak dari kiri ke kanan {#o017-u01-reading}
+
+Teks penelitian matematika sering memadatkan penalaran. Penulis dapat melewati
+langkah yang dianggap baku, menggunakan definisi dari bagian terdahulu, atau
+menyatakan bahwa hasil “langsung mengikuti” suatu teknik. Pembaca harus
+menentukan bukan hanya arti setiap kalimat, tetapi juga:
+
+- apa tepatnya yang diklaim;
+- dengan asumsi apa klaim itu berlaku;
+- hasil sebelumnya mana yang benar-benar dipakai;
+- langkah mana yang belum dibuktikan; dan
+- jenis dukungan apa yang diberikan untuk setiap kesimpulan.
+
+Gunakan lima label berikut dalam catatan pembacaan.
+
+| Label | Peran | Pertanyaan pemeriksa |
+|---|---|---|
+| **D** | definisi | Objek apa yang sedang ditentukan maknanya? |
+| **A** | asumsi | Syarat apa yang boleh digunakan? |
+| **K** | klaim | Pernyataan apa yang harus dibuktikan? |
+| **J** | justifikasi | Alasan apa yang benar-benar diberikan? |
+| **T** | tugas terbuka | Kewajiban pembuktian apa yang masih hilang? |
+
+Label ini bukan tata cara wajib. Fungsinya ialah membuat struktur epistemik
+sebuah teks terlihat dan dapat diperiksa orang lain.
+
+## Petikan sintetis {#o017-u01-synthetic-excerpt}
+
+Petikan berikut ditulis khusus untuk unit ini; petikan ini bukan kutipan atau
+terjemahan dari sumber lain.
+
+> Misalkan $G=(V,E)$ adalah graf terhubung berhingga dan
+> $w:E\to\mathbb{R}$ memberi bobot berbeda pada setiap sisi. Pohon rentang
+> minimum $G$ bersifat tunggal. Hal ini mengikuti dari argumen pertukaran yang
+> biasa.
+
+Sebelum mencoba membuktikannya, uraikan petikan tersebut.
+
+- []{#o017-u01-d01} **D1.** Pohon rentang adalah subgraf yang memuat semua simpul, terhubung, dan
+  tidak memiliki siklus.
+- []{#o017-u01-d02} **D2.** Bobot pohon rentang $T$ adalah
+  $$w(T)=\sum_{e\in E(T)}w(e).$$
+- []{#o017-u01-d03} **D3.** Pohon rentang minimum adalah pohon rentang dengan bobot sekecil
+  mungkin.
+- **A1.** Graf berhingga.
+- **A2.** Graf terhubung.
+- **A3.** Bobot semua sisi berbeda.
+- **K1.** Hanya ada satu pohon rentang minimum.
+- **J1.** “Argumen pertukaran yang biasa.”
+- **T1.** Menjelaskan objek yang dipertukarkan.
+- **T2.** Membuktikan bahwa hasil pertukaran masih berupa pohon rentang.
+- **T3.** Membuktikan bahwa pertukaran menghasilkan bobot lebih kecil.
+- **T4.** Menjelaskan letak kontradiksi.
+
+Masalah pembacaan sekarang terukur: kita harus menutup T1–T4.
+
+## Rekonstruksi pembuktian {#o017-u01-proof-reconstruction}
+
+::: {#thm-o017-u01-01 .theorem title="Ketunggalan pohon rentang minimum"}
+Misalkan $G=(V,E)$ adalah graf terhubung berhingga. Jika setiap dua sisi yang
+berbeda mempunyai bobot berbeda, maka $G$ mempunyai tepat satu pohon rentang
+minimum.
+:::
+
+::: {#prf-o017-u01-01 .proof}
+Karena $G$ berhingga dan terhubung, himpunan pohon rentangnya berhingga dan
+tidak kosong. Jadi setidaknya ada satu pohon rentang minimum.
+
+Andaikan terdapat dua pohon rentang minimum berbeda, $T$ dan $T'$. Selisih
+simetris $E(T)\mathbin{\triangle}E(T')$ tidak kosong. Pilih sisi $e$ dengan
+bobot paling kecil di antara seluruh sisi dalam selisih simetris itu. Setelah
+menukar nama $T$ dan $T'$ jika perlu, anggap
+$e\in E(T)\setminus E(T')$.
+
+Tambahkan $e$ kepada $T'$. Kedua ujung $e$ sebelumnya dihubungkan oleh tepat
+satu lintasan dalam $T'$, sehingga penambahan $e$ menghasilkan tepat satu
+siklus $C$.
+
+Siklus $C$ memuat suatu sisi $f\in E(T')\setminus E(T)$. Jika semua sisi
+$C\setminus\{e\}$ juga berada dalam $T$, sisi-sisi tersebut bersama $e$ akan
+membentuk siklus dalam $T$. Hal itu mustahil karena $T$ adalah pohon.
+
+Sisi $f$ berada dalam selisih simetris. Karena $e$ dipilih sebagai sisi
+berbobot paling kecil di seluruh selisih simetris dan semua bobot berbeda,
+$w(e)<w(f)$.
+
+Hapus $f$ dari siklus dan pertahankan $e$. Graf
+$$T''=T'-f+e$$
+tetap memuat semua simpul, terhubung, dan tidak memiliki siklus; jadi $T''$
+adalah pohon rentang. Namun,
+$$w(T'')=w(T')-w(f)+w(e)<w(T'),$$
+bertentangan dengan keminimuman $T'$. Jadi dua pohon rentang minimum berbeda
+tidak mungkin ada. Pohon rentang minimum tersebut tunggal. $\square$
+:::
+
+Langkah kuncinya bukan aljabar terakhir, melainkan menemukan $f$ dan
+membuktikan $f\notin T$. Itulah isi yang disembunyikan frasa “argumen
+pertukaran yang biasa.”
+
+## Mengaudit asumsi {#o017-u01-assumption-audit}
+
+Asumsi “semua bobot berbeda” cukup untuk menjamin ketunggalan, tetapi tidak
+diperlukan.
+
+::: {#o017-u01-example-01 .callout-tip title="Contoh: bobot berulang tetapi solusi tunggal"}
+Pada segitiga dengan bobot sisi $1,1,2$, pohon yang memakai kedua sisi
+berbobot $1$ adalah satu-satunya pohon rentang minimum.
+:::
+
+::: {#o017-u01-counterexample-01 .callout-warning title="Contoh tandingan terhadap ketunggalan tanpa syarat"}
+Pada segitiga dengan ketiga sisi berbobot $1$, setiap pilihan dua sisi
+menghasilkan pohon rentang berbobot $2$. Ada tiga pohon rentang minimum.
+:::
+
+Keterhubungan juga bukan hiasan. Graf tak terhubung tidak mempunyai pohon
+rentang menurut definisi di atas. Untuk graf seperti itu, objek yang sesuai
+adalah hutan rentang minimum—sebuah klaim berbeda.
+
+## Eksperimen dan pembuktian mempunyai pekerjaan berbeda {#o017-u01-computation}
+
+Skrip
+[`verify_mst_uniqueness.py`](../code/verify_mst_uniqueness.py) memeriksa semua
+$6!=720$ penetapan bobot berbeda $1,\ldots,6$ pada enam sisi $K_4$. Skrip juga
+menghitung pohon rentang minimum pada segitiga berbobot sama. Ia mengenumerasi
+pohon rentang secara langsung dan tidak memakai algoritme MST sebagai kotak
+hitam, sehingga pemeriksaannya tidak bergantung secara melingkar pada argumen
+yang sedang dikaji.
+
+Keluaran yang diharapkan adalah:
+
+```text
+k4_distinct_weight_assignments_checked: 720
+k4_uniqueness_violations: 0
+equal_weight_triangle_mst_count: 3
+```
+
+Eksperimen ini dapat menemukan contoh tandingan, mengungkap salah baca
+definisi, dan menghasilkan contoh konkret untuk membimbing pembuktian. Ia tidak
+membuktikan teorema: pemeriksaan hanya mencakup satu graf dan kasus berhingga,
+serta tetap bergantung pada kebenaran implementasi.
+
+::: {.callout-important title="Batas inferensi"}
+“Program tidak menemukan pelanggaran” dan “teorema telah dibuktikan” adalah
+dua klaim berbeda. Memo penelitian harus menyatakan yang pertama tanpa diam-diam
+mengubahnya menjadi yang kedua.
+:::
+
+## Praktik terpandu {#o017-u01-guided-practice}
+
+Baca kembali kalimat berikut:
+
+> Siklus $C$ memuat suatu sisi $f\in E(T')\setminus E(T)$.
+
+Jawab secara berurutan:
+
+1. Mengapa $C$ muncul setelah $e$ ditambahkan pada $T'$?
+2. Apa akibatnya jika semua sisi $C\setminus\{e\}$ berada dalam $T$?
+3. Sifat pohon mana yang akan dilanggar?
+4. Mengapa $f$ berada dalam selisih simetris?
+5. Mengapa diperoleh $w(e)<w(f)$, bukan hanya $w(e)\leq w(f)$?
+
+::: {.callout-note title="Pembahasan"}
+Dalam pohon terdapat tepat satu lintasan antara dua simpul. Sisi baru $e$
+menutup lintasan itu menjadi siklus. Jika seluruh lintasan tersebut juga berada
+dalam $T$, lintasan itu bersama $e$ menjadi siklus dalam $T$. Karena
+$f\in T'$ tetapi $f\notin T$, sisi itu berada dalam selisih simetris.
+Ketaksamaan menjadi tegas karena bobot semua sisi berbeda.
+:::
+
+## Latihan {#o017-u01-exercises}
+
+1. []{#o017-u01-x01} **O017-U01-X01.** Tandai D, A, K, J, dan T pada petikan sintetis.
+2. []{#o017-u01-x02} **O017-U01-X02.** Tulis ulang argumen dengan memilih sisi teringan hanya
+   dalam $T\setminus T'$. Tentukan apakah argumen masih sah.
+3. []{#o017-u01-x03} **O017-U01-X03.** Berikan graf dengan bobot yang tidak semuanya berbeda
+   tetapi mempunyai pohon rentang minimum tunggal.
+4. []{#o017-u01-x04} **O017-U01-X04.** Berikan contoh yang menunjukkan bahwa menghapus asumsi
+   keterhubungan membuat pernyataan asli salah sasaran.
+5. []{#o017-u01-x05} **O017-U01-X05.** Seorang pembaca menulis, “Program memeriksa semua
+   penetapan bobot berbeda pada $K_4$, jadi teorema terbukti.” Identifikasi dua
+   kesalahan epistemiknya.
+6. []{#o017-u01-x06} **O017-U01-X06.** Tulis memo pembacaan paling banyak 400 kata yang memuat
+   identitas klaim, definisi, satu langkah yang semula hilang, hasil
+   rekonstruksi, satu pengujian komputasional, batas pengujian, dan sumber yang
+   dirujuk.
+
+## Petunjuk dan panduan jawaban {#o017-u01-guidance}
+
+1. []{#o017-u01-h01} **O017-U01-H01.** Pohon rentang dan bobot pohon adalah definisi;
+   keberhinggaan, keterhubungan, dan bobot berbeda adalah asumsi; ketunggalan
+   adalah klaim; argumen pertukaran adalah justifikasi yang belum lengkap.
+2. []{#o017-u01-h02} **O017-U01-H02.** Belum tentu sah: sisi teringan dalam $T\setminus T'$
+   belum tentu lebih ringan daripada $f\in T'\setminus T$. Minimum pada seluruh
+   selisih simetris memberi perbandingan yang diperlukan.
+3. []{#o017-u01-h03} **O017-U01-H03.** Gunakan segitiga berbobot $1,1,2$.
+4. []{#o017-u01-h04} **O017-U01-H04.** Dua simpul tanpa sisi di antaranya sudah cukup; graf itu
+   tidak mempunyai pohon rentang.
+5. []{#o017-u01-h05} **O017-U01-H05.** Pemeriksaan hanya mencakup satu graf dan kasus berhingga;
+   keluarannya juga bergantung pada implementasi.
+6. []{#o017-u01-h06} **O017-U01-H06.** Memo dinilai dari keterlacakan setiap klaim, bukan dari
+   panjang atau gaya bahasa.
+
+## Tugas penyelesaian unit {#o017-u01-completion-task}
+
+Serahkan satu **memo rekonstruksi** yang memenuhi Latihan 6 dan lampirkan
+keluaran komputasi. Memo lulus jika:
+
+- klaim dan asumsi dinyatakan lengkap;
+- semua kewajiban pembuktian utama ditutup;
+- eksperimen dipisahkan secara eksplisit dari pembuktian;
+- satu batas atau contoh tandingan dianalisis; dan
+- asal setiap teks, data, serta kode dapat ditelusuri.
+
+## Provenance dan bacaan lanjutan {#o017-u01-provenance}
+
+Petikan sintetis, eksposisi, pembuktian, latihan, panduan jawaban, dan kode
+adalah materi asli O017. Teorema ketunggalan MST untuk bobot sisi berbeda adalah
+hasil klasik; presentasi ini tidak menyalin redaksi sumber tertentu. Artikel
+Kruskal merupakan rujukan sejarah algoritme pohon rentang minimum
+[@kruskal1956], bukan klaim bahwa redaksi pembuktian di atas berasal darinya.
+
+Untuk praktik reproduktibilitas dan rekayasa artefak penelitian yang lebih
+luas, lihat *The Turing Way* [@turingway2022] dan *Research Software Engineering
+with Python* [@irving2021]. Modul yang diadaptasi dari kedua karya itu baru akan
+masuk pada unit selanjutnya setelah identitas berkas dan hak komponennya
+dibekukan.

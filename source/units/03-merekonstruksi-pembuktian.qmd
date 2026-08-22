@@ -1,0 +1,786 @@
+---
+title: "Unit 3 — Merekonstruksi Pembuktian yang Diringkas atau Dihilangkan"
+subtitle: "Dari celah yang terdeteksi menuju argumen minimal yang dapat diaudit"
+description: "Unit praktik untuk membekukan target, mengaudit kuantor dan domain, menyusun graf ketergantungan, mengambil lemma yang tepat, serta menutup atau melaporkan celah pembuktian secara jujur."
+---
+
+## Hasil belajar {#o017-u03-outcomes}
+
+Unit ini mempunyai pengidentifikasi stabil **O017-U03**. Setelah
+menyelesaikannya, Anda mampu:
+
+1. membekukan klaim yang hendak direkonstruksi tanpa diam-diam menambah atau
+   mengurangi hipotesisnya;
+2. mengembangkan kuantor, domain, dan definisi yang menentukan bentuk sasaran
+   pembuktian;
+3. mengubah bagian pembuktian yang diringkas menjadi daftar kewajiban yang
+   mempunyai masukan dan keluaran jelas;
+4. menggambar graf ketergantungan antara sasaran, lemma, definisi, dan
+   hipotesis;
+5. mengambil lemma berdasarkan kontrak matematisnya, lalu memeriksa setiap
+   hipotesis lemma pada konteks yang sedang dibaca;
+6. mempertemukan perencanaan maju dari hipotesis dengan perencanaan mundur
+   dari kesimpulan;
+7. menulis rekonstruksi minimal yang memadai—cukup lengkap untuk diaudit, tetapi
+   tidak mengubah satu langkah menjadi buku teks baru; dan
+8. membedakan celah yang sudah ditutup, celah yang bersyarat pada rujukan, dan
+   celah yang tetap belum terselesaikan.
+
+::: {.callout-note title="Prasyarat dan batas fokus"}
+Unit 1 memperkenalkan rekonstruksi dengan memecah argumen menjadi definisi,
+asumsi, klaim, justifikasi, dan tugas terbuka. Unit 2 mengajarkan cara
+menetapkan sumber dan versi yang sedang dibaca. Unit 3 memperdalam praktik itu
+secara sistematis: tipe dan kuantor dibekukan, kewajiban disusun sebagai graf
+ketergantungan, lemma diambil melalui kontraknya, dan rincian diuji melalui
+audit minimalitas. Label D–A–K–J–T dan kasus pohon rentang minimum dari Unit 1
+tidak diajarkan kembali di sini.
+
+Pembaca diandaikan mengenal fungsi, himpunan, pracitra, ruang topologis,
+kekontinuan, dan definisi kompak melalui liputan terbuka. Semua petikan kasus
+merupakan materi sintetis unit ini.
+:::
+
+## Masalah rekonstruksi: bukan menebak maksud penulis {#o017-u03-reconstruction-problem}
+
+Perhatikan petikan sintetis berikut.
+
+> Misalkan $K$ kompak dan $f:X\to Y$ kontinu. Setiap liputan terbuka atas
+> $f[K]$ ditarik balik menjadi liputan terbuka atas $K$. Ambil subliputan
+> hingga; citranya memberi subliputan hingga atas $f[K]$. Jadi $f[K]$
+> kompak.
+
+Petikan itu mengarah pada teorema yang benar, tetapi beberapa kata kerjanya
+menyembunyikan pekerjaan:
+
+- apa arti “liputan terbuka atas $f[K]$” dan di ruang mana tiap himpunan
+  terbuka;
+- mengapa pracitra-pracitra tersebut terbuka;
+- mengapa pracitra-pracitra itu meliputi $K$, bukan harus meliputi seluruh
+  $X$;
+- indeks hingga mana yang dihasilkan kekompakan;
+- mengapa himpunan asal dengan **indeks yang sama** meliputi $f[K]$; dan
+- apa arti “citranya”, mengingat persamaan
+  $f[f^{-1}[V]]=V$ tidak benar untuk fungsi umum.
+
+Rekonstruksi bukan upaya menulis pembuktian yang kira-kira mungkin dimaksud.
+Rekonstruksi adalah penyusunan argumen yang setiap tambahannya dapat dijawab
+dengan dua pertanyaan: **mengapa langkah ini diperlukan**, dan **dari mana hak
+untuk memakainya berasal**. Jika jawaban kedua belum tersedia, langkah itu
+tetap dicatat sebagai celah; ia tidak boleh disulap menjadi hipotesis baru.
+
+## Protokol tujuh tahap {#o017-u03-seven-stage-protocol}
+
+Gunakan protokol berikut setiap kali sumber melompati satu baris maupun satu
+halaman pembuktian. Hasil tiap tahap menjadi masukan tahap berikutnya.
+
+### Tahap 1 — Bekukan klaim dan konteks {#o017-u03-stage-freeze}
+
+Salin atau parafrasakan secara setia:
+
+- klaim sasaran;
+- seluruh hipotesis yang berlaku, termasuk yang dinyatakan pada awal bagian;
+- definisi lokal dan konvensi notasi;
+- penunjuk lokasi awal dan akhir celah; dan
+- versi sumber yang sedang diperiksa.
+
+Pisahkan teks yang terlihat dari interpretasi pembaca. Misalnya, jika halaman
+menyatakan “$K$ kompak” tetapi tidak menyatakan “$K$ tak kosong”, jangan
+menambahkan ketak-kosongan hanya karena pembuktian yang terbayang ingin memilih
+sebuah titik di $K$.
+
+### Tahap 2 — Kembangkan kuantor, domain, dan definisi sasaran {#o017-u03-stage-quantifiers}
+
+Tuliskan tipe setiap objek dan kembangkan definisi **kesimpulan** lebih dahulu.
+Langkah ini menunjukkan bentuk saksi yang harus dibangun. Untuk membuktikan
+kekompakan, misalnya, pembaca tidak cukup mengatakan “ambil sebuah liputan”.
+Ia harus mengambil liputan terbuka yang sebarang dan menghasilkan himpunan
+indeks hingga yang masih meliputi objek yang tepat.
+
+Audit ini juga memeriksa pergeseran domain. Jika $f:X\to Y$ dan $V\subseteq Y$,
+maka $f^{-1}[V]\subseteq X$; ekspresi $f[V]$ bahkan tidak bertipe kecuali
+$V\subseteq X$. Banyak pembuktian ringkas gagal bukan karena gagasan besarnya
+salah, melainkan karena satu objek berpindah ruang tanpa izin.
+
+### Tahap 3 — Nyatakan kewajiban pembuktian {#o017-u03-stage-obligations}
+
+Ganti kata seperti *jelas*, *serupa*, *tarik balik*, atau *hasilnya mengikuti*
+dengan daftar bernomor. Satu kewajiban yang baik mempunyai:
+
+- masukan yang sudah tersedia;
+- keluaran yang diperlukan oleh langkah berikutnya; dan
+- kriteria selesai yang dapat diperiksa.
+
+“Jelaskan pracitra” terlalu kabur. “Untuk setiap $i$, buktikan
+$f^{-1}[V_i]$ terbuka di $X$” mempunyai keluaran yang tegas.
+
+### Tahap 4 — Susun graf ketergantungan {#o017-u03-stage-dependency-graph}
+
+Buat satu simpul untuk sasaran, setiap kewajiban, setiap hipotesis aktif, dan
+setiap lemma yang mungkin dipakai. Tarik panah dari masukan menuju kesimpulan
+yang bergantung padanya. Graf itu mencegah dua kesalahan:
+
+1. memakai sebuah kesimpulan sebelum simpul pendukungnya tertutup; dan
+2. membuktikan hasil menarik yang tidak mempunyai jalur menuju sasaran.
+
+Simpul daun harus berupa hipotesis, definisi, hasil yang sudah dibuktikan, atau
+rujukan yang dapat diambil kembali. “Teorema terkenal” bukan simpul daun yang
+dapat diaudit.
+
+### Tahap 5 — Ambil lemma melalui kontraknya {#o017-u03-stage-lemma-retrieval}
+
+Jangan mulai dari nama lemma saja. Tuliskan **kontrak** yang dibutuhkan:
+
+```text
+masukan + hipotesis  ──>  keluaran
+```
+
+Kemudian cocokkan lemma calon terhadap kontrak itu, kata demi kata. Catat
+pernyataan tepat, domain, semua hipotesis, dan penunjuk lokasinya. Buat tabel
+instansiasi yang menerangkan objek pada lemma menjadi objek apa dalam kasus
+sekarang. Sebuah lemma belum “diambil” bila namanya ditemukan tetapi salah satu
+hipotesisnya belum diperiksa.
+
+Jika hasil kecil dapat dibuktikan langsung dalam satu atau dua baris, pembuktian
+lokal sering lebih dapat diaudit daripada rujukan kabur. Jika hasilnya
+substantif, gunakan rujukan yang tepat; jangan menyalin kesimpulannya sambil
+menghilangkan syarat.
+
+### Tahap 6 — Rencanakan mundur dan maju {#o017-u03-stage-bidirectional-planning}
+
+Perencanaan **mundur** bertanya: agar kesimpulan berlaku, objek atau sifat apa
+yang harus tersedia tepat sebelumnya? Perencanaan **maju** bertanya: apa yang
+langsung dihasilkan hipotesis dan definisi? Rekonstruksi biasanya ditemukan
+pada titik pertemuan kedua arah itu.
+
+Rencana bukan pembuktian. Panah “kekompakan $K$ $\Rightarrow$ indeks hingga”
+baru sah setelah keluarga yang menjadi masukannya terbukti sebagai liputan
+terbuka atas $K$.
+
+### Tahap 7 — Tulis rekonstruksi minimal yang memadai dan audit sisanya {#o017-u03-stage-minimal-proof}
+
+Tulis pembuktian dalam urutan baca yang wajar. Setelah itu lakukan dua uji.
+
+- **Uji penghapusan:** jika sebuah kalimat dihapus, apakah satu panah penting
+  dalam graf kehilangan dasar? Jika tidak, kalimat itu mungkin tidak perlu.
+- **Uji celah:** apakah setiap panah yang tersisa berakhir pada definisi,
+  hipotesis, pembuktian lokal, atau lemma dengan kontrak yang cocok?
+
+Catat status setiap celah sebagai `tertutup`, `bersyarat`, `belum dipastikan`,
+atau `ditolak`. Kata “minimal” tidak berarti sesingkat mungkin. Ia berarti tidak
+ada kewajiban penting yang disembunyikan dan tidak ada teori tambahan yang
+dibawa masuk tanpa fungsi.
+
+## Lembar kerja rekonstruksi {#o017-u03-reconstruction-sheet}
+
+Satu lembar berikut biasanya cukup untuk menahan seluruh proses.
+
+::: {.o017-table-scroll aria-label="Lembar kerja rekonstruksi pembuktian" tabindex="0"}
+| Bidang | Isi yang dapat diaudit |
+|---|---|
+| Klaim beku | pernyataan, hipotesis, dan konteks yang benar-benar tersedia |
+| Kamus objek | simbol, domain, dan hubungan inklusi atau pemetaan |
+| Bentuk sasaran | definisi kesimpulan dengan kuantor eksplisit |
+| Kewajiban | daftar keluaran kecil yang harus dibangun |
+| Graf | panah ketergantungan dan simpul daun |
+| Kontrak lemma | masukan, hipotesis, keluaran, penunjuk, instansiasi |
+| Rencana dua arah | jalur maju, jalur mundur, dan titik temu |
+| Rekonstruksi | pembuktian berurutan yang menutup graf |
+| Daftar celah | status, dasar status, dan tindakan yang masih diperlukan |
+| Batas klaim | hal yang sengaja tidak disimpulkan |
+:::
+
+Lembar itu merupakan catatan kerja logis, bukan buku catatan provenance lengkap
+yang menjadi fokus Unit 4. Namun, suatu lemma yang diambil dari sumber tetap
+memerlukan identitas versi dan penunjuk secukupnya agar dapat diperiksa.
+
+## Kasus kerja: citra kontinu dari himpunan kompak {#o017-u03-worked-case}
+
+Kita sekarang menjalankan ketujuh tahap pada petikan awal. Kasus ini sengaja
+memakai definisi liputan terbuka, bukan kriteria barisan, Heine–Borel, atau
+teorema nilai ekstrem. Dengan demikian, setiap perpindahan kuantor dan domain
+terlihat.
+
+### Membekukan pernyataan {#o017-u03-frozen-statement}
+
+::: {#thm-o017-u03-compact-image .theorem title="Citra kontinu dari himpunan kompak"}
+Misalkan $X$ dan $Y$ ruang topologis, $K\subseteq X$ kompak, dan
+$f:X\to Y$ kontinu. Maka citra
+
+$$
+f[K]=\{f(x):x\in K\}
+$$
+
+kompak di $Y$.
+:::
+
+Pernyataan beku ini tidak mengasumsikan $K$ tak kosong, $f$ injektif, $f$
+surjektif ke $Y$, atau $Y$ Hausdorff. Rekonstruksi yang memakai salah satu dari
+keempat sifat itu akan memperkuat sumber tanpa izin.
+
+Untuk unit ini, “$K$ kompak di $X$” berarti: untuk setiap keluarga
+$(U_i)_{i\in I}$ yang terdiri atas himpunan terbuka di $X$ dan memenuhi
+$K\subseteq\bigcup_{i\in I}U_i$, terdapat $F\subseteq I$ hingga sehingga
+$K\subseteq\bigcup_{i\in F}U_i$. Definisi ini setara dengan kekompakan $K$
+dalam topologi subruang, tetapi kesetaraan tersebut tidak diperlukan dalam
+rekonstruksi ini.
+
+### Audit kuantor dan domain {#o017-u03-quantifier-domain-audit}
+
+Kesimpulan “$f[K]$ kompak di $Y$” dikembangkan menjadi:
+
+::: {.o017-math-scroll aria-label="Kuantor eksplisit untuk kekompakan citra" tabindex="0"}
+$$
+\begin{aligned}
+&\text{untuk setiap himpunan indeks }I\text{ dan keluarga }(V_i)_{i\in I},\\
+&\left[\bigl(\forall i\in I,\;V_i\text{ terbuka di }Y\bigr)
+\land f[K]\subseteq\bigcup_{i\in I}V_i\right]\\
+&\qquad\Longrightarrow
+\left[\exists F\subseteq I,\;F\text{ hingga dan }
+f[K]\subseteq\bigcup_{i\in F}V_i\right].
+\end{aligned}
+$$
+:::
+
+Kamus objeknya adalah sebagai berikut.
+
+::: {.o017-table-scroll aria-label="Kamus objek pembuktian citra kompak" tabindex="0"}
+| Simbol | Domain atau tipe | Peran |
+|---|---|---|
+| $x$ | anggota $X$, kemudian dibatasi ke $K$ | saksi pada sisi domain |
+| $y$ | anggota $Y$, kemudian dibatasi ke $f[K]$ | elemen yang harus diliputi |
+| $i$ | anggota himpunan indeks sebarang $I$ | menunjuk anggota liputan |
+| $V_i$ | himpunan terbuka di $Y$ | anggota liputan awal |
+| $U_i=f^{-1}[V_i]$ | himpunan bagian $X$ | calon anggota liputan tarik-balik |
+| $F$ | himpunan bagian hingga dari $I$ | saksi subliputan hingga |
+:::
+
+Urutan kuantornya penting. Keluarga $(V_i)$ dipilih sebarang terlebih dahulu;
+barulah $F$ boleh bergantung pada keluarga itu. Memilih satu $F$ sebelum
+liputan diketahui akan membuktikan pernyataan yang jauh lebih kuat dan biasanya
+salah.
+
+### Daftar kewajiban {#o017-u03-obligations}
+
+Dari petikan ringkas diperoleh lima kewajiban.
+
+1. **P1 — Keterbukaan.** Untuk setiap $i\in I$, buktikan
+   $U_i=f^{-1}[V_i]$ terbuka di $X$.
+2. **P2 — Peliputan balik.** Buktikan
+   $K\subseteq\bigcup_{i\in I}U_i$.
+3. **P3 — Pemakaian kekompakan.** Dari P1 dan P2, hasilkan
+   $F\subseteq I$ hingga dengan
+   $K\subseteq\bigcup_{i\in F}U_i$.
+4. **P4 — Peliputan maju.** Dengan indeks $F$ yang sama, buktikan
+   $f[K]\subseteq\bigcup_{i\in F}V_i$.
+5. **P5 — Penutupan kuantor.** Karena liputan awal sebarang, simpulkan bahwa
+   setiap liputan terbuka atas $f[K]$ memiliki subliputan hingga.
+
+P1 dan P2 berbeda: keluarga dapat terdiri atas himpunan terbuka tanpa meliputi
+$K$, atau meliputi $K$ tanpa terdiri atas himpunan terbuka. Kekompakan baru
+boleh dipakai setelah kedua sifat itu tersedia.
+
+### Graf ketergantungan {#o017-u03-compact-image-graph}
+
+Graf berikut dibaca dari kiri ke kanan. Tanda kurung siku menunjukkan simpul
+yang harus mempunyai dasar mandiri.
+
+```text
+[D1: U_i := f^{-1}[V_i]]
+[V_i terbuka di Y] + [f kontinu] + D1
+    └─> P1: U_i terbuka di X ───────────────────────────────┐
+                                                           │
+[V_i meliputi f[K]] + [definisi f[K]] +                    │
+[D2: x ∈ U_i ⇔ f(x) ∈ V_i] + D1                            │
+    └─> P2: keluarga U_i meliputi K ───────────────────────┤
+                                                           v
+[K kompak] + P1 + P2 ──> P3: ada F ⊆ I hingga             │
+                                                           v
+P3 + [definisi f[K]] + D1 + D2                             │
+    └─> P4: keluarga V_i, i ∈ F, meliputi f[K]             │
+                                                           │
+[liputan awal sebarang] + P4 ──> P5: f[K] kompak <─────────┘
+```
+
+Graf tersebut juga menunjukkan apa yang **tidak** diperlukan: keterbatasan
+$K$, ketertutupan $K$, sifat Hausdorff $Y$, atau keberadaan nilai maksimum.
+Tidak satu pun mempunyai jalur yang perlu menuju P5.
+
+### Kontrak hasil yang benar-benar diperlukan {#o017-u03-needed-lemmas}
+
+Rekonstruksi ini memerlukan satu klausa definisi dan dua mikrolemma. Tidak ada
+teorema besar yang perlu diambil.
+
+::: {.o017-table-scroll aria-label="Kontrak mikrolemma pembuktian citra kompak" tabindex="0"}
+| ID kerja | Kontrak | Dasar dan cara menutupnya |
+|---|---|---|
+| C1 | $f$ kontinu + $V$ terbuka di $Y$ $\Rightarrow f^{-1}[V]$ terbuka di $X$ | klausa definisi kekontinuan |
+| L1 | $f[K]\subseteq\bigcup_{i\in I}V_i$ $\Rightarrow K\subseteq\bigcup_{i\in I}f^{-1}[V_i]$ | buktikan secara elementer dengan mengambil $x\in K$ |
+| L2 | $K\subseteq\bigcup_{i\in F}f^{-1}[V_i]$ $\Rightarrow f[K]\subseteq\bigcup_{i\in F}V_i$ | buktikan secara elementer dengan mengambil $y\in f[K]$ dan saksi $x\in K$ |
+:::
+
+Untuk C1, instansiasinya ialah $V\mapsto V_i$ untuk setiap $i\in I$. L1 dan L2
+tidak memerlukan injektivitas atau surjektivitas. Keduanya sengaja dibuktikan
+lokal di bawah, sebab pembuktian elementernya lebih pendek dan lebih jelas
+daripada rujukan ke “sifat citra dan pracitra” yang tidak berpenunjuk.
+
+Identitas
+
+$$
+f^{-1}\!\left[\bigcup_{i\in I}V_i\right]
+=\bigcup_{i\in I}f^{-1}[V_i]
+$$
+
+dapat menggantikan pembuktian elementer L1, tetapi tidak wajib. Jika identitas
+itu diambil sebagai lemma, kontraknya dan domain $V_i\subseteq Y$ tetap harus
+diperiksa.
+
+### Perencanaan dua arah {#o017-u03-two-way-plan}
+
+Rencana mundur dimulai dari sasaran:
+
+```text
+f[K] kompak
+< perlu: setiap liputan terbuka f[K] mempunyai subliputan hingga
+< perlu: satu F hingga yang masih meliputi f[K]
+< calon penghasil F: kekompakan K
+< perlu: liputan terbuka atas K dengan indeks I yang sama
+```
+
+Rencana maju dimulai dari data:
+
+```text
+V_i terbuka + f kontinu
+> f^{-1}[V_i] terbuka
+
+V_i meliputi f[K] + x ∈ K
+> f(x) ∈ salah satu V_i
+> x ∈ salah satu f^{-1}[V_i]
+> keluarga pracitra meliputi K
+
+liputan terbuka K + K kompak
+> ada F hingga
+```
+
+Titik temu kedua rencana ialah kalimat: “keluarga
+$(f^{-1}[V_i])_{i\in I}$ merupakan liputan terbuka atas $K$.” Setelah titik
+itu, kekompakan menghasilkan $F$; L2 mengangkut $F$ kembali ke sasaran.
+
+### Rekonstruksi lengkap {#o017-u03-complete-reconstruction}
+
+::: {#prf-o017-u03-compact-image .proof}
+Ambil himpunan indeks $I$ dan keluarga sebarang $(V_i)_{i\in I}$ dari
+himpunan-himpunan terbuka di $Y$ yang meliputi $f[K]$:
+
+$$
+f[K]\subseteq\bigcup_{i\in I}V_i.
+$$
+
+Untuk setiap $i\in I$, tetapkan $U_i=f^{-1}[V_i]$. Karena $f$ kontinu dan
+$V_i$ terbuka di $Y$, himpunan $U_i$ terbuka di $X$.
+
+Keluarga $(U_i)_{i\in I}$ meliputi $K$. Memang, jika $x\in K$, maka
+$f(x)\in f[K]$. Karena $(V_i)_{i\in I}$ meliputi $f[K]$, terdapat $i\in I$
+sehingga $f(x)\in V_i$. Menurut definisi pracitra, $x\in f^{-1}[V_i]=U_i$.
+
+Kekompakan $K$ sekarang berlaku pada liputan terbuka tersebut. Jadi terdapat
+$F\subseteq I$ hingga sehingga
+
+$$
+K\subseteq\bigcup_{i\in F}U_i
+=\bigcup_{i\in F}f^{-1}[V_i].
+$$
+
+Keluarga $(V_i)_{i\in F}$ meliputi $f[K]$. Untuk melihatnya, ambil
+$y\in f[K]$. Menurut definisi citra, ada $x\in K$ dengan $y=f(x)$. Karena
+keluarga berindeks $F$ meliputi $K$, terdapat $i\in F$ sehingga
+$x\in f^{-1}[V_i]$. Maka $y=f(x)\in V_i$.
+
+Dengan demikian, dari setiap liputan terbuka sebarang atas $f[K]$ telah
+diperoleh subliputan hingga. Jadi $f[K]$ kompak di $Y$. $\square$
+:::
+
+Pembuktian tetap berlaku ketika $K=\varnothing$. Pada paragraf terakhir,
+kalimat “ambil $y\in f[K]$” berada di dalam pembuktian implikasi universal;
+tidak ada $y$ yang harus dipilih jika $f[K]$ kosong. Kita tidak perlu
+menambahkan hipotesis ketak-kosongan.
+
+### Mengapa rekonstruksi ini minimal tetapi memadai {#o017-u03-minimality-audit}
+
+::: {.o017-table-scroll aria-label="Audit minimalitas rekonstruksi citra kompak" tabindex="0"}
+| Bagian | Panah yang ditutup | Akibat jika dihapus |
+|---|---|---|
+| liputan awal dipilih sebarang | membuka kuantor definisi kompak | pembuktian hanya menangani satu liputan tertentu |
+| kekontinuan memberi keterbukaan pracitra | P1 | kekompakan $K$ diterapkan pada keluarga yang belum terbukti terbuka |
+| argumen dengan $x\in K$ | P2/L1 | belum terbukti bahwa pracitra meliputi $K$ |
+| pemakaian kekompakan | P3 | tidak ada saksi $F$ yang hingga |
+| argumen dengan $y\in f[K]$ | P4/L2 | belum terbukti indeks yang sama meliputi citra |
+| penutupan “setiap liputan” | P5 | kesimpulan kompak belum mengikuti secara eksplisit |
+:::
+
+Sebaliknya, pembuktian tidak perlu membuktikan teorema Heine–Borel, tidak perlu
+mengganti liputan dengan barisan, dan tidak perlu menunjukkan bahwa $f[K]$
+tertutup. Menambahkan semua itu memperpanjang teks tanpa menutup panah baru
+dalam graf.
+
+## Jalan pintas yang tidak sah {#o017-u03-invalid-shortcuts}
+
+### Liputan citra bukan liputan seluruh kodomain atau domain {#o017-u03-cover-scope-error}
+
+Dari
+$f[K]\subseteq\bigcup_{i\in I}V_i$ tidak mengikuti bahwa
+$Y=\bigcup_{i\in I}V_i$. Karena itu juga tidak mengikuti bahwa pracitra
+meliputi seluruh $X$.
+
+Ambil $X=Y=\mathbb{R}$, $K=\{0\}$, dan $f$ fungsi identitas. Satu himpunan
+$V=(-1,1)$ meliputi $f[K]$, tetapi $V$ tidak meliputi $Y$ dan
+$f^{-1}[V]=(-1,1)$ tidak meliputi $X$. Yang diperlukan pembuktian hanyalah
+bahwa pracitra meliputi $K$; menuntut liputan atas $X$ akan menciptakan
+kewajiban palsu.
+
+### Citra pracitra tidak selalu mengembalikan himpunan asal {#o017-u03-image-preimage-error}
+
+Untuk fungsi umum, identitas yang benar adalah
+
+$$
+f[f^{-1}[V]]=V\cap f[X],
+$$
+
+bukan $f[f^{-1}[V]]=V$. Jika $f:\mathbb{R}\to\mathbb{R}$ diberikan oleh
+$f(x)=0$ dan $V=(-1,1)$, maka
+$f[f^{-1}[V]]=\{0\}\neq V$.
+
+Dalam rekonstruksi utama, kita tidak perlu menyamakan kedua himpunan. Kita
+hanya memakai implikasi
+$x\in f^{-1}[V_i]\Rightarrow f(x)\in V_i$ untuk sebuah saksi
+$x\in K$. Inilah sebab frasa ringkas “citranya memberi subliputan” perlu
+diganti dengan argumen elementer L2.
+
+### Keterbukaan tidak berpindah tanpa memeriksa ruang {#o017-u03-openness-domain-error}
+
+Jika $V_i$ terbuka di $Y$, kekontinuan menjadikan $f^{-1}[V_i]$ terbuka di
+$X$; ia tidak mengatakan bahwa $V_i$ terbuka di $X$. Jika fungsi yang tersedia
+hanya $f|_K:K\to Y$, pracitranya terbuka di **subruang $K$**, bukan otomatis
+di $X$. Versi teorema itu tetap dapat dibuktikan dengan definisi kekompakan
+subruang, tetapi kontrak dan domainnya berbeda. Rekonstruksi harus mengikuti
+versi yang benar-benar dinyatakan sumber.
+
+## Menguji hipotesis dengan contoh tandingan {#o017-u03-assumption-stress-tests}
+
+Contoh tandingan tidak menggantikan rekonstruksi. Ia menguji apakah hipotesis
+yang dipakai dalam graf memang menjalankan pekerjaan yang diklaim.
+
+### Tanpa kekompakan domain {#o017-u03-counterexample-noncompact}
+
+Fungsi inklusi
+
+$$
+j:(0,1)\hookrightarrow\mathbb{R},\qquad j(x)=x,
+$$
+
+kontinu, tetapi citranya $(0,1)$ tidak kompak. Keluarga
+
+$$
+U_n=(1/n,1),\qquad n\geq2,
+$$
+
+meliputi $(0,1)$. Subkeluarga kosong jelas tidak meliputi $(0,1)$. Setiap
+subkeluarga hingga tak kosong termuat dalam satu $(1/N,1)$ untuk indeks terbesar
+$N$ yang dipilih dan karena itu melewatkan, misalnya, $1/(2N)$. Jadi tidak ada
+subliputan hingga. Contoh ini memutus panah
+P1+P2 menuju P3: tanpa kekompakan, liputan terbuka tidak menghasilkan $F$.
+
+### Tanpa kekontinuan {#o017-u03-counterexample-discontinuous}
+
+Ambil
+
+$$
+K=\{0\}\cup\{1/n:n\in\mathbb{N},\ n\geq1\}\subseteq\mathbb{R}.
+$$
+
+Himpunan $K$ kompak menurut definisi liputan terbuka. Untuk setiap liputan,
+pilih satu anggota yang memuat $0$. Karena anggota itu terbuka, ia memuat
+$1/n$ untuk semua $n$ yang cukup besar; hanya tersisa berhingga banyak titik,
+dan dari liputan semula dapat dipilih satu anggota untuk tiap titik yang
+tersisa.
+
+Definisikan $g:K\to\mathbb{R}$ dengan $g(0)=0$ dan $g(1/n)=n$. Fungsi ini
+tidak kontinu di $0$: pracitra
+$g^{-1}[(-1/2,1/2)]=\{0\}$ tidak terbuka di $K$, sebab setiap lingkungan
+$0$ dalam $K$ memuat $1/n$ untuk $n$ yang cukup besar. Selain itu,
+
+$$
+g[K]=\{0,1,2,3,\ldots\}
+$$
+
+tidak kompak. Keluarga $W_m=(-1,m)$, $m\geq1$, meliputi $g[K]$ tetapi setiap
+subkeluarga hingga melewatkan semua bilangan bulat yang cukup besar. Di sini
+kegagalan kekontinuan memutus P1: pracitra dari anggota liputan tidak dijamin
+terbuka.
+
+Kedua contoh ini juga mencegah rekonstruksi yang diam-diam membuang salah satu
+hipotesis hanya karena pembuktian ringkas tidak menyebutkannya lagi.
+
+## Mengambil lemma dan menolak hipotesis tersembunyi {#o017-u03-lemma-audit}
+
+Nama sebuah hasil sering lebih luas daripada kontrak yang sebenarnya. Misalkan
+setelah teorema utama sebuah sumber menambahkan:
+
+> Karena $f[K]$ kompak, $f[K]$ tertutup di $Y$.
+
+Hasil calon yang lazim diingat pembaca mempunyai kontrak:
+
+::: {.o017-math-scroll aria-label="Kontrak lemma himpunan kompak dalam ruang Hausdorff" tabindex="0"}
+$$
+\bigl(Y\text{ Hausdorff}\bigr)
+\land\bigl(C\subseteq Y\bigr)
+\land\bigl(C\text{ kompak}\bigr)
+\quad\Longrightarrow\quad C\text{ tertutup di }Y.
+$$
+:::
+
+Kontrak itu dapat dibuktikan secara lokal. Jika $C=\varnothing$, kesimpulannya
+langsung. Jika $C\neq\varnothing$, ambil $y\in Y\setminus C$. Untuk setiap
+$x\in C$, sifat Hausdorff memberi himpunan terbuka saling lepas $U_x$ dan
+$V_x$ dengan $x\in U_x$ dan $y\in V_x$. Keluarga $(U_x)_{x\in C}$ meliputi
+$C$; karena $C$ kompak, ada $x_1,\ldots,x_n\in C$ sehingga
+$C\subseteq U_{x_1}\cup\cdots\cup U_{x_n}$. Himpunan
+$V=V_{x_1}\cap\cdots\cap V_{x_n}$ terbuka, memuat $y$, dan terpisah dari
+$U_{x_1}\cup\cdots\cup U_{x_n}$, sehingga $V\subseteq Y\setminus C$.
+Jadi setiap titik di $Y\setminus C$ mempunyai lingkungan yang termuat di
+$Y\setminus C$; komplemen $C$ terbuka dan $C$ tertutup.
+
+Tabel instansiasinya harus berbentuk berikut.
+
+::: {.o017-table-scroll aria-label="Instansiasi lemma kompak menjadi tertutup" tabindex="0"}
+| Variabel lemma | Instansiasi | Status hipotesis |
+|---|---|---|
+| ruang induk $Y$ | $Y$ pada teorema utama | tersedia sebagai ruang topologis |
+| $Y$ Hausdorff | tidak ada padanan pada pernyataan beku | **belum tersedia** |
+| himpunan $C$ | $f[K]$ | tersedia |
+| $C$ kompak | hasil rekonstruksi utama | tersedia |
+| kesimpulan $C$ tertutup | $f[K]$ tertutup di $Y$ | sasaran tambahan |
+:::
+
+Kontrak tidak cocok karena syarat Hausdorff tidak tersedia. Hal ini bukan
+sekadar kehati-hatian formal; kesimpulan tambahan memang salah secara umum.
+
+Ambil ruang Sierpiński
+$Y=\{0,1\}$ dengan topologi
+$\{\varnothing,\{1\},Y\}$. Misalkan $X=K=\{*\}$ dengan topologi satu titik
+dan $f:K\to Y$ diberikan oleh $f(*)=1$. Himpunan $K$ kompak. Fungsi $f$
+kontinu karena pracitra ketiga himpunan terbuka di $Y$ masing-masing adalah
+$\varnothing$ atau $K$, yang terbuka di $K$. Citranya $\{1\}$ juga kompak,
+tetapi tidak tertutup di $Y$, sebab komplemennya $\{0\}$ tidak terbuka.
+
+Jika halaman terdahulu sumber mungkin menetapkan bahwa semua ruang Hausdorff,
+catatan yang jujur bukan “tentu diasumsikan Hausdorff”, melainkan:
+
+::: {.o017-table-scroll aria-label="Daftar celah hipotesis Hausdorff" tabindex="0"}
+| ID celah | Klaim | Status | Dasar | Tindakan |
+|---|---|---|---|---|
+| G-H | $Y$ Hausdorff berlaku dalam konteks | belum dipastikan | tidak ada pada petikan yang dibekukan | periksa konteks dan versi sumber |
+| G-C | $f[K]$ tertutup di $Y$ | ditolak sebagai klaim mandiri; bersyarat pada G-H | kontrak lemma dan contoh Sierpiński | tambahkan syarat hanya jika sumber mendukung |
+:::
+
+Ada tiga hasil yang mungkin dari pengambilan lemma:
+
+1. seluruh hipotesis cocok, sehingga simpul dapat ditutup;
+2. hipotesis belum dapat ditemukan, sehingga simpul tetap terbuka; atau
+3. hipotesis bertentangan dengan konteks atau ada contoh tandingan, sehingga
+   jalur itu ditolak.
+
+Hanya hasil pertama yang memberi izin untuk melanjutkan seolah-olah lemma telah
+diterapkan.
+
+## Menetapkan rincian minimal yang memadai {#o017-u03-detail-level}
+
+Tingkat rincian bergantung pada apa yang sudah tersedia bagi pembaca sasaran,
+bukan pada selera penulis rekonstruksi. Gunakan urutan keputusan berikut.
+
+1. Jika langkah itu definisional tetapi memindahkan kuantor atau domain,
+   tuliskan instansiasinya. Pada kasus utama, C1 perlu ditulis karena ia
+   menghasilkan keterbukaan di ruang yang tepat.
+2. Jika langkah itu mikrolemma yang membentuk jembatan utama, buktikan secara
+   elementer. L1 dan L2 masing-masing hanya memerlukan satu saksi.
+3. Jika lemma substantif sudah tersedia dalam sumber yang sama, sitasi nomor
+   hasil dan periksa hipotesisnya; jangan salin seluruh pembuktiannya.
+4. Jika lemma substantif belum tersedia, ambil sumber yang dapat ditelusuri
+   atau tandai celah. Jangan mengisi kekosongan dengan nama teorema tanpa
+   kontrak.
+5. Jika suatu paragraf tidak mendukung jalur mana pun dalam graf, pindahkan ke
+   catatan tambahan atau hapus dari rekonstruksi inti.
+
+Rekonstruksi minimal juga mempertahankan **kekuatan tepat** dari klaim sumber.
+Teorema utama membuktikan kekompakan $f[K]$; ia tidak membuktikan bahwa
+$f[K]$ tertutup, terbatas, atau mempunyai titik maksimum dalam setiap
+kodomain. Kesimpulan-kesimpulan itu memerlukan struktur dan lemma tambahan.
+
+::: {.callout-important title="Aturan berhenti rekonstruksi"}
+Berhenti ketika semua jalur menuju klaim beku telah tertutup dan setiap celah
+lain sudah diberi status. Jangan memperluas pekerjaan untuk membuktikan semua
+hasil yang berdekatan. Sebaliknya, jangan menyatakan selesai hanya karena
+gagasan besar tampak benar jika satu panah domain, kuantor, atau hipotesis masih
+tanpa dasar.
+:::
+
+## Praktik audit singkat {#o017-u03-short-audit}
+
+Seorang pembaca menawarkan rekonstruksi berikut untuk petikan utama:
+
+> Ambil liputan $(V_i)$ atas $f[K]$. Karena $f$ kontinu, setiap $f[V_i]$
+> terbuka di $Y$. Himpunan-himpunan ini meliputi $K$. Kekompakan $Y$ memberi
+> beberapa indeks hingga, jadi selesai.
+
+Audit tipe langsung menemukan tiga kerusakan sebelum kita menilai gagasan
+besarnya.
+
+- $V_i\subseteq Y$, sedangkan domain $f$ adalah $X$; $f[V_i]$ tidak bertipe
+  secara umum. Objek yang diperlukan ialah $f^{-1}[V_i]\subseteq X$.
+- Keluarga pracitra harus dibuktikan meliputi $K$, bukan dinyatakan begitu
+  saja.
+- Hipotesis kompak dimiliki $K$, bukan $Y$.
+
+Setelah perbaikan itu, masih diperlukan langkah mengangkut subliputan hingga
+kembali ke $f[K]$. Menemukan tiga kesalahan pertama belum dengan sendirinya
+menutup P4.
+
+## Latihan {#o017-u03-exercises}
+
+1. **[O017-U03-X01]{#o017-u03-x01} — Audit kuantor.** Tulis bentuk berkuantor
+   dari “$f[K]$ kompak” dan jelaskan mengapa himpunan indeks hingga $F$ boleh
+   bergantung pada liputan $(V_i)_{i\in I}$, tetapi tidak sebaliknya.
+2. **[O017-U03-X02]{#o017-u03-x02} — Graf ketergantungan.** Tanpa melihat
+   graf kasus kerja, susun graf minimal dari liputan terbuka atas
+   $f[K]$ sampai kesimpulan kompak. Tandai mana yang ditutup oleh definisi,
+   kekontinuan, kekompakan, L1, dan L2.
+3. **[O017-U03-X03]{#o017-u03-x03} — Jalan pintas salah.** Berikan contoh
+   konkret yang menyangkal $f[f^{-1}[V]]=V$. Nyatakan identitas yang benar dan
+   jelaskan mengapa pembuktian utama hanya memerlukan satu arah implikasi.
+4. **[O017-U03-X04]{#o017-u03-x04} — Uji hipotesis.** Bangun atau jelaskan
+   satu contoh ketika domain tidak kompak dan satu contoh ketika fungsi tidak
+   kontinu sehingga citranya tidak kompak. Hubungkan tiap kegagalan dengan
+   simpul pada graf.
+5. **[O017-U03-X05]{#o017-u03-x05} — Kontrak lemma.** Audit kalimat “$f[K]$
+   kompak, maka $f[K]$ tertutup di $Y$.” Tuliskan kontrak lemma yang dibutuhkan,
+   hipotesis yang hilang, dan status celah yang jujur bila konteks terdahulu
+   belum dapat diperiksa.
+6. **[O017-U03-X06]{#o017-u03-x06} — Perbaikan minimal.** Perbaiki petikan
+   pada bagian Praktik audit singkat. Buat tabel tiga kolom berisi fragmen
+   rusak, jenis kerusakan, dan pengganti minimal; lalu tambahkan langkah P4 yang
+   semula hilang.
+
+## Petunjuk dan panduan jawaban {#o017-u03-guidance}
+
+1. **[O017-U03-H01]{#o017-u03-h01}.** Urutannya ialah: untuk setiap $I$ dan
+   setiap keluarga terbuka $(V_i)_{i\in I}$ yang meliputi $f[K]$, terdapat
+   $F\subseteq I$ hingga yang masih meliputi $f[K]$. Karena $F$ adalah saksi
+   untuk liputan yang dipilih, ia berada setelah kuantor keluarga.
+2. **[O017-U03-H02]{#o017-u03-h02}.** Jalur minimalnya adalah liputan awal
+   $\to$ pracitra terbuka (kekontinuan) dan pracitra meliputi $K$ (L1)
+   $\to$ indeks hingga (kekompakan $K$) $\to$ indeks yang sama meliputi
+   $f[K]$ (L2) $\to$ definisi kompak.
+3. **[O017-U03-H03]{#o017-u03-h03}.** Gunakan fungsi konstan
+   $f:\mathbb{R}\to\mathbb{R}$, $f(x)=0$, dan $V=(-1,1)$. Identitas yang benar
+   ialah $f[f^{-1}[V]]=V\cap f[X]$. P4 hanya memakai
+   $x\in f^{-1}[V]\Rightarrow f(x)\in V$.
+4. **[O017-U03-H04]{#o017-u03-h04}.** Inklusi $j:(0,1)\hookrightarrow\mathbb{R}$
+   memutus langkah
+   dari liputan terbuka menuju subliputan hingga. Fungsi
+   $g(0)=0$, $g(1/n)=n$ pada $\{0\}\cup\{1/n\}$ memutus langkah yang menjamin
+   keterbukaan pracitra.
+5. **[O017-U03-H05]{#o017-u03-h05}.** Kontrak yang sah memerlukan $Y$
+   Hausdorff dan $f[K]$ kompak. Tanpa dasar bahwa $Y$ Hausdorff, penerapan
+   bersifat `belum dipastikan`; sebagai klaim mandiri ia ditolak oleh contoh
+   Sierpiński. Jangan menambahkan Hausdorff ke pernyataan beku.
+6. **[O017-U03-H06]{#o017-u03-h06}.** Ganti $f[V_i]$ dengan
+   $f^{-1}[V_i]$, buktikan keluarga itu meliputi $K$, dan terapkan kekompakan
+   $K$, bukan $Y$. Untuk P4, ambil $y\in f[K]$, pilih $x\in K$ dengan
+   $y=f(x)$, lalu gunakan keanggotaan $x$ dalam salah satu pracitra berindeks
+   hingga.
+
+## Tugas penyelesaian unit {#o017-u03-completion-task}
+
+Rekonstruksi petikan sintetis berikut sebagai **dosier pembuktian**.
+
+> Jika $K$ kompak dan $F$ tertutup di $K$, maka $F$ kompak. Memang, tambahkan
+> komplemen $F$ pada sebuah liputan atas $F$, gunakan kekompakan $K$, lalu
+> buang komplemennya.
+
+Gunakan konvensi bahwa $K$ adalah ruang topologis kompak, $F\subseteq K$
+tertutup, dan kekompakan $F$ diuji dengan keluarga himpunan yang terbuka di
+$K$ dan meliputi $F$. Dossier harus memuat:
+
+1. klaim beku, urutan kuantor, serta kamus domain untuk $K$, $F$, keluarga
+   $(U_i)_{i\in I}$, komplemen $K\setminus F$, dan himpunan indeks hingga;
+2. daftar kewajiban yang mengganti kata “tambahkan”, “gunakan”, dan “buang”;
+3. graf ketergantungan yang semua simpul daunnya mempunyai dasar;
+4. kontrak dan instansiasi klausa “$F$ tertutup di $K$ jika dan hanya jika
+   $K\setminus F$ terbuka di $K$”;
+5. rencana mundur dan maju beserta titik temunya;
+6. pembuktian minimal yang menangani kemungkinan bahwa subliputan hingga dari
+   $K$ tidak memilih $K\setminus F$;
+7. uji penghapusan untuk sekurang-kurangnya empat kalimat pembuktian;
+8. daftar celah dengan status akhir; dan
+9. satu batas klaim: jelaskan mengapa pembuktian itu tidak dengan sendirinya
+   menunjukkan bahwa $F$ tertutup dalam ruang induk yang lebih besar dari
+   $K$.
+
+### Rubrik {#o017-u03-completion-rubric}
+
+Setiap kriteria dinilai 0, 1, atau 2.
+
+::: {.o017-table-scroll aria-label="Rubrik tugas penyelesaian Unit 3" tabindex="0"}
+| Kriteria | 0 | 1 | 2 |
+|---|---|---|---|
+| Klaim dan domain | hipotesis/ruang berubah | sebagian tipe atau kuantor tersirat | semua objek, kuantor, dan topologi ruang induk tepat |
+| Kewajiban dan graf | lompatan utama tetap tersembunyi | graf ada tetapi mempunyai daun tanpa dasar | setiap kata ringkas menjadi kewajiban dan setiap jalur tertutup |
+| Kontrak lemma | lemma hanya disebut namanya | kontrak ada tetapi instansiasi tidak lengkap | masukan, hipotesis, keluaran, dan instansiasi diperiksa |
+| Rekonstruksi | argumen tidak menghasilkan subliputan hingga atas $F$ | gagasan benar dengan satu perpindahan yang belum dijustifikasi | pembuktian elementer lengkap dan menangani dua kemungkinan pemilihan komplemen |
+| Minimal tetapi memadai | terlalu ringkas atau membawa teori tak relevan | sebagian kalimat belum diuji | uji penghapusan menunjukkan setiap rincian inti mempunyai fungsi |
+| Kejujuran celah dan batas | celah disembunyikan atau klaim diperkuat | status/batas disebut tanpa dasar | semua celah berstatus, berdasar, dan kesimpulan pada ruang induk dibatasi tepat |
+:::
+
+Nilai lulus adalah sekurang-kurangnya 10 dari 12, dengan nilai 2 pada
+**Rekonstruksi** dan **Kejujuran celah dan batas**. Menambahkan hipotesis yang
+tidak ada, memakai kekompakan sebelum keluarga terbukti sebagai liputan
+terbuka, atau menyatakan celah tertutup hanya berdasarkan nama lemma mewajibkan
+revisi meskipun jumlah nilai cukup.
+
+## Batas dengan B80 dan unit lain {#o017-u03-boundary}
+
+Unit ini mengajarkan rekonstruksi logis, bukan keterampilan komputasi. Ia tidak
+mengajarkan sintaks Python, SageMath, SymPy, NumPy/SciPy, API paket, metode
+numerik, pembuatan plot, penulisan pengujian, notebook, lingkungan perangkat
+lunak, atau perbedaan implementasi bilangan eksak dan titik-mengambang. Semua
+itu berada pada B80.
+
+Program dapat dipakai oleh pembaca yang sudah memiliki keterampilan B80 untuk
+mencari contoh atau menguji dugaan selama rekonstruksi. Keluarannya tetap bukti
+empiris diagnostik, bukan pengganti jalur pembuktian dalam graf. Unit ini juga
+tidak mengajarkan kembali penelusuran versi dari Unit 2, buku catatan provenance
+lengkap dari Unit 4, atau reproduktibilitas komputasional dari Unit 6. Jika
+pengambilan lemma menemukan masalah sumber, catat kebutuhan itu dan teruskan ke
+unit yang tepat.
+
+## Sumber, provenance, dan hak {#o017-u03-provenance}
+
+Petikan sintetis, protokol tujuh tahap, susunan graf, tabel kontrak, eksposisi,
+rekonstruksi pembuktian, contoh, contoh tandingan, latihan, panduan jawaban,
+tugas penyelesaian, dan rubrik pada unit ini merupakan materi asli O017 oleh
+kontributor O017, 2026, dan dilisensikan di bawah
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Teorema bahwa citra kontinu dari himpunan kompak bersifat kompak dan teorema
+bahwa subhimpunan tertutup dari ruang kompak bersifat kompak adalah hasil
+klasik topologi. Unit ini tidak mengklaim penemuan hasil tersebut dan tidak
+menyalin redaksi pembuktian dari sumber tertentu; presentasi melalui audit
+kuantor, kontrak lemma, dan graf ketergantungan ditulis khusus untuk O017.
+Contoh ruang Sierpiński juga merupakan contoh matematika standar, dengan
+redaksi dan fungsi pedagogis asli unit ini.
+
+Tidak ada petikan atau adaptasi dari *The Turing Way* maupun *Research Software
+Engineering with Python* dalam Unit 3. Kedua sumber beku itu tetap tercatat
+dalam manifes hak O017 untuk unit-unit yang benar-benar mengadaptasinya dan
+tetap tunduk pada lisensinya masing-masing. Lisensi CC BY-SA 4.0 di atas berlaku
+untuk materi asli unit ini; ia tidak mengganti hak atas sumber lain yang kelak
+disitasi atau ditambahkan.
