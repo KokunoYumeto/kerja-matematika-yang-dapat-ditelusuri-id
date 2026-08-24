@@ -4,10 +4,10 @@ type: book
 title: "Kerja Matematika yang Dapat Ditelusuri: Pembaca Bahasa Indonesia O017/D120"
 authors:
   - name: "KokunoYumeto"
-version: "2026.08.22.1"
-date-released: "2026-08-22"
-doi: "10.5281/zenodo.22060136"
-url: "https://zenodo.org/records/22060136"
+version: "2026.08.24"
+date-released: "2026-08-24"
+doi: "10.5281/zenodo.22073823"
+url: "https://zenodo.org/records/22073823"
 repository-code: "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id"
 license: CC-BY-SA-4.0
 abstract: >-

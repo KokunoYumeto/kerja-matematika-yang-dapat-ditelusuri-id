@@ -303,6 +303,10 @@ def validate_backend_transition(backend: "BackendBuild") -> None:
         "O017-RIGHTS-ORIGINAL-TEXT": {"licensor"},
         "O017-RIGHTS-ORIGINAL-CODE": {"licensor"},
         "O017-RIGHTS-GENERATED-DATA": {"licensor"},
+        # Version 2026.08.24 corrects one attested Indonesian display label.
+        # The stable theorem ID and every mathematical/relational field remain
+        # unchanged; prior bytes remain preserved in the preceding release.
+        "O017-U01-THEOREM-01": {"title"},
     }
     for record_id in sorted(live_records):
         changed = {
@@ -310,6 +314,14 @@ def validate_backend_transition(backend: "BackendBuild") -> None:
             for key in set(live_records[record_id]) | set(candidate_records[record_id])
             if live_records[record_id].get(key) != candidate_records[record_id].get(key)
         }
+        if record_id == "O017-U01-THEOREM-01" and "title" in changed:
+            if (
+                live_records[record_id].get("title")
+                != "Ketunggalan pohon rentang minimum"
+                or candidate_records[record_id].get("title")
+                != "Ketunggalan pohon merentang minimum"
+            ):
+                fail("unexpected theorem-title transition outside the frozen terminology correction")
         if changed - permitted.get(record_id, set()):
             fail(
                 f"backend regeneration changes immutable fields on {record_id}: "
@@ -1187,7 +1199,7 @@ def admission_text(
         f"# Unit {unit.ordinal} Admission — O017/D120",
         "",
         "Status: **PASS / UNIT_ADMITTED**  ",
-        "Date: 2026-08-22",
+        "Date: 2026-08-24",
         "",
     ]
     if unit.id == "O017-U01":
@@ -1352,7 +1364,7 @@ def admit_unit(unit_id: str, course: CourseSpec = COURSE) -> dict[str, Any]:
             "lane_id": course.lane_id,
             "unit_id": target.id,
             "status": "PASS",
-            "date": "2026-08-22",
+            "date": "2026-08-24",
             "inputs": {
                 canonical_rel(target.source_path): digest(target.source_path),
                 **{

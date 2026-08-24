@@ -12,7 +12,7 @@ Run from the edition root on an x86-64 machine with Docker or Podman:
 
 ```sh
 docker build --pull=false --file environment/Containerfile \
-  --tag o017-rebuild:2026.08.22.1 .
+  --tag o017-rebuild:2026.08.24 .
 ```
 
 The build fails unless the exact base image, Python archive, Python wheel,
@@ -27,7 +27,7 @@ After the image exists, run the complete content build with networking disabled:
 ```sh
 docker run --rm --network none \
   --volume "$PWD:/work:ro" \
-  o017-rebuild:2026.08.22.1 \
+  o017-rebuild:2026.08.24 \
   bash /work/environment/rebuild_and_verify.sh /work
 ```
 

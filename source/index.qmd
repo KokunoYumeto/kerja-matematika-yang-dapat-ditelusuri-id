@@ -1,8 +1,8 @@
 ---
 author: "KokunoYumeto — diproduksi dengan OpenAI Codex gpt-5.6-sol, Ultra"
-date: "2026-08-22"
+date: "2026-08-24"
 date-format: iso
-doi: "10.5281/zenodo.22060136"
+doi: "10.5281/zenodo.22073823"
 abstract: "Buku praktik sembilan unit beserta perangkat penyampaian autentik tentang pembacaan penelitian matematika, rekonstruksi pembuktian, sitasi dan provenance, eksposisi, komputasi yang dapat direproduksi, errata, penelaahan, serta kontribusi komunitas terbatas."
 ---
 
@@ -13,12 +13,12 @@ matematika sehingga klaim, sumber, komputasi, koreksi, dan batas kepastiannya
 dapat ditelusuri.
 
 ::: {.callout-note title="Edisi, DOI, dan akses"}
-- **Versi:** 2026.08.22.1
-- **DOI versi:** <https://doi.org/10.5281/zenodo.22060136>
+- **Versi:** 2026.08.24
+- **DOI versi:** <https://doi.org/10.5281/zenodo.22073823>
 - **DOI semua versi:** <https://doi.org/10.5281/zenodo.22051866>
-- **Pembaca HTML aksesibel:** <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>; arsip luring identik `o017-d120-id-2026.08.22.1-reader-html.zip` tersedia pada <https://zenodo.org/records/22060136>.
+- **Pembaca HTML aksesibel:** <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>; arsip luring identik `o017-d120-id-2026.08.24-reader-html.zip` tersedia pada <https://zenodo.org/records/22073823>.
 - **Sumber GitHub:** <https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id>
-- **Sumber, backend, bukti QA, dan riwayat edisi yang terpreservasi:** <https://zenodo.org/records/22060136>
+- **Sumber, backend, bukti QA, dan riwayat edisi yang terpreservasi:** <https://zenodo.org/records/22073823>
 - **Batas aksesibilitas PDF:** PDF ini tidak bertag dan bukan edisi aksesibel; gunakan pembaca HTML untuk struktur semantik, navigasi papan tik, teks alternatif, dan MathML.
 - **Produksi:** OpenAI Codex gpt-5.6-sol, Ultra. Sistem ini digunakan atas instruksi kreator manusia; **KokunoYumeto** adalah identitas publik kreator dan pemegang hak materi asli.
 - **Hak:** pembaca asli CC BY-SA 4.0; adaptasi donor CC BY 4.0; perangkat lunak/runtime MIT atau Apache-2.0. [LICENSES.md](LICENSES.md) dan [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) mengendalikan pemetaan per komponen.
@@ -76,20 +76,28 @@ hanya ketika membantu menjaga identitas teknis.
   mengulang proses dengan artefak dan kondisi yang dinyatakan. Istilah teknis
   **reproducer minimal** diperkenalkan sekali sebagai **kasus reproduksi
   minimal**, kemudian dapat disingkat sesuai konteks.
+- **komputasi** berarti kegiatan atau kapasitas komputasional yang lebih luas;
+  **perhitungan** berarti kalkulasi tertentu. **Studi literatur**, **pengujian**,
+  **hasil pengujian**, **data**, dan **algoritma** dipakai sesuai fungsi masing-masing,
+  bukan sebagai padanan yang saling menggantikan.
 - **provenance** berarti riwayat asal-usul, versi, transformasi, dan hubungan
   bukti yang dapat diaudit; istilah ini tidak disamakan dengan *provenans*
   biologis. **Manifes** adalah daftar identitas artefak, ukuran, hash, hak, dan
   statusnya.
 
 ::: {.callout-note title="QA terminologi dan provenance produksi"}
-Sebelum edisi ini diselesaikan, istilah matematika dibandingkan dengan bahan
-Bahasa Indonesia 2026 karya Rinaldi Munir yang dihoskan resmi oleh Institut
-Teknologi Bandung: bahan IF1220 tentang pembuktian, fungsi, barisan, rekursi,
-graf, dan pohon, serta bahan *Metode Numerik* tentang integral dan galat.
-Pencarian terbatas tidak menemukan sumber TeX berbahasa Indonesia yang layak
-di arXiv; karena itu, bahan PDF universitas tersebut dipakai hanya sebagai
-saksi terminologi dan tidak didistribusikan bersama edisi ini. Rekaman identitas,
-hash, lokator halaman, dan keputusan tersimpan dalam bukti QA sumber.
+Sebelum edisi ini diselesaikan, istilah diperiksa langsung pada sumber TeX
+Bahasa Indonesia [arXiv:0807.4609v1](https://arxiv.org/abs/0807.4609v1),
+sebuah artikel komputasi ilmiah yang secara resmi ditandai berbahasa Indonesia.
+Sumber itu mendukung pembedaan **komputasi** dan **perhitungan** serta istilah
+alur kerja seperti **studi literatur**, **pengujian**, **data**, dan
+**algoritma**, tetapi bukan saksi untuk istilah teorema, lemma, penelaahan
+sejawat, erratum, atau pembuktian matematika. Untuk istilah matematika tersebut,
+edisi ini memakai bahan Bahasa Indonesia 2026 karya Rinaldi Munir yang dihoskan
+resmi oleh Institut Teknologi Bandung: bahan IF1220 tentang pembuktian, fungsi,
+barisan, rekursi, graf, dan pohon, serta bahan *Metode Numerik* tentang integral
+dan galat. Sumber QA tidak didistribusikan bersama edisi ini. Rekaman identitas,
+hak, hash, lokator, dan keputusan tersimpan dalam bukti QA sumber.
 
 Sistem produksi: **OpenAI Codex gpt-5.6-sol, Ultra.** Digunakan atas instruksi
 kreator manusia. **KokunoYumeto** adalah identitas publik kreator dan pemegang

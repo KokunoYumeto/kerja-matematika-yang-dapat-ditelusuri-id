@@ -15,3 +15,6 @@ O017-TERM-0013,version record,rekaman versi,rekaman karya,identity of one exact 
 O017-TERM-0014,citation chain,rantai sitasi,rantai referensi,directed typed graph of source relationships
 O017-TERM-0015,locator,penunjuk lokasi,lokasi,exact page section theorem or fragment within a source
 O017-TERM-0016,inference,inferensi,fakta metadata,analyst conclusion that must remain distinct from recorded source metadata
+O017-TERM-0017,spanning tree,pohon merentang,pohon rentang,graph theory; use merentang consistently for spanning objects
+O017-TERM-0018,computation,komputasi,perhitungan,broad computational activity or capacity; use perhitungan for a particular calculation
+O017-TERM-0019,literature study,studi literatur,tinjauan pustaka,attested workflow phrase; tinjauan pustaka remains valid when a review section is specifically meant

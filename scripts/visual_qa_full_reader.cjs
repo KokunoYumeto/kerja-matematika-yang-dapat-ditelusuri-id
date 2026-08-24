@@ -27,10 +27,10 @@ const pages = [
 ];
 
 const expectedToolTargets = new Set([
-  "https://zenodo.org/records/22060136/files/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf?download=1",
+  "https://zenodo.org/records/22073823/files/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf?download=1",
   "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id",
   "https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/",
-  "https://zenodo.org/records/22060136",
+  "https://zenodo.org/records/22073823",
 ]);
 
 const legalFiles = [
@@ -312,7 +312,7 @@ async function main() {
     const report = {
       schema: "o017-full-reader-visual-qa-v2",
       status: "PASS",
-      date: "2026-08-22",
+      date: "2026-08-24",
       pages,
       legal_files: legalFiles.map((relative) => ({
         path: relative,

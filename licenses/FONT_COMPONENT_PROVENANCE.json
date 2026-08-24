@@ -1,13 +1,13 @@
 {
   "schema": "o017-font-component-provenance-v2",
   "audited_pdf": {
-    "path": "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf",
-    "bytes": 589303,
-    "sha256": "bfac70f7efd2ce0a65fd0b2435ed817dee8186169f8f3a95b0fe526a0f46f2bf",
-    "pages": 134,
-    "font_objects": 15,
+    "path": "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf",
+    "bytes": 590742,
+    "sha256": "2bfda5d095913829da095ac930d8f1aa61613bfb46c2375970183cb77acdefbb",
+    "pages": 133,
+    "font_objects": 16,
     "all_embedded": true,
-    "full_audit": "qa/PDF_FONT_AND_TAG_AUDIT_2026.08.22.1.json"
+    "full_audit": "qa/PDF_FONT_AND_TAG_AUDIT_2026.08.24.json"
   },
   "component_manifest_algorithm": "Sort by PDF BaseFont, embedded stream SHA-256, then PDF object identity; for each object encode BaseFont, TAB, embedded stream byte count, TAB, embedded stream SHA-256, LF as UTF-8; SHA-256 the concatenation.",
   "components": [
@@ -15,9 +15,9 @@
       "resource_id": "O017-FONT-LM-TEXT",
       "component": "Latin Modern text fonts",
       "version": "2.004",
-      "embedded_pdf_objects": 12,
-      "embedded_stream_bytes": 77393,
-      "component_manifest_sha256": "000f7744565eea9a9a70a757bb09f782a019fd00b9acc5745da2e04b10492ff0",
+      "embedded_pdf_objects": 13,
+      "embedded_stream_bytes": 78578,
+      "component_manifest_sha256": "6fd1a1f09ea3c09120a558ba6e5709de9f44aaba1e502622095f02e3eb4ed57c",
       "base_fonts": [
         "/CFMBFB+LMRoman9-Bold-Identity-H",
         "/EGLSXS+LMMono10-Regular-Identity-H",
@@ -27,6 +27,7 @@
         "/JLZJML+LMRoman7-Regular-Identity-H",
         "/KDFUFA+LMRoman9-Italic-Identity-H",
         "/SXFKEC+LMRoman10-BoldItalic-Identity-H",
+        "/TZQTTS+LMMonoLt10-Bold-Identity-H",
         "/VULLSM+LMMono9-Regular-Identity-H",
         "/WTGFWZ+LMRoman10-Bold-Identity-H",
         "/WZNLEL+LMRoman10-Regular-Identity-H",
@@ -64,8 +65,8 @@
         {
           "object": "7:0",
           "base_font": "/IXWMJS+LMRoman12-Regular-Identity-H",
-          "embedded_stream_bytes": 2252,
-          "embedded_stream_sha256": "7c987ea28570cc2bc58d934fe8b0cfaf31b3a0bfde31cf9db2c5a1c610ea8131",
+          "embedded_stream_bytes": 2341,
+          "embedded_stream_sha256": "b2d28c9346cc61726e31c9d934cbe86e8de95257c474b532df9ba73cf8721a38",
           "to_unicode": true
         },
         {
@@ -90,10 +91,17 @@
           "to_unicode": true
         },
         {
+          "object": "585:0",
+          "base_font": "/TZQTTS+LMMonoLt10-Bold-Identity-H",
+          "embedded_stream_bytes": 993,
+          "embedded_stream_sha256": "85959eca7dbeae1bd257148a509477c7f707749e695d59214831da665cb28f73",
+          "to_unicode": true
+        },
+        {
           "object": "19:0",
           "base_font": "/VULLSM+LMMono9-Regular-Identity-H",
-          "embedded_stream_bytes": 7780,
-          "embedded_stream_sha256": "34d84032ac0fb0793bb943080c77ed1059d66eb6d16e9fa1a1a070e6435c788d",
+          "embedded_stream_bytes": 7883,
+          "embedded_stream_sha256": "986f573f82eda44c6d272ee36ae08c25d8f224b57dfc55af5b212b99f516bd27",
           "to_unicode": true
         },
         {
@@ -141,7 +149,7 @@
       ],
       "embedded_streams": [
         {
-          "object": "251:0",
+          "object": "252:0",
           "base_font": "/GMLBJW+LatinModernMath-Regular-Identity-H",
           "embedded_stream_bytes": 21454,
           "embedded_stream_sha256": "fb089ce9c48d7867434b37d595c1ca7eacceafdce4f3fa9786aba4d922bc7e2d",
@@ -204,16 +212,16 @@
       "version": "003.002 (within AMSFonts 3.04)",
       "embedded_pdf_objects": 1,
       "embedded_stream_bytes": 337,
-      "component_manifest_sha256": "c6441b609341bc334a595eaaee6097b04272a7e929e9e8e6ddb1cd412bfc80f5",
+      "component_manifest_sha256": "c748fa4e040207df6cd590bfa078b18e4ec88c519e36a4bb5a3436ef76abf96a",
       "base_fonts": [
-        "/TZQTTS+MSAM10"
+        "/SGQQVU+MSAM10"
       ],
       "embedded_streams": [
         {
-          "object": "256:0",
-          "base_font": "/TZQTTS+MSAM10",
+          "object": "484:0",
+          "base_font": "/SGQQVU+MSAM10",
           "embedded_stream_bytes": 337,
-          "embedded_stream_sha256": "88932ad26375cd739d788bd5ad5bb042d204d867758059b3a216ae76095445b4",
+          "embedded_stream_sha256": "d44aef400f66bfd460a0129783a950d56f2047d18d4bb17e1009e6ffafda26e2",
           "to_unicode": true
         }
       ],

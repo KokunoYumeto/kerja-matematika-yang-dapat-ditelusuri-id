@@ -396,7 +396,7 @@ keluarga berindeks $F$ meliputi $K$, terdapat $i\in F$ sehingga
 $x\in f^{-1}[V_i]$. Maka $y=f(x)\in V_i$.
 
 Dengan demikian, dari setiap liputan terbuka sebarang atas $f[K]$ telah
-diperoleh subliputan hingga. Jadi $f[K]$ kompak di $Y$. $\square$
+diperoleh subliputan hingga. Jadi $f[K]$ kompak di $Y$.
 :::
 
 Pembuktian tetap berlaku ketika $K=\varnothing$. Pada paragraf terakhir,

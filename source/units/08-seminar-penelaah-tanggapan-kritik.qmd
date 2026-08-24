@@ -142,9 +142,18 @@ Isi identitas seminar sebelum membuat inferensi.
 Setelah itu, gunakan satu baris per klaim atau tindakan pencatat.
 
 ::: {.o017-table-scroll aria-label="Templat entri klaim berwaktu untuk catatan seminar" tabindex="0"}
-| ID entri | Waktu | Lokasi | Jenis | Isi terbatas | Dasar | Status verifikasi | Keparahan | Keyakinan | Tindak lanjut |
-|---|---|---|---|---|---|---|---|---|---|
-| … | mm:ss–mm:ss | slide/papan/persamaan | S/V/Q/O | satu klaim atau satu pertanyaan | apa yang diamati atau dihitung | belum diperiksa/didukung/ditolak/terbuka | hanya bila relevan | nilai dan alasan | tindakan serta lokator hasil |
+| Bidang | Format isi |
+|---|---|
+| ID entri | pengidentifikasi lokal stabil |
+| Waktu | `mm:ss–mm:ss` |
+| Lokasi | slide, papan, persamaan, atau lokator lain yang dapat ditemukan kembali |
+| Jenis | `S`, `V`, `Q`, atau `O` |
+| Isi terbatas | satu klaim atau satu pertanyaan |
+| Dasar | apa yang diamati atau dihitung |
+| Status verifikasi | belum diperiksa, didukung, ditolak, atau terbuka |
+| Keparahan | isi hanya bila relevan |
+| Keyakinan | nilai beserta alasan |
+| Tindak lanjut | tindakan serta lokator hasil |
 :::
 
 Lokasi harus cukup untuk menemukan kembali isi. “Di tengah seminar” tidak
@@ -201,15 +210,61 @@ menjawab bahwa contoh itu perlu diperiksa sesudah seminar.
 
 ### Catatan yang setia pada bahan {#o017-u08-seminar-case-notes}
 
-::: {.o017-table-scroll aria-label="Catatan klaim berwaktu untuk seminar sintetis titik tetap" tabindex="0"}
-| ID | Waktu | Lokasi | Jenis | Isi | Dasar | Status | Keparahan | Keyakinan | Tindak lanjut |
-|---|---|---|---|---|---|---|---|---|---|
-| N01 | 00:35–01:05 | slide 4, C01 | S | Pembicara menyatakan keberadaan dan ketunggalan titik tetap di bawah kekontinuan serta kenaikan ketat. | teks slide terlihat lengkap | matematika belum diperiksa | belum dinilai | tinggi untuk transkripsi; bukan penilaian kebenaran | pisahkan dua kesimpulan |
-| N02 | 03:10–05:58 | slide 5 | V | Bagian keberadaan didukung: $g$ kontinu, $g(0)\geq0$, dan $g(1)\leq0$, sehingga ada nol. | langkah terlihat dan Teorema Nilai Antara diperiksa | didukung | tidak ada masalah pada bagian ini | tinggi | catat sebagai bagian yang dapat dipertahankan |
-| N03 | 06:10–06:42 | rekaman | S | Segmen tidak terekam; tidak ada transkripsi tentang cara ketaksamaan kedua diperoleh. | celah rekaman teramati | tidak berlaku | tidak diketahui | tinggi bahwa rekaman hilang | jangan merekonstruksi ucapan |
-| N04 | 06:42–07:15 | papan kanan | Q | Hipotesis mana yang memberi $f(y)-f(x)<y-x$? | ketaksamaan terlihat, tetapi dasar tidak tampak pada bahan | terbuka | berpotensi material | sedang; mungkin ada isi dalam celah | periksa semua slide dan naskah |
-| N05 | 10:44–11:20 | sesi pertanyaan | O | $f(x)=x$ kontinu, meningkat ketat, memetakan $[0,1]$ ke dirinya, dan setiap titik merupakan titik tetap; ketunggalan C01 salah. | contoh peserta diperiksa langsung terhadap semua hipotesis | ditolak pada klaim ketunggalan | mayor untuk C01, keberadaan tetap sah | tinggi | bawa sebagai komentar utama |
-| N06 | 11:20–11:42 | jawaban lisan | S | Pembicara mengatakan contoh akan diperiksa sesudah seminar. | audio jelas | bukan penyelesaian matematis | tidak berlaku | tinggi untuk rekaman | status keberatan tetap terbuka sampai ada revisi |
+::: {.o017-record-stack aria-label="Catatan klaim berwaktu untuk seminar sintetis titik tetap"}
+**N01 — 00:35–01:05 — slide 4, C01 — `S`.**
+
+- **Isi:** pembicara menyatakan keberadaan dan ketunggalan titik tetap di bawah
+  kekontinuan serta kenaikan ketat.
+- **Dasar dan status:** teks slide terlihat lengkap; matematika belum diperiksa.
+- **Keparahan dan keyakinan:** belum dinilai; keyakinan tinggi untuk
+  transkripsi, bukan penilaian kebenaran.
+- **Tindak lanjut:** pisahkan dua kesimpulan.
+
+**N02 — 03:10–05:58 — slide 5 — `V`.**
+
+- **Isi:** bagian keberadaan didukung: $g$ kontinu, $g(0)\geq0$, dan
+  $g(1)\leq0$, sehingga ada nol.
+- **Dasar dan status:** langkah terlihat, Teorema Nilai Antara diperiksa, dan
+  statusnya didukung.
+- **Keparahan dan keyakinan:** tidak ada masalah pada bagian ini; keyakinan
+  tinggi.
+- **Tindak lanjut:** catat sebagai bagian yang dapat dipertahankan.
+
+**N03 — 06:10–06:42 — rekaman — `S`.**
+
+- **Isi:** segmen tidak terekam; tidak ada transkripsi tentang cara
+  ketaksamaan kedua diperoleh.
+- **Dasar dan status:** celah rekaman teramati; status matematis tidak berlaku.
+- **Keparahan dan keyakinan:** tidak diketahui; keyakinan tinggi bahwa rekaman
+  hilang.
+- **Tindak lanjut:** jangan merekonstruksi ucapan.
+
+**N04 — 06:42–07:15 — papan kanan — `Q`.**
+
+- **Isi:** hipotesis mana yang memberi $f(y)-f(x)<y-x$?
+- **Dasar dan status:** ketaksamaan terlihat, tetapi dasarnya tidak tampak pada
+  bahan; status terbuka.
+- **Keparahan dan keyakinan:** berpotensi material; keyakinan sedang karena
+  mungkin ada isi dalam celah.
+- **Tindak lanjut:** periksa semua slide dan naskah.
+
+**N05 — 10:44–11:20 — sesi pertanyaan — `O`.**
+
+- **Isi:** $f(x)=x$ kontinu, meningkat ketat, memetakan $[0,1]$ ke dirinya,
+  dan setiap titik merupakan titik tetap; ketunggalan C01 salah.
+- **Dasar dan status:** contoh peserta diperiksa langsung terhadap semua
+  hipotesis; klaim ketunggalan ditolak.
+- **Keparahan dan keyakinan:** mayor untuk C01, sementara keberadaan tetap sah;
+  keyakinan tinggi.
+- **Tindak lanjut:** bawa sebagai komentar utama.
+
+**N06 — 11:20–11:42 — jawaban lisan — `S`.**
+
+- **Isi:** pembicara mengatakan contoh akan diperiksa sesudah seminar.
+- **Dasar dan status:** audio jelas; ini bukan penyelesaian matematis.
+- **Keparahan dan keyakinan:** keparahan tidak berlaku; keyakinan tinggi untuk
+  rekaman.
+- **Tindak lanjut:** status keberatan tetap terbuka sampai ada revisi.
 :::
 
 N03 tidak menyatakan bahwa pembicara tidak memberi alasan; ia hanya menyatakan
@@ -454,13 +509,43 @@ Matriks bukan pengganti surat tanggapan; ia mencegah komentar hilang di antara
 paragraf. Status yang disarankan ialah **selesai**, **selesai sebagian**,
 **ditahan**, **tidak diambil dengan alasan**, atau **terbuka**.
 
-::: {.o017-table-scroll aria-label="Matriks komentar tindakan bukti lokasi dan status untuk naskah titik tetap" tabindex="0"}
-| ID komentar | Permintaan | Keputusan/tindakan | Bukti | Lokasi hasil | Status | Sisa |
-|---|---|---|---|---|---|---|
-| R1-C01 | perbaiki klaim ketunggalan | setuju; pisahkan keberadaan dan ketunggalan, ganti hipotesis | identitas menolak V1; bukti V2 lengkap | [Teorema V2](#o017-u08-ms-v2-theorem), [Bukti V2](#o017-u08-ms-v2-proof) | selesai untuk Teorema 1 | audit turunan belum selesai |
-| R1-C02 | pertahankan bagian keberadaan yang sah | setuju; P1–P2 disusun ulang tanpa perubahan kekuatan | tanda ujung dan Teorema Nilai Antara | [Bukti V2](#o017-u08-ms-v2-proof), paragraf pertama | selesai | tidak ada |
-| R1-C03 | gunakan kontraksi agar ketunggalan mudah dikenali | tidak diambil sebagai teorema utama | kontraksi lebih kuat daripada penurunan ketat $f(x)-x$ yang dipakai | [Batas minimalitas](#o017-u08-minimally-revised-result) | tidak diambil dengan alasan | dapat dipertimbangkan sebagai korolari |
-| R1-C04 | audit Korolari 2 | belum dapat diselesaikan karena teks korolari tidak tersedia | hanya pernyataan dependensi yang tersedia pada metadata V1 | [Hal belum selesai](#o017-u08-worked-unresolved-items) | ditahan | perlu salinan lengkap |
+::: {.o017-record-stack aria-label="Matriks komentar tindakan bukti lokasi dan status untuk naskah titik tetap"}
+**R1-C01 — selesai untuk Teorema 1.**
+
+- **Permintaan:** perbaiki klaim ketunggalan.
+- **Keputusan dan tindakan:** setuju; pisahkan keberadaan dan ketunggalan, lalu
+  ganti hipotesis.
+- **Bukti dan lokasi:** identitas menolak V1 dan bukti V2 lengkap; lihat
+  [Teorema V2](#o017-u08-ms-v2-theorem) dan
+  [Bukti V2](#o017-u08-ms-v2-proof).
+- **Sisa:** audit turunan belum selesai.
+
+**R1-C02 — selesai.**
+
+- **Permintaan:** pertahankan bagian keberadaan yang sah.
+- **Keputusan dan tindakan:** setuju; P1–P2 disusun ulang tanpa perubahan
+  kekuatan.
+- **Bukti dan lokasi:** tanda ujung dan Teorema Nilai Antara; lihat paragraf
+  pertama [Bukti V2](#o017-u08-ms-v2-proof).
+- **Sisa:** tidak ada.
+
+**R1-C03 — tidak diambil dengan alasan.**
+
+- **Permintaan:** gunakan kontraksi agar ketunggalan mudah dikenali.
+- **Keputusan dan tindakan:** tidak diambil sebagai teorema utama.
+- **Bukti dan lokasi:** kontraksi lebih kuat daripada penurunan ketat
+  $f(x)-x$ yang dipakai; lihat
+  [Batas minimalitas](#o017-u08-minimally-revised-result).
+- **Sisa:** dapat dipertimbangkan sebagai korolari.
+
+**R1-C04 — ditahan.**
+
+- **Permintaan:** audit Korolari 2.
+- **Keputusan dan tindakan:** belum dapat diselesaikan karena teks korolari
+  tidak tersedia.
+- **Bukti dan lokasi:** hanya pernyataan dependensi yang tersedia pada metadata
+  V1; lihat [Hal belum selesai](#o017-u08-worked-unresolved-items).
+- **Sisa:** perlu salinan lengkap.
 :::
 
 Setiap baris harus menunjuk bukti atau keterbatasan, bukan hanya janji.

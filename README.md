@@ -14,7 +14,7 @@ edisi ini.
 Zenodo adalah otoritas preservasi; repositori GitHub dan GitHub Pages adalah
 permukaan sumber serta pembacaan HTML publik untuk edisi ini.
 
-Status kandidat edisi 2026.08.22.1: `COMPLETE` untuk `O017-U01` sampai
+Status edisi 2026.08.24: `COMPLETE` untuk `O017-U01` sampai
 `O017-U09`, dengan perangkat penyampaian dan penilaian autentik yang terpisah,
 backend semantik, lingkungan bangun terkunci, dan penutupan hak font. Status
 publik dinyatakan hanya oleh resi baca-balik publik yang menyertai rilis.
@@ -23,10 +23,10 @@ publik dinyatakan hanya oleh resi baca-balik publik yang menyertai rilis.
 
 - Pembaca HTML semantik: <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>
 - Repositori sumber: <https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id>
-- Rekaman dan arsip edisi: <https://zenodo.org/records/22060136>
-- DOI versi: <https://doi.org/10.5281/zenodo.22060136>
+- Rekaman dan arsip edisi: <https://zenodo.org/records/22073823>
+- DOI versi: <https://doi.org/10.5281/zenodo.22073823>
 - DOI semua versi: <https://doi.org/10.5281/zenodo.22051866>
-- PDF: tersedia langsung pada halaman Zenodo edisi 2026.08.22.1. PDF ini
+- PDF: tersedia langsung pada halaman Zenodo edisi 2026.08.24. PDF ini
   tidak bertag dan bukan edisi aksesibel; gunakan arsip HTML semantik untuk
   pembaca layar, reflow, navigasi papan tik, dan MathML.
 
@@ -62,3 +62,9 @@ eksternal.
 Kontrol utama berada di `controls/`; sumber pembaca di `source/`; ekspor
 backend stabil di `backend/`; keluaran terbangun di `build/`; dan bukti QA di
 `qa/`.
+
+Versi 2026.08.24 menutup QA terminologi dengan membandingkan sumber TeX
+Bahasa Indonesia arXiv:0807.4609v1 dan bahan matematika resmi ITB terhadap
+glosarium. Dua bentuk yang lolos ke data terstruktur pada versi sebelumnya
+dikoreksi menjadi `pohon merentang minimum` dan `Provenance pencarian`;
+identitas stabil dan isi matematis lainnya dipertahankan.

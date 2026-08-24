@@ -1,6 +1,6 @@
 # Component rights and licenses
 
-Release identity: `O017-EDITION-01`, version `2026.08.22.1`.
+Release identity: `O017-EDITION-01`, version `2026.08.24`.
 
 The public rights-holder and licensor identity for protectable original output is
 **KokunoYumeto**. The edition was produced with OpenAI Codex gpt-5.6-sol, Ultra.
@@ -42,7 +42,7 @@ Commons Attribution-ShareAlike 4.0 International license (CC BY-SA 4.0),
 <https://creativecommons.org/licenses/by-sa/4.0/>.
 
 Attribution: “KokunoYumeto, *Kerja Matematika yang Dapat Ditelusuri*, O017/D120
-Bahasa Indonesia edition, version 2026.08.22.1; produced with OpenAI Codex gpt-5.6-sol, Ultra.” State
+Bahasa Indonesia edition, version 2026.08.24; produced with OpenAI Codex gpt-5.6-sol, Ultra.” State
 changes and preserve this license. Classical mathematical facts and theorems
 are not claimed as original.
 

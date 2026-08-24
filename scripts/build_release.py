@@ -20,8 +20,8 @@ BUILD = ROOT / "build"
 HTML = BUILD / "html"
 QA = ROOT / "qa"
 RELEASE = ROOT / "release"
-VERSION = "2026.08.22.1"
-RELEASE_DATE = "2026-08-22"
+VERSION = "2026.08.24"
+RELEASE_DATE = "2026-08-24"
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
 MANIFEST_NAME = "RELEASE_MANIFEST.json"
 READER_NAME = f"o017-d120-id-{VERSION}-reader-html.zip"
@@ -172,6 +172,8 @@ def source_entries() -> tuple[dict[str, Path], int]:
         "controls/SOURCE_RIGHTS_MANIFEST.csv",
         "controls/REQUIREMENTS_AND_NON_OVERLAP.md",
         "controls/TERMINOLOGY.csv",
+        "controls/TERMINOLOGY_QA_RECHECK_2026.08.24.md",
+        "authority/terminology_qa/arxiv_source/ARXIV_TEX_WITNESS_0807.4609v1.json",
         "source/_quarto.yml",
         "source/_quarto-pdf.yml",
         "source/pdf-header.tex",
@@ -545,7 +547,7 @@ def validate_pdf() -> dict[str, object]:
         or logical.get("tagged") is not False
         or logical.get("catalog_has_struct_tree_root") is not False
         or fonts.get("all_embedded") is not True
-        or fonts.get("font_objects") != 15
+        or fonts.get("font_objects") != 16
         or fonts.get("without_to_unicode") != 1
     ):
         fail("PDF font/tag audit does not prove the frozen untagged, fully embedded state")
@@ -590,7 +592,7 @@ def validate_pdf() -> dict[str, object]:
             "bytes": PDF_FONT_QA.stat().st_size,
             "sha256": sha256_file(PDF_FONT_QA),
             "tagged": False,
-            "font_objects": 15,
+            "font_objects": 16,
         },
         "font_provenance": {
             "path": FONT_PROVENANCE.relative_to(ROOT).as_posix(),

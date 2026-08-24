@@ -153,11 +153,11 @@ def verify_release_metadata() -> dict[str, object]:
     expected = {
         "upload_type": "publication",
         "publication_type": "book",
-        "publication_date": "2026-08-22",
+        "publication_date": "2026-08-24",
         "language": "ind",
         "license": "other-open",
         "access_right": "open",
-        "version": "2026.08.22.1",
+        "version": "2026.08.24",
     }
     for key, expected_value in expected.items():
         if value.get(key) != expected_value:
@@ -319,17 +319,17 @@ def main() -> None:
             int(row["selected_files"]) != component["embedded_pdf_objects"]
             or int(row["selected_bytes"]) != component["embedded_stream_bytes"]
             or row["selected_manifest_sha256"] != component["component_manifest_sha256"]
-            or "PDF_FONT_AND_TAG_AUDIT_2026.08.22.1.json" not in row["release_evidence"]
+            or "PDF_FONT_AND_TAG_AUDIT_2026.08.24.json" not in row["release_evidence"]
         ):
             fail(f"source-rights manifest is stale for {resource_id}")
 
     qa = {
         "schema": "o017-full-course-admission-v2",
         "status": "PASS",
-        "date": "2026-08-22",
+        "date": "2026-08-24",
         "lane_id": COURSE.lane_id,
         "edition_id": "O017-EDITION-01",
-        "version": "2026.08.22.1",
+        "version": "2026.08.24",
         "creator": "KokunoYumeto",
         "production_system": "OpenAI Codex gpt-5.6-sol, Ultra",
         "curriculum_selection": "separate decision; this receipt admits the edition, not the 40-course corpus choice",
@@ -382,7 +382,7 @@ def main() -> None:
             "# Full-course admission — O017/D120",
             "",
             "Status: **PASS / FULL_READER_BUILT**  ",
-            "Date: 2026-08-22",
+            "Date: 2026-08-24",
             "",
             f"- Units: 9 admitted; 54 exercise–guidance pairs; authentic-delivery wrapper included",
             f"- Reader: {tree['files']} files / {tree['bytes']:,} bytes; tree `{tree['manifestSha256']}`",

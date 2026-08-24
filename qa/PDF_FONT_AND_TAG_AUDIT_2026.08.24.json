@@ -1,7 +1,7 @@
 {
   "fonts": {
     "all_embedded": true,
-    "font_objects": 15,
+    "font_objects": 16,
     "objects": [
       {
         "base_font": "/CFMBFB+LMRoman9-Bold-Identity-H",
@@ -93,13 +93,13 @@
           93,
           94,
           95,
+          115,
           116,
-          117,
+          129,
           130,
           131,
           132,
-          133,
-          134
+          133
         ],
         "resource_names": [
           "/F17"
@@ -148,9 +148,9 @@
           93,
           100,
           111,
-          118,
-          130,
-          134
+          117,
+          129,
+          133
         ],
         "resource_names": [
           "/F19"
@@ -279,6 +279,7 @@
           111,
           112,
           113,
+          114,
           115,
           116,
           117,
@@ -297,8 +298,7 @@
           130,
           131,
           132,
-          133,
-          134
+          133
         ],
         "resource_names": [
           "/F1"
@@ -316,7 +316,7 @@
         "encoding": "/Identity-H",
         "font_stream_kind": "FontFile3",
         "font_stream_subtype": "/CIDFontType0C",
-        "object": "251:0",
+        "object": "252:0",
         "pages": [
           11,
           12,
@@ -383,18 +383,18 @@
           104,
           105,
           106,
-          109,
+          108,
           110,
           111,
           112,
           113,
+          118,
           119,
           120,
-          121,
-          123,
+          122,
+          125,
           126,
-          127,
-          129
+          128
         ],
         "resource_names": [
           "/F21"
@@ -449,17 +449,17 @@
           97,
           98,
           100,
+          102,
           103,
           104,
           105,
           111,
-          112,
+          114,
           115,
-          116,
+          117,
           118,
           119,
-          120,
-          122
+          121
         ],
         "resource_names": [
           "/F13"
@@ -472,8 +472,8 @@
         "descendant_subtype": "/CIDFontType0",
         "descriptor_flags": 6,
         "embedded": true,
-        "embedded_stream_bytes": 2252,
-        "embedded_stream_sha256": "7c987ea28570cc2bc58d934fe8b0cfaf31b3a0bfde31cf9db2c5a1c610ea8131",
+        "embedded_stream_bytes": 2341,
+        "embedded_stream_sha256": "b2d28c9346cc61726e31c9d934cbe86e8de95257c474b532df9ba73cf8721a38",
         "encoding": "/Identity-H",
         "font_stream_kind": "FontFile3",
         "font_stream_subtype": "/CIDFontType0C",
@@ -502,7 +502,7 @@
           43
         ],
         "resource_names": [
-          "/F28"
+          "/F27"
         ],
         "subtype": "/Type0",
         "to_unicode": true
@@ -525,9 +525,30 @@
           84
         ],
         "resource_names": [
-          "/F24"
+          "/F23"
         ],
         "subtype": "/Type0",
+        "to_unicode": true
+      },
+      {
+        "base_font": "/SGQQVU+MSAM10",
+        "descendant_subtype": null,
+        "descriptor_flags": 6,
+        "embedded": true,
+        "embedded_stream_bytes": 337,
+        "embedded_stream_sha256": "d44aef400f66bfd460a0129783a950d56f2047d18d4bb17e1009e6ffafda26e2",
+        "encoding": null,
+        "font_stream_kind": "FontFile3",
+        "font_stream_subtype": "/Type1C",
+        "object": "484:0",
+        "pages": [
+          74,
+          85
+        ],
+        "resource_names": [
+          "/F28"
+        ],
+        "subtype": "/Type1",
         "to_unicode": true
       },
       {
@@ -545,35 +566,29 @@
           42
         ],
         "resource_names": [
-          "/F26"
+          "/F25"
         ],
         "subtype": "/Type0",
         "to_unicode": true
       },
       {
-        "base_font": "/TZQTTS+MSAM10",
-        "descendant_subtype": null,
-        "descriptor_flags": 6,
+        "base_font": "/TZQTTS+LMMonoLt10-Bold-Identity-H",
+        "descendant_subtype": "/CIDFontType0",
+        "descriptor_flags": 262151,
         "embedded": true,
-        "embedded_stream_bytes": 337,
-        "embedded_stream_sha256": "88932ad26375cd739d788bd5ad5bb042d204d867758059b3a216ae76095445b4",
-        "encoding": null,
+        "embedded_stream_bytes": 993,
+        "embedded_stream_sha256": "85959eca7dbeae1bd257148a509477c7f707749e695d59214831da665cb28f73",
+        "encoding": "/Identity-H",
         "font_stream_kind": "FontFile3",
-        "font_stream_subtype": "/Type1C",
-        "object": "256:0",
+        "font_stream_subtype": "/CIDFontType0C",
+        "object": "585:0",
         "pages": [
-          12,
-          20,
-          30,
-          44,
-          71,
-          74,
-          85
+          101
         ],
         "resource_names": [
-          "/F22"
+          "/F30"
         ],
-        "subtype": "/Type1",
+        "subtype": "/Type0",
         "to_unicode": true
       },
       {
@@ -581,8 +596,8 @@
         "descendant_subtype": "/CIDFontType0",
         "descriptor_flags": 7,
         "embedded": true,
-        "embedded_stream_bytes": 7780,
-        "embedded_stream_sha256": "34d84032ac0fb0793bb943080c77ed1059d66eb6d16e9fa1a1a070e6435c788d",
+        "embedded_stream_bytes": 7883,
+        "embedded_stream_sha256": "986f573f82eda44c6d272ee36ae08c25d8f224b57dfc55af5b212b99f516bd27",
         "encoding": "/Identity-H",
         "font_stream_kind": "FontFile3",
         "font_stream_subtype": "/CIDFontType0C",
@@ -619,8 +634,10 @@
           87,
           88,
           89,
-          132,
-          133
+          99,
+          100,
+          131,
+          132
         ],
         "resource_names": [
           "/F9"
@@ -717,6 +734,7 @@
           97,
           98,
           99,
+          101,
           102,
           103,
           104,
@@ -726,22 +744,22 @@
           109,
           110,
           111,
+          112,
           113,
           114,
           115,
           116,
           117,
           118,
-          119,
+          120,
           121,
-          122,
-          124,
+          123,
+          125,
           126,
           127,
           128,
           129,
-          130,
-          132
+          131
         ],
         "resource_names": [
           "/F15"
@@ -892,8 +910,7 @@
           130,
           131,
           132,
-          133,
-          134
+          133
         ],
         "resource_names": [
           "/F11"
@@ -1016,7 +1033,7 @@
           111,
           112,
           113,
-          114,
+          115,
           116,
           117,
           118,
@@ -1030,11 +1047,10 @@
           126,
           127,
           128,
-          129,
+          130,
           131,
           132,
-          133,
-          134
+          133
         ],
         "resource_names": [
           "/F7"
@@ -1106,7 +1122,7 @@
         "208:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0",
         "9:0"
       ],
@@ -1115,8 +1131,7 @@
         "206:0",
         "214:0",
         "24:0",
-        "251:0",
-        "256:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1124,7 +1139,7 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1146,7 +1161,7 @@
         "208:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1175,7 +1190,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "276:0",
         "5:0"
       ],
@@ -1184,8 +1199,7 @@
         "208:0",
         "237:0",
         "24:0",
-        "251:0",
-        "256:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1194,14 +1208,14 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1216,7 +1230,7 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1224,7 +1238,7 @@
         "208:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1232,7 +1246,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1240,7 +1254,7 @@
         "208:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1248,35 +1262,34 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "237:0",
         "24:0",
-        "251:0",
-        "256:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0",
         "9:0"
       ],
@@ -1285,7 +1298,7 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1293,14 +1306,14 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1346,7 +1359,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1356,7 +1369,7 @@
         "208:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "276:0",
         "356:0",
         "5:0"
@@ -1368,7 +1381,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "361:0",
         "5:0"
       ],
@@ -1379,8 +1392,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
-        "256:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1396,7 +1408,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1404,7 +1416,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1413,7 +1425,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1421,7 +1433,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1430,7 +1442,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1453,7 +1465,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1461,7 +1473,7 @@
         "208:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1471,7 +1483,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1479,7 +1491,7 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1488,7 +1500,7 @@
         "206:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1496,7 +1508,7 @@
         "19:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1504,7 +1516,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1513,7 +1525,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1522,14 +1534,14 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1558,7 +1570,7 @@
         "19:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1582,7 +1594,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0",
         "9:0"
       ],
@@ -1592,7 +1604,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1601,8 +1613,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
-        "256:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1611,7 +1622,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1626,8 +1637,8 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
-        "256:0",
+        "252:0",
+        "484:0",
         "5:0"
       ],
       [
@@ -1635,7 +1646,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1644,7 +1655,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1653,7 +1664,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1672,7 +1683,7 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1696,7 +1707,7 @@
         "19:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1706,7 +1717,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "276:0",
         "5:0"
       ],
@@ -1715,8 +1726,8 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
-        "256:0",
+        "252:0",
+        "484:0",
         "5:0"
       ],
       [
@@ -1733,7 +1744,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1764,7 +1775,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1772,7 +1783,7 @@
         "208:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1782,7 +1793,7 @@
         "214:0",
         "237:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1790,7 +1801,7 @@
         "206:0",
         "214:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1815,34 +1826,31 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
+        "19:0",
         "208:0",
         "24:0",
         "5:0"
       ],
       [
         "11:0",
+        "19:0",
         "206:0",
         "237:0",
         "24:0",
-        "251:0",
-        "5:0"
-      ],
-      [
-        "11:0",
-        "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
+        "585:0",
         "5:0"
       ],
       [
@@ -1850,7 +1858,7 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1858,7 +1866,7 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1866,19 +1874,34 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
+        "5:0"
+      ],
+      [
+        "11:0",
+        "206:0",
+        "208:0",
+        "24:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "24:0",
+        "5:0"
+      ],
+      [
+        "11:0",
+        "208:0",
+        "24:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1891,14 +1914,7 @@
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
-        "5:0"
-      ],
-      [
-        "11:0",
-        "208:0",
-        "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1907,27 +1923,22 @@
         "208:0",
         "237:0",
         "24:0",
-        "251:0",
-        "5:0"
-      ],
-      [
-        "11:0",
-        "206:0",
-        "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
-        "24:0"
+        "24:0",
+        "252:0",
+        "5:0"
       ],
       [
         "206:0",
@@ -1963,21 +1974,21 @@
         "206:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "206:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -1990,7 +2001,7 @@
       [
         "11:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -2008,14 +2019,14 @@
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -2028,7 +2039,7 @@
         "11:0",
         "208:0",
         "24:0",
-        "251:0",
+        "252:0",
         "5:0"
       ],
       [
@@ -2067,15 +2078,15 @@
         "5:0"
       ]
     ],
-    "with_to_unicode": 14,
+    "with_to_unicode": 15,
     "without_to_unicode": 1
   },
-  "generated_at": "2026-08-22T21:18:11.303479+00:00",
+  "generated_at": "2026-08-24T02:26:50.882822+00:00",
   "logical_structure": {
     "accessible_surface": "the published semantic HTML reader",
     "annotations": {
       "subtype:/Link": 297,
-      "uri_links": 79
+      "uri_links": 80
     },
     "catalog_has_struct_tree_root": false,
     "catalog_lang": "id-ID",
@@ -2101,19 +2112,19 @@
     "https://www.w3.org/WAI/WCAG22/Techniques/"
   ],
   "pdf": {
-    "bytes": 589303,
+    "bytes": 590742,
     "encrypted": false,
     "metadata": {
       "/Author": "KokunoYumeto",
-      "/CreationDate": "D:20260822231547+02'00'",
+      "/CreationDate": "D:20260824041412+02'00'",
       "/Creator": "LaTeX via pandoc",
       "/Producer": "MiKTeX-dvipdfmx (20260404)",
       "/Title": "Kerja Matematika yang Dapat Ditelusuri"
     },
-    "pages": 134,
-    "path": "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf",
+    "pages": 133,
+    "path": "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf",
     "pdf_version": "%PDF-1.7",
-    "sha256": "bfac70f7efd2ce0a65fd0b2435ed817dee8186169f8f3a95b0fe526a0f46f2bf"
+    "sha256": "2bfda5d095913829da095ac930d8f1aa61613bfb46c2375970183cb77acdefbb"
   },
   "schema": "o017-pdf-font-tag-audit-v1",
   "scope": "read-only inspection of every page and every referenced font resource",
@@ -2121,20 +2132,20 @@
     "pdffonts": {
       "command": [
         "pdffonts",
-        "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf"
+        "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf"
       ],
       "returncode": 0,
       "stderr": "",
-      "stdout": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nGCYTVB+LMSans10-Bold-Identity-H      CID Type 0C       Identity-H       yes yes yes      5  0\nIXWMJS+LMRoman12-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes      7  0\nCFMBFB+LMRoman9-Bold-Identity-H      CID Type 0C       Identity-H       yes yes yes      9  0\nZTRMKA+LMRoman9-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes     11  0\nVULLSM+LMMono9-Regular-Identity-H    CID Type 0C       Identity-H       yes yes yes     19  0\nWZNLEL+LMRoman10-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes     24  0\nHTTFVG+FontAwesome5Free-Solid-Identity-H CID Type 0C       Identity-H       yes yes no     206  0\nWTGFWZ+LMRoman10-Bold-Identity-H     CID Type 0C       Identity-H       yes yes yes    208  0\nEGLSXS+LMMono10-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    214  0\nFWPYUO+LMRoman10-Italic-Identity-H   CID Type 0C       Identity-H       yes yes yes    237  0\nGMLBJW+LatinModernMath-Regular-Identity-H CID Type 0C       Identity-H       yes yes yes    251  0\nTZQTTS+MSAM10                        Type 1C           Builtin          yes yes yes    256  0\nKDFUFA+LMRoman9-Italic-Identity-H    CID Type 0C       Identity-H       yes yes yes    276  0\nSXFKEC+LMRoman10-BoldItalic-Identity-H CID Type 0C       Identity-H       yes yes yes    356  0\nJLZJML+LMRoman7-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    361  0\n"
+      "stdout": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nGCYTVB+LMSans10-Bold-Identity-H      CID Type 0C       Identity-H       yes yes yes      5  0\nIXWMJS+LMRoman12-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes      7  0\nCFMBFB+LMRoman9-Bold-Identity-H      CID Type 0C       Identity-H       yes yes yes      9  0\nZTRMKA+LMRoman9-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes     11  0\nVULLSM+LMMono9-Regular-Identity-H    CID Type 0C       Identity-H       yes yes yes     19  0\nWZNLEL+LMRoman10-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes     24  0\nHTTFVG+FontAwesome5Free-Solid-Identity-H CID Type 0C       Identity-H       yes yes no     206  0\nWTGFWZ+LMRoman10-Bold-Identity-H     CID Type 0C       Identity-H       yes yes yes    208  0\nEGLSXS+LMMono10-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    214  0\nFWPYUO+LMRoman10-Italic-Identity-H   CID Type 0C       Identity-H       yes yes yes    237  0\nGMLBJW+LatinModernMath-Regular-Identity-H CID Type 0C       Identity-H       yes yes yes    252  0\nKDFUFA+LMRoman9-Italic-Identity-H    CID Type 0C       Identity-H       yes yes yes    276  0\nSXFKEC+LMRoman10-BoldItalic-Identity-H CID Type 0C       Identity-H       yes yes yes    356  0\nJLZJML+LMRoman7-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    361  0\nSGQQVU+MSAM10                        Type 1C           Builtin          yes yes yes    484  0\nTZQTTS+LMMonoLt10-Bold-Identity-H    CID Type 0C       Identity-H       yes yes yes    585  0\n"
     },
     "pdfinfo": {
       "command": [
         "pdfinfo",
-        "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf"
+        "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf"
       ],
       "returncode": 0,
       "stderr": "",
-      "stdout": "Title:           Kerja Matematika yang Dapat Ditelusuri\nAuthor:          KokunoYumeto\nCreator:         LaTeX via pandoc\nProducer:        MiKTeX-dvipdfmx (20260404)\nCreationDate:    Sat Aug 22 23:15:47 2026 W. Europe Daylight Time\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           134\nEncrypted:       no\nPage size:       595.28 x 841.89 pts (A4)\nPage rot:        0\nFile size:       589303 bytes\nOptimized:       no\nPDF version:     1.7\n"
+      "stdout": "Title:           Kerja Matematika yang Dapat Ditelusuri\nAuthor:          KokunoYumeto\nCreator:         LaTeX via pandoc\nProducer:        MiKTeX-dvipdfmx (20260404)\nCreationDate:    Mon Aug 24 04:14:12 2026 W. Europe Daylight Time\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           133\nEncrypted:       no\nPage size:       595.28 x 841.89 pts (A4)\nPage rot:        0\nFile size:       590742 bytes\nOptimized:       no\nPDF version:     1.7\n"
     }
   }
 }

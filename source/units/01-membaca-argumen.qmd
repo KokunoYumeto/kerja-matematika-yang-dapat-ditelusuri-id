@@ -119,7 +119,7 @@ tetap memuat semua simpul, terhubung, dan tidak memiliki siklus; jadi $T''$
 adalah pohon merentang. Namun,
 $$w(T'')=w(T')-w(f)+w(e)<w(T'),$$
 bertentangan dengan keminimuman $T'$. Jadi dua pohon merentang minimum berbeda
-tidak mungkin ada. Pohon merentang minimum tersebut tunggal. $\square$
+tidak mungkin ada. Pohon merentang minimum tersebut tunggal.
 :::
 
 Langkah kuncinya bukan aljabar terakhir, melainkan menemukan $f$ dan

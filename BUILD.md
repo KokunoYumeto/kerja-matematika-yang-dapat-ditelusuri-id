@@ -1,6 +1,6 @@
 # Reproducible build
 
-Release version: `2026.08.22.1`.
+Release version: `2026.08.24`.
 
 ## Pinned witnessed toolchain
 
@@ -28,8 +28,8 @@ SHA-256 pinned.
 From the extracted edition root on an x86-64 Docker/Podman host:
 
 ```sh
-docker build --pull=false --file environment/Containerfile --tag o017-rebuild:2026.08.22.1 .
-docker run --rm --network none --volume "$PWD:/work:ro" o017-rebuild:2026.08.22.1 bash /work/environment/rebuild_and_verify.sh /work
+docker build --pull=false --file environment/Containerfile --tag o017-rebuild:2026.08.24 .
+docker run --rm --network none --volume "$PWD:/work:ro" o017-rebuild:2026.08.24 bash /work/environment/rebuild_and_verify.sh /work
 ```
 
 The image build validates Quarto, Python, pypdf, XeLaTeX, the required LaTeX
@@ -73,7 +73,7 @@ quarto render --profile pdf --to pdf
 ```
 
 The resulting A4 book is
-`output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf`.
+`output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf`.
 The title page carries the version DOI, concept DOI, HTML reader URL, GitHub
 source URL, production disclosure, and the controlling rights-file pointer.
 The PDF profile uses the landing page, the same nine unit QMD files as the HTML

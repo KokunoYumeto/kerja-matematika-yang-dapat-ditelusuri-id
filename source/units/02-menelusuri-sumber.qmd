@@ -283,7 +283,7 @@ $$
 Uji perbandingan menunjukkan bahwa ekor
 $\sum_{n=N}^{\infty}a_n^2$ konvergen. Menambahkan jumlah berhingga
 $\sum_{n=1}^{N-1}a_n^2$ tidak mengubah konvergensi. Maka seluruh deret
-$\sum a_n^2$ konvergen. $\square$
+$\sum a_n^2$ konvergen.
 :::
 
 Catatan audit akhir harus mengatakan tiga hal, bukan satu: versi 1 memuat K1;

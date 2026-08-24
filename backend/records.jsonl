@@ -66,7 +66,7 @@
 {"entity_type":"concept","id":"O017-CONCEPT-UNRESOLVED-METADATA","label_id":"data bibliografis yang belum diketahui","schema":"o017-backend-record-v1","unit":"O017-U02"}
 {"correction_kind":"relation-supersession","entity_type":"correction","id":"O017-CORRECTION-DONOR-IDENTITY-001","issued_relation_id_preserved":true,"reason_code":"citation-source-identity-scope-mismatch","replacements":[{"issued_relation_id":"O017-REL-001","replacement_relation_id":"O017-U02-REL-112"},{"issued_relation_id":"O017-REL-002","replacement_relation_id":"O017-U02-REL-113"}],"schema":"o017-backend-record-v1","status":"applied","unit":"O017-U02"}
 {"entity_type":"course","id":"O017-D120","schema":"o017-backend-record-v1","title":"Research Reading, Exposition, and Reproducible Mathematical Work"}
-{"admission_evidence":"nine unit admissions plus authentic-delivery wrapper, semantic-backend, final-reader, and release QA receipts","creator":"KokunoYumeto","entity_type":"edition","id":"O017-EDITION-01","locale":"id-ID","production_disclosure":"produced with OpenAI Codex gpt-5.6-sol, Ultra under the human creator's direction","production_system":"OpenAI Codex gpt-5.6-sol, Ultra","schema":"o017-backend-record-v1","status":"release-candidate","version":"2026.08.22.1"}
+{"admission_evidence":"nine unit admissions plus authentic-delivery wrapper, semantic-backend, final-reader, and release QA receipts","creator":"KokunoYumeto","entity_type":"edition","id":"O017-EDITION-01","locale":"id-ID","production_disclosure":"produced with OpenAI Codex gpt-5.6-sol, Ultra under the human creator's direction","production_system":"OpenAI Codex gpt-5.6-sol, Ultra","schema":"o017-backend-record-v1","status":"release-candidate","version":"2026.08.24"}
 {"entity_type":"program","id":"O017-PROGRAM","schema":"o017-backend-record-v1","title":"Kerja Matematika yang Dapat Ditelusuri"}
 {"entity_type":"resource","id":"O017-READER","role":"coursebook","schema":"o017-backend-record-v1","title":"Pembaca O017"}
 {"correction_id":"O017-CORRECTION-DONOR-IDENTITY-001","entity_type":"relation","id":"O017-REL-001","predicate":"identifies","schema":"o017-backend-record-v1","source":"O017-CIT-PYRSE","status":"superseded","superseded_by":"O017-U02-REL-112","target":"O017-SOURCE-PYRSE-6221"}
@@ -147,7 +147,7 @@
 {"canonical_en":"empirical evidence","entity_type":"term","id":"O017-TERM-EMPIRICAL-EVIDENCE","preferred_id":"bukti empiris","schema":"o017-backend-record-v1"}
 {"canonical_en":"proof","entity_type":"term","id":"O017-TERM-PROOF","preferred_id":"pembuktian","schema":"o017-backend-record-v1"}
 {"entity_type":"unit","id":"O017-U01","locale":"id-ID","ordinal":1,"schema":"o017-backend-record-v1","title":"Membaca Argumen sebagai Jejaring Klaim"}
-{"entity_type":"artifact","id":"O017-U01-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/01-membaca-argumen.html","schema":"o017-backend-record-v1","sha256":"23329dc1acd801381be6ba6bcfb79a73bee8e2f872ea7fff0b599182802af9ca"}
+{"entity_type":"artifact","id":"O017-U01-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/01-membaca-argumen.html","schema":"o017-backend-record-v1","sha256":"ccc2d4bc1eb37f56fa75d7ea0f973c6c3d74a534ef092b727b74c94230985a8d"}
 {"entity_type":"asset","id":"O017-U01-ASSET-MST-CODE","media_type":"text/x-python","path":"source/code/verify_mst_uniqueness.py","schema":"o017-backend-record-v1","sha256":"651f1c44f17385bc7ac44791634583a95a6ae86e05ef6c6ce1064052cd5dc761"}
 {"entity_type":"asset","id":"O017-U01-ASSET-MST-RESULT","media_type":"application/json","path":"build/unit-01-mst-check.json","schema":"o017-backend-record-v1","sha256":"e207dfab6554a9fe05b60e7a3575d0dd1ec6b62fa32f911c24d0d0debe7571dc"}
 {"entity_type":"counterexample","html_fragment":"o017-u01-counterexample-01","id":"O017-U01-COUNTEREXAMPLE-01","schema":"o017-backend-record-v1","unit":"O017-U01"}
@@ -174,7 +174,7 @@
 {"entity_type":"segment","html_fragment":"o017-u01-proof-reconstruction","id":"O017-U01-SEG-PROOF","schema":"o017-backend-record-v1","unit":"O017-U01"}
 {"entity_type":"segment","html_fragment":"o017-u01-provenance","id":"O017-U01-SEG-PROVENANCE","schema":"o017-backend-record-v1","unit":"O017-U01"}
 {"entity_type":"segment","html_fragment":"o017-u01-reading","id":"O017-U01-SEG-READING","schema":"o017-backend-record-v1","unit":"O017-U01"}
-{"entity_type":"theorem","html_fragment":"thm-o017-u01-01","id":"O017-U01-THEOREM-01","schema":"o017-backend-record-v1","title":"Ketunggalan pohon rentang minimum","unit":"O017-U01"}
+{"entity_type":"theorem","html_fragment":"thm-o017-u01-01","id":"O017-U01-THEOREM-01","schema":"o017-backend-record-v1","title":"Ketunggalan pohon merentang minimum","unit":"O017-U01"}
 {"entity_type":"exercise","html_fragment":"o017-u01-x01","id":"O017-U01-X01","ordinal":1,"schema":"o017-backend-record-v1","unit":"O017-U01"}
 {"entity_type":"exercise","html_fragment":"o017-u01-x02","id":"O017-U01-X02","ordinal":2,"schema":"o017-backend-record-v1","unit":"O017-U01"}
 {"entity_type":"exercise","html_fragment":"o017-u01-x03","id":"O017-U01-X03","ordinal":3,"schema":"o017-backend-record-v1","unit":"O017-U01"}
@@ -182,7 +182,7 @@
 {"entity_type":"exercise","html_fragment":"o017-u01-x05","id":"O017-U01-X05","ordinal":5,"schema":"o017-backend-record-v1","unit":"O017-U01"}
 {"entity_type":"exercise","html_fragment":"o017-u01-x06","id":"O017-U01-X06","ordinal":6,"schema":"o017-backend-record-v1","unit":"O017-U01"}
 {"entity_type":"unit","id":"O017-U02","locale":"id-ID","ordinal":2,"schema":"o017-backend-record-v1","title":"Menelusuri Literatur dan Menilai Otoritas Sumber"}
-{"entity_type":"artifact","id":"O017-U02-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/02-menelusuri-sumber.html","schema":"o017-backend-record-v1","sha256":"ab41e9fd166f25b529ee2cd6194d74f9cc0255896d835aa4aea09fa79f7ee999"}
+{"entity_type":"artifact","id":"O017-U02-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/02-menelusuri-sumber.html","schema":"o017-backend-record-v1","sha256":"def28cd4f2d86c16ae92e7ccd3aa0da6deacbcdfa0b6e116df6ce7558ba937a0"}
 {"entity_type":"counterexample","html_fragment":"o017-u02-counterexample-v1","id":"O017-U02-COUNTEREXAMPLE-K1","refutes":"O017-U02-THEOREM-K1","schema":"o017-backend-record-v1","unit":"O017-U02","witness":"a_n=(-1)^(n+1)/sqrt(n)"}
 {"entity_type":"definition","html_fragment":"o017-u02-def01","id":"O017-U02-D01","schema":"o017-backend-record-v1","title":"Otoritas bergantung pada pertanyaan","unit":"O017-U02"}
 {"entity_type":"definition","html_fragment":"o017-u02-def-pid","id":"O017-U02-D02","schema":"o017-backend-record-v1","title":"PID karya dan PID versi","unit":"O017-U02"}
@@ -348,7 +348,7 @@
 {"entity_type":"exercise","html_fragment":"o017-u02-x05","id":"O017-U02-X05","ordinal":5,"schema":"o017-backend-record-v1","unit":"O017-U02"}
 {"entity_type":"exercise","html_fragment":"o017-u02-x06","id":"O017-U02-X06","ordinal":6,"schema":"o017-backend-record-v1","unit":"O017-U02"}
 {"entity_type":"unit","id":"O017-U03","locale":"id-ID","ordinal":3,"schema":"o017-backend-record-v1","title":"Merekonstruksi Pembuktian yang Diringkas atau Dihilangkan"}
-{"entity_type":"artifact","id":"O017-U03-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/03-merekonstruksi-pembuktian.html","schema":"o017-backend-record-v1","sha256":"4461c90ffd3ae6529feadbcc2db04a0ffbc337cf463161feade7033b4493a6fb"}
+{"entity_type":"artifact","id":"O017-U03-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/03-merekonstruksi-pembuktian.html","schema":"o017-backend-record-v1","sha256":"682a263bda2d8ba66dfdc6af9fb4a2021dd29eb334efc6710f43e5fcdb414340"}
 {"entity_type":"counterexample","html_fragment":"o017-u03-cover-scope-error","id":"O017-U03-COUNTEREXAMPLE-COVER-SCOPE","refutes":"a cover of f[K] must cover the whole codomain or domain","schema":"o017-backend-record-v1","unit":"O017-U03"}
 {"entity_type":"counterexample","html_fragment":"o017-u03-counterexample-discontinuous","id":"O017-U03-COUNTEREXAMPLE-DISCONTINUOUS","schema":"o017-backend-record-v1","unit":"O017-U03","witness":"g(0)=0 and g(1/n)=n on a compact convergent sequence"}
 {"entity_type":"counterexample","html_fragment":"o017-u03-image-preimage-error","id":"O017-U03-COUNTEREXAMPLE-IMAGE-PREIMAGE","refutes":"f[f^{-1}[V]] equals V for an arbitrary function","schema":"o017-backend-record-v1","unit":"O017-U03"}
@@ -524,7 +524,7 @@
 {"entity_type":"exercise","html_fragment":"o017-u03-x05","id":"O017-U03-X05","ordinal":5,"schema":"o017-backend-record-v1","unit":"O017-U03"}
 {"entity_type":"exercise","html_fragment":"o017-u03-x06","id":"O017-U03-X06","ordinal":6,"schema":"o017-backend-record-v1","unit":"O017-U03"}
 {"entity_type":"unit","id":"O017-U04","locale":"id-ID","ordinal":4,"schema":"o017-backend-record-v1","title":"Sitasi, Provenance, dan Buku Catatan Sumber"}
-{"entity_type":"artifact","id":"O017-U04-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/04-sitasi-provenance-catatan-sumber.html","schema":"o017-backend-record-v1","sha256":"d9a8d2d988f161577a7e15edf248771426296eed9d4fb4e450b327be516dda37"}
+{"entity_type":"artifact","id":"O017-U04-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/04-sitasi-provenance-catatan-sumber.html","schema":"o017-backend-record-v1","sha256":"0cc94376c767c3dd599060aacfb26dada16edb80a5d227e611562633aa582ac2"}
 {"claim_status":"refuted","entity_type":"theorem","html_fragment":"o017-u04-packet-v1","id":"O017-U04-CLAIM-PACKET-V1","schema":"o017-backend-record-v1","title":"Klaim integral paket V1","unit":"O017-U04"}
 {"claim_status":"proved","entity_type":"theorem","html_fragment":"thm-o017-u04-packet-v2","id":"O017-U04-CLAIM-PACKET-V2","schema":"o017-backend-record-v1","title":"Klaim integral paket V2","unit":"O017-U04"}
 {"claim_status":"superseded-for-student-audit","entity_type":"theorem","html_fragment":"o017-u04-completion-v1","id":"O017-U04-COMPLETION-CLAIM-V1","schema":"o017-backend-record-v1","title":"Klaim norma matriks V1","unit":"O017-U04"}
@@ -667,7 +667,7 @@
 {"entity_type":"segment","html_fragment":"o017-u04-version-packet","id":"O017-U04-SEG-VERSION-PACKET","schema":"o017-backend-record-v1","unit":"O017-U04"}
 {"entity_type":"segment","html_fragment":"o017-u04-worked-case","id":"O017-U04-SEG-WORKED-CASE","schema":"o017-backend-record-v1","unit":"O017-U04"}
 {"entity_type":"unit","id":"O017-U05","locale":"id-ID","ordinal":5,"schema":"o017-backend-record-v1","title":"Menulis Eksposisi Matematika yang Dapat Diaudit"}
-{"entity_type":"artifact","id":"O017-U05-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/05-eksposisi-matematika.html","schema":"o017-backend-record-v1","sha256":"902325e185f17a0ad792c3cf6938cc477ba81eb77445d596985d2debb61277ba"}
+{"entity_type":"artifact","id":"O017-U05-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/05-eksposisi-matematika.html","schema":"o017-backend-record-v1","sha256":"55519efc20f617099274e16d9da45f8692da34e22ad1365260f9a07713c7e041"}
 {"entity_type":"counterexample","html_fragment":"o017-u05-counterexample-01","id":"O017-U05-COUNTEREXAMPLE-EUCLID-PRIME","refutes":"the product of listed primes plus one is always prime","schema":"o017-backend-record-v1","unit":"O017-U05","witness":"30031 = 59 × 509"}
 {"entity_type":"definition","html_fragment":"def-o017-u05-prime","id":"O017-U05-D01","schema":"o017-backend-record-v1","title":"Keterbagian dan bilangan prima","unit":"O017-U05"}
 {"entity_type":"exercise","html_fragment":"o017-u05-e01","id":"O017-U05-E01","ordinal":1,"schema":"o017-backend-record-v1","unit":"O017-U05"}
@@ -829,7 +829,7 @@
 {"entity_type":"segment","html_fragment":"o017-u05-worked-scope-close","id":"O017-U05-SEG-WORKED-SCOPE-CLOSE","schema":"o017-backend-record-v1","unit":"O017-U05"}
 {"claim_status":"proved","entity_type":"theorem","html_fragment":"thm-o017-u05-infinitely-many-primes","id":"O017-U05-THEOREM-INFINITE-PRIMES","schema":"o017-backend-record-v1","title":"Terdapat tak berhingga banyak bilangan prima","unit":"O017-U05"}
 {"entity_type":"unit","id":"O017-U06","locale":"id-ID","ordinal":6,"schema":"o017-backend-record-v1","title":"Komputasi Matematika yang Dapat Direproduksi"}
-{"entity_type":"artifact","id":"O017-U06-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/06-komputasi-dapat-direproduksi.html","schema":"o017-backend-record-v1","sha256":"5a771ea998a2b8fcfe7ff2573f18ff4f0922fae6b1ac5bbb69171eaa63c4739d"}
+{"entity_type":"artifact","id":"O017-U06-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/06-komputasi-dapat-direproduksi.html","schema":"o017-backend-record-v1","sha256":"e35998f6dc33cf5e68bad0ae7030e24501b7d35d1a4c968abe520d99d43b4a4f"}
 {"claim_status":"refuted","entity_type":"theorem","html_fragment":"o017-u06-counterexample-search","id":"O017-U06-C-FALSE-01","schema":"o017-backend-record-v1","title":"Klaim prima universal untuk n^2+n+41","unit":"O017-U06"}
 {"claim_status":"verified-finite","entity_type":"theorem","html_fragment":"o017-u06-witness-contract","id":"O017-U06-C-FINITE-01","schema":"o017-backend-record-v1","scope":"integers n with 1 <= n <= 24; exact arithmetic","title":"Saksi berhingga identitas Cassini untuk n = 1..24","unit":"O017-U06"}
 {"entity_type":"asset","id":"O017-U06-CODE-01","media_type":"text/x-python","path":"source/code/u06_recurrence_witness.py","schema":"o017-backend-record-v1","sha256":"9effb4dd4d17ce6b26fd108585ff0adc5110d8903c9c283b56a909613e7aa93d"}
@@ -992,7 +992,7 @@
 {"entity_type":"segment","html_fragment":"o017-u06-worked-decisions","id":"O017-U06-SEG-WORKED-DECISIONS","schema":"o017-backend-record-v1","unit":"O017-U06"}
 {"claim_status":"proved","entity_type":"theorem","html_fragment":"thm-o017-u06-cassini","id":"O017-U06-THM-CASSINI","schema":"o017-backend-record-v1","title":"Identitas Cassini","unit":"O017-U06"}
 {"entity_type":"unit","id":"O017-U07","locale":"id-ID","ordinal":7,"schema":"o017-backend-record-v1","title":"Errata, Koreksi, dan Batas Kepastian"}
-{"entity_type":"artifact","id":"O017-U07-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/07-errata-koreksi-batas-kepastian.html","schema":"o017-backend-record-v1","sha256":"43449be2007bcd8638609cec0e08f98b54edbc6ac24d98df92d853805c9e0354"}
+{"entity_type":"artifact","id":"O017-U07-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/07-errata-koreksi-batas-kepastian.html","schema":"o017-backend-record-v1","sha256":"a9ebcec99da699438b509099048a4535d7ce20bca03db72541f64fd934632b80"}
 {"claim_status":"false-as-written","entity_type":"theorem","html_fragment":"o017-u07-packet-v1","id":"O017-U07-C01","schema":"o017-backend-record-v1","title":"Klaim tanda tetap tanpa keterhubungan","unit":"O017-U07"}
 {"claim_status":"proved","entity_type":"theorem","html_fragment":"o017-u07-packet-v2","id":"O017-U07-C02","schema":"o017-backend-record-v1","title":"Klaim tanda tetap pada domain terhubung","unit":"O017-U07"}
 {"entity_type":"counterexample","html_fragment":"o017-u07-two-point-counterexample","id":"O017-U07-CE01","refutes":"O017-U07-C01","schema":"o017-backend-record-v1","unit":"O017-U07","witness":"X={-1,1} with subspace topology and f(x)=x"}
@@ -1209,7 +1209,7 @@
 {"entity_type":"exercise","html_fragment":"o017-u07-x05","id":"O017-U07-X05","ordinal":5,"schema":"o017-backend-record-v1","unit":"O017-U07"}
 {"entity_type":"exercise","html_fragment":"o017-u07-x06","id":"O017-U07-X06","ordinal":6,"schema":"o017-backend-record-v1","unit":"O017-U07"}
 {"entity_type":"unit","id":"O017-U08","locale":"id-ID","ordinal":8,"schema":"o017-backend-record-v1","title":"Catatan Seminar, Laporan Penelaah, dan Tanggapan terhadap Kritik"}
-{"entity_type":"artifact","id":"O017-U08-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/08-seminar-penelaah-tanggapan-kritik.html","schema":"o017-backend-record-v1","sha256":"80290e13b6fdd9db2e3248bc6168b8201e7b9b50414d792b0671bb6857213bb0"}
+{"entity_type":"artifact","id":"O017-U08-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/08-seminar-penelaah-tanggapan-kritik.html","schema":"o017-backend-record-v1","sha256":"fdc25d63a959b1a0806f57561fa14eaa8456704c888dcef42e3187559a1960a0"}
 {"entity_type":"counterexample","html_fragment":"o017-u08-review-c01","id":"O017-U08-CE-IDENTITY-MAP","refutes":"O017-U08-MS-V1-THM1-UNIQUENESS","schema":"o017-backend-record-v1","unit":"O017-U08","witness":"f(x)=x on [0,1]"}
 {"entity_type":"concept","id":"O017-U08-CPT-ENTRY-KIND","label_id":"jenis entri ringkasan verifikasi pertanyaan keberatan","schema":"o017-backend-record-v1","unit":"O017-U08"}
 {"entity_type":"concept","id":"O017-U08-CPT-EVIDENCE-BOUNDED-REVIEW","label_id":"penelaahan berbatas bukti","schema":"o017-backend-record-v1","unit":"O017-U08"}
@@ -1508,7 +1508,7 @@
 {"entity_type":"artifact","html_fragment":"o017-u08-seminar-case-notes","id":"O017-U08-TALK-NOTES-01","schema":"o017-backend-record-v1","status":"bounded-local-notes","unit":"O017-U08"}
 {"entity_type":"qa_event","html_fragment":"o017-u08-worked-unresolved-items","id":"O017-U08-UNRESOLVED-REGISTER","schema":"o017-backend-record-v1","status":"open-items-preserved","unit":"O017-U08"}
 {"entity_type":"unit","id":"O017-U09","locale":"id-ID","ordinal":9,"schema":"o017-backend-record-v1","title":"Kontribusi Komunitas Terbatas dan Portofolio yang Dapat Diaudit"}
-{"entity_type":"artifact","id":"O017-U09-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/09-kontribusi-komunitas-portofolio.html","schema":"o017-backend-record-v1","sha256":"534dc3644b0827cda448e707c8f5c39185fc5dfeae6f38d4d54cba6464f60059"}
+{"entity_type":"artifact","id":"O017-U09-ARTIFACT-HTML","media_type":"text/html","path":"build/html/units/09-kontribusi-komunitas-portofolio.html","schema":"o017-backend-record-v1","sha256":"09fdc4290b2abc88ea598caed12c5cc3674de5c79e07b42b315c086770d60eae"}
 {"entity_type":"artifact","html_fragment":"o017-u09-capstone","id":"O017-U09-CAPSTONE001","schema":"o017-backend-record-v1","status":"local-capstone-specification","unit":"O017-U09"}
 {"entity_type":"concept","id":"O017-U09-CPT-BEFORE-AFTER-VALIDATION","label_id":"validasi sebelum dan sesudah","schema":"o017-backend-record-v1","unit":"O017-U09"}
 {"entity_type":"concept","id":"O017-U09-CPT-BOUNDED-CONTRIBUTION","label_id":"kontribusi komunitas terbatas","schema":"o017-backend-record-v1","unit":"O017-U09"}

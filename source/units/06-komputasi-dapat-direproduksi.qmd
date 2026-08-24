@@ -394,7 +394,7 @@ $$
 
 Jadi, jika $D_n=(-1)^n$, maka
 $D_{n+1}=-(-1)^n=(-1)^{n+1}$. Induksi dari kasus dasar memberi
-$D_n=(-1)^n$ untuk setiap integer $n\geq1$. $\square$
+$D_n=(-1)^n$ untuk setiap integer $n\geq1$.
 :::
 
 Pembuktian ini menutup kuantor universal dengan kasus dasar dan langkah

@@ -89,7 +89,7 @@
     "wrapper_ledger_is_append_only": true,
     "wrapper_ledger_path": "backend/semantic-wrapper-v1.relations-ledger.csv"
   },
-  "release_version": "2026.08.22.1",
+  "release_version": "2026.08.24",
   "schema": "o017-semantic-wrapper-dataset-v1",
   "schema_path": "backend/semantic-wrapper-v1.schema.json",
   "schema_sha256": "73c23b5012dc95cb8cdf3823cde587f0422ae1787fe94b9b2361b81843c6c818",
@@ -150,9 +150,9 @@
       "sha256": "2e4e29c57c928477a07f170fe497440c61b723c203efbd9e464213b040c06cf8"
     },
     {
-      "bytes": 9342,
+      "bytes": 9343,
       "path": "delivery/definitions/o017-delivery-definitions.json",
-      "sha256": "58047c59da22e26c0738ef9727941cdd89b13f4b601928fb63098359a8e269a2"
+      "sha256": "9ce19bde4aada7a17f123f8cbf6e8dda59973867d4dc15a9b13db65e9ed5701d"
     },
     {
       "bytes": 4732,
@@ -165,24 +165,24 @@
       "sha256": "7d870b3612b986d75da036a73adb13945b2d45ae8b236ab6e681358530d2fc1e"
     },
     {
-      "bytes": 11550,
+      "bytes": 11540,
       "path": "source/units/01-membaca-argumen.qmd",
-      "sha256": "3b76971189618fda69194013531c6e785b045ce36de523af63bac63eecf79b8c"
+      "sha256": "0d149ca6565236a18448a262493ee21d96d4010a4c8750a6a09bcf3de488d688"
     },
     {
-      "bytes": 24229,
+      "bytes": 24219,
       "path": "source/units/02-menelusuri-sumber.qmd",
-      "sha256": "4d2744004d4bda52e07691c9bbcf6d42d47ec720479d8562dde50e4250eed2fa"
+      "sha256": "7da45e3e3fb2c9c25e7dd10bdb5eb108846c1443dd3f3e66418e0c07bdb94d9a"
     },
     {
-      "bytes": 36634,
+      "bytes": 36624,
       "path": "source/units/03-merekonstruksi-pembuktian.qmd",
-      "sha256": "9f2e1a027a867fde79c085d30743b38160abf76d811dc700ccbf994595b2e285"
+      "sha256": "b4e3ed7fac5d9a18c1c90df6a0da1cc5d7f9c309c2fe701ab6996e902793e1bf"
     },
     {
-      "bytes": 38599,
+      "bytes": 38589,
       "path": "source/units/04-sitasi-provenance-catatan-sumber.qmd",
-      "sha256": "08062db275a9620512c8dc4f8abc2a6d0cc93db2d55229cf1542747d69f8cd4f"
+      "sha256": "47547d4d18db7d3719b14ce3914a017d5ef741f01fc31f928365fe1cb0f1fcbb"
     },
     {
       "bytes": 37364,
@@ -190,9 +190,9 @@
       "sha256": "ef5779b009bf1fe32b66af53ea64a89fd7eb51a240f7288bc4328c64d16a7006"
     },
     {
-      "bytes": 43419,
+      "bytes": 43409,
       "path": "source/units/06-komputasi-dapat-direproduksi.qmd",
-      "sha256": "b4033d9a86114d8b88f6101da511ca01764009d374f811886f365a11b2535259"
+      "sha256": "56715993b49ffb98cab9b4bf4a5bff85be040f1a85ba2484b83e536f81c09f0e"
     },
     {
       "bytes": 52178,
@@ -200,9 +200,9 @@
       "sha256": "dac211708a859a8bf93f800395ff252caa4554c30c0f3994356ab98fa6a24c91"
     },
     {
-      "bytes": 48835,
+      "bytes": 49752,
       "path": "source/units/08-seminar-penelaah-tanggapan-kritik.qmd",
-      "sha256": "2437212b31b42f11b186eaf4a0a1edac3758a1fc4a21e1d4eaca6b1934a0e8ca"
+      "sha256": "6c11eeede678ffd006924d0b751ef14efa033504f411707446fbbe3fc890b84a"
     },
     {
       "bytes": 44755,

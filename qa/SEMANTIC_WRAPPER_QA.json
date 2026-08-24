@@ -1,6 +1,6 @@
 {
   "baseline_invariants": {
-    "current_record_stream_sha256": "a25b7a3777227e0509d7b4e2a9bd961872270ffdc5f4666a224a48acb64f0dbe",
+    "current_record_stream_sha256": "a5c67e3f14cfc03bd0cd3f3ce6628fc7161876a752ae470fe9aeea8401969bbd",
     "delivery_crosswalk_rows_appended": 68,
     "existing_ledger_rewritten": false,
     "historical_record_stream_sha256": "62afbb038058344c66de8aa85c6e9c667669973924eef815562c965620fb374c",
@@ -25,6 +25,9 @@
       ],
       "O017-U01-ARTIFACT-HTML": [
         "sha256"
+      ],
+      "O017-U01-THEOREM-01": [
+        "title"
       ],
       "O017-U02-ARTIFACT-HTML": [
         "sha256"
@@ -51,7 +54,7 @@
         "sha256"
       ]
     },
-    "stable_record_projection_sha256": "8ae7f05f1fffbbc5d534702c4c9889d67d91cbf99ef93c91646cd5bea2964d58",
+    "stable_record_projection_sha256": "976e51eca78ba290b3c9c55e9dd30cfc4eb0a17fbf800fb54d72303edb42f590",
     "wrapper_core_relation_prefix_count": 1636,
     "wrapper_core_relation_prefix_sha256": "db071314764ea01f069ab0db96e5d2084450e045e34ea9d5532d725017c0fa67"
   },
@@ -131,9 +134,9 @@
       "sha256": "458d19a229fc6d3677a8e9dac677fa5decfa4ee9a65a92978d02f5f32fedc1c2"
     },
     {
-      "bytes": 7717,
+      "bytes": 7715,
       "path": "backend/semantic-wrapper-v1.dataset.json",
-      "sha256": "faa677bdc319fd997206f5c5e6fa904e82ef2a667608a8ea127ca4df333eb5b0"
+      "sha256": "da4b241c357975c53e8b1a9bdcaaea6bb6f396a15fc7165909c7f2a0d9c36c50"
     },
     {
       "bytes": 3008,
@@ -141,9 +144,9 @@
       "sha256": "a84afb30bd5e162a8d88365d883920799e921f6b5550d19b4f76ed4827f3bc40"
     },
     {
-      "bytes": 58894,
+      "bytes": 59149,
       "path": "scripts/generate_semantic_wrapper.py",
-      "sha256": "cb53ec681ad5b28a7c14314cb25e3dc29e77fa4960f1bc6c0f3fdbc5c64a94f2"
+      "sha256": "9a2a847af53bb7571ff725aeab5125982c0f42751edd5f09a81f6d3a8f881177"
     },
     {
       "bytes": 25198,
@@ -164,7 +167,7 @@
     "reject_renderer_fragment_as_semantic_id",
     "reject_incomplete_criterion"
   ],
-  "release_version": "2026.08.22.1",
+  "release_version": "2026.08.24",
   "schema": "o017-semantic-wrapper-qa-v1",
   "status": "pass"
 }

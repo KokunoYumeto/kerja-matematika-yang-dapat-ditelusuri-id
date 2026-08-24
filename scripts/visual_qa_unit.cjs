@@ -494,7 +494,7 @@ async function main() {
     const report = {
       schema: "o017-unit-visual-qa-v2",
       status: "PASS",
-      date: "2026-08-22",
+      date: "2026-08-24",
       unit_id: unitId,
       audio_widgets_exercised: false,
       unit_html_sha256: sha256File(unitHtml),

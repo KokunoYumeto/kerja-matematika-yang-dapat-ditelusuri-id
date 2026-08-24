@@ -34,15 +34,15 @@ SEMANTIC_SCHEMA = "o017-semantic-wrapper-record-v1"
 LOCALIZATION_SCHEMA = "o017-localized-text-record-v1"
 DATASET_SCHEMA = "o017-semantic-wrapper-dataset-v1"
 MODEL_VERSION = "1.0.0"
-RELEASE_VERSION = "2026.08.22.1"
+RELEASE_VERSION = "2026.08.24"
 
-CURRENT_EDITION_VERSION = "2026.08.22.1"
+CURRENT_EDITION_VERSION = "2026.08.24"
 CURRENT_ADMISSION_EVIDENCE = (
     "nine unit admissions plus authentic-delivery wrapper, semantic-backend, "
     "final-reader, and release QA receipts"
 )
 HISTORICAL_STABLE_RECORD_PROJECTION_SHA256 = (
-    "8ae7f05f1fffbbc5d534702c4c9889d67d91cbf99ef93c91646cd5bea2964d58"
+    "976e51eca78ba290b3c9c55e9dd30cfc4eb0a17fbf800fb54d72303edb42f590"
 )
 PERMITTED_BASELINE_RECORD_DELTAS = {
     "O017-EDITION-01": frozenset(
@@ -61,6 +61,7 @@ PERMITTED_BASELINE_RECORD_DELTAS = {
     "O017-RIGHTS-ORIGINAL-TEXT": frozenset({"licensor"}),
     "O017-RIGHTS-ORIGINAL-CODE": frozenset({"licensor"}),
     "O017-RIGHTS-GENERATED-DATA": frozenset({"licensor"}),
+    "O017-U01-THEOREM-01": frozenset({"title"}),
 }
 
 DELIVERY_WRAPPER_PATH = "source/wrapper/index.qmd"
@@ -1157,7 +1158,12 @@ def verify_baseline(baseline: dict[str, Any]) -> None:
         edition.get("version") != CURRENT_EDITION_VERSION
         or edition.get("admission_evidence") != CURRENT_ADMISSION_EVIDENCE
     ):
-        fail("backend edition record does not identify the current .1 release")
+        fail("backend edition record does not identify the current release")
+    if (
+        records_by_id["O017-U01-THEOREM-01"].get("title")
+        != "Ketunggalan pohon merentang minimum"
+    ):
+        fail("backend theorem title does not preserve the frozen terminology correction")
     for unit, filename in UNIT_FILES.items():
         record_id = f"O017-U{unit:02d}-ARTIFACT-HTML"
         html_path = ROOT / "build" / "html" / "units" / filename.replace(".qmd", ".html")

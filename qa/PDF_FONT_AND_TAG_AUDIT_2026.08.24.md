@@ -1,8 +1,8 @@
 # O017 PDF font and tag audit
 
-Artifact: `output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf`  
-SHA-256: `bfac70f7efd2ce0a65fd0b2435ed817dee8186169f8f3a95b0fe526a0f46f2bf`  
-Extent: 134 pages; every page inspected.
+Artifact: `output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf`  
+SHA-256: `2bfda5d095913829da095ac930d8f1aa61613bfb46c2375970183cb77acdefbb`  
+Extent: 133 pages; every page inspected.
 
 ## Accessibility finding
 
@@ -20,8 +20,8 @@ mechanism: <https://www.w3.org/TR/WCAG20-TECHS/pdf>.
 
 ## Font result
 
-All 15 referenced font objects are embedded and subset.
-14 have ToUnicode maps;
+All 16 referenced font objects are embedded and subset.
+15 have ToUnicode maps;
 1 do not. The sole missing ToUnicode map is
 the Font Awesome icon subset; that is an additional reason not to infer accessibility
 from successful text extraction.
@@ -34,15 +34,16 @@ from successful text extraction.
 | /GCYTVB+LMSans10-Bold-Identity-H | /Type0 | yes | yes | 129 | `1d1855273a0ce5ace08b82860116d530f8188699c55a72fdd9f88a12b366cfcf` |
 | /GMLBJW+LatinModernMath-Regular-Identity-H | /Type0 | yes | yes | 77 | `fb089ce9c48d7867434b37d595c1ca7eacceafdce4f3fa9786aba4d922bc7e2d` |
 | /HTTFVG+FontAwesome5Free-Solid-Identity-H | /Type0 | yes | no | 46 | `70cabc36d1557973c5b843fcfb7bb97602d0a240e583b8c72d8b295c6f561023` |
-| /IXWMJS+LMRoman12-Regular-Identity-H | /Type0 | yes | yes | 1 | `7c987ea28570cc2bc58d934fe8b0cfaf31b3a0bfde31cf9db2c5a1c610ea8131` |
+| /IXWMJS+LMRoman12-Regular-Identity-H | /Type0 | yes | yes | 1 | `b2d28c9346cc61726e31c9d934cbe86e8de95257c474b532df9ba73cf8721a38` |
 | /JLZJML+LMRoman7-Regular-Identity-H | /Type0 | yes | yes | 1 | `c9c52f85e6728edbf9022a16d06fbd04ac1fe9e2497f6091ea4c72f3e49813a5` |
 | /KDFUFA+LMRoman9-Italic-Identity-H | /Type0 | yes | yes | 4 | `197ef52432e943d96b9ab6b64a0ae19880c0902ec912704db5e5d51c2268dc47` |
+| /SGQQVU+MSAM10 | /Type1 | yes | yes | 2 | `d44aef400f66bfd460a0129783a950d56f2047d18d4bb17e1009e6ffafda26e2` |
 | /SXFKEC+LMRoman10-BoldItalic-Identity-H | /Type0 | yes | yes | 1 | `102b9411ebe7c2e74fd199796ee690a4085d653f6fe7ebc7d39f00af16a10dfa` |
-| /TZQTTS+MSAM10 | /Type1 | yes | yes | 7 | `88932ad26375cd739d788bd5ad5bb042d204d867758059b3a216ae76095445b4` |
-| /VULLSM+LMMono9-Regular-Identity-H | /Type0 | yes | yes | 33 | `34d84032ac0fb0793bb943080c77ed1059d66eb6d16e9fa1a1a070e6435c788d` |
-| /WTGFWZ+LMRoman10-Bold-Identity-H | /Type0 | yes | yes | 102 | `d69777e4d2fde0094bbe525194201887583bfbf923306665dcb847a5d449cfeb` |
-| /WZNLEL+LMRoman10-Regular-Identity-H | /Type0 | yes | yes | 133 | `daefdae1c5558c4b1d1830ad11e8e2fc7fcc4ef581424f9f2b21b0c3322c053d` |
-| /ZTRMKA+LMRoman9-Regular-Identity-H | /Type0 | yes | yes | 122 | `0ab8edd0c48d1e012e62f1e432bde0e04cad7234bd8886591d871d981b6f63ed` |
+| /TZQTTS+LMMonoLt10-Bold-Identity-H | /Type0 | yes | yes | 1 | `85959eca7dbeae1bd257148a509477c7f707749e695d59214831da665cb28f73` |
+| /VULLSM+LMMono9-Regular-Identity-H | /Type0 | yes | yes | 35 | `986f573f82eda44c6d272ee36ae08c25d8f224b57dfc55af5b212b99f516bd27` |
+| /WTGFWZ+LMRoman10-Bold-Identity-H | /Type0 | yes | yes | 103 | `d69777e4d2fde0094bbe525194201887583bfbf923306665dcb847a5d449cfeb` |
+| /WZNLEL+LMRoman10-Regular-Identity-H | /Type0 | yes | yes | 132 | `daefdae1c5558c4b1d1830ad11e8e2fc7fcc4ef581424f9f2b21b0c3322c053d` |
+| /ZTRMKA+LMRoman9-Regular-Identity-H | /Type0 | yes | yes | 121 | `0ab8edd0c48d1e012e62f1e432bde0e04cad7234bd8886591d871d981b6f63ed` |
 
 ## Permanent disclosure to publish beside the PDF
 

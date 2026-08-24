@@ -1,7 +1,7 @@
 # Permanent PDF accessibility disclosure
 
 This text is the permanent public disclosure required by the complete audit in
-`qa/PDF_FONT_AND_TAG_AUDIT_2026.08.22.1.json`. It does not claim tagged-PDF or
+`qa/PDF_FONT_AND_TAG_AUDIT_2026.08.24.json`. It does not claim tagged-PDF or
 PDF/UA conformance.
 
 ## Indonesian

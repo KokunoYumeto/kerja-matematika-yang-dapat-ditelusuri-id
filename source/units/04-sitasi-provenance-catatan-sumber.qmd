@@ -373,7 +373,7 @@ $$
 \leq\frac{C}{\alpha}<\infty.
 $$
 
-Jadi integral yang dinyatakan pada C02 konvergen mutlak. $\square$
+Jadi integral yang dinyatakan pada C02 konvergen mutlak.
 :::
 
 Bukti ini dicatat sebagai `O017-U04-EV02`, jenis `proof`, hubungan

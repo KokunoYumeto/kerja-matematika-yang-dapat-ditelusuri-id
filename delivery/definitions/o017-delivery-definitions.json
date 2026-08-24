@@ -120,7 +120,7 @@
     {
       "gate_id": "O017-WRAP-G02",
       "code": "search_provenance",
-      "label_id": "Provenans pencarian",
+      "label_id": "Provenance pencarian",
       "pass_condition_id": "Pertanyaan, kueri, waktu, calon, aturan berhenti, keputusan, dan ketidakpastian membentuk rantai lengkap."
     },
     {

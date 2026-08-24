@@ -25,10 +25,10 @@ PDF = (
     ROOT
     / "output"
     / "pdf"
-    / "kerja-matematika-yang-dapat-ditelusuri-id-2026.08.22.1.pdf"
+    / "kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf"
 )
-JSON_OUTPUT = ROOT / "qa" / "PDF_FONT_AND_TAG_AUDIT_2026.08.22.1.json"
-MARKDOWN_OUTPUT = ROOT / "qa" / "PDF_FONT_AND_TAG_AUDIT_2026.08.22.1.md"
+JSON_OUTPUT = ROOT / "qa" / "PDF_FONT_AND_TAG_AUDIT_2026.08.24.json"
+MARKDOWN_OUTPUT = ROOT / "qa" / "PDF_FONT_AND_TAG_AUDIT_2026.08.24.md"
 
 
 def sha256_bytes(value: bytes) -> str:
@@ -114,7 +114,7 @@ def parse_args() -> argparse.Namespace:
         "--pdf",
         type=Path,
         default=PDF,
-        help="PDF to inspect (default: the 2026.08.22.1 release PDF)",
+        help="PDF to inspect (default: the 2026.08.24 release PDF)",
     )
     parser.add_argument(
         "--json-output",
