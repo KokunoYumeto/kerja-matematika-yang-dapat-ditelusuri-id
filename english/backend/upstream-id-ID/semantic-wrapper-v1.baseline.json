@@ -1,0 +1,33 @@
+{
+  "schema": "o017-semantic-wrapper-baseline-v1",
+  "frozen_at_version": "2026.08.22",
+  "files": {
+    "backend/records.jsonl": {
+      "bytes": 361022,
+      "sha256": "62afbb038058344c66de8aa85c6e9c667669973924eef815562c965620fb374c",
+      "record_count": 1787,
+      "id_set_sha256": "ee429337e66f995fa0ff43d5f901d5f79322c8f4e73945aa677e8f8570d997d5"
+    },
+    "backend/relations-ledger.csv": {
+      "bytes": 91304,
+      "sha256": "a5e59b98742ba4d10b201e9a538461bcb5682c0f03783e0c06cd12de6684a385",
+      "relation_count": 1107,
+      "id_set_sha256": "1e8dee0ed4b5589a72e4791c50e84fdbf6713a5fc552b238c8b72f3c02009a47",
+      "issued_map_sha256": "5429495205417ce972e282f9051779dfb86cb3401ebc997f33d8043c91f6c6ac"
+    },
+    "backend/relations.csv": {
+      "bytes": 51711,
+      "sha256": "5629e530cfb0ba7908aa0d41e1a34058558b4f4a6111efd554e38ec9ba32fe58"
+    },
+    "backend/schema.json": {
+      "bytes": 1178,
+      "sha256": "970194ee4aed6a61724a6036e540b31a3cc93aeaed61b839781bd1200e825b1d"
+    }
+  },
+  "policy": {
+    "existing_record_ids_are_immutable": true,
+    "existing_issued_relations_are_immutable": true,
+    "existing_relation_ledger_is_never_rewritten_by_wrapper_tools": true,
+    "wrapper_relations_use_a_separate_append_only_ledger": "backend/semantic-wrapper-v1.relations-ledger.csv"
+  }
+}

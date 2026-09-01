@@ -1,0 +1,23 @@
+vocabulary,status,locale,definition,minimum_evidence,external_event,terminal,next_states
+assessment,not_started,en,No assessment artifact has been created,assignment record,false,false,in_progress|withdrawn
+assessment,in_progress,en,Work exists but the requirements are not ready for assessment,working artifact,false,false,ready_for_review|withdrawn|unknown
+assessment,ready_for_review,en,Local package is complete according to the author's check,package manifest,false,false,changes_requested|passed|failed|withdrawn|unknown
+assessment,changes_requested,en,Evaluator requests actionable changes,evaluator report,false,false,in_progress|failed|withdrawn
+assessment,passed,en,All applicable criteria and noncompensable gates pass,evaluator decision and gate results,false,true,
+assessment,failed,en,One or more gates do not pass at the boundary of this attempt,evaluator decision,false,true,
+assessment,withdrawn,en,Owner withdraws the attempt with a reason,withdrawal event,false,true,
+assessment,unknown,en,Current state cannot be evidenced,last status and reason for uncertainty,false,false,in_progress|ready_for_review|withdrawn
+assessment,calibration_only,en,Synthetic demonstration artifact that awards no credit,package label and credit_eligible false,false,true,
+community,prepared,en,Local package is ready for review but has not been sent,local manifest,false,false,submitted|withdrawn
+community,submitted,en,A particular version was actually transmitted to the target,receipt and authorization,true,false,acknowledged|accepted|rejected|withdrawn|unknown
+community,acknowledged,en,Target system or person confirms receipt,retrievable receipt or response,true,false,accepted|rejected|withdrawn|unknown
+community,accepted,en,Target substantively accepts the contribution,target decision,true,false,merged|published|withdrawn|unknown
+community,merged,en,Change is incorporated into the target branch or base,merge evidence and version identity,true,false,published|withdrawn|unknown
+community,published,en,Change appears in a release or public surface,public evidence and readback,true,true,
+community,rejected,en,Target rejects the contribution,target decision,true,true,
+community,withdrawn,en,Sender withdraws the contribution,withdrawal request or confirmation,true,true,
+community,unknown,en,Current external state cannot be evidenced,reason and last_proven_state,true,false,acknowledged|accepted|merged|published|rejected|withdrawn
+credential,complete_community_transaction,en,A01 through A05 pass and the transaction has reached submitted,evidence for all gates plus authorization and receipt,true,true,
+credential,complete_externally_reviewed_local,en,A01 through A04 pass and the A05 branch is reviewed locally by an independent human,evidence for all gates plus independent local review,false,true,
+credential,incomplete,en,At least one family or gate has not passed,family and gate results,false,false,complete_community_transaction|complete_externally_reviewed_local
+credential,calibration_only,en,Synthetic package for assessment calibration without credit,schema package_kind calibration_only,false,true,

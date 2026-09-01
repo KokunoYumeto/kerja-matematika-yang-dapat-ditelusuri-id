@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.9.37" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<meta content="A practical unit on classifying mathematical and computational defects, separating severity from confidence, constructing minimal reproducers, and writing auditable erratum drafts." name="description"/>
+<title>Unit 7 — Errata, Corrections, and Limits of Certainty – Traceable Mathematical Work</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta content="../" name="quarto:offset"/>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="../site_libs/bootstrap/bootstrap-e660844ac27f845a97ea4d6047b2f6e4.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../styles.css?v=22d3dec6156b" rel="stylesheet"/>
+</head>
+<body class="nav-fixed quarto-light">
+<a class="o017-skip-link" href="#quarto-document-content">Skip to main content</a>
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-title">Traceable Mathematical Work</span>
+</a>
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+<button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+<ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+<a class="nav-link" href="../index.html">
+<span class="menu-text">Home</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/01-membaca-argumen.html">
+<span class="menu-text">Unit 1</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/02-menelusuri-sumber.html">
+<span class="menu-text">Unit 2</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/03-merekonstruksi-pembuktian.html">
+<span class="menu-text">Unit 3</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/04-sitasi-provenance-catatan-sumber.html">
+<span class="menu-text">Unit 4</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/05-eksposisi-matematika.html">
+<span class="menu-text">Unit 5</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/06-komputasi-dapat-direproduksi.html">
+<span class="menu-text">Unit 6</span></a>
+</li>
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="../units/07-errata-koreksi-batas-kepastian.html">
+<span class="menu-text">Unit 7</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/08-seminar-penelaah-tanggapan-kritik.html">
+<span class="menu-text">Unit 8</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/09-kontribusi-komunitas-portofolio.html">
+<span class="menu-text">Unit 9</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../wrapper/index.html">
+<span class="menu-text">Teaching and assessment</span></a>
+</li>
+</ul>
+</div> <!-- /navcollapse -->
+<div class="quarto-navbar-tools tools-wide">
+<a aria-label="English PDF" class="quarto-navigation-tool px-1" href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/en-v2026.08.31/traceable-mathematical-work-en-2026.08.31.pdf" title="English PDF"><i class="bi bi-file-pdf"></i></a>
+<a aria-label="English source" class="quarto-navigation-tool px-1" href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english" title="English source"><i class="bi bi-github"></i></a>
+<a aria-label="Bahasa Indonesia" class="quarto-navigation-tool px-1" href="https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/" title="Bahasa Indonesia"><i class="bi bi-globe"></i></a>
+</div>
+</div> <!-- /container-fluid -->
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
+<nav aria-labelledby="toc-title" class="toc-active" id="TOC" role="doc-toc">
+<div class="h2" id="toc-title">On this page</div>
+<ul>
+<li><a class="nav-link active" data-scroll-target="#o017-u07-outcomes" href="#o017-u07-outcomes" id="toc-o017-u07-outcomes"><span class="header-section-number">1</span> Learning outcomes</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-erratum-as-bounded-claim" href="#o017-u07-erratum-as-bounded-claim" id="toc-o017-u07-erratum-as-bounded-claim"><span class="header-section-number">2</span> An erratum is a bounded claim, not an expression of dislike</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-defect-taxonomy" href="#o017-u07-defect-taxonomy" id="toc-o017-u07-defect-taxonomy"><span class="header-section-number">3</span> Six defect types that must not be conflated</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-status-versus-cause" href="#o017-u07-status-versus-cause" id="toc-o017-u07-status-versus-cause"><span class="header-section-number">3.1</span> Falsity and its cause are separate fields</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-typo-with-impact" href="#o017-u07-typo-with-impact" id="toc-o017-u07-typo-with-impact"><span class="header-section-number">3.2</span> A typo can have mathematical consequences</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-exposition-defect-limit" href="#o017-u07-exposition-defect-limit" id="toc-o017-u07-exposition-defect-limit"><span class="header-section-number">3.3</span> An exposition defect is not permission to rewrite the source</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-severity-and-confidence" href="#o017-u07-severity-and-confidence" id="toc-o017-u07-severity-and-confidence"><span class="header-section-number">4</span> Severity and confidence are two separate axes</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-action-matrix" href="#o017-u07-action-matrix" id="toc-o017-u07-action-matrix"><span class="header-section-number">4.1</span> An action matrix that does not alter the evidence</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-freeze-before-diagnosis" href="#o017-u07-freeze-before-diagnosis" id="toc-o017-u07-freeze-before-diagnosis"><span class="header-section-number">5</span> Freeze the object before diagnosing it</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-minimal-reproducer" href="#o017-u07-minimal-reproducer" id="toc-o017-u07-minimal-reproducer"><span class="header-section-number">6</span> A minimal reproducer for a mathematical defect</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-reproducer-tests" href="#o017-u07-reproducer-tests" id="toc-o017-u07-reproducer-tests"><span class="header-section-number">6.1</span> Test the reproducer before relying on it</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-worked-case" href="#o017-u07-worked-case" id="toc-o017-u07-worked-case"><span class="header-section-number">7</span> Worked case: constant sign without connectedness</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-worked-version" href="#o017-u07-worked-version" id="toc-o017-u07-worked-version"><span class="header-section-number">7.1</span> Version and locator examined</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-two-point-counterexample" href="#o017-u07-two-point-counterexample" id="toc-o017-u07-two-point-counterexample"><span class="header-section-number">7.2</span> A minimal two-point reproducer</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-missing-connectedness" href="#o017-u07-missing-connectedness" id="toc-o017-u07-missing-connectedness"><span class="header-section-number">7.3</span> Diagnosis: a missing connectedness hypothesis</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-connected-proof" href="#o017-u07-connected-proof" id="toc-o017-u07-connected-proof"><span class="header-section-number">7.4</span> Proof of the repaired version</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-minimal-repair" href="#o017-u07-minimal-repair" id="toc-o017-u07-minimal-repair"><span class="header-section-number">7.5</span> Why the repair is minimal in the relevant sense</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-worked-triage" href="#o017-u07-worked-triage" id="toc-o017-u07-worked-triage"><span class="header-section-number">7.6</span> Severity, confidence, and extent</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-history-preserving-correction" href="#o017-u07-history-preserving-correction" id="toc-o017-u07-history-preserving-correction"><span class="header-section-number">8</span> A correction must preserve history</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-worked-event-ledger" href="#o017-u07-worked-event-ledger" id="toc-o017-u07-worked-event-ledger"><span class="header-section-number">8.1</span> Event ledger for the worked case</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-correction-record-fields" href="#o017-u07-correction-record-fields" id="toc-o017-u07-correction-record-fields"><span class="header-section-number">8.2</span> Minimum content of a correction record</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-concise-draft" href="#o017-u07-concise-draft" id="toc-o017-u07-concise-draft"><span class="header-section-number">9</span> Writing a concise issue or erratum draft</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-six-sentence-template" href="#o017-u07-six-sentence-template" id="toc-o017-u07-six-sentence-template"><span class="header-section-number">9.1</span> A six-sentence template</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-accessible-report" href="#o017-u07-accessible-report" id="toc-o017-u07-accessible-report"><span class="header-section-number">9.2</span> Reports must remain accessible</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-uncertainty-ledger" href="#o017-u07-uncertainty-ledger" id="toc-o017-u07-uncertainty-ledger"><span class="header-section-number">10</span> The uncertainty ledger</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-certainty-language" href="#o017-u07-certainty-language" id="toc-o017-u07-certainty-language"><span class="header-section-number">10.1</span> Language matched to the strength of evidence</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-stop-and-escalate" href="#o017-u07-stop-and-escalate" id="toc-o017-u07-stop-and-escalate"><span class="header-section-number">11</span> Stop and escalation gates</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-stop-before-claim" href="#o017-u07-stop-before-claim" id="toc-o017-u07-stop-before-claim"><span class="header-section-number">11.1</span> Stop before declaring an error</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-escalation-rule" href="#o017-u07-escalation-rule" id="toc-o017-u07-escalation-rule"><span class="header-section-number">11.2</span> Escalation without exaggeration</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-closure-conditions" href="#o017-u07-closure-conditions" id="toc-o017-u07-closure-conditions"><span class="header-section-number">11.3</span> Closure conditions</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-correction-protocol" href="#o017-u07-correction-protocol" id="toc-o017-u07-correction-protocol"><span class="header-section-number">12</span> Audit and correction protocol</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-guided-practice" href="#o017-u07-guided-practice" id="toc-o017-u07-guided-practice"><span class="header-section-number">13</span> Guided practice: one finding, two axes, three claims</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-preflight" href="#o017-u07-preflight" id="toc-o017-u07-preflight"><span class="header-section-number">14</span> Checklist before finalizing a draft</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-exercises" href="#o017-u07-exercises" id="toc-o017-u07-exercises"><span class="header-section-number">15</span> Exercises</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-guidance" href="#o017-u07-guidance" id="toc-o017-u07-guidance"><span class="header-section-number">16</span> Hints and answer guidance</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-completion-task" href="#o017-u07-completion-task" id="toc-o017-u07-completion-task"><span class="header-section-number">17</span> Unit completion task</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u07-completion-rubric" href="#o017-u07-completion-rubric" id="toc-o017-u07-completion-rubric"><span class="header-section-number">17.1</span> Rubric</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-boundary" href="#o017-u07-boundary" id="toc-o017-u07-boundary"><span class="header-section-number">18</span> Boundaries with B80 and other units</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u07-provenance" href="#o017-u07-provenance" id="toc-o017-u07-provenance"><span class="header-section-number">19</span> Sources, provenance, changes, and rights</a></li>
+</ul>
+</nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+<h1 class="title">Unit 7 — Errata, Corrections, and Limits of Certainty</h1>
+<p class="subtitle lead">Establishing defects, bounding their impact, and correcting without erasing history</p>
+</div>
+<div>
+<div class="description">
+    A practical unit on classifying mathematical and computational defects, separating severity from confidence, constructing minimal reproducers, and writing auditable erratum drafts.
+  </div>
+</div>
+<div class="quarto-title-meta">
+</div>
+</header>
+<section class="level2" data-number="1" id="o017-u07-outcomes">
+<h2 class="anchored" data-anchor-id="o017-u07-outcomes" data-number="1"><span class="header-section-number">1</span> Learning outcomes</h2>
+<p>This unit has the stable identifier <strong>O017-U07</strong>. On completing it, you will be able to:</p>
+<ol type="1">
+<li>distinguish typographical errors, local exposition defects, missing hypotheses, theorems that are false as written, ambiguous locators, and computational defects;</li>
+<li>separate <strong>impact severity</strong> from <strong>confidence level</strong> in a diagnosis;</li>
+<li>freeze the version, copy, locator, and wording actually examined;</li>
+<li>construct a minimal reproducer that checks every hypothesis before demonstrating failure of the conclusion;</li>
+<li>distinguish what is observed, proved, provisionally inferred, and unknown;</li>
+<li>formulate a sufficiently narrow correction and prove that the repair is indeed adequate;</li>
+<li>preserve correction records as an append-only history without overwriting earlier claims or versions;</li>
+<li>write one concise, specific, actionable issue or erratum draft without contacting anyone outside the project; and</li>
+<li>stop or escalate an examination when the evidence, authority, or extent of the impact is not yet sufficient.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Prerequisites, continuity, and scope boundaries">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Prerequisites, continuity, and scope boundaries
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unit 2 supplies work and version identities; Unit 3 supplies methods for examining proof gaps; Unit 4 supplies records of claims, locators, and provenance; Unit 5 supplies auditable exposition; and Unit 6 supplies computational packages that can be rerun. Unit 7 uses all those outputs for a narrower task: establishing <strong>what is defective, how far its impact extends, how confident the diagnosis is, and what form of correction has been justified</strong>.</p>
+<p>This unit does not teach issue-platform syntax, Git commands, program debugging, environment installation, or how to run notebooks. Nor does it authorize sending reports. Every issue formulation here remains a local draft until separate authorization and checks are in place.</p>
+</div>
+</div>
+</section>
+<section class="level2" data-number="2" id="o017-u07-erratum-as-bounded-claim">
+<h2 class="anchored" data-anchor-id="o017-u07-erratum-as-bounded-claim" data-number="2"><span class="header-section-number">2</span> An erratum is a bounded claim, not an expression of dislike</h2>
+<p>The sentence “this section seems wrong” is not yet a formal correction (erratum). An auditable erratum states at least five things:</p>
+<ol type="1">
+<li>the <strong>exact object</strong> examined: work, version, copy, and location;</li>
+<li>the <strong>exact wording or output</strong> being questioned;</li>
+<li><strong>evidence of failure</strong> that can be checked with minimal effort;</li>
+<li>the <strong>scope of consequences</strong>: which sentence, lemma, theorem, exercise, computational result, or downstream result is affected; and</li>
+<li>the <strong>justified correction</strong>, including what remains unknown.</li>
+</ol>
+<p>An erratum need not be long. It needs an intact chain of inference. Conversely, a long report may still be weak if it omits the version, presents only a numerical example that does not satisfy the hypotheses, or proposes new wording without proving it.</p>
+<div class="callout callout-style-default callout-important callout-titled" id="o017-u07-original-bridge" title="Original O017 bridge">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Original O017 bridge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The two-layer taxonomy separating statement status from defect type, the separate severity and confidence axes, the minimal-reproducer protocol, the append-only correction records, the connectedness case, the uncertainty ledger, and the stop/escalation gates in this unit are original O017 material. This unit does not copy prose, examples, exercises, or a sequence of presentation from an external donor.</p>
+</div>
+</div>
+</section>
+<section class="level2" data-number="3" id="o017-u07-defect-taxonomy">
+<h2 class="anchored" data-anchor-id="o017-u07-defect-taxonomy" data-number="3"><span class="header-section-number">3</span> Six defect types that must not be conflated</h2>
+<p>Classification helps select an action. It does not replace evidence. A finding may have one <strong>primary type</strong> and several secondary consequences, but every label must have a justification.</p>
+<div aria-label="Taxonomy of six defect types for mathematical errata" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 1: 3 Six defect types that must not be conflated" class="caption-top table">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Type</th>
+<th scope="col">Diagnostic test</th>
+<th scope="col">Brief example</th>
+<th scope="col">Reasonable initial action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Typographical error</td>
+<td>Does an almost mechanical character change restore consistent wording without changing the idea?</td>
+<td>the index <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">a_{n-1}</annotation></semantics></math> is printed as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">a_{n+1}</annotation></semantics></math> although all surrounding lines use <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">a_{n-1}</annotation></semantics></math></td>
+<td>record both forms, show the context, and avoid guessing when more than one repair is plausible</td>
+</tr>
+<tr class="even">
+<td>Local exposition defect</td>
+<td>Could the argument be correct, while one transition, definition, back-reference, or notation change is insufficiently explained?</td>
+<td>“then clearly” skips a set inclusion that requires proof</td>
+<td>supply the local step and check that no new hypothesis has been smuggled in</td>
+</tr>
+<tr class="odd">
+<td>Missing hypothesis</td>
+<td>Does the statement become true once a particular assumption is stated, while a counterexample exists without it?</td>
+<td>a constant-sign conclusion lacks the assumption that the domain is connected</td>
+<td>give a counterexample, state the candidate assumption, then prove the repaired version</td>
+</tr>
+<tr class="even">
+<td>Theorem false as written</td>
+<td>Is there an object satisfying every written hypothesis but violating the conclusion?</td>
+<td>a function on a disconnected domain takes positive and negative values without a zero</td>
+<td>mark the published statement’s status as false; the root-cause diagnosis can be recorded separately</td>
+</tr>
+<tr class="odd">
+<td>Ambiguous locator</td>
+<td>Can readers using the same version still choose more than one plausible location?</td>
+<td>“see the preceding theorem” when two theorems lie between the paragraph and the claim</td>
+<td>provide a section/label/page locator that distinguishes the location and name the version used</td>
+</tr>
+<tr class="even">
+<td>Computational defect</td>
+<td>Does the code, input, environment, procedure, or output fail to match the computational claim being made?</td>
+<td>the manifest names program revision <code>r2</code>, but the log records execution of <code>r1</code></td>
+<td>freeze the artifacts and execution record; do not promote the output to evidence before resolving the mismatch</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section class="level3" data-number="3.1" id="o017-u07-status-versus-cause">
+<h3 class="anchored" data-anchor-id="o017-u07-status-versus-cause" data-number="3.1"><span class="header-section-number">3.1</span> Falsity and its cause are separate fields</h3>
+<p>“Missing hypothesis” and “false theorem” appear to overlap because both can be true at once, but they answer different questions.</p>
+<ul>
+<li><code>statement_status = false_as_written</code> states that the published wording has a counterexample.</li>
+<li><code>defect_kind = missing_hypothesis</code> records a diagnosis of how that wording might be repaired.</li>
+</ul>
+<p>Use status values explicitly: <code>supported_as_written</code> when adequate evidence supports the claim within its scope; <code>false_as_written</code> when exact evidence refutes it; <code>unsupported_as_written</code> when the basis provided is insufficient even though the truth of the claim has not been decided; <code>unresolved</code> when the claim audit is unfinished; and <code>not_applicable</code> when the defect record concerns only a non-claim object, such as an ambiguous locator or the form of a character. If a typo occurs within a formula, record the typographical finding and the mathematical claim’s status as two objects; do not force one value to answer two questions.</p>
+<p>A counterexample suffices to establish the first field. It does not automatically establish the second. Perhaps the conclusion is too strong, the domain is wrong, the quantifier is mistaken, or an earlier definition does not fit. Therefore, do not replace “false as written” with “clearly just a typo” before a unique repair is genuinely supported by the context.</p>
+</section>
+<section class="level3" data-number="3.2" id="o017-u07-typo-with-impact">
+<h3 class="anchored" data-anchor-id="o017-u07-typo-with-impact" data-number="3.2"><span class="header-section-number">3.2</span> A typo can have mathematical consequences</h3>
+<p>Defect type does not measure impact. A missing minus sign may be an easily diagnosed typo, yet reverse the main theorem. Conversely, a false theorem in one optional exercise may not affect any other chapter. This is why classification and severity must be stored in separate fields.</p>
+</section>
+<section class="level3" data-number="3.3" id="o017-u07-exposition-defect-limit">
+<h3 class="anchored" data-anchor-id="o017-u07-exposition-defect-limit" data-number="3.3"><span class="header-section-number">3.3</span> An exposition defect is not permission to rewrite the source</h3>
+<p>If a missing step can be reconstructed from the written hypotheses, record the reconstruction as a new argument and link it to the old location. Do not alter the source to make it appear that the step was always there. If the reconstruction requires a new assumption, the finding has crossed the boundary of a local exposition defect and must be examined as a missing hypothesis or a false statement.</p>
+</section>
+</section>
+<section class="level2" data-number="4" id="o017-u07-severity-and-confidence">
+<h2 class="anchored" data-anchor-id="o017-u07-severity-and-confidence" data-number="4"><span class="header-section-number">4</span> Severity and confidence are two separate axes</h2>
+<p><strong>Severity</strong> answers “if this diagnosis is correct, how extensive are its consequences?” <strong>Confidence</strong> answers “how strong is the evidence that this diagnosis is correct?” They must not be averaged into a single number.</p>
+<div aria-label="Severity scale for erratum findings" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 2: 4 Severity and confidence are two separate axes" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Code</th>
+<th scope="col">Name</th>
+<th scope="col">Impact criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>S0</code></td>
+<td>editorial</td>
+<td>mathematical meaning, traceability, and computational results are unchanged</td>
+</tr>
+<tr class="even">
+<td><code>S1</code></td>
+<td>local</td>
+<td>one sentence, step, example, or locator is affected; the main result can still be maintained with the available evidence</td>
+</tr>
+<tr class="odd">
+<td><code>S2</code></td>
+<td>material</td>
+<td>one lemma, exercise, table, or argument branch fails; its impact has been bounded and does not extend to the whole work</td>
+</tr>
+<tr class="even">
+<td><code>S3</code></td>
+<td>major</td>
+<td>the main theorem, many downstream results, or a principal public result may be invalid; the full extent may not yet be known</td>
+</tr>
+<tr class="odd">
+<td><code>S4</code></td>
+<td>critical</td>
+<td>the defect affects the foundations of many results or high-risk uses and requires temporary suspension of use</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div aria-label="Confidence scale for erratum diagnoses" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 3: 4 Severity and confidence are two separate axes" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Code</th>
+<th scope="col">Name</th>
+<th scope="col">Available basis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>C0</code></td>
+<td>unassessed</td>
+<td>a report exists, but the version, location, or wording has not yet been frozen</td>
+</tr>
+<tr class="even">
+<td><code>C1</code></td>
+<td>reasoned suspicion</td>
+<td>the symptom is real, but a reproducer, context, or one audit step is still missing</td>
+</tr>
+<tr class="odd">
+<td><code>C2</code></td>
+<td>strong</td>
+<td>the reproducer and context support the diagnosis; an independent check or formal proof is still worth seeking</td>
+</tr>
+<tr class="even">
+<td><code>C3</code></td>
+<td>established</td>
+<td>a counterexample or complete proof has been checked against the exact version and locator</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The pair <code>S3/C1</code> means “potentially large impact, incomplete diagnosis”; it is not grounds for declaring a theorem certainly false. The pair <code>S0/C3</code> means “the typo is confirmed, but does not change the meaning.” A finding at <code>S2/C3</code> may be more ready for correction than one at <code>S4/C1</code>, despite its lower severity number.</p>
+<div class="callout callout-style-default callout-warning callout-titled" id="o017-u07-no-product-score" title="Do not multiply the two axes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Do not multiply the two axes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A score such as <code>severity × confidence = priority</code> hides the reasoning. A potentially critical finding supported by preliminary evidence can receive the same score as a certain local finding, although they require different actions. Preserve the code pair, the basis for each axis, and the action rule explicitly.</p>
+</div>
+</div>
+<section class="level3" data-number="4.1" id="o017-u07-action-matrix">
+<h3 class="anchored" data-anchor-id="o017-u07-action-matrix" data-number="4.1"><span class="header-section-number">4.1</span> An action matrix that does not alter the evidence</h3>
+<div aria-label="Example actions by severity and confidence pair" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 4: 4.1 An action matrix that does not alter the evidence" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Situation</th>
+<th scope="col">Local action</th>
+<th scope="col">Wording to avoid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>low impact, high confidence</td>
+<td>prepare a concise correction and check cross-consistency</td>
+<td>“the entire work is unreliable”</td>
+</tr>
+<tr class="even">
+<td>high impact, high confidence</td>
+<td>stop relying on the claim, audit downstream results, and prepare escalation</td>
+<td>“perhaps it is only a matter of style”</td>
+</tr>
+<tr class="odd">
+<td>high impact, low confidence</td>
+<td>freeze the evidence, flag the risk, and seek context or a suitable reviewer</td>
+<td>“the theorem has been proved false”</td>
+</tr>
+<tr class="even">
+<td>unknown impact</td>
+<td>do not fill in severity by guessing; map dependencies first</td>
+<td>“it affects only one line”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Priority may also depend on active use, deadlines, and the ability to withhold a release. Those factors are recorded separately; they do not change the mathematical facts.</p>
+</section>
+</section>
+<section class="level2" data-number="5" id="o017-u07-freeze-before-diagnosis">
+<h2 class="anchored" data-anchor-id="o017-u07-freeze-before-diagnosis" data-number="5"><span class="header-section-number">5</span> Freeze the object before diagnosing it</h2>
+<p>A report must distinguish work, version, copy, and location. The following minimum fields prevent corrections to the wrong object.</p>
+<div aria-label="Minimum fields for freezing the object of an erratum" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 5: 5 Freeze the object before diagnosing it" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Field</th>
+<th scope="col">Content</th>
+<th scope="col">Completeness test</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>work_id</code></td>
+<td>identity of the intellectual work</td>
+<td>other versions can be linked without treating them as identical bytes</td>
+</tr>
+<tr class="even">
+<td><code>version_id</code></td>
+<td>edition, release, date, commit, or state label</td>
+<td>“latest” is not accepted as an identity</td>
+</tr>
+<tr class="odd">
+<td><code>copy_id</code></td>
+<td>the copy actually examined</td>
+<td>format, completeness, and byte identity are recorded where available</td>
+</tr>
+<tr class="even">
+<td><code>locator</code></td>
+<td>section, theorem, equation, page, paragraph, line, or anchor</td>
+<td>readers with the same copy reach the same wording</td>
+</tr>
+<tr class="odd">
+<td><code>observed_text</code></td>
+<td>a controlled short quotation or exact transcription</td>
+<td>the difference between source text and the report’s paraphrase is visible</td>
+</tr>
+<tr class="even">
+<td><code>observed_at</code></td>
+<td>time of examination</td>
+<td>not conflated with the publication date</td>
+</tr>
+<tr class="odd">
+<td><code>context_scope</code></td>
+<td>conventions, definitions, or assumptions applying at the location</td>
+<td>the examiner knows whether the excerpt is self-contained</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If only a PDF is available, printed page numbers and file page numbers may differ; record both where necessary. If HTML changes, an anchor alone may not suffice; pair it with a version or archive identity. If wording comes from an image, distinguish visible characters from conjectured characters. Do not turn “the letter appears to be <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>O</mi><annotation encoding="application/x-tex">O</annotation></semantics></math>” into “the numeral is certainly <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>” without grounds.</p>
+</section>
+<section class="level2" data-number="6" id="o017-u07-minimal-reproducer">
+<h2 class="anchored" data-anchor-id="o017-u07-minimal-reproducer" data-number="6"><span class="header-section-number">6</span> A minimal reproducer for a mathematical defect</h2>
+<p>A <strong>minimal reproducer</strong>, or minimal reproduction case, is a small object that demonstrates a claim’s failure without requiring readers to trust the reporter’s narrative. It has five parts.</p>
+<ol type="1">
+<li><strong>Frozen claim.</strong> Restate the quantifiers, domain, hypotheses, and conclusion without strengthening or weakening the source text.</li>
+<li><strong>Candidate object.</strong> Choose the simplest possible object that still lies within the claim’s domain.</li>
+<li><strong>Hypothesis checks.</strong> Verify them one by one; do not stop at “clearly satisfies them.”</li>
+<li><strong>Failure of the conclusion.</strong> Explicitly calculate or prove the negation of the conclusion.</li>
+<li><strong>Reproducer boundary.</strong> State the exact claim refuted and the nearby claims left untouched.</li>
+</ol>
+<p>Small does not mean vague. A two-point example can be stronger than a large simulation when all its hypotheses can be checked exactly.</p>
+<p>For a computational defect, the parallel structure consists of code version, input, dependencies, command or procedure, actual output, claimed output, and the observed difference. Environment construction and execution belong to B80 and Unit 6; Unit 7 judges whether the resulting evidence suffices to formulate a correction.</p>
+<section class="level3" data-number="6.1" id="o017-u07-reproducer-tests">
+<h3 class="anchored" data-anchor-id="o017-u07-reproducer-tests" data-number="6.1"><span class="header-section-number">6.1</span> Test the reproducer before relying on it</h3>
+<ul>
+<li>Does the example object actually lie in the domain and satisfy every explicit hypothesis?</li>
+<li>Have the conventions applying in the source section been included?</li>
+<li>Is the failure exact, or does it arise only from rounding and display?</li>
+<li>Does the example refute the source claim rather than a strengthening invented by the reporter?</li>
+<li>Have parts that can be removed without eliminating the failure been removed?</li>
+<li>Can readers check the reproducer without hidden access?</li>
+</ul>
+</section>
+</section>
+<section class="level2" data-number="7" id="o017-u07-worked-case">
+<h2 class="anchored" data-anchor-id="o017-u07-worked-case" data-number="7"><span class="header-section-number">7</span> Worked case: constant sign without connectedness</h2>
+<p>The following case is entirely synthetic. Its local packet states that the proposition is self-contained; no section-level assumptions are inherited. The finding can therefore be audited without seeking an external source.</p>
+<section class="level3" data-number="7.1" id="o017-u07-worked-version">
+<h3 class="anchored" data-anchor-id="o017-u07-worked-version" data-number="7.1"><span class="header-section-number">7.1</span> Version and locator examined</h3>
+<div class="callout callout-style-default callout-warning callout-titled" id="o017-u07-packet-v1" title="O017-U07-V01 — Proposition 7.3, synthetic version 1.0">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>O017-U07-V01 — Proposition 7.3, synthetic version 1.0
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>V01 wording.</strong> Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> be a topological space and let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> be continuous. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)\neq0</annotation></semantics></math> for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>, then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> has constant sign: either <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)&gt;0</annotation></semantics></math> for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)&lt;0</annotation></semantics></math> for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math> holds.</p>
+</div>
+</div>
+<p>The local source record for this case is:</p>
+<div aria-label="Version identity and location of the constant-sign case" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 6: 7.1 Version and locator examined" class="caption-top table">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Field</th>
+<th scope="col">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>work_id</code></td>
+<td><code>O017-U07-W01</code>, <em>Synthetic Topology Packet</em></td>
+</tr>
+<tr class="even">
+<td><code>version_id</code></td>
+<td><code>O017-U07-V01</code>, state label <code>1.0-sintetis</code></td>
+</tr>
+<tr class="odd">
+<td><code>copy_id</code></td>
+<td><code>O017-U07-CP01</code>, the complete excerpt embedded in this unit</td>
+</tr>
+<tr class="even">
+<td><code>locator</code></td>
+<td><code>#o017-u07-packet-v1</code>, Proposition 7.3</td>
+</tr>
+<tr class="odd">
+<td><code>claim_id</code></td>
+<td><code>O017-U07-C01</code></td>
+</tr>
+<tr class="even">
+<td><code>context_scope</code></td>
+<td>self-contained statement; no inherited connectedness convention</td>
+</tr>
+<tr class="odd">
+<td><code>observed_text</code></td>
+<td>the entire wording in the V01 box above</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>“Constant sign” in V01 means a disjunction of two universal claims, not merely that each point has one of the two signs. The nowhere-zero hypothesis already ensures a sign at each point; the additional conclusion requires the same sign throughout the domain.</p>
+</section>
+<section class="level3" data-number="7.2" id="o017-u07-two-point-counterexample">
+<h3 class="anchored" data-anchor-id="o017-u07-two-point-counterexample" data-number="7.2"><span class="header-section-number">7.2</span> A minimal two-point reproducer</h3>
+<p>Take</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">}</mo><mo>⊂</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">
+X=\{-1,1\}\subset\mathbb R
+</annotation></semantics></math></p>
+<p>with the subspace topology, and define <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math>. We check every hypothesis.</p>
+<ol type="1">
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is a topological space with the subspace topology. In fact, both singletons are open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> because <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">{</mo><mi>−</mi><mn>1</mn><mo form="postfix" stretchy="false">}</mo><mo>=</mo><mi>X</mi><mo>∩</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>3</mn><mi>/</mi><mn>2</mn><mo>,</mo><mi>−</mi><mn>1</mn><mi>/</mi><mn>2</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\{-1\}=X\cap(-3/2,-1/2)</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">{</mo><mn>1</mn><mo form="postfix" stretchy="false">}</mo><mo>=</mo><mi>X</mi><mo>∩</mo><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo>,</mo><mn>3</mn><mi>/</mi><mn>2</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\{1\}=X\cap(1/2,3/2)</annotation></semantics></math>.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is the restriction of the continuous identity function on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math>, so it is continuous on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</li>
+<li>For every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>, we have <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)\neq0</annotation></semantics></math> because its only values are <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>.</li>
+<li>The first conclusion fails because <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>1</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>−</mi><mn>1</mn><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(-1)=-1&lt;0</annotation></semantics></math>. The second conclusion fails because <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(1)=1&gt;0</annotation></semantics></math>.</li>
+</ol>
+<p>Thus both alternative conclusions of V01 fail although every written hypothesis is satisfied. This establishes <code>statement_status(O017-U07-C01) = false_as_written</code> with confidence <code>C3</code>. The reproducer requires only two points; a one-point domain cannot contain both positive and negative values, so this example is also minimal in its number of points.</p>
+<p>The finding refutes V01. It does not refute a statement about connected domains, does not assert that every function on a disconnected domain changes sign, and does not reveal the synthetic author’s intention.</p>
+</section>
+<section class="level3" data-number="7.3" id="o017-u07-missing-connectedness">
+<h3 class="anchored" data-anchor-id="o017-u07-missing-connectedness" data-number="7.3"><span class="header-section-number">7.3</span> Diagnosis: a missing connectedness hypothesis</h3>
+<p>The counterexample uses two components of the domain. A natural candidate repair is to add connectedness, not compactness, path-connectedness, or the assumption that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is an interval.</p>
+<div class="callout callout-style-default callout-important callout-titled" id="o017-u07-packet-v2" title="O017-U07-V02 — Proposition 7.3, candidate corrected wording 1.1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>O017-U07-V02 — Proposition 7.3, candidate corrected wording 1.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>V02 wording.</strong> Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> be a <strong>connected</strong> topological space and let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> be continuous. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)\neq0</annotation></semantics></math> for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>, then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)&gt;0</annotation></semantics></math> for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)&lt;0</annotation></semantics></math> for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">x\in X</annotation></semantics></math>.</p>
+</div>
+</div>
+</section>
+<section class="level3" data-number="7.4" id="o017-u07-connected-proof">
+<h3 class="anchored" data-anchor-id="o017-u07-connected-proof" data-number="7.4"><span class="header-section-number">7.4</span> Proof of the repaired version</h3>
+<p>Define two relatively open sets</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">(</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mi>∞</mi><mo>,</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mspace width="2.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="2.0em"></mspace><mi>V</mi><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">(</mo><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+U=f^{-1}((-\infty,0))
+\qquad\text{and}\qquad
+V=f^{-1}((0,\infty)).
+</annotation></semantics></math></p>
+<p>Both are open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> because <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is continuous. They are disjoint. The hypothesis <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)\neq0</annotation></semantics></math> for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>U</mi><mo>∪</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">X=U\cup V</annotation></semantics></math>. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> were both nonempty, they would separate <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> into two disjoint nonempty open sets, contradicting the connectedness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. Hence one of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> is empty.</p>
+<p>If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math> is empty, every value of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is nonnegative; since no value is zero, every value is positive. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> is empty, the same argument shows that every value is negative. Thus one of the alternatives in V02 holds. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>▫</mi><annotation encoding="application/x-tex">\square</annotation></semantics></math></p>
+<p>The proof uses connectedness and continuity exactly once, through the preimages of two open rays. It does not use a metric, compactness, path-connectedness, differentiability, or the interval-specific form of the Intermediate Value Theorem.</p>
+</section>
+<section class="level3" data-number="7.5" id="o017-u07-minimal-repair">
+<h3 class="anchored" data-anchor-id="o017-u07-minimal-repair" data-number="7.5"><span class="header-section-number">7.5</span> Why the repair is minimal in the relevant sense</h3>
+<p>“Minimal” must specify a comparison class. Here we seek a condition on the <strong>domain</strong> that guarantees the conclusion for every nowhere-zero continuous real-valued function. In that class, connectedness is not only sufficient but necessary.</p>
+<p>Suppose <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is disconnected. Then there are nonempty disjoint open sets <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">X=A\cup B</annotation></semantics></math>. Since each is the complement of the other, they are also closed. Define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mrow><mo form="prefix" stretchy="true">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mi>−</mi><mn>1</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>x</mi><mo>∈</mo><mi>A</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>1</mn><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>x</mi><mo>∈</mo><mi>B</mi><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+g(x)=
+\begin{cases}
+-1,&amp;x\in A,\\
+ 1,&amp;x\in B.
+\end{cases}
+</annotation></semantics></math></p>
+<p>The function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math> is continuous: the preimage of every open set in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math> is one of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⌀</mi><annotation encoding="application/x-tex">\varnothing</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>, or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>, all of which are open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. The function is nowhere zero but takes both signs. Therefore,</p>
+<blockquote class="blockquote">
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is connected if and only if every nowhere-zero continuous function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> has constant sign.</p>
+</blockquote>
+<p>Adding “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is connected” therefore repairs the universal theorem exactly. Adding “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is path-connected,” “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is an interval,” or “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is compact and connected” also suffices, but is stronger than necessary. For one particular function, connectedness of the image <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>X</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(X)</annotation></semantics></math> is also sufficient; this does not replace the diagnosis of a domain condition guaranteeing the result for <strong>all</strong> continuous functions.</p>
+</section>
+<section class="level3" data-number="7.6" id="o017-u07-worked-triage">
+<h3 class="anchored" data-anchor-id="o017-u07-worked-triage" data-number="7.6"><span class="header-section-number">7.6</span> Severity, confidence, and extent</h3>
+<div aria-label="Triage of the constant-sign proposition case" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 7: 7.6 Severity, confidence, and extent" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Field</th>
+<th scope="col">Value</th>
+<th scope="col">Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>statement status</td>
+<td><code>false_as_written</code></td>
+<td>the two-point reproducer satisfies every hypothesis and violates both alternatives</td>
+</tr>
+<tr class="even">
+<td>primary type</td>
+<td><code>missing_hypothesis</code></td>
+<td>the connected version is proved true, and that condition is necessary for the universal guarantee on the domain</td>
+</tr>
+<tr class="odd">
+<td>secondary consequence</td>
+<td>theorem false as written</td>
+<td>the status of the V01 text, not speculation about the author’s intention</td>
+</tr>
+<tr class="even">
+<td>severity</td>
+<td><code>S2 material</code> for this packet</td>
+<td>one proposition fails; the packet supplies no other downstream results</td>
+</tr>
+<tr class="odd">
+<td>confidence</td>
+<td><code>C3 established</code></td>
+<td>a complete counterexample and proof of the correction are available</td>
+</tr>
+<tr class="even">
+<td>unknown extent</td>
+<td>uses outside the packet</td>
+<td>the synthetic packet contains no external dependency list</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Severity is not raised to <code>S3</code> merely because the word “theorem” appears. The available packet establishes only that one proposition is affected. Conversely, if a later dependency audit finds many principal results using V01 on disconnected domains, severity can be changed through a new event without altering the original evidence.</p>
+</section>
+</section>
+<section class="level2" data-number="8" id="o017-u07-history-preserving-correction">
+<h2 class="anchored" data-anchor-id="o017-u07-history-preserving-correction" data-number="8"><span class="header-section-number">8</span> A correction must preserve history</h2>
+<p>Replacing V01 with V02 in place and then deleting V01 removes the answers to important questions: which version once contained the false claim, what evidence exposed it, and which outputs might depend on it. An auditable correction uses new identities and directed relationships.</p>
+<pre class="text"><code>V01 --contains--&gt; C01 --refutedBy--&gt; CE01
+ |                    |
+ |                    +--diagnosedAs--&gt; missing_hypothesis
+ |
+ +--succeededBy--&gt; V02 --contains--&gt; C02 --provedBy--&gt; PR01
+
+COR01 --corrects--&gt; C01
+COR01 --proposes--&gt; C02</code></pre>
+<p><code>C01</code> remains refuted; it does not become <code>C02</code>. <code>V01</code> remains as a historical version; it is not labelled “never in force.” <code>V02</code> receives its own evidence and status.</p>
+<section class="level3" data-number="8.1" id="o017-u07-worked-event-ledger">
+<h3 class="anchored" data-anchor-id="o017-u07-worked-event-ledger" data-number="8.1"><span class="header-section-number">8.1</span> Event ledger for the worked case</h3>
+<p>The narrow ledger uses these exact locator abbreviations:</p>
+<pre class="text"><code>V1 = #o017-u07-packet-v1
+CE = #o017-u07-two-point-counterexample
+V2 = #o017-u07-packet-v2
+P2 = #o017-u07-connected-proof</code></pre>
+<div aria-label="Correction-event ledger for the constant-sign case" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 8: 8.1 Event ledger for the worked case" class="caption-top table">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Event</th>
+<th scope="col">Append-only action</th>
+<th scope="col">Object</th>
+<th scope="col">Reason and evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>O017-U07-EVT01</code></td>
+<td><code>observed</code></td>
+<td><code>C01 at V01/V1</code></td>
+<td>the packet’s wording and context are frozen</td>
+</tr>
+<tr class="even">
+<td><code>O017-U07-EVT02</code></td>
+<td><code>refuted</code></td>
+<td><code>C01</code></td>
+<td><code>O017-U07-CE01</code>, the two-point reproducer at <code>CE</code></td>
+</tr>
+<tr class="odd">
+<td><code>O017-U07-EVT03</code></td>
+<td><code>classified</code></td>
+<td>finding <code>F01</code></td>
+<td>false status; primary diagnosis of missing connectedness hypothesis; <code>S2/C3</code></td>
+</tr>
+<tr class="even">
+<td><code>O017-U07-EVT04</code></td>
+<td><code>proposed</code></td>
+<td><code>C02 in V02</code></td>
+<td>candidate wording at <code>V2</code></td>
+</tr>
+<tr class="odd">
+<td><code>O017-U07-EVT05</code></td>
+<td><code>proved</code></td>
+<td><code>C02</code></td>
+<td>proof at <code>P2</code></td>
+</tr>
+<tr class="even">
+<td><code>O017-U07-EVT06</code></td>
+<td><code>bounded</code></td>
+<td>impact of <code>F01</code></td>
+<td>the packet contains no audit of downstream results; the external extent remains unknown</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If V02 later also needs correction, add V03 and new relationships. Do not delete EVT04 or EVT05; readers need to know what was proposed and the basis for accepting it at the time.</p>
+</section>
+<section class="level3" data-number="8.2" id="o017-u07-correction-record-fields">
+<h3 class="anchored" data-anchor-id="o017-u07-correction-record-fields" data-number="8.2"><span class="header-section-number">8.2</span> Minimum content of a correction record</h3>
+<div aria-label="Minimum fields in a history-preserving correction record" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 9: 8.2 Minimum content of a correction record" class="caption-top table">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Field</th>
+<th scope="col">Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>correction_id</code></td>
+<td>which correction is being discussed?</td>
+</tr>
+<tr class="even">
+<td><code>target_version</code> and <code>target_locator</code></td>
+<td>which historical wording is affected?</td>
+</tr>
+<tr class="odd">
+<td><code>target_claim</code></td>
+<td>which normalized claim is being assessed?</td>
+</tr>
+<tr class="even">
+<td><code>observation</code></td>
+<td>what is actually visible in the copy?</td>
+</tr>
+<tr class="odd">
+<td><code>reproducer</code></td>
+<td>what small piece of evidence demonstrates the failure?</td>
+</tr>
+<tr class="even">
+<td><code>statement_status</code> and <code>defect_kind</code></td>
+<td>what are the formal consequence and the diagnosed cause?</td>
+</tr>
+<tr class="odd">
+<td><code>severity</code> and <code>confidence</code></td>
+<td>how extensive are the consequences if correct, and how strong is the evidence?</td>
+</tr>
+<tr class="even">
+<td><code>replacement_claim</code></td>
+<td>what new wording is proposed?</td>
+</tr>
+<tr class="odd">
+<td><code>verification</code></td>
+<td>what evidence supports the new wording?</td>
+</tr>
+<tr class="even">
+<td><code>supersession_relation</code></td>
+<td>which active use does the new object replace without erasing history?</td>
+</tr>
+<tr class="odd">
+<td><code>uncertainties</code></td>
+<td>what context, intention, or impact remains unknown?</td>
+</tr>
+<tr class="even">
+<td><code>event_log</code></td>
+<td>when, and on what basis, did the status change?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section class="level2" data-number="9" id="o017-u07-concise-draft">
+<h2 class="anchored" data-anchor-id="o017-u07-concise-draft" data-number="9"><span class="header-section-number">9</span> Writing a concise issue or erratum draft</h2>
+<p>A good draft puts checkable facts first. Long greetings, judgments about the author, a history of the entire process, and speculation about intentions are unnecessary. The title names the location and problem type. The body states the version, wording, reproducer, candidate correction, and boundaries.</p>
+<div class="callout callout-style-default callout-note callout-titled" id="o017-u07-draft-only" title="Local draft — not sent to anyone">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Local draft — not sent to anyone
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Title:</strong> Proposition 7.3 in version 1.0 is missing a connectedness hypothesis</p>
+<p><strong>Version and location:</strong> <code>O017-U07-V01</code>, Proposition 7.3, <code>#o017-u07-packet-v1</code>.</p>
+<p><strong>Problem:</strong> The statement claims that every nowhere-zero continuous function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R</annotation></semantics></math> has constant sign on an arbitrary topological space.</p>
+<p><strong>Minimal reproducer:</strong> Take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">X=\{-1,1\}</annotation></semantics></math> with the subspace topology and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math>. This function is continuous and nowhere zero, but <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>1</mn><mo form="postfix" stretchy="false">)</mo><mo>&lt;</mo><mn>0</mn><mo>&lt;</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(-1)&lt;0&lt;f(1)</annotation></semantics></math>.</p>
+<p><strong>Candidate correction:</strong> Add that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is connected. With <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">(</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mi>∞</mi><mo>,</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">U=f^{-1}((-\infty,0))</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">(</mo><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">V=f^{-1}((0,\infty))</annotation></semantics></math>, the two sets are open, disjoint, and cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>; connectedness forces one of them to be empty.</p>
+<p><strong>Scope:</strong> The counterexample establishes that the proposition is false as written. The examined packet is insufficient to determine all downstream results that might be affected.</p>
+</div>
+</div>
+<p>The draft does not claim to know the author’s intention, does not request replacement of the entire work, and does not assert impact that has not been audited. If a report is addressed to a real project, the public version identity, locators accessible to the recipient, contribution policy, and authorization to send must be checked separately.</p>
+<section class="level3" data-number="9.1" id="o017-u07-six-sentence-template">
+<h3 class="anchored" data-anchor-id="o017-u07-six-sentence-template" data-number="9.1"><span class="header-section-number">9.1</span> A six-sentence template</h3>
+<p>For a simple case, the following six sentences often suffice.</p>
+<ol type="1">
+<li>“I examined <strong>[version/copy]</strong> at <strong>[locator]</strong>.”</li>
+<li>“The text states <strong>[normalized claim]</strong>.”</li>
+<li>“Take <strong>[minimal object]</strong>; it satisfies <strong>[list of hypotheses]</strong>.”</li>
+<li>“However, <strong>[calculation or argument]</strong> violates <strong>[conclusion]</strong>.”</li>
+<li>“The wording <strong>[candidate correction]</strong> suffices because <strong>[short proof or proof locator]</strong>.”</li>
+<li>“I have not determined <strong>[actual uncertainty about extent, intention, or another matter]</strong>.”</li>
+</ol>
+<p>If the correction cannot be proved concisely, the fifth sentence should say “a correction has not yet been established” and link to the evidence dossier; do not compress a gap into false certainty.</p>
+</section>
+<section class="level3" data-number="9.2" id="o017-u07-accessible-report">
+<h3 class="anchored" data-anchor-id="o017-u07-accessible-report" data-number="9.2"><span class="header-section-number">9.2</span> Reports must remain accessible</h3>
+<p>Do not make color, visual position, or screenshots the sole evidence. Briefly transcribe the disputed wording, name every important table and formula, and explain differences in words. A locator such as “the red box on the right” must include a version and a label meaningful without the image. When the shape of a character is itself the problem—for example, the letter <code>O</code> resembling the numeral <code>0</code>—record what is visible and provide a textual description; do not resolve ambiguity through color or typography alone. The draft’s order must remain logical when read linearly: target, claim, reproducer, candidate correction, then limits of certainty.</p>
+</section>
+</section>
+<section class="level2" data-number="10" id="o017-u07-uncertainty-ledger">
+<h2 class="anchored" data-anchor-id="o017-u07-uncertainty-ledger" data-number="10"><span class="header-section-number">10</span> The uncertainty ledger</h2>
+<p>Uncertainty is not an apologetic paragraph. It is a working object with a question, available evidence, consequences if wrong, a next test, and a stop rule.</p>
+<div aria-label="Uncertainty ledger for the constant-sign case" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 10: 10 The uncertainty ledger" class="caption-top table">
+<colgroup>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">ID</th>
+<th scope="col">Question</th>
+<th scope="col">Known</th>
+<th scope="col">Unknown</th>
+<th scope="col">Impact</th>
+<th scope="col">Next test or action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>UQ01</code></td>
+<td>is V01 false as a self-contained statement?</td>
+<td>the packet states there are no section-level assumptions; an exact counterexample is available</td>
+<td>no material uncertainty remains</td>
+<td>status of C01</td>
+<td>close at <code>C3</code></td>
+</tr>
+<tr class="even">
+<td><code>UQ02</code></td>
+<td>is connectedness a sufficient repair?</td>
+<td>a complete proof is available</td>
+<td>none concerning sufficiency</td>
+<td>status of C02</td>
+<td>close at <code>C3</code></td>
+</tr>
+<tr class="odd">
+<td><code>UQ03</code></td>
+<td>is this the creator’s intended wording?</td>
+<td>a natural and exact repair for the universal theorem</td>
+<td>the creator’s intention is not recorded</td>
+<td>editorial choice</td>
+<td>do not claim to know the intention; seek the owner’s decision if actual publication is undertaken</td>
+</tr>
+<tr class="even">
+<td><code>UQ04</code></td>
+<td>which results depend on V01?</td>
+<td>the local packet contains no other dependencies</td>
+<td>the entire extent outside the packet</td>
+<td>severity</td>
+<td>retain <code>S2</code> for the packet; audit dependencies before making broader claims</td>
+</tr>
+<tr class="odd">
+<td><code>UQ05</code></td>
+<td>has V02 been published?</td>
+<td>V02 is only a candidate correction in this unit</td>
+<td>there is no external release</td>
+<td>version status</td>
+<td>do not state that V01 has been replaced outside the packet</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Here <code>UQ01</code> through <code>UQ05</code> abbreviate the corresponding stable identifiers <code>O017-U07-UQ01</code> through <code>O017-U07-UQ05</code> only within this narrow table.</p>
+<p>Use statuses such as <code>open</code>, <code>under-test</code>, <code>closed-supported</code>, and <code>closed-undetermined</code>. “Closed-undetermined” does not mean “true”; that status preserves the limits of the examination.</p>
+<section class="level3" data-number="10.1" id="o017-u07-certainty-language">
+<h3 class="anchored" data-anchor-id="o017-u07-certainty-language" data-number="10.1"><span class="header-section-number">10.1</span> Language matched to the strength of evidence</h3>
+<div aria-label="Matching report language to evidence status" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 11: 10.1 Language matched to the strength of evidence" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Evidence status</th>
+<th scope="col">Appropriate language</th>
+<th scope="col">Overstated language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text visible in a frozen copy</td>
+<td>“copy CP01 contains …”</td>
+<td>“all editions state …”</td>
+</tr>
+<tr class="even">
+<td>an exact reproducer has been checked</td>
+<td>“the claim is false as written”</td>
+<td>“the author does not understand …”</td>
+</tr>
+<tr class="odd">
+<td>one correction has been proved sufficient</td>
+<td>“adding connectedness produces a true statement”</td>
+<td>“this is the only possible correction”</td>
+</tr>
+<tr class="even">
+<td>context is incomplete</td>
+<td>“whether a section-level convention applies is not yet known”</td>
+<td>“there are certainly no other assumptions”</td>
+</tr>
+<tr class="odd">
+<td>some downstream results have been audited</td>
+<td>“impact has been found in A and B”</td>
+<td>“only A and B are affected”</td>
+</tr>
+<tr class="even">
+<td>computational output does not match</td>
+<td>“the execution record is inconsistent”</td>
+<td>“the algorithm is certainly wrong”</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section class="level2" data-number="11" id="o017-u07-stop-and-escalate">
+<h2 class="anchored" data-anchor-id="o017-u07-stop-and-escalate" data-number="11"><span class="header-section-number">11</span> Stop and escalation gates</h2>
+<p>Care does not mean examining without limit. Use observable gates.</p>
+<section class="level3" data-number="11.1" id="o017-u07-stop-before-claim">
+<h3 class="anchored" data-anchor-id="o017-u07-stop-before-claim" data-number="11.1"><span class="header-section-number">11.1</span> Stop before declaring an error</h3>
+<p>Stop before establishing the <strong>old claim’s status</strong>, and retain the finding at <code>C0</code> or <code>C1</code>, if any of the following applies:</p>
+<ul>
+<li>the version or location cannot be distinguished;</li>
+<li>the wording is available only as a second-hand paraphrase;</li>
+<li>the candidate example fails one hypothesis;</li>
+<li>a section-level convention that might supply the hypothesis has not been checked; or</li>
+<li>the numerical failure lies within unknown rounding bounds.</li>
+</ul>
+<p>Stopping means not promoting the status, not discarding the record. Preserve the evidence, question, and next step.</p>
+<p>The <strong>candidate correction’s status</strong> has its own gate. If an exact counterexample has established the old claim as <code>false_as_written/C3</code>, retain that status even if its replacement remains unproved. Mark the replacement <code>unresolved</code>, do not activate it as a correction, and stop before claiming that the problem has been repaired. Uncertainty about a repair does not weaken the evidence against the old claim.</p>
+</section>
+<section class="level3" data-number="11.2" id="o017-u07-escalation-rule">
+<h3 class="anchored" data-anchor-id="o017-u07-escalation-rule" data-number="11.2"><span class="header-section-number">11.2</span> Escalation without exaggeration</h3>
+<p>Escalate to a suitable reviewer or decision owner if:</p>
+<ol type="1">
+<li>actual or potential severity is <code>S3</code> or <code>S4</code>, at any confidence level; <code>C1/C2</code> requires further verification, whereas <code>C3</code> requires a dependency audit and a decision about withholding or correcting active outputs;</li>
+<li>the proof of the correction depends on expertise beyond the examiner’s;</li>
+<li>two nonequivalent repairs both fit the context;</li>
+<li>license identity or component rights affect the form of correction that may be published;</li>
+<li>the dependency audit finds active outputs that may use a false claim; or</li>
+<li>a computational mismatch cannot be disentangled among code, data, environment, and interpretation of results.</li>
+</ol>
+<p>Escalation must bring a dossier, not merely an alarm: version, locator, reproducer, severity/confidence pair, open questions, and the requested decision. Contacting outside parties is a separate action and is not performed by this unit.</p>
+</section>
+<section class="level3" data-number="11.3" id="o017-u07-closure-conditions">
+<h3 class="anchored" data-anchor-id="o017-u07-closure-conditions" data-number="11.3"><span class="header-section-number">11.3</span> Closure conditions</h3>
+<p>A finding may be closed as <strong>corrected locally</strong> when:</p>
+<ul>
+<li>the historical target remains identifiable;</li>
+<li>the old claim’s status and evidence of failure are recorded;</li>
+<li>the replacement claim has sufficient evidence;</li>
+<li>the extent of the impact examined is stated;</li>
+<li>remaining uncertainties are not concealed; and</li>
+<li>the active artifact points to the new version without deleting the old one.</li>
+</ul>
+<p>Local closure does not mean that someone else has accepted or published the correction.</p>
+</section>
+</section>
+<section class="level2" data-number="12" id="o017-u07-correction-protocol">
+<h2 class="anchored" data-anchor-id="o017-u07-correction-protocol" data-number="12"><span class="header-section-number">12</span> Audit and correction protocol</h2>
+<p>Use the following sequence for mathematical or computational findings.</p>
+<ol type="1">
+<li><strong>Register the finding.</strong> Assign an ID and record who or what triggered the examination; do not immediately issue a verdict.</li>
+<li><strong>Freeze the target.</strong> Record work, version, copy, locator, wording, time, and context scope.</li>
+<li><strong>Normalize the claim.</strong> State quantifiers, types, hypotheses, and conclusion.</li>
+<li><strong>Classify provisionally.</strong> Separate statement status from defect type.</li>
+<li><strong>Build a minimal reproducer.</strong> Check every hypothesis and show the exact failure.</li>
+<li><strong>Assess both axes.</strong> Assign severity and confidence with separate justifications; mark the extent not yet audited.</li>
+<li><strong>Seek the narrowest correction.</strong> Test reducing assumptions or weakening the conclusion; do not guess the intention.</li>
+<li><strong>Prove the correction.</strong> Preserve the new proof as a separate object.</li>
+<li><strong>Audit dependencies.</strong> Determine which results actually use the old claim and on what domains.</li>
+<li><strong>Append events.</strong> Link the old version, evidence of failure, correction, and candidate version; do not overwrite.</li>
+<li><strong>Write a concise draft.</strong> Include facts, reproducer, correction, and boundaries; keep external contact outside this process.</li>
+<li><strong>Apply the gates.</strong> Close, hold, or escalate according to the available evidence and authority.</li>
+</ol>
+<p>The sequence may return to earlier steps. Discovering a new section-level convention, for example, changes claim normalization and may invalidate the reproducer. The event log must preserve that change rather than present the final decision as though it had been the first.</p>
+</section>
+<section class="level2" data-number="13" id="o017-u07-guided-practice">
+<h2 class="anchored" data-anchor-id="o017-u07-guided-practice" data-number="13"><span class="header-section-number">13</span> Guided practice: one finding, two axes, three claims</h2>
+<p>A synthetic manuscript at version <code>2.1</code> states in Lemma 4:</p>
+<blockquote class="blockquote">
+<p>For every real number <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\sqrt{x^2}=x</annotation></semantics></math>.</p>
+</blockquote>
+<p>Take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=-2</annotation></semantics></math>. The hypothesis “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> is real” is satisfied, whereas <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mrow><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>2</mn><msup><mo form="postfix" stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt><mo>=</mo><msqrt><mn>4</mn></msqrt><mo>=</mo><mn>2</mn><mo>≠</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\sqrt{(-2)^2}=\sqrt4=2\neq-2</annotation></semantics></math>. Thus the lemma is false as written. The repair <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><mo>=</mo><mo form="prefix" stretchy="false">|</mo><mi>x</mi><mo form="prefix" stretchy="false">|</mo></mrow><annotation encoding="application/x-tex">\sqrt{x^2}=|x|</annotation></semantics></math> is true for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">x\in\mathbb R</annotation></semantics></math> by the definition of the principal square root. Another repair, “if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\geq0</annotation></semantics></math>, then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\sqrt{x^2}=x</annotation></semantics></math>,” is also true but narrows the domain.</p>
+<p>Three claims must be separated:</p>
+<ul>
+<li><code>C-old</code>: the old universal statement, refuted by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=-2</annotation></semantics></math>;</li>
+<li><code>C-abs</code>: the identity with absolute value, accepted with a definitional proof;</li>
+<li><code>C-nonneg</code>: the domain restriction, accepted but narrower.</li>
+</ul>
+<p>We can assign confidence <code>C3</code>. Severity cannot yet be inferred from the lemma alone: if no other result uses it, it may be <code>S1</code>; if many downstream results replace <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><annotation encoding="application/x-tex">\sqrt{x^2}</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> for negative values, it may be <code>S3</code>. Until the dependency graph has been examined, record an unknown severity rather than choose a number that feels reasonable.</p>
+</section>
+<section class="level2" data-number="14" id="o017-u07-preflight">
+<h2 class="anchored" data-anchor-id="o017-u07-preflight" data-number="14"><span class="header-section-number">14</span> Checklist before finalizing a draft</h2>
+<ol type="1">
+<li>Are the examined version, copy, locator, and wording exact?</li>
+<li>Has the claim been normalized without silent changes?</li>
+<li>Has every reproducer hypothesis actually been checked?</li>
+<li>Is the failure of the conclusion exact and relevant?</li>
+<li>Is statement status distinguished from the defect-type diagnosis?</li>
+<li>Do severity and confidence have separate grounds?</li>
+<li>Is the candidate correction proved sufficient and not stronger than necessary without justification?</li>
+<li>Are old versions and claims still preserved in the history?</li>
+<li>Are unaudited impact and unknown intentions still described as unknown?</li>
+<li>Does the draft request one clear action without personal judgments?</li>
+<li>Are stop, escalation, and contact-authorization gates respected?</li>
+</ol>
+</section>
+<section class="level2" data-number="15" id="o017-u07-exercises">
+<h2 class="anchored" data-anchor-id="o017-u07-exercises" data-number="15"><span class="header-section-number">15</span> Exercises</h2>
+<ol type="1">
+<li><p><strong><span id="o017-u07-x01">O017-U07-X01</span> — Two-layer classification.</strong> For each case below, give the statement status, the primary defect kind, and one secondary consequence if any: (a) the index <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> is printed as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math>, but the substitution on the next line is consistent only with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math>; (b) the proof uses unstated compactness, and the theorem fails on a noncompact domain; (c) “see Lemma 2” when two appendices each have a Lemma 2; (d) the log names code revision <code>r3</code>, while the manifest and output name <code>r2</code>;</p>
+<ol start="5" type="a">
+<li>an implication is true, but one paragraph uses its converse; and</li>
+<li>a definition is correct but its symbol changes type without explanation. Link your answer to <strong><a href="#o017-u07-h01">O017-U07-H01</a></strong>.</li>
+</ol></li>
+<li><p><strong><span id="o017-u07-x02">O017-U07-X02</span> — Severity is not confidence.</strong> Give code pairs and reasons for: (a) a certain title typo that does not affect retrieval; (b) a suspicion that the main theorem is false because one simulation is unstable; (c) an exact counterexample to a standalone exercise used nowhere else; and (d) a code-version mismatch in a principal result whose extent has not been audited. Do not produce a combined score. Link your answer to <strong><a href="#o017-u07-h02">O017-U07-H02</a></strong>.</p></li>
+<li><p><strong><span id="o017-u07-x03">O017-U07-X03</span> — Version, locator, and reproducer.</strong> A report says only “new edition, monotonicity theorem wrong for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">x=-1</annotation></semantics></math>.” List the minimum questions that must be answered before the status can be raised above <code>C0</code>. Then write a reproducer skeleton that separates hypotheses, object, failure of the conclusion, and boundaries. Link your answer to <strong><a href="#o017-u07-h03">O017-U07-H03</a></strong>.</p></li>
+<li><p><strong><span id="o017-u07-x04">O017-U07-X04</span> — The connectedness repair.</strong> Prove that if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> is connected and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>ℝ</mi><mo>\</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">f:X\to\mathbb R\setminus\{0\}</annotation></semantics></math> is continuous, then the image <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>X</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(X)</annotation></semantics></math> lies entirely within one component of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℝ</mi><mo>\</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\mathbb R\setminus\{0\}</annotation></semantics></math>. Then, for an arbitrary disconnected space, construct a continuous function into <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">{</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{-1,1\}</annotation></semantics></math> taking both values. Explain why “path-connected” is an unnecessarily strong repair for this claim. Link your answer to <strong><a href="#o017-u07-h04">O017-U07-H04</a></strong>.</p></li>
+<li><p><strong><span id="o017-u07-x05">O017-U07-X05</span> — Correction history.</strong> A version <code>V1</code> contains claim <code>CLM1</code>; counterexample <code>CE1</code> refutes it; <code>V2</code> contains replacement claim <code>CLM2</code>; then <code>V3</code> narrows the notation without changing the meaning of <code>CLM2</code>. Design events and directed relationships that preserve all three versions. Explain why changing the content of <code>CLM1</code> into the content of <code>CLM2</code> damages the audit. Link your answer to <strong><a href="#o017-u07-h05">O017-U07-H05</a></strong>.</p></li>
+<li><p><strong><span id="o017-u07-x06">O017-U07-X06</span> — Drafts and gates.</strong> Write a six-sentence draft for the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><msup><mi>x</mi><mn>2</mn></msup></msqrt><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\sqrt{x^2}=x</annotation></semantics></math> case in the guided practice. Add two uncertainty entries: the extent of downstream results and the choice between an absolute-value correction and a domain restriction. Specify a stop condition and one decision that must be escalated. The draft remains local. Link your answer to <strong><a href="#o017-u07-h06">O017-U07-H06</a></strong>.</p></li>
+</ol>
+</section>
+<section class="level2" data-number="16" id="o017-u07-guidance">
+<h2 class="anchored" data-anchor-id="o017-u07-guidance" data-number="16"><span class="header-section-number">16</span> Hints and answer guidance</h2>
+<ol type="1">
+<li><p><strong><span id="o017-u07-h01">O017-U07-H01</span>.</strong> (a) Primarily a typographical error; the mathematical status depends on which wording is considered active, so do not change it without recording the contextual evidence; use <code>not_applicable</code> when the finding concerns only the printed form, then assess the formula’s claim as a separate object. (b) The theorem is <em>false as written</em>, with a diagnosis of a missing compactness hypothesis.</p>
+<ol start="3" type="a">
+<li>An ambiguous locator with claim status <code>not_applicable</code>. (d) A computational/provenance defect; the claim that revision <code>r3</code> was run remains <em>unsupported as written</em>, and the evidence does not yet suffice to declare the algorithm wrong. (e) The local use is wrong even though the source implication may remain true. (f) A local exposition defect with <code>not_applicable</code> if no claim has yet been assessed, unless the type change makes a particular claim false. Keep status and cause as separate fields.</li>
+</ol></li>
+<li><p><strong><span id="o017-u07-h02">O017-U07-H02</span>.</strong> Reasonable assignments are (a) <code>S0/C3</code>; (b) potential <code>S3/C1</code>, because the simulation is not yet an exact counterexample; (c) <code>S1</code> or <code>S2</code> with <code>C3</code>, depending on the exercise’s role, but with bounded extent; and (d) unknown severity or potential <code>S3</code>, with strong confidence only in the artifact mismatch, not in the falsity of the mathematical result. The justification for each axis matters more than any single code.</p></li>
+<li><p><strong><span id="o017-u07-h03">O017-U07-H03</span>.</strong> Ask for the work’s title, edition number or version identity, copy, format, page/section/label, full wording, definition of “monotone,” domain, section-level assumptions, and time of observation. The reproducer must state the quantified claim, check that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math> lies in the domain and satisfies the hypotheses, calculate the exact failure, and then state whether it refutes the source claim or a strengthening invented by the reporter.</p></li>
+<li><p><strong><span id="o017-u07-h04">O017-U07-H04</span>.</strong> The continuous image of a connected space is connected, whereas the two components of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℝ</mi><mo>\</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\mathbb R\setminus\{0\}</annotation></semantics></math> are <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mi>∞</mi><mo>,</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(-\infty,0)</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>∞</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,\infty)</annotation></semantics></math>. Alternatively, use preimages as in the unit’s proof. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">X=A\cup B</annotation></semantics></math> is a separation, the function with value <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math> on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math> on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math> is continuous because <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math> are both open and closed. Connectedness alone suffices, so path-connectedness adds unused structure.</p></li>
+<li><p><strong><span id="o017-u07-h05">O017-U07-H05</span>.</strong> Preserve at least <code>V1 contains CLM1</code>, <code>CLM1 refutedBy CE1</code>, V2 succeeds V1, <code>V2 contains CLM2</code>, <code>CLM2 provedBy P2</code>, <code>V3 succeeds V2</code>, and <code>V3 restates CLM2</code>, or a new claim declared equivalent with proof. Observation, refutation, proposal, proof, and notation-change events remain ordered. Overwriting <code>CLM1</code> removes the object that CE1 actually refuted and makes historical downstream results appear to use a claim that did not yet exist.</p></li>
+<li><p><strong><span id="o017-u07-h06">O017-U07-H06</span>.</strong> The draft must name the version and location, the universal wording, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x=-2</annotation></semantics></math>, the hypothesis check, the value <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mrow><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>2</mn><msup><mo form="postfix" stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\sqrt{(-2)^2}=2</annotation></semantics></math>, and two valid corrections. Stop before selecting one correction as the source’s intention if the intended context is unavailable. Escalate the editorial choice to the work’s owner; audit the dependency graph before assigning severity. Do not send the exercise draft.</p></li>
+</ol>
+</section>
+<section class="level2" data-number="17" id="o017-u07-completion-task">
+<h2 class="anchored" data-anchor-id="o017-u07-completion-task" data-number="17"><span class="header-section-number">17</span> Unit completion task</h2>
+<p>Prepare a <strong>complete erratum dossier</strong> for the following synthetic packet. The packet is the entire available context; do not invent authors, DOIs, pages, commits, execution results, or additional versions.</p>
+<div class="callout callout-style-default callout-note callout-titled" id="o017-u07-completion-metadata" title="O017-U07-PKT-META — Packet identity">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>O017-U07-PKT-META — Packet identity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>work_id</code>: <code>O017-U07-PKT-W01</code>, <em>Notes on Extrema on Intervals</em>.</li>
+<li><code>version_id</code>: <code>O017-U07-PKT-V1</code>, label <code>1.2-sintetis</code>.</li>
+<li><code>copy_id</code>: <code>O017-U07-PKT-CP1</code>, all five packet excerpts in this unit.</li>
+<li><code>observed_at</code>: <code>2026-08-21</code>.</li>
+<li>There are no section-level assumptions beyond those written in each excerpt.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" id="o017-u07-completion-statement" title="O017-U07-PKT-S01 — Proposition 6.2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>O017-U07-PKT-S01 — Proposition 6.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:[0,1]\to\mathbb R</annotation></semantics></math> is continuous, then there is exactly one <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>∈</mo><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">c\in(0,1)</annotation></semantics></math> at which <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> attains its maximum, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo form="prefix" stretchy="false">(</mo><mi>c</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f'(c)=0</annotation></semantics></math>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" id="o017-u07-completion-proof" title="O017-U07-PKT-P01 — Proof excerpt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>O017-U07-PKT-P01 — Proof excerpt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“The Extreme Value Theorem gives a maximum point <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>. Since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math> is a maximum point, its derivative is zero. Uniqueness follows because that maximum point has been chosen.”</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" id="o017-u07-completion-typo" title="O017-U07-PKT-T01 — Figure caption">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>O017-U07-PKT-T01 — Figure caption
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Graph of a continuous function on the interval <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">[</mo><mi>O</mi><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[O,1]</annotation></semantics></math>.” The first character inside the interval appears as the capital letter <code>O</code>; the packet supplies neither a source file nor an editor’s note.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" id="o017-u07-completion-locator" title="O017-U07-PKT-L01 — Back-reference">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>O017-U07-PKT-L01 — Back-reference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The next paragraph says “this uniqueness will be used again; see the theorem above.” Two other results lie between the paragraph and Proposition 6.2. There is no other label or locator.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" id="o017-u07-completion-computation" title="O017-U07-PKT-C01 — Attached computational record">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>O017-U07-PKT-C01 — Attached computational record
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The manifest names <code>program=gridmax.py@r2</code>, <code>step=0.01</code>, and domain <code>[0,1]</code>. The log header names <code>program=gridmax.py@r1</code>; the sole output line is <code>argmax_grid=0.99</code>. The prose after the log states “the computation proves that the exact maximum point is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">c=1</annotation></semantics></math>.” The code, environment identity, and other outputs are unavailable in the packet.</p>
+</div>
+</div>
+<p>Use the function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math>, the constant function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x)=0</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>−</mi><mo form="prefix" stretchy="false">|</mo><mi>x</mi><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo form="prefix" stretchy="false">|</mo></mrow><annotation encoding="application/x-tex">h(x)=-|x-1/2|</annotation></semantics></math> as candidate reproducers, but check for yourself which claims each function refutes. The final product must include:</p>
+<ol type="1">
+<li>a frozen-target table with the version, copy, and locator for every excerpt, and normalized wording for Proposition 6.2;</li>
+<li>a classification of every finding with <code>statement_status</code>, primary type, secondary consequence, severity, confidence, and the basis for each;</li>
+<li>minimal reproducers checking continuity, maximum location, interiority, uniqueness, and existence of a derivative where relevant: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> tests a boundary maximum, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math> tests uniqueness, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math> tests differentiability at an interior maximum;</li>
+<li>separation of the correction into two valid results: the Extreme Value Theorem guarantees only a maximum on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math>, whereas the zero-derivative condition requires differentiability at an interior local maximum;</li>
+<li>complete proofs or justifications for each replacement result, without concluding uniqueness;</li>
+<li>separate diagnoses of the letter <code>O</code>, the reference “the theorem above,” and the computational-revision mismatch; do not guess that the algorithm is wrong;</li>
+<li>an append-only correction record with the old claim’s ID, two replacement claims, evidence, a candidate version, succession relationships, and events; V1 must not be overwritten;</li>
+<li>an impact audit of the paragraph relying on uniqueness, with status <code>unknown</code> for uses outside the packet;</li>
+<li>a ledger of at least five uncertainties, including the intended character <code>O</code>, the choice of replacement wording, the code actually run, and the extent of downstream results;</li>
+<li>an issue draft of no more than 180 words naming the version, location, two reproducers, separate corrections, and the evidence boundary; the draft is not sent;</li>
+<li>stop and escalation rules explaining what can be closed on the packet’s evidence and what requires the work’s owner or a computational examiner; and</li>
+<li>a four-sentence executive summary using no stronger language than the dossier.</li>
+</ol>
+<section class="level3" data-number="17.1" id="o017-u07-completion-rubric">
+<h3 class="anchored" data-anchor-id="o017-u07-completion-rubric" data-number="17.1"><span class="header-section-number">17.1</span> Rubric</h3>
+<p>Each criterion is scored 0, 1, or 2.</p>
+<div aria-label="Unit 7 completion-task rubric" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 12: 17.1 Rubric" class="caption-top table">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Criterion</th>
+<th scope="col">0</th>
+<th scope="col">1</th>
+<th scope="col">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Targets and locators</td>
+<td>version/location is invented or missing</td>
+<td>some excerpts can be found</td>
+<td>every finding points to the version, copy, packet locator, and exact wording</td>
+</tr>
+<tr class="even">
+<td>Mathematical reproducers</td>
+<td>examples fail the hypotheses or do not demonstrate failure</td>
+<td>one consequence is correctly refuted</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x)=x</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x)=0</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>−</mi><mo form="prefix" stretchy="false">|</mo><mi>x</mi><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo form="prefix" stretchy="false">|</mo></mrow><annotation encoding="application/x-tex">h(x)=-|x-1/2|</annotation></semantics></math> separate failures of interiority, uniqueness, and differentiability, with every hypothesis checked</td>
+</tr>
+<tr class="odd">
+<td>Corrections and proofs</td>
+<td>a patched wording remains false</td>
+<td>two results are named but one condition or proof is unclear</td>
+<td>existence of a maximum and Fermat’s condition are separated, bounded, and justified without claiming uniqueness</td>
+</tr>
+<tr class="even">
+<td>Two-axis classification</td>
+<td>type, status, severity, and confidence are conflated</td>
+<td>some fields are separated</td>
+<td>every finding has separate fields and grounds, including unknown extent</td>
+</tr>
+<tr class="odd">
+<td>History and uncertainty</td>
+<td>V1 is overwritten or uncertainty is filled with guesses</td>
+<td>the old version remains but events/questions are insufficient</td>
+<td>claims, versions, evidence, succession, events, and at least five uncertainties are preserved</td>
+</tr>
+<tr class="even">
+<td>Draft and gates</td>
+<td>the draft accuses, overstates, or is treated as already sent</td>
+<td>main facts are present but actions/boundaries are unclear</td>
+<td>the draft is at most 180 words, specific, and local; close, hold, and escalation rules are executable</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The passing score is at least 10 out of 12, with scores of 2 in <strong>Mathematical reproducers</strong>, <strong>Corrections and proofs</strong>, and <strong>History and uncertainty</strong>. Inventing metadata, calling grid computation proof of an exact maximum, inferring a unique maximum from the selection of one point, applying the derivative condition at an interval endpoint, or deleting V1 requires revision even if the total score is sufficient.</p>
+</section>
+</section>
+<section class="level2" data-number="18" id="o017-u07-boundary">
+<h2 class="anchored" data-anchor-id="o017-u07-boundary" data-number="18"><span class="header-section-number">18</span> Boundaries with B80 and other units</h2>
+<p>This unit does not teach programming, package APIs, root-finding or optimization algorithms, numerical error analysis, software testing, environment management, notebooks, checksums, or system commands. All that implementation work belongs to B80. When a computational defect is found, Unit 7 freezes the claim, compares the contract with the output, assesses the evidence, and formulates a correction; Unit 6 supplies the package and execution record to be examined.</p>
+<p>Unit 2 handles searching and source authority, Unit 3 reconstructs missing proof steps, Unit 4 designs provenance, and Unit 5 develops exposition. Unit 7 does not repeat that work: it uses the results to make erratum decisions. If a missing step can be supplied without changing the claim, the reconstruction comes from Unit 3; Unit 7 determines only whether the source needs a correction note. If a paragraph needs rewriting for readability but is not wrong, its expository revision belongs to Unit 5.</p>
+<p>Unit 8 handles reviewer reports and responses to criticism as interpersonal exchanges. Unit 7 stops at the dossier and local draft; it does not send messages, negotiate responses, or judge authors’ conduct. Unit 9 handles genuinely authorized, bounded community contributions.</p>
+</section>
+<section class="level2" data-number="19" id="o017-u07-provenance">
+<h2 class="anchored" data-anchor-id="o017-u07-provenance" data-number="19"><span class="header-section-number">19</span> Sources, provenance, changes, and rights</h2>
+<p>All original Indonesian prose, the operational taxonomy, severity/confidence scales, protocols, templates, tables, synthetic packets, worked cases, reproducers, proofs, erratum drafts, exercises, answer guidance, completion task, and rubric in this unit are original O017 material by the O017 contributors, 2026, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. This English edition translates that original material while preserving its mathematical content, stable identifiers, and attribution.</p>
+<p>The characterization of connectedness through nowhere-zero continuous functions, the fact that the continuous image of a connected space is connected, the Extreme Value Theorem, and the zero-derivative condition at an interior local maximum are classical mathematical results. O017 does not claim to have discovered them. The wording, pedagogical ordering, two-point example, proofs presented, and their audit function were written specifically for this unit and were not copied from a particular source.</p>
+<p>Packets <code>O017-U07-W01</code> and <code>O017-U07-PKT-W01</code> are synthetic local materials, not DOIs, publisher identities, or evidence of external works bearing those titles. Unit 7 adapts no external donor and copies no donor prose. CC BY-SA 4.0 covers only the original O017 material, not external sources readers may use for independent exercises.</p>
+</section>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+</body></html>

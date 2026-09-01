@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "path": "output/pdf/traceable-mathematical-work-en-2026.08.31.pdf",
+  "bytes": 610308,
+  "sha256": "beb85dd02e22e5bd06809113a757db1cc35de7cf8e666c1796a375fb034fcba1",
+  "pages": 144,
+  "fonts": {
+    "/GCYTVB+LMSans10-Bold-Identity-H": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/IXWMJS+DejaVuSerif": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/CFMBFB+DejaVuSerif-Bold": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/ZTRMKA+FontAwesome5Free-Solid-Identity-H": {
+      "embedded": true,
+      "to_unicode": false
+    },
+    "/VULLSM+DejaVuSansMono": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/WZNLEL+DejaVuSerif-Italic": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/HTTFVG+LatinModernMath-Regular-Identity-H": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/WTGFWZ+DejaVuSerif-BoldItalic": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/FWPYUO+MSAM10": {
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/EGLSXS+DejaVuSansMono-Bold": {
+      "embedded": true,
+      "to_unicode": true
+    }
+  },
+  "tagged": false,
+  "accessible_surface": "English semantic HTML",
+  "page_sizes_pt": [
+    [
+      595.28,
+      841.89
+    ]
+  ],
+  "errors": []
+}

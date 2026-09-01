@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.9.37" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<meta content="A practice unit on freezing a target, auditing quantifiers and domains, constructing a dependency graph, retrieving the right lemmas, and honestly closing or reporting proof gaps." name="description"/>
+<title>Unit 3 — Reconstructing Abbreviated or Omitted Proofs – Traceable Mathematical Work</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta content="../" name="quarto:offset"/>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="../site_libs/bootstrap/bootstrap-e660844ac27f845a97ea4d6047b2f6e4.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../styles.css?v=22d3dec6156b" rel="stylesheet"/>
+</head>
+<body class="nav-fixed quarto-light">
+<a class="o017-skip-link" href="#quarto-document-content">Skip to main content</a>
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-title">Traceable Mathematical Work</span>
+</a>
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+<button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+<ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+<a class="nav-link" href="../index.html">
+<span class="menu-text">Home</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/01-membaca-argumen.html">
+<span class="menu-text">Unit 1</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/02-menelusuri-sumber.html">
+<span class="menu-text">Unit 2</span></a>
+</li>
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="../units/03-merekonstruksi-pembuktian.html">
+<span class="menu-text">Unit 3</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/04-sitasi-provenance-catatan-sumber.html">
+<span class="menu-text">Unit 4</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/05-eksposisi-matematika.html">
+<span class="menu-text">Unit 5</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/06-komputasi-dapat-direproduksi.html">
+<span class="menu-text">Unit 6</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/07-errata-koreksi-batas-kepastian.html">
+<span class="menu-text">Unit 7</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/08-seminar-penelaah-tanggapan-kritik.html">
+<span class="menu-text">Unit 8</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/09-kontribusi-komunitas-portofolio.html">
+<span class="menu-text">Unit 9</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../wrapper/index.html">
+<span class="menu-text">Teaching and assessment</span></a>
+</li>
+</ul>
+</div> <!-- /navcollapse -->
+<div class="quarto-navbar-tools tools-wide">
+<a aria-label="English PDF" class="quarto-navigation-tool px-1" href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/en-v2026.08.31/traceable-mathematical-work-en-2026.08.31.pdf" title="English PDF"><i class="bi bi-file-pdf"></i></a>
+<a aria-label="English source" class="quarto-navigation-tool px-1" href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english" title="English source"><i class="bi bi-github"></i></a>
+<a aria-label="Bahasa Indonesia" class="quarto-navigation-tool px-1" href="https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/" title="Bahasa Indonesia"><i class="bi bi-globe"></i></a>
+</div>
+</div> <!-- /container-fluid -->
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
+<nav aria-labelledby="toc-title" class="toc-active" id="TOC" role="doc-toc">
+<div class="h2" id="toc-title">On this page</div>
+<ul>
+<li><a class="nav-link active" data-scroll-target="#o017-u03-outcomes" href="#o017-u03-outcomes" id="toc-o017-u03-outcomes"><span class="header-section-number">1</span> Learning outcomes</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-reconstruction-problem" href="#o017-u03-reconstruction-problem" id="toc-o017-u03-reconstruction-problem"><span class="header-section-number">2</span> The reconstruction problem: not guessing the author’s intention</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-seven-stage-protocol" href="#o017-u03-seven-stage-protocol" id="toc-o017-u03-seven-stage-protocol"><span class="header-section-number">3</span> A seven-stage protocol</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u03-stage-freeze" href="#o017-u03-stage-freeze" id="toc-o017-u03-stage-freeze"><span class="header-section-number">3.1</span> Stage 1 — Freeze the claim and context</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-stage-quantifiers" href="#o017-u03-stage-quantifiers" id="toc-o017-u03-stage-quantifiers"><span class="header-section-number">3.2</span> Stage 2 — Expand the target’s quantifiers, domains, and definitions</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-stage-obligations" href="#o017-u03-stage-obligations" id="toc-o017-u03-stage-obligations"><span class="header-section-number">3.3</span> Stage 3 — State the proof obligations</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-stage-dependency-graph" href="#o017-u03-stage-dependency-graph" id="toc-o017-u03-stage-dependency-graph"><span class="header-section-number">3.4</span> Stage 4 — Construct a dependency graph</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-stage-lemma-retrieval" href="#o017-u03-stage-lemma-retrieval" id="toc-o017-u03-stage-lemma-retrieval"><span class="header-section-number">3.5</span> Stage 5 — Retrieve lemmas through their contracts</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-stage-bidirectional-planning" href="#o017-u03-stage-bidirectional-planning" id="toc-o017-u03-stage-bidirectional-planning"><span class="header-section-number">3.6</span> Stage 6 — Plan backward and forward</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-stage-minimal-proof" href="#o017-u03-stage-minimal-proof" id="toc-o017-u03-stage-minimal-proof"><span class="header-section-number">3.7</span> Stage 7 — Write a minimally sufficient reconstruction and audit what remains</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-reconstruction-sheet" href="#o017-u03-reconstruction-sheet" id="toc-o017-u03-reconstruction-sheet"><span class="header-section-number">4</span> A reconstruction worksheet</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-worked-case" href="#o017-u03-worked-case" id="toc-o017-u03-worked-case"><span class="header-section-number">5</span> Worked case: the continuous image of a compact set</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u03-frozen-statement" href="#o017-u03-frozen-statement" id="toc-o017-u03-frozen-statement"><span class="header-section-number">5.1</span> Freezing the statement</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-quantifier-domain-audit" href="#o017-u03-quantifier-domain-audit" id="toc-o017-u03-quantifier-domain-audit"><span class="header-section-number">5.2</span> Auditing quantifiers and domains</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-obligations" href="#o017-u03-obligations" id="toc-o017-u03-obligations"><span class="header-section-number">5.3</span> List of obligations</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-compact-image-graph" href="#o017-u03-compact-image-graph" id="toc-o017-u03-compact-image-graph"><span class="header-section-number">5.4</span> Dependency graph</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-needed-lemmas" href="#o017-u03-needed-lemmas" id="toc-o017-u03-needed-lemmas"><span class="header-section-number">5.5</span> Contracts for the results actually needed</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-two-way-plan" href="#o017-u03-two-way-plan" id="toc-o017-u03-two-way-plan"><span class="header-section-number">5.6</span> Two-way planning</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-complete-reconstruction" href="#o017-u03-complete-reconstruction" id="toc-o017-u03-complete-reconstruction"><span class="header-section-number">5.7</span> Complete reconstruction</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-minimality-audit" href="#o017-u03-minimality-audit" id="toc-o017-u03-minimality-audit"><span class="header-section-number">5.8</span> Why this reconstruction is minimal but sufficient</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-invalid-shortcuts" href="#o017-u03-invalid-shortcuts" id="toc-o017-u03-invalid-shortcuts"><span class="header-section-number">6</span> Invalid shortcuts</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u03-cover-scope-error" href="#o017-u03-cover-scope-error" id="toc-o017-u03-cover-scope-error"><span class="header-section-number">6.1</span> A cover of the image is not a cover of the entire codomain or domain</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-image-preimage-error" href="#o017-u03-image-preimage-error" id="toc-o017-u03-image-preimage-error"><span class="header-section-number">6.2</span> The image of a preimage does not always recover the original set</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-openness-domain-error" href="#o017-u03-openness-domain-error" id="toc-o017-u03-openness-domain-error"><span class="header-section-number">6.3</span> Openness does not transfer without checking the space</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-assumption-stress-tests" href="#o017-u03-assumption-stress-tests" id="toc-o017-u03-assumption-stress-tests"><span class="header-section-number">7</span> Testing hypotheses with counterexamples</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u03-counterexample-noncompact" href="#o017-u03-counterexample-noncompact" id="toc-o017-u03-counterexample-noncompact"><span class="header-section-number">7.1</span> Without compactness of the domain</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-counterexample-discontinuous" href="#o017-u03-counterexample-discontinuous" id="toc-o017-u03-counterexample-discontinuous"><span class="header-section-number">7.2</span> Without continuity</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-lemma-audit" href="#o017-u03-lemma-audit" id="toc-o017-u03-lemma-audit"><span class="header-section-number">8</span> Retrieving lemmas and rejecting hidden hypotheses</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-detail-level" href="#o017-u03-detail-level" id="toc-o017-u03-detail-level"><span class="header-section-number">9</span> Choosing minimally sufficient detail</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-short-audit" href="#o017-u03-short-audit" id="toc-o017-u03-short-audit"><span class="header-section-number">10</span> A short audit exercise</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-exercises" href="#o017-u03-exercises" id="toc-o017-u03-exercises"><span class="header-section-number">11</span> Exercises</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-guidance" href="#o017-u03-guidance" id="toc-o017-u03-guidance"><span class="header-section-number">12</span> Hints and answer guidance</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-completion-task" href="#o017-u03-completion-task" id="toc-o017-u03-completion-task"><span class="header-section-number">13</span> Unit completion task</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u03-completion-rubric" href="#o017-u03-completion-rubric" id="toc-o017-u03-completion-rubric"><span class="header-section-number">13.1</span> Rubric</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-boundary" href="#o017-u03-boundary" id="toc-o017-u03-boundary"><span class="header-section-number">14</span> Boundary with B80 and other units</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u03-provenance" href="#o017-u03-provenance" id="toc-o017-u03-provenance"><span class="header-section-number">15</span> Sources, provenance, and rights</a></li>
+</ul>
+</nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+<h1 class="title">Unit 3 — Reconstructing Abbreviated or Omitted Proofs</h1>
+<p class="subtitle lead">From a detected gap to a minimal, auditable argument</p>
+</div>
+<div>
+<div class="description">
+    A practice unit on freezing a target, auditing quantifiers and domains, constructing a dependency graph, retrieving the right lemmas, and honestly closing or reporting proof gaps.
+  </div>
+</div>
+<div class="quarto-title-meta">
+</div>
+</header>
+<section class="level2" data-number="1" id="o017-u03-outcomes">
+<h2 class="anchored" data-anchor-id="o017-u03-outcomes" data-number="1"><span class="header-section-number">1</span> Learning outcomes</h2>
+<p>This unit has the stable identifier <strong>O017-U03</strong>. After completing it, you will be able to:</p>
+<ol type="1">
+<li>freeze the claim to be reconstructed without silently adding or removing hypotheses;</li>
+<li>expand the quantifiers, domains, and definitions that determine the form of the proof target;</li>
+<li>turn an abbreviated passage of a proof into a list of obligations with clear inputs and outputs;</li>
+<li>draw a dependency graph connecting the target, lemmas, definitions, and hypotheses;</li>
+<li>retrieve a lemma by its mathematical contract, then check every one of its hypotheses in the context you are reading;</li>
+<li>bring forward planning from the hypotheses together with backward planning from the conclusion;</li>
+<li>write a minimally sufficient reconstruction—complete enough to audit, without turning a single step into a new textbook; and</li>
+<li>distinguish gaps that have been closed, gaps conditional on a reference, and gaps that remain unresolved.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Prerequisites and scope">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Prerequisites and scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unit 1 introduced reconstruction by separating an argument into definitions, assumptions, claims, justifications, and open tasks. Unit 2 taught how to identify the source and version being read. Unit 3 develops that practice systematically: types and quantifiers are frozen, obligations are organized into a dependency graph, lemmas are retrieved through their contracts, and details are tested through a minimality audit. The D–A–K–J–T labels and the minimum spanning tree case from Unit 1 are not taught again here.</p>
+<p>Readers are assumed to know functions, sets, preimages, topological spaces, continuity, and the definition of compactness through open covers. All case excerpts are synthetic material created for this unit.</p>
+</div>
+</div>
+</section>
+<section class="level2" data-number="2" id="o017-u03-reconstruction-problem">
+<h2 class="anchored" data-anchor-id="o017-u03-reconstruction-problem" data-number="2"><span class="header-section-number">2</span> The reconstruction problem: not guessing the author’s intention</h2>
+<p>Consider the following synthetic excerpt.</p>
+<blockquote class="blockquote">
+<p>Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> be compact and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f:X\to Y</annotation></semantics></math> continuous. Every open cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> pulls back to an open cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Take a finite subcover; its image gives a finite subcover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Hence <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is compact.</p>
+</blockquote>
+<p>The excerpt points toward a correct theorem, but several of its verbs hide work:</p>
+<ul>
+<li>what an “open cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>” means, and in which space each set is open;</li>
+<li>why the preimages are open;</li>
+<li>why the preimages cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, rather than necessarily covering all of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>;</li>
+<li>which finite set of indices compactness produces;</li>
+<li>why the original sets with <strong>the same indices</strong> cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>; and</li>
+<li>what “its image” means, given that the equation <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=V</annotation></semantics></math> does not hold for a general function.</li>
+</ul>
+<p>Reconstruction is not an attempt to write a proof that might roughly have been intended. It is the construction of an argument in which every addition can answer two questions: <strong>why is this step needed</strong>, and <strong>what warrants its use</strong>? If the second answer is not yet available, the step remains recorded as a gap; it must not be conjured into a new hypothesis.</p>
+</section>
+<section class="level2" data-number="3" id="o017-u03-seven-stage-protocol">
+<h2 class="anchored" data-anchor-id="o017-u03-seven-stage-protocol" data-number="3"><span class="header-section-number">3</span> A seven-stage protocol</h2>
+<p>Use the following protocol whenever a source skips a line or a whole page of proof. The output of each stage becomes the input to the next.</p>
+<section class="level3" data-number="3.1" id="o017-u03-stage-freeze">
+<h3 class="anchored" data-anchor-id="o017-u03-stage-freeze" data-number="3.1"><span class="header-section-number">3.1</span> Stage 1 — Freeze the claim and context</h3>
+<p>Copy or faithfully paraphrase:</p>
+<ul>
+<li>the target claim;</li>
+<li>every applicable hypothesis, including those stated at the start of the section;</li>
+<li>local definitions and notational conventions;</li>
+<li>locators for the beginning and end of the gap; and</li>
+<li>the version of the source being checked.</li>
+</ul>
+<p>Separate the visible text from the reader’s interpretation. For example, if the page says “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is compact” but does not say “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is nonempty”, do not add nonemptiness just because the proof you have in mind wants to choose a point in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</p>
+</section>
+<section class="level3" data-number="3.2" id="o017-u03-stage-quantifiers">
+<h3 class="anchored" data-anchor-id="o017-u03-stage-quantifiers" data-number="3.2"><span class="header-section-number">3.2</span> Stage 2 — Expand the target’s quantifiers, domains, and definitions</h3>
+<p>Write down the type of every object and expand the definition of the <strong>conclusion</strong> first. This reveals the form of the witness that must be constructed. To prove compactness, for example, saying “take a cover” is not enough. The reader must take an arbitrary open cover and produce a finite index set that still covers the correct object.</p>
+<p>This audit also checks for shifts of domain. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f:X\to Y</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊆</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">V\subseteq Y</annotation></semantics></math>, then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">f^{-1}[V]\subseteq X</annotation></semantics></math>; the expression <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[V]</annotation></semantics></math> is not even well-typed unless <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊆</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">V\subseteq X</annotation></semantics></math>. Many abbreviated proofs fail not because their central idea is wrong, but because an object moves between spaces without justification.</p>
+</section>
+<section class="level3" data-number="3.3" id="o017-u03-stage-obligations">
+<h3 class="anchored" data-anchor-id="o017-u03-stage-obligations" data-number="3.3"><span class="header-section-number">3.3</span> Stage 3 — State the proof obligations</h3>
+<p>Replace words such as <em>clearly</em>, <em>similarly</em>, <em>pull back</em>, or <em>the result follows</em> with a numbered list. A good obligation has:</p>
+<ul>
+<li>inputs that are already available;</li>
+<li>an output needed by the next step; and</li>
+<li>a checkable completion criterion.</li>
+</ul>
+<p>“Explain preimages” is too vague. “For every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>, prove that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f^{-1}[V_i]</annotation></semantics></math> is open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>” has a definite output.</p>
+</section>
+<section class="level3" data-number="3.4" id="o017-u03-stage-dependency-graph">
+<h3 class="anchored" data-anchor-id="o017-u03-stage-dependency-graph" data-number="3.4"><span class="header-section-number">3.4</span> Stage 4 — Construct a dependency graph</h3>
+<p>Create a node for the target, each obligation, each active hypothesis, and each lemma that might be used. Draw arrows from inputs to the conclusion that depends on them. The graph prevents two mistakes:</p>
+<ol type="1">
+<li>using a conclusion before its supporting nodes have been closed; and</li>
+<li>proving an interesting result with no path to the target.</li>
+</ol>
+<p>Leaf nodes must be hypotheses, definitions, already-proved results, or retrievable references. “A well-known theorem” is not an auditable leaf node.</p>
+</section>
+<section class="level3" data-number="3.5" id="o017-u03-stage-lemma-retrieval">
+<h3 class="anchored" data-anchor-id="o017-u03-stage-lemma-retrieval" data-number="3.5"><span class="header-section-number">3.5</span> Stage 5 — Retrieve lemmas through their contracts</h3>
+<p>Do not start with a lemma’s name alone. Write down the <strong>contract</strong> you need:</p>
+<pre class="text"><code>inputs + hypotheses  ──&gt;  output</code></pre>
+<p>Then match candidate lemmas against that contract, word by word. Record the exact statement, domain, all hypotheses, and its locator. Make an instantiation table explaining which object in the current case corresponds to each object in the lemma. A lemma has not been “retrieved” if you have found its name but have not checked one of its hypotheses.</p>
+<p>If a small result can be proved directly in one or two lines, a local proof is often more auditable than a vague reference. If the result is substantive, use a precise reference; do not copy its conclusion while dropping its conditions.</p>
+</section>
+<section class="level3" data-number="3.6" id="o017-u03-stage-bidirectional-planning">
+<h3 class="anchored" data-anchor-id="o017-u03-stage-bidirectional-planning" data-number="3.6"><span class="header-section-number">3.6</span> Stage 6 — Plan backward and forward</h3>
+<p><strong>Backward</strong> planning asks: for the conclusion to hold, what object or property must be available immediately beforehand? <strong>Forward</strong> planning asks: what follows directly from the hypotheses and definitions? A reconstruction is usually found where these two directions meet.</p>
+<p>A plan is not a proof. The arrow “compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⇒</mo><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math> finite index set” is valid only after its input family has been shown to be an open cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</p>
+</section>
+<section class="level3" data-number="3.7" id="o017-u03-stage-minimal-proof">
+<h3 class="anchored" data-anchor-id="o017-u03-stage-minimal-proof" data-number="3.7"><span class="header-section-number">3.7</span> Stage 7 — Write a minimally sufficient reconstruction and audit what remains</h3>
+<p>Write the proof in a natural reading order. Then perform two tests.</p>
+<ul>
+<li><strong>Deletion test:</strong> if a sentence is removed, does an important arrow in the graph lose its justification? If not, the sentence may be unnecessary.</li>
+<li><strong>Gap test:</strong> does every remaining arrow lead back to a definition, hypothesis, local proof, or lemma with a matching contract?</li>
+</ul>
+<p>Record each gap’s status as <code>closed</code>, <code>conditional</code>, <code>unconfirmed</code>, or <code>rejected</code>. “Minimal” does not mean as short as possible. It means that no essential obligation is hidden and no additional theory is brought in without a purpose.</p>
+</section>
+</section>
+<section class="level2" data-number="4" id="o017-u03-reconstruction-sheet">
+<h2 class="anchored" data-anchor-id="o017-u03-reconstruction-sheet" data-number="4"><span class="header-section-number">4</span> A reconstruction worksheet</h2>
+<p>The following single sheet is usually enough to contain the entire process.</p>
+<div aria-label="Proof reconstruction worksheet" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 1: 4 A reconstruction worksheet" class="caption-top table">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Field</th>
+<th scope="col">Auditable content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Frozen claim</td>
+<td>the statement, hypotheses, and context that are actually available</td>
+</tr>
+<tr class="even">
+<td>Object dictionary</td>
+<td>symbols, domains, and inclusion or mapping relationships</td>
+</tr>
+<tr class="odd">
+<td>Target form</td>
+<td>the definition of the conclusion with explicit quantifiers</td>
+</tr>
+<tr class="even">
+<td>Obligations</td>
+<td>a list of small outputs to construct</td>
+</tr>
+<tr class="odd">
+<td>Graph</td>
+<td>dependency arrows and leaf nodes</td>
+</tr>
+<tr class="even">
+<td>Lemma contracts</td>
+<td>inputs, hypotheses, outputs, locators, instantiations</td>
+</tr>
+<tr class="odd">
+<td>Two-way plan</td>
+<td>forward path, backward path, and meeting point</td>
+</tr>
+<tr class="even">
+<td>Reconstruction</td>
+<td>a sequential proof that closes the graph</td>
+</tr>
+<tr class="odd">
+<td>Gap register</td>
+<td>status, basis for that status, and action still needed</td>
+</tr>
+<tr class="even">
+<td>Claim boundary</td>
+<td>what is deliberately not concluded</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This sheet is a logical working record, not the full provenance logbook that is the focus of Unit 4. Nevertheless, a lemma retrieved from a source still needs enough version identity and locator information to be checked.</p>
+</section>
+<section class="level2" data-number="5" id="o017-u03-worked-case">
+<h2 class="anchored" data-anchor-id="o017-u03-worked-case" data-number="5"><span class="header-section-number">5</span> Worked case: the continuous image of a compact set</h2>
+<p>We now apply all seven stages to the opening excerpt. This case deliberately uses the open-cover definition, rather than sequential criteria, Heine–Borel, or the extreme value theorem. Every shift of quantifier and domain is therefore visible.</p>
+<section class="level3" data-number="5.1" id="o017-u03-frozen-statement">
+<h3 class="anchored" data-anchor-id="o017-u03-frozen-statement" data-number="5.1"><span class="header-section-number">5.1</span> Freezing the statement</h3>
+<div class="theorem" id="thm-o017-u03-compact-image" title="The continuous image of a compact set">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> be topological spaces, let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">K\subseteq X</annotation></semantics></math> be compact, and let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f:X\to Y</annotation></semantics></math> be continuous. Then the image</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>:</mo><mi>x</mi><mo>∈</mo><mi>K</mi><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">
+f[K]=\{f(x):x\in K\}
+</annotation></semantics></math></p>
+<p>is compact in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</p>
+</div>
+<p>This frozen statement does not assume that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is nonempty, that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is injective, that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is surjective onto <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, or that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> is Hausdorff. A reconstruction using any of these four properties would strengthen the source’s hypotheses without justification.</p>
+<p>In this unit, “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is compact in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>” means: for every family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>U</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(U_i)_{i\in I}</annotation></semantics></math> of sets open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> satisfying <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in I}U_i</annotation></semantics></math>, there is a finite <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">F\subseteq I</annotation></semantics></math> such that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in F}U_i</annotation></semantics></math>. This definition is equivalent to compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> in the subspace topology, but that equivalence is not needed in this reconstruction.</p>
+</section>
+<section class="level3" data-number="5.2" id="o017-u03-quantifier-domain-audit">
+<h3 class="anchored" data-anchor-id="o017-u03-quantifier-domain-audit" data-number="5.2"><span class="header-section-number">5.2</span> Auditing quantifiers and domains</h3>
+<p>The conclusion “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is compact in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>” expands to:</p>
+<div aria-label="Explicit quantifiers for compactness of the image" class="o017-math-scroll" role="region" tabindex="0">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mrow><mtext mathvariant="normal">for every index set </mtext><mspace width="0.333em"></mspace></mrow><mi>I</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> and family </mtext><mspace width="0.333em"></mspace></mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mrow><mo form="prefix" stretchy="true">[</mo><mo form="prefix" maxsize="120%" minsize="120%" stretchy="true">(</mo><mo>∀</mo><mi>i</mi><mo>∈</mo><mi>I</mi><mo>,</mo><mspace width="0.278em"></mspace><msub><mi>V</mi><mi>i</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> is open in </mtext><mspace width="0.333em"></mspace></mrow><mi>Y</mi><mo form="postfix" maxsize="120%" minsize="120%" stretchy="true">)</mo><mo>∧</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="true">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mspace width="2.0em"></mspace><mo>⇒</mo><mrow><mo form="prefix" stretchy="true">[</mo><mo>∃</mo><mi>F</mi><mo>⊆</mo><mi>I</mi><mo>,</mo><mspace width="0.278em"></mspace><mi>F</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> is finite and </mtext><mspace width="0.333em"></mspace></mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></munder><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="true">]</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp;\text{for every index set }I\text{ and family }(V_i)_{i\in I},\\
+&amp;\left[\bigl(\forall i\in I,\;V_i\text{ is open in }Y\bigr)
+\land f[K]\subseteq\bigcup_{i\in I}V_i\right]\\
+&amp;\qquad\Longrightarrow
+\left[\exists F\subseteq I,\;F\text{ is finite and }
+f[K]\subseteq\bigcup_{i\in F}V_i\right].
+\end{aligned}
+</annotation></semantics></math></p>
+</div>
+<p>The object dictionary is as follows.</p>
+<div aria-label="Object dictionary for the compact-image proof" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 2: 5.2 Auditing quantifiers and domains" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Symbol</th>
+<th scope="col">Domain or type</th>
+<th scope="col">Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math></td>
+<td>an element of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>, later restricted to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></td>
+<td>witness on the domain side</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math></td>
+<td>an element of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, later restricted to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math></td>
+<td>element to be covered</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math></td>
+<td>an element of an arbitrary index set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math></td>
+<td>identifies a member of the cover</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>i</mi></msub><annotation encoding="application/x-tex">V_i</annotation></semantics></math></td>
+<td>an open set in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
+<td>member of the original cover</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">U_i=f^{-1}[V_i]</annotation></semantics></math></td>
+<td>a subset of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></td>
+<td>candidate member of the pullback cover</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math></td>
+<td>a finite subset of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math></td>
+<td>witness for a finite subcover</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The quantifier order matters. The family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(V_i)</annotation></semantics></math> is first chosen arbitrarily; only then may <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> depend on that family. Choosing one <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> before the cover is known would prove a much stronger and usually false statement.</p>
+</section>
+<section class="level3" data-number="5.3" id="o017-u03-obligations">
+<h3 class="anchored" data-anchor-id="o017-u03-obligations" data-number="5.3"><span class="header-section-number">5.3</span> List of obligations</h3>
+<p>The abbreviated excerpt yields five obligations.</p>
+<ol type="1">
+<li><strong>P1 — Openness.</strong> For every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">i\in I</annotation></semantics></math>, prove that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">U_i=f^{-1}[V_i]</annotation></semantics></math> is open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</li>
+<li><strong>P2 — Backward covering.</strong> Prove that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in I}U_i</annotation></semantics></math>.</li>
+<li><strong>P3 — Applying compactness.</strong> From P1 and P2, produce a finite <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">F\subseteq I</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in F}U_i</annotation></semantics></math>.</li>
+<li><strong>P4 — Forward covering.</strong> Using the same index set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>, prove that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f[K]\subseteq\bigcup_{i\in F}V_i</annotation></semantics></math>.</li>
+<li><strong>P5 — Closing the quantifiers.</strong> Since the original cover was arbitrary, conclude that every open cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> has a finite subcover.</li>
+</ol>
+<p>P1 and P2 are different: a family can consist of open sets without covering <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, or cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> without consisting of open sets. Compactness can be used only after both properties are available.</p>
+</section>
+<section class="level3" data-number="5.4" id="o017-u03-compact-image-graph">
+<h3 class="anchored" data-anchor-id="o017-u03-compact-image-graph" data-number="5.4"><span class="header-section-number">5.4</span> Dependency graph</h3>
+<p>Read the following graph from left to right. Square brackets indicate nodes that must have an independent justification.</p>
+<pre class="text"><code>[D1: U_i := f^{-1}[V_i]]
+[V_i open in Y] + [f continuous] + D1
+    └─&gt; P1: U_i open in X ─────────────────────────────────┐
+                                                           │
+[V_i cover f[K]] + [definition of f[K]] +                  │
+[D2: x ∈ U_i ⇔ f(x) ∈ V_i] + D1                            │
+    └─&gt; P2: the family U_i covers K ───────────────────────┤
+                                                           v
+[K compact] + P1 + P2 ──&gt; P3: there is a finite F ⊆ I      │
+                                                           v
+P3 + [definition of f[K]] + D1 + D2                        │
+    └─&gt; P4: the family V_i, i ∈ F, covers f[K]             │
+                                                           │
+[arbitrary original cover] + P4 ──&gt; P5: f[K] compact &lt;──────┘</code></pre>
+<p>The graph also shows what is <strong>not</strong> needed: boundedness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, closedness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, the Hausdorff property of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, or existence of a maximum. None has a necessary path to P5.</p>
+</section>
+<section class="level3" data-number="5.5" id="o017-u03-needed-lemmas">
+<h3 class="anchored" data-anchor-id="o017-u03-needed-lemmas" data-number="5.5"><span class="header-section-number">5.5</span> Contracts for the results actually needed</h3>
+<p>This reconstruction requires one definitional clause and two microlemmas. No major theorem needs to be retrieved.</p>
+<div aria-label="Microlemma contracts for the compact-image proof" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 3: 5.5 Contracts for the results actually needed" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Working ID</th>
+<th scope="col">Contract</th>
+<th scope="col">Basis and how to close it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C1</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> continuous + <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\Rightarrow f^{-1}[V]</annotation></semantics></math> open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></td>
+<td>a clause in the definition of continuity</td>
+</tr>
+<tr class="even">
+<td>L1</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f[K]\subseteq\bigcup_{i\in I}V_i</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\Rightarrow K\subseteq\bigcup_{i\in I}f^{-1}[V_i]</annotation></semantics></math></td>
+<td>prove elementwise by taking <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>L2</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">K\subseteq\bigcup_{i\in F}f^{-1}[V_i]</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Rightarrow f[K]\subseteq\bigcup_{i\in F}V_i</annotation></semantics></math></td>
+<td>prove elementwise by taking <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math> and a witness <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For C1, the instantiation is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>↦</mo><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">V\mapsto V_i</annotation></semantics></math> for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">i\in I</annotation></semantics></math>. L1 and L2 require neither injectivity nor surjectivity. Both are deliberately proved locally below, because their elementwise proofs are shorter and clearer than an unlocated reference to “properties of images and preimages”.</p>
+<p>The identity</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mspace width="-0.167em"></mspace><mrow><mo form="prefix" stretchy="true">[</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="true">]</mo></mrow><mo>=</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></munder><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">
+f^{-1}\!\left[\bigcup_{i\in I}V_i\right]
+=\bigcup_{i\in I}f^{-1}[V_i]
+</annotation></semantics></math></p>
+<p>can replace the elementwise proof of L1, but it is not mandatory. If that identity is retrieved as a lemma, its contract and the domain <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>⊆</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">V_i\subseteq Y</annotation></semantics></math> must still be checked.</p>
+</section>
+<section class="level3" data-number="5.6" id="o017-u03-two-way-plan">
+<h3 class="anchored" data-anchor-id="o017-u03-two-way-plan" data-number="5.6"><span class="header-section-number">5.6</span> Two-way planning</h3>
+<p>The backward plan starts from the target:</p>
+<pre class="text"><code>f[K] compact
+&lt; need: every open cover of f[K] has a finite subcover
+&lt; need: a finite F that still covers f[K]
+&lt; candidate producer of F: compactness of K
+&lt; need: an open cover of K with the same index set I</code></pre>
+<p>The forward plan starts from the data:</p>
+<pre class="text"><code>V_i open + f continuous
+&gt; f^{-1}[V_i] open
+
+V_i cover f[K] + x ∈ K
+&gt; f(x) ∈ some V_i
+&gt; x ∈ some f^{-1}[V_i]
+&gt; the preimage family covers K
+
+open cover of K + K compact
+&gt; there is a finite F</code></pre>
+<p>The meeting point of the two plans is the sentence: “the family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(f^{-1}[V_i])_{i\in I}</annotation></semantics></math> is an open cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.” After that point, compactness produces <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>; L2 carries <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> back to the target.</p>
+</section>
+<section class="level3" data-number="5.7" id="o017-u03-complete-reconstruction">
+<h3 class="anchored" data-anchor-id="o017-u03-complete-reconstruction" data-number="5.7"><span class="header-section-number">5.7</span> Complete reconstruction</h3>
+<div class="proof" id="prf-o017-u03-compact-image">
+<p><span class="proof-title"><em>Proof 1</em>. </span>Take an index set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math> and an arbitrary family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in I}</annotation></semantics></math> of open sets in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> that covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>V</mi><mi>i</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f[K]\subseteq\bigcup_{i\in I}V_i.
+</annotation></semantics></math></p>
+<p>For each <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">i\in I</annotation></semantics></math>, set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>i</mi></msub><mo>=</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">U_i=f^{-1}[V_i]</annotation></semantics></math>. Since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is continuous and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>i</mi></msub><annotation encoding="application/x-tex">V_i</annotation></semantics></math> is open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, the set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>U</mi><mi>i</mi></msub><annotation encoding="application/x-tex">U_i</annotation></semantics></math> is open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+<p>The family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>U</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(U_i)_{i\in I}</annotation></semantics></math> covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Indeed, if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math>, then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>∈</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f(x)\in f[K]</annotation></semantics></math>. Since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in I}</annotation></semantics></math> covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>, there is an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">i\in I</annotation></semantics></math> such that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>∈</mo><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f(x)\in V_i</annotation></semantics></math>. By the definition of preimage, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo><mo>=</mo><msub><mi>U</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x\in f^{-1}[V_i]=U_i</annotation></semantics></math>.</p>
+<p>Compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> now applies to this open cover. Thus there is a finite <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">F\subseteq I</annotation></semantics></math> such that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>⊆</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></munder><msub><mi>U</mi><mi>i</mi></msub><mo>=</mo><munder><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></munder><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+K\subseteq\bigcup_{i\in F}U_i
+=\bigcup_{i\in F}f^{-1}[V_i].
+</annotation></semantics></math></p>
+<p>The family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in F}</annotation></semantics></math> covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. To see this, take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math>. By the definition of image, there is an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y=f(x)</annotation></semantics></math>. Since the family indexed by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, there is an <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>∈</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">i\in F</annotation></semantics></math> such that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">x\in f^{-1}[V_i]</annotation></semantics></math>. Hence <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>∈</mo><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">y=f(x)\in V_i</annotation></semantics></math>.</p>
+<p>We have therefore obtained a finite subcover from every arbitrary open cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Thus <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is compact in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</p>
+</div>
+<p>The proof remains valid when <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">K=\varnothing</annotation></semantics></math>. In the final elementwise paragraph, “take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math>” occurs inside the proof of a universally quantified implication; there is no <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> to choose if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is empty. We do not need to add a nonemptiness hypothesis.</p>
+</section>
+<section class="level3" data-number="5.8" id="o017-u03-minimality-audit">
+<h3 class="anchored" data-anchor-id="o017-u03-minimality-audit" data-number="5.8"><span class="header-section-number">5.8</span> Why this reconstruction is minimal but sufficient</h3>
+<div aria-label="Minimality audit of the compact-image reconstruction" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 4: 5.8 Why this reconstruction is minimal but sufficient" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Part</th>
+<th scope="col">Arrow closed</th>
+<th scope="col">Consequence of deleting it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>the original cover is chosen arbitrarily</td>
+<td>opens the quantifier in the definition of compactness</td>
+<td>the proof handles only one particular cover</td>
+</tr>
+<tr class="even">
+<td>continuity gives openness of the preimages</td>
+<td>P1</td>
+<td>compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is applied to a family not yet shown to be open</td>
+</tr>
+<tr class="odd">
+<td>the argument with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math></td>
+<td>P2/L1</td>
+<td>the preimages have not been shown to cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>the application of compactness</td>
+<td>P3</td>
+<td>there is no finite witness <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td>the argument with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math></td>
+<td>P4/L2</td>
+<td>the same indices have not been shown to cover the image</td>
+</tr>
+<tr class="even">
+<td>closing “every cover”</td>
+<td>P5</td>
+<td>the compactness conclusion does not yet follow explicitly</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Conversely, the proof need not prove the Heine–Borel theorem, replace covers with sequences, or show that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is closed. Adding all of that lengthens the text without closing a new arrow in the graph.</p>
+</section>
+</section>
+<section class="level2" data-number="6" id="o017-u03-invalid-shortcuts">
+<h2 class="anchored" data-anchor-id="o017-u03-invalid-shortcuts" data-number="6"><span class="header-section-number">6</span> Invalid shortcuts</h2>
+<section class="level3" data-number="6.1" id="o017-u03-cover-scope-error">
+<h3 class="anchored" data-anchor-id="o017-u03-cover-scope-error" data-number="6.1"><span class="header-section-number">6.1</span> A cover of the image is not a cover of the entire codomain or domain</h3>
+<p>From <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f[K]\subseteq\bigcup_{i\in I}V_i</annotation></semantics></math> it does not follow that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><msub><mo>⋃</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Y=\bigcup_{i\in I}V_i</annotation></semantics></math>. Consequently, it does not follow that the preimages cover all of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> either.</p>
+<p>Take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>Y</mi><mo>=</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">X=Y=\mathbb{R}</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">K=\{0\}</annotation></semantics></math>, and let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> be the identity function. The single set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">V=(-1,1)</annotation></semantics></math> covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>, but <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> does not cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f^{-1}[V]=(-1,1)</annotation></semantics></math> does not cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. The proof needs only the preimages to cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>; demanding a cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> would create a spurious obligation.</p>
+</section>
+<section class="level3" data-number="6.2" id="o017-u03-image-preimage-error">
+<h3 class="anchored" data-anchor-id="o017-u03-image-preimage-error" data-number="6.2"><span class="header-section-number">6.2</span> The image of a preimage does not always recover the original set</h3>
+<p>For a general function, the correct identity is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mi>V</mi><mo>∩</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>X</mi><mo form="postfix" stretchy="false">]</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f[f^{-1}[V]]=V\cap f[X],
+</annotation></semantics></math></p>
+<p>not <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=V</annotation></semantics></math>. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}\to\mathbb{R}</annotation></semantics></math> is given by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)=0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">V=(-1,1)</annotation></semantics></math>, then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo><mo>≠</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=\{0\}\neq V</annotation></semantics></math>.</p>
+<p>In the main reconstruction, we do not need to equate the two sets. We only use the implication <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo><mo>⇒</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>∈</mo><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x\in f^{-1}[V_i]\Rightarrow f(x)\in V_i</annotation></semantics></math> for a witness <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math>. This is why the abbreviated phrase “its image gives a subcover” needs to be replaced by the elementwise argument L2.</p>
+</section>
+<section class="level3" data-number="6.3" id="o017-u03-openness-domain-error">
+<h3 class="anchored" data-anchor-id="o017-u03-openness-domain-error" data-number="6.3"><span class="header-section-number">6.3</span> Openness does not transfer without checking the space</h3>
+<p>If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>i</mi></msub><annotation encoding="application/x-tex">V_i</annotation></semantics></math> is open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, continuity makes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f^{-1}[V_i]</annotation></semantics></math> open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>; it does not say that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>i</mi></msub><annotation encoding="application/x-tex">V_i</annotation></semantics></math> is open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. If the available function is only <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><msub><mo form="prefix" stretchy="false">|</mo><mi>K</mi></msub><mo>:</mo><mi>K</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f|_K:K\to Y</annotation></semantics></math>, its preimages are open in the <strong>subspace <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></strong>, not automatically in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>. That version of the theorem can still be proved using the definition of subspace compactness, but its contract and domains are different. The reconstruction must follow the version the source actually states.</p>
+</section>
+</section>
+<section class="level2" data-number="7" id="o017-u03-assumption-stress-tests">
+<h2 class="anchored" data-anchor-id="o017-u03-assumption-stress-tests" data-number="7"><span class="header-section-number">7</span> Testing hypotheses with counterexamples</h2>
+<p>A counterexample does not replace a reconstruction. It tests whether a hypothesis used in the graph really performs the work claimed for it.</p>
+<section class="level3" data-number="7.1" id="o017-u03-counterexample-noncompact">
+<h3 class="anchored" data-anchor-id="o017-u03-counterexample-noncompact" data-number="7.1"><span class="header-section-number">7.1</span> Without compactness of the domain</h3>
+<p>The inclusion map</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>:</mo><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo><mo>↪</mo><mi>ℝ</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>j</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>x</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">
+j:(0,1)\hookrightarrow\mathbb{R},\qquad j(x)=x,
+</annotation></semantics></math></p>
+<p>is continuous, but its image <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,1)</annotation></semantics></math> is not compact. The family</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><mi>n</mi></msub><mo>=</mo><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>n</mi><mo>≥</mo><mn>2</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+U_n=(1/n,1),\qquad n\geq2,
+</annotation></semantics></math></p>
+<p>covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,1)</annotation></semantics></math>. The empty subfamily clearly does not cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,1)</annotation></semantics></math>. Every nonempty finite subfamily is contained in a single <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mi>/</mi><mi>N</mi><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1/N,1)</annotation></semantics></math> for the largest chosen index <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>, and therefore misses, for example, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mo form="prefix" stretchy="false">(</mo><mn>2</mn><mi>N</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">1/(2N)</annotation></semantics></math>. Hence there is no finite subcover. This example breaks the arrow from P1+P2 to P3: without compactness, the open cover does not produce <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>.</p>
+</section>
+<section class="level3" data-number="7.2" id="o017-u03-counterexample-discontinuous">
+<h3 class="anchored" data-anchor-id="o017-u03-counterexample-discontinuous" data-number="7.2"><span class="header-section-number">7.2</span> Without continuity</h3>
+<p>Take</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo><mo>∪</mo><mo form="prefix" stretchy="false">{</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo>:</mo><mi>n</mi><mo>∈</mo><mi>ℕ</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>n</mi><mo>≥</mo><mn>1</mn><mo form="postfix" stretchy="false">}</mo><mo>⊆</mo><mi>ℝ</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+K=\{0\}\cup\{1/n:n\in\mathbb{N},\ n\geq1\}\subseteq\mathbb{R}.
+</annotation></semantics></math></p>
+<p>The set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is compact by the open-cover definition. For any cover, choose a member containing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>. Because that member is open, it contains <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1/n</annotation></semantics></math> for all sufficiently large <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>; only finitely many points remain, and one member of the original cover can be chosen for each remaining point.</p>
+<p>Define <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>K</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">g:K\to\mathbb{R}</annotation></semantics></math> by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(0)=0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">g(1/n)=n</annotation></semantics></math>. This function is not continuous at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>: the preimage <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>g</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>1</mn><mi>/</mi><mn>2</mn><mo>,</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">g^{-1}[(-1/2,1/2)]=\{0\}</annotation></semantics></math> is not open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, because every neighborhood of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math> in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> contains <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1/n</annotation></semantics></math> for all sufficiently large <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>. Moreover,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mi>…</mi><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">
+g[K]=\{0,1,2,3,\ldots\}
+</annotation></semantics></math></p>
+<p>is not compact. The family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>m</mi></msub><mo>=</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>m</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">W_m=(-1,m)</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m\geq1</annotation></semantics></math>, covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">g[K]</annotation></semantics></math>, but every finite subfamily misses all sufficiently large integers. Here the failure of continuity breaks P1: preimages of cover members are not guaranteed to be open.</p>
+<p>These two examples also prevent a reconstruction from silently discarding a hypothesis merely because the abbreviated proof no longer mentions it.</p>
+</section>
+</section>
+<section class="level2" data-number="8" id="o017-u03-lemma-audit">
+<h2 class="anchored" data-anchor-id="o017-u03-lemma-audit" data-number="8"><span class="header-section-number">8</span> Retrieving lemmas and rejecting hidden hypotheses</h2>
+<p>A result’s name is often broader than its actual contract. Suppose that, after the main theorem, a source adds:</p>
+<blockquote class="blockquote">
+<p>Since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is compact, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is closed in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</p>
+</blockquote>
+<p>The candidate result readers commonly recall has the contract:</p>
+<div aria-label="Contract for the lemma on compact sets in a Hausdorff space" class="o017-math-scroll" role="region" tabindex="0">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" maxsize="120%" minsize="120%" stretchy="true">(</mo><mi>Y</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> is Hausdorff</mtext></mrow><mo form="postfix" maxsize="120%" minsize="120%" stretchy="true">)</mo><mo>∧</mo><mo form="prefix" maxsize="120%" minsize="120%" stretchy="true">(</mo><mi>C</mi><mo>⊆</mo><mi>Y</mi><mo form="postfix" maxsize="120%" minsize="120%" stretchy="true">)</mo><mo>∧</mo><mo form="prefix" maxsize="120%" minsize="120%" stretchy="true">(</mo><mi>C</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> is compact</mtext></mrow><mo form="postfix" maxsize="120%" minsize="120%" stretchy="true">)</mo><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><mi>C</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> is closed in </mtext><mspace width="0.333em"></mspace></mrow><mi>Y</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bigl(Y\text{ is Hausdorff}\bigr)
+\land\bigl(C\subseteq Y\bigr)
+\land\bigl(C\text{ is compact}\bigr)
+\quad\Longrightarrow\quad C\text{ is closed in }Y.
+</annotation></semantics></math></p>
+</div>
+<p>This contract can be proved locally. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">C=\varnothing</annotation></semantics></math>, the conclusion is immediate. If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>≠</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">C\neq\varnothing</annotation></semantics></math>, take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>Y</mi><mo>\</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">y\in Y\setminus C</annotation></semantics></math>. For every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">x\in C</annotation></semantics></math>, the Hausdorff property gives disjoint open sets <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>U</mi><mi>x</mi></msub><annotation encoding="application/x-tex">U_x</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>x</mi></msub><annotation encoding="application/x-tex">V_x</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msub><mi>U</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">x\in U_x</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><msub><mi>V</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">y\in V_x</annotation></semantics></math>. The family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>U</mi><mi>x</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>x</mi><mo>∈</mo><mi>C</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(U_x)_{x\in C}</annotation></semantics></math> covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>; since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> is compact, there are <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo>∈</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">x_1,\ldots,x_n\in C</annotation></semantics></math> such that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>⊆</mo><msub><mi>U</mi><msub><mi>x</mi><mn>1</mn></msub></msub><mo>∪</mo><mi>⋯</mi><mo>∪</mo><msub><mi>U</mi><msub><mi>x</mi><mi>n</mi></msub></msub></mrow><annotation encoding="application/x-tex">C\subseteq U_{x_1}\cup\cdots\cup U_{x_n}</annotation></semantics></math>. The set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msub><mi>V</mi><msub><mi>x</mi><mn>1</mn></msub></msub><mo>∩</mo><mi>⋯</mi><mo>∩</mo><msub><mi>V</mi><msub><mi>x</mi><mi>n</mi></msub></msub></mrow><annotation encoding="application/x-tex">V=V_{x_1}\cap\cdots\cap V_{x_n}</annotation></semantics></math> is open, contains <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>, and is disjoint from <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>U</mi><msub><mi>x</mi><mn>1</mn></msub></msub><mo>∪</mo><mi>⋯</mi><mo>∪</mo><msub><mi>U</mi><msub><mi>x</mi><mi>n</mi></msub></msub></mrow><annotation encoding="application/x-tex">U_{x_1}\cup\cdots\cup U_{x_n}</annotation></semantics></math>, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>⊆</mo><mi>Y</mi><mo>\</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">V\subseteq Y\setminus C</annotation></semantics></math>. Thus every point in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>\</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">Y\setminus C</annotation></semantics></math> has a neighborhood contained in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>\</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">Y\setminus C</annotation></semantics></math>; the complement of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> is open and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> is closed.</p>
+<p>Its instantiation table must take the following form.</p>
+<div aria-label="Instantiating the compact-implies-closed lemma" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 5: 8 Retrieving lemmas and rejecting hidden hypotheses" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Lemma variable</th>
+<th scope="col">Instantiation</th>
+<th scope="col">Hypothesis status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ambient space <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> in the main theorem</td>
+<td>available as a topological space</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> Hausdorff</td>
+<td>no counterpart in the frozen statement</td>
+<td><strong>not yet available</strong></td>
+</tr>
+<tr class="odd">
+<td>set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math></td>
+<td>available</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> compact</td>
+<td>result of the main reconstruction</td>
+<td>available</td>
+</tr>
+<tr class="odd">
+<td>conclusion <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> closed</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> closed in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
+<td>additional target</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The contract does not match because the Hausdorff condition is unavailable. This is not merely formal caution; the additional conclusion is genuinely false in general.</p>
+<p>Take the Sierpiński space <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">Y=\{0,1\}</annotation></semantics></math> with topology <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">{</mo><mi>⌀</mi><mo>,</mo><mo form="prefix" stretchy="false">{</mo><mn>1</mn><mo form="postfix" stretchy="false">}</mo><mo>,</mo><mi>Y</mi><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{\varnothing,\{1\},Y\}</annotation></semantics></math>. Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>K</mi><mo>=</mo><mo form="prefix" stretchy="false">{</mo><mi>*</mi><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">X=K=\{*\}</annotation></semantics></math> have the one-point topology, and let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>K</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">f:K\to Y</annotation></semantics></math> be given by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>*</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(*)=1</annotation></semantics></math>. The set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is compact. The function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is continuous because the preimages of the three open sets in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> are each either <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⌀</mi><annotation encoding="application/x-tex">\varnothing</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, which are open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Its image <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">{</mo><mn>1</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{1\}</annotation></semantics></math> is also compact, but it is not closed in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>, because its complement <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{0\}</annotation></semantics></math> is not open.</p>
+<p>If an earlier page of the source might stipulate that all spaces are Hausdorff, an honest note is not “Hausdorff is surely assumed”, but:</p>
+<div aria-label="Gap register for the Hausdorff hypothesis" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 6: 8 Retrieving lemmas and rejecting hidden hypotheses" class="caption-top table">
+<colgroup>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Gap ID</th>
+<th scope="col">Claim</th>
+<th scope="col">Status</th>
+<th scope="col">Basis</th>
+<th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>G-H</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> Hausdorff holds in the context</td>
+<td>unconfirmed</td>
+<td>absent from the frozen excerpt</td>
+<td>check the context and source version</td>
+</tr>
+<tr class="even">
+<td>G-C</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> closed in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></td>
+<td>rejected as a standalone claim; conditional on G-H</td>
+<td>lemma contract and Sierpiński example</td>
+<td>add the condition only if supported by the source</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Lemma retrieval has three possible outcomes:</p>
+<ol type="1">
+<li>all hypotheses match, so the node can be closed;</li>
+<li>a hypothesis cannot yet be found, so the node remains open; or</li>
+<li>a hypothesis contradicts the context or there is a counterexample, so that path is rejected.</li>
+</ol>
+<p>Only the first outcome warrants proceeding as though the lemma has been applied.</p>
+</section>
+<section class="level2" data-number="9" id="o017-u03-detail-level">
+<h2 class="anchored" data-anchor-id="o017-u03-detail-level" data-number="9"><span class="header-section-number">9</span> Choosing minimally sufficient detail</h2>
+<p>The level of detail depends on what is already available to the intended reader, not on the reconstruction writer’s preferences. Use the following decision sequence.</p>
+<ol type="1">
+<li>If a step is definitional but shifts a quantifier or domain, write its instantiation. In the main case, C1 needs to be stated because it produces openness in the correct space.</li>
+<li>If a step is a microlemma forming a principal bridge, prove it elementwise. L1 and L2 each require just one witness.</li>
+<li>If a substantive lemma is already available in the same source, cite the result’s number and check its hypotheses; do not copy its entire proof.</li>
+<li>If a substantive lemma is not yet available, retrieve a traceable source or mark the gap. Do not fill the absence with a theorem name without a contract.</li>
+<li>If a paragraph supports no path in the graph, move it to a supplementary note or remove it from the core reconstruction.</li>
+</ol>
+<p>A minimal reconstruction also preserves the <strong>exact strength</strong> of the source’s claim. The main theorem proves compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>; it does not prove that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is closed, bounded, or has a maximum point in every codomain. Those conclusions require additional structure and lemmas.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Reconstruction stopping rule">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Reconstruction stopping rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Stop when every path to the frozen claim has been closed and every other gap has a status. Do not expand the work to prove every neighboring result. Conversely, do not declare completion merely because the central idea looks right if an arrow involving a domain, quantifier, or hypothesis still lacks justification.</p>
+</div>
+</div>
+</section>
+<section class="level2" data-number="10" id="o017-u03-short-audit">
+<h2 class="anchored" data-anchor-id="o017-u03-short-audit" data-number="10"><span class="header-section-number">10</span> A short audit exercise</h2>
+<p>A reader offers the following reconstruction of the main excerpt:</p>
+<blockquote class="blockquote">
+<p>Take a cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(V_i)</annotation></semantics></math> of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is continuous, every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[V_i]</annotation></semantics></math> is open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>. These sets cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>. Compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> gives finitely many indices, so we are done.</p>
+</blockquote>
+<p>A type audit immediately finds three defects before we assess the central idea.</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>⊆</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">V_i\subseteq Y</annotation></semantics></math>, whereas the domain of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[V_i]</annotation></semantics></math> is not well-typed in general. The required object is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo><mo>⊆</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">f^{-1}[V_i]\subseteq X</annotation></semantics></math>.</li>
+<li>The preimage family must be proved to cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, not simply declared to do so.</li>
+<li>The compactness hypothesis belongs to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, not <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</li>
+</ul>
+<p>After these repairs, a step carrying the finite subcover back to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is still needed. Finding the first three errors does not, by itself, close P4.</p>
+</section>
+<section class="level2" data-number="11" id="o017-u03-exercises">
+<h2 class="anchored" data-anchor-id="o017-u03-exercises" data-number="11"><span class="header-section-number">11</span> Exercises</h2>
+<ol type="1">
+<li><strong><span id="o017-u03-x01">O017-U03-X01</span> — Quantifier audit.</strong> Write the quantified form of “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is compact” and explain why the finite index set <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> may depend on the cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in I}</annotation></semantics></math>, but not conversely.</li>
+<li><strong><span id="o017-u03-x02">O017-U03-X02</span> — Dependency graph.</strong> Without looking at the worked-case graph, construct a minimal graph from an open cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> to the compactness conclusion. Mark what is closed by definitions, continuity, compactness, L1, and L2.</li>
+<li><strong><span id="o017-u03-x03">O017-U03-X03</span> — A false shortcut.</strong> Give a concrete example refuting <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=V</annotation></semantics></math>. State the correct identity and explain why the main proof requires only one direction of implication.</li>
+<li><strong><span id="o017-u03-x04">O017-U03-X04</span> — Testing hypotheses.</strong> Construct or explain one example with a noncompact domain and another with a discontinuous function for which the image is not compact. Connect each failure to a node in the graph.</li>
+<li><strong><span id="o017-u03-x05">O017-U03-X05</span> — Lemma contract.</strong> Audit the sentence “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is compact, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> is closed in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.” Write the required lemma contract, the missing hypothesis, and an honest gap status when the earlier context cannot yet be checked.</li>
+<li><strong><span id="o017-u03-x06">O017-U03-X06</span> — Minimal repair.</strong> Repair the excerpt in the Short audit exercise section. Make a three-column table containing the faulty fragment, the type of defect, and a minimal replacement; then add the originally missing P4 step.</li>
+</ol>
+</section>
+<section class="level2" data-number="12" id="o017-u03-guidance">
+<h2 class="anchored" data-anchor-id="o017-u03-guidance" data-number="12"><span class="header-section-number">12</span> Hints and answer guidance</h2>
+<ol type="1">
+<li><strong><span id="o017-u03-h01">O017-U03-H01</span>.</strong> The order is: for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math> and every open family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>V</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(V_i)_{i\in I}</annotation></semantics></math> covering <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>, there is a finite <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">F\subseteq I</annotation></semantics></math> that still covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math>. Since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> is a witness for the chosen cover, it comes after the family quantifier.</li>
+<li><strong><span id="o017-u03-h02">O017-U03-H02</span>.</strong> The minimal path is the original cover <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> open preimages (continuity) and preimages covering <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> (L1) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> finite indices (compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> the same indices covering <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> (L2) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> the definition of compactness.</li>
+<li><strong><span id="o017-u03-h03">O017-U03-H03</span>.</strong> Use the constant function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{R}\to\mathbb{R}</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x)=0</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo form="prefix" stretchy="false">(</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">V=(-1,1)</annotation></semantics></math>. The correct identity is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo form="postfix" stretchy="false">]</mo><mo>=</mo><mi>V</mi><mo>∩</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>X</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[f^{-1}[V]]=V\cap f[X]</annotation></semantics></math>. P4 uses only <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><mi>V</mi><mo form="postfix" stretchy="false">]</mo><mo>⇒</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>∈</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">x\in f^{-1}[V]\Rightarrow f(x)\in V</annotation></semantics></math>.</li>
+<li><strong><span id="o017-u03-h04">O017-U03-H04</span>.</strong> The inclusion <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>:</mo><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo><mo>↪</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">j:(0,1)\hookrightarrow\mathbb{R}</annotation></semantics></math> breaks the step from an open cover to a finite subcover. The function <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(0)=0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo form="prefix" stretchy="false">(</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">g(1/n)=n</annotation></semantics></math> on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">{</mo><mn>0</mn><mo form="postfix" stretchy="false">}</mo><mo>∪</mo><mo form="prefix" stretchy="false">{</mo><mn>1</mn><mi>/</mi><mi>n</mi><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{0\}\cup\{1/n\}</annotation></semantics></math> breaks the step guaranteeing openness of the preimages.</li>
+<li><strong><span id="o017-u03-h05">O017-U03-H05</span>.</strong> The valid contract requires <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> to be Hausdorff and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[K]</annotation></semantics></math> to be compact. Without a basis for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math> being Hausdorff, the application is <code>unconfirmed</code>; as a standalone claim it is refuted by the Sierpiński example. Do not add Hausdorff to the frozen statement.</li>
+<li><strong><span id="o017-u03-h06">O017-U03-H06</span>.</strong> Replace <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[V_i]</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo form="prefix" stretchy="false">[</mo><msub><mi>V</mi><mi>i</mi></msub><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f^{-1}[V_i]</annotation></semantics></math>, prove that the family covers <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, and apply compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, not <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>. For P4, take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mi>f</mi><mo form="prefix" stretchy="false">[</mo><mi>K</mi><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">y\in f[K]</annotation></semantics></math>, choose <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">x\in K</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y=f(x)</annotation></semantics></math>, then use membership of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> in one of the finitely indexed preimages.</li>
+</ol>
+</section>
+<section class="level2" data-number="13" id="o017-u03-completion-task">
+<h2 class="anchored" data-anchor-id="o017-u03-completion-task" data-number="13"><span class="header-section-number">13</span> Unit completion task</h2>
+<p>Reconstruct the following synthetic excerpt as a <strong>proof dossier</strong>.</p>
+<blockquote class="blockquote">
+<p>If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is compact and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> is closed in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> is compact. Indeed, add the complement of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> to a cover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>, apply compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, then discard the complement.</p>
+</blockquote>
+<p>Use the convention that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is a compact topological space, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>⊆</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">F\subseteq K</annotation></semantics></math> is closed, and compactness of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> is tested with families of sets open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> and covering <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>.</p>
+<p>The dossier must contain:</p>
+<ol type="1">
+<li>the frozen claim, quantifier order, and a domain dictionary for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>, the family <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><msub><mi>U</mi><mi>i</mi></msub><msub><mo form="postfix" stretchy="false">)</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">(U_i)_{i\in I}</annotation></semantics></math>, the complement <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>\</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">K\setminus F</annotation></semantics></math>, and the finite index set;</li>
+<li>a list of obligations replacing “add”, “apply”, and “discard”;</li>
+<li>a dependency graph whose leaf nodes all have a justification;</li>
+<li>the contract and instantiation of the clause “<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> is closed in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> if and only if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>\</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">K\setminus F</annotation></semantics></math> is open in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>”;</li>
+<li>backward and forward plans and their meeting point;</li>
+<li>a minimal proof that handles the possibility that the finite subcover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> does not select <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>\</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">K\setminus F</annotation></semantics></math>;</li>
+<li>a deletion test for at least four proof sentences;</li>
+<li>a gap register with final statuses; and</li>
+<li>one claim boundary: explain why this proof does not by itself show that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> is closed in an ambient space larger than <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</li>
+</ol>
+<section class="level3" data-number="13.1" id="o017-u03-completion-rubric">
+<h3 class="anchored" data-anchor-id="o017-u03-completion-rubric" data-number="13.1"><span class="header-section-number">13.1</span> Rubric</h3>
+<p>Score each criterion 0, 1, or 2.</p>
+<div aria-label="Unit 3 completion task rubric" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 7: 13.1 Rubric" class="caption-top table">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Criterion</th>
+<th scope="col">0</th>
+<th scope="col">1</th>
+<th scope="col">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Claim and domains</td>
+<td>hypotheses or spaces change</td>
+<td>some types or quantifiers remain implicit</td>
+<td>all objects, quantifiers, and ambient-space topologies are correct</td>
+</tr>
+<tr class="even">
+<td>Obligations and graph</td>
+<td>principal leaps remain hidden</td>
+<td>a graph exists but has unjustified leaves</td>
+<td>every abbreviated verb becomes an obligation and every path is closed</td>
+</tr>
+<tr class="odd">
+<td>Lemma contract</td>
+<td>the lemma is merely named</td>
+<td>a contract exists but instantiation is incomplete</td>
+<td>inputs, hypotheses, outputs, and instantiation are checked</td>
+</tr>
+<tr class="even">
+<td>Reconstruction</td>
+<td>the argument does not produce a finite subcover of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math></td>
+<td>the idea is correct with one unjustified transition</td>
+<td>a complete elementwise proof handles both possibilities for selecting the complement</td>
+</tr>
+<tr class="odd">
+<td>Minimal but sufficient</td>
+<td>too abbreviated or introduces irrelevant theory</td>
+<td>some sentences remain untested</td>
+<td>the deletion test shows that every core detail has a purpose</td>
+</tr>
+<tr class="even">
+<td>Honesty about gaps and boundaries</td>
+<td>gaps are hidden or the claim is strengthened</td>
+<td>statuses or boundaries are named without a basis</td>
+<td>all gaps have grounded statuses and the conclusion about the ambient space is correctly bounded</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A passing score is at least 10 out of 12, with a score of 2 for <strong>Reconstruction</strong> and <strong>Honesty about gaps and boundaries</strong>. Adding a hypothesis that is absent, using compactness before the family has been proved to be an open cover, or declaring a gap closed on the basis of a lemma’s name alone requires revision even if the total score is sufficient.</p>
+</section>
+</section>
+<section class="level2" data-number="14" id="o017-u03-boundary">
+<h2 class="anchored" data-anchor-id="o017-u03-boundary" data-number="14"><span class="header-section-number">14</span> Boundary with B80 and other units</h2>
+<p>This unit teaches logical reconstruction, not computational skills. It does not teach Python syntax, SageMath, SymPy, NumPy/SciPy, package APIs, numerical methods, plotting, writing tests, notebooks, software environments, or the implementation differences between exact and floating-point numbers. All of those belong to B80.</p>
+<p>Readers who already have B80 skills may use programs to search for examples or test conjectures during reconstruction. Their output remains diagnostic empirical evidence, not a substitute for a proof path in the graph. This unit also does not reteach version tracing from Unit 2, the full provenance logbook from Unit 4, or computational reproducibility from Unit 6. If lemma retrieval uncovers a source problem, record that need and pass it on to the appropriate unit.</p>
+</section>
+<section class="level2" data-number="15" id="o017-u03-provenance">
+<h2 class="anchored" data-anchor-id="o017-u03-provenance" data-number="15"><span class="header-section-number">15</span> Sources, provenance, and rights</h2>
+<p>The synthetic excerpts, seven-stage protocol, graph organization, contract tables, exposition, proof reconstructions, examples, counterexamples, exercises, answer guidance, completion task, and rubric in this unit are original O017 material by the O017 contributors, 2026, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+<p>The theorem that the continuous image of a compact set is compact and the theorem that a closed subset of a compact space is compact are classical results in topology. This unit does not claim their discovery and does not copy the wording of proofs from a particular source; the presentation through quantifier audits, lemma contracts, and dependency graphs was written specifically for O017. The Sierpiński space example is also a standard mathematical example, with wording and a pedagogical role original to this unit.</p>
+<p>There are no excerpts or adaptations from <em>The Turing Way</em> or <em>Research Software Engineering with Python</em> in Unit 3. Those two frozen sources remain recorded in the O017 rights manifest for the units that actually adapt them, and remain subject to their respective licenses. The CC BY-SA 4.0 license above applies to this unit’s original material; it does not replace the rights in other sources that may later be cited or added.</p>
+</section>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+</body></html>

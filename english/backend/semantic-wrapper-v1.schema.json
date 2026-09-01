@@ -1,0 +1,1112 @@
+{
+  "$defs": {
+    "assessment": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "assessment_kind": {
+              "enum": [
+                "coursebook_unit_completion",
+                "coursebook_capstone",
+                "authentic_delivery"
+              ],
+              "type": "string"
+            },
+            "attempt_template_id": {
+              "pattern": "^O017-ATTEMPT-TEMPLATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            },
+            "authenticity": {
+              "enum": [
+                "bounded_local_or_synthetic",
+                "real_source",
+                "real_event",
+                "two_person_independent",
+                "real_source_independently_checked",
+                "authorized_external_or_reviewed_local"
+              ],
+              "type": "string"
+            },
+            "calibration_exemplar_required": {
+              "type": "boolean"
+            },
+            "competency_ids": {
+              "items": {
+                "$ref": "#/$defs/competency_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "completion_modes": {
+              "items": {
+                "enum": [
+                  "coursebook_local",
+                  "authentic_direct",
+                  "community_transaction",
+                  "externally_reviewed_local"
+                ],
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "entity_type": {
+              "const": "assessment"
+            },
+            "evaluator_role_ids": {
+              "items": {
+                "$ref": "#/$defs/evaluator_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "evidence_spec_ids": {
+              "items": {
+                "$ref": "#/$defs/evidence_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "external_action_authority": {
+              "enum": [
+                "not_applicable",
+                "separate_specific_human_authorization_required"
+              ],
+              "type": "string"
+            },
+            "id": {
+              "$ref": "#/$defs/assessment_id"
+            },
+            "noncompensable": {
+              "const": true
+            },
+            "outcome_ids": {
+              "items": {
+                "$ref": "#/$defs/outcome_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "record_state": {
+              "const": "active"
+            },
+            "required": {
+              "const": true
+            },
+            "result_template_id": {
+              "pattern": "^O017-RESULT-TEMPLATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            },
+            "rubric_id": {
+              "$ref": "#/$defs/rubric_id"
+            },
+            "submission_template_id": {
+              "pattern": "^O017-SUBMISSION-TEMPLATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "assessment_kind",
+            "authenticity",
+            "required",
+            "noncompensable",
+            "completion_modes",
+            "competency_ids",
+            "outcome_ids",
+            "rubric_id",
+            "submission_template_id",
+            "attempt_template_id",
+            "result_template_id",
+            "evaluator_role_ids",
+            "evidence_spec_ids",
+            "external_action_authority",
+            "calibration_exemplar_required"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "assessment_id": {
+      "pattern": "^O017-ASMT-[A-Z0-9][A-Z0-9-]*$",
+      "type": "string"
+    },
+    "attempt": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "assessment_id": {
+              "$ref": "#/$defs/assessment_id"
+            },
+            "attempt_statuses": {
+              "items": {
+                "enum": [
+                  "not_started",
+                  "in_progress",
+                  "submitted_for_evaluation",
+                  "revision_required",
+                  "passed",
+                  "failed",
+                  "withheld"
+                ],
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "entity_type": {
+              "const": "attempt"
+            },
+            "evaluator_role_ids": {
+              "items": {
+                "$ref": "#/$defs/evaluator_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "id": {
+              "pattern": "^O017-ATTEMPT-TEMPLATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            },
+            "preserves_attempt_history": {
+              "const": true
+            },
+            "record_state": {
+              "const": "template"
+            },
+            "requires_independent_evaluation": {
+              "type": "boolean"
+            },
+            "submission_template_id": {
+              "pattern": "^O017-SUBMISSION-TEMPLATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "assessment_id",
+            "submission_template_id",
+            "evaluator_role_ids",
+            "attempt_statuses",
+            "requires_independent_evaluation",
+            "preserves_attempt_history"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "competency": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "assessment_ids": {
+              "items": {
+                "$ref": "#/$defs/assessment_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "domain_code": {
+              "pattern": "^[A-Z][A-Z0-9_]+$",
+              "type": "string"
+            },
+            "entity_type": {
+              "const": "competency"
+            },
+            "id": {
+              "$ref": "#/$defs/competency_id"
+            },
+            "outcome_ids": {
+              "items": {
+                "$ref": "#/$defs/outcome_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "record_state": {
+              "const": "active"
+            },
+            "unit_id": {
+              "$ref": "#/$defs/unit_id"
+            }
+          },
+          "required": [
+            "unit_id",
+            "domain_code",
+            "outcome_ids",
+            "assessment_ids"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "competency_id": {
+      "pattern": "^O017-COMP-U[0-9]{2}$",
+      "type": "string"
+    },
+    "credential_state": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "claims_external_participation": {
+              "type": "boolean"
+            },
+            "entity_type": {
+              "const": "credential_state"
+            },
+            "external_event_required": {
+              "type": "boolean"
+            },
+            "id": {
+              "pattern": "^O017-CREDENTIAL-STATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            },
+            "predecessor_state_ids": {
+              "items": {
+                "pattern": "^O017-CREDENTIAL-STATE-[A-Z0-9][A-Z0-9-]*$",
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "record_state": {
+              "const": "state_definition"
+            },
+            "required_assessment_ids": {
+              "items": {
+                "$ref": "#/$defs/assessment_id"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "required_result_statuses": {
+              "items": {
+                "enum": [
+                  "pass",
+                  "withheld",
+                  "submitted",
+                  "acknowledged",
+                  "accepted",
+                  "merged",
+                  "published",
+                  "rejected",
+                  "withdrawn",
+                  "externally_reviewed_local"
+                ],
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "state_code": {
+              "pattern": "^[A-Z][A-Z0-9_]+$",
+              "type": "string"
+            },
+            "terminal": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "state_code",
+            "terminal",
+            "claims_external_participation",
+            "required_assessment_ids",
+            "required_result_statuses",
+            "external_event_required",
+            "predecessor_state_ids"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "criterion": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "entity_type": {
+              "const": "criterion"
+            },
+            "evidence_spec_ids": {
+              "items": {
+                "$ref": "#/$defs/evidence_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "id": {
+              "$ref": "#/$defs/criterion_id"
+            },
+            "passing_threshold": {
+              "oneOf": [
+                {
+                  "const": "met"
+                },
+                {
+                  "const": 2
+                }
+              ]
+            },
+            "record_state": {
+              "const": "active"
+            },
+            "required": {
+              "const": true
+            },
+            "rubric_id": {
+              "$ref": "#/$defs/rubric_id"
+            },
+            "scoring_mode": {
+              "enum": [
+                "binary",
+                "numeric_0_2"
+              ],
+              "type": "string"
+            },
+            "sequence": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "rubric_id",
+            "sequence",
+            "required",
+            "scoring_mode",
+            "passing_threshold",
+            "evidence_spec_ids"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "criterion_id": {
+      "pattern": "^O017-CRIT-[A-Z0-9][A-Z0-9-]*$",
+      "type": "string"
+    },
+    "evaluator": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "entity_type": {
+              "const": "evaluator"
+            },
+            "id": {
+              "$ref": "#/$defs/evaluator_id"
+            },
+            "independence": {
+              "enum": [
+                "course_assessor",
+                "event_supervisor",
+                "independent_from_learner",
+                "authorized_external_event_verifier"
+              ],
+              "type": "string"
+            },
+            "privacy_preserving_id_allowed": {
+              "const": true
+            },
+            "record_state": {
+              "const": "role_definition"
+            },
+            "role_code": {
+              "pattern": "^[A-Z][A-Z0-9_]+$",
+              "type": "string"
+            },
+            "same_person_as_learner_allowed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "role_code",
+            "independence",
+            "privacy_preserving_id_allowed",
+            "same_person_as_learner_allowed"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "evaluator_id": {
+      "pattern": "^O017-EVALUATOR-[A-Z0-9][A-Z0-9-]*$",
+      "type": "string"
+    },
+    "evidence": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "accepted_media_types": {
+              "items": {
+                "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$",
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "assessment_id": {
+              "$ref": "#/$defs/assessment_id"
+            },
+            "criterion_id": {
+              "$ref": "#/$defs/criterion_id"
+            },
+            "entity_type": {
+              "const": "evidence"
+            },
+            "evidence_code": {
+              "pattern": "^[A-Z][A-Z0-9_]+$",
+              "type": "string"
+            },
+            "evidence_scope": {
+              "enum": [
+                "learner_submission",
+                "independent_evaluation",
+                "external_event",
+                "delivery_calibration"
+              ],
+              "type": "string"
+            },
+            "external_event_required": {
+              "type": "boolean"
+            },
+            "hash_required": {
+              "type": "boolean"
+            },
+            "id": {
+              "$ref": "#/$defs/evidence_id"
+            },
+            "independent_check_required": {
+              "type": "boolean"
+            },
+            "record_state": {
+              "const": "template"
+            },
+            "required": {
+              "const": true
+            },
+            "timestamp_required": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "assessment_id",
+            "criterion_id",
+            "evidence_code",
+            "evidence_scope",
+            "required",
+            "timestamp_required",
+            "hash_required",
+            "independent_check_required",
+            "external_event_required",
+            "accepted_media_types"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "evidence_id": {
+      "pattern": "^O017-EVIDENCE-[A-Z0-9][A-Z0-9-]*$",
+      "type": "string"
+    },
+    "learning_outcome": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "competency_ids": {
+              "items": {
+                "$ref": "#/$defs/competency_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "entity_type": {
+              "const": "learning_outcome"
+            },
+            "id": {
+              "$ref": "#/$defs/outcome_id"
+            },
+            "record_state": {
+              "const": "active"
+            },
+            "sequence": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "unit_id": {
+              "$ref": "#/$defs/unit_id"
+            }
+          },
+          "required": [
+            "unit_id",
+            "sequence",
+            "competency_ids"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "localization_id": {
+      "pattern": "^O017-L10N-(?:ID|EN)-[A-Z0-9][A-Z0-9-]*$",
+      "type": "string"
+    },
+    "localized_text": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "locale": {
+                "const": "en"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "id": {
+                "pattern": "^O017-L10N-EN-"
+              },
+              "language": {
+                "const": "en"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "locale": {
+                "const": "id-ID"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "id": {
+                "pattern": "^O017-L10N-ID-"
+              },
+              "language": {
+                "const": "id"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "entity_type": {
+          "const": "localized_text"
+        },
+        "field": {
+          "enum": [
+            "label",
+            "description",
+            "instructions",
+            "criterion_text",
+            "pass_rule",
+            "state_label"
+          ],
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "plain_text",
+            "markdown_inline"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/$defs/localization_id"
+        },
+        "language": {
+          "enum": [
+            "id",
+            "en"
+          ]
+        },
+        "locale": {
+          "enum": [
+            "id-ID",
+            "en"
+          ]
+        },
+        "rights_id": {
+          "const": "O017-RIGHTS-ORIGINAL-TEXT"
+        },
+        "schema": {
+          "const": "o017-localized-text-record-v1"
+        },
+        "subject_id": {
+          "$ref": "#/$defs/semantic_id"
+        },
+        "text": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "entity_type",
+        "id",
+        "subject_id",
+        "locale",
+        "language",
+        "field",
+        "format",
+        "text",
+        "rights_id"
+      ],
+      "type": "object"
+    },
+    "locator": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_identity": {
+          "const": false
+        },
+        "fragment": {
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "type": "string"
+        },
+        "path": {
+          "pattern": "^(?:source|delivery|build)/[^\\\\]+$",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "outcomes_section",
+            "assessment_prompt",
+            "rubric",
+            "calibration_exemplar",
+            "form_template"
+          ],
+          "type": "string"
+        },
+        "surface": {
+          "enum": [
+            "source_qmd",
+            "delivery_qmd",
+            "rendered_html"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "surface",
+        "path",
+        "fragment",
+        "role",
+        "canonical_identity"
+      ],
+      "type": "object"
+    },
+    "outcome_id": {
+      "pattern": "^O017-LO-U[0-9]{2}-[0-9]{2}$",
+      "type": "string"
+    },
+    "result": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "allowed_result_statuses": {
+              "items": {
+                "enum": [
+                  "not_evaluated",
+                  "revise",
+                  "pass",
+                  "fail",
+                  "withheld",
+                  "prepared",
+                  "submitted",
+                  "acknowledged",
+                  "accepted",
+                  "merged",
+                  "published",
+                  "rejected",
+                  "withdrawn",
+                  "unknown",
+                  "externally_reviewed_local"
+                ],
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "assessment_id": {
+              "$ref": "#/$defs/assessment_id"
+            },
+            "attempt_template_id": {
+              "pattern": "^O017-ATTEMPT-TEMPLATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            },
+            "entity_type": {
+              "const": "result"
+            },
+            "id": {
+              "pattern": "^O017-RESULT-TEMPLATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            },
+            "preserves_unresolved_items": {
+              "const": true
+            },
+            "record_state": {
+              "const": "template"
+            },
+            "requires_evaluator_identity": {
+              "const": true
+            },
+            "rubric_id": {
+              "$ref": "#/$defs/rubric_id"
+            }
+          },
+          "required": [
+            "assessment_id",
+            "rubric_id",
+            "attempt_template_id",
+            "allowed_result_statuses",
+            "preserves_unresolved_items",
+            "requires_evaluator_identity"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "rights_id": {
+      "enum": [
+        "O017-RIGHTS-GENERATED-DATA",
+        "O017-RIGHTS-ORIGINAL-CODE",
+        "O017-RIGHTS-ORIGINAL-TEXT"
+      ],
+      "type": "string"
+    },
+    "rubric": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "assessment_id": {
+              "$ref": "#/$defs/assessment_id"
+            },
+            "criterion_ids": {
+              "items": {
+                "$ref": "#/$defs/criterion_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "entity_type": {
+              "const": "rubric"
+            },
+            "id": {
+              "$ref": "#/$defs/rubric_id"
+            },
+            "record_state": {
+              "const": "active"
+            },
+            "scoring": {
+              "$ref": "#/$defs/rubric_scoring"
+            }
+          },
+          "required": [
+            "assessment_id",
+            "criterion_ids",
+            "scoring"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "rubric_id": {
+      "pattern": "^O017-RUBRIC-[A-Z0-9][A-Z0-9-]*$",
+      "type": "string"
+    },
+    "rubric_scoring": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "const": "binary_all_required"
+            },
+            "passing_value": {
+              "const": "met"
+            }
+          },
+          "required": [
+            "mode",
+            "passing_value"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "mandatory_revision_overrides_total": {
+              "const": true
+            },
+            "maximum_total": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "minimum_total": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "mode": {
+              "const": "numeric_threshold_with_gates"
+            },
+            "required_full_score_criterion_ids": {
+              "items": {
+                "$ref": "#/$defs/criterion_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "scale": {
+              "const": [
+                0,
+                1,
+                2
+              ]
+            }
+          },
+          "required": [
+            "mode",
+            "scale",
+            "minimum_total",
+            "maximum_total",
+            "required_full_score_criterion_ids",
+            "mandatory_revision_overrides_total"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "semantic_base": {
+      "properties": {
+        "entity_type": {
+          "enum": [
+            "learning_outcome",
+            "competency",
+            "assessment",
+            "rubric",
+            "criterion",
+            "submission",
+            "attempt",
+            "evaluator",
+            "evidence",
+            "result",
+            "credential_state"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/$defs/semantic_id"
+        },
+        "localization_ids": {
+          "items": {
+            "$ref": "#/$defs/localization_id"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "locators": {
+          "items": {
+            "$ref": "#/$defs/locator"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "record_state": {
+          "enum": [
+            "active",
+            "template",
+            "role_definition",
+            "state_definition"
+          ],
+          "type": "string"
+        },
+        "rights_id": {
+          "$ref": "#/$defs/rights_id"
+        },
+        "schema": {
+          "const": "o017-semantic-wrapper-record-v1"
+        }
+      },
+      "required": [
+        "schema",
+        "entity_type",
+        "id",
+        "record_state",
+        "localization_ids",
+        "rights_id"
+      ],
+      "type": "object"
+    },
+    "semantic_id": {
+      "pattern": "^O017-(?:LO|COMP|ASMT|RUBRIC|CRIT|SUBMISSION|ATTEMPT|EVALUATOR|EVIDENCE|RESULT|CREDENTIAL-STATE)-[A-Z0-9][A-Z0-9-]*$",
+      "type": "string"
+    },
+    "submission": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/semantic_base"
+        },
+        {
+          "properties": {
+            "assessment_id": {
+              "$ref": "#/$defs/assessment_id"
+            },
+            "entity_type": {
+              "const": "submission"
+            },
+            "external_action_authority": {
+              "enum": [
+                "not_applicable",
+                "separate_specific_human_authorization_required"
+              ],
+              "type": "string"
+            },
+            "id": {
+              "pattern": "^O017-SUBMISSION-TEMPLATE-[A-Z0-9][A-Z0-9-]*$",
+              "type": "string"
+            },
+            "preserves_prior_versions": {
+              "const": true
+            },
+            "record_state": {
+              "const": "template"
+            },
+            "required_evidence_spec_ids": {
+              "items": {
+                "$ref": "#/$defs/evidence_id"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "submission_statuses": {
+              "items": {
+                "enum": [
+                  "draft",
+                  "prepared",
+                  "submitted",
+                  "withdrawn",
+                  "superseded"
+                ],
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "assessment_id",
+            "required_evidence_spec_ids",
+            "submission_statuses",
+            "preserves_prior_versions",
+            "external_action_authority"
+          ],
+          "type": "object"
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "unit_id": {
+      "pattern": "^O017-U[0-9]{2}$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:o017:semantic-wrapper:v1:english-access",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Enforceable record schema. Human-language text is stored only in explicit localized_text records. Renderer fragments are noncanonical locators.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/learning_outcome"
+    },
+    {
+      "$ref": "#/$defs/competency"
+    },
+    {
+      "$ref": "#/$defs/assessment"
+    },
+    {
+      "$ref": "#/$defs/rubric"
+    },
+    {
+      "$ref": "#/$defs/criterion"
+    },
+    {
+      "$ref": "#/$defs/submission"
+    },
+    {
+      "$ref": "#/$defs/attempt"
+    },
+    {
+      "$ref": "#/$defs/evaluator"
+    },
+    {
+      "$ref": "#/$defs/evidence"
+    },
+    {
+      "$ref": "#/$defs/result"
+    },
+    {
+      "$ref": "#/$defs/credential_state"
+    },
+    {
+      "$ref": "#/$defs/localized_text"
+    }
+  ],
+  "title": "O017 semantic wrapper v1, additive English-access schema"
+}

@@ -1,0 +1,55 @@
+{
+  "pdf": "output/pdf/traceable-mathematical-work-en-2026.08.31.pdf",
+  "bytes": 610308,
+  "sha256": "beb85dd02e22e5bd06809113a757db1cc35de7cf8e666c1796a375fb034fcba1",
+  "pages": 144,
+  "pdf_sha256": "beb85dd02e22e5bd06809113a757db1cc35de7cf8e666c1796a375fb034fcba1",
+  "status": "PASS",
+  "created_utc": "2026-09-01T10:02:03.765837+00:00",
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 72,
+    "pages_rendered": 144,
+    "contact_sheets": [
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-001-006.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-007-012.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-013-018.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-019-024.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-025-030.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-031-036.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-037-042.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-043-048.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-049-054.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-055-060.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-061-066.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-067-072.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-073-078.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-079-084.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-085-090.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-091-096.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-097-102.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-103-108.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-109-114.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-115-120.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-121-126.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-127-132.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-133-138.png",
+      "qa/pdf-visual/beb85dd02e22e5bd/contact-139-144.png"
+    ],
+    "source_unchanged": true
+  },
+  "geometry": {
+    "words_outside_page": [],
+    "pages_with_replacement_characters": [],
+    "invalid_glyphs_by_page": []
+  },
+  "visual_review": {
+    "status": "PASS",
+    "pages_inspected": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144],
+    "representative_full_pages": [1, 23, 38, 44, 54, 78, 82, 107, 108, 116, 117, 127, 139, 144],
+    "review_ranges": ["1-18", "19-36", "37-54", "55-72", "73-90", "91-108", "109-126", "127-144"],
+    "method": "Every full-page PNG was inspected at original detail. Contact sheets were used only for triage. Exact top-band crops and a labelled montage resolved viewer auto-cropping on pages 37-54; the source images contain the intended running headers. The previously rejected footer, decimal-token, N05-lead-in, and exercise-lead-in defects were rechecked on pages 23, 78, 107-108, and 116-117.",
+    "defects": []
+  },
+  "accessibility": "PDF is untagged; this QA does not assert PDF/UA conformance."
+}

@@ -1,0 +1,259 @@
+---
+title: "Unit 1 — Reading Arguments as Networks of Claims"
+subtitle: "Reconstructing omitted steps and testing the limits of knowledge"
+description: "A practical unit on reading claims, assumptions, proofs, and empirical evidence as distinct, traceable components."
+---
+
+## Learning outcomes {#o017-u01-outcomes}
+
+After completing this unit, you will be able to:
+
+1. distinguish definitions, assumptions, claims, illustrations, and conclusions
+   in mathematical writing;
+2. turn phrases such as *clearly* or *follows by an exchange argument* into
+   explicit proof obligations;
+3. reconstruct omitted steps without unjustifiably strengthening the claim;
+4. test the role of assumptions using examples and counterexamples;
+5. use computation as diagnostic empirical evidence, not as a substitute for
+   proof; and
+6. record sources, interpretive decisions, and uncertainty in an auditable
+   reading memo.
+
+::: {.callout-note title="Prerequisites"}
+This unit assumes that you are already familiar with finite graphs, paths,
+cycles, trees, proof by contradiction, and running a provided Python script.
+Python syntax and minimum spanning tree algorithms are not the subject of this
+unit.
+:::
+
+## Reading is more than moving from left to right {#o017-u01-reading}
+
+Mathematical research writing often compresses reasoning. Authors may omit
+steps they consider standard, use definitions from earlier sections, or state
+that a result “follows immediately” from a technique. Readers must determine
+not only what each sentence means, but also:
+
+- exactly what is being claimed;
+- under which assumptions the claim holds;
+- which earlier results are actually used;
+- which steps have not yet been proved; and
+- what kind of support is provided for each conclusion.
+
+Use the following five labels in your reading notes. The letter codes
+**D/A/K/J/T** are retained from the Indonesian edition so that the same labels
+identify the same roles across editions.
+
+| Label | Role | Checking question |
+|---|---|---|
+| **D** | definition | Which object's meaning is being specified? |
+| **A** | assumption | Which conditions may be used? |
+| **K** | claim | Which statement must be proved? |
+| **J** | justification | What reason is actually given? |
+| **T** | open task | Which proof obligation remains unfulfilled? |
+
+These labels are not a mandatory convention. Their purpose is to make a text's
+epistemic structure visible and open to inspection by others.
+
+## A synthetic excerpt {#o017-u01-synthetic-excerpt}
+
+The following excerpt was written specifically for this unit; it is not a
+quotation or translation from another source.
+
+> Let $G=(V,E)$ be a finite connected graph, and let
+> $w:E\to\mathbb{R}$ assign a distinct weight to each edge. The minimum
+> spanning tree of $G$ is unique. This follows from the usual exchange
+> argument.
+
+Before trying to prove it, unpack the excerpt.
+
+- []{#o017-u01-d01} **D1.** A spanning tree is a subgraph that contains every vertex, is connected,
+  and has no cycles.
+- []{#o017-u01-d02} **D2.** The weight of a spanning tree $T$ is
+  $$w(T)=\sum_{e\in E(T)}w(e).$$
+- []{#o017-u01-d03} **D3.** A minimum spanning tree is a spanning tree with the smallest possible
+  weight.
+- **A1.** The graph is finite.
+- **A2.** The graph is connected.
+- **A3.** All edge weights are distinct.
+- **K1.** There is only one minimum spanning tree.
+- **J1.** “The usual exchange argument.”
+- **T1.** Explain which objects are exchanged.
+- **T2.** Prove that the result of the exchange is still a spanning tree.
+- **T3.** Prove that the exchange produces a smaller weight.
+- **T4.** Explain where the contradiction arises.
+
+The reading problem is now concrete: we must discharge T1–T4.
+
+## Reconstructing the proof {#o017-u01-proof-reconstruction}
+
+::: {#thm-o017-u01-01 .theorem title="Uniqueness of the minimum spanning tree"}
+Let $G=(V,E)$ be a finite connected graph. If every pair of distinct edges has
+distinct weights, then $G$ has exactly one minimum spanning tree.
+:::
+
+::: {#prf-o017-u01-01 .proof}
+Because $G$ is finite and connected, its set of spanning trees is finite and
+nonempty. Therefore, at least one minimum spanning tree exists.
+
+Suppose that there are two distinct minimum spanning trees, $T$ and $T'$. The
+symmetric difference $E(T)\mathbin{\triangle}E(T')$ is nonempty. Choose the edge
+$e$ of smallest weight among all edges in that symmetric difference. After
+interchanging the names $T$ and $T'$ if necessary, assume
+$e\in E(T)\setminus E(T')$.
+
+Add $e$ to $T'$. The endpoints of $e$ were previously connected by exactly one
+path in $T'$, so adding $e$ creates exactly one cycle $C$.
+
+The cycle $C$ contains an edge $f\in E(T')\setminus E(T)$. If every edge of
+$C\setminus\{e\}$ were also in $T$, those edges together with $e$ would form a
+cycle in $T$. This is impossible because $T$ is a tree.
+
+The edge $f$ lies in the symmetric difference. Because $e$ was chosen as the
+edge of smallest weight in the entire symmetric difference, and all weights
+are distinct, $w(e)<w(f)$.
+
+Remove $f$ from the cycle and retain $e$. The graph
+$$T''=T'-f+e$$
+still contains every vertex, is connected, and has no cycles; therefore, $T''$
+is a spanning tree. However,
+$$w(T'')=w(T')-w(f)+w(e)<w(T'),$$
+contradicting the minimality of $T'$. Thus, two distinct minimum spanning trees
+cannot exist. The minimum spanning tree is unique.
+:::
+
+The key step is not the final algebra, but finding $f$ and proving
+$f\notin T$. That is the content hidden by the phrase “the usual exchange
+argument.”
+
+## Auditing the assumptions {#o017-u01-assumption-audit}
+
+The assumption that “all weights are distinct” is sufficient to guarantee
+uniqueness, but it is not necessary.
+
+::: {#o017-u01-example-01 .callout-tip title="Example: repeated weights but a unique solution"}
+In a triangle with edge weights $1,1,2$, the tree using both edges of weight
+$1$ is the only minimum spanning tree.
+:::
+
+::: {#o017-u01-counterexample-01 .callout-warning title="Counterexample to unconditional uniqueness"}
+In a triangle whose three edges all have weight $1$, every choice of two edges
+produces a spanning tree of weight $2$. There are three minimum spanning trees.
+:::
+
+Connectedness is not decorative either. A disconnected graph has no spanning
+tree under the definition above. For such a graph, the appropriate object is a
+minimum spanning forest—a different claim.
+
+## Experiments and proofs do different jobs {#o017-u01-computation}
+
+The script
+[`verify_mst_uniqueness.py`](../code/verify_mst_uniqueness.py) checks all
+$6!=720$ assignments of distinct weights $1,\ldots,6$ to the six edges of
+$K_4$. The script also counts the minimum spanning trees of an equal-weight
+triangle. It enumerates spanning trees directly and does not use an MST
+algorithm as a black box, so its check does not depend circularly on the
+argument under examination.
+
+```{=latex}
+\Needspace{5\baselineskip}
+```
+
+The expected output is:
+
+```text
+k4_distinct_weight_assignments_checked: 720
+k4_uniqueness_violations: 0
+equal_weight_triangle_mst_count: 3
+```
+
+This experiment can find counterexamples, expose misread definitions, and
+produce concrete examples to guide a proof. It does not prove the theorem: the
+check covers only one graph and finitely many cases, and still depends on the
+correctness of the implementation.
+
+::: {.callout-important title="Limits of inference"}
+“The program found no violations” and “the theorem has been proved” are two
+different claims. A research memo must state the first without silently
+turning it into the second.
+:::
+
+## Guided practice {#o017-u01-guided-practice}
+
+Read the following sentence again:
+
+> The cycle $C$ contains an edge $f\in E(T')\setminus E(T)$.
+
+Answer in order:
+
+1. Why does $C$ arise after $e$ is added to $T'$?
+2. What would follow if every edge of $C\setminus\{e\}$ were in $T$?
+3. Which property of a tree would be violated?
+4. Why does $f$ lie in the symmetric difference?
+5. Why do we obtain $w(e)<w(f)$, rather than merely $w(e)\leq w(f)$?
+
+::: {.callout-note title="Discussion"}
+In a tree, there is exactly one path between two vertices. The new edge $e$
+closes that path into a cycle. If the entire path were also in $T$, the path
+together with $e$ would form a cycle in $T$. Because $f\in T'$ but
+$f\notin T$, that edge lies in the symmetric difference. The inequality is
+strict because all edge weights are distinct.
+:::
+
+## Exercises {#o017-u01-exercises}
+
+1. []{#o017-u01-x01} **O017-U01-X01.** Mark D, A, K, J, and T in the synthetic excerpt.
+2. []{#o017-u01-x02} **O017-U01-X02.** Rewrite the argument by choosing the lightest edge only
+   in $T\setminus T'$. Determine whether the argument remains valid.
+3. []{#o017-u01-x03} **O017-U01-X03.** Give a graph whose weights are not all distinct but
+   which has a unique minimum spanning tree.
+4. []{#o017-u01-x04} **O017-U01-X04.** Give an example showing that removing the connectedness
+   assumption makes the original statement inapplicable.
+5. []{#o017-u01-x05} **O017-U01-X05.** A reader writes, “The program checked every assignment
+   of distinct weights to $K_4$, so the theorem is proved.” Identify the two
+   epistemic errors.
+6. []{#o017-u01-x06} **O017-U01-X06.** Write a reading memo of at most 400 words containing
+   the identity of the claim, definitions, one step that was initially omitted,
+   the reconstruction result, one computational test, the limits of that test,
+   and the sources cited.
+
+## Hints and answer guidance {#o017-u01-guidance}
+
+1. []{#o017-u01-h01} **O017-U01-H01.** A spanning tree and a tree's weight are definitions;
+   finiteness, connectedness, and distinct weights are assumptions; uniqueness
+   is the claim; the exchange argument is an incomplete justification.
+2. []{#o017-u01-h02} **O017-U01-H02.** It is not necessarily valid: the lightest edge in
+   $T\setminus T'$ need not be lighter than $f\in T'\setminus T$. Taking the
+   minimum over the entire symmetric difference supplies the comparison needed.
+3. []{#o017-u01-h03} **O017-U01-H03.** Use a triangle with weights $1,1,2$.
+4. []{#o017-u01-h04} **O017-U01-H04.** Two vertices with no edge between them are enough; that
+   graph has no spanning tree.
+5. []{#o017-u01-h05} **O017-U01-H05.** The check covers only one graph and finitely many cases;
+   its output also depends on the implementation.
+6. []{#o017-u01-h06} **O017-U01-H06.** The memo is assessed on the traceability of every claim,
+   not on its length or writing style.
+
+## Unit completion task {#o017-u01-completion-task}
+
+Submit one **reconstruction memo** that satisfies Exercise 6, and attach the
+computational output. The memo passes if:
+
+- the claim and assumptions are stated in full;
+- all major proof obligations are discharged;
+- the experiment is explicitly distinguished from the proof;
+- one limitation or counterexample is analysed; and
+- the origins of all text, data, and code can be traced.
+
+## Provenance and further reading {#o017-u01-provenance}
+
+The synthetic excerpt, exposition, proof, exercises, answer guidance, and code
+are original O017 material. The uniqueness theorem for an MST with distinct
+edge weights is a classical result; this presentation does not copy the wording
+of any particular source. Kruskal's article is a historical reference for the
+minimum spanning tree algorithm [@kruskal1956], not a claim that the wording of
+the proof above comes from that article.
+
+For broader practices of reproducibility and research-artifact engineering,
+see *The Turing Way* [@turingway2022] and *Research Software Engineering with
+Python* [@irving2021]. Modules adapted from those two works will enter only in
+subsequent units, after their file identities and component rights have been
+frozen.

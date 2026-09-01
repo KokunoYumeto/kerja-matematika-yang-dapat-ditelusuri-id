@@ -1,0 +1,190 @@
+{
+  "claim_boundary": {
+    "definitions_and_templates_only": true,
+    "donor_english_retranslated": false,
+    "learner_completion_instances": 0,
+    "original_indonesian_edition_unchanged": true,
+    "partial_unit_mapping_only": false,
+    "semantic_ids_fully_localized": true
+  },
+  "counts": {
+    "additive_english_localization_relations": 581,
+    "core_records_preserved": 1787,
+    "core_relation_ids_preserved": 1107,
+    "english_access_locators": 529,
+    "english_core_localizations": 147,
+    "english_semantic_localizations": 581,
+    "indonesian_semantic_localizations_preserved": 581,
+    "semantic_entities": 319,
+    "semantic_relation_ids_preserved": 1704
+  },
+  "course_id": "O017-D120",
+  "inputs": [
+    {
+      "bytes": 38430,
+      "path": "backend/translations-a.json",
+      "sha256": "2b3edafeeb8f729d7c4796c9482fb2ee0e88556654b7f8c5210d854d4ed9142a"
+    },
+    {
+      "bytes": 14030,
+      "path": "backend/translations-b.json",
+      "sha256": "191fa4ee364c27ac705f4e32a29d62622f25c60813ef18e0b57cedeb3e14b6fc"
+    },
+    {
+      "bytes": 9245,
+      "path": "backend/core-translations.json",
+      "sha256": "250baaaa8b49a8e29a00ae6162ffcd34456da8d720a9e852a359b4ad375df3a2"
+    },
+    {
+      "bytes": 1852,
+      "path": "backend/upstream-id-ID.manifest.json",
+      "sha256": "9d6184b7bd2eaf381ba276506dceb9884191ff46a76cf08509602f0e90e7f293"
+    }
+  ],
+  "locale": "en",
+  "outputs": [
+    {
+      "bytes": 49399,
+      "path": "backend/core-localizations.en.jsonl",
+      "sha256": "54ff4eec82fe8cbf28aa683cc90d6ac1ee63337d63542d450f175b89ce54901f"
+    },
+    {
+      "bytes": 1629,
+      "path": "backend/core-localizations.schema.json",
+      "sha256": "f93e842831d5645eb32085ba139ee744722ddc669916bb7d5f5e86dff53190eb"
+    },
+    {
+      "bytes": 142867,
+      "path": "backend/english-access-locators.jsonl",
+      "sha256": "cf48db72b195d3bc40b50d1f612d5af1d30d1cb61261e3a80210125fed1ce1a4"
+    },
+    {
+      "bytes": 88564,
+      "path": "backend/english-localization-relations.csv",
+      "sha256": "34cedfef832cbb914e618beff62289a93b086770742ffa4474c30cd3b81bc2d9"
+    },
+    {
+      "bytes": 1170,
+      "path": "backend/languages.json",
+      "sha256": "781cf624eb7485cd3f9011384442603861a6d935c50ca1e9d3d425606adb8713"
+    },
+    {
+      "bytes": 79848,
+      "path": "backend/localization-crosswalk.csv",
+      "sha256": "9ea53ee31028d532151cde8070a707e4b9d3e9b0857d5bea89b64bb3845f65e5"
+    },
+    {
+      "bytes": 361144,
+      "path": "backend/records.jsonl",
+      "sha256": "a5c67e3f14cfc03bd0cd3f3ce6628fc7161876a752ae470fe9aeea8401969bbd"
+    },
+    {
+      "bytes": 91304,
+      "path": "backend/relations-ledger.csv",
+      "sha256": "a5e59b98742ba4d10b201e9a538461bcb5682c0f03783e0c06cd12de6684a385"
+    },
+    {
+      "bytes": 51711,
+      "path": "backend/relations.csv",
+      "sha256": "5629e530cfb0ba7908aa0d41e1a34058558b4f4a6111efd554e38ec9ba32fe58"
+    },
+    {
+      "bytes": 1178,
+      "path": "backend/schema.json",
+      "sha256": "970194ee4aed6a61724a6036e540b31a3cc93aeaed61b839781bd1200e825b1d"
+    },
+    {
+      "bytes": 218449,
+      "path": "backend/semantic-wrapper-v1.localizations.en.jsonl",
+      "sha256": "69b7a362ce7be2230105a432b2e2c7c082c2384f6d7bd67395211603c84073d3"
+    },
+    {
+      "bytes": 220021,
+      "path": "backend/semantic-wrapper-v1.localizations.id-ID.jsonl",
+      "sha256": "a564b544c4dd9393e5590fe157b713e260a3fd35d04226bd3eee39d010b45d01"
+    },
+    {
+      "bytes": 438470,
+      "path": "backend/semantic-wrapper-v1.localizations.jsonl",
+      "sha256": "8e58f1510280a2f3f713df51c8628cfff6124726522605985cadcde7467d42d7"
+    },
+    {
+      "bytes": 206179,
+      "path": "backend/semantic-wrapper-v1.records.en.jsonl",
+      "sha256": "b2dd85935fefdd134a04608af69db9fc8e18bc2362508e80c6c1a704d52dd049"
+    },
+    {
+      "bytes": 235487,
+      "path": "backend/semantic-wrapper-v1.records.jsonl",
+      "sha256": "322f6b767719eaa25bcb02f16ac84ec931cc1ee6345da3a66c5fd9995b69b1fe"
+    },
+    {
+      "bytes": 226911,
+      "path": "backend/semantic-wrapper-v1.relations-ledger.csv",
+      "sha256": "458d19a229fc6d3677a8e9dac677fa5decfa4ee9a65a92978d02f5f32fedc1c2"
+    },
+    {
+      "bytes": 28601,
+      "path": "backend/semantic-wrapper-v1.schema.json",
+      "sha256": "a1bb9115ad3ee9b32136c8498e6b6037ae645ab47f55f7f81d4d935d932917e1"
+    }
+  ],
+  "preserved_upstream_files": [
+    {
+      "bytes": 1178,
+      "path": "schema.json",
+      "sha256": "970194ee4aed6a61724a6036e540b31a3cc93aeaed61b839781bd1200e825b1d"
+    },
+    {
+      "bytes": 361144,
+      "path": "records.jsonl",
+      "sha256": "a5c67e3f14cfc03bd0cd3f3ce6628fc7161876a752ae470fe9aeea8401969bbd"
+    },
+    {
+      "bytes": 51711,
+      "path": "relations.csv",
+      "sha256": "5629e530cfb0ba7908aa0d41e1a34058558b4f4a6111efd554e38ec9ba32fe58"
+    },
+    {
+      "bytes": 91304,
+      "path": "relations-ledger.csv",
+      "sha256": "a5e59b98742ba4d10b201e9a538461bcb5682c0f03783e0c06cd12de6684a385"
+    },
+    {
+      "bytes": 20503,
+      "path": "semantic-wrapper-v1.schema.json",
+      "sha256": "73c23b5012dc95cb8cdf3823cde587f0422ae1787fe94b9b2361b81843c6c818"
+    },
+    {
+      "bytes": 206179,
+      "path": "semantic-wrapper-v1.records.jsonl",
+      "sha256": "828ace8162edb3bbe5e8968fc4e7c9c05dddcd854cd5f5d080486996b589a5a1"
+    },
+    {
+      "bytes": 220021,
+      "path": "semantic-wrapper-v1.localizations.jsonl",
+      "sha256": "a564b544c4dd9393e5590fe157b713e260a3fd35d04226bd3eee39d010b45d01"
+    },
+    {
+      "bytes": 226911,
+      "path": "semantic-wrapper-v1.relations-ledger.csv",
+      "sha256": "458d19a229fc6d3677a8e9dac677fa5decfa4ee9a65a92978d02f5f32fedc1c2"
+    },
+    {
+      "bytes": 1321,
+      "path": "semantic-wrapper-v1.baseline.json",
+      "sha256": "0bbdee88209c17075a9a86035a72f9105f3b6fb4fb271f0af10ac2a4014f80a4"
+    },
+    {
+      "bytes": 7715,
+      "path": "semantic-wrapper-v1.dataset.json",
+      "sha256": "da4b241c357975c53e8b1a9bdcaaea6bb6f396a15fc7165909c7f2a0d9c36c50"
+    },
+    {
+      "bytes": 3008,
+      "path": "SEMANTIC_WRAPPER_V1.md",
+      "sha256": "a84afb30bd5e162a8d88365d883920799e921f6b5550d19b4f76ed4827f3bc40"
+    }
+  ],
+  "schema": "o017-english-backend-dataset-v1"
+}

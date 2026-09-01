@@ -1,0 +1,146 @@
+---
+author: "KokunoYumeto - produced with OpenAI Codex gpt-5.6-sol, Ultra"
+date: "2026-08-31"
+date-format: iso
+abstract: "A complete nine-unit practice course and teaching package on reading mathematical research, reconstructing proofs, citation and provenance, exposition, reproducible computation, errata, refereeing, and bounded community contribution."
+---
+
+# About this English edition {.unnumbered}
+
+This practice course teaches you to read, write, check, and share mathematics
+so that its claims, sources, computations, corrections, and limits of certainty
+can be traced and examined.
+
+::: {.callout-note title="Edition and access"}
+- **Title:** Traceable Mathematical Work.
+- **Language and version:** English, `en`, 2026.08.31.
+- **Scope:** the complete original nine-unit O017 / D120 course, with its
+  delivery and assessment package, self-study guidance, and English backend.
+- **English HTML reader:** [open the reader](https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/en/).
+- **English PDF and downloadable packages:** [open the English release](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/en-v2026.08.31).
+- **English editable source:** [open the English source tree](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english).
+- **English-additive version DOI:** [10.5281/zenodo.22209140](https://doi.org/10.5281/zenodo.22209140).
+- **Indonesian edition preserved unchanged:** [HTML reader](https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/),
+  [version DOI 10.5281/zenodo.22073823](https://doi.org/10.5281/zenodo.22073823).
+- **Work's preservation lineage:** <https://doi.org/10.5281/zenodo.22051866>.
+  The Indonesian version DOI above identifies the Indonesian source edition,
+  not this English translation.
+- **PDF accessibility boundary:** the PDF is a print-oriented, untagged
+  edition. Use the semantic HTML reader for reflow, keyboard navigation,
+  heading structure, alternative descriptions, and native MathML.
+- **Production:** OpenAI Codex gpt-5.6-sol, Ultra, acting on the human creator's
+  instructions. **KokunoYumeto** is the public human creator and rights-holder
+  identity for protectable original material. No human peer review is claimed.
+- **Rights:** original expression CC BY-SA 4.0; methodological donor content
+  CC BY 4.0; software, runtime, and fonts retain their component licenses.
+  [LICENSES.md](LICENSES.md), [ENGLISH_EDITION_RIGHTS.md](ENGLISH_EDITION_RIGHTS.md),
+  and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) give the controlling map.
+:::
+
+The course assumes that you can already write elementary proofs, use discrete
+mathematics, and run a reproducible mathematical computation. It does not teach
+Python or proof techniques from the beginning. Its subject is how to use those
+skills in mathematical research whose evidence and reasoning can be audited.
+
+Begin with [Unit 1: Reading arguments as networks of claims](units/01-membaca-argumen.qmd).
+
+## Nine units
+
+1. [Reading arguments as networks of claims](units/01-membaca-argumen.qmd)
+2. [Tracing the literature and assessing source authority](units/02-menelusuri-sumber.qmd)
+3. [Reconstructing abbreviated proofs](units/03-merekonstruksi-pembuktian.qmd)
+4. [Citation, provenance, and source notebooks](units/04-sitasi-provenance-catatan-sumber.qmd)
+5. [Auditable mathematical exposition](units/05-eksposisi-matematika.qmd)
+6. [Reproducible computation as empirical evidence](units/06-komputasi-dapat-direproduksi.qmd)
+7. [Errata, corrections, and limits of certainty](units/07-errata-koreksi-batas-kepastian.qmd)
+8. [Seminar notes, referee reports, and responses](units/08-seminar-penelaah-tanggapan-kritik.qmd)
+9. [A bounded community contribution and final portfolio](units/09-kontribusi-komunitas-portofolio.qmd)
+
+After the nine units, use the [delivery and authentic-assessment package](wrapper/index.qmd).
+It distinguishes simulated practice from evidence of actual activity, specifies
+independent assessment where the learning claim requires it, and never treats
+a local draft as a completed community contribution. These are assessment
+definitions, not a prerequisite for accessing or publishing this course.
+
+## Core technical glossary
+
+This glossary distinguishes related terms that must not be used interchangeably.
+
+- A **proof** is a mathematical argument establishing a claim from stated
+  assumptions; **proving** is the process of constructing or checking such an
+  argument. **Empirical evidence**, including successful computations, is not
+  automatically a proof of a universal mathematical statement.
+- A **graph** has **vertices** and **edges**. A **connected graph** has a path
+  between every pair of vertices. A **spanning tree** is a connected, acyclic
+  spanning subgraph. A **minimum spanning forest** is not a spanning tree of a
+  disconnected graph.
+- A **dependency graph** displays logical relationships between claims. A
+  software **dependency** is a package or component needed by an implementation.
+  Neither use should obscure which kind of dependence is being asserted.
+- **Function** names the mathematical object. **Mapping** is used when its
+  action or the mapping perspective is specifically intended.
+- A **sequence** is distinct from a **series**. **Recursion** is a process;
+  **recursive** describes its form; a **recurrence relation** specifies terms
+  by their relationship to other terms.
+- **Continuous** describes a function; **continuity** is the property.
+  An **integral** is the mathematical object and **integration** the operation
+  or method.
+- **Numerical error** concerns an approximation or computation. An **erratum**
+  is a publication correction; it is not the same as numerical error.
+- **Reproducibility** concerns repeating a stated process using specified
+  artifacts and conditions. A **minimal reproducer** is a small, sufficiently
+  complete case that exhibits a reported behavior. Reproducibility does not
+  by itself establish implementation correctness or a theorem.
+- **Computation** is the broader computational activity; a **calculation** is
+  a particular calculation. **Literature search**, **testing**, **test results**,
+  **data**, and **algorithm** each name different parts of the work.
+- **Provenance** is the auditable history of origins, versions, transformations,
+  and evidential relationships. A **manifest** records artifact identities,
+  sizes, hashes, rights, and states. A **version DOI** identifies a particular
+  release; a **concept DOI** can identify a work across releases.
+
+::: {.callout-note title="Source-language terminology and English reuse"}
+The Indonesian source edition checked its terminology directly against the
+Indonesian TeX source of [arXiv:0807.4609v1](https://arxiv.org/abs/0807.4609v1)
+and official 2026 mathematics teaching materials by Rinaldi Munir at Institut
+Teknologi Bandung. The arXiv witness supports distinctions involving computation,
+calculation, literature study, testing, data, and algorithms; it is not a witness
+for theorem, lemma, proof, peer-review, or erratum terminology. The Indonesian
+edition's separate QA records preserve those boundaries and the exact source
+identities; the witness documents are not redistributed here.
+
+This English edition translates the **original O017 course**, not The Turing Way
+or Research Software Engineering with Python a second time. Their already-English,
+commit-pinned methodological sources, citations, and credits are retained. English
+prose is checked against the meaning of the mathematical arguments and the
+unchanged formulas, identifiers, exercises, and code. Local filenames and anchors
+retain their source-edition forms so that language versions remain interoperable.
+The D/A/K/J/T annotation codes are retained as stable labels even where the English
+words differ from their Indonesian initials.
+:::
+
+Every unit includes learning outcomes, worked mathematical cases, guided
+practice, six exercises, six answer guides, and a completion task. The visible
+stable identifiers also appear in the backend so that another language edition
+does not need to reconstruct identities from HTML.
+
+## Course boundaries
+
+Programming and computation are prerequisites. This reader does not reteach
+Python syntax, package APIs, numerical methods, environments, software testing,
+or deployment; those topics belong to B80. O017 focuses on the status of claims,
+proofs, sources, provenance, exposition, errata, experiment versus proof,
+scholarly criticism, and bounded contributions.
+
+The English edition is an additional language-access surface for the same course,
+with the same O017-U01 through O017-U09 unit identities. It neither replaces the
+Indonesian edition nor reopens its completed production scope. Edition production
+and the separate curriculum-admission decision are not evidence for each other.
+
+## Rights and bundled software
+
+Content, code, factual data, methodological donors, fonts, and the HTML runtime
+have separate licenses. Read [LICENSES.md](LICENSES.md), the
+[English-edition attribution and change notice](ENGLISH_EDITION_RIGHTS.md), and
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The editable-source package
+includes the component rights map and the build and validation instructions.

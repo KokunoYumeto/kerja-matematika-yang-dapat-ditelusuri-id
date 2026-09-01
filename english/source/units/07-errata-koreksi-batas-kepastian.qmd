@@ -1,0 +1,965 @@
+---
+title: "Unit 7 — Errata, Corrections, and Limits of Certainty"
+subtitle: "Establishing defects, bounding their impact, and correcting without erasing history"
+description: "A practical unit on classifying mathematical and computational defects, separating severity from confidence, constructing minimal reproducers, and writing auditable erratum drafts."
+---
+
+## Learning outcomes {#o017-u07-outcomes}
+
+This unit has the stable identifier **O017-U07**. On completing it, you will
+be able to:
+
+1. distinguish typographical errors, local exposition defects, missing
+   hypotheses, theorems that are false as written, ambiguous locators, and
+   computational defects;
+2. separate **impact severity** from **confidence level** in a diagnosis;
+3. freeze the version, copy, locator, and wording actually examined;
+4. construct a minimal reproducer that checks every hypothesis before
+   demonstrating failure of the conclusion;
+5. distinguish what is observed, proved, provisionally inferred, and unknown;
+6. formulate a sufficiently narrow correction and prove that the repair is
+   indeed adequate;
+7. preserve correction records as an append-only history without overwriting
+   earlier claims or versions;
+8. write one concise, specific, actionable issue or erratum draft without
+   contacting anyone outside the project; and
+9. stop or escalate an examination when the evidence, authority, or extent of
+   the impact is not yet sufficient.
+
+::: {.callout-note title="Prerequisites, continuity, and scope boundaries"}
+Unit 2 supplies work and version identities; Unit 3 supplies methods for
+examining proof gaps; Unit 4 supplies records of claims, locators, and
+provenance; Unit 5 supplies auditable exposition; and Unit 6 supplies
+computational packages that can be rerun. Unit 7 uses all those outputs for a
+narrower task: establishing **what is defective, how far its impact extends,
+how confident the diagnosis is, and what form of correction has been
+justified**.
+
+This unit does not teach issue-platform syntax, Git commands, program
+debugging, environment installation, or how to run notebooks. Nor does it
+authorize sending reports. Every issue formulation here remains a local draft
+until separate authorization and checks are in place.
+:::
+
+## An erratum is a bounded claim, not an expression of dislike {#o017-u07-erratum-as-bounded-claim}
+
+The sentence “this section seems wrong” is not yet a formal correction
+(erratum). An auditable erratum states at least five things:
+
+1. the **exact object** examined: work, version, copy, and location;
+2. the **exact wording or output** being questioned;
+3. **evidence of failure** that can be checked with minimal effort;
+4. the **scope of consequences**: which sentence, lemma, theorem, exercise,
+   computational result, or downstream result is affected; and
+5. the **justified correction**, including what remains unknown.
+
+An erratum need not be long. It needs an intact chain of inference.
+Conversely, a long report may still be weak if it omits the version, presents
+only a numerical example that does not satisfy the hypotheses, or proposes
+new wording without proving it.
+
+::: {#o017-u07-original-bridge .callout-important title="Original O017 bridge"}
+The two-layer taxonomy separating statement status from defect type, the
+separate severity and confidence axes, the minimal-reproducer protocol, the
+append-only correction records, the connectedness case, the uncertainty
+ledger, and the stop/escalation gates in this unit are original O017 material.
+This unit does not copy prose, examples, exercises, or a sequence of
+presentation from an external donor.
+:::
+
+## Six defect types that must not be conflated {#o017-u07-defect-taxonomy}
+
+Classification helps select an action. It does not replace evidence. A finding
+may have one **primary type** and several secondary consequences, but every
+label must have a justification.
+
+::: {.o017-table-scroll aria-label="Taxonomy of six defect types for mathematical errata" tabindex="0"}
+| Type | Diagnostic test | Brief example | Reasonable initial action |
+|---|---|---|---|
+| Typographical error | Does an almost mechanical character change restore consistent wording without changing the idea? | the index $a_{n-1}$ is printed as $a_{n+1}$ although all surrounding lines use $a_{n-1}$ | record both forms, show the context, and avoid guessing when more than one repair is plausible |
+| Local exposition defect | Could the argument be correct, while one transition, definition, back-reference, or notation change is insufficiently explained? | “then clearly” skips a set inclusion that requires proof | supply the local step and check that no new hypothesis has been smuggled in |
+| Missing hypothesis | Does the statement become true once a particular assumption is stated, while a counterexample exists without it? | a constant-sign conclusion lacks the assumption that the domain is connected | give a counterexample, state the candidate assumption, then prove the repaired version |
+| Theorem false as written | Is there an object satisfying every written hypothesis but violating the conclusion? | a function on a disconnected domain takes positive and negative values without a zero | mark the published statement's status as false; the root-cause diagnosis can be recorded separately |
+| Ambiguous locator | Can readers using the same version still choose more than one plausible location? | “see the preceding theorem” when two theorems lie between the paragraph and the claim | provide a section/label/page locator that distinguishes the location and name the version used |
+| Computational defect | Does the code, input, environment, procedure, or output fail to match the computational claim being made? | the manifest names program revision `r2`, but the log records execution of `r1` | freeze the artifacts and execution record; do not promote the output to evidence before resolving the mismatch |
+:::
+
+### Falsity and its cause are separate fields {#o017-u07-status-versus-cause}
+
+“Missing hypothesis” and “false theorem” appear to overlap because both can be
+true at once, but they answer different questions.
+
+- `statement_status = false_as_written` states that the published wording has
+  a counterexample.
+- `defect_kind = missing_hypothesis` records a diagnosis of how that wording
+  might be repaired.
+
+Use status values explicitly: `supported_as_written` when adequate evidence
+supports the claim within its scope; `false_as_written` when exact evidence
+refutes it; `unsupported_as_written` when the basis provided is insufficient
+even though the truth of the claim has not been decided; `unresolved` when
+the claim audit is unfinished; and `not_applicable` when the defect record
+concerns only a non-claim object, such as an ambiguous locator or the form of
+a character. If a typo occurs within a formula, record the typographical
+finding and the mathematical claim's status as two objects; do not force one
+value to answer two questions.
+
+A counterexample suffices to establish the first field. It does not
+automatically establish the second. Perhaps the conclusion is too strong,
+the domain is wrong, the quantifier is mistaken, or an earlier definition does
+not fit. Therefore, do not replace “false as written” with “clearly just a
+typo” before a unique repair is genuinely supported by the context.
+
+### A typo can have mathematical consequences {#o017-u07-typo-with-impact}
+
+Defect type does not measure impact. A missing minus sign may be an easily
+diagnosed typo, yet reverse the main theorem. Conversely, a false theorem in
+one optional exercise may not affect any other chapter. This is why
+classification and severity must be stored in separate fields.
+
+### An exposition defect is not permission to rewrite the source {#o017-u07-exposition-defect-limit}
+
+If a missing step can be reconstructed from the written hypotheses, record
+the reconstruction as a new argument and link it to the old location. Do not
+alter the source to make it appear that the step was always there. If the
+reconstruction requires a new assumption, the finding has crossed the boundary
+of a local exposition defect and must be examined as a missing hypothesis or
+a false statement.
+
+## Severity and confidence are two separate axes {#o017-u07-severity-and-confidence}
+
+**Severity** answers “if this diagnosis is correct, how extensive are its
+consequences?” **Confidence** answers “how strong is the evidence that this
+diagnosis is correct?” They must not be averaged into a single number.
+
+::: {.o017-table-scroll aria-label="Severity scale for erratum findings" tabindex="0"}
+| Code | Name | Impact criterion |
+|---|---|---|
+| `S0` | editorial | mathematical meaning, traceability, and computational results are unchanged |
+| `S1` | local | one sentence, step, example, or locator is affected; the main result can still be maintained with the available evidence |
+| `S2` | material | one lemma, exercise, table, or argument branch fails; its impact has been bounded and does not extend to the whole work |
+| `S3` | major | the main theorem, many downstream results, or a principal public result may be invalid; the full extent may not yet be known |
+| `S4` | critical | the defect affects the foundations of many results or high-risk uses and requires temporary suspension of use |
+:::
+
+::: {.o017-table-scroll aria-label="Confidence scale for erratum diagnoses" tabindex="0"}
+| Code | Name | Available basis |
+|---|---|---|
+| `C0` | unassessed | a report exists, but the version, location, or wording has not yet been frozen |
+| `C1` | reasoned suspicion | the symptom is real, but a reproducer, context, or one audit step is still missing |
+| `C2` | strong | the reproducer and context support the diagnosis; an independent check or formal proof is still worth seeking |
+| `C3` | established | a counterexample or complete proof has been checked against the exact version and locator |
+:::
+
+The pair `S3/C1` means “potentially large impact, incomplete diagnosis”; it is
+not grounds for declaring a theorem certainly false. The pair `S0/C3` means
+“the typo is confirmed, but does not change the meaning.” A finding at
+`S2/C3` may be more ready for correction than one at `S4/C1`, despite its
+lower severity number.
+
+::: {#o017-u07-no-product-score .callout-warning title="Do not multiply the two axes"}
+A score such as `severity × confidence = priority` hides the reasoning.
+A potentially critical finding supported by preliminary evidence can receive
+the same score as a certain local finding, although they require different
+actions. Preserve the code pair, the basis for each axis, and the action rule
+explicitly.
+:::
+
+### An action matrix that does not alter the evidence {#o017-u07-action-matrix}
+
+::: {.o017-table-scroll aria-label="Example actions by severity and confidence pair" tabindex="0"}
+| Situation | Local action | Wording to avoid |
+|---|---|---|
+| low impact, high confidence | prepare a concise correction and check cross-consistency | “the entire work is unreliable” |
+| high impact, high confidence | stop relying on the claim, audit downstream results, and prepare escalation | “perhaps it is only a matter of style” |
+| high impact, low confidence | freeze the evidence, flag the risk, and seek context or a suitable reviewer | “the theorem has been proved false” |
+| unknown impact | do not fill in severity by guessing; map dependencies first | “it affects only one line” |
+:::
+
+Priority may also depend on active use, deadlines, and the ability to withhold
+a release. Those factors are recorded separately; they do not change the
+mathematical facts.
+
+## Freeze the object before diagnosing it {#o017-u07-freeze-before-diagnosis}
+
+A report must distinguish work, version, copy, and location. The following
+minimum fields prevent corrections to the wrong object.
+
+::: {.o017-table-scroll aria-label="Minimum fields for freezing the object of an erratum" tabindex="0"}
+| Field | Content | Completeness test |
+|---|---|---|
+| `work_id` | identity of the intellectual work | other versions can be linked without treating them as identical bytes |
+| `version_id` | edition, release, date, commit, or state label | “latest” is not accepted as an identity |
+| `copy_id` | the copy actually examined | format, completeness, and byte identity are recorded where available |
+| `locator` | section, theorem, equation, page, paragraph, line, or anchor | readers with the same copy reach the same wording |
+| `observed_text` | a controlled short quotation or exact transcription | the difference between source text and the report's paraphrase is visible |
+| `observed_at` | time of examination | not conflated with the publication date |
+| `context_scope` | conventions, definitions, or assumptions applying at the location | the examiner knows whether the excerpt is self-contained |
+:::
+
+If only a PDF is available, printed page numbers and file page numbers may
+differ; record both where necessary. If HTML changes, an anchor alone may not
+suffice; pair it with a version or archive identity. If wording comes from an
+image, distinguish visible characters from conjectured characters. Do not
+turn “the letter appears to be $O$” into “the numeral is certainly $0$”
+without grounds.
+
+## A minimal reproducer for a mathematical defect {#o017-u07-minimal-reproducer}
+
+A **minimal reproducer**, or minimal reproduction case, is a small object
+that demonstrates a claim's failure without requiring readers to trust the
+reporter's narrative. It has five parts.
+
+1. **Frozen claim.** Restate the quantifiers, domain, hypotheses, and
+   conclusion without strengthening or weakening the source text.
+2. **Candidate object.** Choose the simplest possible object that still lies
+   within the claim's domain.
+3. **Hypothesis checks.** Verify them one by one; do not stop at “clearly
+   satisfies them.”
+4. **Failure of the conclusion.** Explicitly calculate or prove the negation
+   of the conclusion.
+5. **Reproducer boundary.** State the exact claim refuted and the nearby
+   claims left untouched.
+
+Small does not mean vague. A two-point example can be stronger than a large
+simulation when all its hypotheses can be checked exactly.
+
+For a computational defect, the parallel structure consists of code version,
+input, dependencies, command or procedure, actual output, claimed output, and
+the observed difference. Environment construction and execution belong to B80
+and Unit 6; Unit 7 judges whether the resulting evidence suffices to
+formulate a correction.
+
+### Test the reproducer before relying on it {#o017-u07-reproducer-tests}
+
+- Does the example object actually lie in the domain and satisfy every
+  explicit hypothesis?
+- Have the conventions applying in the source section been included?
+- Is the failure exact, or does it arise only from rounding and display?
+- Does the example refute the source claim rather than a strengthening
+  invented by the reporter?
+- Have parts that can be removed without eliminating the failure been
+  removed?
+- Can readers check the reproducer without hidden access?
+
+## Worked case: constant sign without connectedness {#o017-u07-worked-case}
+
+The following case is entirely synthetic. Its local packet states that the
+proposition is self-contained; no section-level assumptions are inherited.
+The finding can therefore be audited without seeking an external source.
+
+### Version and locator examined {#o017-u07-worked-version}
+
+::: {#o017-u07-packet-v1 .callout-warning title="O017-U07-V01 — Proposition 7.3, synthetic version 1.0"}
+**V01 wording.** Let $X$ be a topological space and let $f:X\to\mathbb R$ be
+continuous. If $f(x)\neq0$ for every $x\in X$, then $f$ has constant sign:
+either $f(x)>0$ for every $x\in X$ or $f(x)<0$ for every $x\in X$ holds.
+:::
+
+The local source record for this case is:
+
+::: {.o017-table-scroll aria-label="Version identity and location of the constant-sign case" tabindex="0"}
+| Field | Value |
+|---|---|
+| `work_id` | `O017-U07-W01`, *Synthetic Topology Packet* |
+| `version_id` | `O017-U07-V01`, state label `1.0-sintetis` |
+| `copy_id` | `O017-U07-CP01`, the complete excerpt embedded in this unit |
+| `locator` | `#o017-u07-packet-v1`, Proposition 7.3 |
+| `claim_id` | `O017-U07-C01` |
+| `context_scope` | self-contained statement; no inherited connectedness convention |
+| `observed_text` | the entire wording in the V01 box above |
+:::
+
+“Constant sign” in V01 means a disjunction of two universal claims, not merely
+that each point has one of the two signs. The nowhere-zero hypothesis already
+ensures a sign at each point; the additional conclusion requires the same
+sign throughout the domain.
+
+### A minimal two-point reproducer {#o017-u07-two-point-counterexample}
+
+Take
+
+$$
+X=\{-1,1\}\subset\mathbb R
+$$
+
+with the subspace topology, and define $f:X\to\mathbb R$ by $f(x)=x$.
+We check every hypothesis.
+
+1. $X$ is a topological space with the subspace topology. In fact, both
+   singletons are open in $X$ because
+   $\{-1\}=X\cap(-3/2,-1/2)$ and
+   $\{1\}=X\cap(1/2,3/2)$.
+2. $f$ is the restriction of the continuous identity function on
+   $\mathbb R$, so it is continuous on $X$.
+3. For every $x\in X$, we have $f(x)\neq0$ because its only values are $-1$
+   and $1$.
+4. The first conclusion fails because $f(-1)=-1<0$. The second conclusion
+   fails because $f(1)=1>0$.
+
+Thus both alternative conclusions of V01 fail although every written
+hypothesis is satisfied. This establishes
+`statement_status(O017-U07-C01) = false_as_written` with confidence `C3`.
+The reproducer requires only two points; a one-point domain cannot contain
+both positive and negative values, so this example is also minimal in its
+number of points.
+
+The finding refutes V01. It does not refute a statement about connected
+domains, does not assert that every function on a disconnected domain changes
+sign, and does not reveal the synthetic author's intention.
+
+### Diagnosis: a missing connectedness hypothesis {#o017-u07-missing-connectedness}
+
+The counterexample uses two components of the domain. A natural candidate
+repair is to add connectedness, not compactness, path-connectedness, or the
+assumption that $X$ is an interval.
+
+::: {#o017-u07-packet-v2 .callout-important title="O017-U07-V02 — Proposition 7.3, candidate corrected wording 1.1"}
+**V02 wording.** Let $X$ be a **connected** topological space and let
+$f:X\to\mathbb R$ be continuous. If $f(x)\neq0$ for every $x\in X$, then
+$f(x)>0$ for every $x\in X$ or $f(x)<0$ for every $x\in X$.
+:::
+
+### Proof of the repaired version {#o017-u07-connected-proof}
+
+Define two relatively open sets
+
+$$
+U=f^{-1}((-\infty,0))
+\qquad\text{and}\qquad
+V=f^{-1}((0,\infty)).
+$$
+
+Both are open in $X$ because $f$ is continuous. They are disjoint. The
+hypothesis $f(x)\neq0$ for every $x$ gives $X=U\cup V$. If $U$ and $V$ were
+both nonempty, they would separate $X$ into two disjoint nonempty open sets,
+contradicting the connectedness of $X$. Hence one of $U$ or $V$ is empty.
+
+If $U$ is empty, every value of $f$ is nonnegative; since no value is zero,
+every value is positive. If $V$ is empty, the same argument shows that every
+value is negative. Thus one of the alternatives in V02 holds. $\square$
+
+The proof uses connectedness and continuity exactly once, through the
+preimages of two open rays. It does not use a metric, compactness,
+path-connectedness, differentiability, or the interval-specific form of the
+Intermediate Value Theorem.
+
+### Why the repair is minimal in the relevant sense {#o017-u07-minimal-repair}
+
+“Minimal” must specify a comparison class. Here we seek a condition on the
+**domain** that guarantees the conclusion for every nowhere-zero continuous
+real-valued function. In that class, connectedness is not only sufficient but
+necessary.
+
+Suppose $X$ is disconnected. Then there are nonempty disjoint open sets $A$
+and $B$ with $X=A\cup B$. Since each is the complement of the other, they
+are also closed. Define
+
+$$
+g(x)=
+\begin{cases}
+-1,&x\in A,\\
+ 1,&x\in B.
+\end{cases}
+$$
+
+The function $g$ is continuous: the preimage of every open set in
+$\mathbb R$ is one of $\varnothing$, $A$, $B$, or $X$, all of which are
+open in $X$. The function is nowhere zero but takes both signs. Therefore,
+
+> $X$ is connected if and only if every nowhere-zero continuous function
+> $f:X\to\mathbb R$ has constant sign.
+
+Adding “$X$ is connected” therefore repairs the universal theorem exactly.
+Adding “$X$ is path-connected,” “$X$ is an interval,” or “$X$ is compact and
+connected” also suffices, but is stronger than necessary. For one particular
+function, connectedness of the image $f(X)$ is also sufficient; this does not
+replace the diagnosis of a domain condition guaranteeing the result for
+**all** continuous functions.
+
+```{=latex}
+\Needspace{8\baselineskip}
+```
+
+### Severity, confidence, and extent {#o017-u07-worked-triage}
+
+::: {.o017-table-scroll aria-label="Triage of the constant-sign proposition case" tabindex="0"}
+| Field | Value | Basis |
+|---|---|---|
+| statement status | `false_as_written` | the two-point reproducer satisfies every hypothesis and violates both alternatives |
+| primary type | `missing_hypothesis` | the connected version is proved true, and that condition is necessary for the universal guarantee on the domain |
+| secondary consequence | theorem false as written | the status of the V01 text, not speculation about the author's intention |
+| severity | `S2 material` for this packet | one proposition fails; the packet supplies no other downstream results |
+| confidence | `C3 established` | a complete counterexample and proof of the correction are available |
+| unknown extent | uses outside the packet | the synthetic packet contains no external dependency list |
+:::
+
+Severity is not raised to `S3` merely because the word “theorem” appears.
+The available packet establishes only that one proposition is affected.
+Conversely, if a later dependency audit finds many principal results using
+V01 on disconnected domains, severity can be changed through a new event
+without altering the original evidence.
+
+## A correction must preserve history {#o017-u07-history-preserving-correction}
+
+Replacing V01 with V02 in place and then deleting V01 removes the answers to
+important questions: which version once contained the false claim, what
+evidence exposed it, and which outputs might depend on it. An auditable
+correction uses new identities and directed relationships.
+
+```text
+V01 --contains--> C01 --refutedBy--> CE01
+ |                    |
+ |                    +--diagnosedAs--> missing_hypothesis
+ |
+ +--succeededBy--> V02 --contains--> C02 --provedBy--> PR01
+
+COR01 --corrects--> C01
+COR01 --proposes--> C02
+```
+
+`C01` remains refuted; it does not become `C02`. `V01` remains as a historical
+version; it is not labelled “never in force.” `V02` receives its own evidence
+and status.
+
+### Event ledger for the worked case {#o017-u07-worked-event-ledger}
+
+The narrow ledger uses these exact locator abbreviations:
+
+```text
+V1 = #o017-u07-packet-v1
+CE = #o017-u07-two-point-counterexample
+V2 = #o017-u07-packet-v2
+P2 = #o017-u07-connected-proof
+```
+
+::: {.o017-table-scroll aria-label="Correction-event ledger for the constant-sign case" tabindex="0"}
+| Event | Append-only action | Object | Reason and evidence |
+|---|---|---|---|
+| `O017-U07-EVT01` | `observed` | `C01 at V01/V1` | the packet's wording and context are frozen |
+| `O017-U07-EVT02` | `refuted` | `C01` | `O017-U07-CE01`, the two-point reproducer at `CE` |
+| `O017-U07-EVT03` | `classified` | finding `F01` | false status; primary diagnosis of missing connectedness hypothesis; `S2/C3` |
+| `O017-U07-EVT04` | `proposed` | `C02 in V02` | candidate wording at `V2` |
+| `O017-U07-EVT05` | `proved` | `C02` | proof at `P2` |
+| `O017-U07-EVT06` | `bounded` | impact of `F01` | the packet contains no audit of downstream results; the external extent remains unknown |
+:::
+
+If V02 later also needs correction, add V03 and new relationships. Do not
+delete EVT04 or EVT05; readers need to know what was proposed and the basis
+for accepting it at the time.
+
+### Minimum content of a correction record {#o017-u07-correction-record-fields}
+
+::: {.o017-table-scroll aria-label="Minimum fields in a history-preserving correction record" tabindex="0"}
+| Field | Question |
+|---|---|
+| `correction_id` | which correction is being discussed? |
+| `target_version` and `target_locator` | which historical wording is affected? |
+| `target_claim` | which normalized claim is being assessed? |
+| `observation` | what is actually visible in the copy? |
+| `reproducer` | what small piece of evidence demonstrates the failure? |
+| `statement_status` and `defect_kind` | what are the formal consequence and the diagnosed cause? |
+| `severity` and `confidence` | how extensive are the consequences if correct, and how strong is the evidence? |
+| `replacement_claim` | what new wording is proposed? |
+| `verification` | what evidence supports the new wording? |
+| `supersession_relation` | which active use does the new object replace without erasing history? |
+| `uncertainties` | what context, intention, or impact remains unknown? |
+| `event_log` | when, and on what basis, did the status change? |
+:::
+
+## Writing a concise issue or erratum draft {#o017-u07-concise-draft}
+
+A good draft puts checkable facts first. Long greetings, judgments about the
+author, a history of the entire process, and speculation about intentions are
+unnecessary. The title names the location and problem type. The body states
+the version, wording, reproducer, candidate correction, and boundaries.
+
+::: {#o017-u07-draft-only .callout-note title="Local draft — not sent to anyone"}
+**Title:** Proposition 7.3 in version 1.0 is missing a connectedness hypothesis
+
+**Version and location:** `O017-U07-V01`, Proposition 7.3,
+`#o017-u07-packet-v1`.
+
+**Problem:** The statement claims that every nowhere-zero continuous function
+$f:X\to\mathbb R$ has constant sign on an arbitrary topological space.
+
+**Minimal reproducer:** Take $X=\{-1,1\}$ with the subspace topology and
+$f(x)=x$. This function is continuous and nowhere zero, but
+$f(-1)<0<f(1)$.
+
+**Candidate correction:** Add that $X$ is connected. With
+$U=f^{-1}((-\infty,0))$ and $V=f^{-1}((0,\infty))$, the two sets are open,
+disjoint, and cover $X$; connectedness forces one of them to be empty.
+
+**Scope:** The counterexample establishes that the proposition is false as
+written. The examined packet is insufficient to determine all downstream
+results that might be affected.
+:::
+
+The draft does not claim to know the author's intention, does not request
+replacement of the entire work, and does not assert impact that has not been
+audited. If a report is addressed to a real project, the public version
+identity, locators accessible to the recipient, contribution policy, and
+authorization to send must be checked separately.
+
+### A six-sentence template {#o017-u07-six-sentence-template}
+
+For a simple case, the following six sentences often suffice.
+
+1. “I examined **[version/copy]** at **[locator]**.”
+2. “The text states **[normalized claim]**.”
+3. “Take **[minimal object]**; it satisfies **[list of hypotheses]**.”
+4. “However, **[calculation or argument]** violates **[conclusion]**.”
+5. “The wording **[candidate correction]** suffices because **[short proof or
+   proof locator]**.”
+6. “I have not determined **[actual uncertainty about extent, intention, or
+   another matter]**.”
+
+If the correction cannot be proved concisely, the fifth sentence should say
+“a correction has not yet been established” and link to the evidence dossier;
+do not compress a gap into false certainty.
+
+### Reports must remain accessible {#o017-u07-accessible-report}
+
+Do not make color, visual position, or screenshots the sole evidence.
+Briefly transcribe the disputed wording, name every important table and
+formula, and explain differences in words. A locator such as “the red box on
+the right” must include a version and a label meaningful without the image.
+When the shape of a character is itself the problem—for example, the letter
+`O` resembling the numeral `0`—record what is visible and provide a textual
+description; do not resolve ambiguity through color or typography alone.
+The draft's order must remain logical when read linearly: target, claim,
+reproducer, candidate correction, then limits of certainty.
+
+## The uncertainty ledger {#o017-u07-uncertainty-ledger}
+
+Uncertainty is not an apologetic paragraph. It is a working object with a
+question, available evidence, consequences if wrong, a next test, and a stop
+rule.
+
+::: {.o017-table-scroll aria-label="Uncertainty ledger for the constant-sign case" tabindex="0"}
+| ID | Question | Known | Unknown | Impact | Next test or action |
+|---|---|---|---|---|---|
+| `UQ01` | is V01 false as a self-contained statement? | the packet states there are no section-level assumptions; an exact counterexample is available | no material uncertainty remains | status of C01 | close at `C3` |
+| `UQ02` | is connectedness a sufficient repair? | a complete proof is available | none concerning sufficiency | status of C02 | close at `C3` |
+| `UQ03` | is this the creator's intended wording? | a natural and exact repair for the universal theorem | the creator's intention is not recorded | editorial choice | do not claim to know the intention; seek the owner's decision if actual publication is undertaken |
+| `UQ04` | which results depend on V01? | the local packet contains no other dependencies | the entire extent outside the packet | severity | retain `S2` for the packet; audit dependencies before making broader claims |
+| `UQ05` | has V02 been published? | V02 is only a candidate correction in this unit | there is no external release | version status | do not state that V01 has been replaced outside the packet |
+:::
+
+Here `UQ01` through `UQ05` abbreviate the corresponding stable identifiers
+`O017-U07-UQ01` through `O017-U07-UQ05` only within this narrow table.
+
+Use statuses such as `open`, `under-test`, `closed-supported`, and
+`closed-undetermined`. “Closed-undetermined” does not mean “true”; that status
+preserves the limits of the examination.
+
+### Language matched to the strength of evidence {#o017-u07-certainty-language}
+
+::: {.o017-table-scroll aria-label="Matching report language to evidence status" tabindex="0"}
+| Evidence status | Appropriate language | Overstated language |
+|---|---|---|
+| text visible in a frozen copy | “copy CP01 contains …” | “all editions state …” |
+| an exact reproducer has been checked | “the claim is false as written” | “the author does not understand …” |
+| one correction has been proved sufficient | “adding connectedness produces a true statement” | “this is the only possible correction” |
+| context is incomplete | “whether a section-level convention applies is not yet known” | “there are certainly no other assumptions” |
+| some downstream results have been audited | “impact has been found in A and B” | “only A and B are affected” |
+| computational output does not match | “the execution record is inconsistent” | “the algorithm is certainly wrong” |
+:::
+
+## Stop and escalation gates {#o017-u07-stop-and-escalate}
+
+Care does not mean examining without limit. Use observable gates.
+
+### Stop before declaring an error {#o017-u07-stop-before-claim}
+
+Stop before establishing the **old claim's status**, and retain the finding
+at `C0` or `C1`, if any of the following applies:
+
+- the version or location cannot be distinguished;
+- the wording is available only as a second-hand paraphrase;
+- the candidate example fails one hypothesis;
+- a section-level convention that might supply the hypothesis has not been
+  checked; or
+- the numerical failure lies within unknown rounding bounds.
+
+Stopping means not promoting the status, not discarding the record. Preserve
+the evidence, question, and next step.
+
+The **candidate correction's status** has its own gate. If an exact
+counterexample has established the old claim as `false_as_written/C3`, retain
+that status even if its replacement remains unproved. Mark the replacement
+`unresolved`, do not activate it as a correction, and stop before claiming
+that the problem has been repaired. Uncertainty about a repair does not
+weaken the evidence against the old claim.
+
+### Escalation without exaggeration {#o017-u07-escalation-rule}
+
+Escalate to a suitable reviewer or decision owner if:
+
+1. actual or potential severity is `S3` or `S4`, at any confidence level;
+   `C1/C2` requires further verification, whereas `C3` requires a dependency
+   audit and a decision about withholding or correcting active outputs;
+2. the proof of the correction depends on expertise beyond the examiner's;
+3. two nonequivalent repairs both fit the context;
+4. license identity or component rights affect the form of correction that
+   may be published;
+5. the dependency audit finds active outputs that may use a false claim; or
+6. a computational mismatch cannot be disentangled among code, data,
+   environment, and interpretation of results.
+
+Escalation must bring a dossier, not merely an alarm: version, locator,
+reproducer, severity/confidence pair, open questions, and the requested
+decision. Contacting outside parties is a separate action and is not
+performed by this unit.
+
+### Closure conditions {#o017-u07-closure-conditions}
+
+A finding may be closed as **corrected locally** when:
+
+- the historical target remains identifiable;
+- the old claim's status and evidence of failure are recorded;
+- the replacement claim has sufficient evidence;
+- the extent of the impact examined is stated;
+- remaining uncertainties are not concealed; and
+- the active artifact points to the new version without deleting the old one.
+
+Local closure does not mean that someone else has accepted or published the
+correction.
+
+## Audit and correction protocol {#o017-u07-correction-protocol}
+
+Use the following sequence for mathematical or computational findings.
+
+1. **Register the finding.** Assign an ID and record who or what triggered
+   the examination; do not immediately issue a verdict.
+2. **Freeze the target.** Record work, version, copy, locator, wording, time,
+   and context scope.
+3. **Normalize the claim.** State quantifiers, types, hypotheses, and
+   conclusion.
+4. **Classify provisionally.** Separate statement status from defect type.
+5. **Build a minimal reproducer.** Check every hypothesis and show the exact
+   failure.
+6. **Assess both axes.** Assign severity and confidence with separate
+   justifications; mark the extent not yet audited.
+7. **Seek the narrowest correction.** Test reducing assumptions or weakening
+   the conclusion; do not guess the intention.
+8. **Prove the correction.** Preserve the new proof as a separate object.
+9. **Audit dependencies.** Determine which results actually use the old claim
+   and on what domains.
+10. **Append events.** Link the old version, evidence of failure, correction,
+    and candidate version; do not overwrite.
+11. **Write a concise draft.** Include facts, reproducer, correction, and
+    boundaries; keep external contact outside this process.
+12. **Apply the gates.** Close, hold, or escalate according to the available
+    evidence and authority.
+
+The sequence may return to earlier steps. Discovering a new section-level
+convention, for example, changes claim normalization and may invalidate the
+reproducer. The event log must preserve that change rather than present the
+final decision as though it had been the first.
+
+## Guided practice: one finding, two axes, three claims {#o017-u07-guided-practice}
+
+A synthetic manuscript at version `2.1` states in Lemma 4:
+
+> For every real number $x$, $\sqrt{x^2}=x$.
+
+Take $x=-2$. The hypothesis “$x$ is real” is satisfied, whereas
+$\sqrt{(-2)^2}=\sqrt4=2\neq-2$. Thus the lemma is false as written. The
+repair $\sqrt{x^2}=|x|$ is true for every $x\in\mathbb R$ by the definition
+of the principal square root. Another repair, “if $x\geq0$, then
+$\sqrt{x^2}=x$,” is also true but narrows the domain.
+
+Three claims must be separated:
+
+- `C-old`: the old universal statement, refuted by $x=-2$;
+- `C-abs`: the identity with absolute value, accepted with a definitional
+  proof;
+- `C-nonneg`: the domain restriction, accepted but narrower.
+
+We can assign confidence `C3`. Severity cannot yet be inferred from the lemma
+alone: if no other result uses it, it may be `S1`; if many downstream results
+replace $\sqrt{x^2}$ with $x$ for negative values, it may be `S3`. Until the
+dependency graph has been examined, record an unknown severity rather than
+choose a number that feels reasonable.
+
+## Checklist before finalizing a draft {#o017-u07-preflight}
+
+1. Are the examined version, copy, locator, and wording exact?
+2. Has the claim been normalized without silent changes?
+3. Has every reproducer hypothesis actually been checked?
+4. Is the failure of the conclusion exact and relevant?
+5. Is statement status distinguished from the defect-type diagnosis?
+6. Do severity and confidence have separate grounds?
+7. Is the candidate correction proved sufficient and not stronger than
+   necessary without justification?
+8. Are old versions and claims still preserved in the history?
+9. Are unaudited impact and unknown intentions still described as unknown?
+10. Does the draft request one clear action without personal judgments?
+11. Are stop, escalation, and contact-authorization gates respected?
+
+## Exercises {#o017-u07-exercises}
+
+1. **[O017-U07-X01]{#o017-u07-x01} — Two-layer classification.** For each
+   case below, give the statement status, the primary defect kind, and one
+   secondary consequence if any: (a) the index $n+1$ is printed as $n-1$, but
+   the substitution on the next line is consistent only with $n+1$; (b) the
+   proof uses unstated compactness, and the theorem fails on a noncompact
+   domain; (c) “see Lemma 2” when two appendices each have a Lemma 2; (d) the
+   log names code revision `r3`, while the manifest and output name `r2`;
+   (e) an implication is true, but one paragraph uses its converse; and
+   (f) a definition is correct but its symbol changes type without
+   explanation. Link your answer to **[O017-U07-H01](#o017-u07-h01)**.
+
+2. **[O017-U07-X02]{#o017-u07-x02} — Severity is not confidence.** Give code
+   pairs and reasons for: (a) a certain title typo that does not affect
+   retrieval; (b) a suspicion that the main theorem is false because one
+   simulation is unstable; (c) an exact counterexample to a standalone
+   exercise used nowhere else; and (d) a code-version mismatch in a principal
+   result whose extent has not been audited. Do not produce a combined score.
+   Link your answer to **[O017-U07-H02](#o017-u07-h02)**.
+
+3. **[O017-U07-X03]{#o017-u07-x03} — Version, locator, and reproducer.** A
+   report says only “new edition, monotonicity theorem wrong for $x=-1$.”
+   List the minimum questions that must be answered before the status can be
+   raised above `C0`. Then write a reproducer skeleton that separates
+   hypotheses, object, failure of the conclusion, and boundaries. Link your
+   answer to **[O017-U07-H03](#o017-u07-h03)**.
+
+4. **[O017-U07-X04]{#o017-u07-x04} — The connectedness repair.** Prove that
+   if $X$ is connected and $f:X\to\mathbb R\setminus\{0\}$ is continuous,
+   then the image $f(X)$ lies entirely within one component of
+   $\mathbb R\setminus\{0\}$. Then, for an arbitrary disconnected space,
+   construct a continuous function into $\{-1,1\}$ taking both values.
+   Explain why “path-connected” is an unnecessarily strong repair for this
+   claim. Link your answer to **[O017-U07-H04](#o017-u07-h04)**.
+
+5. **[O017-U07-X05]{#o017-u07-x05} — Correction history.** A version `V1`
+   contains claim `CLM1`; counterexample `CE1` refutes it; `V2` contains
+   replacement claim `CLM2`; then `V3` narrows the notation without changing
+   the meaning of `CLM2`. Design events and directed relationships that
+   preserve all three versions. Explain why changing the content of `CLM1`
+   into the content of `CLM2` damages the audit. Link your answer to
+   **[O017-U07-H05](#o017-u07-h05)**.
+
+6. **[O017-U07-X06]{#o017-u07-x06} — Drafts and gates.** Write a six-sentence
+   draft for the $\sqrt{x^2}=x$ case in the guided practice. Add two
+   uncertainty entries: the extent of downstream results and the choice
+   between an absolute-value correction and a domain restriction. Specify a
+   stop condition and one decision that must be escalated. The draft remains
+   local. Link your answer to **[O017-U07-H06](#o017-u07-h06)**.
+
+## Hints and answer guidance {#o017-u07-guidance}
+
+1. **[O017-U07-H01]{#o017-u07-h01}.** (a) Primarily a typographical error;
+   the mathematical status depends on which wording is considered active,
+   so do not change it without recording the contextual evidence; use
+   `not_applicable` when the finding concerns only the printed form, then
+   assess the formula's claim as a separate object. (b) The theorem is
+   *false as written*, with a diagnosis of a missing compactness hypothesis.
+   (c) An ambiguous locator with claim status `not_applicable`. (d) A
+   computational/provenance defect; the claim that revision `r3` was run
+   remains *unsupported as written*, and the evidence does not yet suffice
+   to declare the algorithm wrong. (e) The local use is wrong even though
+   the source implication may remain true. (f) A local exposition defect
+   with `not_applicable` if no claim has yet been assessed, unless the type
+   change makes a particular claim false. Keep status and cause as separate
+   fields.
+
+2. **[O017-U07-H02]{#o017-u07-h02}.** Reasonable assignments are (a)
+   `S0/C3`; (b) potential `S3/C1`, because the simulation is not yet an exact
+   counterexample; (c) `S1` or `S2` with `C3`, depending on the exercise's
+   role, but with bounded extent; and (d) unknown severity or potential
+   `S3`, with strong confidence only in the artifact mismatch, not in the
+   falsity of the mathematical result. The justification for each axis
+   matters more than any single code.
+
+3. **[O017-U07-H03]{#o017-u07-h03}.** Ask for the work's title, edition
+   number or version identity, copy, format, page/section/label, full wording,
+   definition of “monotone,” domain, section-level assumptions, and time of
+   observation. The reproducer must state the quantified claim, check that
+   $-1$ lies in the domain and satisfies the hypotheses, calculate the exact
+   failure, and then state whether it refutes the source claim or a
+   strengthening invented by the reporter.
+
+4. **[O017-U07-H04]{#o017-u07-h04}.** The continuous image of a connected
+   space is connected, whereas the two components of
+   $\mathbb R\setminus\{0\}$ are $(-\infty,0)$ and $(0,\infty)$.
+   Alternatively, use preimages as in the unit's proof. If $X=A\cup B$ is
+   a separation, the function with value $-1$ on $A$ and $1$ on $B$ is
+   continuous because $A$ and $B$ are both open and closed. Connectedness
+   alone suffices, so path-connectedness adds unused structure.
+
+5. **[O017-U07-H05]{#o017-u07-h05}.** Preserve at least
+   `V1 contains CLM1`, `CLM1 refutedBy CE1`, V2 succeeds V1,
+   `V2 contains CLM2`, `CLM2 provedBy P2`, `V3 succeeds V2`, and
+   `V3 restates CLM2`, or a new claim declared equivalent with proof.
+   Observation, refutation, proposal, proof, and notation-change events
+   remain ordered. Overwriting `CLM1` removes the object that CE1 actually
+   refuted and makes historical downstream results appear to use a claim
+   that did not yet exist.
+
+6. **[O017-U07-H06]{#o017-u07-h06}.** The draft must name the version and
+   location, the universal wording, $x=-2$, the hypothesis check, the value
+   $\sqrt{(-2)^2}=2$, and two valid corrections. Stop before selecting one
+   correction as the source's intention if the intended context is
+   unavailable. Escalate the editorial choice to the work's owner; audit the
+   dependency graph before assigning severity. Do not send the exercise draft.
+
+## Unit completion task {#o017-u07-completion-task}
+
+Prepare a **complete erratum dossier** for the following synthetic packet.
+The packet is the entire available context; do not invent authors, DOIs,
+pages, commits, execution results, or additional versions.
+
+::: {#o017-u07-completion-metadata .callout-note title="O017-U07-PKT-META — Packet identity"}
+- `work_id`: `O017-U07-PKT-W01`, *Notes on Extrema on Intervals*.
+- `version_id`: `O017-U07-PKT-V1`, label `1.2-sintetis`.
+- `copy_id`: `O017-U07-PKT-CP1`, all five packet excerpts in this unit.
+- `observed_at`: `2026-08-21`.
+- There are no section-level assumptions beyond those written in each excerpt.
+:::
+
+::: {#o017-u07-completion-statement .callout-warning title="O017-U07-PKT-S01 — Proposition 6.2"}
+If $f:[0,1]\to\mathbb R$ is continuous, then there is exactly one
+$c\in(0,1)$ at which $f$ attains its maximum, and $f'(c)=0$.
+:::
+
+::: {#o017-u07-completion-proof .callout-note title="O017-U07-PKT-P01 — Proof excerpt"}
+“The Extreme Value Theorem gives a maximum point $c$. Since $c$ is a maximum
+point, its derivative is zero. Uniqueness follows because that maximum point
+has been chosen.”
+:::
+
+::: {#o017-u07-completion-typo .callout-note title="O017-U07-PKT-T01 — Figure caption"}
+“Graph of a continuous function on the interval $[O,1]$.” The first character
+inside the interval appears as the capital letter `O`; the packet supplies
+neither a source file nor an editor's note.
+:::
+
+::: {#o017-u07-completion-locator .callout-note title="O017-U07-PKT-L01 — Back-reference"}
+The next paragraph says “this uniqueness will be used again; see the theorem
+above.” Two other results lie between the paragraph and Proposition 6.2.
+There is no other label or locator.
+:::
+
+::: {#o017-u07-completion-computation .callout-note title="O017-U07-PKT-C01 — Attached computational record"}
+The manifest names `program=gridmax.py@r2`, `step=0.01`, and domain `[0,1]`.
+The log header names `program=gridmax.py@r1`; the sole output line is
+`argmax_grid=0.99`. The prose after the log states “the computation proves
+that the exact maximum point is $c=1$.” The code, environment identity, and
+other outputs are unavailable in the packet.
+:::
+
+Use the function $f(x)=x$, the constant function $g(x)=0$, and
+$h(x)=-|x-1/2|$ as candidate reproducers, but check for yourself which claims
+each function refutes.
+The final product must include:
+
+1. a frozen-target table with the version, copy, and locator for every
+   excerpt, and normalized wording for Proposition 6.2;
+2. a classification of every finding with `statement_status`, primary type,
+   secondary consequence, severity, confidence, and the basis for each;
+3. minimal reproducers checking continuity, maximum location, interiority,
+   uniqueness, and existence of a derivative where relevant: $f$ tests a
+   boundary maximum, $g$ tests uniqueness, and $h$ tests differentiability at
+   an interior maximum;
+4. separation of the correction into two valid results: the Extreme Value
+   Theorem guarantees only a maximum on $[0,1]$, whereas the zero-derivative
+   condition requires differentiability at an interior local maximum;
+5. complete proofs or justifications for each replacement result, without
+   concluding uniqueness;
+6. separate diagnoses of the letter `O`, the reference “the theorem above,”
+   and the computational-revision mismatch; do not guess that the algorithm
+   is wrong;
+7. an append-only correction record with the old claim's ID, two replacement
+   claims, evidence, a candidate version, succession relationships, and
+   events; V1 must not be overwritten;
+8. an impact audit of the paragraph relying on uniqueness, with status
+   `unknown` for uses outside the packet;
+9. a ledger of at least five uncertainties, including the intended character
+   `O`, the choice of replacement wording, the code actually run, and the
+   extent of downstream results;
+10. an issue draft of no more than 180 words naming the version, location,
+    two reproducers, separate corrections, and the evidence boundary; the
+    draft is not sent;
+11. stop and escalation rules explaining what can be closed on the packet's
+    evidence and what requires the work's owner or a computational examiner;
+    and
+12. a four-sentence executive summary using no stronger language than the
+    dossier.
+
+### Rubric {#o017-u07-completion-rubric}
+
+Each criterion is scored 0, 1, or 2.
+
+::: {.o017-table-scroll aria-label="Unit 7 completion-task rubric" tabindex="0"}
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Targets and locators | version/location is invented or missing | some excerpts can be found | every finding points to the version, copy, packet locator, and exact wording |
+| Mathematical reproducers | examples fail the hypotheses or do not demonstrate failure | one consequence is correctly refuted | $f(x)=x$, $g(x)=0$, and $h(x)=-|x-1/2|$ separate failures of interiority, uniqueness, and differentiability, with every hypothesis checked |
+| Corrections and proofs | a patched wording remains false | two results are named but one condition or proof is unclear | existence of a maximum and Fermat's condition are separated, bounded, and justified without claiming uniqueness |
+| Two-axis classification | type, status, severity, and confidence are conflated | some fields are separated | every finding has separate fields and grounds, including unknown extent |
+| History and uncertainty | V1 is overwritten or uncertainty is filled with guesses | the old version remains but events/questions are insufficient | claims, versions, evidence, succession, events, and at least five uncertainties are preserved |
+| Draft and gates | the draft accuses, overstates, or is treated as already sent | main facts are present but actions/boundaries are unclear | the draft is at most 180 words, specific, and local; close, hold, and escalation rules are executable |
+:::
+
+The passing score is at least 10 out of 12, with scores of 2 in
+**Mathematical reproducers**, **Corrections and proofs**, and **History and
+uncertainty**. Inventing metadata, calling grid computation proof of an exact
+maximum, inferring a unique maximum from the selection of one point, applying
+the derivative condition at an interval endpoint, or deleting V1 requires
+revision even if the total score is sufficient.
+
+## Boundaries with B80 and other units {#o017-u07-boundary}
+
+This unit does not teach programming, package APIs, root-finding or
+optimization algorithms, numerical error analysis, software testing,
+environment management, notebooks, checksums, or system commands. All that
+implementation work belongs to B80. When a computational defect is found,
+Unit 7 freezes the claim, compares the contract with the output, assesses the
+evidence, and formulates a correction; Unit 6 supplies the package and
+execution record to be examined.
+
+Unit 2 handles searching and source authority, Unit 3 reconstructs missing
+proof steps, Unit 4 designs provenance, and Unit 5 develops exposition.
+Unit 7 does not repeat that work: it uses the results to make erratum
+decisions. If a missing step can be supplied without changing the claim, the
+reconstruction comes from Unit 3; Unit 7 determines only whether the source
+needs a correction note. If a paragraph needs rewriting for readability but
+is not wrong, its expository revision belongs to Unit 5.
+
+Unit 8 handles reviewer reports and responses to criticism as interpersonal
+exchanges. Unit 7 stops at the dossier and local draft; it does not send
+messages, negotiate responses, or judge authors' conduct. Unit 9 handles
+genuinely authorized, bounded community contributions.
+
+```{=latex}
+\enlargethispage{2\baselineskip}
+```
+
+## Sources, provenance, changes, and rights {#o017-u07-provenance}
+
+All original Indonesian prose, the operational taxonomy, severity/confidence
+scales, protocols, templates, tables, synthetic packets, worked cases,
+reproducers, proofs, erratum drafts, exercises, answer guidance, completion
+task, and rubric in this unit are original O017 material by the O017
+contributors, 2026, licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+This English edition translates that original material while preserving its
+mathematical content, stable identifiers, and attribution.
+
+The characterization of connectedness through nowhere-zero continuous
+functions, the fact that the continuous image of a connected space is
+connected, the Extreme Value Theorem, and the zero-derivative condition at an
+interior local maximum are classical mathematical results. O017 does not
+claim to have discovered them. The wording, pedagogical ordering, two-point
+example, proofs presented, and their audit function were written specifically
+for this unit and were not copied from a particular source.
+
+Packets `O017-U07-W01` and `O017-U07-PKT-W01` are synthetic local materials,
+not DOIs, publisher identities, or evidence of external works bearing those
+titles. Unit 7 adapts no external donor and copies no donor prose. CC BY-SA 4.0
+covers only the original O017 material, not external sources readers may use
+for independent exercises.

@@ -1,0 +1,33 @@
+evidence_type_id,locale,label,description,required_for,personal_data_default,verification_rule
+O017-WRAP-EV-SEARCH-QUESTION,en,Search question,Mathematical question and scope frozen before searching,O017-WRAP-A01,false,timestamp precedes the final decision
+O017-WRAP-EV-QUERY-LOG,en,Query ledger,Queries services times results and retention decisions,O017-WRAP-A01,false,sequence and completeness are checked
+O017-WRAP-EV-CANDIDATE-MATRIX,en,Candidate matrix,Comparison of authority version rights coverage and decisions,O017-WRAP-A01,false,every decision has a reason
+O017-WRAP-EV-STOP-RULE,en,Stopping rule,Stopping conditions written before the conclusion,O017-WRAP-A01,false,conditions match the ledger
+O017-WRAP-EV-SOURCE-FREEZE,en,Source freeze,PID or authoritative URL version locator date and byte witness,O017-WRAP-A01|O017-WRAP-A04,false,version witness can be retrieved again
+O017-WRAP-EV-UNCERTAINTY-LEDGER,en,Uncertainty ledger,Open questions status basis and actions,O017-WRAP-A01|O017-WRAP-A04,false,status history is not erased during revision
+O017-WRAP-EV-EVENT-IDENTITY,en,Seminar identity,Event date time zone role and pathway,O017-WRAP-A02,true,personal data are minimized and the event basis is verified
+O017-WRAP-EV-TIMED-NOTES,en,Timed notes,Observations inferences and verifications with locators,O017-WRAP-A02,possible,segments can be matched to permitted material
+O017-WRAP-EV-DEPENDENCY-MAP,en,Dependency map,Connected claims and prerequisites,O017-WRAP-A02,false,every node has a locator
+O017-WRAP-EV-QUESTION-LOG,en,Question log,Questions actions evidence and status,O017-WRAP-A02,false,open issues are retained
+O017-WRAP-EV-ATTENDANCE-OR-SUPERVISION,en,Attendance or supervision evidence,Data-minimizing witness for the actual pathway,O017-WRAP-A02,true,a verified human attests to the pathway
+O017-WRAP-EV-CORRECTED-NOTES,en,Final notes,Notes showing corrections after checking,O017-WRAP-A02,false,changes from the initial notes are traceable
+O017-WRAP-EV-ACCESSIBILITY-CHECK,en,Access report,Surface test method results and accessibility limitations,O017-WRAP-A02|O017-WRAP-A05,false,tested surfaces are distinguished from untested ones
+O017-WRAP-EV-INITIAL-ARTIFACT,en,Initial artifact,Manuscript or product before critique,O017-WRAP-A03,false,byte count and hash match
+O017-WRAP-EV-REFEREE-REPORT,en,Referee report,Comments with locators and evidence,O017-WRAP-A03,possible,referee ID is opaque and scope is stated
+O017-WRAP-EV-AUTHOR-RESPONSE,en,Author response,Response to each comment with action evidence location and status,O017-WRAP-A03,possible,every comment has a row
+O017-WRAP-EV-DISPOSITION-TABLE,en,Disposition table,Mapping to accepted partially_accepted rejected_with_reason or unresolved,O017-WRAP-A03,false,values come from the controlled vocabulary
+O017-WRAP-EV-REVISED-ARTIFACT,en,Revised artifact,Manuscript or product after the response,O017-WRAP-A03,false,byte count and hash match
+O017-WRAP-EV-BEFORE-AFTER,en,Before-and-after evidence,Exact comparison of changes to claims proofs and limitations,O017-WRAP-A03,false,locators for both versions are available
+O017-WRAP-EV-DISTINCTNESS-ATTESTATION,en,Distinctness attestation,Minimal statement that two IDs represent two humans and conflicts were checked,O017-WRAP-A03|O017-WRAP-A04|O017-WRAP-A05,true,identities are not disclosed in the package
+O017-WRAP-EV-UNRESOLVED-ITEMS,en,Remaining issues,List of open issues after revision,O017-WRAP-A03,false,no item is closed without evidence
+O017-WRAP-EV-DEFECT-LOCATOR,en,Defect locator,Exact position of the statement or step being audited,O017-WRAP-A04,false,locator matches the frozen version
+O017-WRAP-EV-MINIMAL-REPRODUCER,en,Minimal reproducer,Smallest argument or computation that tests the defect,O017-WRAP-A04,false,can be repeated without hidden access
+O017-WRAP-EV-MINIMAL-CORRECTION,en,Minimal correction,Smallest possible change with proof,O017-WRAP-A04,false,claims that do not need changing are preserved
+O017-WRAP-EV-IMPACT-AUDIT,en,Impact audit,Dependencies and scope that are affected or still unknown,O017-WRAP-A04,false,uncertainty about scope remains visible
+O017-WRAP-EV-INDEPENDENT-CHECK,en,Independent check,Method results scope and limitations of a second human checker,O017-WRAP-A04,possible,distinctness attestation and checking artifact are available
+O017-WRAP-EV-CONTRIBUTION-PACKET,en,Contribution packet,Concise reviewable and nonduplicative artifact,O017-WRAP-A05,false,version rights target and validation are complete
+O017-WRAP-EV-RIGHTS-CHECK,en,Rights check,Rights of the source contribution and target plus attribution,O017-WRAP-A05,false,every component has a rights basis
+O017-WRAP-EV-STATUS-LEDGER,en,Status ledger,Append-only events with status and evidence,O017-WRAP-A05,possible,every status advancement has evidence
+O017-WRAP-EV-TRANSACTION-AUTHORIZATION,en,Transaction authorization,Specific human authorization for one target artifact channel and validity period,O017-WRAP-A05,true,all minimum fields are present and remain valid
+O017-WRAP-EV-TRANSMISSION-RECEIPT,en,Transmission receipt,Witness that a particular artifact version was sent to the target,O017-WRAP-A05,possible,bytes or identifier match the authorized package
+O017-WRAP-EV-LOCAL-EXTERNAL-REVIEW,en,Independent local review,Independent human report on a real-source package without community transmission,O017-WRAP-A05,possible,human ID is verified and the local boundary is stated

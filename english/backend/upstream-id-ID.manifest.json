@@ -1,0 +1,60 @@
+{
+  "files": [
+    {
+      "bytes": 1178,
+      "path": "schema.json",
+      "sha256": "970194ee4aed6a61724a6036e540b31a3cc93aeaed61b839781bd1200e825b1d"
+    },
+    {
+      "bytes": 361144,
+      "path": "records.jsonl",
+      "sha256": "a5c67e3f14cfc03bd0cd3f3ce6628fc7161876a752ae470fe9aeea8401969bbd"
+    },
+    {
+      "bytes": 51711,
+      "path": "relations.csv",
+      "sha256": "5629e530cfb0ba7908aa0d41e1a34058558b4f4a6111efd554e38ec9ba32fe58"
+    },
+    {
+      "bytes": 91304,
+      "path": "relations-ledger.csv",
+      "sha256": "a5e59b98742ba4d10b201e9a538461bcb5682c0f03783e0c06cd12de6684a385"
+    },
+    {
+      "bytes": 20503,
+      "path": "semantic-wrapper-v1.schema.json",
+      "sha256": "73c23b5012dc95cb8cdf3823cde587f0422ae1787fe94b9b2361b81843c6c818"
+    },
+    {
+      "bytes": 206179,
+      "path": "semantic-wrapper-v1.records.jsonl",
+      "sha256": "828ace8162edb3bbe5e8968fc4e7c9c05dddcd854cd5f5d080486996b589a5a1"
+    },
+    {
+      "bytes": 220021,
+      "path": "semantic-wrapper-v1.localizations.jsonl",
+      "sha256": "a564b544c4dd9393e5590fe157b713e260a3fd35d04226bd3eee39d010b45d01"
+    },
+    {
+      "bytes": 226911,
+      "path": "semantic-wrapper-v1.relations-ledger.csv",
+      "sha256": "458d19a229fc6d3677a8e9dac677fa5decfa4ee9a65a92978d02f5f32fedc1c2"
+    },
+    {
+      "bytes": 1321,
+      "path": "semantic-wrapper-v1.baseline.json",
+      "sha256": "0bbdee88209c17075a9a86035a72f9105f3b6fb4fb271f0af10ac2a4014f80a4"
+    },
+    {
+      "bytes": 7715,
+      "path": "semantic-wrapper-v1.dataset.json",
+      "sha256": "da4b241c357975c53e8b1a9bdcaaea6bb6f396a15fc7165909c7f2a0d9c36c50"
+    },
+    {
+      "bytes": 3008,
+      "path": "SEMANTIC_WRAPPER_V1.md",
+      "sha256": "a84afb30bd5e162a8d88365d883920799e921f6b5550d19b4f76ed4827f3bc40"
+    }
+  ],
+  "schema": "o017-english-upstream-snapshot-v1"
+}

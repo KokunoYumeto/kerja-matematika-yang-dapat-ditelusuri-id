@@ -1,0 +1,101 @@
+{
+  "validation_id": "O017-EN-TEACHING-VALIDATION-1",
+  "checked_at": "2026-08-31T15:22:14.298024+00:00",
+  "status": "pass",
+  "scope": "English teaching wrapper and calibration package only; not an authentic learner completion assessment",
+  "network_or_contact_performed": false,
+  "credit_awarded": false,
+  "checks": {
+    "json_schema_draft_2020_12": "checked",
+    "calibration_assertions": 11,
+    "id_references": "checked",
+    "csv_row_counts": {
+      "delivery/definitions/rubric-criteria.csv": 23,
+      "delivery/definitions/evidence-types.csv": 32,
+      "delivery/definitions/lifecycle-statuses.csv": 22,
+      "delivery/calibration/evidence-manifest.csv": 5
+    },
+    "dossier_byte_and_sha256_checks": 5,
+    "indonesian_structure_comparison": {
+      "performed": false
+    }
+  },
+  "errors": [],
+  "files": [
+    {
+      "path": "source/wrapper/index.qmd",
+      "bytes": 13401,
+      "sha256": "985db923bba3e77ebf5a8680acdaa1cbfcb67e9ac0e55470dd60a99ae24252d6"
+    },
+    {
+      "path": "delivery/README.md",
+      "bytes": 2811,
+      "sha256": "a25e096f5c3027a306c38c50fe0346c20d027e3da8e4cd4cb972baf727fe7192"
+    },
+    {
+      "path": "delivery/definitions/o017-delivery-definitions.json",
+      "bytes": 9434,
+      "sha256": "91c9ced02445004c6e8ba4211794ed34417371f6ca20289b26f6094379f73e52"
+    },
+    {
+      "path": "delivery/definitions/rubric-criteria.csv",
+      "bytes": 4812,
+      "sha256": "1d7a644be18393e1d9826ae1b486849f2cddb447cd2e399e16258b1591206d5d"
+    },
+    {
+      "path": "delivery/definitions/evidence-types.csv",
+      "bytes": 5441,
+      "sha256": "0cf1dfaac9d773a9a2fa23bcbc5be586ba81e47d20eafeb6c3f487ce3460ea52"
+    },
+    {
+      "path": "delivery/definitions/lifecycle-statuses.csv",
+      "bytes": 3126,
+      "sha256": "44c86ca0f43b6ac03e5c2a0775e613b315a659a988a26c906e415b9ad6981eca"
+    },
+    {
+      "path": "delivery/schema/o017-delivery.schema.json",
+      "bytes": 15574,
+      "sha256": "98d57e93985e9cc4faafc609e0a1cdb82ea8acb6125b2762af13e632a6d3e774"
+    },
+    {
+      "path": "delivery/calibration/01-real-source-search.md",
+      "bytes": 7255,
+      "sha256": "93e2241029d554e1550d763b2ac99361095c86456b3c86e2db71a3f07122c7a5"
+    },
+    {
+      "path": "delivery/calibration/02-seminar-supervised-equivalent.md",
+      "bytes": 6022,
+      "sha256": "f6e137a3eb756e080d0022e6a679e954329dc56abb1c4656943bf862d9770cbe"
+    },
+    {
+      "path": "delivery/calibration/03-independent-referee-cycle.md",
+      "bytes": 5555,
+      "sha256": "dc3fab2509d55ad8bbe5681a96b5e76aaec219e8d356ec323b963346db63afea"
+    },
+    {
+      "path": "delivery/calibration/04-real-source-erratum-dossier.md",
+      "bytes": 5447,
+      "sha256": "070046326b5c0bf4c7f29d1ce99594529561c287b46c3cdcc6159283fccbba01"
+    },
+    {
+      "path": "delivery/calibration/05-externally-reviewed-local.md",
+      "bytes": 5848,
+      "sha256": "3c44102e8e30e579cbf98d69b76a2d82be0757c763731cbc8f0ac0281f79542a"
+    },
+    {
+      "path": "delivery/calibration/calibration-package.json",
+      "bytes": 15147,
+      "sha256": "c84d3b95d0a8b8747e271e6d948440d6376075219a74930a1527cd1b50b04560"
+    },
+    {
+      "path": "delivery/calibration/evidence-manifest.csv",
+      "bytes": 1471,
+      "sha256": "8b6d7105a4a85b0ff5040988a1157db86b3c57623fd007bede0bd4cade2af2e7"
+    }
+  ],
+  "known_inherited_limitations": [
+    "The schema's exemplar and evidence definitions are calibration-specific; this validator does not establish a complete authentic learner-submission model.",
+    "Historical source-retrieval witnesses are preserved from the Indonesian edition; no fresh network retrieval was performed for this translation.",
+    "Text and formula preservation checks are not a rendered PDF, screen-reader, or semantic re-proof audit."
+  ]
+}

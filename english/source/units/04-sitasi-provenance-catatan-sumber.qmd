@@ -1,0 +1,782 @@
+---
+title: "Unit 4 — Citation, Provenance, and the Source Notebook"
+subtitle: "Connecting each claim to its version, location, evidence, and limits of certainty"
+description: "A practical unit on distinguishing citation from evidence provenance and computational provenance, maintaining a source notebook, and auditing mathematical corrections without erasing version history."
+---
+
+## Learning outcomes {#o017-u04-outcomes}
+
+This unit has the stable identifier **O017-U04**. After completing it, you will
+be able to:
+
+1. distinguish the functions of **citation**, **evidence provenance**, and
+   **computational provenance** without substituting one for another;
+2. record works, versions, copies, and internal locations as distinct but
+   connected objects;
+3. connect a normalized claim to a locator precise enough for another reader
+   to find the wording that was actually examined;
+4. retain the grounds for accepting, rejecting, or qualifying a mathematical
+   claim, rather than merely retaining its bibliography;
+5. record corrections as relationships between versions without overwriting
+   or deleting the historical state of an earlier source;
+6. record uncertainty in a structured way and refuse to fill missing metadata
+   with guesses;
+7. design a source notebook that can be updated, reviewed, and exported
+   without losing the decision trail; and
+8. assemble a claim dossier that brings together citation, provenance,
+   mathematical audit, and the limits of the conclusions.
+
+::: {.callout-note title="Prerequisites, continuity, and scope"}
+Unit 2 teaches you to find candidate sources, distinguish a work from a
+version, and assess its authority. Unit 3 teaches you to close proof gaps
+through lemma contracts and dependency graphs. Unit 4 assumes that both kinds
+of work have been done, then preserves **the trail connecting their results**:
+which claim, which wording, which version, which location, which evidence,
+which decision, and what remaining uncertainty.
+
+This unit does not teach a particular bibliography style, reference-manager
+use, database syntax, Git commands, checksum calculation, or computational
+environment setup. Tool formats may change; the logical relationships that
+must be preserved do not.
+:::
+
+## A bibliography is not yet an evidence trail {#o017-u04-bibliography-is-not-evidence}
+
+A bibliography entry usually answers questions such as “Which work is being
+referenced?” and “How can the reader identify it?” For a mathematical audit,
+that is not enough.
+
+```{=latex}
+\Needspace{4\baselineskip}
+```
+
+Consider the sentence:
+
+> This result follows from Source A.
+
+At least seven questions remain open.
+
+1. Which edition or version of Source A?
+2. Did the reader examine the full text or only its metadata?
+3. On which page, or in which section, theorem, equation, or paragraph, does
+   the result appear?
+4. Is its wording the same as the claim being used?
+5. Do all its hypotheses match?
+6. Was there a correction after that version?
+7. Does “follows from” mean cited, proved, tested with examples, or merely
+   considered plausible?
+
+A good source record does not turn a citation into a long story. It adds
+structure that allows each question above to be answered, or honestly marked
+`not yet known`.
+
+::: {#o017-u04-original-bridge .callout-important title="Original O017 bridge material"}
+The **claim–locator–version chain** model, separation of three kinds of
+records, uncertainty statuses, layered notebook, and mathematical cases in
+this unit are original O017 bridge material. General concepts of metadata,
+versions, citation of research objects, and computational provenance are
+restricted to the frozen donors; the donors do not provide the complete
+workflow for auditing mathematical claims developed here.
+:::
+
+## Three records with three different jobs {#o017-u04-three-records}
+
+The following three terms often appear within one project, but answer
+different questions.
+
+::: {.o017-table-scroll aria-label="Distinctions between citation, evidence provenance, and computational provenance" tabindex="0"}
+| Record | Main question | Minimum contents | Does not by itself establish |
+|---|---|---|---|
+| Citation | Which work or object should receive credit and be discoverable? | creator, title, publication venue, year, identifier or URL, version where relevant | that the cited claim is true or its hypotheses match |
+| Evidence provenance | Exactly where do this claim's wording and the grounds for the decision about it come from? | claim ID, version ID, locator, evidence type, relationship, decision, reason, uncertainty | that a computational process can be rerun |
+| Computational provenance | Which artifacts and conditions produced a particular computational output? | code, inputs, dependencies, runtime, parameters, command or procedure, outputs, byte identity | that finite outputs prove a universal claim |
+:::
+
+These can overlap. A code package can be cited; one of its outputs can serve
+as empirical evidence; its execution record can retain computational
+provenance. But one DOI does not replace an execution record, and one
+execution record does not replace a theorem's proof.
+
+### Citation provides credit and a route to discovery {#o017-u04-citation-role}
+
+Choose the citation to match the object actually used. If a reader relies on
+the wording of a particular version, a version citation is more appropriate
+than a general work record. If a reader recommends that others look for the
+latest version, a work record may be more appropriate. Unit 2 introduced this
+distinction; here the choice is recorded as a **decision**, together with its
+reason.
+
+### Evidence provenance is a chain of accountability {#o017-u04-evidence-provenance}
+
+Evidence provenance connects at least four objects:
+
+```text
+[normalized claim] -> [locator] -> [version examined] -> [work]
+         |
+         +-> [proof / counterexample / data / reference]
+         |
+         +-> [decision + reason + uncertainty]
+```
+
+Arrows must have meanings. `appearsAt` differs from `provedBy`,
+`refutedBy`, `correctedBy`, and `isVersionOf`. A source can **contain** a false
+claim; an `appearsAt` arrow must therefore not be read as `provedBy`.
+
+### Computational provenance records the history of a particular result {#o017-u04-computation-provenance}
+
+For a computational result, record enough objects and conditions for someone
+with B80 skills to attempt a rerun. A record that merely says “calculated
+using Python” does not identify the program, inputs, dependency versions,
+parameters, or intended outputs.
+
+This unit assesses the **completeness and claim scope** of that record. Writing
+programs, installing packages, choosing numerical types, writing tests, and
+generating checksums remain within B80. Even a perfect record only guarantees
+that a result is traceable; successful rerunning must be demonstrated by an
+execution that actually took place.
+
+## Four levels of source identity {#o017-u04-four-source-levels}
+
+The notebook must distinguish the following four levels.
+
+1. **Work.** An intellectual identity that may have many editions or versions.
+2. **Version.** The state of a work at a particular date, release, edition,
+   revision, or commit.
+3. **Copy.** The bytes or physical object actually examined: a local file,
+   printout, archive, or capture that may be incomplete.
+4. **Location.** A part within a version or copy: a page, theorem, equation,
+   paragraph, line, or stable anchor.
+
+A page number without an edition may point to different text. A version
+without a location makes readers search the entire document again. A copy's
+checksum without the work's identity preserves the bytes but does not explain
+their intellectual content. All four levels are needed when the risk of
+miscitation is sufficiently high.
+
+::: {.o017-table-scroll aria-label="Minimum fields in a source record" tabindex="0"}
+| Field | Question answered | Rule for completing it |
+|---|---|---|
+| `source_id` | which record is being referenced? | stable local ID; never reuse it |
+| `work_id` | which intellectual work? | link all versions that genuinely belong to the same work |
+| `version_id` | which state of the work? | edition/release/commit/date; record an unknown value when evidence is insufficient |
+| `copy_id` | which copy was examined? | form, storage location, completeness, and byte identity where available |
+| `locator` | where was the content found? | use the strongest scheme available in the source; section and page may be combined |
+| `relation` | how are the records related? | typed directional verb, such as a correction or version relation |
+| `rights` | what are the component's rights and obligations? | license, attribution, and restrictions supported by evidence |
+| `observed_at` | when was the examination performed? | observation date, not publication date |
+| `missing` | which fields remain unknown? | explicit list; do not invent values |
+:::
+
+## A two-layer source notebook {#o017-u04-two-layer-notebook}
+
+A notebook that withstands change has two layers.
+
+### The object layer {#o017-u04-object-layer}
+
+The object layer stores what is currently known about works, versions,
+copies, locations, claims, evidence, and executions. Each object has a stable
+ID. If a title is corrected, the ID does not change; the new value is given a
+supporting basis and a date. If two records turn out to refer to different
+works, do not merge them merely because their titles are similar.
+
+### The event layer {#o017-u04-event-layer}
+
+The event layer is an append-only log that does not overwrite earlier
+entries. For example:
+
+- `2026-08-21T09:10 — LOC-01 observedIn VERSION-01`;
+- `2026-08-21T09:24 — CLAIM-01 refutedBy ARG-CE01`;
+- `2026-08-21T09:31 — VERSION-02 corrects VERSION-01`;
+- `2026-08-21T09:42 — DEC-01 changedFrom uncertain to rejected`.
+
+If a decision changes, add a new decision with its reason and a link to the
+old one. Do not alter an earlier record as if the error had never occurred.
+A notebook is not just a final picture; it also explains how that picture
+was obtained.
+
+```{=latex}
+\Needspace{22\baselineskip}
+```
+
+### Seven tables are enough for many projects {#o017-u04-six-tables}
+
+The implementation may use paper, plain text, a spreadsheet, or a database.
+Conceptually, the following seven tables suffice for many mathematical
+reading projects.
+
+::: {.o017-table-scroll aria-label="Seven conceptual tables for a source notebook" tabindex="0"}
+| Table | Key | Core contents |
+|---|---|---|
+| `works` | `work_id` | title, creators, publication venue, work identity |
+| `versions` | `version_id` | version/edition/commit, date, relationships to the work and other versions |
+| `copies` | `copy_id` | version embodied, format, copy location, copy completeness, byte identity or copy characteristics actually observed |
+| `locators` | `locator_id` | copy and version, location scheme, location value, short quotation or controlled paraphrase |
+| `claims` | `claim_id` | normalized statement, quantifiers, domain, status |
+| `evidence` | `evidence_id` | evidence type, target claim, grounds, direction of support, limits |
+| `events` | `event_id` | time, recorder, action, object, reason |
+:::
+
+Computational records may form an eighth table or a separate artifact linked
+from the evidence table. This separation prevents a single claim row from
+holding the entire computational environment and becoming unreadable.
+
+## A protocol from claim to notebook {#o017-u04-ledger-protocol}
+
+Use this sequence for every claim important enough to cite.
+
+1. **Freeze the working statement.** Write the claim with explicit
+   quantifiers, domain, and hypotheses; assign a `claim_id`.
+2. **Identify the source objects.** Separate the work, version, and copy
+   actually examined. Record missing fields.
+3. **Create a locator.** Choose a location that remains meaningful for that
+   version. Record its start and end if a claim spans several paragraphs.
+4. **Record factual relationships.** Record `VERSION-02` as correcting
+   `VERSION-01`; then locate `CLAIM-01` at `LOC-01`. Do not insert
+   mathematical conclusions into bibliographical relationships.
+5. **Audit the mathematics.** Link a proof, reconstruction, counterexample,
+   or computational result as separate evidence.
+6. **Decide the status.** Use `accepted`, `rejected`, `qualified`, or
+   `not yet established`, then state the reason and scope.
+7. **Choose the citation.** Choose the work or version according to the
+   purpose of the sentence to be written; record the reason for the choice.
+8. **Retain uncertainty and events.** Add what remains unknown and any
+   changes in decisions; do not clean away the history after a correction.
+
+The protocol ends when another reader can follow the chain without guessing
+the version, location, meaning of an arrow, or reason for a status.
+
+## Worked case: an integral claim with a missing rate {#o017-u04-worked-case}
+
+The following case is entirely synthetic and embedded in this unit. Its IDs
+are classroom IDs, not DOIs or public identifiers. The aim is not to find a
+source outside this unit, but to build a correct notebook from a limited
+excerpt packet that is complete for this case. The packet does not represent
+the full contents of a book.
+
+### The version and correction packet {#o017-u04-version-packet}
+
+::: {#o017-u04-packet-v1 .callout-warning title="Partial excerpt packet — Proposition 4.1, label V1"}
+**V1.** If $f:[0,1]\to\mathbb{R}$ is continuous and $f(0)=0$, then the
+improper integral
+
+$$
+\int_0^1 \frac{f(x)}{x}\,dx
+$$
+
+converges.
+:::
+
+::: {#o017-u04-packet-correction .callout-note title="Partial excerpt packet — correction item K-04"}
+The hypotheses of continuity and $f(0)=0$ do not control the **rate** at which
+$f(x)$ tends to zero. Version 1 of Proposition 4.1 is withdrawn. The next
+version replaces it with a sufficient growth condition; the correction does
+not claim that the new condition is necessary.
+:::
+
+::: {#thm-o017-u04-packet-v2 .theorem title="Partial excerpt packet — Proposition 4.1, label V2"}
+**V2.** Let $f:[0,1]\to\mathbb{R}$ be continuous. If there exist $C\geq0$ and
+$\alpha>0$ such that
+
+$$
+|f(x)|\leq Cx^\alpha
+\qquad\text{for every }0<x\leq1,
+$$
+
+then the integral $\int_0^1 f(x)/x\,dx$ converges absolutely.
+:::
+
+### Work and version records {#o017-u04-source-ledger}
+
+We create IDs without bibliographical meanings embedded in them.
+Relationships and metadata belong in separate fields.
+
+The exact relation `isPropositionExcerptOf` is abbreviated as `IPEO` only in
+the two narrow human-readable tables below. Machine-readable records retain
+the full relation name.
+
+::: {.o017-table-scroll aria-label="Work and version notebook for the integral case" tabindex="0"}
+| ID | Type | Identity and location | Relationships | Integrity and missing fields |
+|---|---|---|---|---|
+| `O017-U04-W01` | synthetic work identity | *Elementary Analysis Notes*; creator: O017 contributors; year: 2026 | conceptual parent object for the proposition excerpts | the packet does not contain the complete work, so the contents of other sections, publisher, and publication form are unknown |
+| `O017-U04-V01` | proposition-excerpt version | wording of Proposition 4.1, version 1, as given in the packet | `IPEO W01` | establishes only the wording of the quoted proposition, not the state of the entire book or notes |
+| `O017-U04-K01` | correction excerpt | item K-04 | at LOC02; corrects V01; motivates V02 | a separate correction date is not provided in the packet and is recorded as unknown |
+| `O017-U04-V02` | proposition-excerpt version | wording of Proposition 4.1, version 2, as given in the packet | `IPEO W01` | establishes only the wording of the replacement proposition; there are no grounds to assert that the whole work has been replaced |
+| `O017-U04-CP01` | partial excerpt packet | three synthetic text excerpts embedded in Unit 4: V01, K01, and V02 | physical scope is limited to these three excerpts | not a complete copy of W01; its completeness means only that all three packet excerpts are available; byte identity is in the artifact manifest |
+| `O017-U04-LOC01` | location | [V1 excerpt](#o017-u04-packet-v1) | located in V01; part of CP01 | stable anchor within the partial excerpt packet |
+| `O017-U04-LOC02` | location | [correction K-04](#o017-u04-packet-correction) | part of CP01 | stable anchor within the partial excerpt packet |
+| `O017-U04-LOC03` | location | [V2 theorem](#thm-o017-u04-packet-v2) | located in V02; part of CP01 | stable anchor within the partial excerpt packet |
+:::
+
+The labels V01 and V02 apply to the **Proposition 4.1 excerpts within the
+packet**, not to two complete copies of *Elementary Analysis Notes*. Decision
+D03 below selects V02 for current use of the proposition. That decision does
+not add a relationship saying “the whole book V2 replaces the whole book V1,”
+nor does it mean that V01 may be deleted: the history of the error and its
+correction is itself part of the provenance.
+
+```{=latex}
+\Needspace{8\baselineskip}
+```
+
+### Freezing two claims {#o017-u04-normalized-claims}
+
+::: {.o017-table-scroll aria-label="Normalized claims for the two versions of the integral case" tabindex="0"}
+| Claim ID | Normalized statement | Appears at | Initial status |
+|---|---|---|---|
+| `O017-U04-C01` | for every $f\in C([0,1])$ with $f(0)=0$, the integral $\int_0^1 f(x)/x\,dx$ converges | LOC01 in proposition excerpt V01 | requires audit |
+| `O017-U04-C02` | for every $f\in C([0,1])$, $C\geq0$, and $\alpha>0$ with $|f(x)|\leq Cx^\alpha$ on $(0,1]$, the integral converges absolutely | LOC03 in proposition excerpt V02 | requires audit |
+:::
+
+Claims C01 and C02 are not two wordings of the same statement. C02 has an
+additional hypothesis and a stronger conclusion, namely absolute convergence.
+The notebook therefore stores two `claim_id` values rather than silently
+changing the contents of C01.
+
+### Rejecting C01 with a counterexample {#o017-u04-v1-counterexample}
+
+Define $f:[0,1]\to\mathbb{R}$ by
+
+::: {.o017-math-scroll aria-label="Definition of the counterexample to version 1 of the integral claim" tabindex="0"}
+$$
+f(0)=0,
+\qquad
+f(x)=\frac{1}{\log(e/x)}\quad (0<x\leq1).
+$$
+:::
+
+This function is continuous on $(0,1]$. As $x\downarrow0$,
+$\log(e/x)\to\infty$, so $f(x)\to0=f(0)$. Thus $f$ is continuous on all of
+$[0,1]$ and satisfies the hypotheses of C01.
+
+However, for $0<\varepsilon<1$, the substitution
+$u=\log(e/x)$ gives $du=-dx/x$ and
+
+::: {.o017-math-scroll aria-label="Calculation of the truncated integral for the counterexample" tabindex="0"}
+$$
+\int_\varepsilon^1 \frac{f(x)}{x}\,dx
+=\int_\varepsilon^1\frac{dx}{x\log(e/x)}
+=\int_1^{\log(e/\varepsilon)}\frac{du}{u}
+=\log\!\bigl(\log(e/\varepsilon)\bigr).
+$$
+:::
+
+As $\varepsilon\downarrow0$, the final expression tends to $+\infty$. The
+improper integral does not converge. This is deductive evidence that C01 is
+**rejected**, not merely a collection of numerical values that seem to grow.
+
+Record the evidence as object `O017-U04-EV01`, with type `counterexample` and
+relationship `C01 refutedBy EV01`. Its exact basis locator is
+`#o017-u04-v1-counterexample`. Its limit is: “refutes the universal claim C01;
+does not say that every continuous function with $f(0)=0$ produces
+divergence.”
+
+### Accepting C02 with a comparison proof {#o017-u04-v2-proof}
+
+::: {#prf-o017-u04-v2 .proof}
+Take $f$, $C$, and $\alpha$ satisfying the hypotheses of C02. For every
+$0<x\leq1$,
+
+$$
+\left|\frac{f(x)}{x}\right|
+\leq Cx^{\alpha-1}.
+$$
+
+```{=latex}
+\Needspace{6\baselineskip}
+```
+
+Since $\alpha>0$, the comparison integral exists and
+
+$$
+\int_0^1 Cx^{\alpha-1}\,dx=\frac{C}{\alpha}<\infty.
+$$
+
+Hence
+
+$$
+\int_0^1\left|\frac{f(x)}{x}\right|\,dx
+\leq\frac{C}{\alpha}<\infty.
+$$
+
+Thus the integral stated in C02 converges absolutely.
+:::
+
+Record this proof as `O017-U04-EV02`, type `proof`, relationship
+`C02 provedBy EV02`, and location `#prf-o017-u04-v2`. Its limit matters: the
+proof establishes that the power-law condition is **sufficient**. It does not
+establish that every convergent integral must satisfy some bound $Cx^\alpha$.
+
+### The claim-to-locator chain {#o017-u04-claim-locator-chain}
+
+After the audit, a compact provenance graph is:
+
+```text
+C01 --appearsAt--> LOC01 --locatesIn--> V01 --isPropositionExcerptOf--> W01
+                       |
+                       +--partOf--> CP01
+  |
+  +--refutedBy--> EV01 (counterexample and exact integral)
+
+K01 --appearsAt--> LOC02 --partOf--> CP01
+K01 --corrects--> V01
+K01 --motivates--> V02 --isPropositionExcerptOf--> W01
+
+C02 --appearsAt--> LOC03 --locatesIn--> V02
+                       |
+                       +--partOf--> CP01
+  |
+  +--provedBy--> EV02 (comparison proof)
+```
+
+This graph answers two questions separately: **where** a claim appears and
+**why** its mathematical status was assigned. Removing either branch would
+obscure the source or the grounds for the decision.
+
+The following semantic table communicates the same relationships without
+relying on the visual arrangement of characters in the graph. This table is
+the authoritative list of relationships for this unit's exercises and audit.
+
+::: {.o017-table-scroll aria-label="Semantic list of provenance relationships in the integral case" tabindex="0"}
+| Subject | Relationship | Object | Grounds or function |
+|---|---|---|---|
+| C01 | `appearsAt` | LOC01 | observation of the packet's wording |
+| LOC01 | `locatesIn` | V01 | location of the claim in proposition excerpt V01 |
+| LOC01 | `partOf` | CP01 | membership in the partial packet |
+| V01 | `IPEO` | W01 | scope limited to the Proposition 4.1 excerpt |
+| C01 | `refutedBy` | EV01 | counterexample and exact integral |
+| K01 | `appearsAt` | LOC02 | observation of the correction text |
+| LOC02 | `partOf` | CP01 | membership in the partial packet |
+| K01 | `corrects` | V01 | relationship stated by text K01 |
+| K01 | `motivates` | V02 | relationship stated by text K01 |
+| V02 | `IPEO` | W01 | scope limited to the Proposition 4.1 excerpt |
+| C02 | `appearsAt` | LOC03 | observation of the packet's wording |
+| LOC03 | `locatesIn` | V02 | location of the claim in proposition excerpt V02 |
+| LOC03 | `partOf` | CP01 | membership in the partial packet |
+| C02 | `provedBy` | EV02 | comparison proof |
+:::
+
+### The decision and uncertainty notebook {#o017-u04-decision-ledger}
+
+::: {.o017-table-scroll aria-label="Decisions and uncertainty in the integral case" tabindex="0"}
+| Decision ID | Claim | Status | Grounds | Limits and uncertainty |
+|---|---|---|---|---|
+| `O017-U04-D01` | C01 | rejected | EV01 satisfies the hypotheses but the integral diverges | the historical reason for the V1 error is unknown; it is not needed for rejection |
+| `O017-U04-D02` | C02 | accepted | EV02 proves the conclusion from all the hypotheses | sufficient condition, not claimed to be necessary or optimal |
+| `O017-U04-D03` | excerpt relationship | qualified | K01 corrects V01 and motivates proposition excerpt V02 | the packet does not establish the state of the complete work, a separate correction date, or a public identifier |
+:::
+
+The word `accepted` always has a scope: claim C02 as normalized, on the basis
+of the recorded argument. It is not a comprehensive assessment of the whole
+work W01.
+
+Use the following uncertainty vocabulary.
+
+- `known`: an observation or argument is available, with a locator.
+- `inferred`: there is an explicit inference from recorded facts; state the
+  reason.
+- `disputed`: two relevant pieces of evidence or sources conflict.
+- `unknown`: the available evidence does not answer the question.
+- `not applicable`: the field genuinely has no meaning for this object.
+
+Do not replace `unknown` with a confidence number unsupported by a model or
+data. In this case, an external creator for W01 is `not applicable` because
+O017 created the synthetic packet; a separate correction date is `unknown`
+because the packet deliberately does not supply one.
+
+### Choosing a citation after the audit {#o017-u04-citation-after-audit}
+
+Three kinds of sentences require different choices.
+
+1. For the history of the error, cite V1 **and** K01: readers need to see both
+   the incorrect wording and its correction.
+2. To use the valid result, cite V2 at Proposition 4.1 and, space permitting,
+   link EV02 as the local audit.
+3. To mention the packet generally without relying on particular wording,
+   W01 suffices, provided the sentence does not imply that all its versions
+   are identical.
+
+A V2 citation provides credit and a route to discovery. The status `accepted`
+still comes from EV02, not from the fact that V2 is newer.
+
+### Where does computational provenance enter? {#o017-u04-computation-in-case}
+
+The proof above requires no computation. Suppose a reader also produces a
+table of $\log(\log(e/\varepsilon))$ for several values of $\varepsilon$.
+The table may help reveal growth, but does not replace the exact limit.
+An adequate execution record has at least the following form.
+
+::: {.o017-table-scroll aria-label="Computational provenance template for a diagnostic table" tabindex="0"}
+| Field | Contents to fill in after an actual execution |
+|---|---|
+| `run_id` | stable ID for one execution |
+| `code_artifact` | file and byte identity of the code actually run |
+| `input` | list of $\varepsilon$ values and their numerical format |
+| `environment` | runtime and dependencies with observed versions |
+| `parameters` | all options that change the result |
+| `invocation` | exact command or procedure used, including the working directory if it matters |
+| `output` | output file/table and its byte identity |
+| `claim_scope` | “illustration of growth on selected inputs,” not “proves divergence” |
+| `status_pelaksanaan_ulang` | rerun status: not yet attempted / succeeded / failed, with time and evidence |
+:::
+
+This table is a **template**, not a claim that an execution has occurred.
+Filling it with invented values to make it appear complete would undermine
+the provenance.
+
+## Corrections do not erase earlier versions {#o017-u04-corrections-preserve-history}
+
+When a correction is found, take five actions.
+
+1. Freeze the earlier version's identity and the location of the affected
+   claim.
+2. Record the correction as a separate object with a locator and directional
+   relationships.
+3. Create a new claim if the hypotheses or conclusion change.
+4. Update the decision about current use, but retain earlier decisions in the
+   event log.
+5. Check all derivative writing that cites the earlier claim; do not assume
+   that replacing one bibliography entry repairs its argument.
+
+A new version is not automatically more correct. It is merely a new
+candidate to audit. Conversely, finding an error in one proposition does not
+justify declaring the entire work useless.
+
+## Guided practice: one traceable line {#o017-u04-guided-practice}
+
+Start from the sentence “version 2 repairs the condition in version 1.”
+Break it into six records:
+
+1. V01 and V02 as two proposition-excerpt versions of W01;
+2. LOC01 and LOC03 as two locators;
+3. C01 and C02 as two normalized claims;
+4. K01 as a correction object that `corrects V01`;
+5. EV01 and EV02 as different mathematical grounds; and
+6. D01 and D02 as decisions with stated scopes.
+
+Now try removing EV01. The trail still shows that a correction was
+**stated**, but no longer independently shows that C01 is false. Remove
+LOC01: the counterexample still refutes C01, but the reader can no longer
+check whether C01 really is V1's wording. This deletion test shows why source
+provenance and evidence must connect without being conflated.
+
+## Exercises {#o017-u04-exercises}
+
+1. **[O017-U04-E01]{#o017-u04-e01}.** Classify each of the following records
+   as citation, evidence provenance, computational provenance, or a
+   combination: (a) a work DOI; (b) “Theorem 3.7, page 82, second edition”;
+   (c) a code file, runtime version, parameters, and output checksum; (d) a
+   counterexample linked to C01; (e) an author's name and title; (f) a
+   `rejected` decision with EV01 as its reason. For each item, explain one
+   question that it still leaves unanswered.
+
+2. **[O017-U04-E02]{#o017-u04-e02}.** A note says only “Lemma 5 in the blue
+   book proves this result.” Turn it into an auditable record scheme: work,
+   version, copy, location, normalized claim, lemma contract, and fields that
+   remain `unknown`. Do not invent an author, year, or page number.
+
+3. **[O017-U04-E03]{#o017-u04-e03}.** Using the semantic relationship table
+   as the authoritative list, separate arrows that record source
+   observations from arrows that record mathematical conclusions. Do
+   `K01 corrects V01`, `K01 motivates V02`, and `C02 provedBy EV02` derive
+   their support from the same object? Explain.
+
+4. **[O017-U04-E04]{#o017-u04-e04}.** For $0<\beta\leq1$, take
+   $f_\beta(x)=x^\beta$. Determine whether the function satisfies C01 and
+   C02, calculate $\int_0^1 f_\beta(x)/x\,dx$, then explain why this
+   successful family of examples does not rescue the universal claim C01.
+
+5. **[O017-U04-E05]{#o017-u04-e05}.** Suppose the packet adds a Proposition
+   4.1 excerpt labelled V03 with the same mathematical wording as V02, but a
+   different layout and page numbering. State which objects remain, which
+   are new, which relationships must be added, and why the citation “p. 9”
+   without an excerpt version is insufficient. Distinguish a content change
+   from a locator change.
+
+6. **[O017-U04-E06]{#o017-u04-e06}.** Design a record for a numerical
+   experiment that evaluates the truncated integral at five values of
+   $\varepsilon$. Do not write code. Specify the inputs, artifacts,
+   environment, parameters, invocation command or procedure, outputs, rerun
+   status, and a claim-scope sentence that prevents five samples from being
+   treated as a proof of the limit.
+
+## Hints and answer guidance {#o017-u04-guidance}
+
+1. **[O017-U04-H01]{#o017-u04-h01}.** (a) and (e) are primarily citation;
+   (b) is a discovery element that becomes part of evidence provenance when
+   linked to a claim and version; (c) is computational provenance; (d) and
+   (f) are evidence provenance. No one item alone establishes source
+   identity, the claim's truth, and the ability to rerun a computation all
+   at once.
+
+2. **[O017-U04-H02]{#o017-u04-h02}.** Create local IDs for the work, version,
+   copy, location, claim, and lemma. Enter only “blue-covered book” as an
+   observed characteristic of the copy. Author, official title, edition,
+   year, and page number remain `unknown` until evidence is available. The
+   lemma contract must compare all its hypotheses with the claim's context.
+
+3. **[O017-U04-H03]{#o017-u04-h03}.** `K01 corrects V01` and
+   `K01 motivates V02` are two source relationships both supported by text
+   K01. Neither proves C02. The relationship `C02 provedBy EV02` is grounded
+   in proof EV02 and records a mathematical conclusion. Source relationships
+   and grounds for truth must not be conflated.
+
+4. **[O017-U04-H04]{#o017-u04-h04}.** Take $C=1$ and $\alpha=\beta$; then
+   C02 applies and the integral is $1/\beta$. These examples also satisfy
+   C01, but one counterexample suffices to refute a universal claim, whereas
+   many positive examples do not prove it.
+
+5. **[O017-U04-H05]{#o017-u04-h05}.** W01 remains, and V03 is a new
+   proposition-excerpt version.
+
+   `isPropositionExcerptOf` links V03 to W01.
+
+   `hasSamePropositionTextAs` links V03 to V02 only when evidence supports it.
+
+   LOC03 still points to V02, while V03 needs a new locator because its
+   pagination has changed. Do not use `corrects` if the mathematical content
+   has not changed.
+
+6. **[O017-U04-H06]{#o017-u04-h06}.** The record must identify one execution,
+   not “the program in general,” and must retain the command or sequence of
+   procedures actually used. An appropriate scope statement is, for example:
+   “the five outputs show increasing values on the selected inputs and serve
+   as a diagnostic; divergence is established by the exact limit calculation
+   EV01.” Rerun status must not be `succeeded` before a second execution has
+   actually taken place.
+
+## Unit completion task {#o017-u04-completion-task}
+
+Assemble a **citation and provenance dossier** for the following synthetic
+packet. All IDs are nonpublic classroom IDs.
+
+::: {#o017-u04-completion-v1 .callout-warning title="Matrix Norm Notes, V1 — Proposition 2.6"}
+For every real $2\times2$ matrix, the Euclidean operator norm satisfies
+$\lVert A^2\rVert_2=\lVert A\rVert_2^2$.
+:::
+
+::: {#o017-u04-completion-correction .callout-note title="Correction C-2.6"}
+The equality in Proposition 2.6 does not hold in general. Replace it with
+$\lVert A^2\rVert_2\leq\lVert A\rVert_2^2$. There is no change to the
+definition $\lVert A\rVert_2=\sup_{x\ne0}\lVert Ax\rVert_2/\lVert x\rVert_2$.
+:::
+
+::: {#o017-u04-completion-v2 .callout-important title="Matrix Norm Notes, V2 — Proposition 2.6"}
+For every real $2\times2$ matrix, the Euclidean operator norm satisfies
+$\lVert A^2\rVert_2\leq\lVert A\rVert_2^2$.
+:::
+
+The dossier must contain:
+
+1. separate records for the work, V1, correction, V2, one partial copy/packet,
+   all three locators, and all directional relationships; explicitly state
+   that the packet is incomplete and link each locator to both its copy and
+   its version;
+2. two normalized claims with quantifiers, domain, and unambiguous norm
+   notation;
+3. a counterexample to V1 using
+   $A=\begin{pmatrix}0&1\\0&0\end{pmatrix}$: prove $A^2=0$ and
+   $\lVert A\rVert_2=1$, rather than merely stating software output;
+4. a proof of V2 directly from the operator-norm definition, showing
+   $\lVert A^2x\rVert_2\leq\lVert A\rVert_2\lVert Ax\rVert_2$ and then
+   taking the appropriate supremum;
+5. evidence objects, decisions with explicit scopes, and a
+   claim–locator–copy–version–work graph for both claims;
+6. one citation for discussing the history of the error and one for using
+   the valid result, with reasons for the choices;
+7. a list of metadata that is available, `unknown`, and `not applicable`,
+   without inventing a DOI, author, date, or checksum;
+8. a proposed computational provenance record for checking candidate
+   matrices, labelled `not yet executed` unless there is evidence of an
+   actual execution; and
+9. a statement of limits: explain why the example matrix refutes the
+   universal equality but does not show that the equality fails for every
+   matrix.
+
+### Rubric {#o017-u04-completion-rubric}
+
+Score each criterion 0, 1, or 2.
+
+::: {.o017-table-scroll aria-label="Unit 4 completion-task rubric" tabindex="0"}
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Identity and versions | work, version, and copy are conflated | some objects are separated | all objects, locators, and version relationships are explicit |
+| Claims and locations | claims are not normalized or lack locations | quantifiers/locations are partly complete | both claims are precise and linked to locations in their respective versions |
+| Mathematical audit | example or proof is incorrect | correct idea with gaps | the example's norm is calculated and submultiplicativity is fully proved |
+| Evidence provenance | citation is used as proof | some relationships/grounds are recorded | occurrence, refutation, proof, decision, and limits are separated |
+| Computational provenance | results or executions are invented | a template exists but scope/status is unclear | all minimum fields are present, status is honest, and empirical scope is bounded |
+| Uncertainty and exposition | metadata is guessed or history is overwritten | some missing fields are visible | missing data has a status, the correction preserves V1, and citations match their purposes |
+:::
+
+A passing score is at least 10 out of 12, with a score of 2 for
+**Mathematical audit**, **Evidence provenance**, and **Uncertainty and
+exposition**. Deleting V1 after finding a correction, treating V2 as true
+merely because it is newer, inventing metadata, or claiming an execution that
+did not take place requires revision even if the total score is sufficient.
+
+## Boundaries with B80 and other units {#o017-u04-boundary}
+
+This unit does not teach Python, SageMath, SymPy, or NumPy/SciPy syntax,
+reference-manager APIs, particular database schemas, Git commands, checksum
+generation, environment management, or test writing. Those implementation
+skills all belong to B80. This unit specifies only what information must be
+preserved and how to limit conclusions drawn from computational results.
+
+Unit 4 also does not repeat Unit 2's search strategies and authority matrix,
+Unit 3's gap reconstruction, Unit 5's full exposition writing, Unit 6's
+reproducibility package, or Unit 7's erratum format. The notebook created here
+will supply inputs to those units: it preserves identities and decisions,
+while later units teach the products that use them.
+
+```{=latex}
+\enlargethispage{2\baselineskip}
+```
+
+## Sources, provenance, changes, and rights {#o017-u04-provenance}
+
+The original Indonesian prose, claim–locator–version chain model, two-layer
+notebook, decision tables, integral and matrix-norm packets, counterexamples,
+proofs, exercises, answer guidance, completion task, and rubric in this unit
+are original O017 material by the O017 contributors, 2026, licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). This English
+translation retains that attribution and license.
+
+General concepts of citation metadata, work and version identifiers, and
+version relationships were reviewed and adapted in a bounded way from
+*The Turing Way* [@turingway2022; @turingwaycommitc98a], The Turing Way
+Community, at the fixed commit:
+
+[c98a0e6...131d1ce](https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce),
+specifically:
+
+- `book/website/communication/citable/citable-versioning.md`; and
+- `book/website/communication/citable/citable-metadata.md`.
+
+That donor material is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The concepts used
+have been summarized, bounded, reorganized, and contextualized; no donor
+sentences, images, or exercises were copied.
+
+The distinction between elements of computational provenance and per-result
+documentation was reviewed from *Research Software Engineering with Python*
+[@irving2021; @pyrsecommit62217] by Damien Irving, Kate Hertweck, Luke Johnston,
+Joel Ostblom, Charlotte Wickham, and Greg Wilson, at the fixed commit
+[62217e66...a3cf07](https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07),
+specifically `chapters/provenance.Rmd`. The selected local copy is:
+
+`selected-slice/provenance-selected.Rmd`
+
+The donor prose is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This unit copies no
+code, images, quotations, or external activities from the donor.
+
+All adaptations have been newly contextualized for mathematical source
+auditing and changed substantively. The Turing Way Community, the six authors
+of *Research Software Engineering with Python*, their publishers, and their
+affiliations **do not endorse, approve, or sponsor** O017.
+
+The calculus facts about the integral of $x^{\alpha-1}$ and the
+submultiplicativity of the operator norm are standard mathematical results.
+O017 does not claim to have discovered them; the proofs' wording and
+pedagogical roles are original to this unit. Frozen sources remain subject
+to their own rights. The CC BY-SA 4.0 license for original O017 material does
+not replace or relicense donor components.

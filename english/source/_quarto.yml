@@ -1,0 +1,63 @@
+project:
+  type: website
+  output-dir: ../build/html
+  resources:
+    - code/verify_mst_uniqueness.py
+    - code/u06_recurrence_witness.py
+    - code/expected-output.txt
+    - code/u06-expected-output.txt
+  render:
+    - index.qmd
+    - units/*.qmd
+    - wrapper/index.qmd
+
+website:
+  title: "Traceable Mathematical Work"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Home"
+      - href: units/01-membaca-argumen.qmd
+        text: "Unit 1"
+      - href: units/02-menelusuri-sumber.qmd
+        text: "Unit 2"
+      - href: units/03-merekonstruksi-pembuktian.qmd
+        text: "Unit 3"
+      - href: units/04-sitasi-provenance-catatan-sumber.qmd
+        text: "Unit 4"
+      - href: units/05-eksposisi-matematika.qmd
+        text: "Unit 5"
+      - href: units/06-komputasi-dapat-direproduksi.qmd
+        text: "Unit 6"
+      - href: units/07-errata-koreksi-batas-kepastian.qmd
+        text: "Unit 7"
+      - href: units/08-seminar-penelaah-tanggapan-kritik.qmd
+        text: "Unit 8"
+      - href: units/09-kontribusi-komunitas-portofolio.qmd
+        text: "Unit 9"
+      - href: wrapper/index.qmd
+        text: "Teaching and assessment"
+    tools:
+      - href: https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/en-v2026.08.31/traceable-mathematical-work-en-2026.08.31.pdf
+        icon: file-pdf
+        text: "English PDF"
+      - href: https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english
+        icon: github
+        text: "English source"
+      - href: https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/
+        icon: globe
+        text: "Bahasa Indonesia"
+
+lang: en
+
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme: default
+    css: styles.css
+    html-math-method: mathml
+    code-overflow: wrap
+    link-external-newwindow: true
+
+bibliography: references.bib

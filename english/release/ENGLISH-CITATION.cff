@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "Please cite this English-access edition; component licenses and donor credits remain as documented in ENGLISH_EDITION_RIGHTS.md and LICENSES.md."
+title: "Traceable Mathematical Work: complete English-access edition, O017 / D120"
+authors:
+  - name: "KokunoYumeto"
+version: "en2026.08.31"
+date-released: "2026-08-31"
+doi: "10.5281/zenodo.22209140"
+url: "https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/en/"
+repository-code: "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/en-v2026.08.31/english"
+abstract: >-
+  Complete English translation of the original nine-unit O017 / D120 course,
+  including 54 exercises, 54 answer guides, teaching and calibration material,
+  and an additive bilingual stable-ID backend. Produced with OpenAI Codex
+  gpt-5.6-sol, Ultra, at the human creator's instruction. Original expressive
+  material is CC BY-SA 4.0; donor content, software, runtime and fonts retain
+  separate component licenses. Calibration does not demonstrate real learner
+  performance or community participation. The English-additive version
+  preserves the inherited Indonesian files in the same concept lineage.
+keywords:
+  - mathematics
+  - mathematical writing
+  - reproducibility
+  - provenance
+  - research practice
+  - English
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22051866"
+    description: "Shared preservation concept, not a language-specific version"
+  - type: doi
+    value: "10.5281/zenodo.22073823"
+    description: "Preserved Indonesian source edition, version 2026.08.24"

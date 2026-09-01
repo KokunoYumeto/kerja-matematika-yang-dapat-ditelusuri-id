@@ -1,0 +1,310 @@
+{
+  "schema": "o017-en-indonesian-baseline-v1",
+  "files": [
+    {
+      "path": "backend/manifest.csv",
+      "bytes": 10040,
+      "sha256": "04b29bb4c7c724b835c3a0fe2c09c12d4e1dd7a50183679cd6846641c8586485"
+    },
+    {
+      "path": "backend/records.jsonl",
+      "bytes": 361144,
+      "sha256": "a5c67e3f14cfc03bd0cd3f3ce6628fc7161876a752ae470fe9aeea8401969bbd"
+    },
+    {
+      "path": "backend/relations-ledger.csv",
+      "bytes": 91304,
+      "sha256": "a5e59b98742ba4d10b201e9a538461bcb5682c0f03783e0c06cd12de6684a385"
+    },
+    {
+      "path": "backend/relations.csv",
+      "bytes": 51711,
+      "sha256": "5629e530cfb0ba7908aa0d41e1a34058558b4f4a6111efd554e38ec9ba32fe58"
+    },
+    {
+      "path": "backend/schema.json",
+      "bytes": 1178,
+      "sha256": "970194ee4aed6a61724a6036e540b31a3cc93aeaed61b839781bd1200e825b1d"
+    },
+    {
+      "path": "backend/semantic-wrapper-v1.baseline.json",
+      "bytes": 1321,
+      "sha256": "0bbdee88209c17075a9a86035a72f9105f3b6fb4fb271f0af10ac2a4014f80a4"
+    },
+    {
+      "path": "backend/semantic-wrapper-v1.dataset.json",
+      "bytes": 7715,
+      "sha256": "da4b241c357975c53e8b1a9bdcaaea6bb6f396a15fc7165909c7f2a0d9c36c50"
+    },
+    {
+      "path": "backend/semantic-wrapper-v1.localizations.jsonl",
+      "bytes": 220021,
+      "sha256": "a564b544c4dd9393e5590fe157b713e260a3fd35d04226bd3eee39d010b45d01"
+    },
+    {
+      "path": "backend/semantic-wrapper-v1.records.jsonl",
+      "bytes": 206179,
+      "sha256": "828ace8162edb3bbe5e8968fc4e7c9c05dddcd854cd5f5d080486996b589a5a1"
+    },
+    {
+      "path": "backend/semantic-wrapper-v1.relations-ledger.csv",
+      "bytes": 226911,
+      "sha256": "458d19a229fc6d3677a8e9dac677fa5decfa4ee9a65a92978d02f5f32fedc1c2"
+    },
+    {
+      "path": "backend/semantic-wrapper-v1.schema.json",
+      "bytes": 20503,
+      "sha256": "73c23b5012dc95cb8cdf3823cde587f0422ae1787fe94b9b2361b81843c6c818"
+    },
+    {
+      "path": "backend/SEMANTIC_WRAPPER_V1.md",
+      "bytes": 3008,
+      "sha256": "a84afb30bd5e162a8d88365d883920799e921f6b5550d19b4f76ed4827f3bc40"
+    },
+    {
+      "path": "delivery/calibration/01-real-source-search.md",
+      "bytes": 7200,
+      "sha256": "6c4bb64185822f3d8f08e2f39638c5be6ea51b157cd6ca23b0b2e334b7a47a56"
+    },
+    {
+      "path": "delivery/calibration/02-seminar-supervised-equivalent.md",
+      "bytes": 5884,
+      "sha256": "3282557576c3d7e83d4fc41d94fd990b20ae548c522dd6590e2030239f722101"
+    },
+    {
+      "path": "delivery/calibration/03-independent-referee-cycle.md",
+      "bytes": 5343,
+      "sha256": "347bbf2089d155efc281f847294d9d119a2833230c144ea517648cbb8e6ee30a"
+    },
+    {
+      "path": "delivery/calibration/04-real-source-erratum-dossier.md",
+      "bytes": 5345,
+      "sha256": "c76f61aea5e6104d360dbdd3ca7fcaba408a496ddc381f5ce77f3b16ef041355"
+    },
+    {
+      "path": "delivery/calibration/05-externally-reviewed-local.md",
+      "bytes": 5616,
+      "sha256": "36973f0241a17230773168466a83ab74cdca854427b75c62d356043d41f85cb0"
+    },
+    {
+      "path": "delivery/calibration/calibration-package.json",
+      "bytes": 14730,
+      "sha256": "7440fee96a3e2772d2215ca6c937a407d1e694be9a167df6dd39eca8844c8f9f"
+    },
+    {
+      "path": "delivery/calibration/evidence-manifest.csv",
+      "bytes": 1471,
+      "sha256": "00046477b42a6cfd138bac4c1b996044bf1a336737e9d7edbdc1d7c5db0d38a8"
+    },
+    {
+      "path": "delivery/definitions/evidence-types.csv",
+      "bytes": 5350,
+      "sha256": "3cd80dc0f797b97f472ef558b4df0bac683857d374aab55d8f3a5d87756a71df"
+    },
+    {
+      "path": "delivery/definitions/lifecycle-statuses.csv",
+      "bytes": 3164,
+      "sha256": "2e4e29c57c928477a07f170fe497440c61b723c203efbd9e464213b040c06cf8"
+    },
+    {
+      "path": "delivery/definitions/o017-delivery-definitions.json",
+      "bytes": 9343,
+      "sha256": "9ce19bde4aada7a17f123f8cbf6e8dda59973867d4dc15a9b13db65e9ed5701d"
+    },
+    {
+      "path": "delivery/definitions/rubric-criteria.csv",
+      "bytes": 4732,
+      "sha256": "e122656f9d3d9e7fc57fef8db99ea8808b05d97c6c358b939a170cd4f949f93f"
+    },
+    {
+      "path": "delivery/FILE_MANIFEST.csv",
+      "bytes": 2121,
+      "sha256": "e2775f32239566c6e3584f92d3d60700f47ddc435b1aa6f0a6997a96da685595"
+    },
+    {
+      "path": "delivery/README.md",
+      "bytes": 1866,
+      "sha256": "53d514b3d977b3b0b9aa99ba82e2d88c77e36e7d7bc36ee3605f6f5d9066d700"
+    },
+    {
+      "path": "delivery/schema/o017-delivery.schema.json",
+      "bytes": 15577,
+      "sha256": "7d870b3612b986d75da036a73adb13945b2d45ae8b236ab6e681358530d2fc1e"
+    },
+    {
+      "path": "delivery/VALIDATION.json",
+      "bytes": 2276,
+      "sha256": "7b1f500fe297217da762ea3e2f31b159c63338551df42568f5550c5f806fac10"
+    },
+    {
+      "path": "licenses/AMSFonts-3.04-OFL.txt",
+      "bytes": 12521,
+      "sha256": "c3bf4641d82fcfcaf9fe0b1cf02fc05dd8e9ff064ddda4b58bc1f658717f2465"
+    },
+    {
+      "path": "licenses/AMSFonts-3.04-README.txt",
+      "bytes": 14650,
+      "sha256": "17ca44f214cb44fd3cc8d29e4da90f28ad8850938eb4c242cb80e62baea0a24e"
+    },
+    {
+      "path": "licenses/APACHE-2.0.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+      "bytes": 1549,
+      "sha256": "465b9cc2950960b0f70cca23b57f10a463f0d4a05df30a8aa3b3d43fded5b0c5"
+    },
+    {
+      "path": "licenses/FONT_COMPONENT_PROVENANCE.json",
+      "bytes": 12065,
+      "sha256": "7fb41bbf8e9b0ca423418aa53220378fec9258b46b50d9980053a4905ab75e92"
+    },
+    {
+      "path": "licenses/GPL-3.0.txt",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "licenses/GUST-FONT-LICENSE-1.0.txt",
+      "bytes": 1378,
+      "sha256": "2f9a825a9e7dba348e1ae6948205adcd642bffbb424b39887b65eba9a954c74e"
+    },
+    {
+      "path": "licenses/LATIN-MODERN-MATH-1.959-README.txt",
+      "bytes": 4589,
+      "sha256": "31fe626862783454878e4fb82192d92f30a62fa46d2d547bdde7aa92a3ada90a"
+    },
+    {
+      "path": "licenses/MIT.txt",
+      "bytes": 1036,
+      "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+    },
+    {
+      "path": "licenses/SIL-OFL-1.1.txt",
+      "bytes": 4600,
+      "sha256": "82585c35736ce06aae32a5678143b93b4714ac1a670f72f0aea9effefbb6f20c"
+    },
+    {
+      "path": "LICENSES.md",
+      "bytes": 10492,
+      "sha256": "529795062db7674bf5f6a9b99ddd9f6f99810eaa80c65f266323c2bdb4627eb8"
+    },
+    {
+      "path": "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf",
+      "bytes": 590742,
+      "sha256": "2bfda5d095913829da095ac930d8f1aa61613bfb46c2375970183cb77acdefbb"
+    },
+    {
+      "path": "RELEASE_PROVENANCE.csv",
+      "bytes": 1140,
+      "sha256": "1d0782bb417e6cb79120e9990cadbef8c9bde0d013dc4b96ba5aa1896e16e436"
+    },
+    {
+      "path": "source/_quarto-pdf.yml",
+      "bytes": 1737,
+      "sha256": "08f25992a1e05058c5d3afd8750b8ad781fae5dcedb6ef92424fe81425592780"
+    },
+    {
+      "path": "source/_quarto.yml",
+      "bytes": 2297,
+      "sha256": "2f2bbeabeb7e37cf53fa2024d4f3017efa471a460a9fb5e9b3a1bf86099603a9"
+    },
+    {
+      "path": "source/code/expected-output.txt",
+      "bytes": 107,
+      "sha256": "d975260b0ca85297a8db7f303c760e0b80486103e09d76c8e089c019d7f55d51"
+    },
+    {
+      "path": "source/code/u06-expected-output.txt",
+      "bytes": 1872,
+      "sha256": "4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112"
+    },
+    {
+      "path": "source/code/u06_recurrence_witness.py",
+      "bytes": 3505,
+      "sha256": "9effb4dd4d17ce6b26fd108585ff0adc5110d8903c9c283b56a909613e7aa93d"
+    },
+    {
+      "path": "source/code/verify_mst_uniqueness.py",
+      "bytes": 3053,
+      "sha256": "651f1c44f17385bc7ac44791634583a95a6ae86e05ef6c6ce1064052cd5dc761"
+    },
+    {
+      "path": "source/index.qmd",
+      "bytes": 8118,
+      "sha256": "788aa4213041b4f641d37470c1082fd44027e7d335da3ed5705010cd81728e3d"
+    },
+    {
+      "path": "source/pdf-header.tex",
+      "bytes": 1404,
+      "sha256": "1404a821991ed64cee49d722360b39aa50ed63f5ae4e95d9a17edfc2f51ed094"
+    },
+    {
+      "path": "source/references.bib",
+      "bytes": 2061,
+      "sha256": "f6c7303e35a84a431d4c322dd309d3211b9f4a547f3787a4b3c20dbab42d3451"
+    },
+    {
+      "path": "source/styles.css",
+      "bytes": 1392,
+      "sha256": "50b6eb37ed443a2e17a6dd701808d3dd1eaca7e024b202048cf5385f878cbe00"
+    },
+    {
+      "path": "source/units/01-membaca-argumen.qmd",
+      "bytes": 11540,
+      "sha256": "0d149ca6565236a18448a262493ee21d96d4010a4c8750a6a09bcf3de488d688"
+    },
+    {
+      "path": "source/units/02-menelusuri-sumber.qmd",
+      "bytes": 24219,
+      "sha256": "7da45e3e3fb2c9c25e7dd10bdb5eb108846c1443dd3f3e66418e0c07bdb94d9a"
+    },
+    {
+      "path": "source/units/03-merekonstruksi-pembuktian.qmd",
+      "bytes": 36624,
+      "sha256": "b4e3ed7fac5d9a18c1c90df6a0da1cc5d7f9c309c2fe701ab6996e902793e1bf"
+    },
+    {
+      "path": "source/units/04-sitasi-provenance-catatan-sumber.qmd",
+      "bytes": 38589,
+      "sha256": "47547d4d18db7d3719b14ce3914a017d5ef741f01fc31f928365fe1cb0f1fcbb"
+    },
+    {
+      "path": "source/units/05-eksposisi-matematika.qmd",
+      "bytes": 37364,
+      "sha256": "ef5779b009bf1fe32b66af53ea64a89fd7eb51a240f7288bc4328c64d16a7006"
+    },
+    {
+      "path": "source/units/06-komputasi-dapat-direproduksi.qmd",
+      "bytes": 43409,
+      "sha256": "56715993b49ffb98cab9b4bf4a5bff85be040f1a85ba2484b83e536f81c09f0e"
+    },
+    {
+      "path": "source/units/07-errata-koreksi-batas-kepastian.qmd",
+      "bytes": 52178,
+      "sha256": "dac211708a859a8bf93f800395ff252caa4554c30c0f3994356ab98fa6a24c91"
+    },
+    {
+      "path": "source/units/08-seminar-penelaah-tanggapan-kritik.qmd",
+      "bytes": 49752,
+      "sha256": "6c11eeede678ffd006924d0b751ef14efa033504f411707446fbbe3fc890b84a"
+    },
+    {
+      "path": "source/units/09-kontribusi-komunitas-portofolio.qmd",
+      "bytes": 44755,
+      "sha256": "ad914ff7c17775ca3a9d0724d07b35157fdb47237dc1749363ff152b32cd554e"
+    },
+    {
+      "path": "source/wrapper/index.qmd",
+      "bytes": 13235,
+      "sha256": "eafa643277f038437f7faba6bafd5a0ed2fafe02a442ddddcd6b895bd1e947a1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 4766,
+      "sha256": "b55654476b7a7f895b941a69f3cbb7e60a68cd9f7e0dc9b7277eed2594746f84"
+    }
+  ]
+}

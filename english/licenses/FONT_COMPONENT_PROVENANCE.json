@@ -1,0 +1,251 @@
+{
+  "schema": "o017-font-component-provenance-v2",
+  "audited_pdf": {
+    "path": "output/pdf/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf",
+    "bytes": 590742,
+    "sha256": "2bfda5d095913829da095ac930d8f1aa61613bfb46c2375970183cb77acdefbb",
+    "pages": 133,
+    "font_objects": 16,
+    "all_embedded": true,
+    "full_audit": "qa/PDF_FONT_AND_TAG_AUDIT_2026.08.24.json"
+  },
+  "component_manifest_algorithm": "Sort by PDF BaseFont, embedded stream SHA-256, then PDF object identity; for each object encode BaseFont, TAB, embedded stream byte count, TAB, embedded stream SHA-256, LF as UTF-8; SHA-256 the concatenation.",
+  "components": [
+    {
+      "resource_id": "O017-FONT-LM-TEXT",
+      "component": "Latin Modern text fonts",
+      "version": "2.004",
+      "embedded_pdf_objects": 13,
+      "embedded_stream_bytes": 78578,
+      "component_manifest_sha256": "6fd1a1f09ea3c09120a558ba6e5709de9f44aaba1e502622095f02e3eb4ed57c",
+      "base_fonts": [
+        "/CFMBFB+LMRoman9-Bold-Identity-H",
+        "/EGLSXS+LMMono10-Regular-Identity-H",
+        "/FWPYUO+LMRoman10-Italic-Identity-H",
+        "/GCYTVB+LMSans10-Bold-Identity-H",
+        "/IXWMJS+LMRoman12-Regular-Identity-H",
+        "/JLZJML+LMRoman7-Regular-Identity-H",
+        "/KDFUFA+LMRoman9-Italic-Identity-H",
+        "/SXFKEC+LMRoman10-BoldItalic-Identity-H",
+        "/TZQTTS+LMMonoLt10-Bold-Identity-H",
+        "/VULLSM+LMMono9-Regular-Identity-H",
+        "/WTGFWZ+LMRoman10-Bold-Identity-H",
+        "/WZNLEL+LMRoman10-Regular-Identity-H",
+        "/ZTRMKA+LMRoman9-Regular-Identity-H"
+      ],
+      "embedded_streams": [
+        {
+          "object": "9:0",
+          "base_font": "/CFMBFB+LMRoman9-Bold-Identity-H",
+          "embedded_stream_bytes": 4718,
+          "embedded_stream_sha256": "959ad029a9de531596969013659a6fc80206092842b8890597d5983e2e24d4c3",
+          "to_unicode": true
+        },
+        {
+          "object": "214:0",
+          "base_font": "/EGLSXS+LMMono10-Regular-Identity-H",
+          "embedded_stream_bytes": 9645,
+          "embedded_stream_sha256": "2fe0a0c37d6471369fead260c557f0846bb0f4a77a61ff8e49fbd3e793dc7fd1",
+          "to_unicode": true
+        },
+        {
+          "object": "237:0",
+          "base_font": "/FWPYUO+LMRoman10-Italic-Identity-H",
+          "embedded_stream_bytes": 8574,
+          "embedded_stream_sha256": "ddcfd5cade32df10754dbc93bfa7f82d6e7d86644cea999fbf796827b0837327",
+          "to_unicode": true
+        },
+        {
+          "object": "5:0",
+          "base_font": "/GCYTVB+LMSans10-Bold-Identity-H",
+          "embedded_stream_bytes": 8088,
+          "embedded_stream_sha256": "1d1855273a0ce5ace08b82860116d530f8188699c55a72fdd9f88a12b366cfcf",
+          "to_unicode": true
+        },
+        {
+          "object": "7:0",
+          "base_font": "/IXWMJS+LMRoman12-Regular-Identity-H",
+          "embedded_stream_bytes": 2341,
+          "embedded_stream_sha256": "b2d28c9346cc61726e31c9d934cbe86e8de95257c474b532df9ba73cf8721a38",
+          "to_unicode": true
+        },
+        {
+          "object": "361:0",
+          "base_font": "/JLZJML+LMRoman7-Regular-Identity-H",
+          "embedded_stream_bytes": 888,
+          "embedded_stream_sha256": "c9c52f85e6728edbf9022a16d06fbd04ac1fe9e2497f6091ea4c72f3e49813a5",
+          "to_unicode": true
+        },
+        {
+          "object": "276:0",
+          "base_font": "/KDFUFA+LMRoman9-Italic-Identity-H",
+          "embedded_stream_bytes": 4642,
+          "embedded_stream_sha256": "197ef52432e943d96b9ab6b64a0ae19880c0902ec912704db5e5d51c2268dc47",
+          "to_unicode": true
+        },
+        {
+          "object": "356:0",
+          "base_font": "/SXFKEC+LMRoman10-BoldItalic-Identity-H",
+          "embedded_stream_bytes": 875,
+          "embedded_stream_sha256": "102b9411ebe7c2e74fd199796ee690a4085d653f6fe7ebc7d39f00af16a10dfa",
+          "to_unicode": true
+        },
+        {
+          "object": "585:0",
+          "base_font": "/TZQTTS+LMMonoLt10-Bold-Identity-H",
+          "embedded_stream_bytes": 993,
+          "embedded_stream_sha256": "85959eca7dbeae1bd257148a509477c7f707749e695d59214831da665cb28f73",
+          "to_unicode": true
+        },
+        {
+          "object": "19:0",
+          "base_font": "/VULLSM+LMMono9-Regular-Identity-H",
+          "embedded_stream_bytes": 7883,
+          "embedded_stream_sha256": "986f573f82eda44c6d272ee36ae08c25d8f224b57dfc55af5b212b99f516bd27",
+          "to_unicode": true
+        },
+        {
+          "object": "208:0",
+          "base_font": "/WTGFWZ+LMRoman10-Bold-Identity-H",
+          "embedded_stream_bytes": 8678,
+          "embedded_stream_sha256": "d69777e4d2fde0094bbe525194201887583bfbf923306665dcb847a5d449cfeb",
+          "to_unicode": true
+        },
+        {
+          "object": "24:0",
+          "base_font": "/WZNLEL+LMRoman10-Regular-Identity-H",
+          "embedded_stream_bytes": 11045,
+          "embedded_stream_sha256": "daefdae1c5558c4b1d1830ad11e8e2fc7fcc4ef581424f9f2b21b0c3322c053d",
+          "to_unicode": true
+        },
+        {
+          "object": "11:0",
+          "base_font": "/ZTRMKA+LMRoman9-Regular-Identity-H",
+          "embedded_stream_bytes": 10208,
+          "embedded_stream_sha256": "0ab8edd0c48d1e012e62f1e432bde0e04cad7234bd8886591d871d981b6f63ed",
+          "to_unicode": true
+        }
+      ],
+      "copyright_notice": "Copyright 2003, 2009 B. Jackowski and J. M. Nowacki (on behalf of TeX users groups).",
+      "license": "GUST Font License 1.0: LPPL 1.3c or later, plus the nonbinding font/file-name change request",
+      "official_package": "https://ctan.org/pkg/lm",
+      "official_license_url": "https://www.tug.org/fonts/licenses/GUST-FONT-LICENSE.txt",
+      "official_license_download_bytes": 1377,
+      "official_license_download_sha256": "49ea6cb9257bbee0a3979c48a774cd221550ac1c20c95549efe45fc99cc18050",
+      "local_license": "licenses/GUST-FONT-LICENSE-1.0.txt",
+      "local_license_bytes": 1378,
+      "local_license_sha256": "2f9a825a9e7dba348e1ae6948205adcd642bffbb424b39887b65eba9a954c74e",
+      "local_transformation": "Official UTF-8 text preserved verbatim with one terminal LF added."
+    },
+    {
+      "resource_id": "O017-FONT-LM-MATH",
+      "component": "Latin Modern Math",
+      "version": "1.959",
+      "embedded_pdf_objects": 1,
+      "embedded_stream_bytes": 21454,
+      "component_manifest_sha256": "45849836510f6f9e1292081c5698fb7d2968438804db7e21524c6e6ac111b1ec",
+      "base_fonts": [
+        "/GMLBJW+LatinModernMath-Regular-Identity-H"
+      ],
+      "embedded_streams": [
+        {
+          "object": "252:0",
+          "base_font": "/GMLBJW+LatinModernMath-Regular-Identity-H",
+          "embedded_stream_bytes": 21454,
+          "embedded_stream_sha256": "fb089ce9c48d7867434b37d595c1ca7eacceafdce4f3fa9786aba4d922bc7e2d",
+          "to_unicode": true
+        }
+      ],
+      "copyright_notice": "Copyright 2012--2014 for the Latin Modern math extensions by B. Jackowski, P. Strzelczyk and P. Pianowski (on behalf of TeX Users Groups).",
+      "license": "GUST Font License 1.0: LPPL 1.3c or later, plus the nonbinding font/file-name change request",
+      "official_package": "https://ctan.org/pkg/lm-math",
+      "official_readme_url": "https://mirrors.ctan.org/fonts/lm-math/README",
+      "official_readme_download_bytes": 4588,
+      "official_readme_download_sha256": "e6fdd5fb44b656146fa988d191f58901c09a347d3f4fbaa3b45b24a6ad7ec30b",
+      "local_readme": "licenses/LATIN-MODERN-MATH-1.959-README.txt",
+      "local_readme_bytes": 4589,
+      "local_readme_sha256": "31fe626862783454878e4fb82192d92f30a62fa46d2d547bdde7aa92a3ada90a",
+      "local_readme_transformation": "Official UTF-8 text preserved verbatim with one terminal LF added.",
+      "local_license": "licenses/GUST-FONT-LICENSE-1.0.txt",
+      "local_license_sha256": "2f9a825a9e7dba348e1ae6948205adcd642bffbb424b39887b65eba9a954c74e"
+    },
+    {
+      "resource_id": "O017-FONT-FA5FREE",
+      "component": "Font Awesome 5 Free Solid font",
+      "version": "5.15.4",
+      "embedded_pdf_objects": 1,
+      "embedded_stream_bytes": 832,
+      "component_manifest_sha256": "ac78d01aaa996f4f37947984dbfc1a09c8b87f4b89e494df3b264541fcf53c5b",
+      "base_fonts": [
+        "/HTTFVG+FontAwesome5Free-Solid-Identity-H"
+      ],
+      "embedded_streams": [
+        {
+          "object": "206:0",
+          "base_font": "/HTTFVG+FontAwesome5Free-Solid-Identity-H",
+          "embedded_stream_bytes": 832,
+          "embedded_stream_sha256": "70cabc36d1557973c5b843fcfb7bb97602d0a240e583b8c72d8b295c6f561023",
+          "to_unicode": false
+        }
+      ],
+      "copyright_notice": "Copyright (c) Font Awesome.",
+      "license": "SIL Open Font License 1.1 for the font file",
+      "official_release": "https://github.com/FortAwesome/Font-Awesome/tree/5.15.4",
+      "official_component_license_url": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/5.15.4/LICENSE.txt",
+      "official_component_license_download_bytes": 1548,
+      "official_component_license_download_sha256": "e779748dfe75e84f974df3c7bc07f842011a100159158b0f1f49b2f2a5a515cb",
+      "local_component_license": "licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+      "local_component_license_bytes": 1549,
+      "local_component_license_sha256": "465b9cc2950960b0f70cca23b57f10a463f0d4a05df30a8aa3b3d43fded5b0c5",
+      "local_component_license_transformation": "Official UTF-8 text preserved verbatim with one terminal LF added.",
+      "official_ofl_url": "https://openfontlicense.org/documents/OFL.txt",
+      "official_ofl_download_bytes": 4599,
+      "official_ofl_download_sha256": "1d361a8f8e8ce6e68457dcd93fb56e162e6baa3bbb7e7573a290d44399f6b57e",
+      "local_ofl": "licenses/SIL-OFL-1.1.txt",
+      "local_ofl_bytes": 4600,
+      "local_ofl_sha256": "82585c35736ce06aae32a5678143b93b4714ac1a670f72f0aea9effefbb6f20c",
+      "local_ofl_transformation": "Official UTF-8 text preserved verbatim with one terminal LF added."
+    },
+    {
+      "resource_id": "O017-FONT-MSAM10",
+      "component": "AMSFonts MSAM10 Type 1 font",
+      "version": "003.002 (within AMSFonts 3.04)",
+      "embedded_pdf_objects": 1,
+      "embedded_stream_bytes": 337,
+      "component_manifest_sha256": "c748fa4e040207df6cd590bfa078b18e4ec88c519e36a4bb5a3436ef76abf96a",
+      "base_fonts": [
+        "/SGQQVU+MSAM10"
+      ],
+      "embedded_streams": [
+        {
+          "object": "484:0",
+          "base_font": "/SGQQVU+MSAM10",
+          "embedded_stream_bytes": 337,
+          "embedded_stream_sha256": "d44aef400f66bfd460a0129783a950d56f2047d18d4bb17e1009e6ffafda26e2",
+          "to_unicode": true
+        }
+      ],
+      "copyright_notice": "Copyright (c) 1997, 2009, American Mathematical Society (http://www.ams.org). All Rights Reserved.",
+      "reserved_font_name": "msam10",
+      "license": "SIL Open Font License 1.1",
+      "official_package": "https://ctan.org/pkg/amsfonts",
+      "official_readme_url": "https://mirrors.ctan.org/fonts/amsfonts/README",
+      "official_readme_download_bytes": 14649,
+      "official_readme_download_sha256": "2e2ced3494d3e5f04345804b85c1acb67c23bdd742f3e71f8772f768a59ed451",
+      "local_readme": "licenses/AMSFonts-3.04-README.txt",
+      "local_readme_bytes": 14650,
+      "local_readme_sha256": "17ca44f214cb44fd3cc8d29e4da90f28ad8850938eb4c242cb80e62baea0a24e",
+      "official_package_ofl_url": "https://mirrors.ctan.org/fonts/amsfonts/doc/OFL.txt",
+      "official_package_ofl_download_bytes": 12520,
+      "official_package_ofl_download_sha256": "aa783fdd47e92743bafe79277ac4067d20339344dc5b64a09c2d0f869b2999dc",
+      "local_package_ofl": "licenses/AMSFonts-3.04-OFL.txt",
+      "local_package_ofl_bytes": 12521,
+      "local_package_ofl_sha256": "c3bf4641d82fcfcaf9fe0b1cf02fc05dd8e9ff064ddda4b58bc1f658717f2465",
+      "local_text_transformation": "Each official UTF-8 text was preserved verbatim with one terminal LF added."
+    }
+  ],
+  "official_accessibility_sources": [
+    "https://www.w3.org/TR/WCAG20-TECHS/pdf",
+    "https://www.w3.org/WAI/WCAG22/Techniques/"
+  ]
+}

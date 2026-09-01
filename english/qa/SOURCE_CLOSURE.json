@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "units": [
+    {
+      "unit_id": "O017-U01",
+      "path": "source/units/01-membaca-argumen.qmd",
+      "sha256": "7b82610754105300ce25d4b93a380f46e63404f11a777695bc78b9959a05ad6e",
+      "bytes": 11723,
+      "anchors": 30,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "0d149ca6565236a18448a262493ee21d96d4010a4c8750a6a09bcf3de488d688"
+    },
+    {
+      "unit_id": "O017-U02",
+      "path": "source/units/02-menelusuri-sumber.qmd",
+      "sha256": "0e978e6275105be29614cdd2137e93b417552753e10e37448d7835775cf0d97f",
+      "bytes": 24381,
+      "anchors": 47,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "7da45e3e3fb2c9c25e7dd10bdb5eb108846c1443dd3f3e66418e0c07bdb94d9a"
+    },
+    {
+      "unit_id": "O017-U03",
+      "path": "source/units/03-merekonstruksi-pembuktian.qmd",
+      "sha256": "8bf21b23d3815d2d8ec9acf96baa41c72c56914882a222da3953c873a901164f",
+      "bytes": 36723,
+      "anchors": 50,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "b4e3ed7fac5d9a18c1c90df6a0da1cc5d7f9c309c2fe701ab6996e902793e1bf"
+    },
+    {
+      "unit_id": "O017-U04",
+      "path": "source/units/04-sitasi-provenance-catatan-sumber.qmd",
+      "sha256": "909c0c37beb6b4377b9e2f614ef495bb4eb653a03118725a30754b5ebd908cde",
+      "bytes": 39614,
+      "anchors": 50,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "47547d4d18db7d3719b14ce3914a017d5ef741f01fc31f928365fe1cb0f1fcbb"
+    },
+    {
+      "unit_id": "O017-U05",
+      "path": "source/units/05-eksposisi-matematika.qmd",
+      "sha256": "71bcbeefbc24faa8b2ee7fa39c951bcdcbcc252c3149c4e7d5a26b982056a700",
+      "bytes": 37588,
+      "anchors": 57,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "ef5779b009bf1fe32b66af53ea64a89fd7eb51a240f7288bc4328c64d16a7006"
+    },
+    {
+      "unit_id": "O017-U06",
+      "path": "source/units/06-komputasi-dapat-direproduksi.qmd",
+      "sha256": "62fc9849e59567a373509ca224068eb5d12566155d92632508c200c25616a922",
+      "bytes": 44009,
+      "anchors": 50,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "56715993b49ffb98cab9b4bf4a5bff85be040f1a85ba2484b83e536f81c09f0e"
+    },
+    {
+      "unit_id": "O017-U07",
+      "path": "source/units/07-errata-koreksi-batas-kepastian.qmd",
+      "sha256": "e9b3febc9037cb0b10e0b36e7f9b6ef938be82a65c4a0ef7f1140d9ab8e48af9",
+      "bytes": 53242,
+      "anchors": 62,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "dac211708a859a8bf93f800395ff252caa4554c30c0f3994356ab98fa6a24c91"
+    },
+    {
+      "unit_id": "O017-U08",
+      "path": "source/units/08-seminar-penelaah-tanggapan-kritik.qmd",
+      "sha256": "d43a6cdf4f9b4e4373072603706b65581d87ef56d083e7d076ec8ee5886eb52c",
+      "bytes": 50894,
+      "anchors": 66,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "6c11eeede678ffd006924d0b751ef14efa033504f411707446fbbe3fc890b84a"
+    },
+    {
+      "unit_id": "O017-U09",
+      "path": "source/units/09-kontribusi-komunitas-portofolio.qmd",
+      "sha256": "2a54098da695444d055fca4298a52a5df4658998d6bce45ae2580fc788f107b5",
+      "bytes": 45596,
+      "anchors": 49,
+      "exercises": 6,
+      "guidance_answers": 6,
+      "original_sha256": "ad914ff7c17775ca3a9d0724d07b35157fdb47237dc1749363ff152b32cd554e"
+    }
+  ],
+  "unit_count": 9,
+  "exercise_count": 54,
+  "guidance_count": 54,
+  "indonesian_baseline_files_checked": 61,
+  "indonesian_baseline_preserved": true,
+  "baseline_note": "External originals checked where available; standalone rebuild uses the frozen inventory, not an unperformed original-byte comparison."
+}

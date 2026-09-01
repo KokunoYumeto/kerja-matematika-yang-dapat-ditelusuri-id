@@ -1,0 +1,49 @@
+{
+  "encoding": "UTF-8",
+  "entity_classes": [
+    "program",
+    "course",
+    "resource",
+    "edition",
+    "unit",
+    "prerequisite",
+    "concept",
+    "segment",
+    "term",
+    "definition",
+    "theorem",
+    "proof",
+    "example",
+    "counterexample",
+    "exercise",
+    "solution",
+    "citation",
+    "source",
+    "asset",
+    "relation",
+    "rights",
+    "qa_event",
+    "artifact",
+    "correction"
+  ],
+  "id_policy": "stable locale-neutral IDs; locale is an edition/field property",
+  "record_serialization": "one canonical compact JSON object per LF-terminated line",
+  "relation_columns": [
+    "source",
+    "predicate",
+    "target"
+  ],
+  "relation_count_semantics": "relation_count is the number of all issued relations retained in records.jsonl and relations-ledger.csv",
+  "relation_ledger_columns": [
+    "id",
+    "source",
+    "predicate",
+    "target",
+    "status",
+    "evidence_kind",
+    "superseded_by",
+    "correction_id"
+  ],
+  "relation_status_policy": "superseded relations preserve their issued ID/triple in the ledger and records, while relations.csv exposes only the active semantic graph",
+  "schema": "o017-backend-envelope-v2"
+}

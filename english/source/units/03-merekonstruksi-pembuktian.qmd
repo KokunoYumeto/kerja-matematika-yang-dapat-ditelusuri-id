@@ -1,0 +1,802 @@
+---
+title: "Unit 3 — Reconstructing Abbreviated or Omitted Proofs"
+subtitle: "From a detected gap to a minimal, auditable argument"
+description: "A practice unit on freezing a target, auditing quantifiers and domains, constructing a dependency graph, retrieving the right lemmas, and honestly closing or reporting proof gaps."
+---
+
+## Learning outcomes {#o017-u03-outcomes}
+
+This unit has the stable identifier **O017-U03**. After completing it, you
+will be able to:
+
+1. freeze the claim to be reconstructed without silently adding or removing
+   hypotheses;
+2. expand the quantifiers, domains, and definitions that determine the form
+   of the proof target;
+3. turn an abbreviated passage of a proof into a list of obligations with
+   clear inputs and outputs;
+4. draw a dependency graph connecting the target, lemmas, definitions, and
+   hypotheses;
+5. retrieve a lemma by its mathematical contract, then check every one of
+   its hypotheses in the context you are reading;
+6. bring forward planning from the hypotheses together with backward
+   planning from the conclusion;
+7. write a minimally sufficient reconstruction—complete enough to audit,
+   without turning a single step into a new textbook; and
+8. distinguish gaps that have been closed, gaps conditional on a reference,
+   and gaps that remain unresolved.
+
+::: {.callout-note title="Prerequisites and scope"}
+Unit 1 introduced reconstruction by separating an argument into definitions,
+assumptions, claims, justifications, and open tasks. Unit 2 taught how to
+identify the source and version being read. Unit 3 develops that practice
+systematically: types and quantifiers are frozen, obligations are organized
+into a dependency graph, lemmas are retrieved through their contracts, and
+details are tested through a minimality audit. The D–A–K–J–T labels and the
+minimum spanning tree case from Unit 1 are not taught again here.
+
+Readers are assumed to know functions, sets, preimages, topological spaces,
+continuity, and the definition of compactness through open covers. All case
+excerpts are synthetic material created for this unit.
+:::
+
+```{=latex}
+\Needspace{6\baselineskip}
+```
+
+## The reconstruction problem: not guessing the author's intention {#o017-u03-reconstruction-problem}
+
+Consider the following synthetic excerpt.
+
+> Let $K$ be compact and $f:X\to Y$ continuous. Every open cover of
+> $f[K]$ pulls back to an open cover of $K$. Take a finite subcover;
+> its image gives a finite subcover of $f[K]$. Hence $f[K]$ is
+> compact.
+
+The excerpt points toward a correct theorem, but several of its verbs hide
+work:
+
+- what an “open cover of $f[K]$” means, and in which space each set is
+  open;
+- why the preimages are open;
+- why the preimages cover $K$, rather than necessarily covering all of
+  $X$;
+- which finite set of indices compactness produces;
+- why the original sets with **the same indices** cover $f[K]$; and
+- what “its image” means, given that the equation
+  $f[f^{-1}[V]]=V$ does not hold for a general function.
+
+Reconstruction is not an attempt to write a proof that might roughly have
+been intended. It is the construction of an argument in which every addition
+can answer two questions: **why is this step needed**, and **what warrants
+its use**? If the second answer is not yet available, the step remains
+recorded as a gap; it must not be conjured into a new hypothesis.
+
+## A seven-stage protocol {#o017-u03-seven-stage-protocol}
+
+Use the following protocol whenever a source skips a line or a whole page
+of proof. The output of each stage becomes the input to the next.
+
+### Stage 1 — Freeze the claim and context {#o017-u03-stage-freeze}
+
+Copy or faithfully paraphrase:
+
+- the target claim;
+- every applicable hypothesis, including those stated at the start of the
+  section;
+- local definitions and notational conventions;
+- locators for the beginning and end of the gap; and
+- the version of the source being checked.
+
+Separate the visible text from the reader's interpretation. For example, if
+the page says “$K$ is compact” but does not say “$K$ is nonempty”, do not
+add nonemptiness just because the proof you have in mind wants to choose a
+point in $K$.
+
+### Stage 2 — Expand the target's quantifiers, domains, and definitions {#o017-u03-stage-quantifiers}
+
+Write down the type of every object and expand the definition of the
+**conclusion** first. This reveals the form of the witness that must be
+constructed. To prove compactness, for example, saying “take a cover” is not
+enough. The reader must take an arbitrary open cover and produce a finite
+index set that still covers the correct object.
+
+This audit also checks for shifts of domain. If $f:X\to Y$ and $V\subseteq Y$,
+then $f^{-1}[V]\subseteq X$; the expression $f[V]$ is not even well-typed
+unless $V\subseteq X$. Many abbreviated proofs fail not because their
+central idea is wrong, but because an object moves between spaces without
+justification.
+
+### Stage 3 — State the proof obligations {#o017-u03-stage-obligations}
+
+Replace words such as *clearly*, *similarly*, *pull back*, or *the result
+follows* with a numbered list. A good obligation has:
+
+- inputs that are already available;
+- an output needed by the next step; and
+- a checkable completion criterion.
+
+“Explain preimages” is too vague. “For every $i$, prove that
+$f^{-1}[V_i]$ is open in $X$” has a definite output.
+
+### Stage 4 — Construct a dependency graph {#o017-u03-stage-dependency-graph}
+
+Create a node for the target, each obligation, each active hypothesis, and
+each lemma that might be used. Draw arrows from inputs to the conclusion
+that depends on them. The graph prevents two mistakes:
+
+1. using a conclusion before its supporting nodes have been closed; and
+2. proving an interesting result with no path to the target.
+
+Leaf nodes must be hypotheses, definitions, already-proved results, or
+retrievable references. “A well-known theorem” is not an auditable leaf node.
+
+### Stage 5 — Retrieve lemmas through their contracts {#o017-u03-stage-lemma-retrieval}
+
+Do not start with a lemma's name alone. Write down the **contract** you need:
+
+```text
+inputs + hypotheses  ──>  output
+```
+
+Then match candidate lemmas against that contract, word by word. Record the
+exact statement, domain, all hypotheses, and its locator. Make an
+instantiation table explaining which object in the current case corresponds
+to each object in the lemma. A lemma has not been “retrieved” if you have
+found its name but have not checked one of its hypotheses.
+
+If a small result can be proved directly in one or two lines, a local proof
+is often more auditable than a vague reference. If the result is substantive,
+use a precise reference; do not copy its conclusion while dropping its
+conditions.
+
+### Stage 6 — Plan backward and forward {#o017-u03-stage-bidirectional-planning}
+
+**Backward** planning asks: for the conclusion to hold, what object or
+property must be available immediately beforehand? **Forward** planning asks:
+what follows directly from the hypotheses and definitions? A reconstruction
+is usually found where these two directions meet.
+
+A plan is not a proof. The arrow “compactness of $K$ $\Rightarrow$ finite
+index set” is valid only after its input family has been shown to be an open
+cover of $K$.
+
+### Stage 7 — Write a minimally sufficient reconstruction and audit what remains {#o017-u03-stage-minimal-proof}
+
+Write the proof in a natural reading order. Then perform two tests.
+
+- **Deletion test:** if a sentence is removed, does an important arrow in
+  the graph lose its justification? If not, the sentence may be unnecessary.
+- **Gap test:** does every remaining arrow lead back to a definition,
+  hypothesis, local proof, or lemma with a matching contract?
+
+Record each gap's status as `closed`, `conditional`, `unconfirmed`, or
+`rejected`. “Minimal” does not mean as short as possible. It means that no
+essential obligation is hidden and no additional theory is brought in
+without a purpose.
+
+## A reconstruction worksheet {#o017-u03-reconstruction-sheet}
+
+The following single sheet is usually enough to contain the entire process.
+
+::: {.o017-table-scroll aria-label="Proof reconstruction worksheet" tabindex="0"}
+| Field | Auditable content |
+|---|---|
+| Frozen claim | the statement, hypotheses, and context that are actually available |
+| Object dictionary | symbols, domains, and inclusion or mapping relationships |
+| Target form | the definition of the conclusion with explicit quantifiers |
+| Obligations | a list of small outputs to construct |
+| Graph | dependency arrows and leaf nodes |
+| Lemma contracts | inputs, hypotheses, outputs, locators, instantiations |
+| Two-way plan | forward path, backward path, and meeting point |
+| Reconstruction | a sequential proof that closes the graph |
+| Gap register | status, basis for that status, and action still needed |
+| Claim boundary | what is deliberately not concluded |
+:::
+
+This sheet is a logical working record, not the full provenance logbook
+that is the focus of Unit 4. Nevertheless, a lemma retrieved from a source
+still needs enough version identity and locator information to be checked.
+
+## Worked case: the continuous image of a compact set {#o017-u03-worked-case}
+
+We now apply all seven stages to the opening excerpt. This case deliberately
+uses the open-cover definition, rather than sequential criteria,
+Heine–Borel, or the extreme value theorem. Every shift of quantifier and
+domain is therefore visible.
+
+### Freezing the statement {#o017-u03-frozen-statement}
+
+::: {#thm-o017-u03-compact-image .theorem title="The continuous image of a compact set"}
+Let $X$ and $Y$ be topological spaces, let $K\subseteq X$ be compact, and
+let $f:X\to Y$ be continuous. Then the image
+
+$$
+f[K]=\{f(x):x\in K\}
+$$
+
+is compact in $Y$.
+:::
+
+This frozen statement does not assume that $K$ is nonempty, that $f$ is
+injective, that $f$ is surjective onto $Y$, or that $Y$ is Hausdorff. A
+reconstruction using any of these four properties would strengthen the
+source's hypotheses without justification.
+
+In this unit, “$K$ is compact in $X$” means: for every family
+$(U_i)_{i\in I}$ of sets open in $X$ satisfying
+$K\subseteq\bigcup_{i\in I}U_i$, there is a finite $F\subseteq I$ such that
+$K\subseteq\bigcup_{i\in F}U_i$. This definition is equivalent to compactness
+of $K$ in the subspace topology, but that equivalence is not needed in this
+reconstruction.
+
+### Auditing quantifiers and domains {#o017-u03-quantifier-domain-audit}
+
+The conclusion “$f[K]$ is compact in $Y$” expands to:
+
+::: {.o017-math-scroll aria-label="Explicit quantifiers for compactness of the image" tabindex="0"}
+$$
+\begin{aligned}
+&\text{for every index set }I\text{ and family }(V_i)_{i\in I},\\
+&\left[\bigl(\forall i\in I,\;V_i\text{ is open in }Y\bigr)
+\land f[K]\subseteq\bigcup_{i\in I}V_i\right]\\
+&\qquad\Longrightarrow
+\left[\exists F\subseteq I,\;F\text{ is finite and }
+f[K]\subseteq\bigcup_{i\in F}V_i\right].
+\end{aligned}
+$$
+:::
+
+The object dictionary is as follows.
+
+::: {.o017-table-scroll aria-label="Object dictionary for the compact-image proof" tabindex="0"}
+| Symbol | Domain or type | Role |
+|---|---|---|
+| $x$ | an element of $X$, later restricted to $K$ | witness on the domain side |
+| $y$ | an element of $Y$, later restricted to $f[K]$ | element to be covered |
+| $i$ | an element of an arbitrary index set $I$ | identifies a member of the cover |
+| $V_i$ | an open set in $Y$ | member of the original cover |
+| $U_i=f^{-1}[V_i]$ | a subset of $X$ | candidate member of the pullback cover |
+| $F$ | a finite subset of $I$ | witness for a finite subcover |
+:::
+
+The quantifier order matters. The family $(V_i)$ is first chosen
+arbitrarily; only then may $F$ depend on that family. Choosing one $F$ before
+the cover is known would prove a much stronger and usually false statement.
+
+### List of obligations {#o017-u03-obligations}
+
+The abbreviated excerpt yields five obligations.
+
+1. **P1 — Openness.** For every $i\in I$, prove that
+   $U_i=f^{-1}[V_i]$ is open in $X$.
+2. **P2 — Backward covering.** Prove that
+   $K\subseteq\bigcup_{i\in I}U_i$.
+3. **P3 — Applying compactness.** From P1 and P2, produce a finite
+   $F\subseteq I$ with
+   $K\subseteq\bigcup_{i\in F}U_i$.
+4. **P4 — Forward covering.** Using the same index set $F$, prove that
+   $f[K]\subseteq\bigcup_{i\in F}V_i$.
+5. **P5 — Closing the quantifiers.** Since the original cover was arbitrary,
+   conclude that every open cover of $f[K]$ has a finite subcover.
+
+P1 and P2 are different: a family can consist of open sets without covering
+$K$, or cover $K$ without consisting of open sets. Compactness can be used
+only after both properties are available.
+
+### Dependency graph {#o017-u03-compact-image-graph}
+
+Read the following graph from left to right. Square brackets indicate nodes
+that must have an independent justification.
+
+```text
+[D1: U_i := f^{-1}[V_i]]
+[V_i open in Y] + [f continuous] + D1
+    └─> P1: U_i open in X ─────────────────────────────────┐
+                                                           │
+[V_i cover f[K]] + [definition of f[K]] +                  │
+[D2: x ∈ U_i ⇔ f(x) ∈ V_i] + D1                            │
+    └─> P2: the family U_i covers K ───────────────────────┤
+                                                           v
+[K compact] + P1 + P2 ──> P3: there is a finite F ⊆ I      │
+                                                           v
+P3 + [definition of f[K]] + D1 + D2                        │
+    └─> P4: the family V_i, i ∈ F, covers f[K]             │
+                                                           │
+[arbitrary original cover] + P4 ──> P5: f[K] compact <──────┘
+```
+
+The graph also shows what is **not** needed: boundedness of $K$, closedness
+of $K$, the Hausdorff property of $Y$, or existence of a maximum. None has
+a necessary path to P5.
+
+### Contracts for the results actually needed {#o017-u03-needed-lemmas}
+
+This reconstruction requires one definitional clause and two microlemmas.
+No major theorem needs to be retrieved.
+
+::: {.o017-table-scroll aria-label="Microlemma contracts for the compact-image proof" tabindex="0"}
+| Working ID | Contract | Basis and how to close it |
+|---|---|---|
+| C1 | $f$ continuous + $V$ open in $Y$ $\Rightarrow f^{-1}[V]$ open in $X$ | a clause in the definition of continuity |
+| L1 | $f[K]\subseteq\bigcup_{i\in I}V_i$ $\Rightarrow K\subseteq\bigcup_{i\in I}f^{-1}[V_i]$ | prove elementwise by taking $x\in K$ |
+| L2 | $K\subseteq\bigcup_{i\in F}f^{-1}[V_i]$ $\Rightarrow f[K]\subseteq\bigcup_{i\in F}V_i$ | prove elementwise by taking $y\in f[K]$ and a witness $x\in K$ |
+:::
+
+For C1, the instantiation is $V\mapsto V_i$ for every $i\in I$. L1 and L2
+require neither injectivity nor surjectivity. Both are deliberately proved
+locally below, because their elementwise proofs are shorter and clearer
+than an unlocated reference to “properties of images and preimages”.
+
+The identity
+
+$$
+f^{-1}\!\left[\bigcup_{i\in I}V_i\right]
+=\bigcup_{i\in I}f^{-1}[V_i]
+$$
+
+can replace the elementwise proof of L1, but it is not mandatory. If that
+identity is retrieved as a lemma, its contract and the domain
+$V_i\subseteq Y$ must still be checked.
+
+### Two-way planning {#o017-u03-two-way-plan}
+
+The backward plan starts from the target:
+
+```text
+f[K] compact
+< need: every open cover of f[K] has a finite subcover
+< need: a finite F that still covers f[K]
+< candidate producer of F: compactness of K
+< need: an open cover of K with the same index set I
+```
+
+The forward plan starts from the data:
+
+```text
+V_i open + f continuous
+> f^{-1}[V_i] open
+
+V_i cover f[K] + x ∈ K
+> f(x) ∈ some V_i
+> x ∈ some f^{-1}[V_i]
+> the preimage family covers K
+
+open cover of K + K compact
+> there is a finite F
+```
+
+The meeting point of the two plans is the sentence: “the family
+$(f^{-1}[V_i])_{i\in I}$ is an open cover of $K$.” After that point,
+compactness produces $F$; L2 carries $F$ back to the target.
+
+### Complete reconstruction {#o017-u03-complete-reconstruction}
+
+::: {#prf-o017-u03-compact-image .proof}
+Take an index set $I$ and an arbitrary family $(V_i)_{i\in I}$ of open
+sets in $Y$ that covers $f[K]$:
+
+$$
+f[K]\subseteq\bigcup_{i\in I}V_i.
+$$
+
+For each $i\in I$, set $U_i=f^{-1}[V_i]$. Since $f$ is continuous and
+$V_i$ is open in $Y$, the set $U_i$ is open in $X$.
+
+The family $(U_i)_{i\in I}$ covers $K$. Indeed, if $x\in K$, then
+$f(x)\in f[K]$. Since $(V_i)_{i\in I}$ covers $f[K]$, there is an $i\in I$
+such that $f(x)\in V_i$. By the definition of preimage,
+$x\in f^{-1}[V_i]=U_i$.
+
+Compactness of $K$ now applies to this open cover. Thus there is a finite
+$F\subseteq I$ such that
+
+$$
+K\subseteq\bigcup_{i\in F}U_i
+=\bigcup_{i\in F}f^{-1}[V_i].
+$$
+
+The family $(V_i)_{i\in F}$ covers $f[K]$. To see this, take
+$y\in f[K]$. By the definition of image, there is an $x\in K$ with
+$y=f(x)$. Since the family indexed by $F$ covers $K$, there is an $i\in F$
+such that $x\in f^{-1}[V_i]$. Hence $y=f(x)\in V_i$.
+
+We have therefore obtained a finite subcover from every arbitrary open cover
+of $f[K]$. Thus $f[K]$ is compact in $Y$.
+:::
+
+The proof remains valid when $K=\varnothing$. In the final elementwise
+paragraph, “take $y\in f[K]$” occurs inside the proof of a universally
+quantified implication; there is no $y$ to choose if $f[K]$ is empty. We
+do not need to add a nonemptiness hypothesis.
+
+### Why this reconstruction is minimal but sufficient {#o017-u03-minimality-audit}
+
+::: {.o017-table-scroll aria-label="Minimality audit of the compact-image reconstruction" tabindex="0"}
+| Part | Arrow closed | Consequence of deleting it |
+|---|---|---|
+| the original cover is chosen arbitrarily | opens the quantifier in the definition of compactness | the proof handles only one particular cover |
+| continuity gives openness of the preimages | P1 | compactness of $K$ is applied to a family not yet shown to be open |
+| the argument with $x\in K$ | P2/L1 | the preimages have not been shown to cover $K$ |
+| the application of compactness | P3 | there is no finite witness $F$ |
+| the argument with $y\in f[K]$ | P4/L2 | the same indices have not been shown to cover the image |
+| closing “every cover” | P5 | the compactness conclusion does not yet follow explicitly |
+:::
+
+Conversely, the proof need not prove the Heine–Borel theorem, replace covers
+with sequences, or show that $f[K]$ is closed. Adding all of that lengthens
+the text without closing a new arrow in the graph.
+
+## Invalid shortcuts {#o017-u03-invalid-shortcuts}
+
+### A cover of the image is not a cover of the entire codomain or domain {#o017-u03-cover-scope-error}
+
+From
+$f[K]\subseteq\bigcup_{i\in I}V_i$ it does not follow that
+$Y=\bigcup_{i\in I}V_i$. Consequently, it does not follow that the preimages
+cover all of $X$ either.
+
+Take $X=Y=\mathbb{R}$, $K=\{0\}$, and let $f$ be the identity function. The
+single set $V=(-1,1)$ covers $f[K]$, but $V$ does not cover $Y$ and
+$f^{-1}[V]=(-1,1)$ does not cover $X$. The proof needs only the preimages
+to cover $K$; demanding a cover of $X$ would create a spurious obligation.
+
+### The image of a preimage does not always recover the original set {#o017-u03-image-preimage-error}
+
+For a general function, the correct identity is
+
+$$
+f[f^{-1}[V]]=V\cap f[X],
+$$
+
+not $f[f^{-1}[V]]=V$. If $f:\mathbb{R}\to\mathbb{R}$ is given by
+$f(x)=0$ and $V=(-1,1)$, then
+$f[f^{-1}[V]]=\{0\}\neq V$.
+
+In the main reconstruction, we do not need to equate the two sets. We only
+use the implication
+$x\in f^{-1}[V_i]\Rightarrow f(x)\in V_i$ for a witness
+$x\in K$. This is why the abbreviated phrase “its image gives a subcover”
+needs to be replaced by the elementwise argument L2.
+
+### Openness does not transfer without checking the space {#o017-u03-openness-domain-error}
+
+If $V_i$ is open in $Y$, continuity makes $f^{-1}[V_i]$ open in
+$X$; it does not say that $V_i$ is open in $X$. If the available function
+is only $f|_K:K\to Y$, its preimages are open in the **subspace $K$**, not
+automatically in $X$. That version of the theorem can still be proved using
+the definition of subspace compactness, but its contract and domains are
+different. The reconstruction must follow the version the source actually
+states.
+
+## Testing hypotheses with counterexamples {#o017-u03-assumption-stress-tests}
+
+A counterexample does not replace a reconstruction. It tests whether a
+hypothesis used in the graph really performs the work claimed for it.
+
+### Without compactness of the domain {#o017-u03-counterexample-noncompact}
+
+The inclusion map
+
+$$
+j:(0,1)\hookrightarrow\mathbb{R},\qquad j(x)=x,
+$$
+
+is continuous, but its image $(0,1)$ is not compact. The family
+
+$$
+U_n=(1/n,1),\qquad n\geq2,
+$$
+
+covers $(0,1)$. The empty subfamily clearly does not cover $(0,1)$. Every
+nonempty finite subfamily is contained in a single $(1/N,1)$ for the largest
+chosen index $N$, and therefore misses, for example, $1/(2N)$. Hence there
+is no finite subcover. This example breaks the arrow from P1+P2 to P3:
+without compactness, the open cover does not produce $F$.
+
+### Without continuity {#o017-u03-counterexample-discontinuous}
+
+Take
+
+$$
+K=\{0\}\cup\{1/n:n\in\mathbb{N},\ n\geq1\}\subseteq\mathbb{R}.
+$$
+
+The set $K$ is compact by the open-cover definition. For any cover, choose
+a member containing $0$. Because that member is open, it contains $1/n$
+for all sufficiently large $n$; only finitely many points remain, and one
+member of the original cover can be chosen for each remaining point.
+
+Define $g:K\to\mathbb{R}$ by $g(0)=0$ and $g(1/n)=n$. This function is
+not continuous at $0$: the preimage
+$g^{-1}[(-1/2,1/2)]=\{0\}$ is not open in $K$, because every neighborhood
+of $0$ in $K$ contains $1/n$ for all sufficiently large $n$. Moreover,
+
+$$
+g[K]=\{0,1,2,3,\ldots\}
+$$
+
+is not compact. The family $W_m=(-1,m)$, $m\geq1$, covers $g[K]$, but every
+finite subfamily misses all sufficiently large integers. Here the failure
+of continuity breaks P1: preimages of cover members are not guaranteed to
+be open.
+
+These two examples also prevent a reconstruction from silently discarding
+a hypothesis merely because the abbreviated proof no longer mentions it.
+
+## Retrieving lemmas and rejecting hidden hypotheses {#o017-u03-lemma-audit}
+
+A result's name is often broader than its actual contract. Suppose that,
+after the main theorem, a source adds:
+
+> Since $f[K]$ is compact, $f[K]$ is closed in $Y$.
+
+The candidate result readers commonly recall has the contract:
+
+::: {.o017-math-scroll aria-label="Contract for the lemma on compact sets in a Hausdorff space" tabindex="0"}
+$$
+\bigl(Y\text{ is Hausdorff}\bigr)
+\land\bigl(C\subseteq Y\bigr)
+\land\bigl(C\text{ is compact}\bigr)
+\quad\Longrightarrow\quad C\text{ is closed in }Y.
+$$
+:::
+
+This contract can be proved locally. If $C=\varnothing$, the conclusion
+is immediate. If $C\neq\varnothing$, take $y\in Y\setminus C$. For every
+$x\in C$, the Hausdorff property gives disjoint open sets $U_x$ and
+$V_x$ with $x\in U_x$ and $y\in V_x$. The family $(U_x)_{x\in C}$ covers
+$C$; since $C$ is compact, there are $x_1,\ldots,x_n\in C$ such that
+$C\subseteq U_{x_1}\cup\cdots\cup U_{x_n}$. The set
+$V=V_{x_1}\cap\cdots\cap V_{x_n}$ is open, contains $y$, and is disjoint
+from $U_{x_1}\cup\cdots\cup U_{x_n}$, so $V\subseteq Y\setminus C$.
+Thus every point in $Y\setminus C$ has a neighborhood contained in
+$Y\setminus C$; the complement of $C$ is open and $C$ is closed.
+
+Its instantiation table must take the following form.
+
+::: {.o017-table-scroll aria-label="Instantiating the compact-implies-closed lemma" tabindex="0"}
+| Lemma variable | Instantiation | Hypothesis status |
+|---|---|---|
+| ambient space $Y$ | $Y$ in the main theorem | available as a topological space |
+| $Y$ Hausdorff | no counterpart in the frozen statement | **not yet available** |
+| set $C$ | $f[K]$ | available |
+| $C$ compact | result of the main reconstruction | available |
+| conclusion $C$ closed | $f[K]$ closed in $Y$ | additional target |
+:::
+
+The contract does not match because the Hausdorff condition is unavailable.
+This is not merely formal caution; the additional conclusion is genuinely
+false in general.
+
+Take the Sierpiński space
+$Y=\{0,1\}$ with topology
+$\{\varnothing,\{1\},Y\}$. Let $X=K=\{*\}$ have the one-point topology,
+and let $f:K\to Y$ be given by $f(*)=1$. The set $K$ is compact. The
+function $f$ is continuous because the preimages of the three open sets
+in $Y$ are each either $\varnothing$ or $K$, which are open in $K$. Its
+image $\{1\}$ is also compact, but it is not closed in $Y$, because its
+complement $\{0\}$ is not open.
+
+If an earlier page of the source might stipulate that all spaces are
+Hausdorff, an honest note is not “Hausdorff is surely assumed”, but:
+
+::: {.o017-table-scroll aria-label="Gap register for the Hausdorff hypothesis" tabindex="0"}
+| Gap ID | Claim | Status | Basis | Action |
+|---|---|---|---|---|
+| G-H | $Y$ Hausdorff holds in the context | unconfirmed | absent from the frozen excerpt | check the context and source version |
+| G-C | $f[K]$ closed in $Y$ | rejected as a standalone claim; conditional on G-H | lemma contract and Sierpiński example | add the condition only if supported by the source |
+:::
+
+Lemma retrieval has three possible outcomes:
+
+1. all hypotheses match, so the node can be closed;
+2. a hypothesis cannot yet be found, so the node remains open; or
+3. a hypothesis contradicts the context or there is a counterexample, so
+   that path is rejected.
+
+Only the first outcome warrants proceeding as though the lemma has been
+applied.
+
+## Choosing minimally sufficient detail {#o017-u03-detail-level}
+
+The level of detail depends on what is already available to the intended
+reader, not on the reconstruction writer's preferences. Use the following
+decision sequence.
+
+1. If a step is definitional but shifts a quantifier or domain, write its
+   instantiation. In the main case, C1 needs to be stated because it
+   produces openness in the correct space.
+2. If a step is a microlemma forming a principal bridge, prove it
+   elementwise. L1 and L2 each require just one witness.
+3. If a substantive lemma is already available in the same source, cite
+   the result's number and check its hypotheses; do not copy its entire
+   proof.
+4. If a substantive lemma is not yet available, retrieve a traceable source
+   or mark the gap. Do not fill the absence with a theorem name without
+   a contract.
+5. If a paragraph supports no path in the graph, move it to a supplementary
+   note or remove it from the core reconstruction.
+
+A minimal reconstruction also preserves the **exact strength** of the
+source's claim. The main theorem proves compactness of $f[K]$; it does
+not prove that $f[K]$ is closed, bounded, or has a maximum point in every
+codomain. Those conclusions require additional structure and lemmas.
+
+::: {.callout-important title="Reconstruction stopping rule"}
+Stop when every path to the frozen claim has been closed and every other
+gap has a status. Do not expand the work to prove every neighboring result.
+Conversely, do not declare completion merely because the central idea looks
+right if an arrow involving a domain, quantifier, or hypothesis still lacks
+justification.
+:::
+
+## A short audit exercise {#o017-u03-short-audit}
+
+A reader offers the following reconstruction of the main excerpt:
+
+> Take a cover $(V_i)$ of $f[K]$. Since $f$ is continuous, every $f[V_i]$
+> is open in $Y$. These sets cover $K$. Compactness of $Y$ gives finitely
+> many indices, so we are done.
+
+A type audit immediately finds three defects before we assess the
+central idea.
+
+- $V_i\subseteq Y$, whereas the domain of $f$ is $X$; $f[V_i]$ is not
+  well-typed in general. The required object is $f^{-1}[V_i]\subseteq X$.
+- The preimage family must be proved to cover $K$, not simply declared
+  to do so.
+- The compactness hypothesis belongs to $K$, not $Y$.
+
+After these repairs, a step carrying the finite subcover back to $f[K]$
+is still needed. Finding the first three errors does not, by itself,
+close P4.
+
+## Exercises {#o017-u03-exercises}
+
+1. **[O017-U03-X01]{#o017-u03-x01} — Quantifier audit.** Write the quantified
+   form of “$f[K]$ is compact” and explain why the finite index set $F$ may
+   depend on the cover $(V_i)_{i\in I}$, but not conversely.
+2. **[O017-U03-X02]{#o017-u03-x02} — Dependency graph.** Without looking at
+   the worked-case graph, construct a minimal graph from an open cover of
+   $f[K]$ to the compactness conclusion. Mark what is closed by definitions,
+   continuity, compactness, L1, and L2.
+3. **[O017-U03-X03]{#o017-u03-x03} — A false shortcut.** Give a concrete
+   example refuting $f[f^{-1}[V]]=V$. State the correct identity and explain
+   why the main proof requires only one direction of implication.
+4. **[O017-U03-X04]{#o017-u03-x04} — Testing hypotheses.** Construct or
+   explain one example with a noncompact domain and another with a
+   discontinuous function for which the image is not compact. Connect each
+   failure to a node in the graph.
+5. **[O017-U03-X05]{#o017-u03-x05} — Lemma contract.** Audit the sentence
+   “$f[K]$ is compact, so $f[K]$ is closed in $Y$.” Write the required
+   lemma contract, the missing hypothesis, and an honest gap status when
+   the earlier context cannot yet be checked.
+6. **[O017-U03-X06]{#o017-u03-x06} — Minimal repair.** Repair the excerpt in
+   the Short audit exercise section. Make a three-column table containing
+   the faulty fragment, the type of defect, and a minimal replacement;
+   then add the originally missing P4 step.
+
+## Hints and answer guidance {#o017-u03-guidance}
+
+1. **[O017-U03-H01]{#o017-u03-h01}.** The order is: for every $I$ and every
+   open family $(V_i)_{i\in I}$ covering $f[K]$, there is a finite
+   $F\subseteq I$ that still covers $f[K]$. Since $F$ is a witness for
+   the chosen cover, it comes after the family quantifier.
+2. **[O017-U03-H02]{#o017-u03-h02}.** The minimal path is the original cover
+   $\to$ open preimages (continuity) and preimages covering $K$ (L1)
+   $\to$ finite indices (compactness of $K$) $\to$ the same indices covering
+   $f[K]$ (L2) $\to$ the definition of compactness.
+3. **[O017-U03-H03]{#o017-u03-h03}.** Use the constant function
+   $f:\mathbb{R}\to\mathbb{R}$, $f(x)=0$, and $V=(-1,1)$. The correct
+   identity is $f[f^{-1}[V]]=V\cap f[X]$. P4 uses only
+   $x\in f^{-1}[V]\Rightarrow f(x)\in V$.
+4. **[O017-U03-H04]{#o017-u03-h04}.** The inclusion
+   $j:(0,1)\hookrightarrow\mathbb{R}$ breaks the step from an open cover
+   to a finite subcover. The function
+   $g(0)=0$, $g(1/n)=n$ on $\{0\}\cup\{1/n\}$ breaks the step guaranteeing
+   openness of the preimages.
+5. **[O017-U03-H05]{#o017-u03-h05}.** The valid contract requires $Y$ to be
+   Hausdorff and $f[K]$ to be compact. Without a basis for $Y$ being
+   Hausdorff, the application is `unconfirmed`; as a standalone claim it
+   is refuted by the Sierpiński example. Do not add Hausdorff to the frozen
+   statement.
+6. **[O017-U03-H06]{#o017-u03-h06}.** Replace $f[V_i]$ with
+   $f^{-1}[V_i]$, prove that the family covers $K$, and apply compactness
+   of $K$, not $Y$. For P4, take $y\in f[K]$, choose $x\in K$ with
+   $y=f(x)$, then use membership of $x$ in one of the finitely indexed
+   preimages.
+
+## Unit completion task {#o017-u03-completion-task}
+
+Reconstruct the following synthetic excerpt as a **proof dossier**.
+
+> If $K$ is compact and $F$ is closed in $K$, then $F$ is compact. Indeed,
+> add the complement of $F$ to a cover of $F$, apply compactness of $K$,
+> then discard the complement.
+
+Use the convention that $K$ is a compact topological space, $F\subseteq K$
+is closed, and compactness of $F$ is tested with families of sets open in
+$K$ and covering $F$.
+
+```{=latex}
+\Needspace{5\baselineskip}
+```
+
+The dossier must contain:
+
+1. the frozen claim, quantifier order, and a domain dictionary for $K$,
+   $F$, the family $(U_i)_{i\in I}$, the complement $K\setminus F$, and
+   the finite index set;
+2. a list of obligations replacing “add”, “apply”, and “discard”;
+3. a dependency graph whose leaf nodes all have a justification;
+4. the contract and instantiation of the clause “$F$ is closed in $K$ if
+   and only if $K\setminus F$ is open in $K$”;
+5. backward and forward plans and their meeting point;
+6. a minimal proof that handles the possibility that the finite subcover
+   of $K$ does not select $K\setminus F$;
+7. a deletion test for at least four proof sentences;
+8. a gap register with final statuses; and
+9. one claim boundary: explain why this proof does not by itself show that
+   $F$ is closed in an ambient space larger than $K$.
+
+### Rubric {#o017-u03-completion-rubric}
+
+Score each criterion 0, 1, or 2.
+
+::: {.o017-table-scroll aria-label="Unit 3 completion task rubric" tabindex="0"}
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Claim and domains | hypotheses or spaces change | some types or quantifiers remain implicit | all objects, quantifiers, and ambient-space topologies are correct |
+| Obligations and graph | principal leaps remain hidden | a graph exists but has unjustified leaves | every abbreviated verb becomes an obligation and every path is closed |
+| Lemma contract | the lemma is merely named | a contract exists but instantiation is incomplete | inputs, hypotheses, outputs, and instantiation are checked |
+| Reconstruction | the argument does not produce a finite subcover of $F$ | the idea is correct with one unjustified transition | a complete elementwise proof handles both possibilities for selecting the complement |
+| Minimal but sufficient | too abbreviated or introduces irrelevant theory | some sentences remain untested | the deletion test shows that every core detail has a purpose |
+| Honesty about gaps and boundaries | gaps are hidden or the claim is strengthened | statuses or boundaries are named without a basis | all gaps have grounded statuses and the conclusion about the ambient space is correctly bounded |
+:::
+
+A passing score is at least 10 out of 12, with a score of 2 for
+**Reconstruction** and **Honesty about gaps and boundaries**. Adding a
+hypothesis that is absent, using compactness before the family has been
+proved to be an open cover, or declaring a gap closed on the basis of a
+lemma's name alone requires revision even if the total score is sufficient.
+
+## Boundary with B80 and other units {#o017-u03-boundary}
+
+This unit teaches logical reconstruction, not computational skills. It does
+not teach Python syntax, SageMath, SymPy, NumPy/SciPy, package APIs, numerical
+methods, plotting, writing tests, notebooks, software environments, or the
+implementation differences between exact and floating-point numbers. All
+of those belong to B80.
+
+Readers who already have B80 skills may use programs to search for examples
+or test conjectures during reconstruction. Their output remains diagnostic
+empirical evidence, not a substitute for a proof path in the graph. This
+unit also does not reteach version tracing from Unit 2, the full provenance
+logbook from Unit 4, or computational reproducibility from Unit 6. If lemma
+retrieval uncovers a source problem, record that need and pass it on to the
+appropriate unit.
+
+## Sources, provenance, and rights {#o017-u03-provenance}
+
+The synthetic excerpts, seven-stage protocol, graph organization, contract
+tables, exposition, proof reconstructions, examples, counterexamples,
+exercises, answer guidance, completion task, and rubric in this unit are
+original O017 material by the O017 contributors, 2026, licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+The theorem that the continuous image of a compact set is compact and the
+theorem that a closed subset of a compact space is compact are classical
+results in topology. This unit does not claim their discovery and does not
+copy the wording of proofs from a particular source; the presentation through
+quantifier audits, lemma contracts, and dependency graphs was written
+specifically for O017. The Sierpiński space example is also a standard
+mathematical example, with wording and a pedagogical role original to this
+unit.
+
+There are no excerpts or adaptations from *The Turing Way* or *Research
+Software Engineering with Python* in Unit 3. Those two frozen sources
+remain recorded in the O017 rights manifest for the units that actually
+adapt them, and remain subject to their respective licenses. The CC BY-SA 4.0
+license above applies to this unit's original material; it does not replace
+the rights in other sources that may later be cited or added.

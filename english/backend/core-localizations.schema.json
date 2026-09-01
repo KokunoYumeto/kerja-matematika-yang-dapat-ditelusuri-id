@@ -1,0 +1,90 @@
+{
+  "$id": "urn:o017:core-localization:v1:en",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "else": {
+        "properties": {
+          "source_language": {
+            "const": "id"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "disposition": {
+            "const": "reused_existing_english"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source_language": {
+            "const": "en"
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "disposition": {
+      "enum": [
+        "translated_original",
+        "reused_existing_english"
+      ]
+    },
+    "field": {
+      "enum": [
+        "title",
+        "label_id",
+        "preferred_id"
+      ]
+    },
+    "id": {
+      "pattern": "^O017-CORE-L10N-EN-[A-Z0-9-]+$",
+      "type": "string"
+    },
+    "language": {
+      "const": "en"
+    },
+    "locale": {
+      "const": "en"
+    },
+    "schema": {
+      "const": "o017-core-localization-v1"
+    },
+    "source_language": {
+      "enum": [
+        "en",
+        "id"
+      ]
+    },
+    "source_text": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "subject_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "text": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "id",
+    "subject_id",
+    "field",
+    "locale",
+    "language",
+    "text",
+    "source_text",
+    "source_language",
+    "disposition"
+  ],
+  "title": "English localization of an existing O017 core title or label",
+  "type": "object"
+}

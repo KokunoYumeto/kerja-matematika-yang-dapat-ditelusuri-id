@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.9.37" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<meta content="KokunoYumeto - produced with OpenAI Codex gpt-5.6-sol, Ultra" name="author"/>
+<meta content="2026-08-31" name="dcterms.date"/>
+<title>Traceable Mathematical Work</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta content="./" name="quarto:offset"/>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="site_libs/bootstrap/bootstrap-e660844ac27f845a97ea4d6047b2f6e4.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="styles.css?v=22d3dec6156b" rel="stylesheet"/>
+</head>
+<body class="nav-fixed quarto-light">
+<a class="o017-skip-link" href="#quarto-document-content">Skip to main content</a>
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="./index.html">
+<span class="navbar-title">Traceable Mathematical Work</span>
+</a>
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+<button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+<ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="./index.html">
+<span class="menu-text">Home</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/01-membaca-argumen.html">
+<span class="menu-text">Unit 1</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/02-menelusuri-sumber.html">
+<span class="menu-text">Unit 2</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/03-merekonstruksi-pembuktian.html">
+<span class="menu-text">Unit 3</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/04-sitasi-provenance-catatan-sumber.html">
+<span class="menu-text">Unit 4</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/05-eksposisi-matematika.html">
+<span class="menu-text">Unit 5</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/06-komputasi-dapat-direproduksi.html">
+<span class="menu-text">Unit 6</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/07-errata-koreksi-batas-kepastian.html">
+<span class="menu-text">Unit 7</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/08-seminar-penelaah-tanggapan-kritik.html">
+<span class="menu-text">Unit 8</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./units/09-kontribusi-komunitas-portofolio.html">
+<span class="menu-text">Unit 9</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="./wrapper/index.html">
+<span class="menu-text">Teaching and assessment</span></a>
+</li>
+</ul>
+</div> <!-- /navcollapse -->
+<div class="quarto-navbar-tools tools-wide">
+<a aria-label="English PDF" class="quarto-navigation-tool px-1" href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/en-v2026.08.31/traceable-mathematical-work-en-2026.08.31.pdf" title="English PDF"><i class="bi bi-file-pdf"></i></a>
+<a aria-label="English source" class="quarto-navigation-tool px-1" href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english" title="English source"><i class="bi bi-github"></i></a>
+<a aria-label="Bahasa Indonesia" class="quarto-navigation-tool px-1" href="https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/" title="Bahasa Indonesia"><i class="bi bi-globe"></i></a>
+</div>
+</div> <!-- /container-fluid -->
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
+<nav aria-labelledby="toc-title" class="toc-active" id="TOC" role="doc-toc">
+<div class="h2" id="toc-title">On this page</div>
+<ul>
+<li><a class="nav-link active" data-scroll-target="#about-this-english-edition" href="#about-this-english-edition" id="toc-about-this-english-edition">About this English edition</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#nine-units" href="#nine-units" id="toc-nine-units"><span class="header-section-number">0.1</span> Nine units</a></li>
+<li><a class="nav-link" data-scroll-target="#core-technical-glossary" href="#core-technical-glossary" id="toc-core-technical-glossary"><span class="header-section-number">0.2</span> Core technical glossary</a></li>
+<li><a class="nav-link" data-scroll-target="#course-boundaries" href="#course-boundaries" id="toc-course-boundaries"><span class="header-section-number">0.3</span> Course boundaries</a></li>
+<li><a class="nav-link" data-scroll-target="#rights-and-bundled-software" href="#rights-and-bundled-software" id="toc-rights-and-bundled-software"><span class="header-section-number">0.4</span> Rights and bundled software</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+</div>
+<div class="quarto-title-meta">
+<div>
+<div class="quarto-title-meta-heading">Author</div>
+<div class="quarto-title-meta-contents">
+<p>KokunoYumeto - produced with OpenAI Codex gpt-5.6-sol, Ultra </p>
+</div>
+</div>
+<div>
+<div class="quarto-title-meta-heading">Published</div>
+<div class="quarto-title-meta-contents">
+<p class="date">2026-08-31</p>
+</div>
+</div>
+</div>
+<div>
+<div class="abstract">
+<div class="block-title">Abstract</div>
+    A complete nine-unit practice course and teaching package on reading mathematical research, reconstructing proofs, citation and provenance, exposition, reproducible computation, errata, refereeing, and bounded community contribution.
+  </div>
+</div>
+</header>
+<section class="level1 unnumbered" id="about-this-english-edition">
+<h1 class="unnumbered">About this English edition</h1>
+<p>This practice course teaches you to read, write, check, and share mathematics so that its claims, sources, computations, corrections, and limits of certainty can be traced and examined.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Edition and access">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Edition and access
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Title:</strong> Traceable Mathematical Work.</li>
+<li><strong>Language and version:</strong> English, <code>en</code>, 2026.08.31.</li>
+<li><strong>Scope:</strong> the complete original nine-unit O017 / D120 course, with its delivery and assessment package, self-study guidance, and English backend.</li>
+<li><strong>English HTML reader:</strong> <a href="https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/en/">open the reader</a>.</li>
+<li><strong>English PDF and downloadable packages:</strong> <a href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/en-v2026.08.31">open the English release</a>.</li>
+<li><strong>English editable source:</strong> <a href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english">open the English source tree</a>.</li>
+<li><strong>English-additive version DOI:</strong> <a href="https://doi.org/10.5281/zenodo.22209140">10.5281/zenodo.22209140</a>.</li>
+<li><strong>Indonesian edition preserved unchanged:</strong> <a href="https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/">HTML reader</a>, <a href="https://doi.org/10.5281/zenodo.22073823">version DOI 10.5281/zenodo.22073823</a>.</li>
+<li><strong>Work’s preservation lineage:</strong> <a class="uri" href="https://doi.org/10.5281/zenodo.22051866">https://doi.org/10.5281/zenodo.22051866</a>. The Indonesian version DOI above identifies the Indonesian source edition, not this English translation.</li>
+<li><strong>PDF accessibility boundary:</strong> the PDF is a print-oriented, untagged edition. Use the semantic HTML reader for reflow, keyboard navigation, heading structure, alternative descriptions, and native MathML.</li>
+<li><strong>Production:</strong> OpenAI Codex gpt-5.6-sol, Ultra, acting on the human creator’s instructions. <strong>KokunoYumeto</strong> is the public human creator and rights-holder identity for protectable original material. No human peer review is claimed.</li>
+<li><strong>Rights:</strong> original expression CC BY-SA 4.0; methodological donor content CC BY 4.0; software, runtime, and fonts retain their component licenses. <a href="LICENSES.md">LICENSES.md</a>, <a href="ENGLISH_EDITION_RIGHTS.md">ENGLISH_EDITION_RIGHTS.md</a>, and <a href="THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a> give the controlling map.</li>
+</ul>
+</div>
+</div>
+<p>The course assumes that you can already write elementary proofs, use discrete mathematics, and run a reproducible mathematical computation. It does not teach Python or proof techniques from the beginning. Its subject is how to use those skills in mathematical research whose evidence and reasoning can be audited.</p>
+<p>Begin with <a href="./units/01-membaca-argumen.html">Unit 1: Reading arguments as networks of claims</a>.</p>
+<section class="level2" data-number="0.1" id="nine-units">
+<h2 class="anchored" data-anchor-id="nine-units" data-number="0.1"><span class="header-section-number">0.1</span> Nine units</h2>
+<ol type="1">
+<li><a href="./units/01-membaca-argumen.html">Reading arguments as networks of claims</a></li>
+<li><a href="./units/02-menelusuri-sumber.html">Tracing the literature and assessing source authority</a></li>
+<li><a href="./units/03-merekonstruksi-pembuktian.html">Reconstructing abbreviated proofs</a></li>
+<li><a href="./units/04-sitasi-provenance-catatan-sumber.html">Citation, provenance, and source notebooks</a></li>
+<li><a href="./units/05-eksposisi-matematika.html">Auditable mathematical exposition</a></li>
+<li><a href="./units/06-komputasi-dapat-direproduksi.html">Reproducible computation as empirical evidence</a></li>
+<li><a href="./units/07-errata-koreksi-batas-kepastian.html">Errata, corrections, and limits of certainty</a></li>
+<li><a href="./units/08-seminar-penelaah-tanggapan-kritik.html">Seminar notes, referee reports, and responses</a></li>
+<li><a href="./units/09-kontribusi-komunitas-portofolio.html">A bounded community contribution and final portfolio</a></li>
+</ol>
+<p>After the nine units, use the <a href="./wrapper/index.html">delivery and authentic-assessment package</a>. It distinguishes simulated practice from evidence of actual activity, specifies independent assessment where the learning claim requires it, and never treats a local draft as a completed community contribution. These are assessment definitions, not a prerequisite for accessing or publishing this course.</p>
+</section>
+<section class="level2" data-number="0.2" id="core-technical-glossary">
+<h2 class="anchored" data-anchor-id="core-technical-glossary" data-number="0.2"><span class="header-section-number">0.2</span> Core technical glossary</h2>
+<p>This glossary distinguishes related terms that must not be used interchangeably.</p>
+<ul>
+<li>A <strong>proof</strong> is a mathematical argument establishing a claim from stated assumptions; <strong>proving</strong> is the process of constructing or checking such an argument. <strong>Empirical evidence</strong>, including successful computations, is not automatically a proof of a universal mathematical statement.</li>
+<li>A <strong>graph</strong> has <strong>vertices</strong> and <strong>edges</strong>. A <strong>connected graph</strong> has a path between every pair of vertices. A <strong>spanning tree</strong> is a connected, acyclic spanning subgraph. A <strong>minimum spanning forest</strong> is not a spanning tree of a disconnected graph.</li>
+<li>A <strong>dependency graph</strong> displays logical relationships between claims. A software <strong>dependency</strong> is a package or component needed by an implementation. Neither use should obscure which kind of dependence is being asserted.</li>
+<li><strong>Function</strong> names the mathematical object. <strong>Mapping</strong> is used when its action or the mapping perspective is specifically intended.</li>
+<li>A <strong>sequence</strong> is distinct from a <strong>series</strong>. <strong>Recursion</strong> is a process; <strong>recursive</strong> describes its form; a <strong>recurrence relation</strong> specifies terms by their relationship to other terms.</li>
+<li><strong>Continuous</strong> describes a function; <strong>continuity</strong> is the property. An <strong>integral</strong> is the mathematical object and <strong>integration</strong> the operation or method.</li>
+<li><strong>Numerical error</strong> concerns an approximation or computation. An <strong>erratum</strong> is a publication correction; it is not the same as numerical error.</li>
+<li><strong>Reproducibility</strong> concerns repeating a stated process using specified artifacts and conditions. A <strong>minimal reproducer</strong> is a small, sufficiently complete case that exhibits a reported behavior. Reproducibility does not by itself establish implementation correctness or a theorem.</li>
+<li><strong>Computation</strong> is the broader computational activity; a <strong>calculation</strong> is a particular calculation. <strong>Literature search</strong>, <strong>testing</strong>, <strong>test results</strong>, <strong>data</strong>, and <strong>algorithm</strong> each name different parts of the work.</li>
+<li><strong>Provenance</strong> is the auditable history of origins, versions, transformations, and evidential relationships. A <strong>manifest</strong> records artifact identities, sizes, hashes, rights, and states. A <strong>version DOI</strong> identifies a particular release; a <strong>concept DOI</strong> can identify a work across releases.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Source-language terminology and English reuse">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Source-language terminology and English reuse
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Indonesian source edition checked its terminology directly against the Indonesian TeX source of <a href="https://arxiv.org/abs/0807.4609v1">arXiv:0807.4609v1</a> and official 2026 mathematics teaching materials by Rinaldi Munir at Institut Teknologi Bandung. The arXiv witness supports distinctions involving computation, calculation, literature study, testing, data, and algorithms; it is not a witness for theorem, lemma, proof, peer-review, or erratum terminology. The Indonesian edition’s separate QA records preserve those boundaries and the exact source identities; the witness documents are not redistributed here.</p>
+<p>This English edition translates the <strong>original O017 course</strong>, not The Turing Way or Research Software Engineering with Python a second time. Their already-English, commit-pinned methodological sources, citations, and credits are retained. English prose is checked against the meaning of the mathematical arguments and the unchanged formulas, identifiers, exercises, and code. Local filenames and anchors retain their source-edition forms so that language versions remain interoperable. The D/A/K/J/T annotation codes are retained as stable labels even where the English words differ from their Indonesian initials.</p>
+</div>
+</div>
+<p>Every unit includes learning outcomes, worked mathematical cases, guided practice, six exercises, six answer guides, and a completion task. The visible stable identifiers also appear in the backend so that another language edition does not need to reconstruct identities from HTML.</p>
+</section>
+<section class="level2" data-number="0.3" id="course-boundaries">
+<h2 class="anchored" data-anchor-id="course-boundaries" data-number="0.3"><span class="header-section-number">0.3</span> Course boundaries</h2>
+<p>Programming and computation are prerequisites. This reader does not reteach Python syntax, package APIs, numerical methods, environments, software testing, or deployment; those topics belong to B80. O017 focuses on the status of claims, proofs, sources, provenance, exposition, errata, experiment versus proof, scholarly criticism, and bounded contributions.</p>
+<p>The English edition is an additional language-access surface for the same course, with the same O017-U01 through O017-U09 unit identities. It neither replaces the Indonesian edition nor reopens its completed production scope. Edition production and the separate curriculum-admission decision are not evidence for each other.</p>
+</section>
+<section class="level2" data-number="0.4" id="rights-and-bundled-software">
+<h2 class="anchored" data-anchor-id="rights-and-bundled-software" data-number="0.4"><span class="header-section-number">0.4</span> Rights and bundled software</h2>
+<p>Content, code, factual data, methodological donors, fonts, and the HTML runtime have separate licenses. Read <a href="LICENSES.md">LICENSES.md</a>, the <a href="ENGLISH_EDITION_RIGHTS.md">English-edition attribution and change notice</a>, and <a href="THIRD_PARTY_NOTICES.md">THIRD_PARTY_NOTICES.md</a>. The editable-source package includes the component rights map and the build and validation instructions.</p>
+</section>
+</section>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+</body></html>

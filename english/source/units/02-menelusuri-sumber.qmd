@@ -1,0 +1,490 @@
+---
+title: "Unit 2 — Tracing the Literature and Assessing Source Authority"
+subtitle: "Identifying the exact version, following citation chains, and testing claims"
+description: "A practical unit on turning mathematical claims into bounded searches, distinguishing a work's record from a particular version, and keeping an auditable record of the basis for source assessment."
+---
+
+## Learning outcomes {#o017-u02-outcomes}
+
+This unit has the stable identifier **O017-U02**. After completing it, you
+will be able to:
+
+1. turn a mathematical claim into a bounded, repeatable search question;
+2. distinguish discovery tools, metadata records, full texts, particular
+   editions or versions, and correction notices;
+3. assess source authority with respect to a particular question, rather than
+   relying only on a famous name or search-result ranking;
+4. distinguish persistent identifiers for a work in general from identifiers
+   for a particular version;
+5. draw citation chains as directed graphs with typed relationships;
+6. separate evidence that “this source states the claim” from a proof that the
+   claim is true; and
+7. record uncertainty without filling missing data with guesses.
+
+::: {.callout-note title="Prerequisites and how to use this unit"}
+This unit assumes that you can read definitions, theorems, and proofs as in
+Unit 1, and that you know the basics of series of functions. All core assessment
+can be completed using the synthetic source packets embedded in this page.
+Searching online databases is an extension, not a requirement for completing
+the unit.
+:::
+
+## From a network of claims to a network of sources {#o017-u02-claim-to-source}
+
+In Unit 1, we separated an argument into definitions, assumptions, claims,
+justifications, and open tasks. Now add source questions to each important
+claim:
+
+- who or which organisation states it;
+- in which work the claim appears;
+- which edition or version was actually read;
+- on which page, in which section, or under which result number the statement
+  appears;
+- whether there is a newer version, correction, or erratum;
+- which sources the work cites; and
+- what mathematical support can be checked independently.
+
+A network of sources is not a substitute for a network of claims. A publisher's
+record may be a good authority for a title and publication year, but it does not
+by itself prove a theorem. Conversely, a valid proof can establish a claim's
+truth even if the copy containing it has poor metadata.
+
+::: {#o017-u02-def01 .callout-important title="Principle: authority depends on the question"}
+A source is not “the most authoritative” for every purpose. First state the
+question: bibliographic identity, the content of a particular version, the
+history of changes, historical priority, or mathematical truth. Only then
+assess the source with respect to that question.
+:::
+
+## Writing a search card {#o017-u02-search-card}
+
+A search that starts with general words can easily expand without limit.
+Before opening a catalogue or search engine, write a **search card**.
+
+::: {.o017-table-scroll aria-label="Search card" tabindex="0"}
+| Field | What to record |
+|---|---|
+| Object | the mathematical object under discussion |
+| Claim | explicit hypotheses, conclusion, and quantifiers |
+| Variants | possible synonyms, translations, notation, and spellings of names |
+| Question | the identity, version, proof, correction, or priority being sought |
+| Boundary | the routes to be checked and the stopping conditions |
+| Initial uncertainty | what is not yet known and must not be guessed |
+:::
+
+For example, the phrase “the square of a convergent series still converges” is
+not yet a good card. The word *converges* might mean ordinary convergence or
+absolute convergence; “square” might mean $\sum a_n^2$ or the square of the
+sum. A good card records these two possibilities as questions instead of
+silently choosing one.
+
+### A three-pass procedure {#o017-u02-three-pass}
+
+Use the following bounded procedure.
+
+1. **Terminology pass.** Search for distinctive phrases, notation, objects,
+   and term variants. The results are candidate sources, not evidence.
+2. **Backward pass.** From one relevant candidate, follow one or two
+   references that actually support the claim under examination.
+3. **Comparison pass.** Find one independent source that states or proves the
+   same result, or one correction notice that changes it.
+
+Each pass produces a short note: the query or starting point, date, candidate
+examined, reason for accepting or rejecting that candidate, and next step.
+A “not found” note is still informative when the search boundary is clear.
+
+### Stopping conditions {#o017-u02-stop-rule}
+
+The search may stop when:
+
+- the exact text of the claim and a locator for it have been found;
+- its edition or version has been established as far as the evidence allows;
+- at least one backward relationship or one independent comparison has been
+  checked; and
+- contradictions or remaining missing data are recorded openly.
+
+These conditions do not guarantee that all the literature has been found.
+They ensure that others can see and test the boundaries of the work.
+
+## Five evidence surfaces that must not be conflated {#o017-u02-five-surfaces}
+
+::: {.o017-table-scroll aria-label="Five surfaces of source evidence" tabindex="0"}
+| Surface | Appropriate function | What it does not yet establish |
+|---|---|---|
+| Search result or index | finding candidates and term variants | the full content or the version cited |
+| Catalogue/publisher record | the work's identity, publisher, year, edition | the truth of claims within the work |
+| Work/concept record | grouping versions of the same work | the bytes or wording of the version used |
+| A particular version's artifact | showing what is written in that version | the mathematical truth of its statements |
+| Proof or counterexample | testing the mathematical status of a claim | the bibliographic identity of the original source |
+:::
+
+One page may contain more than one surface, but their evidentiary roles must
+still be kept separate. A screenshot of search results, for example, may help
+explain how a candidate was discovered. It is not a substitute for the complete
+file and a page locator.
+
+### A source-assessment matrix {#o017-u02-authority-matrix}
+
+Instead of assigning a single “trustworthy” score, record the following
+dimensions.
+
+::: {.o017-table-scroll aria-label="Source-assessment matrix" tabindex="0"}
+| Dimension | Audit question |
+|---|---|
+| Proximity | Does the source contain the statement/proof, or only a paraphrase? |
+| Version traceability | Can the edition or version be identified and retrieved again? |
+| Provenance | Are the creator, publisher/repository, date, and change history clear? |
+| Locator | Can another reader reach the same page, section, or result number? |
+| Support | Is there a proof, counterexample, or independent source? |
+:::
+
+A secondary source may provide a clearer introduction than the first source.
+The first source may provide the best evidence of historical priority. The two
+answer different questions.
+
+## Editions, versions, and persistent identifiers {#o017-u02-editions-pids}
+
+::: {#o017-u02-def-pid .callout-note title="Working definition: work PIDs and version PIDs"}
+A **persistent identifier**, or **PID**, is designed to keep an object's
+identity referable even when its access location changes. PIDs do not always
+refer to the same level.
+
+- A **work or concept PID** refers to the work as a whole and may take the
+  reader to the latest version.
+- A **version PID** refers to one particular state of the work. Use this when
+  others need to inspect the same wording or files.
+:::
+
+Some repositories implement this distinction as a **concept DOI** and a
+**version DOI** [@turingway2022]. Do not infer that every DOI behaves in the
+same way: check the documentation and metadata of the issuing repository.
+
+::: {.callout-tip title="A test for choosing an identifier"}
+Ask: *does the next reader need the same state of the work, or the work in
+general in its latest state?* Reproducing quotations, auditing proofs, and
+reporting corrections usually require the exact version. When recommending a
+living book in general, a concept record may be more appropriate.
+:::
+
+An auditable citation records at least the creator, title, year or date,
+publisher or repository, edition/version where applicable, access information
+or PID, and a locator within the work. This practice adapts the research-object
+citation elements described in *The Turing Way* [@turingway2022].
+
+### Relationships must be typed {#o017-u02-typed-relations}
+
+Relationship metadata makes it possible to connect two objects using the
+appropriate verb. Examples relevant to mathematical readers include:
+
+- `cites`: work A cites work B;
+- `references`: A mentions B without asserting a version relationship;
+- `isVersionOf`: V1 is a version of work K;
+- `isNewVersionOf`: V2 is a successor to V1;
+- `corrects`: a new statement or version corrects the old one;
+- `quotes`: A copies locatable wording from B.
+
+The donor metadata illustrates the first four relationship labels. The local
+pedagogical labels `corrects` and `quotes` do not claim that every repository
+provides those relationship types.
+
+These relationships are directed. “V2 is a new version of V1” is not the same
+as “V1 is a new version of V2”. Nor does a `cites` relationship prove that A
+is derived from B, that A agrees with B, or that B's claim is true.
+
+## Worked case: two versions of a claim about series {#o017-u02-worked-case}
+
+All personal names, titles, dates, and identifiers in this case were created
+specifically for learning. The form `PID-KELAS-...` is a **local simulation
+identifier**, not a DOI; it is not registered with a public service and must
+not be used as a real-world citation. These synthetic identifiers and the
+claim codes K1/K2 are retained unchanged across the Indonesian and English
+editions.
+
+### Candidate source packet {#o017-u02-source-packet-series}
+
+::: {.o017-table-scroll aria-label="Synthetic candidate source packet" tabindex="0"}
+| ID | Candidate | Available content | Initial role |
+|---|---|---|---|
+| []{#o017-u02-src-s0}`O017-U02-SRC-S0` | class index snippet | a title and one truncated sentence | discovery tool |
+| []{#o017-u02-src-s1}`O017-U02-SRC-S1` | *Series Seminar Summary*, 20 March | quotes the claim and cites the concept record | secondary source |
+| []{#o017-u02-src-s2}`O017-U02-SRC-S2` | *Squares of Convergent Series*, version 1, 10 March | statement K1 and an abridged proof | version artifact |
+| []{#o017-u02-src-s3}`O017-U02-SRC-S3` | the same work, version 2, 8 April | statement K2, a new proof, a change note | version/correction artifact |
+| []{#o017-u02-src-s4}`O017-U02-SRC-S4` | *Real Analysis: Classroom Edition*, edition 3 | the alternating series test, harmonic series, comparison | synthetic comparator |
+:::
+
+The concept record has the simulation identifier
+[]{#o017-u02-pid-concept}`PID-KELAS-O017-DERET-KONSEP`. Version 1 and version 2
+have []{#o017-u02-pid-v1}`PID-KELAS-O017-DERET-V1` and
+[]{#o017-u02-pid-v2}`PID-KELAS-O017-DERET-V2`, respectively. The class record
+states the following relationships:
+
+::: {.o017-table-scroll aria-label="Synthetic citation chain" tabindex="0"}
+| Source | Relationship | Target |
+|---|---|---|
+| Seminar summary | `cites` | Concept record |
+| Concept record | `hasVersion` | Version 1 |
+| Concept record | `hasVersion` | Version 2 |
+| Version 2 | `isNewVersionOf` | Version 1 |
+| Claim K2 | `corrects` | Claim K1 |
+| Version 2 | `cites` | *Real Analysis*, edition 3 |
+:::
+
+The seminar summary appeared after version 1 but before version 2. Its wording
+matches K1, but its citation points only to the concept record. After 8 April,
+the concept record takes readers to version 2. The concept record is therefore
+insufficient to retrieve the wording that the seminar author may have seen.
+The matching wording and date sequence support an inference that version 1 was
+used, but this inference is not metadata recorded by the source.
+
+### Auditing the version 1 claim {#o017-u02-series-v1-audit}
+
+::: {#thm-o017-u02-v1 .theorem title="K1 — Synthetic statement in version 1"}
+For every real sequence $(a_n)$, if the series
+$\sum_{n=1}^{\infty}a_n$ converges, then the series
+$\sum_{n=1}^{\infty}a_n^2$ converges.
+:::
+
+::: {#o017-u02-counterexample-v1 .callout-warning title="Counterexample to K1"}
+K1 is false. Take
+
+$$
+a_n=\frac{(-1)^{n+1}}{\sqrt n}.
+$$
+
+The sequence $1/\sqrt n$ decreases to zero, so the alternating series test
+shows that $\sum a_n$ converges. However,
+
+$$
+\sum_{n=1}^{\infty}a_n^2
+=\sum_{n=1}^{\infty}\frac1n
+$$
+
+is the harmonic series and diverges. This counterexample tests the mathematical
+truth of K1; the version 1 artifact establishes that K1 is indeed written
+there. These are two different jobs.
+:::
+
+### Auditing the version 2 correction {#o017-u02-series-v2-audit}
+
+::: {#thm-o017-u02-v2 .theorem title="K2 — Synthetic statement in version 2"}
+For every real sequence $(a_n)$, if
+$\sum_{n=1}^{\infty}|a_n|$ converges, then
+$\sum_{n=1}^{\infty}a_n^2$ converges.
+:::
+
+::: {#prf-o017-u02-v2 .proof}
+Absolute convergence implies $a_n\to0$. Therefore, there is an $N$ such that
+$|a_n|\leq1$ for every $n\geq N$. For those indices,
+
+$$
+0\leq a_n^2=|a_n|^2\leq |a_n|.
+$$
+
+The comparison test shows that the tail
+$\sum_{n=N}^{\infty}a_n^2$ converges. Adding the finite sum
+$\sum_{n=1}^{N-1}a_n^2$ does not change convergence. Thus the entire series
+$\sum a_n^2$ converges.
+:::
+
+The final audit note must say three things, not one: version 1 contains K1;
+K1 is false because of the counterexample above; version 2 replaces the
+hypothesis with absolute convergence, and K2 is valid by the comparison proof.
+
+### Choosing citations for different questions {#o017-u02-citation-choice}
+
+- To quote the wording of K1 or explain the error, use the identity of
+  version 1 and the locator for K1.
+- To cite the corrected result, use the identity of version 2 and the locator
+  for K2.
+- To recommend the synthetic work in general, the concept record may be used,
+  with a note that it leads to the latest version.
+- To state that the seminar summary used version 1, write “most likely” and
+  give the basis for the inference; do not turn an inference into a fact.
+
+## A minimal search ledger {#o017-u02-minimal-ledger}
+
+This unit does not yet teach a complete provenance ledger; that is the focus
+of Unit 4. For now, use one row per decision:
+
+::: {.o017-table-scroll aria-label="Example search ledger" tabindex="0"}
+| Time | Question/query | Candidate | Decision | Basis | Uncertainty |
+|---|---|---|---|---|---|
+| 10 April, 10:00 | phrase K1 + “series of squares” | S1 | follow the citation | contains the full wording | version not specified |
+| 10 April, 10:08 | concept record | S2, S3 | inspect both | two linked versions | the file seen by S1 is still uncertain |
+:::
+
+Do not add times, queries, or results that were not actually observed. A
+complete ledger means that every important decision can be traced, not that
+every click must be recorded.
+
+## Exercises {#o017-u02-exercises}
+
+1. []{#o017-u02-x01} **O017-U02-X01. Claim card.** Turn the phrase “the square
+   of a convergent series still converges” into a search card containing the
+   object, two possible hypotheses, conclusion, term variants, question, and
+   stopping conditions.
+2. []{#o017-u02-x02} **O017-U02-X02. Candidate source roles.** For S0–S4,
+   write one question that each candidate can answer and one conclusion that
+   may not yet be drawn from it.
+3. []{#o017-u02-x03} **O017-U02-X03. Identity without guessing.** Suppose the
+   copy of S4 shows only the title, “edition 3”, page 141, and the year 2024,
+   but does not show the publisher's name. Create a provisional citation record
+   and mark every unknown field.
+4. []{#o017-u02-x04} **O017-U02-X04. Choosing a PID level.** Choose the
+   concept record or a particular version for: (a) reproducing the K1 audit,
+   (b) recommending a continually updated work, (c) reporting the correction
+   to K1, and (d) quoting a sentence from version 2. Explain each choice.
+5. []{#o017-u02-x05} **O017-U02-X05. A directed chain.** Redraw the S1–S4
+   chain. Give each edge a type and direction, then mark the relationship
+   “the seminar summary used version 1” as a metadata fact or an inference.
+6. []{#o017-u02-x06} **O017-U02-X06. Mathematical and source audit.** Write
+   a memo of at most 500 words that separates: what version 1 says, the
+   counterexample to it, what version 2 changes, the proof of K2, and the
+   uncertainty about the seminar summary's source.
+
+## Hints and answer guidance {#o017-u02-guidance}
+
+1. []{#o017-u02-h01} **O017-U02-H01.** Separate “converges” from “converges
+   absolutely”, and distinguish $\sum a_n^2$ from $(\sum a_n)^2$. The stopping
+   conditions must mention a version, a locator, and a check of one comparator.
+2. []{#o017-u02-h02} **O017-U02-H02.** S0 discovers candidates; S1 shows the
+   wording of a secondary source; S2 and S3 establish version content; S4
+   supplies mathematical tools for comparison. No conclusion becomes true
+   merely because its source appeared earlier or was published as a book.
+3. []{#o017-u02-h03} **O017-U02-H03.** Record the visible title, edition,
+   year, and page. Enter the publisher as “unknown in the copy examined”,
+   rather than guessing from another source without a note.
+4. []{#o017-u02-h04} **O017-U02-H04.** Use particular versions for (a), (c),
+   and (d), because the same wording must be retrievable. A concept record
+   suits (b) if the explicit aim is the latest version.
+5. []{#o017-u02-h05} **O017-U02-H05.** Every arrow needs a verb and a
+   direction. S1's citation of the concept is a fact; its use of version 1 is
+   an inference based on wording and dates.
+6. []{#o017-u02-h06} **O017-U02-H06.** A good memo uses version artifacts to
+   establish content, the example $(-1)^{n+1}/\sqrt n$ to reject K1, and the
+   comparison $a_n^2\leq|a_n|$ on the tail to prove K2.
+
+## Unit completion task {#o017-u02-completion-task}
+
+Prepare a **source-tracing dossier** from the second synthetic packet. All IDs
+below are again nonpublic classroom IDs, not DOIs.
+
+- `PID-KELAS-O017-FUNGSI-KONSEP`: the work record for *Limits of Continuous Functions*.
+- `PID-KELAS-O017-FUNGSI-V1`: version 1 states that a pointwise limit of
+  continuous functions on $[0,1]$ is always continuous.
+- `PID-KELAS-O017-FUNGSI-V2`: version 2 replaces “pointwise” with “uniform”
+  and records that change.
+- A set of lecture notes cites the concept record without a version number.
+- A synthetic textbook, edition 2, §6.4, contains the uniform limit theorem.
+
+The dossier must contain:
+
+1. separate claim cards for version 1 and version 2;
+2. a bounded search log with the reason for stopping;
+3. a table of each candidate source's role and authority;
+4. exact version/edition identities and locators, without inventing unavailable
+   fields;
+5. a citation-chain graph with at least five vertices and six typed edges;
+6. the counterexample $f_n(x)=x^n$ on $[0,1]$: determine the pointwise limit
+   and show that the limit function is not continuous at $x=1$;
+7. an $\varepsilon/3$ proof that a uniform limit of continuous functions is
+   continuous;
+8. one version citation for the audit and one concept citation for a
+   recommendation, with reasons for the choices; and
+9. an uncertainty paragraph: what can and cannot be concluded about the
+   version used by the lecture notes.
+
+For step 7, fix $x_0$ and $\varepsilon>0$. Choose $N$ so that
+$|f-f_N|<\varepsilon/3$ uniformly. Use continuity of $f_N$ at $x_0$ for the
+middle term, then apply the triangle inequality to
+
+::: {.o017-math-scroll aria-label="Triangle inequality for the uniform limit theorem" tabindex="0"}
+$$
+|f(x)-f(x_0)|
+\leq |f(x)-f_N(x)|
++|f_N(x)-f_N(x_0)|
++|f_N(x_0)-f(x_0)|.
+$$
+:::
+
+### Rubric {#o017-u02-completion-rubric}
+
+Each criterion is scored 0, 1, or 2.
+
+::: {.o017-table-scroll aria-label="Unit 2 completion rubric" tabindex="0"}
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Search | unbounded or untraceable | some steps recorded | complete questions, passes, decisions, and stopping conditions |
+| Source identity | versions/editions confused | some fields/locators correct | concepts, versions, editions, locators, and missing data distinguished correctly |
+| Citation chain | direction/type cannot be checked | graph partly correct | all vertices and edges directed and typed, with facts/inferences separated |
+| Mathematical audit | example or proof incorrect | correct idea but gaps remain | complete pointwise limit, counterexample, and proof of the uniform limit theorem |
+| Exposition | conclusions exceed the evidence | some uncertainty visible | every conclusion linked to a source or argument, with its limits stated |
+:::
+
+The passing score is at least 8 out of 10, with a score of 2 for **Source
+identity** and **Mathematical audit**. Fabricated bibliographic data, a concept
+PID used as though it referred to a fixed version, or reputation treated as
+proof requires revision even if the total score is sufficient.
+
+## Boundaries with B80 and other units {#o017-u02-boundary}
+
+This unit does not teach Python syntax, catalogue/DOI APIs, web scraping,
+Git, release creation, software environments, or how to compute hashes. If a
+checksum is available, we only interpret its function as a witness to exact
+bytes. Those computational skills are B80 prerequisites, not material to be
+retaught in O017.
+
+The search ledger here is deliberately minimal. Designing a full source and
+provenance ledger is the subject of Unit 4; computational reproducibility is
+the subject of Unit 6; writing an erratum is the subject of Unit 7. Unit 2
+teaches only the citation information and version relationships needed to
+assess source authority.
+
+```{=latex}
+\enlargethispage{3\baselineskip}
+```
+
+## Provenance, component rights, and changes {#o017-u02-provenance}
+
+The Indonesian connective text translated here, both synthetic source packets,
+the mathematical examples, proofs, exercises, answer guidance, and rubric in
+this unit are original O017 material by O017 contributors, 2026, licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+The distinction between version DOIs and concept DOIs, version management,
+typed relationship metadata, and research-object citation elements are adapted
+from *The Turing Way* [@turingway2022; @turingwaycommitc98a], The Turing Way
+Community, at the fixed commit
+[c98a0e6...131d1ce](https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce),
+specifically:
+
+- `book/website/communication/citable/citable-versioning.md`;
+- `book/website/communication/citable/citable-metadata.md`; and
+- `book/website/communication/citable/citable-otherscite.md`.
+
+That donor material is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). It has been
+translated, abridged, reorganised, and contextualised for mathematical literature
+searches; the examples, proofs, exercises, and source packets were not copied
+from the donor.
+
+The distinction between artifact identities through DOIs and researcher
+identities through ORCID was reviewed with the help of the provenance section
+of *Research Software Engineering with Python* [@irving2021; @pyrsecommit62217]
+by Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham,
+and Greg Wilson, at the fixed commit
+[62217e66...a3cf07](https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07),
+specifically `chapters/provenance.Rmd`. The local selected copy is:
+
+`selected-slice/provenance-selected.Rmd`
+
+This source's prose is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). This unit does not
+copy its code, images, or exercises.
+
+Changes have been made to all adapted material. The Turing Way Community, the
+six authors of *Research Software Engineering with Python*, and their
+publishers or affiliations **do not endorse, approve, or sponsor** this O017
+adaptation. Each frozen source remains subject to its own licence; the
+CC BY-SA 4.0 licence for original O017 material is not intended to replace donor
+source licences.

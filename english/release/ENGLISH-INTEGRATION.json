@@ -1,0 +1,73 @@
+{
+  "schema": "o017-english-edition-integration-v1",
+  "title": "Traceable Mathematical Work",
+  "version": "en2026.08.31",
+  "language": "en",
+  "course_id": "O017-D120",
+  "roles": ["O017", "D120"],
+  "creator": "KokunoYumeto",
+  "production_system": "OpenAI Codex gpt-5.6-sol, Ultra",
+  "units": ["O017-U01", "O017-U02", "O017-U03", "O017-U04", "O017-U05", "O017-U06", "O017-U07", "O017-U08", "O017-U09"],
+  "coverage": {
+    "original_course_translation": "complete",
+    "unit_count": 9,
+    "exercises": 54,
+    "answer_guides": 54,
+    "introduction_and_glossary": "complete",
+    "teaching_companion_source_files": 14,
+    "calibration_dossiers": 5,
+    "semantic_entities": 319,
+    "english_semantic_localizations": 581,
+    "indonesian_semantic_localizations_preserved": 581,
+    "english_core_localizations": 147,
+    "english_access_locators": 529,
+    "already_english_donor_books_retranslated": false
+  },
+  "links": {
+    "reader": "https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/en/",
+    "pdf": "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/en-v2026.08.31/traceable-mathematical-work-en-2026.08.31.pdf",
+    "release": "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/en-v2026.08.31",
+    "editable_source": "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english",
+    "frozen_source": "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/en-v2026.08.31/english",
+    "source_zip": "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/en-v2026.08.31/o017-d120-en-2026.08.31-source.zip",
+    "offline_html_zip": "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/en-v2026.08.31/o017-d120-en-2026.08.31-reader-html.zip",
+    "backend": "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/en-v2026.08.31/english/backend",
+    "language_index": "https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/blob/en-v2026.08.31/english/backend/languages.json",
+    "english_additive_version_doi": "https://doi.org/10.5281/zenodo.22209140",
+    "concept_doi": "https://doi.org/10.5281/zenodo.22051866",
+    "indonesian_reader": "https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/",
+    "indonesian_version_doi": "https://doi.org/10.5281/zenodo.22073823"
+  },
+  "equivalence": {
+    "indonesian_version": "2026.08.24",
+    "indonesian_record": "22073823",
+    "unchanged_original_edition": true,
+    "stable_unit_anchors_and_identifiers": true,
+    "localization_crosswalk": "backend/localization-crosswalk.csv",
+    "language_index": "backend/languages.json",
+    "frozen_indonesian_backend": "backend/upstream-id-ID/",
+    "historical_record_hashes_identify": "Indonesian release, not English rendered artifacts"
+  },
+  "accessibility": {
+    "primary_accessible_surface": "semantic HTML with native MathML",
+    "pdf_tagged": false,
+    "pdf_ua_claimed": false,
+    "pdf_measurement": "qa/PDF_QA.json"
+  },
+  "claim_boundary": {
+    "learner_performance_validated": false,
+    "learner_completion_instances": 0,
+    "calibration_personas_and_events": "synthetic",
+    "credit_awarded": false,
+    "community_transmission_performed": false,
+    "human_peer_review_claimed": false,
+    "pdf_bit_reproducibility_claimed": false,
+    "container_execution_claimed": false
+  },
+  "publication_verification": {
+    "status": "pending_public_byte_verification",
+    "links_are": "prepared release addresses; availability is not asserted by this manifest",
+    "reserved_english_additive_record": "22209140",
+    "receipt_policy": "Separate sanitized publication receipts record final anonymous inventory, byte counts and SHA-256 readback without changing this frozen prepublication integration artifact."
+  }
+}

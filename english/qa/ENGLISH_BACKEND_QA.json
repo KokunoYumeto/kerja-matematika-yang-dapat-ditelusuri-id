@@ -1,0 +1,34 @@
+{
+  "checks": {
+    "all_581_indonesian_localizations_preserved": true,
+    "all_581_localizations_have_english_equivalents": true,
+    "all_core_titles_concepts_and_terms_localized_or_existing_english": true,
+    "all_semantic_and_localization_rows_validate": true,
+    "english_source_locators": true,
+    "immutable_upstream_hashes": true,
+    "inline_mathematics_and_code_tokens_preserved": true,
+    "issued_relation_ids_and_bytes_preserved": true,
+    "locale_mismatch_negative_test": true,
+    "neutral_semantic_fields_unchanged": true,
+    "neutral_semantic_id_parity": true,
+    "relation_endpoint_resolution": true,
+    "schema_metavalidation": true
+  },
+  "counts": {
+    "additive_english_localization_relations": 581,
+    "core_records_preserved": 1787,
+    "core_relation_ids_preserved": 1107,
+    "english_access_locators": 529,
+    "english_core_localizations": 147,
+    "english_semantic_localizations": 581,
+    "indonesian_semantic_localizations_preserved": 581,
+    "semantic_entities": 319,
+    "semantic_relation_ids_preserved": 1704
+  },
+  "dataset_sha256": "8b55968822bcd7111c5dd8acb862e6194962dc53458f9695cfc285c5e37a7395",
+  "reader_html_render_verification": "performed by release QA, not this source/backend check",
+  "schema": "o017-english-backend-qa-v1",
+  "source_locator_errors": [],
+  "status": "pass",
+  "unfinished_translation_fields": []
+}

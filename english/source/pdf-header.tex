@@ -1,0 +1,35 @@
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{xurl}
+\usepackage{seqsplit}
+\usepackage{needspace}
+\let\oTexttt\texttt
+\renewrobustcmd{\texttt}[1]{\oTexttt{\seqsplit{#1}}}
+\setlength{\emergencystretch}{3em}
+\raggedbottom
+\RedeclareSectionCommand[tocnumwidth=4.5em]{section}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Traceable Mathematical Work}
+\fancyhead[R]{\small O017 / D120 - English}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+\AtBeginEnvironment{longtable}{\small}
+\newenvironment{refproof}{\begin{proof}}{\end{proof}}
+\publishers{%
+  \begin{minipage}{0.88\textwidth}
+  \centering\small
+  \textbf{English HTML reader:} \url{https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/en/}\\
+  \textbf{English source:} \url{https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english}\\
+  \textbf{English release:} \url{https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/en-v2026.08.31}\\[0.5em]
+  \textbf{English-additive edition DOI:} \href{https://doi.org/10.5281/zenodo.22209140}{10.5281/zenodo.22209140}\\
+  \textbf{Preservation lineage:} \href{https://doi.org/10.5281/zenodo.22051866}{10.5281/zenodo.22051866}\\
+  \textbf{Indonesian source-edition DOI:} \href{https://doi.org/10.5281/zenodo.22073823}{10.5281/zenodo.22073823}\\
+  The source-edition DOI identifies the Indonesian edition, not this English translation.\\[0.5em]
+  \textbf{Accessibility:} This PDF is untagged. Use semantic HTML for accessible reading and reflow.\\[0.5em]
+  OpenAI Codex gpt-5.6-sol, Ultra. Produced at the human creator's instruction.\\
+  Component rights, translation changes, and source credits are documented in the accompanying source package.
+  \end{minipage}%
+}

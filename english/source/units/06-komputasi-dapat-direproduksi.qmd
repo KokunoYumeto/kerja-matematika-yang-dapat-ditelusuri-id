@@ -1,0 +1,816 @@
+---
+title: "Unit 6 — Reproducible Mathematical Computation"
+subtitle: "Freezing claims, artifacts, environments, runs, and evidential limits"
+description: "A practical unit for turning computational output into an evidence package that can be rerun, audited, challenged, and correctly situated in relation to mathematical proof."
+---
+
+## Learning outcomes {#o017-u06-outcomes}
+
+This unit has the stable identifier **O017-U06**. After completing it, you
+will be able to:
+
+1. separate claims about a single run, repeatability of output, implementation
+   correctness, finite results, and universal theorems;
+2. distinguish conjecture-forming experiments, counterexample searches,
+   exhaustive finite checks, computational certificates, and proofs;
+3. freeze code, inputs, parameters, versions, dependencies, the arithmetic
+   model, random seeds, outputs, and the execution procedure as one provenance
+   package;
+4. rerun an artifact at least twice and compare the actual bytes with the
+   expected output without silently updating the oracle;
+5. audit whether a program really tests the stated claim, including its
+   domain, index bounds, boundary cases, and numerical meaning;
+6. design attempts at falsification that distinguish environmental failures,
+   nondeterminism, weak oracles, and mathematical errors;
+7. present machine output together with a plain-text summary that can be read
+   without color, plots, or particular software;
+8. assess precisely what a computational witness for Cassini's identity does
+   and does not establish; and
+9. assemble a dossier of mathematical computation that another reader can
+   audit.
+
+::: {.callout-note title="Prerequisites, continuity, and limits of focus"}
+Unit 4 establishes which provenance information must be preserved. Unit 5
+establishes how to write claims, proofs, examples, and their limitations so
+that they can be audited. Unit 6 assumes the reader already has the B80
+skills needed to run programs and handle files, environments, tests, and
+checksums. The focus here is the **epistemic function** of computation in
+mathematical work: which package must be run, what is compared, which failures
+are sought, and which conclusions are justified.
+
+This unit does not teach Python syntax, shells, Git, package managers,
+containers, test writing, or the implementation of hash functions. The
+commands provided are execution recipes for artifacts that already exist,
+not programming lessons.
+:::
+
+::: {#o017-u06-original-bridge .callout-important title="Original O017 bridge material"}
+The claim ladder, claim–run–evidence contract, recurrence witness,
+finite/universal distinction, falsification matrix, exercises, guidance, and
+completion task are original O017 material. Donors supply general
+reproducibility/provenance principles.
+:::
+
+## Rerunning is not the same as proving {#o017-u06-rerun-is-not-proof}
+
+A computer produces an **event**: a particular program is run under particular
+conditions and produces bytes, error messages, or fails to finish. That event
+can become evidence only after it is connected to a clear claim. The sentence
+"the result is reproducible" is too loose unless it identifies which result
+and at what level.
+
+For this unit, use the following five levels of claim.
+
+::: {.o017-table-scroll aria-label="Five levels of computational claims" tabindex="0"}
+| Level ID | Possible claim | Minimum evidence | Limitation that must be stated |
+|---|---|---|---|
+| `RUN` | one run produced a particular output | a record of the command/procedure, conditions, exit code, stdout/stderr, and output identity | does not yet show that a second run will be the same |
+| `REPEAT` | rerunning under the stated conditions produces the same output | at least two actual runs and a frozen equivalence rule | does not yet show that the implementation meets its specification |
+| `IMPL` | the implementation computes the intended object | contract inspection, relevant tests, boundary-case checks, and/or an argument for implementation correctness | may still be limited to a particular domain and arithmetic model |
+| `FINITE` | a particular finite proposition has been checked | complete coverage, enumeration without omissions/duplicates, the correct predicate, and results for every case | does not extend beyond that finite set |
+| `UNIVERSAL` | the statement holds for every object in an infinite domain | a proof, or a verified formal object with audited assumptions and checker | many passing examples are not a substitute for a universal quantifier |
+:::
+
+Two identical runs can reproduce the same bug. Conversely, two files with
+different bytes can convey the same mathematical result, for example because
+key order, timestamps, or whitespace have changed. The comparison rule must
+therefore be written **before** looking at the results:
+
+- `byte-exact` when every byte must match;
+- `semantic` when files are parsed and particular fields are compared;
+- `tolerance-bounded` when approximate numbers are compared using a specified
+  tolerance and error model; or
+- `certificate-valid` when output is accepted only after a separate checker
+  validates its certificate.
+
+Changing the rule from `byte-exact` to `semantic` after the bytes differ is a
+protocol change. Record it as a new version; do not call the old test a pass.
+
+```{=latex}
+\enlargethispage{2\baselineskip}
+```
+
+## Five roles of computation in mathematics {#o017-u06-five-roles}
+
+Evidential status is not determined by the size of a program or the amount of
+output. It is determined by the relationship between the domain, predicate,
+coverage, arithmetic, and conclusion.
+
+::: {.o017-table-scroll aria-label="Roles of computation and their evidential strength" tabindex="0"}
+| Role | Form of work | Justified conclusion | Common mistake |
+|---|---|---|---|
+| Conjecture-forming experiment | computing patterns, examples, distributions, or visualizations | "these data suggest a conjecture" | writing "therefore it holds for all" |
+| Counterexample search | searching for an object that violates a universal claim | one exact, checkable violation refutes the universal claim | treating failure to find a violation as proof |
+| Exhaustive finite check | testing every element of a genuinely closed finite set | a proposition about that finite set, if the enumeration and predicate are correct | concealing cases that were not enumerated |
+| Computational certificate | producing a compact witness that is checked independently | the precise claim implied by the certificate and its checker | equating the certificate generator with an independent checker |
+| Machine-assisted proof | producing a proof object that a kernel checks against formal assumptions | the formal theorem actually stated and checked | ignoring formalization, axioms, the kernel, or the bridge to the informal claim |
+:::
+
+There is an important nuance concerning counterexamples. A program that
+**searches** for a counterexample is conducting an empirical search. Once the
+program supplies a candidate, a simple exact check can become a deductive
+proof that the candidate belongs to the domain and violates the conclusion.
+What proves the refutation is not the program's reputation but the complete
+verification of the witness found.
+
+## Freeze the claim before running code {#o017-u06-freeze-claim}
+
+A run cannot be audited if the target moves. Before running code, write the
+following **claim contract**.
+
+::: {.o017-table-scroll aria-label="Computational claim-contract fields" tabindex="0"}
+| Field | Question to answer | Example of a precise value |
+|---|---|---|
+| `claim_id` | which stable claim is being tested? | `O017-U06-C-FINITE-01` |
+| `statement` | what is the statement, including its quantifiers? | the identity holds for every integer $n$ with $1\leq n\leq24$ |
+| `domain` | which objects are included and excluded? | integers; negative indices are excluded |
+| `role` | experiment, search, finite check, certificate, or proof? | finite check |
+| `numeric_model` | exact, floating-point, interval, symbolic, or other arithmetic? | exact integers |
+| `acceptance_rule` | which pass condition is frozen? | output byte-identical to the oracle and all 24 records valid |
+| `failure_rule` | what causes failure or prevents acceptance? | an incorrect or missing record, failed run, or byte mismatch |
+| `scope_limit` | what is not concluded? | not the identity for every $n\geq1$ |
+:::
+
+The contract must identify a mathematical statement, not merely a program
+name. A program called `verify_identity.py` does not yet tell you which
+identity is intended, how its variables are defined, or which domain is
+checked.
+
+## A reproducibility-package protocol {#o017-u06-protocol}
+
+A minimal package consists of **claims**, **artifacts**, **environment**,
+**runs**, **verification**, and **limits of the conclusions**. The following
+sequence prevents output from being selected first and the claim adjusted
+afterward.
+
+### 1. Freeze the claim and its role {#o017-u06-protocol-claim}
+
+Write the claim contract, intended epistemic status, acceptance rule, and
+failure rule. If the aim is only exploration, say so. If the aim is a finite
+check, prove that the enumeration covers the stated finite domain.
+
+### 2. Freeze the artifacts {#o017-u06-protocol-artifacts}
+
+Register every file that can affect the result: code, local modules, inputs,
+configuration, data, oracles, and checkers. For each artifact, preserve its
+logical path, byte count, cryptographic digest and algorithm, role, origin,
+and rights. A filename alone is insufficient because content with the same
+name can change.
+
+Do not overwrite the expected output when a new run fails to match it. Keep
+the old oracle, save the actual result as a new artifact, and then open a
+correction decision as in the Unit 4 logbook.
+
+### 3. Freeze the environment {#o017-u06-protocol-environment}
+
+Record the environment at the level relevant to the claim.
+
+::: {.o017-table-scroll aria-label="Computational environment capsule" tabindex="0"}
+| Layer | Record at least | Why it is needed |
+|---|---|---|
+| machine and system | architecture, OS, visible versions | paths, libraries, and process behavior may differ |
+| runtime | implementation and exact version | language semantics or serialization may change |
+| dependencies | names, versions, sources, and lock | algorithms and defaults may change |
+| localization | time zone, locale, encoding, decimal separator | text and dates may change |
+| sources of nondeterminism | seeds, thread count, accelerators, parallel order | results may vary across runs |
+| procedure | working directory, arguments, variables, stdin, time limit | context may change the objects read |
+:::
+
+Records such as "latest Python" or "the usual environment" cannot be verified.
+However, do not accumulate unrelated metadata without a reason. Explain why
+each layer can affect the result and explicitly mark it `not applicable` or
+`unknown` where necessary.
+
+### 4. Freeze inputs, parameters, and nondeterminism {#o017-u06-protocol-inputs}
+
+Inputs include more than data files. They also include constants in code,
+arguments, iteration order, initial conditions, index bounds, tolerances,
+rounding strategies, and branch choices. For random processes, record at
+least:
+
+- the random-number-generation algorithm;
+- the version of the library that provides it;
+- every seed and how the seeds are derived;
+- the number of streams or workers; and
+- whether the claim aims to repeat **the same trajectory** or to assess a
+  **distribution** across many trajectories.
+
+One seed does not guarantee identical bytes across versions, devices, or
+algorithms. Running one seed repeatedly does not assess distributional
+variation either. If there is no randomness, write `seed: none`; do not leave
+the field empty.
+
+### 5. Run and capture the event {#o017-u06-protocol-run}
+
+Give each run a `run_id` and preserve its observation time, procedure,
+artifact identities, environment, exit code, duration where relevant, stdout,
+stderr, and file outputs. Separate **observed facts** from interpretation.
+
+Example of a fact: "`RUN-002` ended with code 0 and 1,872 bytes of stdout."
+Example of an interpretation: "`RUN-002` supports byte repeatability in the
+recorded environment." The second interpretation must not be written if
+`RUN-001` does not exist or the equivalence rule has not been frozen.
+
+### 6. Verify against an oracle that does not move {#o017-u06-protocol-verify}
+
+Compare the actual result with the expected output using the established
+rule. Preserve actual and expected values, not just the word `PASS`. The
+checker must fail closed: missing indices, nonfinite values, unknown fields,
+or malformed formats must not turn into a pass because problematic rows are
+skipped.
+
+### 7. Audit, rerun, and try to falsify {#o017-u06-protocol-falsify}
+
+The first pass starts the audit; it does not end it.
+
+1. Run the artifact a second time without using output from the first
+   process.
+2. Check the program contract against the mathematical claim, including
+   quantifiers and domain.
+3. Test boundary cases, empty inputs, extreme values, and known forms.
+4. Perform one controlled mutation that the checker should reject.
+5. Look for common-mode failures that could make the generator and checker
+   agree on incorrect output.
+6. Where possible, use an independent route: hand calculation, another
+   implementation, a certificate, or a proof.
+7. Record every deviation and decision; do not preserve only passes.
+
+## Worked case: a finite witness for Cassini's identity {#o017-u06-worked-case}
+
+This case uses two original local O017 artifacts. Both are normative parts of
+the unit, not links to a service that may change.
+
+::: {#def-o017-u06-fibonacci .definition title="The Fibonacci sequence"}
+Set $F_0=0$, $F_1=1$, and
+
+$$
+F_{n+1}=F_n+F_{n-1}
+$$
+
+for every integer $n\geq1$.
+:::
+
+::: {#thm-o017-u06-cassini .theorem title="Cassini's identity"}
+For every integer $n\geq1$,
+
+::: {.o017-math-scroll aria-label="Cassini's identity for Fibonacci numbers" tabindex="0"}
+$$
+F_{n-1}F_{n+1}-F_n^2=(-1)^n.
+$$
+:::
+:::
+
+### Witness contract {#o017-u06-witness-contract}
+
+The program does not claim to prove the whole of
+[`O017-U06-THM-CASSINI`](#thm-o017-u06-cassini). Its finite contract is:
+
+> **O017-U06-C-FINITE-01.** For every integer $n$ with
+> $1\leq n\leq24$, the Fibonacci values constructed from the initial
+> conditions and recurrence above satisfy Cassini's identity; every operation
+> used is exact integer arithmetic.
+
+Its computational role is `FINITE`, with machine output that can also serve
+as experimental support for the universal conjecture. The bound `1..24` is
+not shorthand for "enough cases to make it true forever."
+
+### Frozen artifacts and exact links {#o017-u06-witness-artifacts}
+
+::: {.o017-table-scroll aria-label="Unit 6 finite-witness artifacts" tabindex="0"}
+| Artifact | Frozen evidence |
+|---|---|
+| `O017-U06-CODE-01`; <br>`\newline`{=latex}[`u06_recurrence_witness.py`](../code/u06_recurrence_witness.py) | **Role:** finite-witness generator and validator; <br>**Size:** 3,505 bytes; <br>**SHA-256:** `9effb4dd...e7aa93d` |
+| `O017-U06-OUT-EXPECTED-01`; <br>`\newline`{=latex}[`expected-output.txt`](../code/u06-expected-output.txt) | **Role:** canonical plain-text output oracle; <br>**Size:** 1,872 bytes; <br>**SHA-256:** `4c76da43...096112` |
+:::
+
+The complete SHA-256 digests are:
+
+```text
+9effb4dd4d17ce6b26fd108585ff0adc5110d8903c9c283b56a909613e7aa93d
+4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112
+```
+
+The program uses only the Python standard library. It does not read stdin,
+data files, the network, the clock, locale, environment variables, or random
+sources. Its scope parameters are the constants `INDEX_MIN = 1` and
+`INDEX_MAX = 24`. The correct `seed` value for this record is `none`, not an
+empty field.
+
+### What the program writes {#o017-u06-witness-output}
+
+The complete output is provided as
+[`O017-U06-OUT-EXPECTED-01`](../code/u06-expected-output.txt). That file is
+single-line canonical JSON, terminated by one LF byte. The following
+plain-text summary provides a human reading path without requiring the reader
+to work through a long JSON line.
+
+```text
+schema: o017-u06-recurrence-witness-v1
+statement: F[n-1]*F[n+1]-F[n]^2=(-1)^n
+finite scope: n = 1..24
+arithmetic: exact integers
+records: 24
+all records valid: true
+controlled tamper detected: true
+records SHA-256: 37866b46aa1bf0854b4b4ad1a6476fb65419e0e52305d860c7bec0f18979e4b5
+universal status: not established by this finite computation
+```
+
+The summary supports navigation and assistive technology, but the oracle
+remains the complete file. Do not recompute a hash from the summary and call
+it the hash of the complete output.
+
+### Observed runs that were actually performed {#o017-u06-observed-runs}
+
+On 2026-08-21, the program was run twice as two separate subprocesses with the
+active interpreter and no inputs. Each stdout stream was captured as bytes;
+the first process's result was not used as input to the second process.
+
+::: {.o017-table-scroll aria-label="Records of two Cassini-witness runs" tabindex="0"}
+| Field | `O017-U06-RUN-001` | `O017-U06-RUN-002` |
+|---|---|---|
+| code artifact | `O017-U06-CODE-01` | `O017-U06-CODE-01` |
+| logical invocation | `python CODE-01` | same, new process |
+| working directory | lane root `01a0216a-4b9f-7d30-a376-60e4e3859979` | same |
+| runtime | CPython 3.13.9, Anaconda distribution, MSC v.1929 64-bit | same |
+| observed system | Windows 11, reported build `10.0.26200`, little-endian | same |
+| external dependencies | none | none |
+| stdin / seed | none / `none` | none / `none` |
+| exit code | 0 | 0 |
+| stderr | 0 bytes | 0 bytes |
+| stdout length | 1,872 bytes | 1,872 bytes |
+| stdout encoding | ASCII subset of canonical UTF-8 JSON, terminated by one LF | same |
+| stdout SHA-256 | `4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112` | same |
+| byte match with oracle | yes | yes |
+:::
+
+These results establish two limited facts: in the recorded environment, two
+runs produced identical bytes; and each output was identical to the frozen
+oracle. This does not by itself establish that the oracle is correct, that
+the program works on every runtime, or that the universal theorem has been
+proved.
+
+### Implementation audit {#o017-u06-implementation-audit}
+
+The code audit checks the following relationships between components.
+
+1. `fibonacci_values` starts from `[0, 1]` and appends the sum of the last two
+   values until index 25 is available.
+2. `make_records` enumerates exactly `range(1, 25)`, so the 24 indices in the
+   contract each occur once and in order.
+3. Each record stores $F_{n-1}$, $F_n$, $F_{n+1}$, the left-hand side, and
+   $(-1)^n$ as integers.
+4. `records_are_valid` checks the list of indices, recurrence, left-hand-side
+   calculation, right-hand-side parity, equality of the two sides,
+   consistency across records, and initial conditions.
+5. `tamper_control_is_detected` increments `f_n` in the eighth record and then
+   requires the validator to reject it.
+6. `canonical_json` sorts keys, prohibits NaN, uses separators without spaces,
+   restricts output to ASCII, and `main` adds exactly one LF.
+
+The mutation control shows that the validator detects **one kind of
+deliberate corruption**. It is not proof that the validator detects every
+possible error. The generator and validator are also in the same file; a
+shared conceptual error could make them agree. The next independent audit is
+therefore a mathematical proof, not a third identical run.
+
+### A separate universal proof {#o017-u06-universal-proof}
+
+Define
+
+$$
+D_n=F_{n-1}F_{n+1}-F_n^2
+\qquad(n\geq1).
+$$
+
+::: {#prf-o017-u06-cassini .proof}
+For $n=1$, $F_0=0$, $F_1=1$, and $F_2=1$, so
+
+$$
+D_1=F_0F_2-F_1^2=0\cdot1-1=-1=(-1)^1.
+$$
+
+Now take any $n\geq1$. By the recurrence,
+$F_{n-1}=F_{n+1}-F_n$ and $F_{n+2}=F_{n+1}+F_n$. Hence
+
+::: {.o017-math-scroll aria-label="Calculation showing that D sub n plus one equals negative D sub n" tabindex="0"}
+$$
+\begin{aligned}
+D_{n+1}
+  &=F_nF_{n+2}-F_{n+1}^2\\
+  &=F_n(F_{n+1}+F_n)-F_{n+1}^2\\
+  &=-\bigl((F_{n+1}-F_n)F_{n+1}-F_n^2\bigr)\\
+  &=-\bigl(F_{n-1}F_{n+1}-F_n^2\bigr)\\
+  &=-D_n.
+\end{aligned}
+$$
+:::
+
+Thus, if $D_n=(-1)^n$, then
+$D_{n+1}=-(-1)^n=(-1)^{n+1}$. Induction from the base case gives
+$D_n=(-1)^n$ for every integer $n\geq1$.
+:::
+
+This proof covers the universal quantifier through the base case and
+inductive step. The computational witness remains useful: it tests the
+implementation on 24 cases, supplies concrete examples, and can detect
+artifact regressions. However, universal status comes from
+[`PRF-CASSINI`](#prf-o017-u06-cassini), not from the length of the
+table.
+
+```{=latex}
+\Needspace{22\baselineskip}
+```
+
+### Decision ledger for the worked case {#o017-u06-worked-decisions}
+
+::: {.o017-table-scroll aria-label="Epistemic decisions for the Cassini-witness case" tabindex="0"}
+| Claim ID | Available evidence | Decision | Limitation |
+|---|---|---|---|
+| `O017-U06-C-RUN-01` | `RUN-001` record and stdout hash | accepted for the observed event | does not predict other runs |
+| `O017-U06-C-REPEAT-01` | `RUN-001`, `RUN-002`, and the oracle have 1,872 bytes and the same SHA-256 | accepted in the observed environment under the `byte-exact` rule | does not yet demonstrate portability across runtimes |
+| `O017-U06-C-FINITE-01` | 24 records, coverage check, code audit, and oracle | supported for $1\leq n\leq24$ | generator and validator are not yet independent |
+| `O017-U06-C-UNIVERSAL-01` | inductive proof `O017-U06-PRF-CASSINI` | proved for all integers $n\geq1$ | does not depend on successfully running Python |
+| `O017-U06-C-PORTABLE-01` | only one family of environments observed | not yet established | requires an environment matrix and an equivalence rule |
+:::
+
+## Audit, rerun, and falsification matrix {#o017-u06-audit-matrix}
+
+A falsification plan must identify which claim would change if a test failed.
+"Trying various things" is not an audit plan.
+
+::: {.o017-table-scroll aria-label="Falsification matrix for the Cassini-witness package" tabindex="0"}
+| Test | Expected result | If the result differs | Claim affected |
+|---|---|---|---|
+| run a second process from the frozen code | bytes match the first process and the oracle | preserve both outputs; do not replace the oracle; inspect the environment and sources of nondeterminism | `REPEAT`, not necessarily the mathematical identity |
+| delete one record in a working copy | validator rejects the index sequence | if it passes, the checker fails to reject missing cases | `IMPL` and `FINITE` |
+| change one `f_n` in a working copy | mutation control is detected | if it passes, the checking oracle is too weak | `IMPL` and `FINITE` |
+| check $n=1,2,24$ by hand | left-hand side equals $(-1)^n$ | one exact mismatch refutes the witness or contract | `FINITE`; possibly the implementation |
+| ask the program to handle $n=0$ without changing the definition | must be rejected as outside the contract because $F_{-1}$ is not defined here | if silently accepted, the program's domain does not match the claim | `IMPL` |
+| audit the inductive proof | every transformation follows from the recurrence and the inductive step covers all $n\geq1$ | a proof gap prevents acceptance of the universal claim even if 24 records pass | `UNIVERSAL` |
+:::
+
+Different bytes on another system do not automatically refute Cassini's
+identity. They refute or limit a particular reproducibility claim. Conversely,
+byte-identical output does not rescue an incorrect proof. Keep the
+**execution**, **implementation**, and **mathematics** dimensions separate in
+every decision.
+
+## Short case: a counterexample search {#o017-u06-counterexample-search}
+
+Consider the following universal claim.
+
+> **O017-U06-C-FALSE-01.** For every integer $n\geq0$,
+> $n^2+n+41$ is prime.
+
+Checking $0\leq n\leq39$ yields primes. These are interesting data, but they
+support only a finite statement about 40 inputs. At $n=40$,
+
+$$
+40^2+40+41=1681=41^2,
+$$
+
+which is not prime. Computation can find the candidate `40`; the proof of
+refutation is completed by three exact checks: $40$ belongs to the domain,
+the polynomial's value is $1681$, and $1681$ has the nontrivial factor $41$.
+
+The lesson of this case is not "test one more value." Its lessons are:
+
+- failing to find a violation in a bounded range does not cover the
+  quantifier;
+- one verifiable witness can refute a universal claim;
+- the scope of the run must be visible in the conclusion; and
+- search output must be separated from the argument validating the candidate.
+
+## Nondeterminism, approximation, and honest results {#o017-u06-nondeterminism}
+
+Not all computation is as clean as exact integers. For random simulations,
+optimization, parallel computation, and floating-point arithmetic, different
+bytes may comply with the contract. However, "the results are roughly the
+same" is not an acceptance rule.
+
+### Contracts for approximate output {#o017-u06-approximate-contract}
+
+The contract must specify:
+
+1. the mathematical quantity being estimated;
+2. its representation and units;
+3. sources of error: rounding, discretization, sampling, termination, or
+   others;
+4. absolute/relative tolerances and cases in which either is meaningless;
+5. the statistics or intervals being compared;
+6. the number of repetitions and the aggregation rule; and
+7. conditions that make the result `inconclusive`, rather than forcing a pass.
+
+If the expected value is zero, relative error can be undefined or misleading.
+If a result lies near a threshold, choosing a tolerance after seeing the
+value biases the decision. Freeze the rule before execution and report the
+raw values together with the decision.
+
+### Trajectory repeatability is not distribution validation {#o017-u06-seed-boundary}
+
+Running a simulation twice with the same seed tests whether a particular
+trajectory can be repeated under particular conditions. Running many seeds
+tests empirical variation. Neither yet proves that the probabilistic model,
+generator, statistic, or interpretation is correct. The audit must address
+all four layers separately.
+
+## Failure statuses and corrections {#o017-u06-failure-status}
+
+Use statuses that do not conceal information.
+
+::: {.o017-table-scroll aria-label="Run statuses and follow-up actions" tabindex="0"}
+| Status | Meaning | Action |
+|---|---|---|
+| `PASS-BYTE` | actual bytes match the frozen oracle | continue the implementation and mathematical audits |
+| `PASS-SEMANTIC` | bytes differ but the objects specified by the contract are the same | preserve both byte sequences and evidence of the semantic comparison; do not call them byte-identical |
+| `FAIL-OUTPUT` | the process finishes but violates the oracle/predicate | preserve the failure, investigate its cause, and open a corrected version |
+| `FAIL-EXECUTION` | the process does not produce an event conforming to the procedure | preserve the exit code/stderr and inspect the environment or artifacts |
+| `BLOCKED` | an artifact, rights, dependency, or required information is unavailable | do not invent a result; state the missing prerequisite |
+| `INCONCLUSIVE` | the result lies in a region that the contract cannot decide | another method, precision level, or form of evidence is needed |
+:::
+
+If a bug is fixed, publish new code, oracle, and decision identities. Do not
+overwrite old records as if the failed run had never happened. Relationships
+such as CODE-02 corrects CODE-01 and
+OUT-EXPECTED-02 supersedes OUT-EXPECTED-01 preserve history without making
+the old artifact the active choice.
+
+## Accessibility and plain-text output {#o017-u06-accessibility}
+
+A computational package must be inspectable without relying on screenshots,
+color, animation, or a single application.
+
+- Preserve normative results in a documented text format with its encoding
+  and line endings stated.
+- Provide a human-readable summary that names the claim, scope, status, and
+  limitations; do not merely write `true` or use a green icon.
+- Preserve raw output so that readers can recompute and parse it with other
+  tools.
+- Name tables, wide formulas, and scrollable regions; reading order must
+  remain meaningful with a screen reader.
+- If a plot is needed, supply a description stating the trend, axes, units,
+  number of observations, relevant outliers, and uncertainty. The plot must
+  not be the sole carrier of the conclusion.
+- Do not use color as the only pass/fail marker. Write the status, actual
+  value, expected value, and comparison rule.
+- Use filenames and stable IDs in links. "Click here" provides no context
+  when a link is read outside its paragraph.
+
+The single-line JSON in the Cassini case was chosen for canonical bytes and
+machine processing. A multiline summary is provided for humans. The two
+surfaces complement each other; the summary does not replace the normative
+artifact.
+
+## Checklist before accepting a result {#o017-u06-preflight}
+
+Before calling a result reproducible, check that:
+
+- [ ] the claim, quantifiers, domain, and epistemic status are frozen;
+- [ ] code, inputs, configuration, oracle, and checker have byte identities;
+- [ ] runtime, dependencies, system, encoding, and sources of nondeterminism
+      are recorded;
+- [ ] parameters, tolerances, arithmetic model, and `seed`/`none` are explicit;
+- [ ] another reader can follow the execution procedure and comparison rule;
+- [ ] at least two actual runs are recorded as separate events;
+- [ ] actual results are preserved even when they fail;
+- [ ] one negative control or mutation expected to fail has actually been
+      tested;
+- [ ] the implementation is audited against the claim, not just the oracle;
+- [ ] universal proof is separated from finite checking;
+- [ ] a plain-text summary states the result, scope, and limitations; and
+- [ ] the provenance and rights of every component are stated.
+
+## Exercises {#o017-u06-exercises}
+
+1. **[O017-U06-EX01]{#o017-u06-ex01}.** Classify each of the following
+   statements as **RUN**, **REPEAT**, **IMPL**, **FINITE**, or **UNIVERSAL**, then
+   identify the evidence still missing: (a) "the program finished with code
+   0"; (b) "the two outputs have the same SHA-256"; (c) "all enumerated simple
+   graphs with at most eight vertices satisfy $P$"; (d) "because one million
+   cases passed, $P$ holds for every graph"; (e) "a certificate from program A
+   was accepted by checker B, whose code and contract were audited."
+
+2. **[O017-U06-EX02]{#o017-u06-ex02}.** Write a claim contract and environment
+   capsule for a simulation estimating the probability of obtaining a sum of
+   7 when two fair dice are rolled. Distinguish the aim of repeating one
+   trajectory from the aim of estimating a distribution. Include the random
+   algorithm, version, seeds, number of repetitions, statistics,
+   intervals/tolerances, and an `INCONCLUSIVE` rule.
+
+3. **[O017-U06-EX03]{#o017-u06-ex03}.** Audit
+   [`O017-U06-CODE-01`](../code/u06_recurrence_witness.py). Find at least four
+   checks that are actually performed, two common-mode failures that might
+   escape detection because the generator and validator are in the same
+   file, and one additional mutation that should be rejected. Do not perform
+   mutations on the canonical file.
+
+4. **[O017-U06-EX04]{#o017-u06-ex04}.** For claim
+   `O017-U06-C-FALSE-01`, explain the evidential status after checking only
+   $0\leq n\leq39$. Then verify the candidate $n=40$ without relying on
+   program output. State exactly which claim is refuted and which finite
+   claim remains true.
+
+5. **[O017-U06-EX05]{#o017-u06-ex05}.** Two runs of a floating-point solver
+   return $0.4999999998$ and $0.5000000001$; the decision threshold is $0.5$.
+   Explain why "equal up to rounding" is not enough. Design a contract that
+   distinguishes numerical values, classification decisions, tolerance,
+   error, and an `INCONCLUSIVE` region without choosing the tolerance after
+   seeing the outputs.
+
+6. **[O017-U06-EX06]{#o017-u06-ex06}.** A report contains only a screenshot of
+   a green plot saying "all tests passed." Design its replacement as an
+   accessible package: machine output, plain-text summary, labels,
+   statistics, artifacts, statuses, and limitations. Explain how you would
+   preserve the old report if a later test failed and the oracle needed
+   correction.
+
+## Hints and answer guidance {#o017-u06-guidance}
+
+1. **[O017-U06-H01]{#o017-u06-h01}.** (a) Only `RUN`; code 0 does not
+   guarantee correct output. (b) Supports `REPEAT` if the two runs and their
+   artifact identities were actually recorded, but not yet `IMPL`. (c) Can
+   establish `FINITE` if graph enumeration is complete and the predicate is
+   correct. (d) Is an invalid leap to `UNIVERSAL`. (e), as the fact actually
+   stated, establishes only `RUN`: the checker accepted one certificate. Its
+   role may be that of a computational certificate, but moving to `FINITE`
+   or `UNIVERSAL` requires the exact target claim, an audit of checker B's
+   soundness and independence, and an implication linking the certificate
+   to the mathematical statement.
+
+2. **[O017-U06-H02]{#o017-u06-h02}.** One trajectory requires the algorithm's
+   identity, version, and one seed to test trajectory repeatability.
+   Estimating a distribution requires many repetitions/seeds, frozen
+   statistics, and intervals or error bounds. An example of an honest rule:
+   `PASS` if the precommitted interval contains $1/6$ and its width is below
+   the limit; `INCONCLUSIVE` if it is too wide. Do not use the repeatability
+   of one trajectory as proof that the dice are fair.
+
+3. **[O017-U06-H03]{#o017-u06-h03}.** Actual checks include index order, the
+   recurrence, the left-hand-side calculation, right-hand-side parity,
+   equality, consistency across records, and initial conditions. Common-mode
+   failures can arise if the generator and validator use the same incorrect
+   parity definition or the same incorrect initial conditions. Safe
+   mutations on a working copy include deleting index 13, swapping two
+   records, or changing `rhs` at one index; the validator must reject them.
+
+4. **[O017-U06-H04]{#o017-u06-h04}.** Results for $0..39$ support only the
+   finite claim "all 40 of these values are prime." For $n=40$, calculate
+   $40^2+40+41=1681=41\cdot41$; $40$ belongs to the domain and 41 is a
+   nontrivial factor. Thus the claim for all $n\geq0$ is refuted, while the
+   finite result for $0..39$ is unchanged.
+
+5. **[O017-U06-H05]{#o017-u06-h05}.** The two values lie on different sides
+   of the threshold, so numerical closeness does not guarantee the same
+   decision. Freeze an absolute error bound/interval before execution. For
+   example, classify only if the entire certified interval lies above or
+   below 0.5; if the interval crosses 0.5, mark it `INCONCLUSIVE`. Report the
+   raw values, intervals, and decisions separately.
+
+6. **[O017-U06-H06]{#o017-u06-h06}.** The minimum package includes the claim
+   and domain, code/input/oracle IDs, environment and seed, procedure, exit
+   code, structured raw results, named statistics, written statuses, and a
+   paragraph on limitations. Give tables/plots names and textual
+   descriptions. If a later run fails, preserve `RUN-OLD` and the old oracle;
+   create new artifacts and decisions with `corrects` or `supersedes`
+   relationships, without changing history.
+
+## Unit completion task {#o017-u06-completion-task}
+
+Create a **1,200–1,600-word** dossier for this unit's Cassini package. Use the
+linked canonical artifacts; all your experimental outputs, mutations, and
+notes must have new names and must not overwrite either artifact. The dossier
+must contain:
+
+1. separate contracts for the `RUN`, `REPEAT`, `FINITE`, and `UNIVERSAL`
+   claims, including domains, acceptance rules, failures, and limitations;
+2. a code and oracle manifest with paths, sizes, SHA-256, roles, origins, and
+   rights;
+3. an environment capsule stating the system, runtime, dependencies, working
+   directory, encoding, stdin, parameters, integer model, and `seed: none`;
+4. two new runs as separate events, byte comparisons with each other and
+   with the oracle, and preserved stdout/stderr and exit codes;
+5. an audit of coverage over `1..24` proving that no indices are missing or
+   duplicated and linking each record field to the Fibonacci definition;
+6. one mutation control on a working copy, with a precommitted prediction
+   and actual result; the canonical files must not be changed;
+7. two possible generator–validator common-mode failures and one independent
+   checking route;
+8. a reconstruction of the proof of Cassini's identity stating the base
+   case, the equation $D_{n+1}=-D_n$, and completion of the induction;
+9. a decision matrix stating evidence, status, and limitations for each
+   claim without transferring evidential strength from one row to another;
+10. a plain-text summary that can be understood without reading single-line
+    JSON, without color, and without screenshots;
+11. a deviation log that remains present even if all tests pass; and
+12. a statement of provenance, component-specific rights, changes, and donor
+    non-endorsement.
+
+### Rubric {#o017-u06-completion-rubric}
+
+Score each criterion 0, 1, or 2.
+
+::: {.o017-table-scroll aria-label="Unit 6 completion-task rubric" tabindex="0"}
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Contracts and evidential status | claims/quantifiers are vague or computation is called universal proof | some levels are distinguished but one limitation is missing | `RUN`, `REPEAT`, `FINITE`, and `UNIVERSAL` are separated with precise domains, rules, evidence, and limitations |
+| Artifacts and environment | code/oracle or environment is unidentified | some versions/hashes/conditions are available | all artifacts, runtime, dependencies, parameters, encoding, numerical model, and `seed` are traceable |
+| Runs and comparisons | only `PASS` is written or a run that never occurred is claimed | two runs exist but some bytes/status information was not preserved | two complete events are compared with each other and with the oracle using a precommitted rule |
+| Audit and falsification | coverage or negative controls are not checked | an audit or mutation is available but common-mode failures are unclear | coverage is proved, a mutation is predicted and tested, and an independent route limits common-mode failures |
+| Mathematics | 24 cases are used as proof for all $n$ or the induction has a gap | the induction idea is correct but one transformation/quantifier is implicit | universal proof is complete and clearly separated from the finite witness |
+| Accessibility, history, and rights | only images/color, failures erased, or rights missing | summary/provenance exists but is incomplete | raw output and a text summary are available; failed versions are preserved; provenance, changes, rights, and limitations are complete |
+:::
+
+```{=latex}
+\Needspace{6\baselineskip}
+```
+
+A passing score is at least 10 out of 12, with a score of 2 for **Contracts
+and evidential status**, **Audit and falsification**, and **Mathematics**.
+Overwriting canonical artifacts, claiming runs that never occurred, updating
+the oracle to match the result, using 24 cases as universal proof, or
+concealing failures requires revision even if the total score is sufficient.
+
+## Boundaries with B80 and other units {#o017-u06-boundary}
+
+B80 teaches programming and tool mechanics: syntax, data structures,
+algorithms, the command line, environments and dependencies, testing,
+debugging, version control, CI, containers, hashing, exact/floating-point
+arithmetic, parallelism, and building automation. Unit 6 does **not** repeat
+or assess instruction in those mechanics. It uses existing B80 skills for
+mathematical research work: freezing claims, connecting runs to evidence,
+auditing coverage, designing falsification, and limiting conclusions.
+
+Unit 4 designs a general provenance logbook; Unit 6 fills that logbook with
+actual execution events and assesses their evidential strength. Unit 5
+teaches exposition; Unit 6 requires an auditable summary but does not repeat
+the architecture of a complete manuscript. Unit 7 will address errata after
+errors are found, while Unit 8 will address review and response. O017's
+contribution here is therefore **computational-evidence practice in
+mathematics**, not a second software course.
+
+## Sources, provenance, changes, and rights {#o017-u06-provenance}
+
+The original Indonesian prose, claim ladder, evidential-status tables,
+package contracts, Cassini mathematical case, inductive proof, prime-generating
+polynomial case, falsification matrix, exercises, answer guidance, completion
+task, and rubric in this unit are original O017 material by O017
+contributors, 2026, licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). This English
+edition translates that original O017 material and retains the same license.
+No donor quotations, images, screenshots, exercises, or prose were copied.
+
+General principles concerning definitions of reproducibility, research
+packages, open notebooks, and the separation of computational conditions from
+results were reviewed and adapted on a limited basis from *The Turing Way*
+[@turingway2022; @turingwaycommitc98a], The Turing Way Community, at fixed
+commit
+[`c98a0e6ca47450456cca7c5eedda2d5ee131d1ce`](https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce),
+tree `94b81b26ea209b4b067456b9b6740c76fff1eac9`. O017's selected source
+closure contains 21 files / 2,128,347 bytes, with manifest SHA-256
+`82a352d497ecdf372b1628b405ef83754f960b7ace239e1710e06e4eb6c9c133`.
+The donor content used is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); selected concepts
+were summarized, reorganized, bounded, and re-expressed in Indonesian with a
+new mathematical context. This English edition translates that O017
+adaptation; it does not retranslate the already-English donor. No donor
+sentences were translated directly.
+
+The three-part model of computational provenance and per-result documentation
+were reviewed from *Research Software Engineering with Python* [@irving2021;
+@pyrsecommit62217] by Damien Irving, Kate Hertweck, Luke Johnston, Joel
+Ostblom, Charlotte Wickham, and Greg Wilson, at fixed commit
+[`62217e66...a3cf07`](https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07),
+tree `f570f30bb8ace202550c474e81eb3414e8976be5`, specifically
+`chapters/provenance.Rmd` through a locally selected slice of 134 lines /
+6,759 bytes, SHA-256
+`7c9ce175f20db5f248e56018ecabc3c364ce46f15d7f1e20564c8547b0a95dbc`.
+That donor prose is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). No donor code,
+external activities, or examples were copied.
+
+[`u06_recurrence_witness.py`](../code/u06_recurrence_witness.py) is original
+O017 code and remains under the MIT license in accordance with the package's
+component policy. [`u06-expected-output.txt`](../code/u06-expected-output.txt)
+is factual machine-output data dedicated under CC0 in accordance with the
+component policy.
+
+```{=latex}
+\Needspace{3\baselineskip}
+```
+
+The unit prose's CC BY-SA 4.0 license does not relicense
+either component. Importing the Python standard library does not copy donor
+code into the package.
+
+The Fibonacci sequence, Cassini's identity, mathematical induction, and the
+factorization $1681=41^2$ are classical mathematical facts; O017 does not
+claim to have discovered them. The wording, proof sequence, pedagogical role,
+witness program, and audit structure were written specifically for this
+unit.
+
+The Turing Way Community, the six authors of *Research Software Engineering
+with Python*, their publishers, and their affiliations **do not endorse,
+approve, or sponsor** O017. Each frozen source remains subject to its own
+license; all changes and contextualization are the responsibility of O017
+contributors.

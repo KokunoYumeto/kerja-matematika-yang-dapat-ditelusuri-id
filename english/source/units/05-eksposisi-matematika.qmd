@@ -1,0 +1,732 @@
+---
+title: "Unit 5 — Writing Auditable Mathematical Exposition"
+subtitle: "Turning a valid argument into a clear, bounded, and checkable reading path"
+description: "A practice unit on specifying readers and scope, arranging definitions–theorems–proofs–examples, maintaining notation, linking claims to locators, and revising exposition through a dependency audit."
+---
+
+## Learning outcomes {#o017-u05-outcomes}
+
+This unit has the stable identifier **O017-U05**. After completing it, you
+will be able to:
+
+1. specify the intended readers, prerequisites, purpose, and boundaries of an
+   exposition before choosing its level of detail;
+2. arrange definitions, theorems, proofs, examples, and counterexamples as
+   components with distinct functions;
+3. use notation whose types are specified, which is introduced before use,
+   and which remains consistent throughout the document;
+4. give important claims local locators and use external citations only for
+   work that the cited source actually does;
+5. add local signposts so that readers know the purpose, why a step appears,
+   and where the argument will return;
+6. revise a draft through an audit of claim dependencies without concealing
+   assumptions, limits, or uncertainty;
+7. distinguish proved statements from illustrations, counterexamples,
+   heuristics, and historical commentary; and
+8. turn written exposition into seminar notes that can be followed,
+   questioned, and corrected honestly.
+
+::: {.callout-note title="Prerequisites, continuity, and limits of focus"}
+This unit assumes that you can already read a network of claims (Unit 1),
+that sources and their versions have been selected (Unit 2), that proof gaps
+have been reconstructed (Unit 3), and that locators and source decisions
+are available (Unit 4). Unit 5 does not repeat that work. Its input is an
+audited argument; its output is an exposition that lets other readers check
+that argument without guessing its structure or scope.
+
+Readers of the main case are assumed to know positive integers, divisibility,
+contradiction, and the well-ordering principle for natural numbers. Neither
+analytic number theory nor primality-testing algorithms are required.
+:::
+
+## Exposition is an interface to an argument {#o017-u05-exposition-interface}
+
+A correct proof is not necessarily good exposition. A manuscript may contain
+every valid step yet remain difficult to audit because symbols appear before
+they are defined, a paragraph's purpose is unstated, examples are presented
+as though they prove a theorem, or a citation is placed at the end of a
+paragraph without making clear which claim it supports.
+
+Auditable exposition gives readers three paths at once:
+
+1. **a mathematical path:** from assumptions to conclusion;
+2. **a rhetorical path:** from the question to the reason each part is needed;
+3. **a checking path:** from a claim to the definition, proof, example, or
+   source that supports it.
+
+These three paths are related, but they must not be conflated. The sentence
+“see the following example” helps the rhetorical path; it is not a
+mathematical justification. A citation provides a path for tracing and
+attribution; it does not automatically replace checking assumptions. A theorem
+number helps with checking; it does not make the theorem true.
+
+::: {#o017-u05-original-bridge .callout-important title="O017 original bridge"}
+Unit 3 asks, “How do we fill in a missing step?” Unit 4 asks, “Which version,
+location, and basis for a decision must be preserved?” Unit 5 asks, “How do
+we present an already audited result so that particular readers can follow,
+find, and criticize it?” This change of question prevents the editorial audit
+in this unit from becoming a repetition of proof reconstruction or source
+notebook design.
+:::
+
+## Begin with a reader and scope contract {#o017-u05-reader-contract}
+
+Before writing the first paragraph, complete the following short contract.
+
+::: {.o017-table-scroll aria-label="Reader and scope contract for the exposition" tabindex="0"}
+| Field | Question to answer | Main-case contract |
+|---|---|---|
+| Readers | What knowledge can genuinely be assumed? | divisibility, contradiction, well-ordering |
+| Purpose | What should readers be able to do afterward? | explain why there are infinitely many primes and reject one mistaken interpretation |
+| Core claim | What exact statement will be proved? | there are infinitely many prime numbers |
+| Boundaries | Which adjacent claims are not promised? | the distribution of primes, uniqueness of factorization, and primality algorithms |
+| Form | What use is the manuscript being prepared for? | independent reading and a 10–12-minute seminar |
+| Admitted results | Which results may be used without proving them again? | only the basic facts explicitly stated below |
+:::
+
+This contract is not a ceremonial introduction. It determines the detail
+needed. For readers who know divisibility but not factorization, the sentence
+“take a prime divisor” requires a lemma. For advanced number-theory readers,
+the same lemma can be given a locator and summarized. Because the readers of
+the main case have not been given the prime factorization theorem, this unit
+proves the necessary lemma by elementary means.
+
+### Four scope tests {#o017-u05-scope-tests}
+
+Every promise made by an exposition must pass four tests.
+
+1. **Subject test:** are the objects and their domain clear?
+2. **Strength test:** are the words “there exists,” “unique,” “for all,” and
+   “only if” used precisely?
+3. **Prerequisite test:** are all admitted results available to the intended
+   readers?
+4. **Stopping test:** does the author know which adjacent claims will not be
+   pursued?
+
+Failing the stopping test often produces a manuscript that is longer but no
+more auditable. Explaining the infinitude of primes does not oblige an author
+to explain how densely primes are distributed or how a machine finds large
+primes.
+
+## Claim architecture and locators {#o017-u05-claim-architecture}
+
+In this unit, every main component has a stable locator. A locator is an
+address; a status states its epistemic role. Both need to be explicit.
+
+::: {.o017-table-scroll aria-label="Component architecture for the main-case exposition" tabindex="0"}
+| Claim ID | Status | Local locator | Role |
+|---|---|---|---|
+| `DEF-01` | definition | [definition](#def-o017-u05-prime) | establishes the meaning of “prime” |
+| `LEM-01` | proved lemma | [lemma](#lem-o017-u05-prime-divisor) | guarantees a prime divisor for an integer $>1$ |
+| `THM-01` | proved theorem | [theorem](#thm-o017-u05-infinitely-many-primes) | establishes the infinitude of primes |
+| `EXM-01` | illustration | [example](#o017-u05-example-euclid-number) | shows the mechanism using three primes |
+| `CTR-01` | counterexample | [counterexample](#o017-u05-counterexample-euclid-number) | refutes the stronger claim that the product plus one is always prime |
+:::
+
+The list deliberately does not call the example a proof of `THM-01`. Readers
+can find the example and check its calculation, but the universal support
+for `THM-01` remains in its proof.
+
+### Citations and locators are not interchangeable decorations {#o017-u05-honest-citation}
+
+Use a **local locator** when the support is in the document being read. Use
+an **external citation** when an identity, statement, data, or idea comes from
+another work. If a source has several versions, identify the version actually
+checked and give a sufficiently precise location. General principles about
+metadata and versions of citable objects are adapted in a bounded way from
+*The Turing Way* [@turingway2022; @turingwaycommitc98a]. Those citations
+support these documentation principles; they are **not** used as a proof of
+the theorem about prime numbers in this unit.
+
+Before keeping a citation, complete the following sentence:
+
+> I cite **[version of the work]**, at **[location]**, to support
+> **[scoped claim]**, on the basis of **[text or evidence actually
+> checked]**.
+
+If any bracket cannot be filled in, narrow the claim or mark the uncertainty.
+Do not place one citation at the end of a paragraph containing four claims
+and leave readers to guess its scope. Do not cite a methodological source to
+give the impression that it proves a mathematical result it does not discuss.
+Unit 4 keeps the record; Unit 5 places the citation precisely at the sentence
+it supports.
+
+## Notation discipline before the proof {#o017-u05-notation-discipline}
+
+Compact notation helps only when its contract is visible. For the main case,
+we use the following dictionary.
+
+::: {.o017-table-scroll aria-label="Notation dictionary for the infinitude-of-primes case" tabindex="0"}
+| Symbol | Type and meaning | First use |
+|---|---|---|
+| $a\mid b$ | $a,b\in\mathbb Z$ and there is a $c\in\mathbb Z$ with $b=ac$ | definition of divisibility below |
+| $p$ or $q$ | positive prime number | definition and lemma |
+| $p_1,\ldots,p_k$ | hypothetical list of all primes, without repetitions | proof of the theorem |
+| $P$ | $\prod_{i=1}^{k}p_i$ | proof of the theorem |
+| $N$ | $P+1$ | proof of the theorem |
+:::
+
+The same letter will not be used for both a number and a set. The index $i$
+always runs from $1$ to $k$ when it appears in the product. The word “prime”
+always means a positive prime. These conventions avoid two side questions—
+negative primes and the empty product—that the core claim does not require.
+
+::: {#def-o017-u05-prime .definition title="Divisibility and prime numbers"}
+For $a,b\in\mathbb Z$, we write $a\mid b$ if there is a $c\in\mathbb Z$
+such that $b=ac$. An integer $p$ is called **prime** if $p>1$ and its only
+positive divisors are $1$ and $p$.
+:::
+
+The definition comes before the theorem so that the word “prime” does not
+depend on readers remembering a potentially different convention. However,
+we do not repeat the entire theory of divisibility. Only the following fact
+is needed: if $d\mid a$ and $d\mid b$, then $d\mid(a-b)$.
+
+## Worked case: writing the theorem on the infinitude of primes {#o017-u05-worked-exposition}
+
+This section shows the order that readers will encounter: a lemma licenses
+a step, the theorem uses that license, an example shows the mechanism, and
+a counterexample limits the interpretation. Signposts at the beginning of
+each part state why it is there.
+
+### The lemma that licenses “take a prime divisor” {#o017-u05-prime-divisor-section}
+
+The proof of the theorem will construct a number $N>1$ and then choose a
+prime divisor. To ensure that this choice has a basis, we prove the following
+result that licenses it.
+
+::: {#lem-o017-u05-prime-divisor .lemma title="Every integer greater than one has a prime divisor"}
+For every integer $n>1$, there is a prime number $q$ with $q\mid n$.
+:::
+
+::: {#prf-o017-u05-prime-divisor .proof}
+Fix $n>1$ and form
+
+$$
+D=\{d\in\mathbb N: d>1\text{ and }d\mid n\}.
+$$
+
+The set $D$ is nonempty because $n\in D$. By the well-ordering principle,
+$D$ has a least element; call it $q$.
+
+Suppose that $q$ is not prime. Since $q>1$, there are integers $a,b$ with
+$q=ab$ and $1<a<q$ and $1<b<q$. From $a\mid q$ and $q\mid n$, we obtain
+$a\mid n$. Thus $a\in D$, contradicting the minimality of $q$. Hence $q$
+is prime, and by its choice, $q\mid n$.
+:::
+
+The final sentence establishes the lemma's two outputs separately: $q$ is
+prime and $q$ divides $n$. Both will be used in the theorem.
+
+### The theorem and its proof {#o017-u05-infinitude-section}
+
+We can now state the main promise without mentioning an algorithm or the
+growth rate of the number of primes.
+
+::: {#thm-o017-u05-infinitely-many-primes .theorem title="There are infinitely many prime numbers"}
+The set of prime numbers is infinite.
+:::
+
+::: {#prf-o017-u05-infinitely-many-primes .proof}
+Suppose, for a contradiction, that there are only finitely many prime
+numbers. Since $2$ is prime, all the primes can be listed as
+
+$$
+p_1,p_2,\ldots,p_k
+$$
+
+for some $k\geq1$. Form
+
+$$
+P=\prod_{i=1}^{k}p_i
+\qquad\text{and}\qquad
+N=P+1.
+$$
+
+Since $N>1$, [LEM-01](#lem-o017-u05-prime-divisor) gives a prime number $q$
+with $q\mid N$. The assumption that the list contains all primes requires
+$q=p_j$ for some $j\in\{1,\ldots,k\}$. Therefore $q\mid P$. Together
+with $q\mid N$, the basic divisibility fact gives
+
+$$
+q\mid(N-P)=1,
+$$
+
+which is impossible for $q>1$. This contradiction rejects the assumption
+that the list of all primes is finite. Thus there are infinitely many prime
+numbers.
+:::
+
+Notice the function of each paragraph. The first opens the proof by
+contradiction and specifies the type of list. The second constructs a new
+object. The third brings the lemma's output into the assumption of a complete
+list. The last names exactly the assumption that is rejected.
+
+### Example: seeing the mechanism without turning it into a universal proof {#o017-u05-example-euclid-number}
+
+::: {#o017-u05-example-01 .callout-tip title="EXM-01 — An example using three primes"}
+Take the list $2,3,5$. Its product is $P=30$, so $N=P+1=31$. None of
+$2,3,5$ divides $31$. That fact is all this example needs; we do not need a
+primality test for $31$. The calculation shows why adding one avoids every
+divisor in the list used.
+:::
+
+The example helps readers see the remainder-one congruence. But three primes
+are not “all primes,” so this calculation is not a proof of the infinitude
+of primes. The universal proof remains at
+[`#prf-o017-u05-infinitely-many-primes`](#prf-o017-u05-infinitely-many-primes).
+
+### Counterexample: the product plus one need not be prime {#o017-u05-counterexample-euclid-number}
+
+::: {#o017-u05-counterexample-01 .callout-warning title="CTR-01 — Rejecting a false strengthening"}
+For the first six primes,
+
+$$
+2\cdot3\cdot5\cdot7\cdot11\cdot13+1
+=30031
+=59\cdot509.
+$$
+
+Thus the statement “the product of all the primes in the list plus one must
+be prime” is false.
+:::
+
+The counterexample does not damage the theorem. The proof requires only that
+$N>1$ has **some prime divisor** $q$. Since none of the $p_i$ divides $N$,
+every such prime divisor lies outside the list. Replacing the needed claim
+(“there is a new prime divisor”) with a stronger one (“$N$ is prime”) makes
+the exposition not merely overconfident but wrong.
+
+### What has and has not been established {#o017-u05-worked-scope-close}
+
+At this point, readers are entitled to conclude:
+
+- for every finite list claimed to contain all primes, a number can be
+  constructed that has a prime divisor outside the list; and
+- consequently, no finite list contains all primes.
+
+Readers are not yet entitled to conclude:
+
+- every number of the form $p_1\cdots p_k+1$ is prime;
+- exactly one new prime divides that number;
+- this method produces all primes without repetition; or
+- primes occur with a particular frequency among the integers.
+
+The list of boundaries at the end of the argument prevents readers from
+carrying the rhetoric of a “new prime” beyond the strength of the proof.
+
+## Local signposting {#o017-u05-local-signposting}
+
+Section headings help global navigation, but readers also need signposts
+within an argument. Three kinds of sentence suffice for many expositions.
+
+1. **Purpose:** “To choose a prime divisor of $N$, we first prove the
+   existence lemma.”
+2. **Reason for a transition:** “The lemma is now available, so we return to
+   the hypothetical list of all primes.”
+3. **Scope closure:** “The contradiction rejects finiteness; it does not
+   assert that $N$ itself is prime.”
+
+Signposts must convey information. Phrases such as “clearly,” “it is easy to
+see,” or “as usual” are not signposts because they state neither a purpose,
+a basis, nor a point of return. Conversely, do not precede every line of
+algebra with a lengthy summary. Put signs at changes of role: from definition
+to lemma, from lemma to theorem, and from proof to testing the boundaries.
+
+### One paragraph, one main burden {#o017-u05-paragraph-load}
+
+A paragraph may contain several sentences, but it should have one main
+burden that can be named: establishing context, constructing an object,
+applying a result, or limiting a conclusion. If a paragraph simultaneously
+introduces symbols, states a theorem, gives a proof, makes a historical claim,
+and offers an example, citation locators become unclear and readers find it
+hard to tell which part is being tested.
+
+## Revision through a dependency audit {#o017-u05-dependency-revision}
+
+The Unit 5 audit begins after the mathematical content is available. Its
+purpose is not to discover a proof from scratch, but to test whether already
+valid relationships are visible in the manuscript. Consider the following
+draft.
+
+::: {#o017-u05-flawed-draft .callout-warning title="A draft that must not be published"}
+Let all the primes be $p_1,\ldots,p_k$. Multiply them all together and add
+one. The resulting number is prime because it is not divisible by any $p_i$.
+So there is another prime, and the result is proved.
+:::
+
+The central error is mathematical: the resulting number need not be prime,
+as `CTR-01` shows. But merely replacing one word does not make the exposition
+auditable. Lay out its dependencies.
+
+::: {.o017-table-scroll aria-label="Dependency audit of the infinitude-of-primes draft" tabindex="0"}
+| Draft claim | Required inputs | Status | Editorial revision |
+|---|---|---|---|
+| the list contains all primes | assumption for contradiction and $k\geq1$ | implicit | state the framework and the type of list |
+| $N=p_1\cdots p_k+1>1$ | definition of $N$ and positivity of the factors | partial | name $P,N$ and state $N>1$ |
+| $N$ is prime | does not follow from a remainder of one | false | remove it; use `LEM-01` to choose a prime divisor $q$ |
+| no $p_i$ divides $N$ | $p_i\mid P$ and $N-P=1$ | reason missing | write the divisibility argument |
+| there is a prime outside the list | $q$ is prime, $q\mid N$, and $q\neq p_i$ | becomes valid after revision | link to the lemma and contradiction |
+| the theorem is complete | the finiteness assumption has actually been rejected | too vague | name the rejected assumption again |
+:::
+
+Revise in the following order.
+
+1. Mark every sentence that carries a claim, not just formulas.
+2. For each claim, write down the inputs it needs and the locators where
+   those inputs are available.
+3. Remove claims stronger than the need or the proof.
+4. Move definitions before first use and make symbol types consistent.
+5. Add signposts only at changes of role.
+6. Read the conclusion against the scope contract, then remove promises that
+   the argument does not fulfill.
+
+The revision's outcome is not the audit table. Its outcome is the fluent
+exposition in the worked case above; the table is only an editorial tool.
+The Unit 4 source notebook remains the permanent home for identities and
+decision history. Unit 5 does not duplicate that notebook within the prose.
+
+## Guided practice: a geometric sum without rhetorical gaps {#o017-u05-guided-practice}
+
+Suppose a set of class notes says only:
+
+> $1+x+\cdots+x^n=(x^{n+1}-1)/(x-1)$. Just multiply, and we are done.
+
+The draft does not give the domains of $n$ and $x$, uses division before
+excluding $x=1$, and does not show what should be multiplied. We will repair
+it for readers who know school algebra.
+
+### Model revision {#o017-u05-guided-model}
+
+For $n\in\mathbb N_0:=\{0,1,2,\ldots\}$ and $x\in\mathbb R$, define
+
+$$
+S_n(x)=\sum_{j=0}^{n}x^j.
+$$
+
+If $x\neq1$, then
+
+::: {#eq-o017-u05-gs aria-label="Finite geometric sum identity"}
+$$
+S_n(x)=\frac{x^{n+1}-1}{x-1}.
+\tag{GS}
+$$
+:::
+
+Indeed, multiplying by $x-1$ produces successive cancellation:
+
+$$
+\begin{aligned}
+(x-1)S_n(x)
+&=\sum_{j=0}^{n}x^{j+1}-\sum_{j=0}^{n}x^j\\
+&=x^{n+1}-1.
+\end{aligned}
+$$
+
+Since $x\neq1$, division by $x-1$ is valid and gives (GS). For $x=1$, the
+definition directly gives $S_n(1)=n+1$; the fractional form (GS) must not be
+used because its denominator is zero.
+
+As an illustrative check, $S_3(2)=1+2+4+8=15$, which agrees with
+$(2^4-1)/(2-1)$. The calculation checks one instance, rather than proving the
+formula for every $n$ and $x$. The value $x=1$ is an excluded domain case and
+shows that the claim of the **fractional form** for every real number is
+invalid, even though the sum $S_n(1)$ itself remains defined.
+
+### What changed {#o017-u05-guided-audit}
+
+- The readers and prerequisites determine the level of detail.
+- $n$, $x$, and $S_n$ have specified types before they are used.
+- The claim separates the case $x\neq1$ from $x=1$.
+- “Just multiply” is replaced by an identity that can actually be checked.
+- The example is labeled illustrative, and the boundary case is not hidden.
+
+This repair is not a new lesson on how to discover the geometric identity.
+It shows how to present an already known identity completely and honestly.
+
+## From manuscript to auditable seminar {#o017-u05-seminar-exposition}
+
+Seminar notes are not a manuscript cut down at random. The order of the
+argument must remain visible when some details are moved to a companion
+sheet. For the infinitude-of-primes case, the following 10–12-minute plan
+suffices.
+
+::: {.o017-table-scroll aria-label="Seminar plan for the infinitude-of-primes case" tabindex="0"}
+| Time | Role | What is shown or said |
+|---|---|---|
+| 0–2 minutes | question and contract | core claim, prerequisites, and three things that will not be discussed |
+| 2–4 minutes | definition and license | definition of a prime and statement of `LEM-01`; the lemma's proof is available at its locator |
+| 4–8 minutes | main argument | hypothetical list, $P$, $N$, divisor $q$, and contradiction $q\mid1$ |
+| 8–10 minutes | misinterpretation | the example $31$, followed by the counterexample $30031=59\cdot509$ |
+| 10–12 minutes | boundaries and questions | exact conclusion, claim locators, and open questions |
+:::
+
+To make the presentation easy to follow:
+
+- say what a symbol means at first use, rather than merely displaying it;
+- do not rely on color as the only distinction between assumptions and
+  conclusions;
+- keep the definition and main claim visible while discussing the proof;
+- tell readers when a detail is available at a written locator; and
+- if a question exposes an error, record the claim and its location, correct
+  only as far as can be established, and separate the correction from any
+  extension.
+
+The answer “I cannot yet establish that step from the available material”
+is better than naming a theorem that has not been checked. Unit 8 will go
+further into reviewer reports and responses to criticism; the focus here is
+the architecture of exposition and the traceability of a seminar.
+
+## Checklist before submitting a manuscript {#o017-u05-preflight}
+
+Use the following list once the mathematical content is stable.
+
+1. Are the readers, prerequisites, purpose, and boundaries stated?
+2. Is every symbol introduced before its first use, and does it keep the same
+   type?
+3. Do definitions, theorems, proofs, examples, and counterexamples have
+   distinct statuses and locators?
+4. Does every universal claim actually receive a universal proof, rather than
+   merely an example?
+5. Does every citation have an honest scope, version, and location?
+6. Do transitions state a purpose or reason, rather than merely “clearly”?
+7. Does the dependency audit confirm that no unsupported nodes remain?
+8. Does the conclusion restate the theorem's exact strength and name its
+   limits?
+9. Does the seminar version preserve the path of the argument and provide
+   locators for details moved elsewhere?
+
+One “no” answer does not always mean the theorem is false, but it means the
+exposition is not yet ready to be called auditable.
+
+## Exercises {#o017-u05-exercises}
+
+1. **[O017-U05-E01]{#o017-u05-e01} — Reader contract.** An author wants to
+   explain that $\sqrt2$ is irrational to students who know even and odd
+   numbers but have not encountered a prime-divisibility lemma. Write a
+   six-field contract: readers, purpose, core claim, boundaries, form, and
+   admitted results. Name one detail that must be added and one adjacent
+   topic that must be excluded.
+
+2. **[O017-U05-E02]{#o017-u05-e02} — Dissecting notation.** Audit the sentence
+   “Take $a_n\in A$, and since $a$ converges, its limit is $A$.” Find at
+   least four type or notation problems. Rewrite it as a meaningful statement
+   about a sequence $(a_n)$ in a set $A\subseteq
+   \mathbb R$ and a limit $L$; do not add the conclusion $L\in A$ without
+   appropriate assumptions.
+
+3. **[O017-U05-E03]{#o017-u05-e03} — Claim–locator map.** For the
+   infinitude-of-primes case, make a directed graph with nodes `DEF-01`,
+   `LEM-01`, `THM-01`, the lemma's proof, the theorem's proof, `EXM-01`, and
+   `CTR-01`. Give every arrow a type (`defines`, `proves`, `uses`,
+   `illustrates`, or `refutes-strengthening`). Explain why there is no
+   `proves` arrow from `EXM-01` to `THM-01`.
+
+4. **[O017-U05-E04]{#o017-u05-e04} — Honest citation.** Write two sentences
+   with pointers about this unit: one citing *The Turing Way* for the
+   metadata/version principle, and one stating that the proof of the
+   infinitude of primes is self-contained at a local locator. Then write
+   one dishonest cited sentence and explain exactly what work it wrongly
+   assigns to the donor source.
+
+5. **[O017-U05-E05]{#o017-u05-e05} — Revision audit.** An author changes
+   `CTR-01` to the sentence “the product method fails because $30031$ is
+   composite.” Revise that sentence to distinguish the rejected claim from
+   the mechanism that remains valid. Include the counterexample's locator,
+   the correct claim, and one sentence stating a boundary.
+
+6. **[O017-U05-E06]{#o017-u05-e06} — Seminar plan.** Turn the geometric-sum
+   model into notes for a five-minute seminar. State what stays on screen,
+   what is spoken, what is available through a locator, when the case $x=1$
+   appears, and how you will answer the question “Doesn't the example $x=2$
+   already prove the formula?”
+
+## Hints and answer guidance {#o017-u05-guidance}
+
+1. **[O017-U05-H01]{#o017-u05-h01}.** An adequate contract names proof by
+   contradiction as the form, the claim “there is no ratio of two integers
+   with a nonzero denominator whose square is $2$,” and the need to explain
+   why an even square requires its base to be even. Full uniqueness of
+   factorization or decimal approximations to $\sqrt2$ can be excluded.
+
+2. **[O017-U05-H02]{#o017-u05-h02}.** $a_n$ is a term, not a sequence;
+   “$a$ converges” has no specified type; the limit must be a number, not a
+   set; the quantification of $n$ and the meaning of membership are unclear;
+   and $L\in A$ requires, for example, that $A$ be closed. A safe form is:
+   “Let $A\subseteq\mathbb R$, and let $(a_n)$ be a real sequence with
+   $a_n\in A$ for every $n$, and suppose $a_n\to L$ for some
+   $L\in\mathbb R$.” Stop there if $A$ is not known to be closed.
+
+3. **[O017-U05-H03]{#o017-u05-h03}.** The definition gives meaning to the
+   symbols in the lemma and theorem; the lemma's proof `proves LEM-01`;
+   the theorem's proof `uses
+   LEM-01` and `proves THM-01`; the example illustrates theorem `THM-01`; the
+   counterexample `refutes-strengthening` but does not refute `THM-01`.
+   One instance does not discharge a universal quantifier.
+
+4. **[O017-U05-H04]{#o017-u05-h04}.** The donor citation can support the
+   recommendation to record metadata and versions. For the mathematics,
+   state that the complete argument is available at
+   `#prf-o017-u05-infinitely-many-primes`, without claiming that the donor
+   proves it. A dishonest sentence would be “According to *The Turing Way*,
+   there are infinitely many primes”; the methodological source has not
+   been given a mathematical locator and was not checked for that work.
+
+5. **[O017-U05-H05]{#o017-u05-h05}.** An accurate form is: “`CTR-01`
+   refutes the strengthening that $P+1$ is always prime; it does not refute
+   the construction, because every prime divisor of $P+1$ still lies outside
+   the list of factors.” Add that the theorem guarantees neither a unique
+   new divisor nor an enumeration procedure without repetition.
+
+6. **[O017-U05-H06]{#o017-u05-h06}.** Keep the definition of $S_n(x)$ and
+   the two-case claim visible. Explain the cancellation of terms aloud while
+   pointing to the two lines of algebra; show $x=1$ before the numerical
+   example so that the boundary does not look like a footnote. The honest
+   answer is that the example $x=2,n=3$ checks only one pair of inputs,
+   whereas the algebraic identity handles all $n\in\mathbb N_0$ and
+   $x\neq1$.
+
+## Unit completion task {#o017-u05-completion-task}
+
+Write a mathematical exposition of **1,000–1,400 words** and an **8-minute**
+seminar plan based on the following synthetic packet. The packet is local
+class material, not an external publication; use its locators, and do not
+invent authors, DOIs, years, or pages.
+
+::: {#o017-u05-completion-packet .callout-note title="Packet O017-U05-PKT — Odd-degree polynomials"}
+- **[PKT-DEF-01]{#o017-u05-pkt-def01}.** An odd-degree real polynomial has the form
+  $p(x)=a_dx^d+\cdots+a_0$ with $a_d\neq0$ and $d$ odd.
+- **[PKT-LEM-01]{#o017-u05-pkt-lem01}.** Every real polynomial is continuous on $\mathbb R$.
+- **[PKT-LEM-02]{#o017-u05-pkt-lem02}.** If $d$ is odd, there is an $R>0$ such that $p(-R)$ and $p(R)$
+  have opposite signs. Which one is positive depends on $a_d$.
+- **[PKT-LEM-03]{#o017-u05-pkt-lem03}.** If a function is continuous on $[-R,R]$ and its values at the two
+  endpoints have opposite signs, there is a $c\in(-R,R)$ where the function's value is $0$.
+- **[PKT-EXM-01]{#o017-u05-pkt-exm01}.** For $p(x)=x^3+x+1$, we have $p(-1)=-1$ and $p(0)=1$.
+- **[PKT-CTR-01]{#o017-u05-pkt-ctr01}.** The even-degree polynomial $x^2+1$ has no real root.
+- **[PKT-CTR-02]{#o017-u05-pkt-ctr02}.** The odd-degree polynomial $x^3-x$ has three real roots; odd
+  degree guarantees existence, not uniqueness.
+:::
+
+```{=latex}
+\enlargethispage{2\baselineskip}
+```
+
+The final product must contain:
+
+1. a reader contract for beginning calculus students who know continuity and
+   the Intermediate Value Theorem but have not studied formal asymptotic
+   analysis;
+2. definitions and the main theorem with stable locators of your own;
+3. a notation dictionary distinguishing the degree $d$, leading coefficient
+   $a_d$, bound $R$, and root $c$;
+4. a complete proof that explicitly links
+   [`PKT-LEM-01`](#o017-u05-pkt-lem01),
+   [`PKT-LEM-02`](#o017-u05-pkt-lem02), and
+   [`PKT-LEM-03`](#o017-u05-pkt-lem03), including checks of the interval and signs;
+5. one example that brackets a root and two counterexamples that limit two
+   different strengthenings;
+6. a claim–locator list distinguishing packet material, your statements,
+   proofs, examples, and boundaries;
+7. a paragraph explaining why packet locators are not bibliographic citations
+   and why unavailable metadata must still be marked `tidak diketahui`
+   (“unknown”);
+8. a dependency audit of the first draft, followed by a clean revised
+   manuscript without an audit table interrupting the flow;
+9. signposts at the transitions definition → lemma → theorem → example →
+   boundaries;
+10. an eight-minute seminar plan that keeps the main claim on screen,
+    provides locators for details, and names two things that have not been
+    proved; and
+11. a short revision note naming one sentence removed, one sentence narrowed,
+    and one dependency made explicit.
+
+### Rubric {#o017-u05-completion-rubric}
+
+Each criterion is scored 0, 1, or 2.
+
+::: {.o017-table-scroll aria-label="Unit 5 completion-task rubric" tabindex="0"}
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Readers and scope | readers or promises unstated | some prerequisites/boundaries visible | readers, purpose, prerequisites, form, and boundaries consistently determine the detail |
+| Claims and notation | objects, quantifiers, or symbols change meaning | some types/locators implicit | definitions, theorems, symbols, quantifiers, and locators are precise before use |
+| Proof path | signs, interval, or use of a lemma incorrect | correct idea with one implicit arrow | all three lemmas are used with the correct contracts and yield a real root without a gap |
+| Examples and boundaries | example used as proof or counterexample aimed at the wrong claim | example status stated but one strengthening unclear | illustration and two counterexamples precisely delimit existence, degree parity, and uniqueness |
+| Locators and citations | metadata fabricated or citation substituted for proof | locators present but scope of support unclear | every claim can be found, local material is distinguished from external sources, and uncertainty is honest |
+| Revision and seminar | raw draft transferred to speech or revision note absent | some audit, revision note, or oral flow present | audit produces a clean manuscript; revision note identifies removal, narrowing, and an explicit dependency; eight-minute plan uses signposts, names two things not proved, and gives access to details |
+:::
+
+The passing score is at least 10 out of 12, with a score of 2 for **Proof
+path** and **Locators and citations**. Concluding that the root is unique,
+applying the Intermediate Value Theorem without continuity or a sign change,
+inventing packet metadata, or using a numerical example as a universal proof
+requires revision even if the total score is sufficient. The three-part
+revision note, signposts, two unproved boundaries, and eight-minute limit
+are also mandatory gates, not optional items that other scores can offset.
+
+## Boundaries with B80 and other units {#o017-u05-boundary}
+
+This unit does not teach Python, SageMath, SymPy, or NumPy/SciPy syntax,
+factorization or root-finding algorithms, plotting, writing tests, notebooks,
+environment management, implementing exact or floating-point arithmetic, or
+error-certification techniques. All those implementation skills belong to
+B80. Here, readers only classify the epistemic status of already available
+outputs according to their contracts: the exact integer product
+$30031=59\cdot509$ is a finite certificate that can be checked as a proof,
+and exact sign evaluations can be valid parts of an Intermediate Value
+Theorem argument. By contrast, numerical output without a certificate,
+bracketing without error guarantees, or checks whose procedures and arithmetic
+have not been audited remain empirical evidence; they must not be promoted
+to universal proof.
+
+Nor does this unit repeat Unit 1's claim-network mapping, Unit 2's source
+search and authority assessment, Unit 3's reconstruction of missing steps,
+or Unit 4's provenance notebook design. It uses their outputs to write a
+readable product. A rerunnable computational package is the subject of Unit 6;
+the erratum format, Unit 7; and the review process and detailed responses,
+Unit 8. Discussion of seminars here is limited to delivery architecture,
+not the peer-review process.
+
+## Sources, provenance, changes, and rights {#o017-u05-provenance}
+
+The original Indonesian prose, reader contract, exposition architecture,
+notation dictionary, presentation of the lemma and theorem on the infinitude
+of primes, proofs, example $31$, counterexample $30031$, geometric-sum model,
+synthetic polynomial packet, exercises, answer guidance, completion task,
+and rubric in this unit are original O017 material by the O017 contributors,
+2026, licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+This English edition translates that original material and retains the same
+license, identifiers, mathematical content, and component credits.
+
+The theorem on the infinitude of primes, the existence lemma for prime
+divisors, the geometric-sum identity, and the theorem on the existence of a
+real root for an odd-degree polynomial are classical mathematical results.
+O017 does not claim to have discovered them. The wording, pedagogical
+arrangement, proofs presented, examples, dependency audit, and use of locators
+were written specifically for this unit and were not copied from a particular
+mathematical source.
+
+The general principles that scholarly objects need adequate metadata, that
+the version cited must be distinguishable, and that citations should be
+placed according to their role are adapted in a bounded way from *The Turing
+Way* [@turingway2022; @turingwaycommitc98a], The Turing Way Community, at the
+fixed commit
+[`c98a0e6...131d1ce`](https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce),
+specifically:
+
+- `book/website/communication/citable/citable-metadata.md`; and
+- `book/website/communication/citable/citable-versioning.md`.
+
+That donor material is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Its concepts were
+summarized, bounded, rearranged, re-expressed in Indonesian, and contextualized
+for mathematical exposition; this English edition translates that original
+O017 treatment. No donor sentences, images, examples, or exercises were
+copied. *Research Software Engineering with Python* is not adapted in Unit 5;
+that frozen source remains relevant to the later computational unit, but is
+not credited for material that is not used here.
+
+The Turing Way Community, other donor authors, publishers, and their
+affiliations **do not endorse, approve, or sponsor** O017. Each frozen source
+remains subject to its own license. The CC BY-SA 4.0 license for original
+O017 material does not replace or relicense donor components.

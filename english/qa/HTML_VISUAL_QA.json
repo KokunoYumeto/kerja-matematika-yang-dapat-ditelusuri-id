@@ -1,0 +1,236 @@
+{
+  "status": "PASS",
+  "html_qa_sha256": "cce927b0286ed37549bb1406b163ade14939163f50d7898882861d1216a1f0fb",
+  "pages": 11,
+  "viewportWidths": [
+    390,
+    1440
+  ],
+  "observations": [
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 0,
+      "path": "/",
+      "tableRegions": 0,
+      "tables": 0,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 67,
+      "path": "/units/01-membaca-argumen.html",
+      "tableRegions": 1,
+      "tables": 1,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 35,
+      "path": "/units/02-menelusuri-sumber.html",
+      "tableRegions": 7,
+      "tables": 7,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 340,
+      "path": "/units/03-merekonstruksi-pembuktian.html",
+      "tableRegions": 7,
+      "tables": 7,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 63,
+      "path": "/units/04-sitasi-provenance-catatan-sumber.html",
+      "tableRegions": 9,
+      "tables": 9,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 184,
+      "path": "/units/05-eksposisi-matematika.html",
+      "tableRegions": 6,
+      "tables": 6,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 62,
+      "path": "/units/06-komputasi-dapat-direproduksi.html",
+      "tableRegions": 10,
+      "tables": 10,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 135,
+      "path": "/units/07-errata-koreksi-batas-kepastian.html",
+      "tableRegions": 12,
+      "tables": 12,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 140,
+      "path": "/units/08-seminar-penelaah-tanggapan-kritik.html",
+      "tableRegions": 6,
+      "tables": 6,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 82,
+      "path": "/units/09-kontribusi-komunitas-portofolio.html",
+      "tableRegions": 11,
+      "tables": 11,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 324,
+      "mathml": 0,
+      "path": "/wrapper/",
+      "tableRegions": 1,
+      "tables": 1,
+      "unsafe": [],
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 0,
+      "path": "/",
+      "tableRegions": 0,
+      "tables": 0,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 67,
+      "path": "/units/01-membaca-argumen.html",
+      "tableRegions": 1,
+      "tables": 1,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 35,
+      "path": "/units/02-menelusuri-sumber.html",
+      "tableRegions": 7,
+      "tables": 7,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 340,
+      "path": "/units/03-merekonstruksi-pembuktian.html",
+      "tableRegions": 7,
+      "tables": 7,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 63,
+      "path": "/units/04-sitasi-provenance-catatan-sumber.html",
+      "tableRegions": 9,
+      "tables": 9,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 184,
+      "path": "/units/05-eksposisi-matematika.html",
+      "tableRegions": 6,
+      "tables": 6,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 62,
+      "path": "/units/06-komputasi-dapat-direproduksi.html",
+      "tableRegions": 10,
+      "tables": 10,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 135,
+      "path": "/units/07-errata-koreksi-batas-kepastian.html",
+      "tableRegions": 12,
+      "tables": 12,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 140,
+      "path": "/units/08-seminar-penelaah-tanggapan-kritik.html",
+      "tableRegions": 6,
+      "tables": 6,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 82,
+      "path": "/units/09-kontribusi-komunitas-portofolio.html",
+      "tableRegions": 11,
+      "tables": 11,
+      "unsafe": [],
+      "viewport": 1440
+    },
+    {
+      "lang": "en",
+      "mainWidth": 799,
+      "mathml": 0,
+      "path": "/wrapper/",
+      "tableRegions": 1,
+      "tables": 1,
+      "unsafe": [],
+      "viewport": 1440
+    }
+  ],
+  "unsafeOverflowCount": 0,
+  "method": "Final rebuilt HTML checked in the in-app browser across all 11 pages at 390 and 1440 CSS-pixel viewport settings (actual document widths 375 and 1425): English language metadata, loaded fonts, 1108 native MathML nodes, every table in a labelled keyboard-focusable local scroll region, zero unlabeled regions, zero body overflow, and zero uncontained overflowing descendants. All mobile page openings and representative desktop pages, including Units 2, 6, and 8 and the authentic-delivery wrapper, were visually inspected after layout settled; console errors and warnings were empty.",
+  "limitations": [
+    "Not a human accessibility study or PDF/UA claim"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema": "o017-english-font-qa-v1",
+  "status": "PASS",
+  "purpose": "Repair missing Unicode proof-diagram strokes/relations and PRIME labels without changing source text.",
+  "source": {
+    "project": "DejaVu Fonts",
+    "version": "2.35",
+    "commit": "e055422f2643c8dc4718fb2269daeb3f707ccc4b",
+    "release_url": "https://github.com/dejavu-fonts/dejavu-fonts/releases/tag/version_2_35",
+    "license_url": "https://raw.githubusercontent.com/dejavu-fonts/dejavu-fonts/e055422f2643c8dc4718fb2269daeb3f707ccc4b/dejavu-fonts/LICENSE",
+    "license_path": "licenses/DejaVu-Font-License.txt",
+    "license_sha256": "9a78e21c9e0acc4f13ba1664faf09caa024ac5353aa77a664dbaeab4c98246cd"
+  },
+  "source_inventory": {
+    "unit_files": 9,
+    "fenced_blocks": 11,
+    "fenced_characters": 2843,
+    "distinct_renderable_code_points": 84,
+    "U+2032_PRIME_occurrences": 15
+  },
+  "configuration": {
+    "mainfont": "DejaVuSerif",
+    "monofont": "DejaVuSansMono",
+    "path": "source/fonts/",
+    "configuration_path": "source/_quarto-pdf.yml"
+  },
+  "fonts": [
+    {
+      "path": "source/fonts/DejaVuSansMono.ttf",
+      "bytes": 340240,
+      "sha256": "602ec86b8948cfcd956482fe64f94c36c867770149ef2f791d4613f443bcecb3",
+      "version": "Version 2.35",
+      "fsType": 0,
+      "missing_fenced_code_points": [],
+      "covers_U+2032_PRIME": true
+    },
+    {
+      "path": "source/fonts/DejaVuSansMono-Bold.ttf",
+      "bytes": 331536,
+      "sha256": "baada9a5172fe20886251aff0433fc38461912d5daf07287e7bee56620a8da96",
+      "version": "Version 2.35",
+      "fsType": 0,
+      "missing_fenced_code_points": [],
+      "covers_U+2032_PRIME": true
+    },
+    {
+      "path": "source/fonts/DejaVuSansMono-Oblique.ttf",
+      "bytes": 251472,
+      "sha256": "28052813f7a709fc89f52d192dc995ef4f0fdc5c3d7b73a49d6849b1916d0cd0",
+      "version": "Version 2.35",
+      "fsType": 0,
+      "missing_fenced_code_points": [],
+      "covers_U+2032_PRIME": true
+    },
+    {
+      "path": "source/fonts/DejaVuSansMono-BoldOblique.ttf",
+      "bytes": 253116,
+      "sha256": "a69081c15c76c827e0a27a5a7f5c74b6135c843499955495ffa8c20d3a98288b",
+      "version": "Version 2.35",
+      "fsType": 0,
+      "missing_fenced_code_points": [],
+      "covers_U+2032_PRIME": true
+    },
+    {
+      "path": "source/fonts/DejaVuSerif.ttf",
+      "bytes": 379740,
+      "sha256": "107244956e9962b9e96faccdc551825e0ae0898ae13737133e1b921a2fd35ffa",
+      "version": "Version 2.35",
+      "fsType": 0,
+      "missing_fenced_code_points": [],
+      "covers_U+2032_PRIME": true
+    },
+    {
+      "path": "source/fonts/DejaVuSerif-Bold.ttf",
+      "bytes": 355692,
+      "sha256": "c3753f2ed6bc673f15846dc45addbeb3b9c872f32fb18fd53a21f1bef1ed7676",
+      "version": "Version 2.35",
+      "fsType": 0,
+      "missing_fenced_code_points": [],
+      "covers_U+2032_PRIME": true
+    },
+    {
+      "path": "source/fonts/DejaVuSerif-Italic.ttf",
+      "bytes": 345612,
+      "sha256": "3e7994fbc54fa10ce3352a42d548fadd7d9cadb69cb1109bc9d960f6dac57f04",
+      "version": "Version 2.35",
+      "fsType": 0,
+      "missing_fenced_code_points": [],
+      "covers_U+2032_PRIME": true
+    },
+    {
+      "path": "source/fonts/DejaVuSerif-BoldItalic.ttf",
+      "bytes": 347064,
+      "sha256": "d93efec7a9d2e826768d1a2ee95b95870e15e29599a84f3484af1de1cec2e181",
+      "version": "Version 2.35",
+      "fsType": 0,
+      "missing_fenced_code_points": [],
+      "covers_U+2032_PRIME": true
+    }
+  ],
+  "checks": {
+    "all_expected_fonts_present": true,
+    "all_fonts_version_2_35": true,
+    "all_fonts_fsType_zero": true,
+    "all_fenced_code_points_covered": true,
+    "all_fonts_cover_U+2032_PRIME": true,
+    "complete_license_notice_present": true
+  },
+  "errors": []
+}

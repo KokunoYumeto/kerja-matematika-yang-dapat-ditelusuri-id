@@ -1,0 +1,218 @@
+{
+  "baseline_path": "backend/semantic-wrapper-v1.baseline.json",
+  "baseline_sha256": "0bbdee88209c17075a9a86035a72f9105f3b6fb4fb271f0af10ac2a4014f80a4",
+  "claim_boundary": {
+    "contains_learner_completion_evidence": false,
+    "contains_learner_credential_claims": false,
+    "records_are_definitions_and_templates_only": true
+  },
+  "counts": {
+    "authentic_delivery_assessments": 5,
+    "by_entity_type": {
+      "assessment": 14,
+      "attempt": 14,
+      "competency": 9,
+      "credential_state": 6,
+      "criterion": 79,
+      "evaluator": 5,
+      "evidence": 79,
+      "learning_outcome": 71,
+      "result": 14,
+      "rubric": 14,
+      "submission": 14
+    },
+    "coursebook_assessments": 9,
+    "credential_assertion_instances": 0,
+    "learner_attempt_instances": 0,
+    "learner_result_instances": 0,
+    "learner_submission_instances": 0,
+    "learning_outcomes": 71,
+    "localized_text_records": 581,
+    "semantic_records": 319,
+    "wrapper_relations_issued": 1704
+  },
+  "delivery_integration": {
+    "assessment_crosswalks": {
+      "O017-ASMT-BOUNDED-COMMUNITY-TRANSACTION": {
+        "calibration_exemplar_id": "O017-WRAP-CAL-A05",
+        "delivery_definition_id": "O017-WRAP-A05"
+      },
+      "O017-ASMT-INDEPENDENT-REFEREE-CYCLE": {
+        "calibration_exemplar_id": "O017-WRAP-CAL-A03",
+        "delivery_definition_id": "O017-WRAP-A03"
+      },
+      "O017-ASMT-LIVE-SEMINAR": {
+        "calibration_exemplar_id": "O017-WRAP-CAL-A02",
+        "delivery_definition_id": "O017-WRAP-A02"
+      },
+      "O017-ASMT-REAL-ERRATUM-DOSSIER": {
+        "calibration_exemplar_id": "O017-WRAP-CAL-A04",
+        "delivery_definition_id": "O017-WRAP-A04"
+      },
+      "O017-ASMT-REAL-SOURCE-SEARCH": {
+        "calibration_exemplar_id": "O017-WRAP-CAL-A01",
+        "delivery_definition_id": "O017-WRAP-A01"
+      }
+    },
+    "calibration_package_id": "O017-WRAP-CALIBRATION-PACKAGE-1",
+    "definition_set_id": "O017-WRAP-DEFINITIONS-1",
+    "delivery_schema_id": "O017-WRAP-DEFINITIONS-SCHEMA-1",
+    "renderer_fragments_are_locators_only": true
+  },
+  "files": [
+    {
+      "bytes": 220021,
+      "path": "backend/semantic-wrapper-v1.localizations.jsonl",
+      "sha256": "a564b544c4dd9393e5590fe157b713e260a3fd35d04226bd3eee39d010b45d01"
+    },
+    {
+      "bytes": 206179,
+      "path": "backend/semantic-wrapper-v1.records.jsonl",
+      "sha256": "828ace8162edb3bbe5e8968fc4e7c9c05dddcd854cd5f5d080486996b589a5a1"
+    },
+    {
+      "bytes": 226911,
+      "path": "backend/semantic-wrapper-v1.relations-ledger.csv",
+      "sha256": "458d19a229fc6d3677a8e9dac677fa5decfa4ee9a65a92978d02f5f32fedc1c2"
+    }
+  ],
+  "identity_policy": {
+    "html_fragment_is_forbidden_on_semantic_records": true,
+    "localized_text_requires_locale_and_language": true,
+    "renderer_fragments_are_noncanonical_locators": true,
+    "semantic_ids_are_locale_neutral": true
+  },
+  "model_version": "1.0.0",
+  "relation_policy": {
+    "existing_ledger_mutated": false,
+    "existing_ledger_path": "backend/relations-ledger.csv",
+    "wrapper_ledger_is_append_only": true,
+    "wrapper_ledger_path": "backend/semantic-wrapper-v1.relations-ledger.csv"
+  },
+  "release_version": "2026.08.24",
+  "schema": "o017-semantic-wrapper-dataset-v1",
+  "schema_path": "backend/semantic-wrapper-v1.schema.json",
+  "schema_sha256": "73c23b5012dc95cb8cdf3823cde587f0422ae1787fe94b9b2361b81843c6c818",
+  "source_inputs": [
+    {
+      "bytes": 1866,
+      "path": "delivery/README.md",
+      "sha256": "53d514b3d977b3b0b9aa99ba82e2d88c77e36e7d7bc36ee3605f6f5d9066d700"
+    },
+    {
+      "bytes": 2276,
+      "path": "delivery/VALIDATION.json",
+      "sha256": "7b1f500fe297217da762ea3e2f31b159c63338551df42568f5550c5f806fac10"
+    },
+    {
+      "bytes": 7200,
+      "path": "delivery/calibration/01-real-source-search.md",
+      "sha256": "6c4bb64185822f3d8f08e2f39638c5be6ea51b157cd6ca23b0b2e334b7a47a56"
+    },
+    {
+      "bytes": 5884,
+      "path": "delivery/calibration/02-seminar-supervised-equivalent.md",
+      "sha256": "3282557576c3d7e83d4fc41d94fd990b20ae548c522dd6590e2030239f722101"
+    },
+    {
+      "bytes": 5343,
+      "path": "delivery/calibration/03-independent-referee-cycle.md",
+      "sha256": "347bbf2089d155efc281f847294d9d119a2833230c144ea517648cbb8e6ee30a"
+    },
+    {
+      "bytes": 5345,
+      "path": "delivery/calibration/04-real-source-erratum-dossier.md",
+      "sha256": "c76f61aea5e6104d360dbdd3ca7fcaba408a496ddc381f5ce77f3b16ef041355"
+    },
+    {
+      "bytes": 5616,
+      "path": "delivery/calibration/05-externally-reviewed-local.md",
+      "sha256": "36973f0241a17230773168466a83ab74cdca854427b75c62d356043d41f85cb0"
+    },
+    {
+      "bytes": 14730,
+      "path": "delivery/calibration/calibration-package.json",
+      "sha256": "7440fee96a3e2772d2215ca6c937a407d1e694be9a167df6dd39eca8844c8f9f"
+    },
+    {
+      "bytes": 1471,
+      "path": "delivery/calibration/evidence-manifest.csv",
+      "sha256": "00046477b42a6cfd138bac4c1b996044bf1a336737e9d7edbdc1d7c5db0d38a8"
+    },
+    {
+      "bytes": 5350,
+      "path": "delivery/definitions/evidence-types.csv",
+      "sha256": "3cd80dc0f797b97f472ef558b4df0bac683857d374aab55d8f3a5d87756a71df"
+    },
+    {
+      "bytes": 3164,
+      "path": "delivery/definitions/lifecycle-statuses.csv",
+      "sha256": "2e4e29c57c928477a07f170fe497440c61b723c203efbd9e464213b040c06cf8"
+    },
+    {
+      "bytes": 9343,
+      "path": "delivery/definitions/o017-delivery-definitions.json",
+      "sha256": "9ce19bde4aada7a17f123f8cbf6e8dda59973867d4dc15a9b13db65e9ed5701d"
+    },
+    {
+      "bytes": 4732,
+      "path": "delivery/definitions/rubric-criteria.csv",
+      "sha256": "e122656f9d3d9e7fc57fef8db99ea8808b05d97c6c358b939a170cd4f949f93f"
+    },
+    {
+      "bytes": 15577,
+      "path": "delivery/schema/o017-delivery.schema.json",
+      "sha256": "7d870b3612b986d75da036a73adb13945b2d45ae8b236ab6e681358530d2fc1e"
+    },
+    {
+      "bytes": 11540,
+      "path": "source/units/01-membaca-argumen.qmd",
+      "sha256": "0d149ca6565236a18448a262493ee21d96d4010a4c8750a6a09bcf3de488d688"
+    },
+    {
+      "bytes": 24219,
+      "path": "source/units/02-menelusuri-sumber.qmd",
+      "sha256": "7da45e3e3fb2c9c25e7dd10bdb5eb108846c1443dd3f3e66418e0c07bdb94d9a"
+    },
+    {
+      "bytes": 36624,
+      "path": "source/units/03-merekonstruksi-pembuktian.qmd",
+      "sha256": "b4e3ed7fac5d9a18c1c90df6a0da1cc5d7f9c309c2fe701ab6996e902793e1bf"
+    },
+    {
+      "bytes": 38589,
+      "path": "source/units/04-sitasi-provenance-catatan-sumber.qmd",
+      "sha256": "47547d4d18db7d3719b14ce3914a017d5ef741f01fc31f928365fe1cb0f1fcbb"
+    },
+    {
+      "bytes": 37364,
+      "path": "source/units/05-eksposisi-matematika.qmd",
+      "sha256": "ef5779b009bf1fe32b66af53ea64a89fd7eb51a240f7288bc4328c64d16a7006"
+    },
+    {
+      "bytes": 43409,
+      "path": "source/units/06-komputasi-dapat-direproduksi.qmd",
+      "sha256": "56715993b49ffb98cab9b4bf4a5bff85be040f1a85ba2484b83e536f81c09f0e"
+    },
+    {
+      "bytes": 52178,
+      "path": "source/units/07-errata-koreksi-batas-kepastian.qmd",
+      "sha256": "dac211708a859a8bf93f800395ff252caa4554c30c0f3994356ab98fa6a24c91"
+    },
+    {
+      "bytes": 49752,
+      "path": "source/units/08-seminar-penelaah-tanggapan-kritik.qmd",
+      "sha256": "6c11eeede678ffd006924d0b751ef14efa033504f411707446fbbe3fc890b84a"
+    },
+    {
+      "bytes": 44755,
+      "path": "source/units/09-kontribusi-komunitas-portofolio.qmd",
+      "sha256": "ad914ff7c17775ca3a9d0724d07b35157fdb47237dc1749363ff152b32cd554e"
+    },
+    {
+      "bytes": 13235,
+      "path": "source/wrapper/index.qmd",
+      "sha256": "eafa643277f038437f7faba6bafd5a0ed2fafe02a442ddddcd6b895bd1e947a1"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "o017-en-reuse-v1",
+  "status": "PASS",
+  "existing_english_original_course": "none in bounded course root/source inventory",
+  "donor_policy": "Already-English donor sources and code are not translated again; retained citations and immutable donor identities support original English adaptations.",
+  "turing_way_commit": "c98a0e6ca47450456cca7c5eedda2d5ee131d1ce",
+  "pyrse_commit": "62217e6606842ab9752fcf8e73954d1eb4a3cf07",
+  "indonesian_baseline_files": 61,
+  "reused_files": [
+    {
+      "path": "source/styles.css",
+      "bytes": 1392,
+      "sha256": "50b6eb37ed443a2e17a6dd701808d3dd1eaca7e024b202048cf5385f878cbe00"
+    },
+    {
+      "path": "source/references.bib",
+      "bytes": 2061,
+      "sha256": "f6c7303e35a84a431d4c322dd309d3211b9f4a547f3787a4b3c20dbab42d3451"
+    },
+    {
+      "path": "LICENSES.md",
+      "bytes": 10492,
+      "sha256": "529795062db7674bf5f6a9b99ddd9f6f99810eaa80c65f266323c2bdb4627eb8"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 4766,
+      "sha256": "b55654476b7a7f895b941a69f3cbb7e60a68cd9f7e0dc9b7277eed2594746f84"
+    },
+    {
+      "path": "RELEASE_PROVENANCE.csv",
+      "bytes": 1140,
+      "sha256": "1d0782bb417e6cb79120e9990cadbef8c9bde0d013dc4b96ba5aa1896e16e436"
+    },
+    {
+      "path": "source/code/expected-output.txt",
+      "bytes": 107,
+      "sha256": "d975260b0ca85297a8db7f303c760e0b80486103e09d76c8e089c019d7f55d51"
+    },
+    {
+      "path": "source/code/u06-expected-output.txt",
+      "bytes": 1872,
+      "sha256": "4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112"
+    },
+    {
+      "path": "source/code/u06_recurrence_witness.py",
+      "bytes": 3505,
+      "sha256": "9effb4dd4d17ce6b26fd108585ff0adc5110d8903c9c283b56a909613e7aa93d"
+    },
+    {
+      "path": "source/code/verify_mst_uniqueness.py",
+      "bytes": 3053,
+      "sha256": "651f1c44f17385bc7ac44791634583a95a6ae86e05ef6c6ce1064052cd5dc761"
+    },
+    {
+      "path": "licenses/AMSFonts-3.04-OFL.txt",
+      "bytes": 12521,
+      "sha256": "c3bf4641d82fcfcaf9fe0b1cf02fc05dd8e9ff064ddda4b58bc1f658717f2465"
+    },
+    {
+      "path": "licenses/AMSFonts-3.04-README.txt",
+      "bytes": 14650,
+      "sha256": "17ca44f214cb44fd3cc8d29e4da90f28ad8850938eb4c242cb80e62baea0a24e"
+    },
+    {
+      "path": "licenses/APACHE-2.0.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "licenses/FONT-AWESOME-FREE-5.15.4-LICENSE.txt",
+      "bytes": 1549,
+      "sha256": "465b9cc2950960b0f70cca23b57f10a463f0d4a05df30a8aa3b3d43fded5b0c5"
+    },
+    {
+      "path": "licenses/FONT_COMPONENT_PROVENANCE.json",
+      "bytes": 12065,
+      "sha256": "7fb41bbf8e9b0ca423418aa53220378fec9258b46b50d9980053a4905ab75e92"
+    },
+    {
+      "path": "licenses/GPL-3.0.txt",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "licenses/GUST-FONT-LICENSE-1.0.txt",
+      "bytes": 1378,
+      "sha256": "2f9a825a9e7dba348e1ae6948205adcd642bffbb424b39887b65eba9a954c74e"
+    },
+    {
+      "path": "licenses/LATIN-MODERN-MATH-1.959-README.txt",
+      "bytes": 4589,
+      "sha256": "31fe626862783454878e4fb82192d92f30a62fa46d2d547bdde7aa92a3ada90a"
+    },
+    {
+      "path": "licenses/MIT.txt",
+      "bytes": 1036,
+      "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+    },
+    {
+      "path": "licenses/SIL-OFL-1.1.txt",
+      "bytes": 4600,
+      "sha256": "82585c35736ce06aae32a5678143b93b4714ac1a670f72f0aea9effefbb6f20c"
+    }
+  ]
+}

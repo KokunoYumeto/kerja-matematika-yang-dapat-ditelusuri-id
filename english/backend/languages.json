@@ -1,0 +1,25 @@
+{
+  "course_id": "O017-D120",
+  "crosswalk": "backend/localization-crosswalk.csv",
+  "default_locale": "en",
+  "historical_artifact_hashes": "Original records.jsonl artifact paths and hashes identify the Indonesian release only; use English manifest and access locators for this edition.",
+  "locales": {
+    "en": {
+      "core_text": "backend/core-localizations.en.jsonl",
+      "locators": "backend/english-access-locators.jsonl",
+      "reader": "build/html/index.html",
+      "semantic_records": "backend/semantic-wrapper-v1.records.en.jsonl",
+      "semantic_text": "backend/semantic-wrapper-v1.localizations.en.jsonl",
+      "source": "source/index.qmd"
+    },
+    "id-ID": {
+      "preserved_original_record_stream": "backend/upstream-id-ID/records.jsonl",
+      "reader_is_outside_english_package": true,
+      "semantic_records": "backend/upstream-id-ID/semantic-wrapper-v1.records.jsonl",
+      "semantic_text": "backend/semantic-wrapper-v1.localizations.id-ID.jsonl"
+    }
+  },
+  "missing_translation_behavior": "error; never silently fall back to another language",
+  "schema": "o017-language-selection-v1",
+  "semantic_entities_are_locale_neutral": true
+}

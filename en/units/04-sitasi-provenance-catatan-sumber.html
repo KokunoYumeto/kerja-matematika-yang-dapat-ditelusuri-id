@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta charset="utf-8"/>
+<meta content="quarto-1.9.37" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<meta content="A practical unit on distinguishing citation from evidence provenance and computational provenance, maintaining a source notebook, and auditing mathematical corrections without erasing version history." name="description"/>
+<title>Unit 4 — Citation, Provenance, and the Source Notebook – Traceable Mathematical Work</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta content="../" name="quarto:offset"/>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet"/>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" id="quarto-text-highlighting-styles" rel="stylesheet"/>
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet"/>
+<link append-hash="true" data-mode="light" href="../site_libs/bootstrap/bootstrap-e660844ac27f845a97ea4d6047b2f6e4.min.css" id="quarto-bootstrap" rel="stylesheet"/>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../styles.css?v=22d3dec6156b" rel="stylesheet"/>
+</head>
+<body class="nav-fixed quarto-light">
+<a class="o017-skip-link" href="#quarto-document-content">Skip to main content</a>
+<div id="quarto-search-results"></div>
+<header class="headroom fixed-top" id="quarto-header">
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+<div class="navbar-container container-fluid">
+<div class="navbar-brand-container mx-auto">
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-title">Traceable Mathematical Work</span>
+</a>
+</div>
+<div class="" id="quarto-search" title="Search"></div>
+<button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+<ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+<a class="nav-link" href="../index.html">
+<span class="menu-text">Home</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/01-membaca-argumen.html">
+<span class="menu-text">Unit 1</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/02-menelusuri-sumber.html">
+<span class="menu-text">Unit 2</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/03-merekonstruksi-pembuktian.html">
+<span class="menu-text">Unit 3</span></a>
+</li>
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="../units/04-sitasi-provenance-catatan-sumber.html">
+<span class="menu-text">Unit 4</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/05-eksposisi-matematika.html">
+<span class="menu-text">Unit 5</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/06-komputasi-dapat-direproduksi.html">
+<span class="menu-text">Unit 6</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/07-errata-koreksi-batas-kepastian.html">
+<span class="menu-text">Unit 7</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/08-seminar-penelaah-tanggapan-kritik.html">
+<span class="menu-text">Unit 8</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../units/09-kontribusi-komunitas-portofolio.html">
+<span class="menu-text">Unit 9</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../wrapper/index.html">
+<span class="menu-text">Teaching and assessment</span></a>
+</li>
+</ul>
+</div> <!-- /navcollapse -->
+<div class="quarto-navbar-tools tools-wide">
+<a aria-label="English PDF" class="quarto-navigation-tool px-1" href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/en-v2026.08.31/traceable-mathematical-work-en-2026.08.31.pdf" title="English PDF"><i class="bi bi-file-pdf"></i></a>
+<a aria-label="English source" class="quarto-navigation-tool px-1" href="https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english" title="English source"><i class="bi bi-github"></i></a>
+<a aria-label="Bahasa Indonesia" class="quarto-navigation-tool px-1" href="https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/" title="Bahasa Indonesia"><i class="bi bi-globe"></i></a>
+</div>
+</div> <!-- /container-fluid -->
+</nav>
+</header>
+<!-- content -->
+<div class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" id="quarto-content">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
+<nav aria-labelledby="toc-title" class="toc-active" id="TOC" role="doc-toc">
+<div class="h2" id="toc-title">On this page</div>
+<ul>
+<li><a class="nav-link active" data-scroll-target="#o017-u04-outcomes" href="#o017-u04-outcomes" id="toc-o017-u04-outcomes"><span class="header-section-number">1</span> Learning outcomes</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-bibliography-is-not-evidence" href="#o017-u04-bibliography-is-not-evidence" id="toc-o017-u04-bibliography-is-not-evidence"><span class="header-section-number">2</span> A bibliography is not yet an evidence trail</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-three-records" href="#o017-u04-three-records" id="toc-o017-u04-three-records"><span class="header-section-number">3</span> Three records with three different jobs</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u04-citation-role" href="#o017-u04-citation-role" id="toc-o017-u04-citation-role"><span class="header-section-number">3.1</span> Citation provides credit and a route to discovery</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-evidence-provenance" href="#o017-u04-evidence-provenance" id="toc-o017-u04-evidence-provenance"><span class="header-section-number">3.2</span> Evidence provenance is a chain of accountability</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-computation-provenance" href="#o017-u04-computation-provenance" id="toc-o017-u04-computation-provenance"><span class="header-section-number">3.3</span> Computational provenance records the history of a particular result</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-four-source-levels" href="#o017-u04-four-source-levels" id="toc-o017-u04-four-source-levels"><span class="header-section-number">4</span> Four levels of source identity</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-two-layer-notebook" href="#o017-u04-two-layer-notebook" id="toc-o017-u04-two-layer-notebook"><span class="header-section-number">5</span> A two-layer source notebook</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u04-object-layer" href="#o017-u04-object-layer" id="toc-o017-u04-object-layer"><span class="header-section-number">5.1</span> The object layer</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-event-layer" href="#o017-u04-event-layer" id="toc-o017-u04-event-layer"><span class="header-section-number">5.2</span> The event layer</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-six-tables" href="#o017-u04-six-tables" id="toc-o017-u04-six-tables"><span class="header-section-number">5.3</span> Seven tables are enough for many projects</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-ledger-protocol" href="#o017-u04-ledger-protocol" id="toc-o017-u04-ledger-protocol"><span class="header-section-number">6</span> A protocol from claim to notebook</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-worked-case" href="#o017-u04-worked-case" id="toc-o017-u04-worked-case"><span class="header-section-number">7</span> Worked case: an integral claim with a missing rate</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u04-version-packet" href="#o017-u04-version-packet" id="toc-o017-u04-version-packet"><span class="header-section-number">7.1</span> The version and correction packet</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-source-ledger" href="#o017-u04-source-ledger" id="toc-o017-u04-source-ledger"><span class="header-section-number">7.2</span> Work and version records</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-normalized-claims" href="#o017-u04-normalized-claims" id="toc-o017-u04-normalized-claims"><span class="header-section-number">7.3</span> Freezing two claims</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-v1-counterexample" href="#o017-u04-v1-counterexample" id="toc-o017-u04-v1-counterexample"><span class="header-section-number">7.4</span> Rejecting C01 with a counterexample</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-v2-proof" href="#o017-u04-v2-proof" id="toc-o017-u04-v2-proof"><span class="header-section-number">7.5</span> Accepting C02 with a comparison proof</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-claim-locator-chain" href="#o017-u04-claim-locator-chain" id="toc-o017-u04-claim-locator-chain"><span class="header-section-number">7.6</span> The claim-to-locator chain</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-decision-ledger" href="#o017-u04-decision-ledger" id="toc-o017-u04-decision-ledger"><span class="header-section-number">7.7</span> The decision and uncertainty notebook</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-citation-after-audit" href="#o017-u04-citation-after-audit" id="toc-o017-u04-citation-after-audit"><span class="header-section-number">7.8</span> Choosing a citation after the audit</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-computation-in-case" href="#o017-u04-computation-in-case" id="toc-o017-u04-computation-in-case"><span class="header-section-number">7.9</span> Where does computational provenance enter?</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-corrections-preserve-history" href="#o017-u04-corrections-preserve-history" id="toc-o017-u04-corrections-preserve-history"><span class="header-section-number">8</span> Corrections do not erase earlier versions</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-guided-practice" href="#o017-u04-guided-practice" id="toc-o017-u04-guided-practice"><span class="header-section-number">9</span> Guided practice: one traceable line</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-exercises" href="#o017-u04-exercises" id="toc-o017-u04-exercises"><span class="header-section-number">10</span> Exercises</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-guidance" href="#o017-u04-guidance" id="toc-o017-u04-guidance"><span class="header-section-number">11</span> Hints and answer guidance</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-completion-task" href="#o017-u04-completion-task" id="toc-o017-u04-completion-task"><span class="header-section-number">12</span> Unit completion task</a>
+<ul class="collapse">
+<li><a class="nav-link" data-scroll-target="#o017-u04-completion-rubric" href="#o017-u04-completion-rubric" id="toc-o017-u04-completion-rubric"><span class="header-section-number">12.1</span> Rubric</a></li>
+</ul></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-boundary" href="#o017-u04-boundary" id="toc-o017-u04-boundary"><span class="header-section-number">13</span> Boundaries with B80 and other units</a></li>
+<li><a class="nav-link" data-scroll-target="#o017-u04-provenance" href="#o017-u04-provenance" id="toc-o017-u04-provenance"><span class="header-section-number">14</span> Sources, provenance, changes, and rights</a></li>
+</ul>
+</nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header class="quarto-title-block default" id="title-block-header">
+<div class="quarto-title">
+<h1 class="title">Unit 4 — Citation, Provenance, and the Source Notebook</h1>
+<p class="subtitle lead">Connecting each claim to its version, location, evidence, and limits of certainty</p>
+</div>
+<div>
+<div class="description">
+    A practical unit on distinguishing citation from evidence provenance and computational provenance, maintaining a source notebook, and auditing mathematical corrections without erasing version history.
+  </div>
+</div>
+<div class="quarto-title-meta">
+</div>
+</header>
+<section class="level2" data-number="1" id="o017-u04-outcomes">
+<h2 class="anchored" data-anchor-id="o017-u04-outcomes" data-number="1"><span class="header-section-number">1</span> Learning outcomes</h2>
+<p>This unit has the stable identifier <strong>O017-U04</strong>. After completing it, you will be able to:</p>
+<ol type="1">
+<li>distinguish the functions of <strong>citation</strong>, <strong>evidence provenance</strong>, and <strong>computational provenance</strong> without substituting one for another;</li>
+<li>record works, versions, copies, and internal locations as distinct but connected objects;</li>
+<li>connect a normalized claim to a locator precise enough for another reader to find the wording that was actually examined;</li>
+<li>retain the grounds for accepting, rejecting, or qualifying a mathematical claim, rather than merely retaining its bibliography;</li>
+<li>record corrections as relationships between versions without overwriting or deleting the historical state of an earlier source;</li>
+<li>record uncertainty in a structured way and refuse to fill missing metadata with guesses;</li>
+<li>design a source notebook that can be updated, reviewed, and exported without losing the decision trail; and</li>
+<li>assemble a claim dossier that brings together citation, provenance, mathematical audit, and the limits of the conclusions.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Prerequisites, continuity, and scope">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Prerequisites, continuity, and scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unit 2 teaches you to find candidate sources, distinguish a work from a version, and assess its authority. Unit 3 teaches you to close proof gaps through lemma contracts and dependency graphs. Unit 4 assumes that both kinds of work have been done, then preserves <strong>the trail connecting their results</strong>: which claim, which wording, which version, which location, which evidence, which decision, and what remaining uncertainty.</p>
+<p>This unit does not teach a particular bibliography style, reference-manager use, database syntax, Git commands, checksum calculation, or computational environment setup. Tool formats may change; the logical relationships that must be preserved do not.</p>
+</div>
+</div>
+</section>
+<section class="level2" data-number="2" id="o017-u04-bibliography-is-not-evidence">
+<h2 class="anchored" data-anchor-id="o017-u04-bibliography-is-not-evidence" data-number="2"><span class="header-section-number">2</span> A bibliography is not yet an evidence trail</h2>
+<p>A bibliography entry usually answers questions such as “Which work is being referenced?” and “How can the reader identify it?” For a mathematical audit, that is not enough.</p>
+<p>Consider the sentence:</p>
+<blockquote class="blockquote">
+<p>This result follows from Source A.</p>
+</blockquote>
+<p>At least seven questions remain open.</p>
+<ol type="1">
+<li>Which edition or version of Source A?</li>
+<li>Did the reader examine the full text or only its metadata?</li>
+<li>On which page, or in which section, theorem, equation, or paragraph, does the result appear?</li>
+<li>Is its wording the same as the claim being used?</li>
+<li>Do all its hypotheses match?</li>
+<li>Was there a correction after that version?</li>
+<li>Does “follows from” mean cited, proved, tested with examples, or merely considered plausible?</li>
+</ol>
+<p>A good source record does not turn a citation into a long story. It adds structure that allows each question above to be answered, or honestly marked <code>not yet known</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled" id="o017-u04-original-bridge" title="Original O017 bridge material">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Original O017 bridge material
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>claim–locator–version chain</strong> model, separation of three kinds of records, uncertainty statuses, layered notebook, and mathematical cases in this unit are original O017 bridge material. General concepts of metadata, versions, citation of research objects, and computational provenance are restricted to the frozen donors; the donors do not provide the complete workflow for auditing mathematical claims developed here.</p>
+</div>
+</div>
+</section>
+<section class="level2" data-number="3" id="o017-u04-three-records">
+<h2 class="anchored" data-anchor-id="o017-u04-three-records" data-number="3"><span class="header-section-number">3</span> Three records with three different jobs</h2>
+<p>The following three terms often appear within one project, but answer different questions.</p>
+<div aria-label="Distinctions between citation, evidence provenance, and computational provenance" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 1: 3 Three records with three different jobs" class="caption-top table">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Record</th>
+<th scope="col">Main question</th>
+<th scope="col">Minimum contents</th>
+<th scope="col">Does not by itself establish</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Citation</td>
+<td>Which work or object should receive credit and be discoverable?</td>
+<td>creator, title, publication venue, year, identifier or URL, version where relevant</td>
+<td>that the cited claim is true or its hypotheses match</td>
+</tr>
+<tr class="even">
+<td>Evidence provenance</td>
+<td>Exactly where do this claim’s wording and the grounds for the decision about it come from?</td>
+<td>claim ID, version ID, locator, evidence type, relationship, decision, reason, uncertainty</td>
+<td>that a computational process can be rerun</td>
+</tr>
+<tr class="odd">
+<td>Computational provenance</td>
+<td>Which artifacts and conditions produced a particular computational output?</td>
+<td>code, inputs, dependencies, runtime, parameters, command or procedure, outputs, byte identity</td>
+<td>that finite outputs prove a universal claim</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These can overlap. A code package can be cited; one of its outputs can serve as empirical evidence; its execution record can retain computational provenance. But one DOI does not replace an execution record, and one execution record does not replace a theorem’s proof.</p>
+<section class="level3" data-number="3.1" id="o017-u04-citation-role">
+<h3 class="anchored" data-anchor-id="o017-u04-citation-role" data-number="3.1"><span class="header-section-number">3.1</span> Citation provides credit and a route to discovery</h3>
+<p>Choose the citation to match the object actually used. If a reader relies on the wording of a particular version, a version citation is more appropriate than a general work record. If a reader recommends that others look for the latest version, a work record may be more appropriate. Unit 2 introduced this distinction; here the choice is recorded as a <strong>decision</strong>, together with its reason.</p>
+</section>
+<section class="level3" data-number="3.2" id="o017-u04-evidence-provenance">
+<h3 class="anchored" data-anchor-id="o017-u04-evidence-provenance" data-number="3.2"><span class="header-section-number">3.2</span> Evidence provenance is a chain of accountability</h3>
+<p>Evidence provenance connects at least four objects:</p>
+<pre class="text"><code>[normalized claim] -&gt; [locator] -&gt; [version examined] -&gt; [work]
+         |
+         +-&gt; [proof / counterexample / data / reference]
+         |
+         +-&gt; [decision + reason + uncertainty]</code></pre>
+<p>Arrows must have meanings. <code>appearsAt</code> differs from <code>provedBy</code>, <code>refutedBy</code>, <code>correctedBy</code>, and <code>isVersionOf</code>. A source can <strong>contain</strong> a false claim; an <code>appearsAt</code> arrow must therefore not be read as <code>provedBy</code>.</p>
+</section>
+<section class="level3" data-number="3.3" id="o017-u04-computation-provenance">
+<h3 class="anchored" data-anchor-id="o017-u04-computation-provenance" data-number="3.3"><span class="header-section-number">3.3</span> Computational provenance records the history of a particular result</h3>
+<p>For a computational result, record enough objects and conditions for someone with B80 skills to attempt a rerun. A record that merely says “calculated using Python” does not identify the program, inputs, dependency versions, parameters, or intended outputs.</p>
+<p>This unit assesses the <strong>completeness and claim scope</strong> of that record. Writing programs, installing packages, choosing numerical types, writing tests, and generating checksums remain within B80. Even a perfect record only guarantees that a result is traceable; successful rerunning must be demonstrated by an execution that actually took place.</p>
+</section>
+</section>
+<section class="level2" data-number="4" id="o017-u04-four-source-levels">
+<h2 class="anchored" data-anchor-id="o017-u04-four-source-levels" data-number="4"><span class="header-section-number">4</span> Four levels of source identity</h2>
+<p>The notebook must distinguish the following four levels.</p>
+<ol type="1">
+<li><strong>Work.</strong> An intellectual identity that may have many editions or versions.</li>
+<li><strong>Version.</strong> The state of a work at a particular date, release, edition, revision, or commit.</li>
+<li><strong>Copy.</strong> The bytes or physical object actually examined: a local file, printout, archive, or capture that may be incomplete.</li>
+<li><strong>Location.</strong> A part within a version or copy: a page, theorem, equation, paragraph, line, or stable anchor.</li>
+</ol>
+<p>A page number without an edition may point to different text. A version without a location makes readers search the entire document again. A copy’s checksum without the work’s identity preserves the bytes but does not explain their intellectual content. All four levels are needed when the risk of miscitation is sufficiently high.</p>
+<div aria-label="Minimum fields in a source record" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 2: 4 Four levels of source identity" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Field</th>
+<th scope="col">Question answered</th>
+<th scope="col">Rule for completing it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>source_id</code></td>
+<td>which record is being referenced?</td>
+<td>stable local ID; never reuse it</td>
+</tr>
+<tr class="even">
+<td><code>work_id</code></td>
+<td>which intellectual work?</td>
+<td>link all versions that genuinely belong to the same work</td>
+</tr>
+<tr class="odd">
+<td><code>version_id</code></td>
+<td>which state of the work?</td>
+<td>edition/release/commit/date; record an unknown value when evidence is insufficient</td>
+</tr>
+<tr class="even">
+<td><code>copy_id</code></td>
+<td>which copy was examined?</td>
+<td>form, storage location, completeness, and byte identity where available</td>
+</tr>
+<tr class="odd">
+<td><code>locator</code></td>
+<td>where was the content found?</td>
+<td>use the strongest scheme available in the source; section and page may be combined</td>
+</tr>
+<tr class="even">
+<td><code>relation</code></td>
+<td>how are the records related?</td>
+<td>typed directional verb, such as a correction or version relation</td>
+</tr>
+<tr class="odd">
+<td><code>rights</code></td>
+<td>what are the component’s rights and obligations?</td>
+<td>license, attribution, and restrictions supported by evidence</td>
+</tr>
+<tr class="even">
+<td><code>observed_at</code></td>
+<td>when was the examination performed?</td>
+<td>observation date, not publication date</td>
+</tr>
+<tr class="odd">
+<td><code>missing</code></td>
+<td>which fields remain unknown?</td>
+<td>explicit list; do not invent values</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="level2" data-number="5" id="o017-u04-two-layer-notebook">
+<h2 class="anchored" data-anchor-id="o017-u04-two-layer-notebook" data-number="5"><span class="header-section-number">5</span> A two-layer source notebook</h2>
+<p>A notebook that withstands change has two layers.</p>
+<section class="level3" data-number="5.1" id="o017-u04-object-layer">
+<h3 class="anchored" data-anchor-id="o017-u04-object-layer" data-number="5.1"><span class="header-section-number">5.1</span> The object layer</h3>
+<p>The object layer stores what is currently known about works, versions, copies, locations, claims, evidence, and executions. Each object has a stable ID. If a title is corrected, the ID does not change; the new value is given a supporting basis and a date. If two records turn out to refer to different works, do not merge them merely because their titles are similar.</p>
+</section>
+<section class="level3" data-number="5.2" id="o017-u04-event-layer">
+<h3 class="anchored" data-anchor-id="o017-u04-event-layer" data-number="5.2"><span class="header-section-number">5.2</span> The event layer</h3>
+<p>The event layer is an append-only log that does not overwrite earlier entries. For example:</p>
+<ul>
+<li><code>2026-08-21T09:10 — LOC-01 observedIn VERSION-01</code>;</li>
+<li><code>2026-08-21T09:24 — CLAIM-01 refutedBy ARG-CE01</code>;</li>
+<li><code>2026-08-21T09:31 — VERSION-02 corrects VERSION-01</code>;</li>
+<li><code>2026-08-21T09:42 — DEC-01 changedFrom uncertain to rejected</code>.</li>
+</ul>
+<p>If a decision changes, add a new decision with its reason and a link to the old one. Do not alter an earlier record as if the error had never occurred. A notebook is not just a final picture; it also explains how that picture was obtained.</p>
+</section>
+<section class="level3" data-number="5.3" id="o017-u04-six-tables">
+<h3 class="anchored" data-anchor-id="o017-u04-six-tables" data-number="5.3"><span class="header-section-number">5.3</span> Seven tables are enough for many projects</h3>
+<p>The implementation may use paper, plain text, a spreadsheet, or a database. Conceptually, the following seven tables suffice for many mathematical reading projects.</p>
+<div aria-label="Seven conceptual tables for a source notebook" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 3: 5.3 Seven tables are enough for many projects" class="caption-top table">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Table</th>
+<th scope="col">Key</th>
+<th scope="col">Core contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>works</code></td>
+<td><code>work_id</code></td>
+<td>title, creators, publication venue, work identity</td>
+</tr>
+<tr class="even">
+<td><code>versions</code></td>
+<td><code>version_id</code></td>
+<td>version/edition/commit, date, relationships to the work and other versions</td>
+</tr>
+<tr class="odd">
+<td><code>copies</code></td>
+<td><code>copy_id</code></td>
+<td>version embodied, format, copy location, copy completeness, byte identity or copy characteristics actually observed</td>
+</tr>
+<tr class="even">
+<td><code>locators</code></td>
+<td><code>locator_id</code></td>
+<td>copy and version, location scheme, location value, short quotation or controlled paraphrase</td>
+</tr>
+<tr class="odd">
+<td><code>claims</code></td>
+<td><code>claim_id</code></td>
+<td>normalized statement, quantifiers, domain, status</td>
+</tr>
+<tr class="even">
+<td><code>evidence</code></td>
+<td><code>evidence_id</code></td>
+<td>evidence type, target claim, grounds, direction of support, limits</td>
+</tr>
+<tr class="odd">
+<td><code>events</code></td>
+<td><code>event_id</code></td>
+<td>time, recorder, action, object, reason</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Computational records may form an eighth table or a separate artifact linked from the evidence table. This separation prevents a single claim row from holding the entire computational environment and becoming unreadable.</p>
+</section>
+</section>
+<section class="level2" data-number="6" id="o017-u04-ledger-protocol">
+<h2 class="anchored" data-anchor-id="o017-u04-ledger-protocol" data-number="6"><span class="header-section-number">6</span> A protocol from claim to notebook</h2>
+<p>Use this sequence for every claim important enough to cite.</p>
+<ol type="1">
+<li><strong>Freeze the working statement.</strong> Write the claim with explicit quantifiers, domain, and hypotheses; assign a <code>claim_id</code>.</li>
+<li><strong>Identify the source objects.</strong> Separate the work, version, and copy actually examined. Record missing fields.</li>
+<li><strong>Create a locator.</strong> Choose a location that remains meaningful for that version. Record its start and end if a claim spans several paragraphs.</li>
+<li><strong>Record factual relationships.</strong> Record <code>VERSION-02</code> as correcting <code>VERSION-01</code>; then locate <code>CLAIM-01</code> at <code>LOC-01</code>. Do not insert mathematical conclusions into bibliographical relationships.</li>
+<li><strong>Audit the mathematics.</strong> Link a proof, reconstruction, counterexample, or computational result as separate evidence.</li>
+<li><strong>Decide the status.</strong> Use <code>accepted</code>, <code>rejected</code>, <code>qualified</code>, or <code>not yet established</code>, then state the reason and scope.</li>
+<li><strong>Choose the citation.</strong> Choose the work or version according to the purpose of the sentence to be written; record the reason for the choice.</li>
+<li><strong>Retain uncertainty and events.</strong> Add what remains unknown and any changes in decisions; do not clean away the history after a correction.</li>
+</ol>
+<p>The protocol ends when another reader can follow the chain without guessing the version, location, meaning of an arrow, or reason for a status.</p>
+</section>
+<section class="level2" data-number="7" id="o017-u04-worked-case">
+<h2 class="anchored" data-anchor-id="o017-u04-worked-case" data-number="7"><span class="header-section-number">7</span> Worked case: an integral claim with a missing rate</h2>
+<p>The following case is entirely synthetic and embedded in this unit. Its IDs are classroom IDs, not DOIs or public identifiers. The aim is not to find a source outside this unit, but to build a correct notebook from a limited excerpt packet that is complete for this case. The packet does not represent the full contents of a book.</p>
+<section class="level3" data-number="7.1" id="o017-u04-version-packet">
+<h3 class="anchored" data-anchor-id="o017-u04-version-packet" data-number="7.1"><span class="header-section-number">7.1</span> The version and correction packet</h3>
+<div class="callout callout-style-default callout-warning callout-titled" id="o017-u04-packet-v1" title="Partial excerpt packet — Proposition 4.1, label V1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Partial excerpt packet — Proposition 4.1, label V1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>V1.</strong> If <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:[0,1]\to\mathbb{R}</annotation></semantics></math> is continuous and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(0)=0</annotation></semantics></math>, then the improper integral</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mfrac><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow><mi>x</mi></mfrac><mspace width="0.167em"></mspace><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">
+\int_0^1 \frac{f(x)}{x}\,dx
+</annotation></semantics></math></p>
+<p>converges.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" id="o017-u04-packet-correction" title="Partial excerpt packet — correction item K-04">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Partial excerpt packet — correction item K-04
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The hypotheses of continuity and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(0)=0</annotation></semantics></math> do not control the <strong>rate</strong> at which <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math> tends to zero. Version 1 of Proposition 4.1 is withdrawn. The next version replaces it with a sufficient growth condition; the correction does not claim that the new condition is necessary.</p>
+</div>
+</div>
+<div class="theorem" id="thm-o017-u04-packet-v2" title="Partial excerpt packet — Proposition 4.1, label V2">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> <strong>V2.</strong> Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:[0,1]\to\mathbb{R}</annotation></semantics></math> be continuous. If there exist <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">C\geq0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha&gt;0</annotation></semantics></math> such that</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">|</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo form="prefix" stretchy="false">|</mo><mo>≤</mo><mi>C</mi><msup><mi>x</mi><mi>α</mi></msup><mspace width="2.0em"></mspace><mrow><mtext mathvariant="normal">for every </mtext><mspace width="0.333em"></mspace></mrow><mn>0</mn><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
+|f(x)|\leq Cx^\alpha
+\qquad\text{for every }0&lt;x\leq1,
+</annotation></semantics></math></p>
+<p>then the integral <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mi>/</mi><mi>x</mi><mspace width="0.167em"></mspace><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\int_0^1 f(x)/x\,dx</annotation></semantics></math> converges absolutely.</p>
+</div>
+</section>
+<section class="level3" data-number="7.2" id="o017-u04-source-ledger">
+<h3 class="anchored" data-anchor-id="o017-u04-source-ledger" data-number="7.2"><span class="header-section-number">7.2</span> Work and version records</h3>
+<p>We create IDs without bibliographical meanings embedded in them. Relationships and metadata belong in separate fields.</p>
+<p>The exact relation <code>isPropositionExcerptOf</code> is abbreviated as <code>IPEO</code> only in the two narrow human-readable tables below. Machine-readable records retain the full relation name.</p>
+<div aria-label="Work and version notebook for the integral case" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 4: 7.2 Work and version records" class="caption-top table">
+<thead>
+<tr class="header">
+<th scope="col">ID</th>
+<th scope="col">Type</th>
+<th scope="col">Identity and location</th>
+<th scope="col">Relationships</th>
+<th scope="col">Integrity and missing fields</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>O017-U04-W01</code></td>
+<td>synthetic work identity</td>
+<td><em>Elementary Analysis Notes</em>; creator: O017 contributors; year: 2026</td>
+<td>conceptual parent object for the proposition excerpts</td>
+<td>the packet does not contain the complete work, so the contents of other sections, publisher, and publication form are unknown</td>
+</tr>
+<tr class="even">
+<td><code>O017-U04-V01</code></td>
+<td>proposition-excerpt version</td>
+<td>wording of Proposition 4.1, version 1, as given in the packet</td>
+<td><code>IPEO W01</code></td>
+<td>establishes only the wording of the quoted proposition, not the state of the entire book or notes</td>
+</tr>
+<tr class="odd">
+<td><code>O017-U04-K01</code></td>
+<td>correction excerpt</td>
+<td>item K-04</td>
+<td>at LOC02; corrects V01; motivates V02</td>
+<td>a separate correction date is not provided in the packet and is recorded as unknown</td>
+</tr>
+<tr class="even">
+<td><code>O017-U04-V02</code></td>
+<td>proposition-excerpt version</td>
+<td>wording of Proposition 4.1, version 2, as given in the packet</td>
+<td><code>IPEO W01</code></td>
+<td>establishes only the wording of the replacement proposition; there are no grounds to assert that the whole work has been replaced</td>
+</tr>
+<tr class="odd">
+<td><code>O017-U04-CP01</code></td>
+<td>partial excerpt packet</td>
+<td>three synthetic text excerpts embedded in Unit 4: V01, K01, and V02</td>
+<td>physical scope is limited to these three excerpts</td>
+<td>not a complete copy of W01; its completeness means only that all three packet excerpts are available; byte identity is in the artifact manifest</td>
+</tr>
+<tr class="even">
+<td><code>O017-U04-LOC01</code></td>
+<td>location</td>
+<td><a href="#o017-u04-packet-v1">V1 excerpt</a></td>
+<td>located in V01; part of CP01</td>
+<td>stable anchor within the partial excerpt packet</td>
+</tr>
+<tr class="odd">
+<td><code>O017-U04-LOC02</code></td>
+<td>location</td>
+<td><a href="#o017-u04-packet-correction">correction K-04</a></td>
+<td>part of CP01</td>
+<td>stable anchor within the partial excerpt packet</td>
+</tr>
+<tr class="even">
+<td><code>O017-U04-LOC03</code></td>
+<td>location</td>
+<td><a href="#thm-o017-u04-packet-v2">V2 theorem</a></td>
+<td>located in V02; part of CP01</td>
+<td>stable anchor within the partial excerpt packet</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The labels V01 and V02 apply to the <strong>Proposition 4.1 excerpts within the packet</strong>, not to two complete copies of <em>Elementary Analysis Notes</em>. Decision D03 below selects V02 for current use of the proposition. That decision does not add a relationship saying “the whole book V2 replaces the whole book V1,” nor does it mean that V01 may be deleted: the history of the error and its correction is itself part of the provenance.</p>
+</section>
+<section class="level3" data-number="7.3" id="o017-u04-normalized-claims">
+<h3 class="anchored" data-anchor-id="o017-u04-normalized-claims" data-number="7.3"><span class="header-section-number">7.3</span> Freezing two claims</h3>
+<div aria-label="Normalized claims for the two versions of the integral case" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 5: 7.3 Freezing two claims" class="caption-top table">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Claim ID</th>
+<th scope="col">Normalized statement</th>
+<th scope="col">Appears at</th>
+<th scope="col">Initial status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>O017-U04-C01</code></td>
+<td>for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∈</mo><mi>C</mi><mo form="prefix" stretchy="false">(</mo><mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f\in C([0,1])</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(0)=0</annotation></semantics></math>, the integral <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mi>/</mi><mi>x</mi><mspace width="0.167em"></mspace><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\int_0^1 f(x)/x\,dx</annotation></semantics></math> converges</td>
+<td>LOC01 in proposition excerpt V01</td>
+<td>requires audit</td>
+</tr>
+<tr class="even">
+<td><code>O017-U04-C02</code></td>
+<td>for every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∈</mo><mi>C</mi><mo form="prefix" stretchy="false">(</mo><mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f\in C([0,1])</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">C\geq0</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha&gt;0</annotation></semantics></math> with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">|</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo form="prefix" stretchy="false">|</mo><mo>≤</mo><mi>C</mi><msup><mi>x</mi><mi>α</mi></msup></mrow><annotation encoding="application/x-tex">|f(x)|\leq Cx^\alpha</annotation></semantics></math> on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(0,1]</annotation></semantics></math>, the integral converges absolutely</td>
+<td>LOC03 in proposition excerpt V02</td>
+<td>requires audit</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Claims C01 and C02 are not two wordings of the same statement. C02 has an additional hypothesis and a stronger conclusion, namely absolute convergence. The notebook therefore stores two <code>claim_id</code> values rather than silently changing the contents of C01.</p>
+</section>
+<section class="level3" data-number="7.4" id="o017-u04-v1-counterexample">
+<h3 class="anchored" data-anchor-id="o017-u04-v1-counterexample" data-number="7.4"><span class="header-section-number">7.4</span> Rejecting C01 with a counterexample</h3>
+<p>Define <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f:[0,1]\to\mathbb{R}</annotation></semantics></math> by</p>
+<div aria-label="Definition of the counterexample to version 1 of the integral claim" class="o017-math-scroll" role="region" tabindex="0">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo form="prefix" stretchy="false">(</mo><mi>e</mi><mi>/</mi><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow></mfrac><mspace width="1.0em"></mspace><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+f(0)=0,
+\qquad
+f(x)=\frac{1}{\log(e/x)}\quad (0&lt;x\leq1).
+</annotation></semantics></math></p>
+</div>
+<p>This function is continuous on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(0,1]</annotation></semantics></math>. As <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↓</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x\downarrow0</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo form="prefix" stretchy="false">(</mo><mi>e</mi><mi>/</mi><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\log(e/x)\to\infty</annotation></semantics></math>, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>→</mo><mn>0</mn><mo>=</mo><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)\to0=f(0)</annotation></semantics></math>. Thus <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is continuous on all of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math> and satisfies the hypotheses of C01.</p>
+<p>However, for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>ε</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;\varepsilon&lt;1</annotation></semantics></math>, the substitution <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo form="prefix" stretchy="false">(</mo><mi>e</mi><mi>/</mi><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">u=\log(e/x)</annotation></semantics></math> gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>u</mi><mo>=</mo><mi>−</mi><mi>d</mi><mi>x</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">du=-dx/x</annotation></semantics></math> and</p>
+<div aria-label="Calculation of the truncated integral for the counterexample" class="o017-math-scroll" role="region" tabindex="0">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>ε</mi><mn>1</mn></msubsup><mfrac><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow><mi>x</mi></mfrac><mspace width="0.167em"></mspace><mi>d</mi><mi>x</mi><mo>=</mo><msubsup><mo>∫</mo><mi>ε</mi><mn>1</mn></msubsup><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><mi>x</mi><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo form="prefix" stretchy="false">(</mo><mi>e</mi><mi>/</mi><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow></mfrac><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo form="prefix" stretchy="false">(</mo><mi>e</mi><mi>/</mi><mi>ε</mi><mo form="postfix" stretchy="false">)</mo></mrow></msubsup><mfrac><mrow><mi>d</mi><mi>u</mi></mrow><mi>u</mi></mfrac><mo>=</mo><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mspace width="-0.167em"></mspace><mo form="prefix" maxsize="120%" minsize="120%" stretchy="true">(</mo><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo form="prefix" stretchy="false">(</mo><mi>e</mi><mi>/</mi><mi>ε</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" maxsize="120%" minsize="120%" stretchy="true">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\int_\varepsilon^1 \frac{f(x)}{x}\,dx
+=\int_\varepsilon^1\frac{dx}{x\log(e/x)}
+=\int_1^{\log(e/\varepsilon)}\frac{du}{u}
+=\log\!\bigl(\log(e/\varepsilon)\bigr).
+</annotation></semantics></math></p>
+</div>
+<p>As <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>↓</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varepsilon\downarrow0</annotation></semantics></math>, the final expression tends to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">+\infty</annotation></semantics></math>. The improper integral does not converge. This is deductive evidence that C01 is <strong>rejected</strong>, not merely a collection of numerical values that seem to grow.</p>
+<p>Record the evidence as object <code>O017-U04-EV01</code>, with type <code>counterexample</code> and relationship <code>C01 refutedBy EV01</code>. Its exact basis locator is <code>#o017-u04-v1-counterexample</code>. Its limit is: “refutes the universal claim C01; does not say that every continuous function with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f(0)=0</annotation></semantics></math> produces divergence.”</p>
+</section>
+<section class="level3" data-number="7.5" id="o017-u04-v2-proof">
+<h3 class="anchored" data-anchor-id="o017-u04-v2-proof" data-number="7.5"><span class="header-section-number">7.5</span> Accepting C02 with a comparison proof</h3>
+<div class="proof" id="prf-o017-u04-v2">
+<p><span class="proof-title"><em>Proof 1</em>. </span>Take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> satisfying the hypotheses of C02. For every <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;x\leq1</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo form="prefix" stretchy="true">|</mo><mfrac><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow><mi>x</mi></mfrac><mo form="postfix" stretchy="true">|</mo></mrow><mo>≤</mo><mi>C</mi><msup><mi>x</mi><mrow><mi>α</mi><mo>−</mo><mn>1</mn></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\left|\frac{f(x)}{x}\right|
+\leq Cx^{\alpha-1}.
+</annotation></semantics></math></p>
+<p>Since <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha&gt;0</annotation></semantics></math>, the comparison integral exists and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>C</mi><msup><mi>x</mi><mrow><mi>α</mi><mo>−</mo><mn>1</mn></mrow></msup><mspace width="0.167em"></mspace><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mi>C</mi><mi>α</mi></mfrac><mo>&lt;</mo><mi>∞</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\int_0^1 Cx^{\alpha-1}\,dx=\frac{C}{\alpha}&lt;\infty.
+</annotation></semantics></math></p>
+<p>Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mo form="prefix" stretchy="true">|</mo><mfrac><mrow><mi>f</mi><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo></mrow><mi>x</mi></mfrac><mo form="postfix" stretchy="true">|</mo></mrow><mspace width="0.167em"></mspace><mi>d</mi><mi>x</mi><mo>≤</mo><mfrac><mi>C</mi><mi>α</mi></mfrac><mo>&lt;</mo><mi>∞</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\int_0^1\left|\frac{f(x)}{x}\right|\,dx
+\leq\frac{C}{\alpha}&lt;\infty.
+</annotation></semantics></math></p>
+<p>Thus the integral stated in C02 converges absolutely.</p>
+</div>
+<p>Record this proof as <code>O017-U04-EV02</code>, type <code>proof</code>, relationship <code>C02 provedBy EV02</code>, and location <code>#prf-o017-u04-v2</code>. Its limit matters: the proof establishes that the power-law condition is <strong>sufficient</strong>. It does not establish that every convergent integral must satisfy some bound <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><msup><mi>x</mi><mi>α</mi></msup></mrow><annotation encoding="application/x-tex">Cx^\alpha</annotation></semantics></math>.</p>
+</section>
+<section class="level3" data-number="7.6" id="o017-u04-claim-locator-chain">
+<h3 class="anchored" data-anchor-id="o017-u04-claim-locator-chain" data-number="7.6"><span class="header-section-number">7.6</span> The claim-to-locator chain</h3>
+<p>After the audit, a compact provenance graph is:</p>
+<pre class="text"><code>C01 --appearsAt--&gt; LOC01 --locatesIn--&gt; V01 --isPropositionExcerptOf--&gt; W01
+                       |
+                       +--partOf--&gt; CP01
+  |
+  +--refutedBy--&gt; EV01 (counterexample and exact integral)
+
+K01 --appearsAt--&gt; LOC02 --partOf--&gt; CP01
+K01 --corrects--&gt; V01
+K01 --motivates--&gt; V02 --isPropositionExcerptOf--&gt; W01
+
+C02 --appearsAt--&gt; LOC03 --locatesIn--&gt; V02
+                       |
+                       +--partOf--&gt; CP01
+  |
+  +--provedBy--&gt; EV02 (comparison proof)</code></pre>
+<p>This graph answers two questions separately: <strong>where</strong> a claim appears and <strong>why</strong> its mathematical status was assigned. Removing either branch would obscure the source or the grounds for the decision.</p>
+<p>The following semantic table communicates the same relationships without relying on the visual arrangement of characters in the graph. This table is the authoritative list of relationships for this unit’s exercises and audit.</p>
+<div aria-label="Semantic list of provenance relationships in the integral case" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 6: 7.6 The claim-to-locator chain" class="caption-top table">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Subject</th>
+<th scope="col">Relationship</th>
+<th scope="col">Object</th>
+<th scope="col">Grounds or function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C01</td>
+<td><code>appearsAt</code></td>
+<td>LOC01</td>
+<td>observation of the packet’s wording</td>
+</tr>
+<tr class="even">
+<td>LOC01</td>
+<td><code>locatesIn</code></td>
+<td>V01</td>
+<td>location of the claim in proposition excerpt V01</td>
+</tr>
+<tr class="odd">
+<td>LOC01</td>
+<td><code>partOf</code></td>
+<td>CP01</td>
+<td>membership in the partial packet</td>
+</tr>
+<tr class="even">
+<td>V01</td>
+<td><code>IPEO</code></td>
+<td>W01</td>
+<td>scope limited to the Proposition 4.1 excerpt</td>
+</tr>
+<tr class="odd">
+<td>C01</td>
+<td><code>refutedBy</code></td>
+<td>EV01</td>
+<td>counterexample and exact integral</td>
+</tr>
+<tr class="even">
+<td>K01</td>
+<td><code>appearsAt</code></td>
+<td>LOC02</td>
+<td>observation of the correction text</td>
+</tr>
+<tr class="odd">
+<td>LOC02</td>
+<td><code>partOf</code></td>
+<td>CP01</td>
+<td>membership in the partial packet</td>
+</tr>
+<tr class="even">
+<td>K01</td>
+<td><code>corrects</code></td>
+<td>V01</td>
+<td>relationship stated by text K01</td>
+</tr>
+<tr class="odd">
+<td>K01</td>
+<td><code>motivates</code></td>
+<td>V02</td>
+<td>relationship stated by text K01</td>
+</tr>
+<tr class="even">
+<td>V02</td>
+<td><code>IPEO</code></td>
+<td>W01</td>
+<td>scope limited to the Proposition 4.1 excerpt</td>
+</tr>
+<tr class="odd">
+<td>C02</td>
+<td><code>appearsAt</code></td>
+<td>LOC03</td>
+<td>observation of the packet’s wording</td>
+</tr>
+<tr class="even">
+<td>LOC03</td>
+<td><code>locatesIn</code></td>
+<td>V02</td>
+<td>location of the claim in proposition excerpt V02</td>
+</tr>
+<tr class="odd">
+<td>LOC03</td>
+<td><code>partOf</code></td>
+<td>CP01</td>
+<td>membership in the partial packet</td>
+</tr>
+<tr class="even">
+<td>C02</td>
+<td><code>provedBy</code></td>
+<td>EV02</td>
+<td>comparison proof</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="level3" data-number="7.7" id="o017-u04-decision-ledger">
+<h3 class="anchored" data-anchor-id="o017-u04-decision-ledger" data-number="7.7"><span class="header-section-number">7.7</span> The decision and uncertainty notebook</h3>
+<div aria-label="Decisions and uncertainty in the integral case" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 7: 7.7 The decision and uncertainty notebook" class="caption-top table">
+<colgroup>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Decision ID</th>
+<th scope="col">Claim</th>
+<th scope="col">Status</th>
+<th scope="col">Grounds</th>
+<th scope="col">Limits and uncertainty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>O017-U04-D01</code></td>
+<td>C01</td>
+<td>rejected</td>
+<td>EV01 satisfies the hypotheses but the integral diverges</td>
+<td>the historical reason for the V1 error is unknown; it is not needed for rejection</td>
+</tr>
+<tr class="even">
+<td><code>O017-U04-D02</code></td>
+<td>C02</td>
+<td>accepted</td>
+<td>EV02 proves the conclusion from all the hypotheses</td>
+<td>sufficient condition, not claimed to be necessary or optimal</td>
+</tr>
+<tr class="odd">
+<td><code>O017-U04-D03</code></td>
+<td>excerpt relationship</td>
+<td>qualified</td>
+<td>K01 corrects V01 and motivates proposition excerpt V02</td>
+<td>the packet does not establish the state of the complete work, a separate correction date, or a public identifier</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The word <code>accepted</code> always has a scope: claim C02 as normalized, on the basis of the recorded argument. It is not a comprehensive assessment of the whole work W01.</p>
+<p>Use the following uncertainty vocabulary.</p>
+<ul>
+<li><code>known</code>: an observation or argument is available, with a locator.</li>
+<li><code>inferred</code>: there is an explicit inference from recorded facts; state the reason.</li>
+<li><code>disputed</code>: two relevant pieces of evidence or sources conflict.</li>
+<li><code>unknown</code>: the available evidence does not answer the question.</li>
+<li><code>not applicable</code>: the field genuinely has no meaning for this object.</li>
+</ul>
+<p>Do not replace <code>unknown</code> with a confidence number unsupported by a model or data. In this case, an external creator for W01 is <code>not applicable</code> because O017 created the synthetic packet; a separate correction date is <code>unknown</code> because the packet deliberately does not supply one.</p>
+</section>
+<section class="level3" data-number="7.8" id="o017-u04-citation-after-audit">
+<h3 class="anchored" data-anchor-id="o017-u04-citation-after-audit" data-number="7.8"><span class="header-section-number">7.8</span> Choosing a citation after the audit</h3>
+<p>Three kinds of sentences require different choices.</p>
+<ol type="1">
+<li>For the history of the error, cite V1 <strong>and</strong> K01: readers need to see both the incorrect wording and its correction.</li>
+<li>To use the valid result, cite V2 at Proposition 4.1 and, space permitting, link EV02 as the local audit.</li>
+<li>To mention the packet generally without relying on particular wording, W01 suffices, provided the sentence does not imply that all its versions are identical.</li>
+</ol>
+<p>A V2 citation provides credit and a route to discovery. The status <code>accepted</code> still comes from EV02, not from the fact that V2 is newer.</p>
+</section>
+<section class="level3" data-number="7.9" id="o017-u04-computation-in-case">
+<h3 class="anchored" data-anchor-id="o017-u04-computation-in-case" data-number="7.9"><span class="header-section-number">7.9</span> Where does computational provenance enter?</h3>
+<p>The proof above requires no computation. Suppose a reader also produces a table of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo form="prefix" stretchy="false">(</mo><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo form="prefix" stretchy="false">(</mo><mi>e</mi><mi>/</mi><mi>ε</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log(\log(e/\varepsilon))</annotation></semantics></math> for several values of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math>. The table may help reveal growth, but does not replace the exact limit. An adequate execution record has at least the following form.</p>
+<div aria-label="Computational provenance template for a diagnostic table" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 8: 7.9 Where does computational provenance enter?" class="caption-top table">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Field</th>
+<th scope="col">Contents to fill in after an actual execution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>run_id</code></td>
+<td>stable ID for one execution</td>
+</tr>
+<tr class="even">
+<td><code>code_artifact</code></td>
+<td>file and byte identity of the code actually run</td>
+</tr>
+<tr class="odd">
+<td><code>input</code></td>
+<td>list of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math> values and their numerical format</td>
+</tr>
+<tr class="even">
+<td><code>environment</code></td>
+<td>runtime and dependencies with observed versions</td>
+</tr>
+<tr class="odd">
+<td><code>parameters</code></td>
+<td>all options that change the result</td>
+</tr>
+<tr class="even">
+<td><code>invocation</code></td>
+<td>exact command or procedure used, including the working directory if it matters</td>
+</tr>
+<tr class="odd">
+<td><code>output</code></td>
+<td>output file/table and its byte identity</td>
+</tr>
+<tr class="even">
+<td><code>claim_scope</code></td>
+<td>“illustration of growth on selected inputs,” not “proves divergence”</td>
+</tr>
+<tr class="odd">
+<td><code>status_pelaksanaan_ulang</code></td>
+<td>rerun status: not yet attempted / succeeded / failed, with time and evidence</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This table is a <strong>template</strong>, not a claim that an execution has occurred. Filling it with invented values to make it appear complete would undermine the provenance.</p>
+</section>
+</section>
+<section class="level2" data-number="8" id="o017-u04-corrections-preserve-history">
+<h2 class="anchored" data-anchor-id="o017-u04-corrections-preserve-history" data-number="8"><span class="header-section-number">8</span> Corrections do not erase earlier versions</h2>
+<p>When a correction is found, take five actions.</p>
+<ol type="1">
+<li>Freeze the earlier version’s identity and the location of the affected claim.</li>
+<li>Record the correction as a separate object with a locator and directional relationships.</li>
+<li>Create a new claim if the hypotheses or conclusion change.</li>
+<li>Update the decision about current use, but retain earlier decisions in the event log.</li>
+<li>Check all derivative writing that cites the earlier claim; do not assume that replacing one bibliography entry repairs its argument.</li>
+</ol>
+<p>A new version is not automatically more correct. It is merely a new candidate to audit. Conversely, finding an error in one proposition does not justify declaring the entire work useless.</p>
+</section>
+<section class="level2" data-number="9" id="o017-u04-guided-practice">
+<h2 class="anchored" data-anchor-id="o017-u04-guided-practice" data-number="9"><span class="header-section-number">9</span> Guided practice: one traceable line</h2>
+<p>Start from the sentence “version 2 repairs the condition in version 1.” Break it into six records:</p>
+<ol type="1">
+<li>V01 and V02 as two proposition-excerpt versions of W01;</li>
+<li>LOC01 and LOC03 as two locators;</li>
+<li>C01 and C02 as two normalized claims;</li>
+<li>K01 as a correction object that <code>corrects V01</code>;</li>
+<li>EV01 and EV02 as different mathematical grounds; and</li>
+<li>D01 and D02 as decisions with stated scopes.</li>
+</ol>
+<p>Now try removing EV01. The trail still shows that a correction was <strong>stated</strong>, but no longer independently shows that C01 is false. Remove LOC01: the counterexample still refutes C01, but the reader can no longer check whether C01 really is V1’s wording. This deletion test shows why source provenance and evidence must connect without being conflated.</p>
+</section>
+<section class="level2" data-number="10" id="o017-u04-exercises">
+<h2 class="anchored" data-anchor-id="o017-u04-exercises" data-number="10"><span class="header-section-number">10</span> Exercises</h2>
+<ol type="1">
+<li><p><strong><span id="o017-u04-e01">O017-U04-E01</span>.</strong> Classify each of the following records as citation, evidence provenance, computational provenance, or a combination: (a) a work DOI; (b) “Theorem 3.7, page 82, second edition”;</p>
+<ol start="3" type="a">
+<li>a code file, runtime version, parameters, and output checksum; (d) a counterexample linked to C01; (e) an author’s name and title; (f) a <code>rejected</code> decision with EV01 as its reason. For each item, explain one question that it still leaves unanswered.</li>
+</ol></li>
+<li><p><strong><span id="o017-u04-e02">O017-U04-E02</span>.</strong> A note says only “Lemma 5 in the blue book proves this result.” Turn it into an auditable record scheme: work, version, copy, location, normalized claim, lemma contract, and fields that remain <code>unknown</code>. Do not invent an author, year, or page number.</p></li>
+<li><p><strong><span id="o017-u04-e03">O017-U04-E03</span>.</strong> Using the semantic relationship table as the authoritative list, separate arrows that record source observations from arrows that record mathematical conclusions. Do <code>K01 corrects V01</code>, <code>K01 motivates V02</code>, and <code>C02 provedBy EV02</code> derive their support from the same object? Explain.</p></li>
+<li><p><strong><span id="o017-u04-e04">O017-U04-E04</span>.</strong> For <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>β</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;\beta\leq1</annotation></semantics></math>, take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>β</mi></msub><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><msup><mi>x</mi><mi>β</mi></msup></mrow><annotation encoding="application/x-tex">f_\beta(x)=x^\beta</annotation></semantics></math>. Determine whether the function satisfies C01 and C02, calculate <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><msub><mi>f</mi><mi>β</mi></msub><mo form="prefix" stretchy="false">(</mo><mi>x</mi><mo form="postfix" stretchy="false">)</mo><mi>/</mi><mi>x</mi><mspace width="0.167em"></mspace><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\int_0^1 f_\beta(x)/x\,dx</annotation></semantics></math>, then explain why this successful family of examples does not rescue the universal claim C01.</p></li>
+<li><p><strong><span id="o017-u04-e05">O017-U04-E05</span>.</strong> Suppose the packet adds a Proposition 4.1 excerpt labelled V03 with the same mathematical wording as V02, but a different layout and page numbering. State which objects remain, which are new, which relationships must be added, and why the citation “p. 9” without an excerpt version is insufficient. Distinguish a content change from a locator change.</p></li>
+<li><p><strong><span id="o017-u04-e06">O017-U04-E06</span>.</strong> Design a record for a numerical experiment that evaluates the truncated integral at five values of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math>. Do not write code. Specify the inputs, artifacts, environment, parameters, invocation command or procedure, outputs, rerun status, and a claim-scope sentence that prevents five samples from being treated as a proof of the limit.</p></li>
+</ol>
+</section>
+<section class="level2" data-number="11" id="o017-u04-guidance">
+<h2 class="anchored" data-anchor-id="o017-u04-guidance" data-number="11"><span class="header-section-number">11</span> Hints and answer guidance</h2>
+<ol type="1">
+<li><p><strong><span id="o017-u04-h01">O017-U04-H01</span>.</strong> (a) and (e) are primarily citation;</p>
+<ol start="2" type="a">
+<li>is a discovery element that becomes part of evidence provenance when linked to a claim and version; (c) is computational provenance; (d) and</li>
+<li>are evidence provenance. No one item alone establishes source identity, the claim’s truth, and the ability to rerun a computation all at once.</li>
+</ol></li>
+<li><p><strong><span id="o017-u04-h02">O017-U04-H02</span>.</strong> Create local IDs for the work, version, copy, location, claim, and lemma. Enter only “blue-covered book” as an observed characteristic of the copy. Author, official title, edition, year, and page number remain <code>unknown</code> until evidence is available. The lemma contract must compare all its hypotheses with the claim’s context.</p></li>
+<li><p><strong><span id="o017-u04-h03">O017-U04-H03</span>.</strong> <code>K01 corrects V01</code> and <code>K01 motivates V02</code> are two source relationships both supported by text K01. Neither proves C02. The relationship <code>C02 provedBy EV02</code> is grounded in proof EV02 and records a mathematical conclusion. Source relationships and grounds for truth must not be conflated.</p></li>
+<li><p><strong><span id="o017-u04-h04">O017-U04-H04</span>.</strong> Take <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">C=1</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">\alpha=\beta</annotation></semantics></math>; then C02 applies and the integral is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>β</mi></mrow><annotation encoding="application/x-tex">1/\beta</annotation></semantics></math>. These examples also satisfy C01, but one counterexample suffices to refute a universal claim, whereas many positive examples do not prove it.</p></li>
+<li><p><strong><span id="o017-u04-h05">O017-U04-H05</span>.</strong> W01 remains, and V03 is a new proposition-excerpt version.</p>
+<p><code>isPropositionExcerptOf</code> links V03 to W01.</p>
+<p><code>hasSamePropositionTextAs</code> links V03 to V02 only when evidence supports it.</p>
+<p>LOC03 still points to V02, while V03 needs a new locator because its pagination has changed. Do not use <code>corrects</code> if the mathematical content has not changed.</p></li>
+<li><p><strong><span id="o017-u04-h06">O017-U04-H06</span>.</strong> The record must identify one execution, not “the program in general,” and must retain the command or sequence of procedures actually used. An appropriate scope statement is, for example: “the five outputs show increasing values on the selected inputs and serve as a diagnostic; divergence is established by the exact limit calculation EV01.” Rerun status must not be <code>succeeded</code> before a second execution has actually taken place.</p></li>
+</ol>
+</section>
+<section class="level2" data-number="12" id="o017-u04-completion-task">
+<h2 class="anchored" data-anchor-id="o017-u04-completion-task" data-number="12"><span class="header-section-number">12</span> Unit completion task</h2>
+<p>Assemble a <strong>citation and provenance dossier</strong> for the following synthetic packet. All IDs are nonpublic classroom IDs.</p>
+<div class="callout callout-style-default callout-warning callout-titled" id="o017-u04-completion-v1" title="Matrix Norm Notes, V1 — Proposition 2.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Matrix Norm Notes, V1 — Proposition 2.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For every real <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math> matrix, the Euclidean operator norm satisfies <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo form="prefix" stretchy="true">‖</mo><msup><mi>A</mi><mn>2</mn></msup><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub><mo>=</mo><msubsup><mrow><mo form="prefix" stretchy="true">‖</mo><mi>A</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\lVert A^2\rVert_2=\lVert A\rVert_2^2</annotation></semantics></math>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" id="o017-u04-completion-correction" title="Correction C-2.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Correction C-2.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The equality in Proposition 2.6 does not hold in general. Replace it with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo form="prefix" stretchy="true">‖</mo><msup><mi>A</mi><mn>2</mn></msup><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub><mo>≤</mo><msubsup><mrow><mo form="prefix" stretchy="true">‖</mo><mi>A</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\lVert A^2\rVert_2\leq\lVert A\rVert_2^2</annotation></semantics></math>. There is no change to the definition <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo form="prefix" stretchy="true">‖</mo><mi>A</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub><mo>=</mo><msub><mrow><mi mathvariant="normal">sup</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>≠</mo><mn>0</mn></mrow></msub><msub><mrow><mo form="prefix" stretchy="true">‖</mo><mi>A</mi><mi>x</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub><mi>/</mi><msub><mrow><mo form="prefix" stretchy="true">‖</mo><mi>x</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\lVert A\rVert_2=\sup_{x\ne0}\lVert Ax\rVert_2/\lVert x\rVert_2</annotation></semantics></math>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" id="o017-u04-completion-v2" title="Matrix Norm Notes, V2 — Proposition 2.6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Matrix Norm Notes, V2 — Proposition 2.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For every real <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2\times2</annotation></semantics></math> matrix, the Euclidean operator norm satisfies <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo form="prefix" stretchy="true">‖</mo><msup><mi>A</mi><mn>2</mn></msup><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub><mo>≤</mo><msubsup><mrow><mo form="prefix" stretchy="true">‖</mo><mi>A</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\lVert A^2\rVert_2\leq\lVert A\rVert_2^2</annotation></semantics></math>.</p>
+</div>
+</div>
+<p>The dossier must contain:</p>
+<ol type="1">
+<li>separate records for the work, V1, correction, V2, one partial copy/packet, all three locators, and all directional relationships; explicitly state that the packet is incomplete and link each locator to both its copy and its version;</li>
+<li>two normalized claims with quantifiers, domain, and unambiguous norm notation;</li>
+<li>a counterexample to V1 using <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo form="prefix" stretchy="true">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd></mtr></mtable><mo form="postfix" stretchy="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">A=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}</annotation></semantics></math>: prove <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">A^2=0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo form="prefix" stretchy="true">‖</mo><mi>A</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lVert A\rVert_2=1</annotation></semantics></math>, rather than merely stating software output;</li>
+<li>a proof of V2 directly from the operator-norm definition, showing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo form="prefix" stretchy="true">‖</mo><msup><mi>A</mi><mn>2</mn></msup><mi>x</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub><mo>≤</mo><msub><mrow><mo form="prefix" stretchy="true">‖</mo><mi>A</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub><msub><mrow><mo form="prefix" stretchy="true">‖</mo><mi>A</mi><mi>x</mi><mo form="postfix" stretchy="true">‖</mo></mrow><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\lVert A^2x\rVert_2\leq\lVert A\rVert_2\lVert Ax\rVert_2</annotation></semantics></math> and then taking the appropriate supremum;</li>
+<li>evidence objects, decisions with explicit scopes, and a claim–locator–copy–version–work graph for both claims;</li>
+<li>one citation for discussing the history of the error and one for using the valid result, with reasons for the choices;</li>
+<li>a list of metadata that is available, <code>unknown</code>, and <code>not applicable</code>, without inventing a DOI, author, date, or checksum;</li>
+<li>a proposed computational provenance record for checking candidate matrices, labelled <code>not yet executed</code> unless there is evidence of an actual execution; and</li>
+<li>a statement of limits: explain why the example matrix refutes the universal equality but does not show that the equality fails for every matrix.</li>
+</ol>
+<section class="level3" data-number="12.1" id="o017-u04-completion-rubric">
+<h3 class="anchored" data-anchor-id="o017-u04-completion-rubric" data-number="12.1"><span class="header-section-number">12.1</span> Rubric</h3>
+<p>Score each criterion 0, 1, or 2.</p>
+<div aria-label="Unit 4 completion-task rubric" class="o017-table-scroll" role="region" tabindex="0">
+<table aria-label="Table 9: 12.1 Rubric" class="caption-top table">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th scope="col">Criterion</th>
+<th scope="col">0</th>
+<th scope="col">1</th>
+<th scope="col">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Identity and versions</td>
+<td>work, version, and copy are conflated</td>
+<td>some objects are separated</td>
+<td>all objects, locators, and version relationships are explicit</td>
+</tr>
+<tr class="even">
+<td>Claims and locations</td>
+<td>claims are not normalized or lack locations</td>
+<td>quantifiers/locations are partly complete</td>
+<td>both claims are precise and linked to locations in their respective versions</td>
+</tr>
+<tr class="odd">
+<td>Mathematical audit</td>
+<td>example or proof is incorrect</td>
+<td>correct idea with gaps</td>
+<td>the example’s norm is calculated and submultiplicativity is fully proved</td>
+</tr>
+<tr class="even">
+<td>Evidence provenance</td>
+<td>citation is used as proof</td>
+<td>some relationships/grounds are recorded</td>
+<td>occurrence, refutation, proof, decision, and limits are separated</td>
+</tr>
+<tr class="odd">
+<td>Computational provenance</td>
+<td>results or executions are invented</td>
+<td>a template exists but scope/status is unclear</td>
+<td>all minimum fields are present, status is honest, and empirical scope is bounded</td>
+</tr>
+<tr class="even">
+<td>Uncertainty and exposition</td>
+<td>metadata is guessed or history is overwritten</td>
+<td>some missing fields are visible</td>
+<td>missing data has a status, the correction preserves V1, and citations match their purposes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A passing score is at least 10 out of 12, with a score of 2 for <strong>Mathematical audit</strong>, <strong>Evidence provenance</strong>, and <strong>Uncertainty and exposition</strong>. Deleting V1 after finding a correction, treating V2 as true merely because it is newer, inventing metadata, or claiming an execution that did not take place requires revision even if the total score is sufficient.</p>
+</section>
+</section>
+<section class="level2" data-number="13" id="o017-u04-boundary">
+<h2 class="anchored" data-anchor-id="o017-u04-boundary" data-number="13"><span class="header-section-number">13</span> Boundaries with B80 and other units</h2>
+<p>This unit does not teach Python, SageMath, SymPy, or NumPy/SciPy syntax, reference-manager APIs, particular database schemas, Git commands, checksum generation, environment management, or test writing. Those implementation skills all belong to B80. This unit specifies only what information must be preserved and how to limit conclusions drawn from computational results.</p>
+<p>Unit 4 also does not repeat Unit 2’s search strategies and authority matrix, Unit 3’s gap reconstruction, Unit 5’s full exposition writing, Unit 6’s reproducibility package, or Unit 7’s erratum format. The notebook created here will supply inputs to those units: it preserves identities and decisions, while later units teach the products that use them.</p>
+</section>
+<section class="level2" data-number="14" id="o017-u04-provenance">
+<h2 class="anchored" data-anchor-id="o017-u04-provenance" data-number="14"><span class="header-section-number">14</span> Sources, provenance, changes, and rights</h2>
+<p>The original Indonesian prose, claim–locator–version chain model, two-layer notebook, decision tables, integral and matrix-norm packets, counterexamples, proofs, exercises, answer guidance, completion task, and rubric in this unit are original O017 material by the O017 contributors, 2026, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. This English translation retains that attribution and license.</p>
+<p>General concepts of citation metadata, work and version identifiers, and version relationships were reviewed and adapted in a bounded way from <em>The Turing Way</em> <span class="citation" data-cites="turingway2022 turingwaycommitc98a">(<a href="#ref-turingway2022" role="doc-biblioref">The Turing Way Community 2025</a>, <a href="#ref-turingwaycommitc98a" role="doc-biblioref">2026</a>)</span>, The Turing Way Community, at the fixed commit:</p>
+<p><a href="https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce">c98a0e6…131d1ce</a>, specifically:</p>
+<ul>
+<li><code>book/website/communication/citable/citable-versioning.md</code>; and</li>
+<li><code>book/website/communication/citable/citable-metadata.md</code>.</li>
+</ul>
+<p>That donor material is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The concepts used have been summarized, bounded, reorganized, and contextualized; no donor sentences, images, or exercises were copied.</p>
+<p>The distinction between elements of computational provenance and per-result documentation was reviewed from <em>Research Software Engineering with Python</em> <span class="citation" data-cites="irving2021 pyrsecommit62217">(<a href="#ref-irving2021" role="doc-biblioref">Irving et al. 2021</a>, <a href="#ref-pyrsecommit62217" role="doc-biblioref">n.d.</a>)</span> by Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson, at the fixed commit <a href="https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07">62217e66…a3cf07</a>, specifically <code>chapters/provenance.Rmd</code>. The selected local copy is:</p>
+<p><code>selected-slice/provenance-selected.Rmd</code></p>
+<p>The donor prose is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. This unit copies no code, images, quotations, or external activities from the donor.</p>
+<p>All adaptations have been newly contextualized for mathematical source auditing and changed substantively. The Turing Way Community, the six authors of <em>Research Software Engineering with Python</em>, their publishers, and their affiliations <strong>do not endorse, approve, or sponsor</strong> O017.</p>
+<p>The calculus facts about the integral of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mrow><mi>α</mi><mo>−</mo><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">x^{\alpha-1}</annotation></semantics></math> and the submultiplicativity of the operator norm are standard mathematical results. O017 does not claim to have discovered them; the proofs’ wording and pedagogical roles are original to this unit. Frozen sources remain subject to their own rights. The CC BY-SA 4.0 license for original O017 material does not replace or relicense donor components.</p>
+</section>
+<div class="default" id="quarto-appendix"><section class="quarto-appendix-contents" id="quarto-bibliography" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div class="references csl-bib-body hanging-indent" id="refs" role="list">
+<div class="csl-entry" id="ref-irving2021" role="listitem">
+Irving, Damien, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson. 2021. <em>Research Software Engineering with Python: Building Software That Makes Research Possible</em>. Chapman &amp; Hall/CRC Press. <a href="https://third-bit.com/py-rse/">https://third-bit.com/py-rse/</a>.
+</div>
+<div class="csl-entry" id="ref-pyrsecommit62217" role="listitem">
+Irving, Damien, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson. n.d. <em>Research Software Engineering with Python: Frozen Source Witness</em>. <a href="https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07">https://github.com/merely-useful/py-rse/tree/62217e6606842ab9752fcf8e73954d1eb4a3cf07</a>.
+</div>
+<div class="csl-entry" id="ref-turingway2022" role="listitem">
+The Turing Way Community. 2025. <em>The Turing Way Handbook for Reproducible, Ethical and Collaborative Research</em>. Version 1.2.3. <a href="https://doi.org/10.5281/zenodo.3233853">https://doi.org/10.5281/zenodo.3233853</a>.
+</div>
+<div class="csl-entry" id="ref-turingwaycommitc98a" role="listitem">
+The Turing Way Community. 2026. <em>The Turing Way Handbook for Reproducible, Ethical and Collaborative Research: Frozen Source Witness</em>. <a href="https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce">https://github.com/the-turing-way/the-turing-way/tree/c98a0e6ca47450456cca7c5eedda2d5ee131d1ce</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+</body></html>

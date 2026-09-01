@@ -1,0 +1,189 @@
+{
+  "archives": [
+    {
+      "bytes": 7185227,
+      "canonical_rebuild_identical": true,
+      "compression": "stored",
+      "entries": 120,
+      "identical_second_generation": true,
+      "kind": "editable-source-and-backend",
+      "path": "release/o017-d120-en-2026.08.31-source.zip",
+      "payload_entries": 119,
+      "sha256": "37af27d03288bde755af544ef7de326b7b107dd78469eb52077ea69171170aa4",
+      "status": "PASS",
+      "uncompressed_payload_bytes": 7147536
+    },
+    {
+      "bytes": 2952865,
+      "canonical_rebuild_identical": true,
+      "compression": "stored",
+      "entries": 65,
+      "identical_second_generation": true,
+      "kind": "offline-semantic-html",
+      "path": "release/o017-d120-en-2026.08.31-reader-html.zip",
+      "payload_entries": 64,
+      "sha256": "9bc336416b352695c07af4208ca7b1044613595b2ab57b9c95a8d358cc8c9bed",
+      "status": "PASS",
+      "uncompressed_payload_bytes": 2931858
+    }
+  ],
+  "checks": {
+    "all_final_gates_revalidated": true,
+    "archive_canonical_rebuild": true,
+    "archive_fixed_metadata_and_order": true,
+    "archive_identical_second_generation": true,
+    "archive_inventory_bytes_and_sha256": true,
+    "atomic_final_file_replacement": true,
+    "bidirectional_checksum_closure": true,
+    "bilingual_backend_snapshot_preserved": true,
+    "exact_allowlisted_public_inputs": true,
+    "exact_release_inventory": true,
+    "fresh_required_qa_hashes": true,
+    "immutable_exact_input_snapshot": true,
+    "mathematical_witness_outputs": true,
+    "portable_collision_free_names": true,
+    "public_text_privacy_scan": true,
+    "single_coherent_generation": true
+  },
+  "claim_boundary": {
+    "container_run_claimed": false,
+    "learner_performance_validated": false,
+    "pdf_bit_reproducible_claimed": false,
+    "pdf_tagged": false,
+    "primary_accessible_surface": "semantic HTML with native MathML",
+    "public_release_verified": false
+  },
+  "coverage": {
+    "answer_guides": 54,
+    "calibration_dossiers": 5,
+    "english_semantic_localizations": 581,
+    "exercises": 54,
+    "indonesian_semantic_localizations_preserved": 581,
+    "teaching_source_files": 14,
+    "units": 9
+  },
+  "errors": [],
+  "exclusions": [
+    "private controls except the public Indonesian hash baseline",
+    "credentials and authentication material",
+    "publication tooling and Zenodo transaction state",
+    "donor witness trees",
+    "build caches and temporary files",
+    "source maps",
+    "render intermediates and visual screenshots",
+    "local logs"
+  ],
+  "html_input_manifest_sha256": "08a3ee46633d4922f5edf68d15fd198e2529f0925ccd6195646f45fd7465af79",
+  "html_payload_files": 64,
+  "input_evidence": {
+    "gates": [
+      {
+        "bytes": 3830,
+        "path": "qa/SOURCE_CLOSURE.json",
+        "sha256": "9a183b8109172b1dee8cb7ede47dc89cf77405368b2dc08326cfe45b8bcdd45f"
+      },
+      {
+        "bytes": 2631,
+        "path": "qa/HTML_QA.json",
+        "sha256": "cce927b0286ed37549bb1406b163ade14939163f50d7898882861d1216a1f0fb"
+      },
+      {
+        "bytes": 1370,
+        "path": "qa/PDF_QA.json",
+        "sha256": "c572800fb4b4d4e4e07ae803108a1e0b58577fba8d9fd1594f547b1239eefbd1"
+      },
+      {
+        "bytes": 1377,
+        "path": "qa/ENGLISH_BACKEND_QA.json",
+        "sha256": "63f4f823823c0890246d00959e2c35e7f13479a008a7a2b065a6e19fec6ab7b1"
+      },
+      {
+        "bytes": 3487,
+        "path": "qa/PDF_VISUAL_QA.json",
+        "sha256": "7d9371f3a01e9d52adce43f971e81eb4cbd71def5b656edc4a9ad34a54391626"
+      },
+      {
+        "bytes": 5661,
+        "path": "qa/HTML_VISUAL_QA.json",
+        "sha256": "9a69556d6b8759635170a0c83fa9cdf37e17cb4a2c4340cc2dc6e240811a6a01"
+      },
+      {
+        "bytes": 3792,
+        "path": "delivery/validation-standalone-report.json",
+        "sha256": "290f7440ac97011b16eaada0cd8bedbbc24a75d026f523acab5e5112cabb845b"
+      },
+      {
+        "bytes": 3847,
+        "path": "qa/MONOSPACE_FONT_QA.json",
+        "sha256": "2918ef2b7342a00a7e4229d80a2a65bc1ea0f793fa7dae1bb75ab309075da595"
+      }
+    ],
+    "html_pages": 11,
+    "indonesian_baseline": {
+      "bytes": 10783,
+      "parent_files_independently_verified": 61,
+      "parent_manifest_sha256": "7d9c60a66cb5169d8f4149c043bdc48e0810c3d65d98fdc2009e99a09348cda3",
+      "path": "controls/INDONESIAN_BASELINE.json",
+      "sha256": "ebc7b82904afc371958c0b98360e3c73507ce8c40502872c85eebbc2a6280930"
+    },
+    "pdf_pages": 144,
+    "witnesses": [
+      {
+        "execution_performed_during_packaging": false,
+        "inputs": [],
+        "output": {
+          "bytes": 107,
+          "path": "source/code/expected-output.txt",
+          "sha256": "d975260b0ca85297a8db7f303c760e0b80486103e09d76c8e089c019d7f55d51"
+        },
+        "receipt": "controls/INDONESIAN_BASELINE.json",
+        "script": {
+          "bytes": 3053,
+          "path": "source/code/verify_mst_uniqueness.py",
+          "sha256": "651f1c44f17385bc7ac44791634583a95a6ae86e05ef6c6ce1064052cd5dc761"
+        },
+        "status": "PASS"
+      },
+      {
+        "execution_performed_during_packaging": false,
+        "inputs": [],
+        "output": {
+          "bytes": 1872,
+          "path": "source/code/u06-expected-output.txt",
+          "sha256": "4c76da43510f9991b7197ddb0354a366136327b6d2ddfefb6516098eaa096112"
+        },
+        "receipt": "controls/INDONESIAN_BASELINE.json",
+        "script": {
+          "bytes": 3505,
+          "path": "source/code/u06_recurrence_witness.py",
+          "sha256": "9effb4dd4d17ce6b26fd108585ff0adc5110d8903c9c283b56a909613e7aa93d"
+        },
+        "status": "PASS"
+      }
+    ]
+  },
+  "input_snapshot": {
+    "files": 184,
+    "html_inventory_sha256": "2916fcf9baaaef127bf4a470c6a16052150f5781b42f48cc59204474d7de2142",
+    "manifest_sha256": "ffe4383abc63c80764a873e62e414ef103d5f409477ea6e2cbcdf3959da563c8",
+    "reservation_transaction_state_excluded": true,
+    "source_inventory_sha256": "e47823f47c65ebb3979dee28cf2315d31518c769051187a2f9bdb3e7074d4964"
+  },
+  "language": "en",
+  "schema": "o017-english-package-qa-v1",
+  "source_input_manifest_sha256": "448f7a19b430b4cd1f32ffebc5f6e30429a341688c8439caf5357ba7935f9047",
+  "source_payload_files": 119,
+  "status": "PASS",
+  "units": [
+    "O017-U01",
+    "O017-U02",
+    "O017-U03",
+    "O017-U04",
+    "O017-U05",
+    "O017-U06",
+    "O017-U07",
+    "O017-U08",
+    "O017-U09"
+  ],
+  "version": "en2026.08.31"
+}

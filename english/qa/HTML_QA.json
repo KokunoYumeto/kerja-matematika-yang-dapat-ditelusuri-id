@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "html_pages": 11,
+  "local_links_checked": 721,
+  "fragment_links_checked": 374,
+  "native_mathml_count": 1108,
+  "errors": [],
+  "pages": [
+    {
+      "path": "index.html",
+      "bytes": 36999,
+      "sha256": "15e3227b4db12d9151f2d8af7952099ab8343e7c40e7c9a48e9e46c45940bf1b",
+      "language": "en",
+      "mathml": 0
+    },
+    {
+      "path": "units/01-membaca-argumen.html",
+      "bytes": 60406,
+      "sha256": "1dc7d86640b907b734da72f1309d280a98d98cba552cfec364f7761bb10641e5",
+      "language": "en",
+      "mathml": 67
+    },
+    {
+      "path": "units/02-menelusuri-sumber.html",
+      "bytes": 78474,
+      "sha256": "1ddbf07ad30c13820d121e3dd048d7a893c73e9b3a35004902e32a6de7a04888",
+      "language": "en",
+      "mathml": 35
+    },
+    {
+      "path": "units/03-merekonstruksi-pembuktian.html",
+      "bytes": 164358,
+      "sha256": "2e7a06b4a1beb00a98e294ae02f99ab3f73a047513e9b6c7ad96f9dc7d48f6ba",
+      "language": "en",
+      "mathml": 340
+    },
+    {
+      "path": "units/04-sitasi-provenance-catatan-sumber.html",
+      "bytes": 112237,
+      "sha256": "2f6e1a1b42090b77d5fd40d1523dba3347e41615c2d5d9adff0aa7855f7153bf",
+      "language": "en",
+      "mathml": 63
+    },
+    {
+      "path": "units/05-eksposisi-matematika.html",
+      "bytes": 122879,
+      "sha256": "b88c849f6f74247f2566db9fa33aafb694c738ab99c0aebdee5c35b069d5dfbb",
+      "language": "en",
+      "mathml": 184
+    },
+    {
+      "path": "units/06-komputasi-dapat-direproduksi.html",
+      "bytes": 112783,
+      "sha256": "a7ba8064c0a6c2ff65a3122f2dfe99e39bb61d00ff4c49d4e3c0b10daa62786c",
+      "language": "en",
+      "mathml": 62
+    },
+    {
+      "path": "units/07-errata-koreksi-batas-kepastian.html",
+      "bytes": 142014,
+      "sha256": "642b08ba5dd22506a592237c1f5f4a0025de3eda66bc9f757d62fe997cc9a892",
+      "language": "en",
+      "mathml": 135
+    },
+    {
+      "path": "units/08-seminar-penelaah-tanggapan-kritik.html",
+      "bytes": 145436,
+      "sha256": "6af1228db05f9cb4f50bd6a90a00e132c137f112499e55a53d8d865f71964336",
+      "language": "en",
+      "mathml": 140
+    },
+    {
+      "path": "units/09-kontribusi-komunitas-portofolio.html",
+      "bytes": 117764,
+      "sha256": "426ad5aa18a5f47b1fb7cf1521db7331e5a5219f137e0632e5f57a45b3e72e1f",
+      "language": "en",
+      "mathml": 82
+    },
+    {
+      "path": "wrapper/index.html",
+      "bytes": 44718,
+      "sha256": "4e2c79b328341fbd5ceb927d538e4fc2f8ebab2662129606fc6b7698e8e31cb6",
+      "language": "en",
+      "mathml": 0
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+criterion_id,assessment_id,locale,label,requirement,pass_evidence,gate_id,noncompensable,score_scale
+O017-WRAP-C01,O017-WRAP-A01,en,Initial question,The mathematical question and scope are written before searching.,dated question artifact,O017-WRAP-G02,true,fail|pass
+O017-WRAP-C02,O017-WRAP-A01,en,Query ledger,"Queries, services, times, and results are retained including excluded results.",ordered query ledger,O017-WRAP-G02,true,fail|pass
+O017-WRAP-C03,O017-WRAP-A01,en,Authority and version,"At least one real paper or monograph is frozen with locator, version, rights, and authority.",source-freeze record,O017-WRAP-G01,true,fail|pass
+O017-WRAP-C04,O017-WRAP-A01,en,Stopping rule,The stopping rule is written before the conclusion and matches the collected evidence.,stopping rule and candidate matrix,O017-WRAP-G02,true,fail|pass
+O017-WRAP-C05,O017-WRAP-A01,en,Uncertainty,"Version conflicts, search limitations, and unchecked claims remain visible.",uncertainty ledger,O017-WRAP-G02,true,fail|pass
+O017-WRAP-C06,O017-WRAP-A02,en,Context identity,"A real event or supervised equivalent has a date, time zone, role, and correct pathway label.",event identity and attendance or supervision evidence,O017-WRAP-G03,true,fail|pass
+O017-WRAP-C07,O017-WRAP-A02,en,Located notes,"Timed or segmented notes distinguish observation, inference, and post-event verification.",timed notes and final notes,O017-WRAP-G03,true,fail|pass
+O017-WRAP-C08,O017-WRAP-A02,en,Dependencies and questions,The dependency map and question log retain open items.,dependency map and question log,O017-WRAP-G03,true,fail|pass
+O017-WRAP-C09,O017-WRAP-A02,en,Access alternatives,"A text pathway, machine-readable mathematics, visual descriptions, and a nonspeaking channel are available and tested.",accessibility test report,O017-WRAP-G08,true,fail|pass
+O017-WRAP-C10,O017-WRAP-A03,en,Two different humans,Author and referee are two different humans with opaque IDs and a distinctness attestation.,distinctness attestation and conflict check,O017-WRAP-G04,true,fail|pass
+O017-WRAP-C11,O017-WRAP-A03,en,Frozen initial artifact,"The initial manuscript has a version, byte count, hash, and scope.",initial manuscript manifest,O017-WRAP-G06,true,fail|pass
+O017-WRAP-C12,O017-WRAP-A03,en,Evidence-based report,"Every comment has a locator, claim, diagnosis, evidence, request, severity, and limitations.",referee report,O017-WRAP-G06,true,fail|pass
+O017-WRAP-C13,O017-WRAP-A03,en,Response and disposition,"Every comment maps to an action, evidence, revision location, disposition, and remaining issues.",response and disposition table,O017-WRAP-G06,true,fail|pass
+O017-WRAP-C14,O017-WRAP-A03,en,Revision comparison,Mathematical changes can be audited from the initial version to the new version without overwriting history.,revision and before-and-after evidence,O017-WRAP-G06,true,fail|pass
+O017-WRAP-C15,O017-WRAP-A04,en,Frozen erratum source,"The real source, edition or representation, locator, and rights are frozen.",source record and version witness,O017-WRAP-G01,true,fail|pass
+O017-WRAP-C16,O017-WRAP-A04,en,Separate diagnosis dimensions,"Statement status, defect type, severity, confidence, and scope are not conflated.",classification dossier,O017-WRAP-G05,true,fail|pass
+O017-WRAP-C17,O017-WRAP-A04,en,Reproducer and correction,The minimal reproducer can be repeated and the correction preserves as much of the claim as possible.,"reproducer, correction, and impact audit",O017-WRAP-G05,true,fail|pass
+O017-WRAP-C18,O017-WRAP-A04,en,Independent check,A second human checks the mathematics independently and states the scope and limitations.,second checker's report and distinctness attestation,O017-WRAP-G04,true,fail|pass
+O017-WRAP-C19,O017-WRAP-A05,en,Rights and marginal value,"The package has a rights basis, an appropriate target or reason to stop, and a duplication check.","rights, target, and marginal-value check",O017-WRAP-G05,true,fail|pass
+O017-WRAP-C20,O017-WRAP-A05,en,Authorization and status,No transmission occurs without specific authorization; every external status has event evidence.,"authorization, receipt if any, and append-only ledger",O017-WRAP-G07,true,fail|pass
+O017-WRAP-C21,O017-WRAP-A05,en,Branch label,Community transaction and externally reviewed local are distinguished in the result and credential.,labelled result and branch evidence,O017-WRAP-G07,true,fail|pass
+O017-WRAP-C22,ALL,en,Evaluator privacy,Public IDs are random and opaque; identity mappings are excluded from the package; personal data are minimized.,privacy attestation and data inventory,O017-WRAP-G08,true,fail|pass
+O017-WRAP-C23,ALL,en,Evidence manifest,"Every artifact has an ID, locator, byte count, SHA-256, rights statement, verification status, and retention rule.",validated evidence manifest,O017-WRAP-G09,true,fail|pass

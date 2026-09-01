@@ -1,0 +1,249 @@
+---
+title: "O017/D120 Authentic-Delivery Wrapper"
+subtitle: "Traceable Mathematical Work"
+description: "Delivery and assessment contract for real-source searches, seminars, independent review, erratum dossiers, and community contributions with truthful status labels."
+lang: en
+date: "2026-08-31"
+---
+
+## Authentic delivery and assessment materials {#o017-wrap-index}
+
+The nine units of *Traceable Mathematical Work* remain the sole narrative
+spine for O017/D120. This document does not replace or abridge them, nor does it
+add a tenth unit. It supplies the delivery contract needed to follow the book's
+local exercises and synthetic cases with evidence of authentic work. All five
+assessment families below are required and **cannot compensate for one
+another**.
+
+The accompanying calibration package uses real mathematical sources, but all
+learners, evaluators, seminars, review cycles, and transactions within that
+package are synthetic. The package demonstrates the form of good evidence; it
+is not evidence that a learner or community ever carried out those events, and
+it never awards credit.
+
+The canonical machine-readable definitions are in
+[`o017-delivery-definitions.json`](../delivery/definitions/o017-delivery-definitions.json),
+the submission schema is in
+[`o017-delivery.schema.json`](../delivery/schema/o017-delivery.schema.json),
+and complete examples are in the
+[calibration package](../delivery/calibration/calibration-package.json).
+
+These requirements govern learner assessment. They are not human-dependent
+conditions on preparing, validating, or publishing this teaching edition.
+
+### No-contact and no-transmission rules {#o017-wrap-no-contact}
+
+This wrapper, its renderers and checkers, and local evaluators may prepare,
+check, and retain packages locally. They **must not** send messages, open
+issues, upload files, complete forms, register seminars, or contact outside
+people or communities without separate human authorization specific to one
+named transaction. Mathematical suitability, `prepared` status, or a passing
+local assessment does not authorize transmission.
+
+A transaction authorization must specify at least the target, artifact,
+version to be sent, channel, responsible human sender, personal-data boundary,
+and validity period. A missing field means `authorization_present = false`.
+Authorization must not be inherited from another task or inferred from a
+general desire to contribute.
+
+External records may assert only events supported by evidence. A local draft
+is `prepared`, not `submitted`. A system receipt can support `acknowledged`
+status, but not `accepted`. The statuses `accepted`, `merged`, and `published`
+each require a different event witness. If the external state cannot be
+determined, use `unknown` while retaining the last proven state.
+
+### Evaluator identity and privacy {#o017-wrap-evaluator-privacy}
+
+An assessment package uses opaque evaluator IDs, such as
+`O017-WRAP-EVAL-7F3K9Q`, rather than names, email addresses, account names, or
+student numbers. Generate IDs randomly; do not derive them from hashes of
+names or email addresses. Where genuinely necessary, a trusted administrator
+keeps the mapping from IDs to real identities separately in encrypted,
+access-controlled storage. That mapping does not belong in the portfolio,
+repository, or public package.
+
+For a two-person cycle, the administrator creates this record:
+
+`evaluator_distinctness_attestation`
+
+It states only that the two IDs represent two different humans and that
+conflicts of interest have been checked. The
+attestation does not reveal identities. Agents, models, or one person changing
+roles may be used for practice, but they do not satisfy the independence gate.
+
+## Five required assessment families {#o017-wrap-assessments}
+
+### A01 — Real-source search {#o017-wrap-a01-real-source-search}
+
+The learner starts with a mathematical question, not a supplied list of
+sources. They conduct a search without pre-seeded candidates, then freeze at
+least one real paper or monograph. The package must contain:
+
+1. the question and topic boundary before searching;
+2. queries, services used, and retrieval times;
+3. every candidate admitted to the comparison, not just the winner;
+4. assessment of primary authority, version/edition, locators, access rights,
+   and relationships among sources;
+5. a stopping rule written before the final conclusion;
+6. a persistent identifier or authoritative URL, access date, and byte witness
+   or version witness where available; and
+7. uncertainties and reasons for excluding candidates.
+
+A pass is not determined by the number of results. The gate is traceability
+from question to query, query to candidates, and candidates to the exact
+frozen source appropriate to the claim that will be used.
+
+### A02 — Real seminar or supervised equivalent {#o017-wrap-a02-seminar}
+
+The main pathway is to attend or deliver a real mathematics seminar. Minimum
+evidence comprises the event identity, date and time zone, learner's role,
+timed or segmented notes, dependency map, question log, privacy-minimizing
+evidence of attendance or delivery, corrected final notes, and an explicit
+distinction between what was heard, what was inferred, and what was verified
+only after the event.
+
+If live audio/video is inaccessible because of disability, bandwidth, time
+zone, safety, or the absence of an available event, a supervised equivalent
+may use a recording and official transcript/notes from a real mathematics
+seminar or lecture. A human supervisor must assign the segments, check the
+dependency map and question log, and attest that the learner did the work.
+This pathway is assessed with the same criteria and recorded as follows:
+
+`supervised_equivalent`
+
+It is not claimed as live attendance.
+
+An access alternative must not depend on audio alone. Provide structured text,
+section or time locators, formulas in text/MathML/LaTeX, descriptions of visual
+information, and a way to submit questions without speaking live.
+
+### A03 — Two-person author–referee cycle {#o017-wrap-a03-referee-cycle}
+
+Two different humans take the author and referee roles. The package preserves:
+
+- the frozen initial manuscript and its hash;
+- the referee's scope and conflict-of-interest statement;
+- a report mapping every comment to a locator and evidence;
+- the author's response to each comment;
+- a disposition table using `accepted`, `partially_accepted`,
+  `rejected_with_reason`, or *unresolved*;
+- the revision, before-and-after comparison, and new hash; and
+- a list of issues still open.
+
+One person playing both roles, two accounts belonging to the same person, or
+automated review without a human referee constitute practice, not evidence of
+a passing assessment. Style scores cannot compensate for failures of
+mathematical validity, independence, or revision traceability.
+
+### A04 — Real-source erratum dossier {#o017-wrap-a04-erratum}
+
+The learner freezes a real open source at a particular edition or
+representation, identifies the defect locator, separates the statement's
+status from a conjecture about its cause, supplies a minimal reproducer,
+assesses severity and confidence separately, offers the smallest possible
+correction, and audits downstream consequences. A second human performs an
+independent mathematical check and marks the parts checked, method, result,
+and limitations.
+
+An already published correction can still support an audit if the learner
+freezes the older version, reproduces the diagnosis independently, and then
+uses the official correction as a comparison. The dossier must not claim a
+new discovery. Without a second human checker, the highest status is
+`ready_for_review`.
+
+### A05 — Community transaction or weaker local pathway {#o017-wrap-a05-community}
+
+The `community_transaction` pathway requires specific authorization before
+transmission. The learner sends one concise, nonduplicative, reviewable
+contribution that follows the target's rules. Passing does not require
+acceptance; evidence of authorized submission is sufficient, provided later
+status remains truthful. The ledger uses `prepared`, `submitted`,
+`acknowledged`, `accepted`, `merged`, `published`, `rejected`, `withdrawn`, or
+`unknown` and does not erase history.
+
+If external action is unsafe, unavailable, or unauthorized, an independent
+human may assess the real-source package locally. This result is labelled
+`externally_reviewed_local`. It satisfies the weaker A05 branch, but it is
+**not** evidence of submission or community participation. The final
+credential must retain that label. The calibration package demonstrates this
+pathway and stops at `prepared`; no contact or transmission occurs.
+
+## Noncompensable gates {#o017-wrap-gates}
+
+All nine gates below must be `pass`. A high numerical score on other gates
+cannot substitute for them.
+
+| ID | Gate | Minimum passing condition |
+|---|---|---|
+| `O017-WRAP-G01` | Source and version | Real, authoritative source with locators and a frozen version/representation. |
+| `O017-WRAP-G02` | Search provenance | Complete queries, times, candidates, stopping rule, selection, and uncertainties. |
+| `O017-WRAP-G03` | Seminar context | Real event or supervised equivalent with evidence and the correct pathway label. |
+| `O017-WRAP-G04` | Human independence | Two opaque IDs represent two different humans; attestation and conflict-of-interest check are available. |
+| `O017-WRAP-G05` | Mathematical validity | Claims, reproducer/proof, diagnosis, correction, and limitations are checked against the frozen version. |
+| `O017-WRAP-G06` | Critique–revision chain | Initial manuscript, report, response, dispositions, revision, and before-and-after evidence are traceable. |
+| `O017-WRAP-G07` | Status and authorization | No external status without evidence; no transmission without specific authorization. |
+| `O017-WRAP-G08` | Privacy and access | Personal data are minimized and equivalent access alternatives are available and actually tested. |
+| `O017-WRAP-G09` | Evidence manifest | Every artifact has an ID, locator, byte count, hash, rights statement, verification status, and retention owner. |
+
+Any `fail`, `not_evaluated`, or `unknown` prevents an assessment pass.
+`not_applicable` is valid only for criteria that do not apply under the branch
+definition; it cannot be used for any of the nine gates above.
+
+## Results and credentials {#o017-wrap-credential}
+
+Each of A01–A05 is assessed separately. The overall decision can only be:
+
+- `complete_community_transaction`: A01–A05 pass and A05 has evidence of
+  `submitted` or a later event;
+- `complete_externally_reviewed_local`: A01–A04 pass and the local A05 branch
+  passes with an independent human reviewer;
+- `incomplete`: at least one family or noncompensable gate has not passed; or
+- `calibration_only`: a demonstration package that must not award credit.
+
+Acceptance, merging, or publication of a contribution is not required for
+passing and does not automatically add to the score. A documented rejection
+can remain consistent with a pass when package quality, authorization, and
+truthful status reporting have passed. Conversely, a contribution that happens
+to be accepted does not compensate for failures of rights, privacy, or
+independence.
+
+## Using the machine-readable package {#o017-wrap-machine-package}
+
+1. Copy the example's structure without copying its calibration claims as
+   learner data.
+2. Create new stable package, submission, attempt, evaluator, and evidence IDs.
+3. Freeze all artifacts; record their byte counts and SHA-256 in the manifest.
+4. Validate JSON against the schema and CSV as UTF-8 with exact headers.
+5. Have evaluators determine every criterion and gate; do not compute averages
+   before all noncompensable gates pass.
+6. Issue a credential only after the A05 branch label and external status
+   match the evidence.
+7. Keep the event ledger append-only. A correction adds a new event; it does
+   not overwrite history.
+
+The
+[calibration package](../delivery/calibration/calibration-package.json)
+provides one complete example for each family. All person references are
+synthetic IDs, all events are simulations, every `credit_eligible` value is
+**false**, and every `transmission_performed` value is **false**.
+
+## Primary sources for calibration {#o017-wrap-calibration-sources}
+
+Calibration uses the following official open sources without claiming
+endorsement from their publishers or instructors:
+
+- OpenStax, *Calculus Volume 1*, §5.3, official publisher page and CC BY-NC-SA
+  4.0 license:
+  <https://openstax.org/books/calculus-volume-1/pages/5-3-the-fundamental-theorem-of-calculus>;
+- MIT OpenCourseWare 18.100A, Lecture 22, Fall 2020, official page and CC
+  BY-NC-SA 4.0 license:
+  [official Lecture 22 page](https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/resources/18100a-lecture-22-multicam/);
+- G. H. Hardy, “Addenda and Corrigenda”, *Proceedings of the London Mathematical
+  Society* (1928), version-of-record DOI
+  <https://doi.org/10.1112/plms/s2-28.1.553-t>.
+
+The calibration text paraphrases metadata and carries out its own
+mathematical calculations; it does not copy source layouts, images, videos, or
+prose. When a component's redistribution rights are not sufficiently clear,
+the package retains only its citation, bibliographic facts, locators, and
+original analysis.
