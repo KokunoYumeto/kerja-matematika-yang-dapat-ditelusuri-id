@@ -1,70 +1,62 @@
-# O017 / D120 — Kerja Matematika yang Dapat Ditelusuri
+# Kerja Matematika yang Dapat Ditelusuri
 
-Lane ini memproduksi buku praktik Bahasa Indonesia untuk mata kuliah
-**Research Reading, Exposition, and Reproducible Mathematical Work**.
+Buku praktik Bahasa Indonesia sembilan unit tentang kerja matematika yang dapat ditelusuri: membaca argumen dan
+literatur penelitian, merekonstruksi pembuktian, sitasi dan provenans, eksposisi, komputasi yang dapat direproduksi,
+errata, penelaahan sejawat, dan kontribusi komunitas, beserta perangkat penyampaian dan penilaian. Tersedia sebagai
+pembaca HTML semantik, PDF, dan backend semantik; edisi bahasa Inggris *Traceable Mathematical Work* ada di folder
+`english/`.
 
-Sistem produksi model: **OpenAI Codex gpt-5.6-sol, Ultra.** **KokunoYumeto**
-adalah identitas publik kreator manusia, pengarah, dan pemegang hak untuk
-materi asli yang dapat dilindungi.
+[Baca daring](https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/) ·
+[Unduh PDF](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/v2026.08.24/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf) ·
+[English reader](https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/en/)
 
-Ruang lingkup lane ini hanya O017. Koordinasi kurikulum global, buku B80,
-corpus O002–O016/O018, dan komunikasi dengan pemelihara hulu berada di luar
-lane ini. Keputusan penerimaan ke kurikulum 40 mata kuliah tetap terpisah dari
-edisi ini.
-Zenodo adalah otoritas preservasi; repositori GitHub dan GitHub Pages adalah
-permukaan sumber serta pembacaan HTML publik untuk edisi ini.
+## Cara pembuatan
 
-Status edisi 2026.08.24: `COMPLETE` untuk `O017-U01` sampai
-`O017-U09`, dengan perangkat penyampaian dan penilaian autentik yang terpisah,
-backend semantik, lingkungan bangun terkunci, dan penutupan hak font. Status
-publik dinyatakan hanya oleh resi baca-balik publik yang menyertai rilis.
+Buku ini ditulis oleh AI: OpenAI Codex gpt-5.6-sol, Ultra, atas instruksi KokunoYumeto, untuk mata kuliah *Research
+Reading, Exposition, and Reproducible Mathematical Work* (D120). Pemeriksaan terminologi membandingkan glosarium
+dengan sumber TeX berbahasa Indonesia arXiv:0807.4609v1 dan bahan matematika resmi ITB; dua bentuk dikoreksi menjadi
+`pohon merentang minimum` dan `Provenance pencarian`. Bukti pemeriksaan PDF, tampilan, dan paket rilis ada di
+[`qa/`](qa/).
 
-## Baca dan unduh
+## Status
 
-- Pembaca HTML semantik: <https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/>
-- Repositori sumber: <https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id>
-- Rekaman dan arsip edisi: <https://zenodo.org/records/22073823>
-- DOI versi: <https://doi.org/10.5281/zenodo.22073823>
-- DOI semua versi: <https://doi.org/10.5281/zenodo.22051866>
-- PDF: tersedia langsung pada halaman Zenodo edisi 2026.08.24. PDF ini
-  tidak bertag dan bukan edisi aksesibel; gunakan arsip HTML semantik untuk
-  pembaca layar, reflow, navigasi papan tik, dan MathML.
+Edisi lengkap, versi 2026.08.24: unit O017-U01 sampai O017-U09 dengan perangkat penyampaian dan penilaian autentik
+yang terpisah. Edisi bahasa Inggris lengkap, versi 2026.08.31. PDF tidak bertag dan bukan edisi aksesibel; untuk
+pembaca layar, reflow, navigasi papan tik, dan MathML gunakan pembaca HTML. Masih mungkin ada kesalahan.
 
-Unit 1 membaca argumen sebagai jejaring klaim
-dan membedakan komputasi dari pembuktian. Unit 2 menelusuri literatur,
-memisahkan identitas buku/rilis dari commit sumber yang tepat, menetapkan
-otoritas dan versi, serta mengaudit rantai sitasi tanpa mengubah dugaan metadata
-menjadi fakta. Unit 3 merekonstruksi pembuktian yang diringkas melalui audit
-kuantor/domain, graf ketergantungan, kontrak lemma, dan uji hipotesis. Unit 4
-memisahkan sitasi, provenance bukti, provenance komputasi, versi, koreksi, dan
-ketidakpastian tanpa menghapus riwayat sumber. Unit 5 menulis eksposisi
-matematika yang dapat diaudit melalui arsitektur klaim, ketertiban notasi,
-penunjuk lokal, dan audit ketergantungan. Unit 6 memisahkan kejadian eksekusi,
-keterulangan, validitas implementasi, bukti berhingga, dan pembuktian universal
-dalam paket komputasi matematika yang dapat direproduksi.
-Unit 7 mengubah diagnosis cacat menjadi erratum terbatas, koreksi yang
-mempertahankan sejarah, bahasa ketidakpastian, dan keputusan berhenti atau
-eskalasi tanpa mengklaim kontak eksternal.
-Unit 8 mengubah catatan seminar berbatas bukti menjadi komentar penelaah,
-tanggapan penulis, revisi matematis minimal, matriks penutupan, dan rekomendasi
-yang tidak melampaui bahan yang diperiksa.
-Unit 9 mengemas satu kontribusi komunitas sintetis dan terbatas, membedakan
-status peristiwa yang dibuktikan, mempertahankan patch matematis minimal,
-menetapkan pemulihan, dan menutup portofolio Unit 1–8 tanpa mengklaim kontak
-atau pengiriman eksternal.
+## Isi
 
-Perangkat penyampaian yang diterbitkan sesudah Unit 9 menetapkan lima keluarga
-penilaian nonkompensabel, bukti dan rubriknya, evaluator privat, keadaan
-kredensial yang jujur, serta contoh kalibrasi. Perangkat itu tidak mengirim
-pekerjaan pelajar dan tidak mengubah draf lokal menjadi klaim partisipasi
-eksternal.
+Buku ini mengandaikan pembaca sudah dapat menulis pembuktian dasar, menggunakan matematika diskret, dan menjalankan
+komputasi matematika yang dapat direproduksi.
 
-Kontrol utama berada di `controls/`; sumber pembaca di `source/`; ekspor
-backend stabil di `backend/`; keluaran terbangun di `build/`; dan bukti QA di
-`qa/`.
+1. Membaca argumen sebagai jejaring klaim, dan membedakan komputasi dari pembuktian.
+2. Menelusuri literatur, menetapkan versi dan otoritas sumber, dan mengaudit rantai sitasi.
+3. Merekonstruksi pembuktian yang diringkas melalui audit kuantor dan domain, graf ketergantungan, dan kontrak lema.
+4. Memisahkan sitasi, provenans bukti, provenans komputasi, versi, koreksi, dan ketidakpastian.
+5. Menulis eksposisi matematika yang dapat diaudit.
+6. Paket komputasi matematika yang dapat direproduksi: eksekusi, keterulangan, validitas implementasi, bukti
+   berhingga, dan pembuktian universal.
+7. Dari diagnosis cacat ke erratum, koreksi yang mempertahankan sejarah, dan bahasa ketidakpastian.
+8. Komentar penelaah, tanggapan penulis, revisi matematis minimal, dan rekomendasi.
+9. Kontribusi komunitas yang terbatas dan penutupan portofolio unit 1–8.
 
-Versi 2026.08.24 menutup QA terminologi dengan membandingkan sumber TeX
-Bahasa Indonesia arXiv:0807.4609v1 dan bahan matematika resmi ITB terhadap
-glosarium. Dua bentuk yang lolos ke data terstruktur pada versi sebelumnya
-dikoreksi menjadi `pohon merentang minimum` dan `Provenance pencarian`;
-identitas stabil dan isi matematis lainnya dipertahankan.
+Rilis: [v2026.08.24](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/v2026.08.24)
+(PDF, arsip pembaca HTML luring, arsip sumber, backend, dan bukti) dan
+[en-v2026.08.31](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/en-v2026.08.31)
+(edisi bahasa Inggris). Di repositori: kontrol di `controls/`, sumber pembaca di `source/`, backend di `backend/`,
+keluaran terbangun di `build/`, bukti pemeriksaan di `qa/`, sumber edisi bahasa Inggris di `english/`, dan petunjuk
+build di [BUILD.md](BUILD.md).
+
+## Sumber dan atribusi
+
+- Unit 2, 4, 5, dan 6 memuat adaptasi metodologis terbatas dari *The Turing Way* (The Turing Way Community) dan
+  *Research Software Engineering with Python* (Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte
+  Wickham, dan Greg Wilson), keduanya CC BY 4.0. Repositori, commit, lisensi, dan unit yang diadaptasi dicatat di
+  `RELEASE_PROVENANCE.csv`; buku ini tidak menyiratkan dukungan mereka.
+- Runtime pembaca HTML (Quarto 1.9.37, Bootstrap, dan lainnya) mempertahankan lisensinya sendiri:
+  [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Lisensi
+
+Teks buku tersedia menurut CC BY-SA 4.0, dengan atribusi donor CC BY 4.0 yang dipertahankan; perangkat lunak dan runtime
+menurut MIT atau Apache-2.0. Pemetaan per komponen ada di [LICENSES.md](LICENSES.md).

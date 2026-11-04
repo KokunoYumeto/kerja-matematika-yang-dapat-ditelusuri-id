@@ -45,7 +45,7 @@ website:
       - href: wrapper/index.qmd
         text: "Penyampaian"
     tools:
-      - href: https://zenodo.org/records/22073823/files/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf?download=1
+      - href: https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/download/v2026.08.24/kerja-matematika-yang-dapat-ditelusuri-id-2026.08.24.pdf
         icon: file-pdf
         text: "Unduh PDF"
       - href: https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id
@@ -54,9 +54,9 @@ website:
       - href: https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/
         icon: globe
         text: "Pembaca HTML"
-      - href: https://zenodo.org/records/22073823
+      - href: https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/v2026.08.24
         icon: archive
-        text: "Arsip edisi"
+        text: "Rilis edisi"
 
 lang: id-ID
 

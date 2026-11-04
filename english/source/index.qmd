@@ -19,12 +19,7 @@ can be traced and examined.
 - **English HTML reader:** [open the reader](https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/en/).
 - **English PDF and downloadable packages:** [open the English release](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/en-v2026.08.31).
 - **English editable source:** [open the English source tree](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english).
-- **English-additive version DOI:** [10.5281/zenodo.22209140](https://doi.org/10.5281/zenodo.22209140).
-- **Indonesian edition preserved unchanged:** [HTML reader](https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/),
-  [version DOI 10.5281/zenodo.22073823](https://doi.org/10.5281/zenodo.22073823).
-- **Work's preservation lineage:** <https://doi.org/10.5281/zenodo.22051866>.
-  The Indonesian version DOI above identifies the Indonesian source edition,
-  not this English translation.
+- **Indonesian edition preserved unchanged:** [HTML reader](https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/).
 - **PDF accessibility boundary:** the PDF is a print-oriented, untagged
   edition. Use the semantic HTML reader for reflow, keyboard navigation,
   heading structure, alternative descriptions, and native MathML.

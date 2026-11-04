@@ -20,16 +20,11 @@ translation of the already-English Turing Way and PyRSE donor books.
 - [English downloads](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/en-v2026.08.31)
 - [Editable English source](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/main/english)
   and [frozen source](https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/tree/en-v2026.08.31/english)
-- [English-additive version DOI: 10.5281/zenodo.22209140](https://doi.org/10.5281/zenodo.22209140)
-- [Shared preservation concept: 10.5281/zenodo.22051866](https://doi.org/10.5281/zenodo.22051866)
 - [Unchanged Indonesian reader](https://kokunoyumeto.github.io/kerja-matematika-yang-dapat-ditelusuri-id/)
-  and [Indonesian version DOI: 10.5281/zenodo.22073823](https://doi.org/10.5281/zenodo.22073823)
 
 These are the prepared release addresses. Availability and exact public-byte
 identity are established by the separate publication receipts, not by the
-presence of a URL here. The English-additive DOI preserves the inherited
-Indonesian files alongside the new English assets. The concept DOI identifies
-the lineage, not a particular language version.
+presence of a URL here.
 
 ## What to download
 

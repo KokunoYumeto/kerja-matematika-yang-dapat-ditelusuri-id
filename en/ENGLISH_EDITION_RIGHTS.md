@@ -5,8 +5,8 @@ Public human creator and licensor: **KokunoYumeto**. Production system:
 **OpenAI Codex gpt-5.6-sol, Ultra**, used at the human creator's instruction.
 
 This is an English translation of the original nine-unit Indonesian course
-*Kerja Matematika yang Dapat Ditelusuri*, version 2026.08.24,
-<https://doi.org/10.5281/zenodo.22073823>. It preserves its mathematical scope,
+*Kerja Matematika yang Dapat Ditelusuri*, version 2026.08.24
+(<https://github.com/KokunoYumeto/kerja-matematika-yang-dapat-ditelusuri-id/releases/tag/v2026.08.24>). It preserves its mathematical scope,
 unit and object identifiers, exercises and guidance, methodological donors,
 code, and teaching framework. English front matter, terminology explanations,
 localization records, build configuration, and integration links have been
